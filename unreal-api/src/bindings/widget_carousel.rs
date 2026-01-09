@@ -9,7 +9,7 @@ pub use crate::core_data::*;
 #[repr(C, align(16))]
 pub struct FWidgetCarouselNavigationBarStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub highlight_brush: crate::bindings::slate_core::FSlateBrush,
     pub left_button_style: crate::bindings::slate_core::FButtonStyle,
     pub center_button_style: crate::bindings::slate_core::FButtonStyle,

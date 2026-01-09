@@ -164,7 +164,7 @@ pub fn initialize() {
 }
 #[repr(C, align(2))]
 pub struct FGameplayResourceSet {
-    __padding_end: [u8; 2],
+    pub(crate) __padding_end: [u8; 2],
 }
 impl FGameplayResourceSet {}
 #[repr(C, align(8))]
@@ -263,7 +263,7 @@ impl UGameplayTaskOwnerInterface {
 #[repr(C, align(8))]
 pub struct UGameplayTaskResource {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub manual_resource_id: i32,
     __padding_end: [u8; 12],
 }
@@ -287,7 +287,7 @@ impl UGameplayTaskResource {
 #[repr(C, align(8))]
 pub struct UGameplayTasksComponent {
     #[doc(hidden)]
-    __padding_328: [u8; 328],
+    pub(crate) __padding_328: [u8; 328],
     pub on_claimed_resources_change: FGameplayTasksComponent_OnClaimedResourcesChange,
     __padding_end: [u8; 32],
 }

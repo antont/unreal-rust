@@ -842,7 +842,7 @@ impl ANavigationGraph {
 #[repr(C, align(8))]
 pub struct UNavigationInvokerComponent {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub tile_generation_radius: f32,
     pub tile_removal_radius: f32,
     __padding_end: [u8; 8],
@@ -888,7 +888,7 @@ impl UNavigationObjectRepository {
 #[repr(C, align(8))]
 pub struct UNavigationPath {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub path_points: TArray<crate::bindings::core_u_object::FVector>,
     pub recalculate_on_invalidation: crate::bindings::engine::ENavigationOptionFlag,
     __padding_end: [u8; 71],
@@ -1147,7 +1147,7 @@ impl UNavigationPath {
 #[repr(C, align(16))]
 pub struct UNavigationSystemV1 {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub default_agent_name: FName,
     pub crowd_manager_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     __padding_end: [u8; 5712],
@@ -2265,11 +2265,11 @@ impl UNavigationSystemModuleConfig {
 #[repr(C, align(8))]
 pub struct ANavigationTestingActor {
     #[doc(hidden)]
-    __padding_1280: [u8; 1280],
+    pub(crate) __padding_1280: [u8; 1280],
     pub projected_location: crate::bindings::core_u_object::FVector,
     pub flags_1304: u8,
     #[doc(hidden)]
-    __padding_1360: [u8; 55],
+    pub(crate) __padding_1360: [u8; 55],
     pub flags_1360: u8,
     pub pathfinding_time: f32,
     pub path_cost: f64,
@@ -2296,7 +2296,7 @@ impl ANavigationTestingActor {
 #[repr(C, align(16))]
 pub struct UNavLinkComponent {
     #[doc(hidden)]
-    __padding_1512: [u8; 1512],
+    pub(crate) __padding_1512: [u8; 1512],
     pub links: TArray<crate::bindings::engine::FNavigationLink>,
 }
 impl UNavLinkComponent {
@@ -2579,7 +2579,7 @@ impl URecastNavMeshDataChunk {
 #[repr(C, align(16))]
 pub struct UNavModifierComponent {
     #[doc(hidden)]
-    __padding_320: [u8; 320],
+    pub(crate) __padding_320: [u8; 320],
     pub area_class: TSubclassOf<UNavArea>,
     pub area_class_to_replace: TSubclassOf<UNavArea>,
     __padding_end: [u8; 176],
@@ -2671,7 +2671,7 @@ impl UNavModifierComponent {
 #[repr(C, align(8))]
 pub struct ANavModifierVolume {
     #[doc(hidden)]
-    __padding_1216: [u8; 1216],
+    pub(crate) __padding_1216: [u8; 1216],
     pub area_class: TSubclassOf<UNavArea>,
     pub area_class_to_replace: TSubclassOf<UNavArea>,
     __padding_end: [u8; 24],
@@ -2763,7 +2763,7 @@ impl ANavModifierVolume {
 #[repr(C, align(8))]
 pub struct ANavSystemConfigOverride {
     #[doc(hidden)]
-    __padding_1144: [u8; 1144],
+    pub(crate) __padding_1144: [u8; 1144],
     pub navigation_system_config: UPtr<crate::bindings::engine::UNavigationSystemConfig>,
     pub override_policy: ENavSystemOverridePolicy,
     pub flags_1153: u8,

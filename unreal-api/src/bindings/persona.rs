@@ -307,7 +307,7 @@ impl UEulerAnalysisProperties {
 #[repr(C, align(8))]
 pub struct UPersonaPreviewSceneDescription {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub preview_controller: TSubclassOf<UPersonaPreviewSceneController>,
     __padding_end: [u8; 192],
 }

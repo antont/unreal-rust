@@ -170,13 +170,13 @@ pub fn initialize() {
 pub struct FObservedComponent {
     pub cache_name: FName,
     #[doc(hidden)]
-    __padding_64: [u8; 48],
+    pub(crate) __padding_64: [u8; 48],
     pub soft_component_ref: crate::bindings::engine::FSoftComponentReference,
     pub b_is_simulating: bool,
     pub b_playback_enabled: bool,
     pub usd_cache_directory: crate::bindings::core_u_object::FDirectoryPath,
     pub b_has_notify_breaks: bool,
-    __padding_end: [u8; 255],
+    pub(crate) __padding_end: [u8; 255],
 }
 impl FObservedComponent {}
 #[repr(C, align(8))]
@@ -203,7 +203,7 @@ impl UChaosCacheCollection {
 #[repr(C, align(8))]
 pub struct AChaosCacheManager {
     #[doc(hidden)]
-    __padding_1148: [u8; 1148],
+    pub(crate) __padding_1148: [u8; 1148],
     pub start_time: f32,
     __padding_end: [u8; 176],
 }

@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(16))]
 pub struct USparseVolumeTextureViewerComponent {
     #[doc(hidden)]
-    __padding_1504: [u8; 1504],
+    pub(crate) __padding_1504: [u8; 1504],
     pub sparse_volume_texture_preview: UPtr<
         crate::bindings::engine::USparseVolumeTexture,
     >,
@@ -51,7 +51,7 @@ impl USparseVolumeTextureViewerComponent {
 #[repr(C, align(8))]
 pub struct ASparseVolumeTextureViewer {
     #[doc(hidden)]
-    __padding_1144: [u8; 1144],
+    pub(crate) __padding_1144: [u8; 1144],
     pub sparse_volume_texture_viewer_component: UPtr<
         USparseVolumeTextureViewerComponent,
     >,

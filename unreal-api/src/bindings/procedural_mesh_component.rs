@@ -1117,7 +1117,7 @@ impl UKismetProceduralMeshLibrary {
 #[repr(C, align(16))]
 pub struct UProceduralMeshComponent {
     #[doc(hidden)]
-    __padding_1584: [u8; 1584],
+    pub(crate) __padding_1584: [u8; 1584],
     pub b_use_complex_as_simple_collision: bool,
     pub b_use_async_cooking: bool,
     __padding_end: [u8; 126],

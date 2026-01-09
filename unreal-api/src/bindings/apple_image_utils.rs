@@ -93,7 +93,7 @@ impl UAppleImageInterface {
 #[repr(C, align(8))]
 pub struct UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub conversion_result: FAppleImageUtilsImageConversionResult,
     __padding_end: [u8; 8],
 }

@@ -102,7 +102,7 @@ impl UVariantManagerFactoryNew {
 #[repr(C, align(16))]
 pub struct AVariantManagerTestActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub enum_with_no_default: EVariantManagerTestEnum,
     pub enum_with_second_default: EVariantManagerTestEnum,
     pub captured_byte_property: u8,

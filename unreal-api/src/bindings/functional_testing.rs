@@ -1222,7 +1222,7 @@ pub fn initialize() {
 }
 #[repr(C, align(1))]
 pub struct FComparisonToleranceAmount {
-    __padding_end: [u8; 6],
+    pub(crate) __padding_end: [u8; 6],
 }
 impl FComparisonToleranceAmount {}
 #[repr(C, align(8))]
@@ -1253,18 +1253,18 @@ impl FAutomationWaitForLoadingOptions {}
 #[repr(C, align(8))]
 pub struct FAITestSpawnInfoBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub spawn_location: UPtr<crate::bindings::engine::AActor>,
     pub number_to_spawn: i32,
     pub spawn_delay: f32,
     pub pre_spawn_delay: f32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FAITestSpawnInfoBase {}
 #[repr(C, align(8))]
 pub struct FAITestSpawnInfo {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub pawn_class: TSubclassOf<crate::bindings::engine::APawn>,
     pub controller_class: TSubclassOf<crate::bindings::ai_module::AAIController>,
     pub team_id: crate::bindings::ai_module::FGenericTeamId,
@@ -1273,13 +1273,13 @@ pub struct FAITestSpawnInfo {
 impl FAITestSpawnInfo {}
 #[repr(C, align(4))]
 pub struct FPendingDelayedSpawn {
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FPendingDelayedSpawn {}
 #[repr(C, align(8))]
 pub struct FAITestSpawnSetBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub flags_20: u8,
     pub fallback_spawn_location: UPtr<crate::bindings::engine::AActor>,
@@ -1288,7 +1288,7 @@ impl FAITestSpawnSetBase {}
 #[repr(C, align(8))]
 pub struct FAITestSpawnSet {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub spawn_info_container: TArray<FAITestSpawnInfo>,
 }
 impl FAITestSpawnSet {}
@@ -2913,16 +2913,16 @@ impl UFuncTestRenderingComponent {
 #[repr(C, align(8))]
 pub struct AFunctionalTest {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub test_label: FString,
     pub author: FString,
     pub description: FString,
     pub test_tags: FString,
     #[doc(hidden)]
-    __padding_1224: [u8; 24],
+    pub(crate) __padding_1224: [u8; 24],
     pub flags_1224: u8,
     #[doc(hidden)]
-    __padding_1240: [u8; 15],
+    pub(crate) __padding_1240: [u8; 15],
     pub log_error_handling: EFunctionalTestLogHandling,
     pub log_warning_handling: EFunctionalTestLogHandling,
     pub observation_point: UPtr<crate::bindings::engine::AActor>,
@@ -2933,7 +2933,7 @@ pub struct AFunctionalTest {
     pub time_limit: f32,
     pub times_up_message: FText,
     #[doc(hidden)]
-    __padding_1504: [u8; 208],
+    pub(crate) __padding_1504: [u8; 208],
     pub total_time: f32,
     __padding_end: [u8; 36],
 }
@@ -5638,14 +5638,14 @@ impl AFunctionalTest {
 #[repr(C, align(8))]
 pub struct AFunctionalAITestBase {
     #[doc(hidden)]
-    __padding_1544: [u8; 1544],
+    pub(crate) __padding_1544: [u8; 1544],
     pub spawn_location_randomization_range: f32,
     pub spawned_pawns: TArray<UPtr<crate::bindings::engine::APawn>>,
     pub pending_delayed_spawns: TArray<FPendingDelayedSpawn>,
     pub current_spawn_set_index: i32,
     pub current_spawn_set_name: FString,
     #[doc(hidden)]
-    __padding_1704: [u8; 96],
+    pub(crate) __padding_1704: [u8; 96],
     pub flags_1704: u8,
     __padding_end: [u8; 15],
 }
@@ -5705,7 +5705,7 @@ impl AFunctionalAITestBase {
 #[repr(C, align(8))]
 pub struct AFunctionalAITest {
     #[doc(hidden)]
-    __padding_1720: [u8; 1720],
+    pub(crate) __padding_1720: [u8; 1720],
     pub spawn_sets: TArray<FAITestSpawnSet>,
 }
 impl AFunctionalAITest {
@@ -6664,7 +6664,7 @@ impl UFunctionalTestUtilityLibrary {
 #[repr(C, align(8))]
 pub struct AScreenshotFunctionalTestBase {
     #[doc(hidden)]
-    __padding_1544: [u8; 1544],
+    pub(crate) __padding_1544: [u8; 1544],
     pub notes: FString,
     pub screenshot_camera: UPtr<crate::bindings::engine::UCameraComponent>,
     pub screenshot_options: FAutomationScreenshotOptions,
@@ -6849,7 +6849,7 @@ impl UGroundTruthData {
 #[repr(C, align(8))]
 pub struct AScreenshotFunctionalTest {
     #[doc(hidden)]
-    __padding_1688: [u8; 1688],
+    pub(crate) __padding_1688: [u8; 1688],
     pub b_camera_cut_on_screenshot_prep: bool,
     __padding_end: [u8; 71],
 }
@@ -6894,7 +6894,7 @@ impl UTestPhaseComponent {
 #[repr(C, align(8))]
 pub struct UTraceQueryTestResults {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub channel_results: FTraceQueryTestResultsInner,
     pub object_results: FTraceQueryTestResultsInner,
     pub profile_results: FTraceQueryTestResultsInner,

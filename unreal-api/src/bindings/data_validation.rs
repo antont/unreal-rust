@@ -155,7 +155,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FValidateAssetsDetails {
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FValidateAssetsDetails {}
 #[repr(C, align(4))]
@@ -196,7 +196,7 @@ pub struct FValidateAssetsSettings {
     pub b_capture_warnings_during_validation_as_errors: bool,
     pub max_assets_to_validate: i32,
     pub b_validate_referencers_of_deleted_assets: bool,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FValidateAssetsSettings {}
 #[repr(C, align(8))]
@@ -265,7 +265,7 @@ impl UDataValidationCommandlet {
 #[repr(C, align(8))]
 pub struct ADataValidationTestActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub b_pass_validation: bool,
     __padding_end: [u8; 15],
 }

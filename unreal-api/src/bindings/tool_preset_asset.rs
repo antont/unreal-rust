@@ -17,12 +17,12 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FInteractiveToolPresetDefinition {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FInteractiveToolPresetDefinition {}
 #[repr(C, align(16))]
 pub struct FInteractiveToolPresetStore {
-    __padding_end: [u8; 240],
+    pub(crate) __padding_end: [u8; 240],
 }
 impl FInteractiveToolPresetStore {}
 #[repr(C, align(8))]

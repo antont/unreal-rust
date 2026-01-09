@@ -183,7 +183,7 @@ impl UCurveEditorFilterBase {
 #[repr(C, align(8))]
 pub struct UCurveEditorBakeFilter {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub bake_interval_in_seconds: f32,
     pub bake_interval: crate::bindings::core_u_object::FFrameNumber,
     pub b_custom_range_override: bool,
@@ -233,7 +233,7 @@ impl UCurveEditorEulerFilter {
 #[repr(C, align(8))]
 pub struct UCurveEditorGaussianFilter {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub gaussian_params: FGaussianParams,
 }
 impl UCurveEditorGaussianFilter {
@@ -256,7 +256,7 @@ impl UCurveEditorGaussianFilter {
 #[repr(C, align(8))]
 pub struct UCurveEditorReduceFilter {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub tolerance: f32,
     pub b_try_remove_user_set_tangent_keys: bool,
     pub sample_rate: crate::bindings::core_u_object::FFrameRate,
@@ -281,7 +281,7 @@ impl UCurveEditorReduceFilter {
 #[repr(C, align(8))]
 pub struct UCurveEditorSmartReduceFilter {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub smart_reduce_params: FSmartReduceParams,
 }
 impl UCurveEditorSmartReduceFilter {

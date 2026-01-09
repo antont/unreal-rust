@@ -1679,19 +1679,19 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FMultiControlRigElementSelection {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FMultiControlRigElementSelection {}
 #[repr(C, align(8))]
 pub struct FControlRigInteractionTransformContext {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub drag: crate::bindings::core_u_object::FVector,
     #[doc(hidden)]
-    __padding_40: [u8; 8],
+    pub(crate) __padding_40: [u8; 8],
     pub rot: crate::bindings::core_u_object::FRotator,
     #[doc(hidden)]
-    __padding_72: [u8; 8],
+    pub(crate) __padding_72: [u8; 8],
     pub scale: crate::bindings::core_u_object::FVector,
     pub space: EControlRigInteractionTransformSpace,
 }
@@ -1700,7 +1700,7 @@ impl FControlRigInteractionTransformContext {}
 pub struct FRigSpacePickerBakeSettings {
     pub target_space: crate::bindings::control_rig::FRigElementKey,
     pub settings: crate::bindings::movie_scene_tools::FBakingAnimationKeySettings,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigSpacePickerBakeSettings {}
 #[repr(C, align(8))]
@@ -1715,17 +1715,17 @@ impl FAIESelectionSetItemName {}
 pub struct FAIESelectionSetItemViewData {
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub row: i32,
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FAIESelectionSetItemViewData {}
 #[repr(C, align(8))]
 pub struct FAIESelectionSetItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item_name: FText,
     pub names: TArray<FAIESelectionSetItemName>,
     pub view_data: FAIESelectionSetItemViewData,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FAIESelectionSetItem {}
 #[repr(C, align(1))]
@@ -1735,7 +1735,7 @@ pub struct FAnimDetailsBool {
 impl FAnimDetailsBool {}
 #[repr(C, align(8))]
 pub struct FAnimDetailsEnum {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FAnimDetailsEnum {}
 #[repr(C, align(8))]
@@ -1798,7 +1798,7 @@ impl FControlRigGraphNodeContextMenuContext {}
 #[repr(C, align(8))]
 pub struct FControlRigRigHierarchyToGraphDragAndDropContext {
     pub dragged_hierarchy_keys: TArray<crate::bindings::control_rig::FRigHierarchyKey>,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FControlRigRigHierarchyToGraphDragAndDropContext {}
 #[repr(C, align(4))]
@@ -1812,7 +1812,7 @@ impl FMergeAnimLayerSettings {}
 #[repr(C, align(4))]
 pub struct FAnimLayerPropertyAndChannels {
     pub name: FName,
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FAnimLayerPropertyAndChannels {}
 #[repr(C, align(8))]
@@ -1830,7 +1830,7 @@ impl FAnimLayerSectionItem {}
 #[repr(C, align(8))]
 pub struct FAnimLayerItem {
     pub section_items: TArray<FAnimLayerSectionItem>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FAnimLayerItem {}
 #[repr(C, align(8))]
@@ -1962,7 +1962,7 @@ impl UConstraintCreationOptions {
 #[repr(C, align(8))]
 pub struct UAIESelectionSets {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub selection_sets: TMap<
         crate::bindings::core_u_object::FGuid,
         FAIESelectionSetItem,
@@ -3114,7 +3114,7 @@ impl UAnimDetailsProxyBase {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyBool {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub bool: FAnimDetailsBool,
 }
 impl UAnimDetailsProxyBool {
@@ -3137,7 +3137,7 @@ impl UAnimDetailsProxyBool {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyEnum {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub enum_: FAnimDetailsEnum,
 }
 impl UAnimDetailsProxyEnum {
@@ -3160,7 +3160,7 @@ impl UAnimDetailsProxyEnum {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyFloat {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub float: FAnimDetailsFloat,
 }
 impl UAnimDetailsProxyFloat {
@@ -3183,7 +3183,7 @@ impl UAnimDetailsProxyFloat {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyInteger {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub integer: FAnimDetailsInteger,
 }
 impl UAnimDetailsProxyInteger {
@@ -3206,7 +3206,7 @@ impl UAnimDetailsProxyInteger {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyLocation {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub location: FAnimDetailsLocation,
 }
 impl UAnimDetailsProxyLocation {
@@ -3229,7 +3229,7 @@ impl UAnimDetailsProxyLocation {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyRotation {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub rotation: FAnimDetailsRotation,
 }
 impl UAnimDetailsProxyRotation {
@@ -3252,7 +3252,7 @@ impl UAnimDetailsProxyRotation {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyScale {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub scale: FAnimDetailsScale,
 }
 impl UAnimDetailsProxyScale {
@@ -3275,7 +3275,7 @@ impl UAnimDetailsProxyScale {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyTransform {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub location: FAnimDetailsLocation,
     pub rotation: FAnimDetailsRotation,
     pub scale: FAnimDetailsScale,
@@ -3300,7 +3300,7 @@ impl UAnimDetailsProxyTransform {
 #[repr(C, align(16))]
 pub struct UAnimDetailsProxyVector2D {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub vector2_d: FAnimDetailsVector2D,
 }
 impl UAnimDetailsProxyVector2D {
@@ -11399,7 +11399,7 @@ impl UAnimLayerSequencerFilter {
 #[repr(C, align(8))]
 pub struct UAnimLayerWeightProxy {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub weight: f64,
 }
 impl UAnimLayerWeightProxy {
@@ -11893,7 +11893,7 @@ impl UAnimLayer {
 #[repr(C, align(8))]
 pub struct UAnimLayers {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub anim_layers: TArray<UPtr<UAnimLayer>>,
     __padding_end: [u8; 72],
 }
@@ -12022,7 +12022,7 @@ impl UControlRigPoseThumbnailRenderer {
 #[repr(C, align(8))]
 pub struct UControlRigSnapSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_keep_offset: bool,
     pub b_snap_position: bool,
     pub b_snap_rotation: bool,

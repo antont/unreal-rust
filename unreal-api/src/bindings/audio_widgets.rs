@@ -727,13 +727,13 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FMeterChannelInfo {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FMeterChannelInfo {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialWidgetStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub desired_size: crate::bindings::core_u_object::FVector2f,
 }
@@ -741,7 +741,7 @@ impl FAudioMaterialWidgetStyle {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialMeterStyle {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub meter_fill_min_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_fill_mid_color: crate::bindings::core_u_object::FLinearColor,
     pub meter_fill_max_color: crate::bindings::core_u_object::FLinearColor,
@@ -759,13 +759,13 @@ pub struct FAudioMaterialMeterStyle {
 impl FAudioMaterialMeterStyle {}
 #[repr(C, align(16))]
 pub struct FAudioMeterStyle {
-    __padding_end: [u8; 1248],
+    pub(crate) __padding_end: [u8; 1248],
 }
 impl FAudioMeterStyle {}
 #[repr(C, align(16))]
 pub struct FAudioOscilloscopePanelStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub time_ruler_style: FFixedSampleSequenceRulerStyle,
     pub value_grid_style: FSampledSequenceValueGridOverlayStyle,
     pub wave_viewer_style: FSampledSequenceViewerStyle,
@@ -775,14 +775,14 @@ impl FAudioOscilloscopePanelStyle {}
 #[repr(C, align(8))]
 pub struct FTriggerThresholdLineStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub line_color: crate::bindings::core_u_object::FLinearColor,
 }
 impl FTriggerThresholdLineStyle {}
 #[repr(C, align(16))]
 pub struct FSampledSequenceViewerStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub sequence_color: crate::bindings::slate_core::FSlateColor,
     pub sequence_line_thickness: f32,
     pub major_grid_line_color: crate::bindings::slate_core::FSlateColor,
@@ -799,7 +799,7 @@ impl FSampledSequenceViewerStyle {}
 #[repr(C, align(8))]
 pub struct FSampledSequenceValueGridOverlayStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub grid_color: crate::bindings::slate_core::FSlateColor,
     pub grid_thickness: f32,
     pub label_text_color: crate::bindings::slate_core::FSlateColor,
@@ -811,7 +811,7 @@ impl FSampledSequenceValueGridOverlayStyle {}
 #[repr(C, align(16))]
 pub struct FFixedSampleSequenceRulerStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub handle_width: f32,
     pub handle_color: crate::bindings::slate_core::FSlateColor,
     pub handle_brush: crate::bindings::slate_core::FSlateBrush,
@@ -828,7 +828,7 @@ impl FFixedSampleSequenceRulerStyle {}
 #[repr(C, align(16))]
 pub struct FAudioVectorscopePanelStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value_grid_style: FSampledSequenceValueGridOverlayStyle,
     pub vector_viewer_style: FSampledSequenceVectorViewerStyle,
 }
@@ -836,7 +836,7 @@ impl FAudioVectorscopePanelStyle {}
 #[repr(C, align(16))]
 pub struct FSampledSequenceVectorViewerStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub background_color: crate::bindings::slate_core::FSlateColor,
     pub background_brush: crate::bindings::slate_core::FSlateBrush,
     pub line_color: crate::bindings::core_u_object::FLinearColor,
@@ -846,7 +846,7 @@ impl FSampledSequenceVectorViewerStyle {}
 #[repr(C, align(4))]
 pub struct FAudioMaterialEnvelopeSettings {
     #[doc(hidden)]
-    __padding_4: [u8; 4],
+    pub(crate) __padding_4: [u8; 4],
     pub attack_curve: f32,
     pub attack_value: f32,
     pub attack_time: f32,
@@ -860,7 +860,7 @@ impl FAudioMaterialEnvelopeSettings {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialButtonStyle {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub button_main_color: crate::bindings::core_u_object::FLinearColor,
     pub button_main_color_tint_1: crate::bindings::core_u_object::FLinearColor,
     pub button_main_color_tint_2: crate::bindings::core_u_object::FLinearColor,
@@ -873,7 +873,7 @@ impl FAudioMaterialButtonStyle {}
 #[repr(C, align(16))]
 pub struct FAudioMaterialSliderStyle {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub slider_background_color: crate::bindings::core_u_object::FLinearColor,
     pub slider_background_accent_color: crate::bindings::core_u_object::FLinearColor,
     pub slider_value_main_color: crate::bindings::core_u_object::FLinearColor,
@@ -885,7 +885,7 @@ impl FAudioMaterialSliderStyle {}
 #[repr(C, align(16))]
 pub struct FAudioTextBoxStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub background_image: crate::bindings::slate_core::FSlateBrush,
     pub background_color: crate::bindings::slate_core::FSlateColor,
 }
@@ -893,7 +893,7 @@ impl FAudioTextBoxStyle {}
 #[repr(C, align(16))]
 pub struct FAudioMaterialKnobStyle {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub knob_main_color: crate::bindings::core_u_object::FLinearColor,
     pub knob_accent_color: crate::bindings::core_u_object::FLinearColor,
     pub knob_shadow_color: crate::bindings::core_u_object::FLinearColor,
@@ -912,7 +912,7 @@ impl FAudioMaterialKnobStyle {}
 #[repr(C, align(8))]
 pub struct FAudioMaterialEnvelopeStyle {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub curve_color: crate::bindings::core_u_object::FLinearColor,
     pub background_color: crate::bindings::core_u_object::FLinearColor,
     pub outline_color: crate::bindings::core_u_object::FLinearColor,
@@ -920,13 +920,13 @@ pub struct FAudioMaterialEnvelopeStyle {
 impl FAudioMaterialEnvelopeStyle {}
 #[repr(C, align(8))]
 pub struct FAudioMeterDefaultColorStyle {
-    __padding_end: [u8; 104],
+    pub(crate) __padding_end: [u8; 104],
 }
 impl FAudioMeterDefaultColorStyle {}
 #[repr(C, align(8))]
 pub struct FAudioSpectrumPlotStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub background_color: crate::bindings::slate_core::FSlateColor,
     pub grid_color: crate::bindings::slate_core::FSlateColor,
     pub axis_label_color: crate::bindings::slate_core::FSlateColor,
@@ -939,7 +939,7 @@ impl FAudioSpectrumPlotStyle {}
 #[repr(C, align(16))]
 pub struct FAudioSliderStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub slider_style: crate::bindings::slate_core::FSliderStyle,
     pub text_box_style: FAudioTextBoxStyle,
     pub widget_background_image: crate::bindings::slate_core::FSlateBrush,
@@ -954,7 +954,7 @@ impl FAudioSliderStyle {}
 #[repr(C, align(16))]
 pub struct FAudioRadialSliderStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub text_box_style: FAudioTextBoxStyle,
     pub center_background_color: crate::bindings::slate_core::FSlateColor,
     pub slider_bar_color: crate::bindings::slate_core::FSlateColor,
@@ -966,7 +966,7 @@ impl FAudioRadialSliderStyle {}
 #[repr(C, align(8))]
 pub struct FPlayheadOverlayStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub playhead_color: crate::bindings::slate_core::FSlateColor,
     pub playhead_width: f32,
     pub desired_width: f32,
@@ -1060,10 +1060,10 @@ impl UAudioMaterialSliderWidgetStyle {
 #[repr(C, align(8))]
 pub struct UAudioMaterialButton {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub widget_style: FAudioMaterialButtonStyle,
     #[doc(hidden)]
-    __padding_856: [u8; 24],
+    pub(crate) __padding_856: [u8; 24],
     pub b_is_pressed: bool,
     __padding_end: [u8; 23],
 }
@@ -1145,7 +1145,7 @@ impl UAudioMaterialButton {
 #[repr(C, align(8))]
 pub struct UAudioMaterialEnvelope {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub widget_style: FAudioMaterialEnvelopeStyle,
     pub envelope_settings: FAudioMaterialEnvelopeSettings,
     __padding_end: [u8; 20],
@@ -1170,10 +1170,10 @@ impl UAudioMaterialEnvelope {
 #[repr(C, align(16))]
 pub struct UAudioMaterialKnob {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub widget_style: FAudioMaterialKnobStyle,
     #[doc(hidden)]
-    __padding_1208: [u8; 24],
+    pub(crate) __padding_1208: [u8; 24],
     pub value: f32,
     pub tune_speed: f32,
     pub fine_tune_speed: f32,
@@ -1530,11 +1530,11 @@ impl UAudioMaterialKnob {
 #[repr(C, align(8))]
 pub struct UAudioMaterialMeter {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub widget_style: FAudioMaterialMeterStyle,
     pub orientation: crate::bindings::slate_core::EOrientation,
     #[doc(hidden)]
-    __padding_1024: [u8; 64],
+    pub(crate) __padding_1024: [u8; 64],
     pub meter_channel_info: TArray<FMeterChannelInfo>,
 }
 impl UAudioMaterialMeter {
@@ -1618,13 +1618,13 @@ impl UAudioMaterialMeter {
 #[repr(C, align(16))]
 pub struct UAudioMaterialSlider {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub widget_style: FAudioMaterialSliderStyle,
     #[doc(hidden)]
-    __padding_1096: [u8; 24],
+    pub(crate) __padding_1096: [u8; 24],
     pub value: f32,
     #[doc(hidden)]
-    __padding_1104: [u8; 4],
+    pub(crate) __padding_1104: [u8; 4],
     pub tune_speed: f32,
     pub fine_tune_speed: f32,
     pub b_locked: bool,
@@ -1984,7 +1984,7 @@ impl UAudioMaterialSlider {
 #[repr(C, align(16))]
 pub struct UAudioMeter {
     #[doc(hidden)]
-    __padding_752: [u8; 752],
+    pub(crate) __padding_752: [u8; 752],
     pub widget_style: FAudioMeterStyle,
     pub orientation: crate::bindings::slate_core::EOrientation,
     pub background_color: crate::bindings::core_u_object::FLinearColor,
@@ -2322,7 +2322,7 @@ impl UAudioMeter {
 #[repr(C, align(16))]
 pub struct UAudioOscilloscope {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub oscilloscope_style: FAudioOscilloscopePanelStyle,
     pub audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
     pub max_time_window_ms: f32,
@@ -2968,7 +2968,7 @@ impl UAudioFrequencyRadialSlider {
 #[repr(C, align(16))]
 pub struct UAudioSliderBase {
     #[doc(hidden)]
-    __padding_1000: [u8; 1000],
+    pub(crate) __padding_1000: [u8; 1000],
     pub orientation: crate::bindings::slate_core::EOrientation,
     __padding_end: [u8; 2023],
 }
@@ -3422,7 +3422,7 @@ impl UAudioSliderBase {
 #[repr(C, align(16))]
 pub struct UAudioSlider {
     #[doc(hidden)]
-    __padding_3016: [u8; 3016],
+    pub(crate) __padding_3016: [u8; 3016],
     pub lin_to_output_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
     pub output_to_lin_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
 }
@@ -3488,7 +3488,7 @@ impl UAudioFrequencySlider {
 #[repr(C, align(16))]
 pub struct UAudioVectorscope {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub vectorscope_style: FAudioVectorscopePanelStyle,
     pub audio_bus: UPtr<crate::bindings::engine::UAudioBus>,
     pub b_show_grid: bool,

@@ -823,7 +823,7 @@ impl UMetasoundEditorGraphMemberDefaultIntArray {
 #[repr(C, align(8))]
 pub struct UMetasoundEditorGraphMemberDefaultFloat {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub range: crate::bindings::core_u_object::FVector2D,
     __padding_end: [u8; 120],
 }

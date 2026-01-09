@@ -206,7 +206,7 @@ pub fn initialize() {
 #[repr(C, align(16))]
 pub struct FColorGradingSpinBoxStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub border_brush: crate::bindings::slate_core::FSlateBrush,
     pub active_border_brush: crate::bindings::slate_core::FSlateBrush,
     pub hovered_border_brush: crate::bindings::slate_core::FSlateBrush,
@@ -217,10 +217,10 @@ impl FColorGradingSpinBoxStyle {}
 #[repr(C, align(16))]
 pub struct URadialSlider {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub value: f32,
     #[doc(hidden)]
-    __padding_744: [u8; 40],
+    pub(crate) __padding_744: [u8; 40],
     pub slider_range: crate::bindings::engine::FRuntimeFloatCurve,
     pub value_tags: TArray<f32>,
     pub slider_handle_start_angle: f32,

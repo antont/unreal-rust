@@ -161,7 +161,7 @@ pub struct FXRMotionControllerState {
     pub xr_controller_pose_type: EXRControllerPoseType,
     pub controller_location: crate::bindings::core_u_object::FVector,
     pub controller_rotation: crate::bindings::core_u_object::FQuat,
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FXRMotionControllerState {}
 #[repr(C, align(8))]
@@ -240,12 +240,12 @@ impl UHandKeypointConversion {
 #[repr(C, align(16))]
 pub struct UMotionControllerComponent {
     #[doc(hidden)]
-    __padding_1504: [u8; 1504],
+    pub(crate) __padding_1504: [u8; 1504],
     pub player_index: i32,
     pub motion_source: FName,
     pub flags_1520: u8,
     #[doc(hidden)]
-    __padding_1524: [u8; 3],
+    pub(crate) __padding_1524: [u8; 3],
     pub current_tracking_status: ETrackingStatus,
     __padding_end: [u8; 299],
 }

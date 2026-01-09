@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(16))]
 pub struct UAudioCurveSourceComponent {
     #[doc(hidden)]
-    __padding_3560: [u8; 3560],
+    pub(crate) __padding_3560: [u8; 3560],
     pub curve_source_binding_name: FName,
     pub curve_sync_offset: f32,
     __padding_end: [u8; 40],

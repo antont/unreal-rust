@@ -198,7 +198,7 @@ pub struct FNamingTokenData {
     pub token_key: FString,
     pub display_name: FText,
     pub description: FText,
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FNamingTokenData {}
 #[repr(C, align(8))]
@@ -213,13 +213,13 @@ impl FNamingTokenFilterArgs {}
 pub struct FNamingTokensEvaluationData {
     pub current_date_time: crate::bindings::core_u_object::FDateTime,
     pub contexts: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FNamingTokensEvaluationData {}
 #[repr(C, align(8))]
 pub struct UNamingTokens {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub current_evaluation_data: FNamingTokensEvaluationData,
     __padding_end: [u8; 64],
 }

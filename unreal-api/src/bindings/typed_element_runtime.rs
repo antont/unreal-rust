@@ -475,25 +475,25 @@ pub struct FTypedElementSelectionOptions {
     pub b_warn_if_locked: bool,
     pub b_allow_sub_root_selection: bool,
     pub child_element_inclusion_method: ETypedElementChildInclusionMethod,
-    __padding_end: [u8; 14],
+    pub(crate) __padding_end: [u8; 14],
 }
 impl FTypedElementSelectionOptions {}
 #[repr(C, align(8))]
 pub struct FTypedElementSelectionSetState {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FTypedElementSelectionSetState {}
 #[repr(C, align(4))]
 pub struct FTypedElementIsSelectedOptions {
     pub b_allow_indirect: bool,
-    __padding_end: [u8; 15],
+    pub(crate) __padding_end: [u8; 15],
 }
 impl FTypedElementIsSelectedOptions {}
 #[repr(C, align(4))]
 pub struct FTypedElementSelectionNormalizationOptions {
     pub b_expand_groups: bool,
     pub b_follow_attachment: bool,
-    __padding_end: [u8; 14],
+    pub(crate) __padding_end: [u8; 14],
 }
 impl FTypedElementSelectionNormalizationOptions {}
 #[repr(C, align(1))]

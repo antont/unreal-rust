@@ -17,7 +17,7 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(2))]
 pub struct FPropertyBindingIndex16 {
-    __padding_end: [u8; 2],
+    pub(crate) __padding_end: [u8; 2],
 }
 impl FPropertyBindingIndex16 {}
 pub struct IPropertyBindingBindingCollectionOwner {}

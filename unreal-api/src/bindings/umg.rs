@@ -8358,7 +8358,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FEventReply {
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FEventReply {}
 #[repr(C, align(8))]
@@ -8372,19 +8372,19 @@ impl FWidgetTransform {}
 #[repr(C, align(1))]
 pub struct FShapedTextOptions {
     #[doc(hidden)]
-    __padding_1: [u8; 1],
+    pub(crate) __padding_1: [u8; 1],
     pub text_shaping_method: crate::bindings::slate_core::ETextShapingMethod,
     pub text_flow_direction: crate::bindings::slate::ETextFlowDirection,
 }
 impl FShapedTextOptions {}
 #[repr(C, align(8))]
 pub struct FPaintContext {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FPaintContext {}
 #[repr(C, align(4))]
 pub struct FRadialBoxSettings {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRadialBoxSettings {}
 #[repr(C, align(4))]
@@ -8395,19 +8395,19 @@ pub struct FSlateChildSize {
 impl FSlateChildSize {}
 #[repr(C, align(1))]
 pub struct FWidgetEventField {
-    __padding_end: [u8; 1],
+    pub(crate) __padding_end: [u8; 1],
 }
 impl FWidgetEventField {}
 #[repr(C, align(8))]
 pub struct FWidgetNavigationData {
     pub rule: crate::bindings::slate_core::EUINavigationRule,
     pub widget_to_focus: FName,
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FWidgetNavigationData {}
 #[repr(C, align(8))]
 pub struct FWidgetAnimationHandle {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FWidgetAnimationHandle {}
 #[repr(C, align(8))]
@@ -8428,12 +8428,12 @@ pub struct FAnchorData {
 impl FAnchorData {}
 #[repr(C, align(16))]
 pub struct FRichTextStyleRow {
-    __padding_end: [u8; 864],
+    pub(crate) __padding_end: [u8; 864],
 }
 impl FRichTextStyleRow {}
 #[repr(C, align(16))]
 pub struct FRichImageRow {
-    __padding_end: [u8; 224],
+    pub(crate) __padding_end: [u8; 224],
 }
 impl FRichImageRow {}
 #[repr(C, align(8))]
@@ -8456,20 +8456,20 @@ impl UVisual {
 #[repr(C, align(8))]
 pub struct UWidget {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub slot: UPtr<UPanelSlot>,
     #[doc(hidden)]
-    __padding_128: [u8; 64],
+    pub(crate) __padding_128: [u8; 64],
     pub tool_tip_text: FText,
     pub tool_tip_widget: UPtr<UWidget>,
     #[doc(hidden)]
-    __padding_216: [u8; 64],
+    pub(crate) __padding_216: [u8; 64],
     pub render_transform: FWidgetTransform,
     pub render_transform_pivot: crate::bindings::core_u_object::FVector2D,
     pub flow_direction_preference: crate::bindings::slate_core::EFlowDirectionPreference,
     pub flags_289: u8,
     #[doc(hidden)]
-    __padding_392: [u8; 102],
+    pub(crate) __padding_392: [u8; 102],
     pub flags_392: u8,
     pub cursor: crate::bindings::core_u_object::EMouseCursor,
     pub clipping: crate::bindings::slate_core::EWidgetClipping,
@@ -8477,7 +8477,7 @@ pub struct UWidget {
     pub pixel_snapping: crate::bindings::slate_core::EWidgetPixelSnapping,
     pub render_opacity: f32,
     #[doc(hidden)]
-    __padding_416: [u8; 8],
+    pub(crate) __padding_416: [u8; 8],
     pub navigation: UPtr<UWidgetNavigation>,
     __padding_end: [u8; 272],
 }
@@ -10180,18 +10180,18 @@ impl UWidget {
 #[repr(C, align(8))]
 pub struct UUserWidget {
     #[doc(hidden)]
-    __padding_768: [u8; 768],
+    pub(crate) __padding_768: [u8; 768],
     pub color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_816: [u8; 32],
+    pub(crate) __padding_816: [u8; 32],
     pub foreground_color: crate::bindings::slate_core::FSlateColor,
     #[doc(hidden)]
-    __padding_960: [u8; 124],
+    pub(crate) __padding_960: [u8; 124],
     pub padding: crate::bindings::slate_core::FMargin,
     pub priority: i32,
     pub flags_980: u8,
     #[doc(hidden)]
-    __padding_1176: [u8; 195],
+    pub(crate) __padding_1176: [u8; 195],
     pub tick_frequency: EWidgetTickFrequency,
     __padding_end: [u8; 111],
 }
@@ -15674,7 +15674,7 @@ impl UContentWidget {
 #[repr(C, align(16))]
 pub struct UButton {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub widget_style: crate::bindings::slate_core::FButtonStyle,
     pub color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     pub background_color: crate::bindings::core_u_object::FLinearColor,
@@ -15683,7 +15683,7 @@ pub struct UButton {
     pub press_method: crate::bindings::slate_core::EButtonPressMethod,
     pub is_focusable: bool,
     #[doc(hidden)]
-    __padding_2152: [u8; 308],
+    pub(crate) __padding_2152: [u8; 308],
     pub b_allow_drag_drop: bool,
 }
 impl UButton {
@@ -15957,10 +15957,10 @@ impl UButton {
 #[repr(C, align(16))]
 pub struct UCheckBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub checked_state: crate::bindings::slate_core::ECheckBoxState,
     #[doc(hidden)]
-    __padding_768: [u8; 32],
+    pub(crate) __padding_768: [u8; 32],
     pub widget_style: crate::bindings::slate_core::FCheckBoxStyle,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub click_method: crate::bindings::slate_core::EButtonClickMethod,
@@ -16231,7 +16231,7 @@ impl UCheckBox {
 #[repr(C, align(16))]
 pub struct UCircularThrobber {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub number_of_pieces: i32,
     pub period: f32,
     pub radius: f32,
@@ -16342,7 +16342,7 @@ impl UCircularThrobber {
 #[repr(C, align(16))]
 pub struct UComboBoxKey {
     #[doc(hidden)]
-    __padding_736: [u8; 736],
+    pub(crate) __padding_736: [u8; 736],
     pub widget_style: crate::bindings::slate_core::FComboBoxStyle,
     pub item_style: crate::bindings::slate_core::FTableRowStyle,
     pub scroll_bar_style: crate::bindings::slate_core::FScrollBarStyle,
@@ -16551,7 +16551,7 @@ impl UComboBoxKey {
 #[repr(C, align(16))]
 pub struct UComboBoxString {
     #[doc(hidden)]
-    __padding_736: [u8; 736],
+    pub(crate) __padding_736: [u8; 736],
     pub widget_style: crate::bindings::slate_core::FComboBoxStyle,
     pub item_style: crate::bindings::slate_core::FTableRowStyle,
     pub scroll_bar_style: crate::bindings::slate_core::FScrollBarStyle,
@@ -16922,13 +16922,13 @@ impl UComboBoxString {
 #[repr(C, align(16))]
 pub struct UEditableText {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub text: FText,
     #[doc(hidden)]
-    __padding_744: [u8; 32],
+    pub(crate) __padding_744: [u8; 32],
     pub hint_text: FText,
     #[doc(hidden)]
-    __padding_800: [u8; 32],
+    pub(crate) __padding_800: [u8; 32],
     pub widget_style: crate::bindings::slate_core::FEditableTextStyle,
     pub is_read_only: bool,
     pub is_password: bool,
@@ -16939,12 +16939,12 @@ pub struct UEditableText {
     pub clear_keyboard_focus_on_commit: bool,
     pub select_all_text_on_commit: bool,
     #[doc(hidden)]
-    __padding_1586: [u8; 5],
+    pub(crate) __padding_1586: [u8; 5],
     pub justification: crate::bindings::slate::ETextJustify,
     pub overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
     pub shaped_text_options: FShapedTextOptions,
     #[doc(hidden)]
-    __padding_1688: [u8; 97],
+    pub(crate) __padding_1688: [u8; 97],
     pub enable_integrated_keyboard: bool,
 }
 impl UEditableText {
@@ -17416,14 +17416,14 @@ impl UEditableText {
 #[repr(C, align(16))]
 pub struct UEditableTextBox {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub text: FText,
     #[doc(hidden)]
-    __padding_752: [u8; 32],
+    pub(crate) __padding_752: [u8; 32],
     pub widget_style: crate::bindings::slate_core::FEditableTextBoxStyle,
     pub hint_text: FText,
     #[doc(hidden)]
-    __padding_4640: [u8; 32],
+    pub(crate) __padding_4640: [u8; 32],
     pub is_read_only: bool,
     pub is_password: bool,
     pub minimum_desired_width: f32,
@@ -17433,7 +17433,7 @@ pub struct UEditableTextBox {
     pub clear_keyboard_focus_on_commit: bool,
     pub select_all_text_on_commit: bool,
     #[doc(hidden)]
-    __padding_4658: [u8; 5],
+    pub(crate) __padding_4658: [u8; 5],
     pub justification: crate::bindings::slate::ETextJustify,
     pub overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
     pub shaped_text_options: FShapedTextOptions,
@@ -17779,7 +17779,7 @@ impl UEditableTextBox {
 #[repr(C, align(16))]
 pub struct UExpandableArea {
     #[doc(hidden)]
-    __padding_1152: [u8; 1152],
+    pub(crate) __padding_1152: [u8; 1152],
     pub border_brush: crate::bindings::slate_core::FSlateBrush,
     pub border_color: crate::bindings::slate_core::FSlateColor,
     pub b_is_expanded: bool,
@@ -17894,7 +17894,7 @@ impl UExpandableArea {
 #[repr(C, align(16))]
 pub struct UInputKeySelector {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub widget_style: crate::bindings::slate_core::FButtonStyle,
     pub text_style: crate::bindings::slate_core::FTextBlockStyle,
     pub selected_key: crate::bindings::slate::FInputChord,
@@ -18182,14 +18182,14 @@ impl UInputKeySelector {
 #[repr(C, align(8))]
 pub struct UListViewBase {
     #[doc(hidden)]
-    __padding_760: [u8; 760],
+    pub(crate) __padding_760: [u8; 760],
     pub entry_widget_class: TSubclassOf<UUserWidget>,
     pub wheel_scroll_multiplier: f32,
     pub b_enable_scroll_animation: bool,
     pub scrolling_animation_interpolation_speed: f32,
     pub b_in_enable_touch_animated_scrolling: bool,
     #[doc(hidden)]
-    __padding_792: [u8; 11],
+    pub(crate) __padding_792: [u8; 11],
     pub b_allow_dragging: bool,
     pub b_allow_drag_drop: bool,
     pub drag_drop_visual_pivot: EDragPivot,
@@ -18638,7 +18638,7 @@ impl UListViewBase {
 #[repr(C, align(16))]
 pub struct UListView {
     #[doc(hidden)]
-    __padding_1616: [u8; 1616],
+    pub(crate) __padding_1616: [u8; 1616],
     pub widget_style: crate::bindings::slate_core::FTableViewStyle,
     pub scroll_bar_style: crate::bindings::slate_core::FScrollBarStyle,
     pub b_enable_shadow_brush: bool,
@@ -18652,13 +18652,13 @@ pub struct UListView {
     pub b_return_focus_to_selection: bool,
     pub scroll_into_view_alignment: crate::bindings::slate::EScrollIntoViewAlignment,
     #[doc(hidden)]
-    __padding_4680: [u8; 32],
+    pub(crate) __padding_4680: [u8; 32],
     pub entry_spacing: f32,
     pub horizontal_entry_spacing: f32,
     pub vertical_entry_spacing: f32,
     pub scroll_bar_padding: crate::bindings::slate_core::FMargin,
     #[doc(hidden)]
-    __padding_5048: [u8; 336],
+    pub(crate) __padding_5048: [u8; 336],
     pub bp_on_is_item_selectable_or_navigable: FListView_BP_OnIsItemSelectableOrNavigable,
 }
 impl UListView {
@@ -19468,7 +19468,7 @@ impl UListView {
 #[repr(C, align(8))]
 pub struct UTextLayoutWidget {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub shaped_text_options: FShapedTextOptions,
     pub justification: crate::bindings::slate::ETextJustify,
     pub wrapping_policy: crate::bindings::slate::ETextWrappingPolicy,
@@ -19533,16 +19533,16 @@ impl UTextLayoutWidget {
 #[repr(C, align(16))]
 pub struct UMultiLineEditableText {
     #[doc(hidden)]
-    __padding_728: [u8; 728],
+    pub(crate) __padding_728: [u8; 728],
     pub text: FText,
     pub hint_text: FText,
     #[doc(hidden)]
-    __padding_800: [u8; 32],
+    pub(crate) __padding_800: [u8; 32],
     pub widget_style: crate::bindings::slate_core::FTextBlockStyle,
     pub b_is_read_only: bool,
     pub select_all_text_when_focused: bool,
     #[doc(hidden)]
-    __padding_1651: [u8; 1],
+    pub(crate) __padding_1651: [u8; 1],
     pub revert_text_on_escape: bool,
     pub clear_keyboard_focus_on_commit: bool,
     __padding_end: [u8; 91],
@@ -19883,14 +19883,14 @@ impl UMultiLineEditableText {
 #[repr(C, align(16))]
 pub struct UMultiLineEditableTextBox {
     #[doc(hidden)]
-    __padding_728: [u8; 728],
+    pub(crate) __padding_728: [u8; 728],
     pub text: FText,
     pub hint_text: FText,
     #[doc(hidden)]
-    __padding_800: [u8; 32],
+    pub(crate) __padding_800: [u8; 32],
     pub widget_style: crate::bindings::slate_core::FEditableTextBoxStyle,
     #[doc(hidden)]
-    __padding_5488: [u8; 848],
+    pub(crate) __padding_5488: [u8; 848],
     pub b_is_read_only: bool,
     __padding_end: [u8; 95],
 }
@@ -20156,7 +20156,7 @@ impl UMultiLineEditableTextBox {
 #[repr(C, align(16))]
 pub struct UProgressBar {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub widget_style: crate::bindings::slate_core::FProgressBarStyle,
     pub percent: f32,
     pub bar_fill_type: crate::bindings::slate::EProgressBarFillType,
@@ -20164,7 +20164,7 @@ pub struct UProgressBar {
     pub b_is_marquee: bool,
     pub border_padding: crate::bindings::core_u_object::FVector2D,
     #[doc(hidden)]
-    __padding_1416: [u8; 32],
+    pub(crate) __padding_1416: [u8; 32],
     pub fill_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 72],
 }
@@ -20279,7 +20279,7 @@ impl UProgressBar {
 #[repr(C, align(16))]
 pub struct UScrollBar {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub widget_style: crate::bindings::slate_core::FScrollBarStyle,
     pub b_always_show_scrollbar: bool,
     pub b_always_show_scrollbar_track: bool,
@@ -20345,7 +20345,7 @@ impl UScrollBar {
 #[repr(C, align(16))]
 pub struct UScrollBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub scroll_animation_interpolation_speed: f32,
     pub b_enable_touch_scrolling: bool,
     pub b_consume_pointer_input: bool,
@@ -21307,10 +21307,10 @@ impl UScrollBox {
 #[repr(C, align(16))]
 pub struct USlider {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub value: f32,
     #[doc(hidden)]
-    __padding_736: [u8; 36],
+    pub(crate) __padding_736: [u8; 36],
     pub min_value: f32,
     pub max_value: f32,
     pub widget_style: crate::bindings::slate_core::FSliderStyle,
@@ -21612,10 +21612,10 @@ impl USlider {
 #[repr(C, align(16))]
 pub struct USpinBox {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub value: f32,
     #[doc(hidden)]
-    __padding_736: [u8; 32],
+    pub(crate) __padding_736: [u8; 32],
     pub widget_style: crate::bindings::slate_core::FSpinBoxStyle,
     pub min_fractional_digits: i32,
     pub max_fractional_digits: i32,
@@ -21627,12 +21627,12 @@ pub struct USpinBox {
     pub justification: crate::bindings::slate::ETextJustify,
     pub min_desired_width: f32,
     #[doc(hidden)]
-    __padding_2417: [u8; 1],
+    pub(crate) __padding_2417: [u8; 1],
     pub clear_keyboard_focus_on_commit: bool,
     pub select_all_text_on_commit: bool,
     pub foreground_color: crate::bindings::slate_core::FSlateColor,
     #[doc(hidden)]
-    __padding_2540: [u8; 100],
+    pub(crate) __padding_2540: [u8; 100],
     pub min_value: f32,
     pub max_value: f32,
     pub min_slider_value: f32,
@@ -22246,7 +22246,7 @@ impl USpinBox {
 #[repr(C, align(16))]
 pub struct UThrobber {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub number_of_pieces: i32,
     pub b_animate_horizontally: bool,
     pub b_animate_vertically: bool,
@@ -22609,7 +22609,7 @@ impl UWidgetFieldNotificationExtension {
 #[repr(C, align(8))]
 pub struct UWidgetNavigation {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub up: FWidgetNavigationData,
     pub down: FWidgetNavigationData,
     pub left: FWidgetNavigationData,
@@ -25118,14 +25118,14 @@ impl UUserObjectListEntryLibrary {
 #[repr(C, align(16))]
 pub struct UBackgroundBlur {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
     pub b_apply_alpha_to_blur: bool,
     pub blur_strength: f32,
     #[doc(hidden)]
-    __padding_748: [u8; 4],
+    pub(crate) __padding_748: [u8; 4],
     pub blur_radius: i32,
     pub corner_radius: crate::bindings::core_u_object::FVector4,
     pub low_quality_fallback_brush: crate::bindings::slate_core::FSlateBrush,
@@ -25464,7 +25464,7 @@ impl UPanelSlot {
 #[repr(C, align(8))]
 pub struct UBackgroundBlurSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -25594,20 +25594,20 @@ impl UBackgroundBlurSlot {
 #[repr(C, align(16))]
 pub struct UBorder {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
     pub flags_722: u8,
     pub content_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_776: [u8; 36],
+    pub(crate) __padding_776: [u8; 36],
     pub padding: crate::bindings::slate_core::FMargin,
     pub background: crate::bindings::slate_core::FSlateBrush,
     #[doc(hidden)]
-    __padding_1040: [u8; 32],
+    pub(crate) __padding_1040: [u8; 32],
     pub brush_color: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_1088: [u8; 32],
+    pub(crate) __padding_1088: [u8; 32],
     pub desired_size_scale: crate::bindings::core_u_object::FVector2D,
     __padding_end: [u8; 176],
 }
@@ -26027,7 +26027,7 @@ impl UBorder {
 #[repr(C, align(8))]
 pub struct UBorderSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -26157,7 +26157,7 @@ impl UBorderSlot {
 #[repr(C, align(8))]
 pub struct UButtonSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -26342,7 +26342,7 @@ impl UCanvasPanel {
 #[repr(C, align(8))]
 pub struct UCanvasPanelSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub layout_data: FAnchorData,
     pub b_auto_size: bool,
     pub z_order: i32,
@@ -26829,11 +26829,11 @@ impl UWidgetCheckedStateRegistration {
 #[repr(C, align(16))]
 pub struct UComboBox {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub scroll_bar_style: crate::bindings::slate_core::FScrollBarStyle,
     pub items: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     #[doc(hidden)]
-    __padding_2656: [u8; 32],
+    pub(crate) __padding_2656: [u8; 32],
     pub b_is_focusable: bool,
     __padding_end: [u8; 31],
 }
@@ -26857,7 +26857,7 @@ impl UComboBox {
 #[repr(C, align(8))]
 pub struct UDynamicEntryBoxBase {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub entry_spacing: crate::bindings::core_u_object::FVector2D,
     pub spacing_pattern: TArray<crate::bindings::core_u_object::FVector2D>,
     pub entry_box_type: EDynamicBoxType,
@@ -27007,7 +27007,7 @@ impl UDynamicEntryBoxBase {
 #[repr(C, align(16))]
 pub struct UDynamicEntryBox {
     #[doc(hidden)]
-    __padding_976: [u8; 976],
+    pub(crate) __padding_976: [u8; 976],
     pub entry_widget_class: TSubclassOf<UUserWidget>,
 }
 impl UDynamicEntryBox {
@@ -27152,7 +27152,7 @@ impl UDynamicEntryBox {
 #[repr(C, align(8))]
 pub struct UGridPanel {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub column_fill: TArray<f32>,
     pub row_fill: TArray<f32>,
     __padding_end: [u8; 16],
@@ -27312,7 +27312,7 @@ impl UGridPanel {
 #[repr(C, align(8))]
 pub struct UGridSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -27671,7 +27671,7 @@ impl UHorizontalBox {
 #[repr(C, align(8))]
 pub struct UHorizontalBoxSlot {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub size: FSlateChildSize,
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
@@ -27831,13 +27831,13 @@ impl UHorizontalBoxSlot {
 #[repr(C, align(16))]
 pub struct UImage {
     #[doc(hidden)]
-    __padding_704: [u8; 704],
+    pub(crate) __padding_704: [u8; 704],
     pub brush: crate::bindings::slate_core::FSlateBrush,
     #[doc(hidden)]
-    __padding_944: [u8; 32],
+    pub(crate) __padding_944: [u8; 32],
     pub color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_992: [u8; 32],
+    pub(crate) __padding_992: [u8; 32],
     pub b_flip_for_right_to_left_flow_direction: bool,
     __padding_end: [u8; 143],
 }
@@ -28367,7 +28367,7 @@ impl UImage {
 #[repr(C, align(8))]
 pub struct UInvalidationBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub b_can_cache: bool,
     __padding_end: [u8; 23],
 }
@@ -28466,10 +28466,10 @@ impl UInvalidationBox {
 #[repr(C, align(8))]
 pub struct UMenuAnchor {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub menu_class: TSubclassOf<UUserWidget>,
     #[doc(hidden)]
-    __padding_792: [u8; 64],
+    pub(crate) __padding_792: [u8; 64],
     pub placement: crate::bindings::slate_core::EMenuPlacement,
     pub b_fit_in_window: bool,
     pub should_defer_painting_after_window_content: bool,
@@ -28760,7 +28760,7 @@ impl UUIComponent {
 #[repr(C, align(8))]
 pub struct UMouseHoverComponent {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub b_is_hovered: bool,
 }
 impl UMouseHoverComponent {
@@ -28936,7 +28936,7 @@ impl UOverlay {
 #[repr(C, align(8))]
 pub struct UOverlaySlot {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -29107,7 +29107,7 @@ impl UPostBufferBlurUpdater {
 #[repr(C, align(8))]
 pub struct UPostBufferUpdate {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub b_update_only_paint_area: bool,
     pub b_perform_default_post_buffer_update: bool,
     __padding_end: [u8; 54],
@@ -29132,7 +29132,7 @@ impl UPostBufferUpdate {
 #[repr(C, align(8))]
 pub struct URetainerBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub b_retain_render: bool,
     pub render_on_invalidation: bool,
     pub render_on_phase: bool,
@@ -29353,15 +29353,15 @@ impl URetainerBox {
 #[repr(C, align(16))]
 pub struct URichTextBlock {
     #[doc(hidden)]
-    __padding_728: [u8; 728],
+    pub(crate) __padding_728: [u8; 728],
     pub text: FText,
     pub text_style_set: UPtr<crate::bindings::engine::UDataTable>,
     #[doc(hidden)]
-    __padding_768: [u8; 16],
+    pub(crate) __padding_768: [u8; 16],
     pub default_text_style_override: crate::bindings::slate_core::FTextBlockStyle,
     pub min_desired_width: f32,
     #[doc(hidden)]
-    __padding_1621: [u8; 1],
+    pub(crate) __padding_1621: [u8; 1],
     pub text_transform_policy: crate::bindings::slate_core::ETextTransformPolicy,
     pub text_overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
     __padding_end: [u8; 905],
@@ -30076,7 +30076,7 @@ impl URichTextBlockImageDecorator {
 #[repr(C, align(8))]
 pub struct USafeZone {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub pad_left: bool,
     pub pad_right: bool,
     pub pad_top: bool,
@@ -30160,7 +30160,7 @@ impl USafeZone {
 #[repr(C, align(8))]
 pub struct USafeZoneSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub b_is_title_safe: bool,
     pub safe_area_scale: crate::bindings::slate_core::FMargin,
     pub h_align: crate::bindings::slate_core::EHorizontalAlignment,
@@ -30188,7 +30188,7 @@ impl USafeZoneSlot {
 #[repr(C, align(8))]
 pub struct UScaleBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub stretch: crate::bindings::slate::EStretch,
     pub stretch_direction: crate::bindings::slate::EStretchDirection,
     pub user_specified_scale: f32,
@@ -30342,7 +30342,7 @@ impl UScaleBox {
 #[repr(C, align(8))]
 pub struct UScaleBoxComponent {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
     pub stretch: crate::bindings::slate::EStretch,
@@ -30371,7 +30371,7 @@ impl UScaleBoxComponent {
 #[repr(C, align(8))]
 pub struct UScaleBoxSlot {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
     __padding_end: [u8; 22],
@@ -30500,7 +30500,7 @@ impl UScaleBoxSlot {
 #[repr(C, align(8))]
 pub struct UScrollBoxSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub size: FSlateChildSize,
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
@@ -30631,7 +30631,7 @@ impl UScrollBoxSlot {
 #[repr(C, align(8))]
 pub struct USizeBox {
     #[doc(hidden)]
-    __padding_736: [u8; 736],
+    pub(crate) __padding_736: [u8; 736],
     pub width_override: f32,
     pub height_override: f32,
     pub min_desired_width: f32,
@@ -31086,7 +31086,7 @@ impl USizeBox {
 #[repr(C, align(8))]
 pub struct USizeBoxComponent {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -31320,10 +31320,10 @@ impl USizeBoxComponent {
 #[repr(C, align(8))]
 pub struct USizeBoxSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     #[doc(hidden)]
-    __padding_96: [u8; 16],
+    pub(crate) __padding_96: [u8; 16],
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
 }
@@ -31451,7 +31451,7 @@ impl USizeBoxSlot {
 #[repr(C, align(8))]
 pub struct USpacer {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub size: crate::bindings::core_u_object::FVector2D,
     __padding_end: [u8; 16],
 }
@@ -31501,7 +31501,7 @@ impl USpacer {
 #[repr(C, align(8))]
 pub struct UStackBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub orientation: crate::bindings::slate_core::EOrientation,
     __padding_end: [u8; 23],
 }
@@ -31599,7 +31599,7 @@ impl UStackBox {
 #[repr(C, align(8))]
 pub struct UStackBoxSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub size: FSlateChildSize,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
@@ -31626,20 +31626,20 @@ impl UStackBoxSlot {
 #[repr(C, align(16))]
 pub struct UTextBlock {
     #[doc(hidden)]
-    __padding_728: [u8; 728],
+    pub(crate) __padding_728: [u8; 728],
     pub text: FText,
     #[doc(hidden)]
-    __padding_776: [u8; 32],
+    pub(crate) __padding_776: [u8; 32],
     pub color_and_opacity: crate::bindings::slate_core::FSlateColor,
     #[doc(hidden)]
-    __padding_832: [u8; 36],
+    pub(crate) __padding_832: [u8; 36],
     pub min_desired_width: f32,
     pub font: crate::bindings::slate_core::FSlateFontInfo,
     pub strike_brush: crate::bindings::slate_core::FSlateBrush,
     pub shadow_offset: crate::bindings::core_u_object::FVector2D,
     pub shadow_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_1232: [u8; 32],
+    pub(crate) __padding_1232: [u8; 32],
     pub b_wrap_with_invalidation_panel: bool,
     pub text_transform_policy: crate::bindings::slate_core::ETextTransformPolicy,
     pub text_overflow_policy: crate::bindings::slate_core::ETextOverflowPolicy,
@@ -32302,7 +32302,7 @@ impl UTileView {
 #[repr(C, align(8))]
 pub struct UUniformGridPanel {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub slot_padding: crate::bindings::slate_core::FMargin,
     pub min_desired_slot_width: f32,
     pub min_desired_slot_height: f32,
@@ -32471,7 +32471,7 @@ impl UUniformGridPanel {
 #[repr(C, align(8))]
 pub struct UUniformGridSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
     pub row: i32,
@@ -32681,7 +32681,7 @@ impl UVerticalBox {
 #[repr(C, align(8))]
 pub struct UVerticalBoxSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub size: FSlateChildSize,
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
@@ -32842,7 +32842,7 @@ impl UVerticalBoxSlot {
 #[repr(C, align(8))]
 pub struct UViewport {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub background_color: crate::bindings::core_u_object::FLinearColor,
     __padding_end: [u8; 80],
 }
@@ -33195,7 +33195,7 @@ impl UViewport {
 #[repr(C, align(16))]
 pub struct UWidgetInteractionComponent {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub virtual_user_index: i32,
     pub pointer_index: i32,
     pub trace_channel: crate::bindings::engine::ECollisionChannel,
@@ -33694,7 +33694,7 @@ impl UWidgetInteractionComponent {
 #[repr(C, align(8))]
 pub struct UWidgetSwitcher {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub active_widget_index: i32,
     __padding_end: [u8; 20],
 }
@@ -33883,7 +33883,7 @@ impl UWidgetSwitcher {
 #[repr(C, align(8))]
 pub struct UWidgetSwitcherSlot {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -34012,7 +34012,7 @@ impl UWidgetSwitcherSlot {
 #[repr(C, align(8))]
 pub struct UWindowTitleBarArea {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub b_window_buttons_enabled: bool,
     pub b_double_click_toggles_fullscreen: bool,
     __padding_end: [u8; 30],
@@ -34143,7 +34143,7 @@ impl UWindowTitleBarArea {
 #[repr(C, align(8))]
 pub struct UWindowTitleBarAreaSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
     pub vertical_alignment: crate::bindings::slate_core::EVerticalAlignment,
@@ -34275,7 +34275,7 @@ impl UWindowTitleBarAreaSlot {
 #[repr(C, align(8))]
 pub struct UWrapBox {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub inner_slot_padding: crate::bindings::core_u_object::FVector2D,
     pub wrap_size: f32,
     pub b_explicit_wrap_size: bool,
@@ -34403,7 +34403,7 @@ impl UWrapBox {
 #[repr(C, align(8))]
 pub struct UWrapBoxSlot {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub padding: crate::bindings::slate_core::FMargin,
     pub fill_span_when_less_than: f32,
     pub horizontal_alignment: crate::bindings::slate_core::EHorizontalAlignment,
@@ -34630,7 +34630,7 @@ impl UWrapBoxSlot {
 #[repr(C, align(8))]
 pub struct UDragDropOperation {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub tag: FString,
     pub payload: UPtr<crate::bindings::core_u_object::UObject>,
     pub default_drag_visual: UPtr<UWidget>,

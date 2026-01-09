@@ -734,13 +734,13 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FOptimusDataTypeRef {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FOptimusDataTypeRef {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_OptimusDeformerSettings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub execution_phase: EOptimusDeformerExecutionPhase,
     pub execution_group: i32,
     pub deform_child_components: bool,
@@ -749,152 +749,152 @@ pub struct FRigVMTrait_OptimusDeformerSettings {
 impl FRigVMTrait_OptimusDeformerSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_AddOptimusDeformer {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_AddOptimusDeformer {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerIntVariable {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMTrait_SetDeformerIntVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerIntArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerIntArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt2Variable {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMTrait_SetDeformerInt2Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt2ArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerInt2ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt3Variable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerInt3Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt3ArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerInt3ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt4Variable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerInt4Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerInt4ArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerInt4ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerFloatVariable {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMTrait_SetDeformerFloatVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerFloatArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerFloatArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVector2Variable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerVector2Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVector2ArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerVector2ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVectorVariable {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMTrait_SetDeformerVectorVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVectorArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerVectorArrayVariable {}
 #[repr(C, align(16))]
 pub struct FRigVMTrait_SetDeformerVector4Variable {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigVMTrait_SetDeformerVector4Variable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerVector4ArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerVector4ArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerLinearColorVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerLinearColorVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerLinearColorArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerLinearColorArrayVariable {}
 #[repr(C, align(16))]
 pub struct FRigVMTrait_SetDeformerQuatVariable {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigVMTrait_SetDeformerQuatVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerQuatArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerQuatArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerRotatorVariable {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMTrait_SetDeformerRotatorVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerRotatorArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerRotatorArrayVariable {}
 #[repr(C, align(16))]
 pub struct FRigVMTrait_SetDeformerTransformVariable {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FRigVMTrait_SetDeformerTransformVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerTransformArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerTransformArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerNameVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerNameVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerNameArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerNameArrayVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerBoolVariable {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMTrait_SetDeformerBoolVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMTrait_SetDeformerBoolArrayVariable {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMTrait_SetDeformerBoolArrayVariable {}
 #[repr(C, align(4))]
 pub struct FOptimusDeformerInstanceComponentBinding {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FOptimusDeformerInstanceComponentBinding {}
 pub struct IOptimusAlternativeSelectedObjectProvider {}
@@ -2568,7 +2568,7 @@ impl UOptimusSkinnedMeshVertexAttributeDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusSkinnedMeshVertexAttributeDataProvider {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub attribute_name: FName,
     pub default_value: f32,
     __padding_end: [u8; 16],
@@ -4803,7 +4803,7 @@ impl UOptimusDeformerInstance {
 #[repr(C, align(8))]
 pub struct UOptimusNodeGraph {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub graph_type: EOptimusNodeGraphType,
     __padding_end: [u8; 124],
 }
@@ -6358,7 +6358,7 @@ impl UOptimusNode_Comment {
 #[repr(C, align(8))]
 pub struct UOptimusResourceDescription {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub resource_name: FName,
     __padding_end: [u8; 164],
 }

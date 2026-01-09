@@ -71,7 +71,7 @@ pub struct FChaosPhysicsCollisionInfo {
 impl FChaosPhysicsCollisionInfo {}
 #[repr(C, align(8))]
 pub struct FDataflowRigidSolverProxy {
-    __padding_end: [u8; 144],
+    pub(crate) __padding_end: [u8; 144],
 }
 impl FDataflowRigidSolverProxy {}
 #[repr(C, align(8))]

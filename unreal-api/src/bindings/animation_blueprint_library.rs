@@ -1340,7 +1340,7 @@ pub struct FAnimPoseEvaluationOptions {
 impl FAnimPoseEvaluationOptions {}
 #[repr(C, align(8))]
 pub struct FAnimPose {
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FAnimPose {}
 #[repr(C, align(8))]

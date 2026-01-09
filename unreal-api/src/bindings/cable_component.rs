@@ -70,7 +70,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct ACableActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub cable_component: UPtr<UCableComponent>,
 }
 impl ACableActor {
@@ -93,11 +93,11 @@ impl ACableActor {
 #[repr(C, align(16))]
 pub struct UCableComponent {
     #[doc(hidden)]
-    __padding_1576: [u8; 1576],
+    pub(crate) __padding_1576: [u8; 1576],
     pub b_attach_start: bool,
     pub b_attach_end: bool,
     #[doc(hidden)]
-    __padding_1648: [u8; 64],
+    pub(crate) __padding_1648: [u8; 64],
     pub end_location: crate::bindings::core_u_object::FVector,
     pub cable_length: f32,
     pub num_segments: i32,

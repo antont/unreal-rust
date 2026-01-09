@@ -27,7 +27,7 @@ impl FPropertyEntry {}
 #[repr(C, align(8))]
 pub struct UMaterialOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub properties: TArray<FPropertyEntry>,
     pub texture_size: crate::bindings::core_u_object::FIntPoint,
     pub lod_indices: TArray<i32>,
@@ -76,7 +76,7 @@ impl UAssetBakeOptions {
 #[repr(C, align(8))]
 pub struct UMaterialMergeOptions {
     #[doc(hidden)]
-    __padding_49: [u8; 49],
+    pub(crate) __padding_49: [u8; 49],
     pub blend_mode: crate::bindings::engine::EBlendMode,
 }
 impl UMaterialMergeOptions {

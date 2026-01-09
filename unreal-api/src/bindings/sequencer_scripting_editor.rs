@@ -369,7 +369,7 @@ impl FSequencerBoundObjects {}
 #[repr(C, align(8))]
 pub struct FSequencerQuickBindingResult {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub payload_names: TArray<FString>,
 }
 impl FSequencerQuickBindingResult {}

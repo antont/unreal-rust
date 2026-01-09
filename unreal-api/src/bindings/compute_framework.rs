@@ -262,7 +262,7 @@ impl UComputeGraph {
 #[repr(C, align(8))]
 pub struct UComputeGraphComponent {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub compute_graph: UPtr<UComputeGraph>,
     __padding_end: [u8; 24],
 }
@@ -400,7 +400,7 @@ impl UComputeGraphFromText {
 #[repr(C, align(8))]
 pub struct UComputeKernel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub kernel_flags: i32,
 }
 impl UComputeKernel {

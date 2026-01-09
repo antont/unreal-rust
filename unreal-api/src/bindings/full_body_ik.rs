@@ -9,34 +9,34 @@ pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FFBIKConstraintOption {
     pub item: crate::bindings::control_rig::FRigElementKey,
-    __padding_end: [u8; 152],
+    pub(crate) __padding_end: [u8; 152],
 }
 impl FFBIKConstraintOption {}
 #[repr(C, align(1))]
 pub struct FMotionProcessInput {
-    __padding_end: [u8; 2],
+    pub(crate) __padding_end: [u8; 2],
 }
 impl FMotionProcessInput {}
 #[repr(C, align(16))]
 pub struct FFBIKDebugOption {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FFBIKDebugOption {}
 #[repr(C, align(4))]
 pub struct FSolverInput {
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FSolverInput {}
 #[repr(C, align(16))]
 pub struct FFBIKEndEffector {
     pub item: crate::bindings::control_rig::FRigElementKey,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FFBIKEndEffector {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FullbodyIK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub root: crate::bindings::control_rig::FRigElementKey,
     pub effectors: TArray<FFBIKEndEffector>,
     pub constraints: TArray<FFBIKConstraintOption>,
@@ -44,7 +44,7 @@ pub struct FRigUnit_FullbodyIK {
     pub motion_property: FMotionProcessInput,
     pub b_propagate_to_children: bool,
     pub debug_option: FFBIKDebugOption,
-    __padding_end: [u8; 432],
+    pub(crate) __padding_end: [u8; 432],
 }
 impl FRigUnit_FullbodyIK {}
 #[repr(transparent)]

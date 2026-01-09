@@ -1419,126 +1419,126 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FCameraContextDataID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FCameraContextDataID {}
 #[repr(C, align(4))]
 pub struct FCameraRigInstanceID {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FCameraRigInstanceID {}
 #[repr(C, align(4))]
 pub struct FCameraShakeInstanceID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FCameraShakeInstanceID {}
 #[repr(C, align(8))]
 pub struct FBaseCameraObjectReference {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FBaseCameraObjectReference {}
 #[repr(C, align(8))]
 pub struct FCameraAssetReference {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FCameraAssetReference {}
 #[repr(C, align(8))]
 pub struct FBooleanCameraParameter {
     pub value: bool,
-    __padding_end: [u8; 15],
+    pub(crate) __padding_end: [u8; 15],
 }
 impl FBooleanCameraParameter {}
 #[repr(C, align(8))]
 pub struct FInteger32CameraParameter {
     pub value: i32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FInteger32CameraParameter {}
 #[repr(C, align(8))]
 pub struct FFloatCameraParameter {
     pub value: f32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FFloatCameraParameter {}
 #[repr(C, align(8))]
 pub struct FDoubleCameraParameter {
     pub value: f64,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FDoubleCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector2fCameraParameter {
     pub value: crate::bindings::core_u_object::FVector2f,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FVector2fCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector2dCameraParameter {
     pub value: crate::bindings::core_u_object::FVector2D,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FVector2dCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector3fCameraParameter {
     pub value: crate::bindings::core_u_object::FVector3f,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FVector3fCameraParameter {}
 #[repr(C, align(8))]
 pub struct FVector3dCameraParameter {
     pub value: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FVector3dCameraParameter {}
 #[repr(C, align(16))]
 pub struct FVector4fCameraParameter {
     pub value: crate::bindings::core_u_object::FVector4f,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FVector4fCameraParameter {}
 #[repr(C, align(16))]
 pub struct FVector4dCameraParameter {
     pub value: crate::bindings::core_u_object::FVector4,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FVector4dCameraParameter {}
 #[repr(C, align(8))]
 pub struct FRotator3fCameraParameter {
     pub value: crate::bindings::core_u_object::FRotator3f,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FRotator3fCameraParameter {}
 #[repr(C, align(8))]
 pub struct FRotator3dCameraParameter {
     pub value: crate::bindings::core_u_object::FRotator,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRotator3dCameraParameter {}
 #[repr(C, align(16))]
 pub struct FTransform3fCameraParameter {
     pub value: crate::bindings::core_u_object::FTransform3f,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FTransform3fCameraParameter {}
 #[repr(C, align(16))]
 pub struct FTransform3dCameraParameter {
     pub value: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FTransform3dCameraParameter {}
 #[repr(C, align(8))]
 pub struct FCameraRigAssetReference {
-    __padding_end: [u8; 304],
+    pub(crate) __padding_end: [u8; 304],
 }
 impl FCameraRigAssetReference {}
 #[repr(C, align(8))]
 pub struct FCameraShakeAssetReference {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FCameraShakeAssetReference {}
 #[repr(C, align(4))]
 pub struct FCameraVariableSetterHandle {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FCameraVariableSetterHandle {}
 #[repr(C, align(8))]
@@ -1559,12 +1559,12 @@ pub struct FBlueprintCameraDirectorDeactivateParams {
 impl FBlueprintCameraDirectorDeactivateParams {}
 #[repr(C, align(8))]
 pub struct FCameraDirectorStateTreeEvaluationData {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FCameraDirectorStateTreeEvaluationData {}
 #[repr(C, align(8))]
 pub struct FBlueprintCameraEvaluationDataRef {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FBlueprintCameraEvaluationDataRef {}
 #[repr(C, align(8))]
@@ -1589,11 +1589,11 @@ pub struct FBlueprintCameraPose {
     pub near_clipping_plane: f32,
     pub far_clipping_plane: f32,
     #[doc(hidden)]
-    __padding_124: [u8; 4],
+    pub(crate) __padding_124: [u8; 4],
     pub enable_physical_camera: bool,
     pub constrain_aspect_ratio: bool,
     #[doc(hidden)]
-    __padding_127: [u8; 1],
+    pub(crate) __padding_127: [u8; 1],
     pub aspect_ratio_axis_constraint: crate::bindings::engine::EAspectRatioAxisConstraint,
     pub projection_mode: crate::bindings::engine::ECameraProjectionMode,
 }
@@ -6492,7 +6492,7 @@ impl AGameplayCameraActorBase {
 #[repr(C, align(8))]
 pub struct AGameplayCameraActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub camera_component: UPtr<UGameplayCameraComponent>,
 }
 impl AGameplayCameraActor {
@@ -6541,7 +6541,7 @@ impl AGameplayCameraActor {
 #[repr(C, align(16))]
 pub struct UGameplayCameraComponentBase {
     #[doc(hidden)]
-    __padding_688: [u8; 688],
+    pub(crate) __padding_688: [u8; 688],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
     pub b_set_control_rotation_when_view_target: bool,
     __padding_end: [u8; 62],
@@ -6932,7 +6932,7 @@ impl UGameplayCameraComponentBase {
 #[repr(C, align(16))]
 pub struct UGameplayCameraComponent {
     #[doc(hidden)]
-    __padding_744: [u8; 744],
+    pub(crate) __padding_744: [u8; 744],
     pub camera_reference: FCameraAssetReference,
     __padding_end: [u8; 32],
 }
@@ -6956,7 +6956,7 @@ impl UGameplayCameraComponent {
 #[repr(C, align(8))]
 pub struct UGameplayCameraParameterSetterComponent {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub camera_rig_reference: FCameraRigAssetReference,
     pub blend_in_time: f32,
     pub blend_out_time: f32,
@@ -7040,7 +7040,7 @@ impl UGameplayCameraParameterSetterComponent {
 #[repr(C, align(8))]
 pub struct AGameplayCameraRigActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub camera_rig_component: UPtr<UGameplayCameraRigComponent>,
 }
 impl AGameplayCameraRigActor {
@@ -7089,7 +7089,7 @@ impl AGameplayCameraRigActor {
 #[repr(C, align(16))]
 pub struct UGameplayCameraRigComponent {
     #[doc(hidden)]
-    __padding_744: [u8; 744],
+    pub(crate) __padding_744: [u8; 744],
     pub camera_rig_reference: FCameraRigAssetReference,
     __padding_end: [u8; 40],
 }
@@ -7566,7 +7566,7 @@ impl AGameplayCamerasPlayerCameraManager {
 #[repr(C, align(8))]
 pub struct AGameplayCameraSystemActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub camera_system_component: UPtr<UGameplayCameraSystemComponent>,
 }
 impl AGameplayCameraSystemActor {
@@ -7615,7 +7615,7 @@ impl AGameplayCameraSystemActor {
 #[repr(C, align(16))]
 pub struct UGameplayCameraSystemComponent {
     #[doc(hidden)]
-    __padding_688: [u8; 688],
+    pub(crate) __padding_688: [u8; 688],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
     pub b_set_player_controller_rotation: bool,
 }
@@ -7904,7 +7904,7 @@ impl UGameplayCameraSystemComponent {
 #[repr(C, align(8))]
 pub struct UGameplayControlRotationComponent {
     #[doc(hidden)]
-    __padding_264: [u8; 264],
+    pub(crate) __padding_264: [u8; 264],
     pub auto_activate_for_player: crate::bindings::engine::EAutoReceiveInput,
     __padding_end: [u8; 47],
 }
@@ -8215,7 +8215,7 @@ impl UAttachToActorGroupCameraNode {
 #[repr(C, align(8))]
 pub struct UAttachToPlayerPawnCameraNode {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub socket_name: FName,
     pub bone_name: FName,
 }
@@ -9184,7 +9184,7 @@ impl UPerlinNoiseRotationShakeCameraNode {
 #[repr(C, align(8))]
 pub struct UBlueprintCameraNodeEvaluator {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_is_first_frame: bool,
     pub b_is_active_camera_rig: bool,
     pub evaluation_context_owner: UPtr<crate::bindings::core_u_object::UObject>,

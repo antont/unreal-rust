@@ -17,7 +17,7 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FMassProcessingContext_DEPRECATED {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FMassProcessingContext_DEPRECATED {}
 #[repr(C, align(8))]

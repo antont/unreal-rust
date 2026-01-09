@@ -96,21 +96,21 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FPropertyPathTestInnerStruct {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FPropertyPathTestInnerStruct {}
 #[repr(C, align(8))]
 pub struct FPropertyPathTestStruct {
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FPropertyPathTestStruct {}
 #[repr(C, align(8))]
 pub struct UPropertyPathTestObject {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub bool: bool,
     #[doc(hidden)]
-    __padding_56: [u8; 4],
+    pub(crate) __padding_56: [u8; 4],
     pub integer: i32,
     pub string: FString,
     pub float: f32,

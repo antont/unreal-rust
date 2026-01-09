@@ -372,7 +372,7 @@ pub struct FCapturedPixelsID {
 impl FCapturedPixelsID {}
 #[repr(C, align(8))]
 pub struct FCapturedPixels {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FCapturedPixels {}
 #[repr(C, align(8))]
@@ -493,7 +493,7 @@ impl UNullAudioCaptureProtocol {
 #[repr(C, align(8))]
 pub struct UMasterAudioSubmixCaptureProtocol {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub file_name: FString,
     __padding_end: [u8; 40],
 }
@@ -560,7 +560,7 @@ impl UMovieSceneImageCaptureProtocolBase {
 #[repr(C, align(8))]
 pub struct UCompositionGraphCaptureProtocol {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub include_render_passes: FCompositionGraphCapturePasses,
     pub b_capture_frames_in_hdr: bool,
     pub hdr_compression_quality: i32,
@@ -631,7 +631,7 @@ impl UImageSequenceProtocol {
 #[repr(C, align(8))]
 pub struct UCompressedImageSequenceProtocol {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub compression_quality: i32,
 }
 impl UCompressedImageSequenceProtocol {
@@ -738,7 +738,7 @@ impl UImageSequenceProtocol_EXR {
 #[repr(C, align(8))]
 pub struct UMovieSceneCapture {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub settings: FMovieSceneCaptureSettings,
     pub b_use_separate_process: bool,
     pub b_close_editor_when_capture_starts: bool,
@@ -1068,7 +1068,7 @@ impl UMovieSceneCaptureEnvironment {
 #[repr(C, align(8))]
 pub struct UUserDefinedCaptureProtocol {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub world: UPtr<crate::bindings::engine::UWorld>,
     __padding_end: [u8; 120],
 }
@@ -1554,7 +1554,7 @@ impl UUserDefinedCaptureProtocol {
 #[repr(C, align(8))]
 pub struct UUserDefinedImageCaptureProtocol {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub format: crate::bindings::image_write_queue::EDesiredImageFormat,
     pub b_enable_compression: bool,
     pub compression_quality: i32,

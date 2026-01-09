@@ -80,7 +80,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FSharedImageConstRefBlueprint {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FSharedImageConstRefBlueprint {}
 #[repr(C, align(8))]

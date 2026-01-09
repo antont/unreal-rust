@@ -2066,7 +2066,7 @@ impl UAnimGraphNode_PoseByName {
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_PoseDriver {
     #[doc(hidden)]
-    __padding_720: [u8; 720],
+    pub(crate) __padding_720: [u8; 720],
     pub node: crate::bindings::anim_graph_runtime::FAnimNode_PoseDriver,
     __padding_end: [u8; 152],
 }
@@ -2879,7 +2879,7 @@ impl UAnimGraphNode_Trail {
 #[repr(C, align(8))]
 pub struct UAnimGraphNode_TransitionPoseEvaluator {
     #[doc(hidden)]
-    __padding_680: [u8; 680],
+    pub(crate) __padding_680: [u8; 680],
     pub node: crate::bindings::engine::FAnimNode_TransitionPoseEvaluator,
 }
 impl UAnimGraphNode_TransitionPoseEvaluator {
@@ -3091,7 +3091,7 @@ impl UAnimStateNodeBase {
 #[repr(C, align(8))]
 pub struct UAnimStateAliasNode {
     #[doc(hidden)]
-    __padding_192: [u8; 192],
+    pub(crate) __padding_192: [u8; 192],
     pub b_global_alias: bool,
     __padding_end: [u8; 103],
 }
@@ -3178,7 +3178,7 @@ impl UAnimStateNode {
 #[repr(C, align(8))]
 pub struct UAnimStateTransitionNode {
     #[doc(hidden)]
-    __padding_296: [u8; 296],
+    pub(crate) __padding_296: [u8; 296],
     pub logic_type: crate::bindings::engine::ETransitionLogicType,
     __padding_end: [u8; 791],
 }

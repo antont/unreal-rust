@@ -202,10 +202,10 @@ impl UContentBrowserCollectionProjectSettings {
 #[repr(C, align(8))]
 pub struct UContentBrowserAssetContextMenuContext {
     #[doc(hidden)]
-    __padding_88: [u8; 88],
+    pub(crate) __padding_88: [u8; 88],
     pub selected_assets: TArray<crate::bindings::core_u_object::FAssetData>,
     #[doc(hidden)]
-    __padding_115: [u8; 11],
+    pub(crate) __padding_115: [u8; 11],
     pub b_contains_unsupported_assets: bool,
 }
 impl UContentBrowserAssetContextMenuContext {
@@ -398,7 +398,7 @@ impl UContentBrowserMenuContext {
 #[repr(C, align(8))]
 pub struct UContentBrowserFolderContext {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub b_can_be_modified: bool,
     pub b_no_folder_on_disk: bool,
     pub num_asset_paths: i32,

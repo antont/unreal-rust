@@ -181,7 +181,7 @@ impl UCompositeCoreSubsystem {
 #[repr(C, align(16))]
 pub struct UHoldoutCompositeComponent {
     #[doc(hidden)]
-    __padding_656: [u8; 656],
+    pub(crate) __padding_656: [u8; 656],
     pub b_is_enabled: bool,
 }
 impl UHoldoutCompositeComponent {

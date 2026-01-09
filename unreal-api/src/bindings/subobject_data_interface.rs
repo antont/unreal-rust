@@ -544,12 +544,12 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FSubobjectData {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FSubobjectData {}
 #[repr(C, align(8))]
 pub struct FSubobjectDataHandle {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FSubobjectDataHandle {}
 #[repr(C, align(8))]
@@ -557,7 +557,7 @@ pub struct FAddNewSubobjectParams {
     pub parent_handle: FSubobjectDataHandle,
     pub new_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     #[doc(hidden)]
-    __padding_32: [u8; 8],
+    pub(crate) __padding_32: [u8; 8],
     pub blueprint_context: UPtr<crate::bindings::engine::UBlueprint>,
     pub flags_40: u8,
 }

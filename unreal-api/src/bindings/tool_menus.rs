@@ -544,7 +544,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FToolMenuContext {
-    __padding_end: [u8; 104],
+    pub(crate) __padding_end: [u8; 104],
 }
 impl FToolMenuContext {}
 #[repr(C, align(8))]
@@ -571,7 +571,7 @@ pub struct FToolMenuInsert {
 impl FToolMenuInsert {}
 #[repr(C, align(8))]
 pub struct FToolMenuOwner {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FToolMenuOwner {}
 #[repr(C, align(8))]
@@ -585,7 +585,7 @@ pub struct FToolMenuEntry {
     pub b_should_close_window_after_menu_selection: bool,
     pub script_object: UPtr<UToolMenuEntryScript>,
     pub style_name_override: FName,
-    __padding_end: [u8; 1916],
+    pub(crate) __padding_end: [u8; 1916],
 }
 impl FToolMenuEntry {}
 #[repr(C, align(4))]
@@ -628,20 +628,20 @@ pub struct FToolMenuSection {
     pub insert_position: FToolMenuInsert,
     pub context: FToolMenuContext,
     pub tool_menu_section_dynamic: UPtr<UToolMenuSectionDynamic>,
-    __padding_end: [u8; 400],
+    pub(crate) __padding_end: [u8; 400],
 }
 impl FToolMenuSection {}
 #[repr(C, align(8))]
 pub struct UToolMenu {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub menu_name: FName,
     pub menu_parent: FName,
     pub style_name: FName,
     pub tutorial_highlight_name: FName,
     pub menu_type: crate::bindings::slate::EMultiBoxType,
     #[doc(hidden)]
-    __padding_98: [u8; 1],
+    pub(crate) __padding_98: [u8; 1],
     pub b_should_close_window_after_menu_selection: bool,
     pub b_close_self_only: bool,
     pub b_searchable: bool,
@@ -1023,7 +1023,7 @@ impl USlateTabManagerContext {
 #[repr(C, align(8))]
 pub struct UToolMenuEntryScript {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub data: FToolMenuEntryScriptData,
     __padding_end: [u8; 8],
 }

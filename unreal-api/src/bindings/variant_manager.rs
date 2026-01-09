@@ -481,7 +481,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct FCapturableProperty {
     pub display_name: FString,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FCapturableProperty {}
 #[repr(C, align(8))]

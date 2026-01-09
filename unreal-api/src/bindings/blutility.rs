@@ -1441,7 +1441,7 @@ impl UAsyncRegisterAndExecuteTask {
 #[repr(C, align(8))]
 pub struct AEditorUtilityActor {
     #[doc(hidden)]
-    __padding_1144: [u8; 1144],
+    pub(crate) __padding_1144: [u8; 1144],
     pub b_receives_editor_input: bool,
 }
 impl AEditorUtilityActor {
@@ -3468,11 +3468,11 @@ impl UEditorUtilityTask {
 #[repr(C, align(8))]
 pub struct UEditorUtilityWidget {
     #[doc(hidden)]
-    __padding_1296: [u8; 1296],
+    pub(crate) __padding_1296: [u8; 1296],
     pub tab_display_name: FText,
     pub help_text: FString,
     #[doc(hidden)]
-    __padding_1329: [u8; 1],
+    pub(crate) __padding_1329: [u8; 1],
     pub b_auto_run_default_action: bool,
 }
 impl UEditorUtilityWidget {
@@ -4016,10 +4016,10 @@ impl UEditorUtilityWidgetProjectSettings {
 #[repr(C, align(8))]
 pub struct UDEPRECATED_GlobalEditorUtilityBase {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub help_text: FString,
     #[doc(hidden)]
-    __padding_65: [u8; 1],
+    pub(crate) __padding_65: [u8; 1],
     pub b_auto_run_default_action: bool,
     __padding_end: [u8; 54],
 }
@@ -4459,7 +4459,7 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
 #[repr(C, align(8))]
 pub struct ADEPRECATED_PlacedEditorUtilityBase {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub help_text: FString,
 }
 impl ADEPRECATED_PlacedEditorUtilityBase {
@@ -4745,11 +4745,11 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
 #[repr(C, align(8))]
 pub struct UToolMenuWidget {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub menu_name: FString,
     pub menu_type: crate::bindings::slate::EMultiBoxType,
     #[doc(hidden)]
-    __padding_736: [u8; 20],
+    pub(crate) __padding_736: [u8; 20],
     pub full_menu_name: FName,
 }
 impl UToolMenuWidget {

@@ -44,10 +44,10 @@ impl FVertexLayout {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RigLogic {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub anim_sequence: crate::bindings::engine::FPoseLink,
     pub cache_anim_curve_names: bool,
-    __padding_end: [u8; 79],
+    pub(crate) __padding_end: [u8; 79],
 }
 impl FAnimNode_RigLogic {}
 #[repr(C, align(4))]
@@ -70,7 +70,7 @@ pub struct FRigLogicConfiguration {
 impl FRigLogicConfiguration {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RigLogic {
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FRigUnit_RigLogic {}
 #[repr(C, align(8))]
@@ -97,7 +97,7 @@ impl UDEPRECATED_DNAIndexMapping {
 #[repr(C, align(8))]
 pub struct UDNAAsset {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub meta_data: TMap<FString, FString>,
     pub rig_logic_configuration: FRigLogicConfiguration,
     __padding_end: [u8; 152],

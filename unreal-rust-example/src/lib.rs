@@ -7,8 +7,7 @@ use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
 use unreal_api::bindings::core_u_object::{FTransform, FVector};
 use unreal_api::bindings::engine::{
-    AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, USceneComponent, UStaticMesh,
-    UVolumetricCloudComponent, UWorldPartition,
+    AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, UKismetSystemLibrary, USceneComponent, UStaticMesh, UVolumetricCloudComponent, UWorldPartition
 };
 use unreal_api::bindings::rust_plugin::{ARustActor, URustExtension_FHitResult};
 use unreal_api::bindings::umg::UWidget;
@@ -318,30 +317,30 @@ fn begin(query: Query<(Entity, &ActorComponent)>) {
     //     log::warn!("Class: {}", name);
     // }
 
-    let class = ARustActor::static_class();
-
-    let mut hit_result = FHitResult::new();
-
-    let mut str_alloc = StrRustAlloc::empty();
-    unsafe {
-        (bindings().core_fns.get_class_name)(class as *const UClassOpague, &mut str_alloc);
-    }
-    log::info!("{}", str_alloc.into_string());
-    for (_entity, actor) in query.iter() {
-        let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
-
-        let v = actor.get_actor_location();
-
-        actor.set_actor_location(FVector { x: 0.0, y: 0.0, z: 0.0 }, false, &mut hit_result, true);
-        log::warn!("{} {} {}", v.x, v.y, v.z);
-    }
+    // let class = ARustActor::static_class();
+    //
+    // let mut hit_result = FHitResult::new();
+    //
+    // let mut str_alloc = StrRustAlloc::empty();
+    // unsafe {
+    //     (bindings().core_fns.get_class_name)(class as *const UClassOpague, &mut str_alloc);
+    // }
+    // log::info!("{}", str_alloc.into_string());
+    // for (_entity, actor) in query.iter() {
+    //     let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
+    //
+    //     let v = actor.get_actor_location();
+    //
+    //     actor.set_actor_location(FVector { x: 0.0, y: 0.0, z: 0.0 }, false, &mut hit_result, true);
+    //     log::warn!("{} {} {}", v.x, v.y, v.z);
+    // }
     // log::warn!("Class: {}", ptrs.name_to_ptr.keys().count());
 }
 fn update(query: Query<(Entity, &ActorComponent)>) {
     let mut hit_result = FHitResult::new();
     for (_entity, actor) in query.iter() {
-        let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
 
+        let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
         let v = actor.get_actor_location();
 
         actor.set_actor_location(FVector { x: 0.0, y: 0.0, z: 0.0 }, true, &mut hit_result, false);

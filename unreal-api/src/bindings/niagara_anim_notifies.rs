@@ -68,13 +68,13 @@ impl FCurveParameterPair {}
 #[repr(C, align(8))]
 pub struct UAnimNotifyState_TimedNiagaraEffect {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub template: UPtr<crate::bindings::niagara::UNiagaraSystem>,
     pub socket_name: FName,
     pub location_offset: crate::bindings::core_u_object::FVector,
     pub rotation_offset: crate::bindings::core_u_object::FRotator,
     #[doc(hidden)]
-    __padding_152: [u8; 24],
+    pub(crate) __padding_152: [u8; 24],
     pub b_apply_rate_scale_as_time_dilation: bool,
     pub b_destroy_at_end: bool,
 }
@@ -139,7 +139,7 @@ impl UAnimNotifyState_TimedNiagaraEffect {
 #[repr(C, align(8))]
 pub struct UAnimNotifyState_TimedNiagaraEffectAdvanced {
     #[doc(hidden)]
-    __padding_161: [u8; 161],
+    pub(crate) __padding_161: [u8; 161],
     pub b_apply_rate_scale_to_progress: bool,
     __padding_end: [u8; 118],
 }
@@ -199,12 +199,12 @@ impl UAnimNotifyState_TimedNiagaraEffectAdvanced {
 #[repr(C, align(16))]
 pub struct UAnimNotify_PlayNiagaraEffect {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub template: UPtr<crate::bindings::niagara::UNiagaraSystem>,
     pub location_offset: crate::bindings::core_u_object::FVector,
     pub rotation_offset: crate::bindings::core_u_object::FRotator,
     #[doc(hidden)]
-    __padding_192: [u8; 72],
+    pub(crate) __padding_192: [u8; 72],
     pub flags_192: u8,
     pub socket_name: FName,
 }

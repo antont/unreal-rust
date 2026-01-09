@@ -868,22 +868,22 @@ pub struct FMovieSceneBindingProxy {
 impl FMovieSceneBindingProxy {}
 #[repr(C, align(8))]
 pub struct FMovieSceneDynamicBindingPayloadVariable {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FMovieSceneDynamicBindingPayloadVariable {}
 #[repr(C, align(4))]
 pub struct FMovieSceneObjectBindingID {
-    __padding_end: [u8; 28],
+    pub(crate) __padding_end: [u8; 28],
 }
 impl FMovieSceneObjectBindingID {}
 #[repr(C, align(8))]
 pub struct FMovieSceneTimeWarpVariant {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FMovieSceneTimeWarpVariant {}
 #[repr(C, align(8))]
 pub struct FMovieSceneNumericVariant {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FMovieSceneNumericVariant {}
 #[repr(C, align(4))]
@@ -902,7 +902,7 @@ pub struct FMovieSceneSectionParameters {
     pub time_scale: FMovieSceneTimeWarpVariant,
     pub hierarchical_bias: i32,
     pub flags: EMovieSceneSubSectionFlags,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FMovieSceneSectionParameters {}
 #[repr(C, align(4))]
@@ -919,10 +919,10 @@ pub struct FMovieSceneSequencePlaybackSettings {
     pub start_time: f32,
     pub flags_28: u8,
     #[doc(hidden)]
-    __padding_32: [u8; 3],
+    pub(crate) __padding_32: [u8; 3],
     pub finish_completion_state_override: EMovieSceneCompletionModeOverride,
     #[doc(hidden)]
-    __padding_36: [u8; 3],
+    pub(crate) __padding_36: [u8; 3],
     pub flags_36: u8,
 }
 impl FMovieSceneSequencePlaybackSettings {}
@@ -969,7 +969,7 @@ pub struct FMovieSceneMarkedFrame {
     pub frame_number: crate::bindings::core_u_object::FFrameNumber,
     pub label: FString,
     #[doc(hidden)]
-    __padding_76: [u8; 52],
+    pub(crate) __padding_76: [u8; 52],
     pub b_is_determinism_fence: bool,
     pub b_is_inclusive_time: bool,
 }
@@ -1894,7 +1894,7 @@ impl UMovieSceneCustomBinding {
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableBindingBase {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub preview_spawnable: UPtr<UMovieSceneSpawnableBindingBase>,
 }
 impl UMovieSceneReplaceableBindingBase {
@@ -1917,7 +1917,7 @@ impl UMovieSceneReplaceableBindingBase {
 #[repr(C, align(8))]
 pub struct UMovieSceneSpawnableBindingBase {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub spawn_ownership: ESpawnOwnership,
     pub b_continuously_respawn: bool,
 }
@@ -1962,7 +1962,7 @@ impl UMovieSceneChannelOverrideContainer {
 #[repr(C, align(8))]
 pub struct UMovieSceneCondition {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub b_editor_force_true: bool,
     pub b_invert: bool,
 }
@@ -2095,7 +2095,7 @@ impl UMovieSceneEntityInstantiatorSystem {
 #[repr(C, align(8))]
 pub struct UMovieSceneSubSection {
     #[doc(hidden)]
-    __padding_368: [u8; 368],
+    pub(crate) __padding_368: [u8; 368],
     pub parameters: FMovieSceneSectionParameters,
     __padding_end: [u8; 2000],
 }
@@ -2963,7 +2963,7 @@ impl UMovieSceneCompiledDataManager {
 #[repr(C, align(8))]
 pub struct UMovieSceneGroupCondition {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub operator: EMovieSceneGroupConditionOperator,
     pub sub_conditions: TArray<FMovieSceneConditionContainer>,
 }
@@ -5539,7 +5539,7 @@ impl UTestMovieSceneObject {
 #[repr(C, align(8))]
 pub struct ATestMovieSceneArrayPropertiesActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub test_bool: bool,
     pub test_enum: ETestMovieSceneEnum,
     pub test_int32: i32,

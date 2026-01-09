@@ -63,21 +63,21 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FBoneReferencePair {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FBoneReferencePair {}
 #[repr(C, align(8))]
 pub struct FFootDefinition {
     #[doc(hidden)]
-    __padding_12: [u8; 12],
+    pub(crate) __padding_12: [u8; 12],
     pub reference_bone_name: FName,
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FFootDefinition {}
 #[repr(C, align(8))]
 pub struct UCopyBonesModifier {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub bone_pairs: TArray<FBoneReferencePair>,
     pub bone_pose_space: crate::bindings::animation_blueprint_library::EAnimPoseSpaces,
 }
@@ -122,7 +122,7 @@ impl UEncodeRootBoneModifier {
 #[repr(C, align(8))]
 pub struct UFootstepAnimEventsModifier {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub sample_rate: i32,
     pub ground_threshold: f32,
     pub speed_threshold: f32,
@@ -171,7 +171,7 @@ impl UMirrorModifier {
 #[repr(C, align(8))]
 pub struct UMotionExtractorModifier {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub bone_name: FName,
     pub relative_to_bone_name: FName,
     pub motion_type: EMotionExtractor_MotionType,
@@ -180,13 +180,13 @@ pub struct UMotionExtractorModifier {
     pub b_relative_to_first_frame: bool,
     pub space: EMotionExtractor_Space,
     #[doc(hidden)]
-    __padding_150: [u8; 1],
+    pub(crate) __padding_150: [u8; 1],
     pub b_absolute_value: bool,
     pub math_operation: EMotionExtractor_MathOperation,
     pub modifier: f32,
     pub b_normalize: bool,
     #[doc(hidden)]
-    __padding_164: [u8; 7],
+    pub(crate) __padding_164: [u8; 7],
     pub b_use_custom_curve_name: bool,
     pub custom_curve_name: FName,
 }
@@ -461,7 +461,7 @@ impl UMotionExtractorUtilityLibrary {
 #[repr(C, align(8))]
 pub struct UReOrientRootBoneModifier {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub rotator: crate::bindings::core_u_object::FRotator,
 }
 impl UReOrientRootBoneModifier {
@@ -484,7 +484,7 @@ impl UReOrientRootBoneModifier {
 #[repr(C, align(8))]
 pub struct UZeroOutRootBoneModifier {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub b_clip_start_frames_with_no_motion: bool,
     pub b_clip_end_frames_with_no_motion: bool,
 }

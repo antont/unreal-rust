@@ -186,7 +186,7 @@ impl UK2Node_ReadDataChannelSingle_WithContext {
 #[repr(C, align(8))]
 pub struct UK2Node_DataChannelAccessContextOperation {
     #[doc(hidden)]
-    __padding_352: [u8; 352],
+    pub(crate) __padding_352: [u8; 352],
     pub context_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     __padding_end: [u8; 16],
 }

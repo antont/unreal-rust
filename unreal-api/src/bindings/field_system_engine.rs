@@ -384,7 +384,7 @@ impl FFieldObjectCommands {}
 #[repr(C, align(8))]
 pub struct AFieldSystemActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub field_system_component: UPtr<UFieldSystemComponent>,
 }
 impl AFieldSystemActor {
@@ -428,7 +428,7 @@ impl UFieldSystem {
 #[repr(C, align(16))]
 pub struct UFieldSystemComponent {
     #[doc(hidden)]
-    __padding_1504: [u8; 1504],
+    pub(crate) __padding_1504: [u8; 1504],
     pub field_system: UPtr<UFieldSystem>,
     __padding_end: [u8; 200],
 }
@@ -974,7 +974,7 @@ impl UFieldSystemMetaData {
 #[repr(C, align(8))]
 pub struct UFieldSystemMetaDataIteration {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub iterations: i32,
 }
 impl UFieldSystemMetaDataIteration {
@@ -1029,7 +1029,7 @@ impl UFieldSystemMetaDataIteration {
 #[repr(C, align(8))]
 pub struct UFieldSystemMetaDataProcessingResolution {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub resolution_type: crate::bindings::chaos::EFieldResolutionType,
 }
 impl UFieldSystemMetaDataProcessingResolution {
@@ -1093,7 +1093,7 @@ impl UFieldSystemMetaDataProcessingResolution {
 #[repr(C, align(8))]
 pub struct UFieldSystemMetaDataFilter {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub filter_type: crate::bindings::chaos::EFieldFilterType,
     pub object_type: crate::bindings::chaos::EFieldObjectType,
     pub position_type: crate::bindings::chaos::EFieldPositionType,
@@ -1254,7 +1254,7 @@ impl UFieldNodeVector {
 #[repr(C, align(8))]
 pub struct UUniformInteger {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: i32,
 }
 impl UUniformInteger {
@@ -1306,7 +1306,7 @@ impl UUniformInteger {
 #[repr(C, align(8))]
 pub struct URadialIntMask {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub radius: f32,
     pub position: crate::bindings::core_u_object::FVector,
     pub interior_value: i32,
@@ -1397,7 +1397,7 @@ impl URadialIntMask {
 #[repr(C, align(8))]
 pub struct UUniformScalar {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
 }
 impl UUniformScalar {
@@ -1449,7 +1449,7 @@ impl UUniformScalar {
 #[repr(C, align(8))]
 pub struct UWaveScalar {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub position: crate::bindings::core_u_object::FVector,
     pub wavelength: f32,
@@ -1549,7 +1549,7 @@ impl UWaveScalar {
 #[repr(C, align(8))]
 pub struct URadialFalloff {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub min_range: f32,
     pub max_range: f32,
@@ -1642,7 +1642,7 @@ impl URadialFalloff {
 #[repr(C, align(8))]
 pub struct UPlaneFalloff {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub min_range: f32,
     pub max_range: f32,
@@ -1744,7 +1744,7 @@ impl UPlaneFalloff {
 #[repr(C, align(16))]
 pub struct UBoxFalloff {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub min_range: f32,
     pub max_range: f32,
@@ -1832,7 +1832,7 @@ impl UBoxFalloff {
 #[repr(C, align(16))]
 pub struct UNoiseField {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub min_range: f32,
     pub max_range: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
@@ -1901,7 +1901,7 @@ impl UNoiseField {
 #[repr(C, align(8))]
 pub struct UUniformVector {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub direction: crate::bindings::core_u_object::FVector,
 }
@@ -1965,7 +1965,7 @@ impl UUniformVector {
 #[repr(C, align(8))]
 pub struct URadialVector {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub position: crate::bindings::core_u_object::FVector,
 }
@@ -2029,7 +2029,7 @@ impl URadialVector {
 #[repr(C, align(8))]
 pub struct URandomVector {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
 }
 impl URandomVector {
@@ -2081,7 +2081,7 @@ impl URandomVector {
 #[repr(C, align(8))]
 pub struct UOperatorField {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub magnitude: f32,
     pub right_field: UPtr<UFieldNodeBase>,
     pub left_field: UPtr<UFieldNodeBase>,
@@ -2163,7 +2163,7 @@ impl UOperatorField {
 #[repr(C, align(8))]
 pub struct UToIntegerField {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub float_field: UPtr<UFieldNodeFloat>,
 }
 impl UToIntegerField {
@@ -2222,7 +2222,7 @@ impl UToIntegerField {
 #[repr(C, align(8))]
 pub struct UToFloatField {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub int_field: UPtr<UFieldNodeInt>,
 }
 impl UToFloatField {
@@ -2281,7 +2281,7 @@ impl UToFloatField {
 #[repr(C, align(8))]
 pub struct UCullingField {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub culling: UPtr<UFieldNodeBase>,
     pub field: UPtr<UFieldNodeBase>,
     pub operation: crate::bindings::chaos::EFieldCullingOperationType,

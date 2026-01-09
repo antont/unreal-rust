@@ -281,7 +281,7 @@ pub struct FCameraAnimationParams {
 impl FCameraAnimationParams {}
 #[repr(C, align(2))]
 pub struct FCameraAnimationHandle {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FCameraAnimationHandle {}
 #[repr(C, align(4))]
@@ -289,7 +289,7 @@ pub struct FFOscillator {
     pub amplitude: f32,
     pub frequency: f32,
     #[doc(hidden)]
-    __padding_9: [u8; 1],
+    pub(crate) __padding_9: [u8; 1],
     pub waveform: EOscillatorWaveform,
 }
 impl FFOscillator {}
@@ -1133,12 +1133,12 @@ impl UDefaultCameraShakeBase {
 #[repr(C, align(16))]
 pub struct ULegacyCameraShake {
     #[doc(hidden)]
-    __padding_228: [u8; 228],
+    pub(crate) __padding_228: [u8; 228],
     pub rot_oscillation: FROscillator,
     pub loc_oscillation: FVOscillator,
     pub fov_oscillation: FFOscillator,
     #[doc(hidden)]
-    __padding_348: [u8; 36],
+    pub(crate) __padding_348: [u8; 36],
     pub oscillator_time_remaining: f32,
     __padding_end: [u8; 144],
 }
@@ -1551,7 +1551,7 @@ impl USimpleCameraShakePattern {
 #[repr(C, align(8))]
 pub struct UPerlinNoiseCameraShakePattern {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub location_amplitude_multiplier: f32,
     pub location_frequency_multiplier: f32,
     pub x: FPerlinNoiseShaker,
@@ -1585,7 +1585,7 @@ impl UPerlinNoiseCameraShakePattern {
 #[repr(C, align(8))]
 pub struct UWaveOscillatorCameraShakePattern {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub location_amplitude_multiplier: f32,
     pub location_frequency_multiplier: f32,
     pub x: FWaveOscillator,

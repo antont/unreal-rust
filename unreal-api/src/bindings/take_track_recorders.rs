@@ -139,12 +139,12 @@ impl UMovieSceneAnimationTrackRecorder {
 #[repr(C, align(8))]
 pub struct UMovieSceneAnimationTrackRecorderEditorSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub animation_track_name: FText,
     pub animation_asset_name: FString,
     pub animation_sub_directory: FString,
     #[doc(hidden)]
-    __padding_98: [u8; 2],
+    pub(crate) __padding_98: [u8; 2],
     pub b_remove_root_animation: bool,
     pub timecode_bone_method: crate::bindings::sequence_recorder::FTimecodeBoneMethod,
 }

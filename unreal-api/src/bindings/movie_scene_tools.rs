@@ -87,12 +87,12 @@ pub struct FBakingAnimationKeySettings {
 impl FBakingAnimationKeySettings {}
 #[repr(C, align(1))]
 pub struct FControlToTransformMappings {
-    __padding_end: [u8; 3],
+    pub(crate) __padding_end: [u8; 3],
 }
 impl FControlToTransformMappings {}
 #[repr(C, align(8))]
 pub struct FControlFindReplaceString {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FControlFindReplaceString {}
 #[repr(C, align(8))]
@@ -119,7 +119,7 @@ impl UMovieSceneTextKeyStruct {
 #[repr(C, align(8))]
 pub struct USequencerExportTask {
     #[doc(hidden)]
-    __padding_128: [u8; 128],
+    pub(crate) __padding_128: [u8; 128],
     pub sequencer_context: UPtr<crate::bindings::core_u_object::UObject>,
 }
 impl USequencerExportTask {
@@ -142,7 +142,7 @@ impl USequencerExportTask {
 #[repr(C, align(8))]
 pub struct UAutomatedLevelSequenceCapture {
     #[doc(hidden)]
-    __padding_600: [u8; 600],
+    pub(crate) __padding_600: [u8; 600],
     pub level_sequence_asset: crate::bindings::core_u_object::FSoftObjectPath,
     pub shot_name: FString,
     pub b_use_custom_start_frame: bool,
@@ -548,13 +548,13 @@ impl UMovieSceneUserImportFBXControlRigSettings {
 #[repr(C, align(8))]
 pub struct UMovieSceneUserExportFBXControlRigSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub fbx_export_compatibility: crate::bindings::unreal_ed::EFbxExportCompatibility,
     #[doc(hidden)]
-    __padding_68: [u8; 3],
+    pub(crate) __padding_68: [u8; 3],
     pub flags_68: u8,
     #[doc(hidden)]
-    __padding_96: [u8; 27],
+    pub(crate) __padding_96: [u8; 27],
     pub flags_96: u8,
 }
 impl UMovieSceneUserExportFBXControlRigSettings {

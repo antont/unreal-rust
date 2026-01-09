@@ -1,5 +1,12 @@
 use std::ffi::c_void;
 
+use glam::{DVec3, Vec3};
+
+use crate::bindings::{
+    core_u_object::{FQuat, FTransform, FVector},
+    rig_vm::FRigVMFunction_MathQuaternionUnaryOp,
+};
+
 #[repr(C)]
 pub struct FName {
     pub comparison_index: u32,
@@ -68,7 +75,6 @@ pub struct FString {
     pub num: i32,
     pub max: i32,
 }
-
 
 // TODO: Layout
 pub struct FField;
@@ -159,5 +165,78 @@ impl<const N: usize> StackAlloc<N> {
 
     pub fn buffer_mut(&mut self) -> *mut c_void {
         self.stack.as_mut_ptr() as *mut c_void
+    }
+}
+
+impl<const N: usize> Default for StackAlloc<N> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl FVector {
+    pub const ONE: FVector = FVector {
+        x: 1.0,
+        y: 1.0,
+        z: 1.0,
+    };
+    pub const ZERO: FVector = FVector {
+        x: 0.0,
+        y: 0.0,
+        z: 0.0,
+    };
+}
+
+impl FQuat {
+    pub const IDENTITY: FQuat = FQuat {
+        x: 0.0,
+        y: 0.0,
+        z: 0.0,
+        w: 1.0,
+    };
+}
+
+impl Default for FQuat {
+    fn default() -> Self {
+        Self::IDENTITY
+    }
+}
+
+impl From<glam::DQuat> for FQuat {
+    fn from(value: glam::DQuat) -> Self {
+        let arr = value.as_ref();
+        FQuat {
+            x: arr[0],
+            y: arr[1],
+            z: arr[2],
+            w: arr[3],
+        }
+    }
+}
+
+impl From<DVec3> for FVector {
+    fn from(value: DVec3) -> Self {
+        Self {
+            x: value.x,
+            y: value.y,
+            z: value.z,
+        }
+    }
+}
+
+impl FTransform {
+    pub fn new(rotation: FQuat, translation: FVector, scale: FVector) -> Self {
+        FTransform {
+            translation,
+            rotation,
+            __padding_64: [0; 8],
+            scale3_d: scale,
+        }
+    }
+}
+
+impl Default for FTransform {
+    fn default() -> Self {
+        FTransform::new(FQuat::IDENTITY, FVector::ZERO, FVector::ONE)
     }
 }

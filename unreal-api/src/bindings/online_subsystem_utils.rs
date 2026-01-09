@@ -680,7 +680,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FBlueprintSessionResult {
-    __padding_end: [u8; 288],
+    pub(crate) __padding_end: [u8; 288],
 }
 impl FBlueprintSessionResult {}
 #[repr(C, align(8))]

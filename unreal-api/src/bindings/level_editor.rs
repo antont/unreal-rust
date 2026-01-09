@@ -319,13 +319,13 @@ impl ULevelEditorMenuContext {
 #[repr(C, align(8))]
 pub struct ULevelEditorContextMenuContext {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub context_type: ELevelEditorMenuContext,
     pub current_selection: UPtr<
         crate::bindings::typed_element_runtime::UTypedElementSelectionSet,
     >,
     #[doc(hidden)]
-    __padding_96: [u8; 16],
+    pub(crate) __padding_96: [u8; 16],
     pub cursor_world_location: crate::bindings::core_u_object::FVector,
     pub selected_components: TArray<UPtr<crate::bindings::engine::UActorComponent>>,
     pub hit_proxy_actor: TWeakObjectPtr<crate::bindings::engine::AActor>,
@@ -427,7 +427,7 @@ impl ULevelViewportToolBarContext {
 #[repr(C, align(8))]
 pub struct UQuickActionMenuContext {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub current_selection: UPtr<
         crate::bindings::typed_element_runtime::UTypedElementSelectionSet,
     >,

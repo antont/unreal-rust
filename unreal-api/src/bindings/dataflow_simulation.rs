@@ -50,7 +50,7 @@ pub struct FDataflowSimulationAsset {
 impl FDataflowSimulationAsset {}
 #[repr(C, align(8))]
 pub struct FDataflowSimulationProperty {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FDataflowSimulationProperty {}
 pub struct IDataflowGeometryCachable {}

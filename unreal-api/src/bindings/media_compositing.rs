@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct UMovieSceneMediaPlayerPropertySection {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub media_source: UPtr<crate::bindings::media_assets::UMediaSource>,
     pub b_loop: bool,
 }
@@ -63,7 +63,7 @@ impl UMovieSceneMediaPlayerPropertyTrack {
 #[repr(C, align(8))]
 pub struct UMovieSceneMediaSection {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub media_source: UPtr<crate::bindings::media_assets::UMediaSource>,
     pub media_source_proxy_index: i32,
     pub b_looping: bool,

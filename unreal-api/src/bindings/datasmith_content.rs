@@ -98,7 +98,7 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FDatasmithAssetImportOptions {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FDatasmithAssetImportOptions {}
 #[repr(C, align(1))]
@@ -140,7 +140,7 @@ impl FDatasmithTessellationOptions {}
 #[repr(C, align(8))]
 pub struct FDatasmithRetessellationOptions {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub retessellation_rule: EDatasmithCADRetessellationRule,
 }
 impl FDatasmithRetessellationOptions {}
@@ -168,7 +168,7 @@ impl UDatasmithAdditionalData {
 #[repr(C, align(8))]
 pub struct ADatasmithAreaLightActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub mobility: crate::bindings::engine::EComponentMobility,
     pub light_type: EDatasmithAreaLightActorType,
     pub light_shape: EDatasmithAreaLightActorShape,
@@ -207,7 +207,7 @@ impl ADatasmithAreaLightActor {
 #[repr(C, align(8))]
 pub struct UDatasmithAssetImportData {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub asset_import_options: FDatasmithAssetImportOptions,
     __padding_end: [u8; 52],
 }
@@ -504,7 +504,7 @@ impl UDatasmithVREDSceneImportData {
 #[repr(C, align(8))]
 pub struct UDatasmithAssetUserData {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub meta_data: TMap<FName, FString>,
     __padding_end: [u8; 80],
 }
@@ -880,7 +880,7 @@ impl UDatasmithCustomActionBase {
 #[repr(C, align(8))]
 pub struct ADatasmithImportedSequencesActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub imported_sequences: TArray<
         UPtr<crate::bindings::level_sequence::ULevelSequence>,
     >,
@@ -963,7 +963,7 @@ impl UDatasmithOptionsBase {
 #[repr(C, align(8))]
 pub struct UDatasmithCommonTessellationOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub options: FDatasmithTessellationOptions,
 }
 impl UDatasmithCommonTessellationOptions {
@@ -986,7 +986,7 @@ impl UDatasmithCommonTessellationOptions {
 #[repr(C, align(8))]
 pub struct UDatasmithImportOptions {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub base_options: FDatasmithImportBaseOptions,
     pub reimport_options: FDatasmithReimportOptions,
     pub file_name: FString,

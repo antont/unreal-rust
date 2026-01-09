@@ -427,24 +427,24 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FGameplayTag {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FGameplayTag {}
 #[repr(C, align(8))]
 pub struct FGameplayTagContainer {
     pub gameplay_tags: TArray<FGameplayTag>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FGameplayTagContainer {}
 #[repr(C, align(8))]
 pub struct FGameplayTagQuery {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FGameplayTagQuery {}
 #[repr(C, align(8))]
 pub struct FGameplayTagTableRow {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub tag: FName,
     pub dev_comment: FString,
 }
@@ -452,7 +452,7 @@ impl FGameplayTagTableRow {}
 #[repr(C, align(8))]
 pub struct FRestrictedGameplayTagTableRow {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub b_allow_non_restricted_children: bool,
 }
 impl FRestrictedGameplayTagTableRow {}

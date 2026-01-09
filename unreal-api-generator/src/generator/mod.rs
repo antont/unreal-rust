@@ -818,7 +818,7 @@ pub fn generate_properties(
                 let padding_ident = format_ident!("__padding_{}", property.offset);
                 quote! {
                     #[doc(hidden)]
-                    #padding_ident: [u8; #padding_lit],
+                    pub(crate) #padding_ident: [u8; #padding_lit],
                 }
             } else {
                 quote! {}
@@ -982,7 +982,7 @@ pub fn generate_struct(
     {
         let padding_size = Literal::usize_unsuffixed(struct_def.property_sizes as usize - offset);
         Some(quote! {
-            __padding_end: [u8; #padding_size]
+            pub(crate) __padding_end: [u8; #padding_size]
         })
     } else {
         None

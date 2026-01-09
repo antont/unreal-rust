@@ -90,7 +90,7 @@ impl FMediaSourceColorSettings {}
 #[repr(C, align(8))]
 pub struct UImgMediaSource {
     #[doc(hidden)]
-    __padding_332: [u8; 332],
+    pub(crate) __padding_332: [u8; 332],
     pub frame_rate_override: crate::bindings::core_u_object::FFrameRate,
     pub proxy_override: FString,
     pub b_fill_gaps_in_sequence: bool,

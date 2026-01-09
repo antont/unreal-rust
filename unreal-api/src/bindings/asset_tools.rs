@@ -247,7 +247,7 @@ pub struct FAssetRenameData {
     pub asset: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
     pub new_package_path: FString,
     pub new_name: FString,
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FAssetRenameData {}
 #[repr(C, align(8))]

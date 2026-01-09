@@ -40,7 +40,7 @@ impl UInterchangeAnimationPayloadInterface {
 #[repr(C, align(8))]
 pub struct UInterchangeAssetUserData {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub meta_data: TMap<FString, FString>,
 }
 impl UInterchangeAssetUserData {
@@ -63,7 +63,7 @@ impl UInterchangeAssetUserData {
 #[repr(C, align(8))]
 pub struct UInterchangeLevelAssetUserData {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub scene_import_paths: TArray<FString>,
 }
 impl UInterchangeLevelAssetUserData {

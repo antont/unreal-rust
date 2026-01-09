@@ -117,7 +117,7 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FTemplateSequenceBindingOverrideData {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FTemplateSequenceBindingOverrideData {}
 #[repr(C, align(8))]
@@ -396,7 +396,7 @@ impl UTemplateSequencePropertyScalingEvaluatorSystem {
 #[repr(C, align(8))]
 pub struct ATemplateSequenceActor {
     #[doc(hidden)]
-    __padding_1144: [u8; 1144],
+    pub(crate) __padding_1144: [u8; 1144],
     pub playback_settings: crate::bindings::movie_scene::FMovieSceneSequencePlaybackSettings,
     pub sequence_player: UPtr<UTemplateSequencePlayer>,
     pub template_sequence: crate::bindings::core_u_object::FSoftObjectPath,

@@ -4854,7 +4854,7 @@ impl ULevelSequenceEditorSettings {
 #[repr(C, align(8))]
 pub struct ULevelSequenceWithShotsSettings {
     #[doc(hidden)]
-    __padding_128: [u8; 128],
+    pub(crate) __padding_128: [u8; 128],
     pub sub_sequence_names: TArray<FName>,
     __padding_end: [u8; 8],
 }

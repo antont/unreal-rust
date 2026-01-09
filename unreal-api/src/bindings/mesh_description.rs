@@ -870,37 +870,37 @@ pub struct FElementID {
 impl FElementID {}
 #[repr(C, align(4))]
 pub struct FVertexID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FVertexID {}
 #[repr(C, align(4))]
 pub struct FVertexInstanceID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FVertexInstanceID {}
 #[repr(C, align(4))]
 pub struct FEdgeID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FEdgeID {}
 #[repr(C, align(4))]
 pub struct FUVID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FUVID {}
 #[repr(C, align(4))]
 pub struct FTriangleID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FTriangleID {}
 #[repr(C, align(4))]
 pub struct FPolygonGroupID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FPolygonGroupID {}
 #[repr(C, align(4))]
 pub struct FPolygonID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FPolygonID {}
 #[repr(C, align(8))]

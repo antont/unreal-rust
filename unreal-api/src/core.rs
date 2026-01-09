@@ -12,6 +12,8 @@ use unreal_reflect::{
     registry::{ReflectType, ReflectValue},
 };
 
+use crate::bindings::core_u_object::FTransform;
+use crate::bindings::engine::{AActor, FHitResult};
 use crate::module::with_global_mut;
 use crate::{
     api::UnrealApi,
@@ -574,6 +576,10 @@ pub struct ActorComponent {
 }
 
 impl ActorComponent {
+    pub fn get(&self) -> Option<&AActor>
+    {
+        self.actor.cast::<AActor>().as_ref()
+    }
     pub fn register_on_hit(&mut self) {
         unsafe {
             (bindings().actor_fns.register_actor_on_hit)(self.actor.0);
@@ -762,12 +768,30 @@ fn upload_transform_to_unreal(query: Query<(&ActorComponent, &TransformComponent
             continue;
         }
         assert!(!transform.is_nan());
-        (bindings().actor_fns.set_spatial_data)(
-            actor.actor.0,
-            transform.position.into(),
-            transform.rotation.into(),
-            transform.scale.into(),
+
+        let actor = unsafe {
+            actor
+                .actor
+                .0
+                .cast::<unreal_api::bindings::engine::AActor>()
+                .as_mut()
+                .unwrap()
+        };
+
+        let t = FTransform::new(
+            transform.rotation.as_f64().into(),
+            transform.position.as_dvec3().into(),
+            transform.scale.as_dvec3().into(),
         );
+
+        let mut hit = FHitResult::new();
+        actor.set_actor_transform(&t, false, &mut hit, false);
+        // (bindings().actor_fns.set_spatial_data)(
+        //     actor.actor.0,
+        //     transform.position.into(),
+        //     transform.rotation.into(),
+        //     transform.scale.into(),
+        // );
     }
 }
 

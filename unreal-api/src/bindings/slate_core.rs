@@ -17,13 +17,13 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(4))]
 pub struct FGeometry {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FGeometry {}
 #[repr(C, align(16))]
 pub struct FSlateBrush {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub tint_color: FSlateColor,
     pub draw_as: ESlateBrushDrawType,
     pub tiling: ESlateBrushTileType,
@@ -31,10 +31,10 @@ pub struct FSlateBrush {
     pub image_size: FDeprecateSlateVector2D,
     pub margin: FMargin,
     #[doc(hidden)]
-    __padding_72: [u8; 16],
+    pub(crate) __padding_72: [u8; 16],
     pub resource_object: UPtr<crate::bindings::core_u_object::UObject>,
     pub outline_settings: FSlateBrushOutlineSettings,
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FSlateBrush {}
 #[repr(C, align(16))]
@@ -62,23 +62,23 @@ pub struct FMargin {
 impl FMargin {}
 #[repr(C, align(4))]
 pub struct FDeprecateSlateVector2D {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FDeprecateSlateVector2D {}
 #[repr(C, align(8))]
 pub struct FInputEvent {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FInputEvent {}
 #[repr(C, align(8))]
 pub struct FPointerEvent {
-    __padding_end: [u8; 136],
+    pub(crate) __padding_end: [u8; 136],
 }
 impl FPointerEvent {}
 #[repr(C, align(16))]
 pub struct FScrollBarStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub horizontal_background_image: FSlateBrush,
     pub vertical_background_image: FSlateBrush,
     pub vertical_top_slot_image: FSlateBrush,
@@ -94,7 +94,7 @@ impl FScrollBarStyle {}
 #[repr(C, align(16))]
 pub struct FTableRowStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub selector_focused_brush: FSlateBrush,
     pub active_hovered_brush: FSlateBrush,
     pub active_brush: FSlateBrush,
@@ -119,25 +119,25 @@ impl FTableRowStyle {}
 #[repr(C, align(16))]
 pub struct FComboBoxStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub combo_button_style: FComboButtonStyle,
     pub pressed_slate_sound: FSlateSound,
     pub selection_change_slate_sound: FSlateSound,
     pub content_padding: FMargin,
     pub menu_row_padding: FMargin,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FComboBoxStyle {}
 #[repr(C, align(8))]
 pub struct FSlateSound {
     pub resource_object: UPtr<crate::bindings::core_u_object::UObject>,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FSlateSound {}
 #[repr(C, align(16))]
 pub struct FComboButtonStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub button_style: FButtonStyle,
     pub down_arrow_image: FSlateBrush,
     pub shadow_offset: FDeprecateSlateVector2D,
@@ -152,7 +152,7 @@ impl FComboButtonStyle {}
 #[repr(C, align(16))]
 pub struct FButtonStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub normal: FSlateBrush,
     pub hovered: FSlateBrush,
     pub pressed: FSlateBrush,
@@ -166,7 +166,7 @@ pub struct FButtonStyle {
     pub pressed_slate_sound: FSlateSound,
     pub clicked_slate_sound: FSlateSound,
     pub hovered_slate_sound: FSlateSound,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FButtonStyle {}
 #[repr(C, align(8))]
@@ -175,17 +175,17 @@ pub struct FSlateFontInfo {
     pub font_material: UPtr<crate::bindings::core_u_object::UObject>,
     pub outline_settings: FFontOutlineSettings,
     #[doc(hidden)]
-    __padding_64: [u8; 16],
+    pub(crate) __padding_64: [u8; 16],
     pub typeface_font_name: FName,
     pub size: f32,
     pub letter_spacing: i32,
     pub skew_amount: f32,
     #[doc(hidden)]
-    __padding_89: [u8; 1],
+    pub(crate) __padding_89: [u8; 1],
     pub b_force_monospaced: bool,
     pub b_material_is_stencil: bool,
     pub monospaced_width: f32,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FSlateFontInfo {}
 #[repr(C, align(8))]
@@ -201,7 +201,7 @@ impl FFontOutlineSettings {}
 #[repr(C, align(16))]
 pub struct FEditableTextStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub font: FSlateFontInfo,
     pub color_and_opacity: FSlateColor,
     pub background_image_selected: FSlateBrush,
@@ -212,14 +212,14 @@ impl FEditableTextStyle {}
 #[repr(C, align(16))]
 pub struct FEditableTextBoxStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub background_image_normal: FSlateBrush,
     pub background_image_hovered: FSlateBrush,
     pub background_image_focused: FSlateBrush,
     pub background_image_read_only: FSlateBrush,
     pub padding: FMargin,
     #[doc(hidden)]
-    __padding_976: [u8; 112],
+    pub(crate) __padding_976: [u8; 112],
     pub text_style: FTextBlockStyle,
     pub foreground_color: FSlateColor,
     pub background_color: FSlateColor,
@@ -233,13 +233,13 @@ impl FEditableTextBoxStyle {}
 #[repr(C, align(16))]
 pub struct FTextBlockStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub font: FSlateFontInfo,
     pub color_and_opacity: FSlateColor,
     pub shadow_offset: FDeprecateSlateVector2D,
     pub shadow_color_and_opacity: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_184: [u8; 20],
+    pub(crate) __padding_184: [u8; 20],
     pub highlight_color: FSlateColor,
     pub highlight_shape: FSlateBrush,
     pub strike_brush: FSlateBrush,
@@ -251,7 +251,7 @@ impl FTextBlockStyle {}
 #[repr(C, align(16))]
 pub struct FSpinBoxStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub background_brush: FSlateBrush,
     pub active_background_brush: FSlateBrush,
     pub hovered_background_brush: FSlateBrush,
@@ -260,55 +260,55 @@ pub struct FSpinBoxStyle {
     pub inactive_fill_brush: FSlateBrush,
     pub arrows_image: FSlateBrush,
     #[doc(hidden)]
-    __padding_1492: [u8; 20],
+    pub(crate) __padding_1492: [u8; 20],
     pub text_padding: FMargin,
     pub inset_padding: FMargin,
 }
 impl FSpinBoxStyle {}
 #[repr(C, align(8))]
 pub struct FCharacterEvent {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FCharacterEvent {}
 #[repr(C, align(8))]
 pub struct FKeyEvent {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FKeyEvent {}
 #[repr(C, align(8))]
 pub struct FNavigationEvent {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FNavigationEvent {}
 #[repr(C, align(8))]
 pub struct FAnalogInputEvent {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FAnalogInputEvent {}
 #[repr(C, align(4))]
 pub struct FFontSdfSettings {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FFontSdfSettings {}
 #[repr(C, align(4))]
 pub struct FFocusEvent {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FFocusEvent {}
 #[repr(C, align(4))]
 pub struct FCaptureLostEvent {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FCaptureLostEvent {}
 #[repr(C, align(8))]
 pub struct FMotionEvent {
-    __padding_end: [u8; 136],
+    pub(crate) __padding_end: [u8; 136],
 }
 impl FMotionEvent {}
 #[repr(C, align(16))]
 pub struct FSegmentedControlStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control_style: FCheckBoxStyle,
     pub first_control_style: FCheckBoxStyle,
     pub last_control_style: FCheckBoxStyle,
@@ -319,7 +319,7 @@ impl FSegmentedControlStyle {}
 #[repr(C, align(16))]
 pub struct FCheckBoxStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub check_box_type: ESlateCheckBoxType,
     pub unchecked_image: FSlateBrush,
     pub unchecked_hovered_image: FSlateBrush,
@@ -345,13 +345,13 @@ pub struct FCheckBoxStyle {
     pub checked_slate_sound: FSlateSound,
     pub unchecked_slate_sound: FSlateSound,
     pub hovered_slate_sound: FSlateSound,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FCheckBoxStyle {}
 #[repr(C, align(16))]
 pub struct FHyperlinkStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub underline_style: FButtonStyle,
     pub text_style: FTextBlockStyle,
     pub padding: FMargin,
@@ -360,7 +360,7 @@ impl FHyperlinkStyle {}
 #[repr(C, align(16))]
 pub struct FInlineEditableTextBlockStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub editable_text_box_style: FEditableTextBoxStyle,
     pub text_style: FTextBlockStyle,
 }
@@ -368,7 +368,7 @@ impl FInlineEditableTextBlockStyle {}
 #[repr(C, align(16))]
 pub struct FProgressBarStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub background_image: FSlateBrush,
     pub fill_image: FSlateBrush,
     pub marquee_image: FSlateBrush,
@@ -378,7 +378,7 @@ impl FProgressBarStyle {}
 #[repr(C, align(16))]
 pub struct FSliderStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub normal_bar_image: FSlateBrush,
     pub hovered_bar_image: FSlateBrush,
     pub disabled_bar_image: FSlateBrush,
@@ -391,7 +391,7 @@ impl FSliderStyle {}
 #[repr(C, align(16))]
 pub struct FSplitterStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub handle_normal_brush: FSlateBrush,
     pub handle_highlight_brush: FSlateBrush,
 }
@@ -399,14 +399,14 @@ impl FSplitterStyle {}
 #[repr(C, align(16))]
 pub struct FTableViewStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub background_brush: FSlateBrush,
 }
 impl FTableViewStyle {}
 #[repr(C, align(16))]
 pub struct FScrollBoxStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bar_thickness: f32,
     pub top_shadow_brush: FSlateBrush,
     pub bottom_shadow_brush: FSlateBrush,
@@ -419,7 +419,7 @@ impl FScrollBoxStyle {}
 #[repr(C, align(16))]
 pub struct FScrollBorderStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub top_shadow_brush: FSlateBrush,
     pub bottom_shadow_brush: FSlateBrush,
 }
@@ -427,7 +427,7 @@ impl FScrollBorderStyle {}
 #[repr(C, align(16))]
 pub struct FWindowStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub minimize_button_style: FButtonStyle,
     pub maximize_button_style: FButtonStyle,
     pub restore_button_style: FButtonStyle,
@@ -465,10 +465,10 @@ impl FWrapButtonStyle {}
 #[repr(C, align(16))]
 pub struct FToolBarStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub background_brush: FSlateBrush,
     #[doc(hidden)]
-    __padding_432: [u8; 208],
+    pub(crate) __padding_432: [u8; 208],
     pub separator_brush: FSlateBrush,
     pub label_style: FTextBlockStyle,
     pub editable_text_style: FEditableTextBoxStyle,
@@ -494,7 +494,7 @@ pub struct FToolBarStyle {
     pub background_padding: FMargin,
     pub wrap_button_style: FWrapButtonStyle,
     #[doc(hidden)]
-    __padding_18948: [u8; 20],
+    pub(crate) __padding_18948: [u8; 20],
     pub b_allow_wrap_button: bool,
     pub b_allow_wrapping_default: bool,
     pub icon_size: FDeprecateSlateVector2D,

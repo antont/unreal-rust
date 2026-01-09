@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(16))]
 pub struct AArchVisCharacter {
     #[doc(hidden)]
-    __padding_2112: [u8; 2112],
+    pub(crate) __padding_2112: [u8; 2112],
     pub look_up_axis_name: FString,
     pub look_up_at_rate_axis_name: FString,
     pub turn_axis_name: FString,
@@ -48,7 +48,7 @@ impl AArchVisCharacter {
 #[repr(C, align(16))]
 pub struct UArchVisCharMovementComponent {
     #[doc(hidden)]
-    __padding_4120: [u8; 4120],
+    pub(crate) __padding_4120: [u8; 4120],
     pub rotational_acceleration: crate::bindings::core_u_object::FRotator,
     pub rotational_deceleration: crate::bindings::core_u_object::FRotator,
     pub max_rotational_velocity: crate::bindings::core_u_object::FRotator,

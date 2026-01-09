@@ -34,7 +34,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct AISMPoolActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub ism_pool_comp: UPtr<UISMPoolComponent>,
     pub ism_pool_debug_draw_comp: UPtr<UISMPoolDebugDrawComponent>,
 }

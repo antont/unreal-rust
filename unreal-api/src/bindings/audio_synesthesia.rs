@@ -340,7 +340,7 @@ impl UAudioSynesthesiaNRT {
 #[repr(C, align(8))]
 pub struct UConstantQSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub starting_frequency_hz: f32,
     pub num_bands: i32,
     pub num_bands_per_octave: f32,
@@ -373,7 +373,7 @@ impl UConstantQSettings {
 #[repr(C, align(8))]
 pub struct UConstantQAnalyzer {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: UPtr<UConstantQSettings>,
     __padding_end: [u8; 112],
 }
@@ -458,7 +458,7 @@ impl UConstantQAnalyzer {
 #[repr(C, align(8))]
 pub struct UConstantQNRTSettings {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub starting_frequency: f32,
     pub num_bands: i32,
     pub num_bands_per_octave: f32,
@@ -491,7 +491,7 @@ impl UConstantQNRTSettings {
 #[repr(C, align(8))]
 pub struct UConstantQNRT {
     #[doc(hidden)]
-    __padding_232: [u8; 232],
+    pub(crate) __padding_232: [u8; 232],
     pub settings: UPtr<UConstantQNRTSettings>,
 }
 impl UConstantQNRT {
@@ -606,7 +606,7 @@ impl UConstantQNRT {
 #[repr(C, align(8))]
 pub struct ULKFSSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub analysis_window_duration: f32,
     pub short_term_loudness_duration: f32,
@@ -633,7 +633,7 @@ impl ULKFSSettings {
 #[repr(C, align(8))]
 pub struct ULKFSAnalyzer {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: UPtr<ULKFSSettings>,
     __padding_end: [u8; 224],
 }
@@ -657,7 +657,7 @@ impl ULKFSAnalyzer {
 #[repr(C, align(8))]
 pub struct ULKFSNRTSettings {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub analysis_period: f32,
     pub analysis_window_duration: f32,
     pub short_term_loudness_duration: f32,
@@ -682,7 +682,7 @@ impl ULKFSNRTSettings {
 #[repr(C, align(8))]
 pub struct ULKFSNRT {
     #[doc(hidden)]
-    __padding_232: [u8; 232],
+    pub(crate) __padding_232: [u8; 232],
     pub settings: UPtr<ULKFSNRTSettings>,
 }
 impl ULKFSNRT {
@@ -1047,7 +1047,7 @@ impl ULKFSNRT {
 #[repr(C, align(8))]
 pub struct ULoudnessSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub minimum_frequency: f32,
     pub maximum_frequency: f32,
@@ -1075,7 +1075,7 @@ impl ULoudnessSettings {
 #[repr(C, align(8))]
 pub struct ULoudnessAnalyzer {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: UPtr<ULoudnessSettings>,
     __padding_end: [u8; 96],
 }
@@ -1099,7 +1099,7 @@ impl ULoudnessAnalyzer {
 #[repr(C, align(8))]
 pub struct ULoudnessNRTSettings {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub analysis_period: f32,
     pub minimum_frequency: f32,
     pub maximum_frequency: f32,
@@ -1126,7 +1126,7 @@ impl ULoudnessNRTSettings {
 #[repr(C, align(8))]
 pub struct ULoudnessNRT {
     #[doc(hidden)]
-    __padding_232: [u8; 232],
+    pub(crate) __padding_232: [u8; 232],
     pub settings: UPtr<ULoudnessNRTSettings>,
 }
 impl ULoudnessNRT {
@@ -1321,7 +1321,7 @@ impl ULoudnessNRT {
 #[repr(C, align(8))]
 pub struct UMeterSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub peak_mode: EMeterPeakType,
     pub meter_attack_time: i32,
@@ -1349,7 +1349,7 @@ impl UMeterSettings {
 #[repr(C, align(8))]
 pub struct UMeterAnalyzer {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: UPtr<UMeterSettings>,
     __padding_end: [u8; 224],
 }
@@ -1373,7 +1373,7 @@ impl UMeterAnalyzer {
 #[repr(C, align(8))]
 pub struct UOnsetNRTSettings {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub b_downmix_to_mono: bool,
     pub granularity_in_seconds: f32,
     pub sensitivity: f32,
@@ -1400,7 +1400,7 @@ impl UOnsetNRTSettings {
 #[repr(C, align(8))]
 pub struct UOnsetNRT {
     #[doc(hidden)]
-    __padding_232: [u8; 232],
+    pub(crate) __padding_232: [u8; 232],
     pub settings: UPtr<UOnsetNRTSettings>,
 }
 impl UOnsetNRT {
@@ -1561,7 +1561,7 @@ impl UOnsetNRT {
 #[repr(C, align(8))]
 pub struct USynesthesiaSpectrumAnalysisSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub analysis_period: f32,
     pub fft_size: crate::bindings::engine::EFFTSize,
     pub spectrum_type: crate::bindings::engine::EAudioSpectrumType,
@@ -1588,7 +1588,7 @@ impl USynesthesiaSpectrumAnalysisSettings {
 #[repr(C, align(8))]
 pub struct USynesthesiaSpectrumAnalyzer {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: UPtr<USynesthesiaSpectrumAnalysisSettings>,
     __padding_end: [u8; 112],
 }

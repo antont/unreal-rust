@@ -3636,33 +3636,33 @@ impl FRigElementKey {}
 #[repr(C, align(8))]
 pub struct FRigBaseElement {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub key: FRigElementKey,
     pub index: i32,
     pub sub_index: i32,
     pub created_at_instruction_index: i32,
     pub spawn_index: i32,
     pub b_selected: bool,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FRigBaseElement {}
 #[repr(C, align(8))]
 pub struct FRigTransformElement {
-    __padding_end: [u8; 288],
+    pub(crate) __padding_end: [u8; 288],
 }
 impl FRigTransformElement {}
 #[repr(C, align(16))]
 pub struct FRigMultiParentElement {
-    __padding_end: [u8; 560],
+    pub(crate) __padding_end: [u8; 560],
 }
 impl FRigMultiParentElement {}
 #[repr(C, align(16))]
 pub struct FRigControlElement {
     #[doc(hidden)]
-    __padding_560: [u8; 560],
+    pub(crate) __padding_560: [u8; 560],
     pub settings: FRigControlSettings,
     pub preferred_euler_angles: FRigPreferredEulerAngles,
-    __padding_end: [u8; 264],
+    pub(crate) __padding_end: [u8; 264],
 }
 impl FRigControlElement {}
 #[repr(C, align(8))]
@@ -3691,7 +3691,7 @@ pub struct FRigControlSettings {
     pub customization: FRigControlElementCustomization,
     pub driven_controls: TArray<FRigElementKey>,
     #[doc(hidden)]
-    __padding_640: [u8; 16],
+    pub(crate) __padding_640: [u8; 16],
     pub b_group_with_parent_control: bool,
     pub b_restrict_space_switching: bool,
     pub filtered_channels: TArray<ERigControlTransformChannel>,
@@ -3714,12 +3714,12 @@ pub struct FRigElementKeyWithLabel {
 impl FRigElementKeyWithLabel {}
 #[repr(C, align(16))]
 pub struct FRigControlValue {
-    __padding_end: [u8; 240],
+    pub(crate) __padding_end: [u8; 240],
 }
 impl FRigControlValue {}
 #[repr(C, align(4))]
 pub struct FRigControlValueStorage {
-    __padding_end: [u8; 132],
+    pub(crate) __padding_end: [u8; 132],
 }
 impl FRigControlValueStorage {}
 #[repr(C, align(1))]
@@ -3768,58 +3768,58 @@ pub struct FRigModuleIdentifier {
 impl FRigModuleIdentifier {}
 #[repr(C, align(8))]
 pub struct FRigInfluenceMapPerEvent {
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FRigInfluenceMapPerEvent {}
 #[repr(C, align(8))]
 pub struct FRigInfluenceMap {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigInfluenceMap {}
 #[repr(C, align(8))]
 pub struct FRigInfluenceEntry {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigInfluenceEntry {}
 #[repr(C, align(8))]
 pub struct FRigUnit {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DebugBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub debug_draw_settings: crate::bindings::rig_vm::FRigVMDebugDrawSettings,
 }
 impl FRigUnit_DebugBase {}
 #[repr(C, align(8))]
 pub struct FRigUnitMutable {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnitMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DebugBaseMutable {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub debug_draw_settings: crate::bindings::rig_vm::FRigVMDebugDrawSettings,
 }
 impl FRigUnit_DebugBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HighlevelBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit_HighlevelBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HighlevelBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_HighlevelBaseMutable {}
 #[repr(C, align(8))]
 pub struct FControlRigReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FControlRigReference {}
 #[repr(C, align(16))]
@@ -3833,7 +3833,7 @@ pub struct FControlRigComponentMappedElement {
     pub offset: crate::bindings::core_u_object::FTransform,
     pub weight: f32,
     pub space: EControlRigComponentSpace,
-    __padding_end: [u8; 27],
+    pub(crate) __padding_end: [u8; 27],
 }
 impl FControlRigComponentMappedElement {}
 #[repr(C, align(8))]
@@ -3861,17 +3861,17 @@ pub struct FControlRigShapeDefinition {
     pub shape_name: FName,
     pub static_mesh: TSoftObjectPtr<crate::bindings::engine::UStaticMesh>,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FControlRigShapeDefinition {}
 #[repr(C, align(8))]
 pub struct FControlRigOverrideValue {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FControlRigOverrideValue {}
 #[repr(C, align(8))]
 pub struct FControlRigOverrideContainer {
-    __padding_end: [u8; 344],
+    pub(crate) __padding_end: [u8; 344],
 }
 impl FControlRigOverrideContainer {}
 #[repr(C, align(8))]
@@ -3888,77 +3888,77 @@ pub struct FControlRigTestDataFrame {
     pub variables: TArray<FControlRigReplayVariable>,
     pub pose: FRigPose,
     pub metadata: TArray<u8>,
-    __padding_end: [u8; 104],
+    pub(crate) __padding_end: [u8; 104],
 }
 impl FControlRigTestDataFrame {}
 #[repr(C, align(8))]
 pub struct FRigPose {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigPose {}
 #[repr(C, align(16))]
 pub struct FRigPoseElement {
-    __padding_end: [u8; 272],
+    pub(crate) __padding_end: [u8; 272],
 }
 impl FRigPoseElement {}
 #[repr(C, align(8))]
 pub struct FCachedRigElement {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FCachedRigElement {}
 #[repr(C, align(4))]
 pub struct FCRSimLinearSpring {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FCRSimLinearSpring {}
 #[repr(C, align(16))]
 pub struct FCRSimSoftCollision {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FCRSimSoftCollision {}
 #[repr(C, align(8))]
 pub struct FCRSimPointForce {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FCRSimPointForce {}
 #[repr(C, align(8))]
 pub struct FRigModuleInstance {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FRigModuleInstance {}
 #[repr(C, align(8))]
 pub struct FRigModuleExecutionElement {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigModuleExecutionElement {}
 #[repr(C, align(8))]
 pub struct FRigModuleExecutionQueue {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigModuleExecutionQueue {}
 #[repr(C, align(8))]
 pub struct FRigModuleReference {
-    __padding_end: [u8; 752],
+    pub(crate) __padding_end: [u8; 752],
 }
 impl FRigModuleReference {}
 #[repr(C, align(8))]
 pub struct FModularRigSingleConnection {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FModularRigSingleConnection {}
 #[repr(C, align(8))]
 pub struct FModularRigConnections {
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FModularRigConnections {}
 #[repr(C, align(8))]
 pub struct FModularRigModel {
-    __padding_end: [u8; 272],
+    pub(crate) __padding_end: [u8; 272],
 }
 impl FModularRigModel {}
 #[repr(C, align(8))]
 pub struct FRigHierarchyModulePath {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FRigHierarchyModulePath {}
 #[repr(C, align(8))]
@@ -3977,7 +3977,7 @@ impl FModularRigModuleSettingsSetForClipboard {}
 #[repr(C, align(8))]
 pub struct FRigElement {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub index: i32,
 }
@@ -3985,53 +3985,53 @@ impl FRigElement {}
 #[repr(C, align(16))]
 pub struct FRigBone {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub parent_name: FName,
     pub initial_transform: crate::bindings::core_u_object::FTransform,
     pub global_transform: crate::bindings::core_u_object::FTransform,
     pub local_transform: crate::bindings::core_u_object::FTransform,
     #[doc(hidden)]
-    __padding_352: [u8; 16],
+    pub(crate) __padding_352: [u8; 16],
     pub ty: ERigBoneType,
 }
 impl FRigBone {}
 #[repr(C, align(8))]
 pub struct FRigAndConnectionRule {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child_rules: TArray<FRigConnectionRuleStash>,
 }
 impl FRigAndConnectionRule {}
 #[repr(C, align(8))]
 pub struct FRigOrConnectionRule {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child_rules: TArray<FRigConnectionRuleStash>,
 }
 impl FRigOrConnectionRule {}
 #[repr(C, align(8))]
 pub struct FRigTypeConnectionRule {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub element_type: ERigElementType,
 }
 impl FRigTypeConnectionRule {}
 #[repr(C, align(8))]
 pub struct FRigTagConnectionRule {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub tag: FName,
 }
 impl FRigTagConnectionRule {}
 #[repr(C, align(8))]
 pub struct FRigChildOfPrimaryConnectionRule {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigChildOfPrimaryConnectionRule {}
 #[repr(C, align(16))]
 pub struct FRigControl {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub control_type: ERigControlType,
     pub display_name: FName,
     pub parent_name: FName,
@@ -4043,7 +4043,7 @@ pub struct FRigControl {
     pub value: FRigControlValue,
     pub primary_axis: ERigControlAxis,
     #[doc(hidden)]
-    __padding_658: [u8; 1],
+    pub(crate) __padding_658: [u8; 1],
     pub b_animatable: bool,
     pub b_limit_translation: bool,
     pub b_limit_rotation: bool,
@@ -4057,7 +4057,7 @@ pub struct FRigControl {
     pub gizmo_transform: crate::bindings::core_u_object::FTransform,
     pub gizmo_color: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_1296: [u8; 16],
+    pub(crate) __padding_1296: [u8; 16],
     pub b_is_transient_control: bool,
     pub control_enum: UPtr<crate::bindings::core_u_object::UEnum>,
 }
@@ -4065,24 +4065,24 @@ impl FRigControl {}
 #[repr(C, align(8))]
 pub struct FRigCurve {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub value: f32,
 }
 impl FRigCurve {}
 #[repr(C, align(8))]
 pub struct FCachedRigComponent {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FCachedRigComponent {}
 #[repr(C, align(8))]
 pub struct FRigBaseComponent {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FRigBaseComponent {}
 #[repr(C, align(16))]
 pub struct FRigSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub space_type: ERigSpaceType,
     pub parent_name: FName,
     pub parent_index: i32,
@@ -4092,7 +4092,7 @@ pub struct FRigSpace {
 impl FRigSpace {}
 #[repr(C, align(4))]
 pub struct FRigControlModifiedContext {
-    __padding_end: [u8; 28],
+    pub(crate) __padding_end: [u8; 28],
 }
 impl FRigControlModifiedContext {}
 #[repr(C, align(4))]
@@ -4103,7 +4103,7 @@ pub struct FRigComponentKey {
 impl FRigComponentKey {}
 #[repr(C, align(4))]
 pub struct FRigHierarchyKey {
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FRigHierarchyKey {}
 #[repr(C, align(8))]
@@ -4113,22 +4113,22 @@ pub struct FRigElementKeyCollection {
 impl FRigElementKeyCollection {}
 #[repr(C, align(8))]
 pub struct FRigEventContext {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigEventContext {}
 #[repr(C, align(8))]
 pub struct FRigElementResolveResult {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigElementResolveResult {}
 #[repr(C, align(8))]
 pub struct FModularRigResolveResult {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FModularRigResolveResult {}
 #[repr(C, align(8))]
 pub struct FRigTransformDirtyState {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigTransformDirtyState {}
 #[repr(C, align(8))]
@@ -4145,7 +4145,7 @@ pub struct FRigCurrentAndInitialDirtyState {
 impl FRigCurrentAndInitialDirtyState {}
 #[repr(C, align(8))]
 pub struct FRigComputedTransform {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigComputedTransform {}
 #[repr(C, align(8))]
@@ -4162,7 +4162,7 @@ pub struct FRigCurrentAndInitialTransform {
 impl FRigCurrentAndInitialTransform {}
 #[repr(C, align(8))]
 pub struct FRigSingleParentElement {
-    __padding_end: [u8; 296],
+    pub(crate) __padding_end: [u8; 296],
 }
 impl FRigSingleParentElement {}
 #[repr(C, align(4))]
@@ -4175,23 +4175,23 @@ impl FRigElementWeight {}
 #[repr(C, align(8))]
 pub struct FRigBoneElement {
     #[doc(hidden)]
-    __padding_296: [u8; 296],
+    pub(crate) __padding_296: [u8; 296],
     pub bone_type: ERigBoneType,
 }
 impl FRigBoneElement {}
 #[repr(C, align(16))]
 pub struct FRigNullElement {
-    __padding_end: [u8; 560],
+    pub(crate) __padding_end: [u8; 560],
 }
 impl FRigNullElement {}
 #[repr(C, align(8))]
 pub struct FRigCurveElement {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigCurveElement {}
 #[repr(C, align(8))]
 pub struct FRigReferenceElement {
-    __padding_end: [u8; 320],
+    pub(crate) __padding_end: [u8; 320],
 }
 impl FRigReferenceElement {}
 #[repr(C, align(8))]
@@ -4204,7 +4204,7 @@ impl FRigConnectorState {}
 #[repr(C, align(8))]
 pub struct FRigConnectorElement {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub settings: FRigConnectorSettings,
 }
 impl FRigConnectorElement {}
@@ -4219,7 +4219,7 @@ pub struct FRigSocketState {
 impl FRigSocketState {}
 #[repr(C, align(8))]
 pub struct FRigSocketElement {
-    __padding_end: [u8; 296],
+    pub(crate) __padding_end: [u8; 296],
 }
 impl FRigSocketElement {}
 #[repr(C, align(1))]
@@ -4235,7 +4235,7 @@ pub struct FRigModuleDescription {
 impl FRigModuleDescription {}
 #[repr(C, align(8))]
 pub struct FModuleReferenceData {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FModuleReferenceData {}
 #[repr(C, align(4))]
@@ -4249,7 +4249,7 @@ pub struct FRigControlCopy {
     pub control_type: ERigControlType,
     pub parent_key: FRigElementKey,
     #[doc(hidden)]
-    __padding_272: [u8; 240],
+    pub(crate) __padding_272: [u8; 240],
     pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub parent_transform: crate::bindings::core_u_object::FTransform,
     pub local_transform: crate::bindings::core_u_object::FTransform,
@@ -4259,33 +4259,33 @@ impl FRigControlCopy {}
 #[repr(C, align(8))]
 pub struct FControlRigControlPose {
     pub copy_of_controls: TArray<FRigControlCopy>,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FControlRigControlPose {}
 #[repr(C, align(8))]
 pub struct FRigDispatchFactory {
-    __padding_end: [u8; 168],
+    pub(crate) __padding_end: [u8; 168],
 }
 impl FRigDispatchFactory {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_AnimAttributeBase {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_AnimAttributeBase {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_GetAnimAttribute {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_GetAnimAttribute {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_SetAnimAttribute {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_SetAnimAttribute {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SphereTraceWorld {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub channel: crate::bindings::engine::ECollisionChannel,
@@ -4293,13 +4293,13 @@ pub struct FRigUnit_SphereTraceWorld {
     pub b_hit: bool,
     pub hit_location: crate::bindings::core_u_object::FVector,
     pub hit_normal: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigUnit_SphereTraceWorld {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SphereTraceByTraceChannel {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub trace_channel: crate::bindings::engine::ETraceTypeQuery,
@@ -4307,26 +4307,26 @@ pub struct FRigUnit_SphereTraceByTraceChannel {
     pub b_hit: bool,
     pub hit_location: crate::bindings::core_u_object::FVector,
     pub hit_normal: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigUnit_SphereTraceByTraceChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_LineTraceByTraceChannel {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub trace_channel: crate::bindings::engine::ETraceTypeQuery,
     pub b_hit: bool,
     pub hit_location: crate::bindings::core_u_object::FVector,
     pub hit_normal: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigUnit_LineTraceByTraceChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SphereTraceByObjectTypes {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub object_types: TArray<crate::bindings::engine::EObjectTypeQuery>,
@@ -4334,26 +4334,26 @@ pub struct FRigUnit_SphereTraceByObjectTypes {
     pub b_hit: bool,
     pub hit_location: crate::bindings::core_u_object::FVector,
     pub hit_normal: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigUnit_SphereTraceByObjectTypes {}
 #[repr(C, align(8))]
 pub struct FRigUnit_LineTraceByObjectTypes {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub object_types: TArray<crate::bindings::engine::EObjectTypeQuery>,
     pub b_hit: bool,
     pub hit_location: crate::bindings::core_u_object::FVector,
     pub hit_normal: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigUnit_LineTraceByObjectTypes {}
 #[repr(C, align(16))]
 pub struct FRigUnit_Control {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub transform: crate::bindings::animation_core::FEulerTransform,
     pub base: crate::bindings::core_u_object::FTransform,
     pub init_transform: crate::bindings::core_u_object::FTransform,
@@ -4364,19 +4364,19 @@ impl FRigUnit_Control {}
 #[repr(C, align(16))]
 pub struct FRigUnit_Control_StaticMesh {
     #[doc(hidden)]
-    __padding_384: [u8; 384],
+    pub(crate) __padding_384: [u8; 384],
     pub mesh_transform: crate::bindings::core_u_object::FTransform,
 }
 impl FRigUnit_Control_StaticMesh {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_GetUserData {
-    __padding_end: [u8; 168],
+    pub(crate) __padding_end: [u8; 168],
 }
 impl FRigDispatch_GetUserData {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetupShapeLibraryFromUserData {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub name_space: FString,
     pub path: FString,
     pub library_name: FString,
@@ -4386,7 +4386,7 @@ impl FRigUnit_SetupShapeLibraryFromUserData {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ShapeExists {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub shape_name: FName,
     pub result: bool,
 }
@@ -4394,7 +4394,7 @@ impl FRigUnit_ShapeExists {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugBezier {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub bezier: crate::bindings::rig_vm::FRigVMFourPointBezier,
     pub minimum_u: f32,
     pub maximum_u: f32,
@@ -4409,7 +4409,7 @@ impl FRigUnit_DebugBezier {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugBezierItemSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub bezier: crate::bindings::rig_vm::FRigVMFourPointBezier,
     pub minimum_u: f32,
     pub maximum_u: f32,
@@ -4424,7 +4424,7 @@ impl FRigUnit_DebugBezierItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugHierarchy {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
     pub items: TArray<FRigElementKey>,
     pub scale: f32,
@@ -4437,7 +4437,7 @@ impl FRigUnit_DebugHierarchy {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugPose {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
     pub pose: FRigPose,
     pub items: TArray<FRigElementKey>,
@@ -4451,7 +4451,7 @@ impl FRigUnit_DebugPose {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugLine {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -4464,7 +4464,7 @@ impl FRigUnit_DebugLine {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugLineItemSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -4477,7 +4477,7 @@ impl FRigUnit_DebugLineItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugLineStrip {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub points: TArray<crate::bindings::core_u_object::FVector>,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub thickness: f32,
@@ -4489,7 +4489,7 @@ impl FRigUnit_DebugLineStrip {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugLineStripItemSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub points: TArray<crate::bindings::core_u_object::FVector>,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub thickness: f32,
@@ -4501,7 +4501,7 @@ impl FRigUnit_DebugLineStripItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugRectangle {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub scale: f32,
@@ -4514,7 +4514,7 @@ impl FRigUnit_DebugRectangle {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugRectangleItemSpace {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub scale: f32,
@@ -4527,7 +4527,7 @@ impl FRigUnit_DebugRectangleItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugArc {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub radius: f32,
@@ -4543,7 +4543,7 @@ impl FRigUnit_DebugArc {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugArcItemSpace {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub radius: f32,
@@ -4559,7 +4559,7 @@ impl FRigUnit_DebugArcItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub mode: crate::bindings::rig_vm::ERigUnitDebugTransformMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -4573,7 +4573,7 @@ impl FRigUnit_DebugTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugTransformMutable {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub mode: crate::bindings::rig_vm::ERigUnitDebugTransformMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -4587,7 +4587,7 @@ impl FRigUnit_DebugTransformMutable {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugTransformMutableItemSpace {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub mode: crate::bindings::rig_vm::ERigUnitDebugTransformMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -4601,7 +4601,7 @@ impl FRigUnit_DebugTransformMutableItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugTransformArrayMutable {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub mode: crate::bindings::rig_vm::ERigUnitDebugTransformMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -4610,13 +4610,13 @@ pub struct FRigUnit_DebugTransformArrayMutable {
     pub space: FName,
     pub world_offset: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
-    __padding_end: [u8; 31],
+    pub(crate) __padding_end: [u8; 31],
 }
 impl FRigUnit_DebugTransformArrayMutable {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DebugTransformArrayMutableItemSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub parent_indices: TArray<i32>,
     pub mode: crate::bindings::rig_vm::ERigUnitDebugTransformMode,
@@ -4630,22 +4630,22 @@ pub struct FRigUnit_DebugTransformArrayMutableItemSpace {
 impl FRigUnit_DebugTransformArrayMutableItemSpace {}
 #[repr(C, align(8))]
 pub struct FRigUnit_StartProfilingTimer {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigUnit_StartProfilingTimer {}
 #[repr(C, align(8))]
 pub struct FRigUnit_EndProfilingTimer {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub number_of_measurements: i32,
     pub prefix: FString,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_EndProfilingTimer {}
 #[repr(C, align(8))]
 pub struct FRigUnit_VisualDebugVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FVector,
     pub b_enabled: bool,
     pub mode: crate::bindings::rig_vm::ERigUnitVisualDebugPointMode,
@@ -4658,7 +4658,7 @@ impl FRigUnit_VisualDebugVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_VisualDebugVectorItemSpace {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FVector,
     pub b_enabled: bool,
     pub mode: crate::bindings::rig_vm::ERigUnitVisualDebugPointMode,
@@ -4671,7 +4671,7 @@ impl FRigUnit_VisualDebugVectorItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_VisualDebugQuat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -4682,7 +4682,7 @@ impl FRigUnit_VisualDebugQuat {}
 #[repr(C, align(16))]
 pub struct FRigUnit_VisualDebugQuatItemSpace {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -4693,7 +4693,7 @@ impl FRigUnit_VisualDebugQuatItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_VisualDebugTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -4704,7 +4704,7 @@ impl FRigUnit_VisualDebugTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_VisualDebugTransformItemSpace {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -4715,7 +4715,7 @@ impl FRigUnit_VisualDebugTransformItemSpace {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::animation_core::FEulerTransform,
 }
@@ -4723,7 +4723,7 @@ impl FRigUnit_ConvertTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertEulerTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub input: crate::bindings::animation_core::FEulerTransform,
     pub result: crate::bindings::core_u_object::FTransform,
 }
@@ -4731,20 +4731,20 @@ impl FRigUnit_ConvertEulerTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertRotation {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub input: crate::bindings::core_u_object::FRotator,
     pub result: crate::bindings::core_u_object::FQuat,
 }
 impl FRigUnit_ConvertRotation {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertVectorRotation {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigUnit_ConvertVectorRotation {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertQuaternion {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FRotator,
 }
@@ -4752,7 +4752,7 @@ impl FRigUnit_ConvertQuaternion {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ConvertVectorToRotation {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub input: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FRotator,
 }
@@ -4760,7 +4760,7 @@ impl FRigUnit_ConvertVectorToRotation {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertVectorToQuaternion {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub input: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FQuat,
 }
@@ -4768,7 +4768,7 @@ impl FRigUnit_ConvertVectorToQuaternion {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ConvertRotationToVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub input: crate::bindings::core_u_object::FRotator,
     pub result: crate::bindings::core_u_object::FVector,
 }
@@ -4776,7 +4776,7 @@ impl FRigUnit_ConvertRotationToVector {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConvertQuaternionToVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FVector,
 }
@@ -4784,7 +4784,7 @@ impl FRigUnit_ConvertQuaternionToVector {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ToSwingAndTwist {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub twist_axis: crate::bindings::core_u_object::FVector,
     pub swing: crate::bindings::core_u_object::FQuat,
@@ -4794,7 +4794,7 @@ impl FRigUnit_ToSwingAndTwist {}
 #[repr(C, align(8))]
 pub struct FRigUnit_BinaryFloatOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub argument0: f32,
     pub argument1: f32,
     pub result: f32,
@@ -4802,28 +4802,28 @@ pub struct FRigUnit_BinaryFloatOp {
 impl FRigUnit_BinaryFloatOp {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Multiply_FloatFloat {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigUnit_Multiply_FloatFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Add_FloatFloat {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigUnit_Add_FloatFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Subtract_FloatFloat {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigUnit_Subtract_FloatFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Divide_FloatFloat {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigUnit_Divide_FloatFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Clamp_Float {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub min: f32,
     pub max: f32,
@@ -4833,7 +4833,7 @@ impl FRigUnit_Clamp_Float {}
 #[repr(C, align(8))]
 pub struct FRigUnit_MapRange_Float {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub min_in: f32,
     pub max_in: f32,
@@ -4845,7 +4845,7 @@ impl FRigUnit_MapRange_Float {}
 #[repr(C, align(16))]
 pub struct FRigUnit_BinaryQuaternionOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub argument0: crate::bindings::core_u_object::FQuat,
     pub argument1: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -4853,26 +4853,26 @@ pub struct FRigUnit_BinaryQuaternionOp {
 impl FRigUnit_BinaryQuaternionOp {}
 #[repr(C, align(16))]
 pub struct FRigUnit_MultiplyQuaternion {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigUnit_MultiplyQuaternion {}
 #[repr(C, align(16))]
 pub struct FRigUnit_UnaryQuaternionOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub argument: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FQuat,
 }
 impl FRigUnit_UnaryQuaternionOp {}
 #[repr(C, align(16))]
 pub struct FRigUnit_InverseQuaterion {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_InverseQuaterion {}
 #[repr(C, align(16))]
 pub struct FRigUnit_QuaternionToAxisAndAngle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub argument: crate::bindings::core_u_object::FQuat,
     pub axis: crate::bindings::core_u_object::FVector,
     pub angle: f32,
@@ -4881,7 +4881,7 @@ impl FRigUnit_QuaternionToAxisAndAngle {}
 #[repr(C, align(16))]
 pub struct FRigUnit_QuaternionFromAxisAndAngle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub axis: crate::bindings::core_u_object::FVector,
     pub angle: f32,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -4890,7 +4890,7 @@ impl FRigUnit_QuaternionFromAxisAndAngle {}
 #[repr(C, align(16))]
 pub struct FRigUnit_QuaternionToAngle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub axis: crate::bindings::core_u_object::FVector,
     pub argument: crate::bindings::core_u_object::FQuat,
     pub angle: f32,
@@ -4899,7 +4899,7 @@ impl FRigUnit_QuaternionToAngle {}
 #[repr(C, align(16))]
 pub struct FRigUnit_BinaryTransformOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub argument0: crate::bindings::core_u_object::FTransform,
     pub argument1: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
@@ -4907,18 +4907,18 @@ pub struct FRigUnit_BinaryTransformOp {
 impl FRigUnit_BinaryTransformOp {}
 #[repr(C, align(16))]
 pub struct FRigUnit_MultiplyTransform {
-    __padding_end: [u8; 304],
+    pub(crate) __padding_end: [u8; 304],
 }
 impl FRigUnit_MultiplyTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetRelativeTransform {
-    __padding_end: [u8; 304],
+    pub(crate) __padding_end: [u8; 304],
 }
 impl FRigUnit_GetRelativeTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_BinaryVectorOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub argument0: crate::bindings::core_u_object::FVector,
     pub argument1: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -4926,28 +4926,28 @@ pub struct FRigUnit_BinaryVectorOp {
 impl FRigUnit_BinaryVectorOp {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Multiply_VectorVector {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_Multiply_VectorVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Add_VectorVector {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_Add_VectorVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Subtract_VectorVector {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_Subtract_VectorVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Divide_VectorVector {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_Divide_VectorVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Distance_VectorVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub argument0: crate::bindings::core_u_object::FVector,
     pub argument1: crate::bindings::core_u_object::FVector,
     pub result: f32,
@@ -4955,13 +4955,13 @@ pub struct FRigUnit_Distance_VectorVector {
 impl FRigUnit_Distance_VectorVector {}
 #[repr(C, align(16))]
 pub struct FAimTarget {
-    __padding_end: [u8; 144],
+    pub(crate) __padding_end: [u8; 144],
 }
 impl FAimTarget {}
 #[repr(C, align(8))]
 pub struct FRigUnit_AimConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub joint: FName,
     pub aim_mode: EAimMode,
     pub up_mode: EAimMode,
@@ -4969,13 +4969,13 @@ pub struct FRigUnit_AimConstraint {
     pub up_vector: crate::bindings::core_u_object::FVector,
     pub aim_targets: TArray<FAimTarget>,
     pub up_targets: TArray<FAimTarget>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_AimConstraint {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ApplyFK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub joint: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub filter: crate::bindings::animation_core::FTransformFilter,
@@ -4987,13 +4987,13 @@ pub struct FRigUnit_ApplyFK {
 impl FRigUnit_ApplyFK {}
 #[repr(C, align(16))]
 pub struct FBlendTarget {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FBlendTarget {}
 #[repr(C, align(16))]
 pub struct FRigUnit_BlendTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub source: crate::bindings::core_u_object::FTransform,
     pub targets: TArray<FBlendTarget>,
     pub result: crate::bindings::core_u_object::FTransform,
@@ -5002,7 +5002,7 @@ impl FRigUnit_BlendTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetJointTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub joint: FName,
     pub ty: ETransformGetterType,
     pub transform_space: ETransformSpaceMode,
@@ -5014,20 +5014,20 @@ impl FRigUnit_GetJointTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_TwoBoneIKFK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_joint: FName,
     pub end_joint: FName,
     pub pole_target: crate::bindings::core_u_object::FVector,
     pub spin: f32,
     pub end_effector: crate::bindings::core_u_object::FTransform,
     pub ik_blend: f32,
-    __padding_end: [u8; 636],
+    pub(crate) __padding_end: [u8; 636],
 }
 impl FRigUnit_TwoBoneIKFK {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DrawContainerGetInstruction {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub instruction_name: FName,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub transform: crate::bindings::core_u_object::FTransform,
@@ -5036,7 +5036,7 @@ impl FRigUnit_DrawContainerGetInstruction {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DrawContainerSetColor {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub instruction_name: FName,
     pub color: crate::bindings::core_u_object::FLinearColor,
 }
@@ -5044,7 +5044,7 @@ impl FRigUnit_DrawContainerSetColor {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DrawContainerSetThickness {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub instruction_name: FName,
     pub thickness: f32,
 }
@@ -5052,7 +5052,7 @@ impl FRigUnit_DrawContainerSetThickness {}
 #[repr(C, align(16))]
 pub struct FRigUnit_DrawContainerSetTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub instruction_name: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
 }
@@ -5060,38 +5060,38 @@ impl FRigUnit_DrawContainerSetTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_BeginExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_BeginExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PreBeginExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_PreBeginExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PostBeginExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_PostBeginExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit_CollectionBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_CollectionBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionChain {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub first_item: FRigElementKey,
     pub last_item: FRigElementKey,
     pub reverse: bool,
@@ -5101,7 +5101,7 @@ impl FRigUnit_CollectionChain {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionChainArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub first_item: FRigElementKey,
     pub last_item: FRigElementKey,
     pub reverse: bool,
@@ -5111,7 +5111,7 @@ impl FRigUnit_CollectionChainArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionNameSearch {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub partial_name: FName,
     pub type_to_search: ERigElementType,
     pub collection: FRigElementKeyCollection,
@@ -5120,7 +5120,7 @@ impl FRigUnit_CollectionNameSearch {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionNameSearchArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub partial_name: FName,
     pub type_to_search: ERigElementType,
     pub items: TArray<FRigElementKey>,
@@ -5129,7 +5129,7 @@ impl FRigUnit_CollectionNameSearchArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionChildren {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub parent: FRigElementKey,
     pub b_include_parent: bool,
     pub b_recursive: bool,
@@ -5140,7 +5140,7 @@ impl FRigUnit_CollectionChildren {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionChildrenArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub parent: FRigElementKey,
     pub b_include_parent: bool,
     pub b_recursive: bool,
@@ -5152,7 +5152,7 @@ impl FRigUnit_CollectionChildrenArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionGetAll {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub type_to_search: ERigElementType,
     pub items: TArray<FRigElementKey>,
 }
@@ -5160,7 +5160,7 @@ impl FRigUnit_CollectionGetAll {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionReplaceItems {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: FRigElementKeyCollection,
     pub old: FName,
     pub new: FName,
@@ -5172,7 +5172,7 @@ impl FRigUnit_CollectionReplaceItems {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionReplaceItemsArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
     pub old: FName,
     pub new: FName,
@@ -5184,7 +5184,7 @@ impl FRigUnit_CollectionReplaceItemsArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionItems {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
     pub b_allow_duplicates: bool,
     pub collection: FRigElementKeyCollection,
@@ -5193,7 +5193,7 @@ impl FRigUnit_CollectionItems {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionGetItems {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub items: TArray<FRigElementKey>,
 }
@@ -5201,7 +5201,7 @@ impl FRigUnit_CollectionGetItems {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionGetParentIndices {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub parent_indices: TArray<i32>,
 }
@@ -5209,7 +5209,7 @@ impl FRigUnit_CollectionGetParentIndices {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionGetParentIndicesItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
     pub parent_indices: TArray<i32>,
 }
@@ -5217,7 +5217,7 @@ impl FRigUnit_CollectionGetParentIndicesItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionUnion {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKeyCollection,
     pub b: FRigElementKeyCollection,
     pub b_allow_duplicates: bool,
@@ -5227,7 +5227,7 @@ impl FRigUnit_CollectionUnion {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionIntersection {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKeyCollection,
     pub b: FRigElementKeyCollection,
     pub collection: FRigElementKeyCollection,
@@ -5236,7 +5236,7 @@ impl FRigUnit_CollectionIntersection {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionDifference {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKeyCollection,
     pub b: FRigElementKeyCollection,
     pub collection: FRigElementKeyCollection,
@@ -5245,7 +5245,7 @@ impl FRigUnit_CollectionDifference {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionReverse {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub reversed: FRigElementKeyCollection,
 }
@@ -5253,7 +5253,7 @@ impl FRigUnit_CollectionReverse {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionCount {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub count: i32,
 }
@@ -5261,7 +5261,7 @@ impl FRigUnit_CollectionCount {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionItemAtIndex {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub index: i32,
     pub item: FRigElementKey,
@@ -5270,7 +5270,7 @@ impl FRigUnit_CollectionItemAtIndex {}
 #[repr(C, align(16))]
 pub struct FRigUnit_CollectionLoop {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub collection: FRigElementKeyCollection,
     pub item: FRigElementKey,
     pub index: i32,
@@ -5281,13 +5281,13 @@ pub struct FRigUnit_CollectionLoop {
 impl FRigUnit_CollectionLoop {}
 #[repr(C, align(16))]
 pub struct FControlRigExecuteContext {
-    __padding_end: [u8; 608],
+    pub(crate) __padding_end: [u8; 608],
 }
 impl FControlRigExecuteContext {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CollectionAddItem {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub collection: FRigElementKeyCollection,
     pub item: FRigElementKey,
     pub result: FRigElementKeyCollection,
@@ -5295,18 +5295,18 @@ pub struct FRigUnit_CollectionAddItem {
 impl FRigUnit_CollectionAddItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DynamicHierarchyBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit_DynamicHierarchyBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DynamicHierarchyBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_DynamicHierarchyBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_AddParent {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
     pub display_label: FName,
@@ -5315,7 +5315,7 @@ impl FRigUnit_AddParent {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetDefaultParent {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
 }
@@ -5323,7 +5323,7 @@ impl FRigUnit_SetDefaultParent {}
 #[repr(C, align(8))]
 pub struct FRigUnit_AddAvailableSpaces {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FRigElementKey,
     pub spaces: TArray<FRigElementKeyWithLabel>,
 }
@@ -5331,7 +5331,7 @@ impl FRigUnit_AddAvailableSpaces {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetChannelHosts {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub channel: FRigElementKey,
     pub hosts: TArray<FRigElementKey>,
 }
@@ -5339,7 +5339,7 @@ impl FRigUnit_SetChannelHosts {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SwitchParent {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub mode: ERigSwitchParentMode,
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
@@ -5349,7 +5349,7 @@ impl FRigUnit_SwitchParent {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetParentWeights {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub weights: TArray<FRigElementWeight>,
     pub parents: FRigElementKeyCollection,
@@ -5358,7 +5358,7 @@ impl FRigUnit_HierarchyGetParentWeights {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetParentWeightsArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub weights: TArray<FRigElementWeight>,
     pub parents: TArray<FRigElementKey>,
@@ -5367,20 +5367,20 @@ impl FRigUnit_HierarchyGetParentWeightsArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchySetParentWeights {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub weights: TArray<FRigElementWeight>,
 }
 impl FRigUnit_HierarchySetParentWeights {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyReset {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_HierarchyReset {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyImportFromSkeleton {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub name_space: FName,
     pub b_include_curves: bool,
     pub b_include_mesh_sockets: bool,
@@ -5391,7 +5391,7 @@ impl FRigUnit_HierarchyImportFromSkeleton {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyRemoveElement {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub b_success: bool,
 }
@@ -5399,7 +5399,7 @@ impl FRigUnit_HierarchyRemoveElement {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddElement {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub parent: FRigElementKey,
     pub name: FName,
     pub item: FRigElementKey,
@@ -5408,7 +5408,7 @@ impl FRigUnit_HierarchyAddElement {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddBone {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
 }
@@ -5416,7 +5416,7 @@ impl FRigUnit_HierarchyAddBone {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddNull {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
 }
@@ -5424,7 +5424,7 @@ impl FRigUnit_HierarchyAddNull {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddControl_Settings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub display_name: FName,
     pub b_selectable: bool,
 }
@@ -5455,7 +5455,7 @@ impl FRigUnit_HierarchyAddControlFloat_LimitSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlFloat_Settings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub primary_axis: ERigControlAxis,
     pub b_is_scale: bool,
     pub limits: FRigUnit_HierarchyAddControlFloat_LimitSettings,
@@ -5466,7 +5466,7 @@ impl FRigUnit_HierarchyAddControlFloat_Settings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlElement {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub offset_space: crate::bindings::rig_vm::ERigVMTransformSpace,
 }
@@ -5474,7 +5474,7 @@ impl FRigUnit_HierarchyAddControlElement {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlFloat {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub initial_value: f32,
     pub settings: FRigUnit_HierarchyAddControlFloat_Settings,
 }
@@ -5490,7 +5490,7 @@ impl FRigUnit_HierarchyAddControlInteger_LimitSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlInteger_Settings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub primary_axis: ERigControlAxis,
     pub control_enum: UPtr<crate::bindings::core_u_object::UEnum>,
     pub limits: FRigUnit_HierarchyAddControlInteger_LimitSettings,
@@ -5501,7 +5501,7 @@ impl FRigUnit_HierarchyAddControlInteger_Settings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlInteger {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub initial_value: i32,
     pub settings: FRigUnit_HierarchyAddControlInteger_Settings,
 }
@@ -5518,7 +5518,7 @@ impl FRigUnit_HierarchyAddControlVector2D_LimitSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlVector2D_Settings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub primary_axis: ERigControlAxis,
     pub limits: FRigUnit_HierarchyAddControlVector2D_LimitSettings,
     pub shape: FRigUnit_HierarchyAddControl_ShapeSettings,
@@ -5529,7 +5529,7 @@ impl FRigUnit_HierarchyAddControlVector2D_Settings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlVector2D {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub initial_value: crate::bindings::core_u_object::FVector2D,
     pub settings: FRigUnit_HierarchyAddControlVector2D_Settings,
 }
@@ -5547,7 +5547,7 @@ impl FRigUnit_HierarchyAddControlVector_LimitSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlVector_Settings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub initial_space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_is_position: bool,
     pub limits: FRigUnit_HierarchyAddControlVector_LimitSettings,
@@ -5559,7 +5559,7 @@ impl FRigUnit_HierarchyAddControlVector_Settings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlVector {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub initial_value: crate::bindings::core_u_object::FVector,
     pub settings: FRigUnit_HierarchyAddControlVector_Settings,
 }
@@ -5577,7 +5577,7 @@ impl FRigUnit_HierarchyAddControlRotator_LimitSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlRotator_Settings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub initial_space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub limits: FRigUnit_HierarchyAddControlRotator_LimitSettings,
     pub shape: FRigUnit_HierarchyAddControl_ShapeSettings,
@@ -5590,7 +5590,7 @@ impl FRigUnit_HierarchyAddControlRotator_Settings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlRotator {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub initial_value: crate::bindings::core_u_object::FRotator,
     pub settings: FRigUnit_HierarchyAddControlRotator_Settings,
 }
@@ -5614,7 +5614,7 @@ impl FRigUnit_HierarchyAddControlTransform_LimitSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlTransform_Settings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub initial_space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_use_preferred_rotation_order: bool,
     pub preferred_rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
@@ -5627,20 +5627,20 @@ impl FRigUnit_HierarchyAddControlTransform_Settings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddControlTransform {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub initial_value: crate::bindings::core_u_object::FTransform,
     pub settings: FRigUnit_HierarchyAddControlTransform_Settings,
 }
 impl FRigUnit_HierarchyAddControlTransform {}
 #[repr(C, align(1))]
 pub struct FRigUnit_HierarchyAddAnimationChannelEmptyLimitSettings {
-    __padding_end: [u8; 1],
+    pub(crate) __padding_end: [u8; 1],
 }
 impl FRigUnit_HierarchyAddAnimationChannelEmptyLimitSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelBool {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: bool,
     pub minimum_value: bool,
     pub maximum_value: bool,
@@ -5655,7 +5655,7 @@ impl FRigUnit_HierarchyAddAnimationChannelSingleLimitSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelFloat {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: f32,
     pub minimum_value: f32,
     pub maximum_value: f32,
@@ -5665,7 +5665,7 @@ impl FRigUnit_HierarchyAddAnimationChannelFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelScaleFloat {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: f32,
     pub minimum_value: f32,
     pub maximum_value: f32,
@@ -5675,7 +5675,7 @@ impl FRigUnit_HierarchyAddAnimationChannelScaleFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelInteger {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: i32,
     pub minimum_value: i32,
     pub maximum_value: i32,
@@ -5692,7 +5692,7 @@ impl FRigUnit_HierarchyAddAnimationChannel2DLimitSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelVector2D {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: crate::bindings::core_u_object::FVector2D,
     pub minimum_value: crate::bindings::core_u_object::FVector2D,
     pub maximum_value: crate::bindings::core_u_object::FVector2D,
@@ -5709,7 +5709,7 @@ impl FRigUnit_HierarchyAddAnimationChannelVectorLimitSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelVector {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: crate::bindings::core_u_object::FVector,
     pub minimum_value: crate::bindings::core_u_object::FVector,
     pub maximum_value: crate::bindings::core_u_object::FVector,
@@ -5719,7 +5719,7 @@ impl FRigUnit_HierarchyAddAnimationChannelVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelScaleVector {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: crate::bindings::core_u_object::FVector,
     pub minimum_value: crate::bindings::core_u_object::FVector,
     pub maximum_value: crate::bindings::core_u_object::FVector,
@@ -5736,7 +5736,7 @@ impl FRigUnit_HierarchyAddAnimationChannelRotatorLimitSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddAnimationChannelRotator {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub initial_value: crate::bindings::core_u_object::FRotator,
     pub minimum_value: crate::bindings::core_u_object::FRotator,
     pub maximum_value: crate::bindings::core_u_object::FRotator,
@@ -5746,7 +5746,7 @@ impl FRigUnit_HierarchyAddAnimationChannelRotator {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyGetShapeSettings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub settings: FRigUnit_HierarchyAddControl_ShapeSettings,
 }
@@ -5754,7 +5754,7 @@ impl FRigUnit_HierarchyGetShapeSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchySetShapeSettings {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub settings: FRigUnit_HierarchyAddControl_ShapeSettings,
 }
@@ -5762,7 +5762,7 @@ impl FRigUnit_HierarchySetShapeSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddSocket {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -5771,96 +5771,96 @@ pub struct FRigUnit_HierarchyAddSocket {
 impl FRigUnit_HierarchyAddSocket {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit_HierarchyBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_HierarchyBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetParent {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub b_default_parent: bool,
     pub parent: FRigElementKey,
-    __padding_end: [u8; 68],
+    pub(crate) __padding_end: [u8; 68],
 }
 impl FRigUnit_HierarchyGetParent {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetParents {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub b_include_child: bool,
     pub b_reverse: bool,
     pub parents: FRigElementKeyCollection,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_HierarchyGetParents {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetParentsItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub b_include_child: bool,
     pub b_reverse: bool,
     pub b_default_parent: bool,
     pub parents: TArray<FRigElementKey>,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_HierarchyGetParentsItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetChildren {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub parent: FRigElementKey,
     pub b_include_parent: bool,
     pub b_recursive: bool,
     pub children: FRigElementKeyCollection,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_HierarchyGetChildren {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetSiblings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub b_include_item: bool,
     pub siblings: FRigElementKeyCollection,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_HierarchyGetSiblings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetSiblingsItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub b_include_item: bool,
     pub b_default_siblings: bool,
     pub siblings: TArray<FRigElementKey>,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_HierarchyGetSiblingsItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetChainItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: FRigElementKey,
     pub end: FRigElementKey,
     pub b_include_start: bool,
     pub b_include_end: bool,
     pub b_reverse: bool,
     pub chain: TArray<FRigElementKey>,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_HierarchyGetChainItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetPose {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub initial: bool,
     pub element_type: ERigElementType,
     pub items_to_get: FRigElementKeyCollection,
@@ -5870,7 +5870,7 @@ impl FRigUnit_HierarchyGetPose {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyGetPoseItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub initial: bool,
     pub element_type: ERigElementType,
     pub items_to_get: TArray<FRigElementKey>,
@@ -5880,7 +5880,7 @@ impl FRigUnit_HierarchyGetPoseItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchySetPose {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub pose: FRigPose,
     pub element_type: ERigElementType,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
@@ -5891,7 +5891,7 @@ impl FRigUnit_HierarchySetPose {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchySetPoseItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub pose: FRigPose,
     pub element_type: ERigElementType,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
@@ -5902,7 +5902,7 @@ impl FRigUnit_HierarchySetPoseItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PoseIsEmpty {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub is_empty: bool,
 }
@@ -5910,7 +5910,7 @@ impl FRigUnit_PoseIsEmpty {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PoseGetItems {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub element_type: ERigElementType,
     pub items: FRigElementKeyCollection,
@@ -5919,7 +5919,7 @@ impl FRigUnit_PoseGetItems {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PoseGetItemsItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub element_type: ERigElementType,
     pub items: TArray<FRigElementKey>,
@@ -5928,7 +5928,7 @@ impl FRigUnit_PoseGetItemsItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PoseGetDelta {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose_a: FRigPose,
     pub pose_b: FRigPose,
     pub position_threshold: f32,
@@ -5945,7 +5945,7 @@ impl FRigUnit_PoseGetDelta {}
 #[repr(C, align(16))]
 pub struct FRigUnit_PoseGetTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub item: FRigElementKey,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
@@ -5957,7 +5957,7 @@ impl FRigUnit_PoseGetTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PoseGetTransformArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub valid: bool,
@@ -5967,18 +5967,18 @@ impl FRigUnit_PoseGetTransformArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PoseGetCurve {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub pose: FRigPose,
     pub curve: FName,
     pub valid: bool,
     pub curve_value: f32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FRigUnit_PoseGetCurve {}
 #[repr(C, align(16))]
 pub struct FRigUnit_PoseLoop {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub pose: FRigPose,
     pub item: FRigElementKey,
     pub global_transform: crate::bindings::core_u_object::FTransform,
@@ -6003,7 +6003,7 @@ impl FRigUnit_HierarchyCreatePoseItemArray_Entry {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyCreatePoseItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub entries: TArray<FRigUnit_HierarchyCreatePoseItemArray_Entry>,
     pub pose: FRigPose,
 }
@@ -6011,21 +6011,21 @@ impl FRigUnit_HierarchyCreatePoseItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_InteractionExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_InteractionExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_InverseExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_InverseExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_IsInteracting {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub b_is_interacting: bool,
     pub b_is_translating: bool,
     pub b_is_rotating: bool,
@@ -6035,27 +6035,27 @@ pub struct FRigUnit_IsInteracting {
 impl FRigUnit_IsInteracting {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit_ItemBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_ItemBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemExists {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub exists: bool,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_ItemExists {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemReplace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub old: FName,
     pub new: FName,
@@ -6065,7 +6065,7 @@ impl FRigUnit_ItemReplace {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
@@ -6074,7 +6074,7 @@ impl FRigUnit_ItemEquals {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
@@ -6083,7 +6083,7 @@ impl FRigUnit_ItemNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemTypeEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
@@ -6092,7 +6092,7 @@ impl FRigUnit_ItemTypeEquals {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemTypeNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FRigElementKey,
     pub b: FRigElementKey,
     pub result: bool,
@@ -6101,7 +6101,7 @@ impl FRigUnit_ItemTypeNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemToName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FRigElementKey,
     pub result: FName,
 }
@@ -6109,7 +6109,7 @@ impl FRigUnit_ItemToName {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HierarchyAddPhysicsSolver {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub name: FName,
     pub solver: FRigPhysicsSolverID,
 }
@@ -6117,7 +6117,7 @@ impl FRigUnit_HierarchyAddPhysicsSolver {}
 #[repr(C, align(16))]
 pub struct FRigUnit_HierarchyAddPhysicsJoint {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub solver: FRigPhysicsSolverID,
 }
@@ -6125,31 +6125,31 @@ impl FRigUnit_HierarchyAddPhysicsJoint {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PrepareForExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_PrepareForExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PostPrepareForExecution {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_PostPrepareForExecution {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RigModulesBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigUnit_RigModulesBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RigModulesBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_RigModulesBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ResolveConnector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub connector: FRigElementKey,
     pub skip_socket: bool,
     pub result: FRigElementKey,
@@ -6159,7 +6159,7 @@ impl FRigUnit_ResolveConnector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ResolveArrayConnector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub connector: FRigElementKey,
     pub skip_socket: bool,
     pub result: TArray<FRigElementKey>,
@@ -6169,14 +6169,14 @@ impl FRigUnit_ResolveArrayConnector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetCurrentNameSpace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name_space: FString,
 }
 impl FRigUnit_GetCurrentNameSpace {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetItemShortName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub short_name: FName,
 }
@@ -6184,7 +6184,7 @@ impl FRigUnit_GetItemShortName {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetItemNameSpace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub has_name_space: bool,
     pub name_space: FString,
@@ -6193,7 +6193,7 @@ impl FRigUnit_GetItemNameSpace {}
 #[repr(C, align(8))]
 pub struct FRigUnit_IsItemInCurrentNameSpace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub result: bool,
 }
@@ -6201,7 +6201,7 @@ impl FRigUnit_IsItemInCurrentNameSpace {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetItemsInNameSpace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub type_to_search: ERigElementType,
     pub items: TArray<FRigElementKey>,
 }
@@ -6209,14 +6209,14 @@ impl FRigUnit_GetItemsInNameSpace {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetModuleName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub module: FString,
 }
 impl FRigUnit_GetModuleName {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetItemModuleName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub is_part_of_module: bool,
     pub module: FString,
@@ -6225,7 +6225,7 @@ impl FRigUnit_GetItemModuleName {}
 #[repr(C, align(8))]
 pub struct FRigUnit_IsItemInCurrentModule {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub result: bool,
 }
@@ -6233,7 +6233,7 @@ impl FRigUnit_IsItemInCurrentModule {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetItemsInModule {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub type_to_search: ERigElementType,
     pub items: TArray<FRigElementKey>,
 }
@@ -6241,7 +6241,7 @@ impl FRigUnit_GetItemsInModule {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SequenceExecution {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub execute_context: FControlRigExecuteContext,
     pub a: FControlRigExecuteContext,
     pub b: FControlRigExecuteContext,
@@ -6252,189 +6252,189 @@ impl FRigUnit_SequenceExecution {}
 #[repr(C, align(16))]
 pub struct FRigUnit_AddBoneTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub weight: f32,
     pub b_post_multiply: bool,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 42],
+    pub(crate) __padding_end: [u8; 42],
 }
 impl FRigUnit_AddBoneTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_Item {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
 }
 impl FRigUnit_Item {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
 }
 impl FRigUnit_ItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_BoneName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bone: FName,
 }
 impl FRigUnit_BoneName {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SpaceName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub space: FName,
 }
 impl FRigUnit_SpaceName {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ControlName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
 }
 impl FRigUnit_ControlName {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_ComponentBase {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FRigDispatch_ComponentBase {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_SpawnComponent {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FRigDispatch_SpawnComponent {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_GetComponentContent {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FRigDispatch_GetComponentContent {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_SetComponentContent {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FRigDispatch_SetComponentContent {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetAnimationChannelBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub channel: FName,
     pub b_initial: bool,
-    __padding_end: [u8; 23],
+    pub(crate) __padding_end: [u8; 23],
 }
 impl FRigUnit_GetAnimationChannelBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetBoolAnimationChannel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub value: bool,
 }
 impl FRigUnit_GetBoolAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetFloatAnimationChannel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub value: f32,
 }
 impl FRigUnit_GetFloatAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetIntAnimationChannel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub value: i32,
 }
 impl FRigUnit_GetIntAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetVector2DAnimationChannel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub value: crate::bindings::core_u_object::FVector2D,
 }
 impl FRigUnit_GetVector2DAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetVectorAnimationChannel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub value: crate::bindings::core_u_object::FVector,
 }
 impl FRigUnit_GetVectorAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetRotatorAnimationChannel {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub value: crate::bindings::core_u_object::FRotator,
 }
 impl FRigUnit_GetRotatorAnimationChannel {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetTransformAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: crate::bindings::core_u_object::FTransform,
 }
 impl FRigUnit_GetTransformAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetAnimationChannelBase {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_SetAnimationChannelBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetBoolAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: bool,
 }
 impl FRigUnit_SetBoolAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetFloatAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: f32,
 }
 impl FRigUnit_SetFloatAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetIntAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: i32,
 }
 impl FRigUnit_SetIntAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetVector2DAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: crate::bindings::core_u_object::FVector2D,
 }
 impl FRigUnit_SetVector2DAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetVectorAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: crate::bindings::core_u_object::FVector,
 }
 impl FRigUnit_SetVectorAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetRotatorAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: crate::bindings::core_u_object::FRotator,
 }
 impl FRigUnit_SetRotatorAnimationChannel {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetTransformAnimationChannel {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub value: crate::bindings::core_u_object::FTransform,
 }
 impl FRigUnit_SetTransformAnimationChannel {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetAnimationChannelFromItemBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub b_initial: bool,
 }
@@ -6442,372 +6442,372 @@ impl FRigUnit_GetAnimationChannelFromItemBase {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetBoolAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: bool,
 }
 impl FRigUnit_GetBoolAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetFloatAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: f32,
 }
 impl FRigUnit_GetFloatAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetIntAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: i32,
 }
 impl FRigUnit_GetIntAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetVector2DAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: crate::bindings::core_u_object::FVector2D,
 }
 impl FRigUnit_GetVector2DAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetVectorAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: crate::bindings::core_u_object::FVector,
 }
 impl FRigUnit_GetVectorAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetRotatorAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: crate::bindings::core_u_object::FRotator,
 }
 impl FRigUnit_GetRotatorAnimationChannelFromItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetTransformAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub value: crate::bindings::core_u_object::FTransform,
 }
 impl FRigUnit_GetTransformAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetAnimationChannelBaseFromItem {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub execute_pin: crate::bindings::rig_vm::FRigVMExecutePin,
 }
 impl FRigUnit_SetAnimationChannelBaseFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetBoolAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub value: bool,
 }
 impl FRigUnit_SetBoolAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetFloatAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub value: f32,
 }
 impl FRigUnit_SetFloatAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetIntAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub value: i32,
 }
 impl FRigUnit_SetIntAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetVector2DAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub value: crate::bindings::core_u_object::FVector2D,
 }
 impl FRigUnit_SetVector2DAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetVectorAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub value: crate::bindings::core_u_object::FVector,
 }
 impl FRigUnit_SetVectorAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetRotatorAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub value: crate::bindings::core_u_object::FRotator,
 }
 impl FRigUnit_SetRotatorAnimationChannelFromItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetTransformAnimationChannelFromItem {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub value: crate::bindings::core_u_object::FTransform,
 }
 impl FRigUnit_SetTransformAnimationChannelFromItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_CurveExists {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub curve: FName,
     pub exists: bool,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FRigUnit_CurveExists {}
 #[repr(C, align(8))]
 pub struct FRigUnit_FindClosestItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub point: crate::bindings::core_u_object::FVector,
     pub item: FRigElementKey,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_FindClosestItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetBoneTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bone: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_GetBoneTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetControlInitialTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlInitialTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetControlOffset {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub offset_transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlOffset {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlBool {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub bool_value: bool,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FRigUnit_GetControlBool {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub float_value: f32,
     pub minimum: f32,
     pub maximum: f32,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlInteger {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub integer_value: i32,
     pub minimum: i32,
     pub maximum: i32,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlInteger {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlVector2D {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub vector: crate::bindings::core_u_object::FVector2D,
     pub minimum: crate::bindings::core_u_object::FVector2D,
     pub maximum: crate::bindings::core_u_object::FVector2D,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlVector2D {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub vector: crate::bindings::core_u_object::FVector,
     pub minimum: crate::bindings::core_u_object::FVector,
     pub maximum: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlRotator {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub rotator: crate::bindings::core_u_object::FRotator,
     pub minimum: crate::bindings::core_u_object::FRotator,
     pub maximum: crate::bindings::core_u_object::FRotator,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlRotator {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetControlTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub minimum: crate::bindings::core_u_object::FTransform,
     pub maximum: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetCurveValue {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub curve: FName,
     pub valid: bool,
     pub value: f32,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FRigUnit_GetCurveValue {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetInitialBoneTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bone: FName,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetInitialBoneTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetRelativeBoneTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bone: FName,
     pub space: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigUnit_GetRelativeBoneTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetRelativeTransformForItem {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub b_child_initial: bool,
     pub parent: FRigElementKey,
     pub b_parent_initial: bool,
     pub relative_transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigUnit_GetRelativeTransformForItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetSpaceTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub space: FName,
     pub space_type: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetSpaceTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetTransformArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: FRigElementKeyCollection,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_GetTransformArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetTransformItemArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_GetTransformItemArray {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_MetadataBase {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_MetadataBase {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_GetMetadata {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_GetMetadata {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_SetMetadata {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_SetMetadata {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RemoveMetadata {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub name: FName,
     pub name_space: ERigMetaDataNameSpace,
     pub removed: bool,
-    __padding_end: [u8; 34],
+    pub(crate) __padding_end: [u8; 34],
 }
 impl FRigUnit_RemoveMetadata {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RemoveAllMetadata {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub name_space: ERigMetaDataNameSpace,
     pub removed: bool,
-    __padding_end: [u8; 38],
+    pub(crate) __padding_end: [u8; 38],
 }
 impl FRigUnit_RemoveAllMetadata {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HasMetadata {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub name: FName,
     pub ty: ERigMetadataType,
     pub name_space: ERigMetaDataNameSpace,
     pub found: bool,
-    __padding_end: [u8; 33],
+    pub(crate) __padding_end: [u8; 33],
 }
 impl FRigUnit_HasMetadata {}
 #[repr(C, align(8))]
 pub struct FRigUnit_FindItemsWithMetadata {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub ty: ERigMetadataType,
     pub name_space: ERigMetaDataNameSpace,
@@ -6817,69 +6817,69 @@ impl FRigUnit_FindItemsWithMetadata {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetMetadataTags {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub tags: TArray<FName>,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetMetadataTags {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMetadataTag {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub tag: FName,
     pub name_space: ERigMetaDataNameSpace,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FRigUnit_SetMetadataTag {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMetadataTagArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub tags: TArray<FName>,
     pub name_space: ERigMetaDataNameSpace,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetMetadataTagArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RemoveMetadataTag {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub tag: FName,
     pub name_space: ERigMetaDataNameSpace,
     pub removed: bool,
-    __padding_end: [u8; 34],
+    pub(crate) __padding_end: [u8; 34],
 }
 impl FRigUnit_RemoveMetadataTag {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HasMetadataTag {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub tag: FName,
     pub name_space: ERigMetaDataNameSpace,
     pub found: bool,
-    __padding_end: [u8; 34],
+    pub(crate) __padding_end: [u8; 34],
 }
 impl FRigUnit_HasMetadataTag {}
 #[repr(C, align(8))]
 pub struct FRigUnit_HasMetadataTagArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub tags: TArray<FName>,
     pub name_space: ERigMetaDataNameSpace,
     pub found: bool,
-    __padding_end: [u8; 38],
+    pub(crate) __padding_end: [u8; 38],
 }
 impl FRigUnit_HasMetadataTagArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_FindItemsWithMetadataTag {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub tag: FName,
     pub name_space: ERigMetaDataNameSpace,
     pub items: TArray<FRigElementKey>,
@@ -6888,7 +6888,7 @@ impl FRigUnit_FindItemsWithMetadataTag {}
 #[repr(C, align(8))]
 pub struct FRigUnit_FindItemsWithMetadataTagArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub tags: TArray<FName>,
     pub name_space: ERigMetaDataNameSpace,
     pub items: TArray<FRigElementKey>,
@@ -6897,40 +6897,40 @@ impl FRigUnit_FindItemsWithMetadataTagArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_FilterItemsByMetadataTags {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
     pub tags: TArray<FName>,
     pub name_space: ERigMetaDataNameSpace,
     pub inclusive: bool,
     pub result: TArray<FRigElementKey>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_FilterItemsByMetadataTags {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_GetModuleMetadata {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_GetModuleMetadata {}
 #[repr(C, align(8))]
 pub struct FRigDispatch_SetModuleMetadata {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FRigDispatch_SetModuleMetadata {}
 #[repr(C, align(16))]
 pub struct FRigUnit_OffsetTransformForItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 43],
+    pub(crate) __padding_end: [u8; 43],
 }
 impl FRigUnit_OffsetTransformForItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ParentSwitchConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub subject: FRigElementKey,
     pub parent_index: i32,
     pub parents: FRigElementKeyCollection,
@@ -6938,13 +6938,13 @@ pub struct FRigUnit_ParentSwitchConstraint {
     pub weight: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub switched: bool,
-    __padding_end: [u8; 175],
+    pub(crate) __padding_end: [u8; 175],
 }
 impl FRigUnit_ParentSwitchConstraint {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ParentSwitchConstraintArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub subject: FRigElementKey,
     pub parent_index: i32,
     pub parents: TArray<FRigElementKey>,
@@ -6952,13 +6952,13 @@ pub struct FRigUnit_ParentSwitchConstraintArray {
     pub weight: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub switched: bool,
-    __padding_end: [u8; 175],
+    pub(crate) __padding_end: [u8; 175],
 }
 impl FRigUnit_ParentSwitchConstraintArray {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ProjectTransformToNewParent {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub child: FRigElementKey,
     pub b_child_initial: bool,
     pub old_parent: FRigElementKey,
@@ -6966,24 +6966,24 @@ pub struct FRigUnit_ProjectTransformToNewParent {
     pub new_parent: FRigElementKey,
     pub b_new_parent_initial: bool,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FRigUnit_ProjectTransformToNewParent {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PropagateTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub b_recompute_global: bool,
     pub b_apply_to_children: bool,
     pub b_recursive: bool,
-    __padding_end: [u8; 37],
+    pub(crate) __padding_end: [u8; 37],
 }
 impl FRigUnit_PropagateTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SendEvent {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub event: ERigEvent,
     pub item: FRigElementKey,
     pub offset_in_seconds: f32,
@@ -6994,153 +6994,153 @@ impl FRigUnit_SendEvent {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetBoneInitialTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 46],
+    pub(crate) __padding_end: [u8; 46],
 }
 impl FRigUnit_SetBoneInitialTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetBoneRotation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub rotation: crate::bindings::core_u_object::FQuat,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetBoneRotation {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetBoneTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetBoneTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetBoneTranslation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub translation: crate::bindings::core_u_object::FVector,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetBoneTranslation {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlColor {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub color: crate::bindings::core_u_object::FLinearColor,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FRigUnit_GetControlColor {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlColor {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub color: crate::bindings::core_u_object::FLinearColor,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FRigUnit_SetControlColor {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlDrivenList {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub driven: TArray<FRigElementKey>,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetControlDrivenList {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlDrivenList {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub driven: TArray<FRigElementKey>,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_SetControlDrivenList {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetControlOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub offset: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FRigUnit_SetControlOffset {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlTranslationOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub offset: crate::bindings::core_u_object::FVector,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetControlTranslationOffset {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetControlRotationOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub offset: crate::bindings::core_u_object::FQuat,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FRigUnit_SetControlRotationOffset {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlScaleOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub scale: crate::bindings::core_u_object::FVector,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetControlScaleOffset {}
 #[repr(C, align(16))]
 pub struct FRigUnit_GetShapeTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub control: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_GetShapeTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetShapeTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_SetShapeTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlBool {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub bool_value: bool,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FRigUnit_SetControlBool {}
 #[repr(C, align(4))]
@@ -7152,19 +7152,19 @@ impl FRigUnit_SetMultiControlBool_Entry {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMultiControlBool {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub entries: TArray<FRigUnit_SetMultiControlBool_Entry>,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_SetMultiControlBool {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlFloat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub weight: f32,
     pub float_value: f32,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FRigUnit_SetControlFloat {}
 #[repr(C, align(4))]
@@ -7176,20 +7176,20 @@ impl FRigUnit_SetMultiControlFloat_Entry {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMultiControlFloat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub entries: TArray<FRigUnit_SetMultiControlFloat_Entry>,
     pub weight: f32,
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FRigUnit_SetMultiControlFloat {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlInteger {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub weight: i32,
     pub integer_value: i32,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FRigUnit_SetControlInteger {}
 #[repr(C, align(4))]
@@ -7201,20 +7201,20 @@ impl FRigUnit_SetMultiControlInteger_Entry {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMultiControlInteger {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub entries: TArray<FRigUnit_SetMultiControlInteger_Entry>,
     pub weight: f32,
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FRigUnit_SetMultiControlInteger {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlVector2D {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub weight: f32,
     pub vector: crate::bindings::core_u_object::FVector2D,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_SetControlVector2D {}
 #[repr(C, align(8))]
@@ -7226,32 +7226,32 @@ impl FRigUnit_SetMultiControlVector2D_Entry {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMultiControlVector2D {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub entries: TArray<FRigUnit_SetMultiControlVector2D_Entry>,
     pub weight: f32,
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FRigUnit_SetMultiControlVector2D {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub weight: f32,
     pub vector: crate::bindings::core_u_object::FVector,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetControlVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlRotator {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub weight: f32,
     pub rotator: crate::bindings::core_u_object::FRotator,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_SetControlRotator {}
 #[repr(C, align(8))]
@@ -7264,214 +7264,214 @@ impl FRigUnit_SetMultiControlRotator_Entry {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetMultiControlRotator {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub entries: TArray<FRigUnit_SetMultiControlRotator_Entry>,
     pub weight: f32,
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FRigUnit_SetMultiControlRotator {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetControlTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub control: FName,
     pub weight: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FRigUnit_SetControlTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetControlVisibility {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub item: FRigElementKey,
     pub b_visible: bool,
-    __padding_end: [u8; 39],
+    pub(crate) __padding_end: [u8; 39],
 }
 impl FRigUnit_GetControlVisibility {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetControlVisibility {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub pattern: FString,
     pub b_visible: bool,
-    __padding_end: [u8; 23],
+    pub(crate) __padding_end: [u8; 23],
 }
 impl FRigUnit_SetControlVisibility {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetCurveValue {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub curve: FName,
     pub value: f32,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigUnit_SetCurveValue {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetRelativeBoneTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub space: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 75],
+    pub(crate) __padding_end: [u8; 75],
 }
 impl FRigUnit_SetRelativeBoneTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetRelativeTransformForItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
     pub b_parent_initial: bool,
     pub value: crate::bindings::core_u_object::FTransform,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 75],
+    pub(crate) __padding_end: [u8; 75],
 }
 impl FRigUnit_SetRelativeTransformForItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetRelativeTranslationForItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
     pub b_parent_initial: bool,
     pub value: crate::bindings::core_u_object::FVector,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 67],
+    pub(crate) __padding_end: [u8; 67],
 }
 impl FRigUnit_SetRelativeTranslationForItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetRelativeRotationForItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub parent: FRigElementKey,
     pub b_parent_initial: bool,
     pub value: crate::bindings::core_u_object::FQuat,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 75],
+    pub(crate) __padding_end: [u8; 75],
 }
 impl FRigUnit_SetRelativeRotationForItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetSpaceInitialTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub space_name: FName,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FRigUnit_SetSpaceInitialTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetSpaceTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub space: FName,
     pub weight: f32,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub space_type: crate::bindings::rig_vm::ERigVMTransformSpace,
-    __padding_end: [u8; 47],
+    pub(crate) __padding_end: [u8; 47],
 }
 impl FRigUnit_SetSpaceTransform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub value: crate::bindings::core_u_object::FTransform,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 43],
+    pub(crate) __padding_end: [u8; 43],
 }
 impl FRigUnit_SetTransform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetTranslation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub value: crate::bindings::core_u_object::FVector,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FRigUnit_SetTranslation {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SetRotation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub value: crate::bindings::core_u_object::FQuat,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 43],
+    pub(crate) __padding_end: [u8; 43],
 }
 impl FRigUnit_SetRotation {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetScale {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub scale: crate::bindings::core_u_object::FVector,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FRigUnit_SetScale {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetTransformArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FRigUnit_SetTransformArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetTransformItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub space: crate::bindings::rig_vm::ERigVMTransformSpace,
     pub b_initial: bool,
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FRigUnit_SetTransformItemArray {}
 #[repr(C, align(8))]
 pub struct FRigUnit_UnsetCurveValue {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub curve: FName,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FRigUnit_UnsetCurveValue {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ToWorldSpace_Transform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub world: crate::bindings::core_u_object::FTransform,
 }
@@ -7479,7 +7479,7 @@ impl FRigUnit_ToWorldSpace_Transform {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ToRigSpace_Transform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub global: crate::bindings::core_u_object::FTransform,
 }
@@ -7487,7 +7487,7 @@ impl FRigUnit_ToRigSpace_Transform {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ToWorldSpace_Location {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub world: crate::bindings::core_u_object::FVector,
 }
@@ -7495,7 +7495,7 @@ impl FRigUnit_ToWorldSpace_Location {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ToRigSpace_Location {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub global: crate::bindings::core_u_object::FVector,
 }
@@ -7503,7 +7503,7 @@ impl FRigUnit_ToRigSpace_Location {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ToWorldSpace_Rotation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub world: crate::bindings::core_u_object::FQuat,
 }
@@ -7511,7 +7511,7 @@ impl FRigUnit_ToWorldSpace_Rotation {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ToRigSpace_Rotation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub global: crate::bindings::core_u_object::FQuat,
 }
@@ -7531,7 +7531,7 @@ impl FRigUnit_Harmonics_TargetItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_BoneHarmonics {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bones: TArray<FRigUnit_BoneHarmonics_BoneTarget>,
     pub wave_speed: crate::bindings::core_u_object::FVector,
     pub wave_frequency: crate::bindings::core_u_object::FVector,
@@ -7543,13 +7543,13 @@ pub struct FRigUnit_BoneHarmonics {
     pub wave_maximum: f32,
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 42],
+    pub(crate) __padding_end: [u8; 42],
 }
 impl FRigUnit_BoneHarmonics {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ItemHarmonics {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub targets: TArray<FRigUnit_Harmonics_TargetItem>,
     pub wave_speed: crate::bindings::core_u_object::FVector,
     pub wave_frequency: crate::bindings::core_u_object::FVector,
@@ -7560,7 +7560,7 @@ pub struct FRigUnit_ItemHarmonics {
     pub wave_minimum: f32,
     pub wave_maximum: f32,
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
-    __padding_end: [u8; 43],
+    pub(crate) __padding_end: [u8; 43],
 }
 impl FRigUnit_ItemHarmonics {}
 #[repr(C, align(8))]
@@ -7603,7 +7603,7 @@ impl FRigUnit_ChainHarmonics_Pendulum {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ChainHarmonics {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub chain_root: FName,
     pub speed: crate::bindings::core_u_object::FVector,
     pub reach: FRigUnit_ChainHarmonics_Reach,
@@ -7612,13 +7612,13 @@ pub struct FRigUnit_ChainHarmonics {
     pub pendulum: FRigUnit_ChainHarmonics_Pendulum,
     pub b_draw_debug: bool,
     pub draw_world_offset: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 160],
+    pub(crate) __padding_end: [u8; 160],
 }
 impl FRigUnit_ChainHarmonics {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ChainHarmonicsPerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub chain_root: FRigElementKey,
     pub speed: crate::bindings::core_u_object::FVector,
     pub reach: FRigUnit_ChainHarmonics_Reach,
@@ -7627,7 +7627,7 @@ pub struct FRigUnit_ChainHarmonicsPerItem {
     pub pendulum: FRigUnit_ChainHarmonics_Pendulum,
     pub b_draw_debug: bool,
     pub draw_world_offset: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 160],
+    pub(crate) __padding_end: [u8; 160],
 }
 impl FRigUnit_ChainHarmonicsPerItem {}
 #[repr(C, align(8))]
@@ -7658,39 +7658,39 @@ impl FRigUnit_AimBone_DebugSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_AimBoneMath {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input_transform: crate::bindings::core_u_object::FTransform,
     pub primary: FRigUnit_AimItem_Target,
     pub secondary: FRigUnit_AimItem_Target,
     pub weight: f32,
     pub result: crate::bindings::core_u_object::FTransform,
     pub debug_settings: FRigUnit_AimBone_DebugSettings,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_AimBoneMath {}
 #[repr(C, align(16))]
 pub struct FRigUnit_AimBone {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub primary: FRigUnit_AimBone_Target,
     pub secondary: FRigUnit_AimBone_Target,
     pub weight: f32,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_AimBone_DebugSettings,
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigUnit_AimBone {}
 #[repr(C, align(16))]
 pub struct FRigUnit_AimItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub primary: FRigUnit_AimItem_Target,
     pub secondary: FRigUnit_AimItem_Target,
     pub weight: f32,
     pub debug_settings: FRigUnit_AimBone_DebugSettings,
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigUnit_AimItem {}
 #[repr(C, align(8))]
@@ -7709,7 +7709,7 @@ impl FRigUnit_AimConstraint_AdvancedSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_AimConstraintLocalSpaceOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
@@ -7719,7 +7719,7 @@ pub struct FRigUnit_AimConstraintLocalSpaceOffset {
     pub parents: TArray<FConstraintParent>,
     pub advanced_settings: FRigUnit_AimConstraint_AdvancedSettings,
     pub weight: f32,
-    __padding_end: [u8; 92],
+    pub(crate) __padding_end: [u8; 92],
 }
 impl FRigUnit_AimConstraintLocalSpaceOffset {}
 #[repr(C, align(4))]
@@ -7743,7 +7743,7 @@ impl FRigUnit_CCDIK_RotationLimitPerItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_CCDIK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub effector_bone: FName,
     pub effector_transform: crate::bindings::core_u_object::FTransform,
@@ -7754,13 +7754,13 @@ pub struct FRigUnit_CCDIK {
     pub base_rotation_limit: f32,
     pub rotation_limits: TArray<FRigUnit_CCDIK_RotationLimit>,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 103],
+    pub(crate) __padding_end: [u8; 103],
 }
 impl FRigUnit_CCDIK {}
 #[repr(C, align(16))]
 pub struct FRigUnit_CCDIKPerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub effector_transform: crate::bindings::core_u_object::FTransform,
     pub precision: f32,
@@ -7770,13 +7770,13 @@ pub struct FRigUnit_CCDIKPerItem {
     pub base_rotation_limit: f32,
     pub rotation_limits: TArray<FRigUnit_CCDIK_RotationLimitPerItem>,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 103],
+    pub(crate) __padding_end: [u8; 103],
 }
 impl FRigUnit_CCDIKPerItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_CCDIKItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub effector_transform: crate::bindings::core_u_object::FTransform,
     pub precision: f32,
@@ -7786,18 +7786,18 @@ pub struct FRigUnit_CCDIKItemArray {
     pub base_rotation_limit: f32,
     pub rotation_limits: TArray<FRigUnit_CCDIK_RotationLimitPerItem>,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 103],
+    pub(crate) __padding_end: [u8; 103],
 }
 impl FRigUnit_CCDIKItemArray {}
 #[repr(C, align(4))]
 pub struct FRigUnit_ChainInfo_SegmentInfo {
-    __padding_end: [u8; 60],
+    pub(crate) __padding_end: [u8; 60],
 }
 impl FRigUnit_ChainInfo_SegmentInfo {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ChainInfo {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub items: TArray<FRigElementKey>,
     pub param: f32,
     pub b_calculate_stretch: bool,
@@ -7809,7 +7809,7 @@ pub struct FRigUnit_ChainInfo {
     pub param_length: f32,
     pub chain_stretch_factor: f32,
     pub segment_info: FRigUnit_ChainInfo_SegmentInfo,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigUnit_ChainInfo {}
 #[repr(C, align(16))]
@@ -7821,42 +7821,42 @@ impl FRigUnit_DistributeRotation_Rotation {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DistributeRotation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub end_bone: FName,
     pub rotations: TArray<FRigUnit_DistributeRotation_Rotation>,
     pub rotation_ease_type: crate::bindings::rig_vm::ERigVMAnimEasingType,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 87],
+    pub(crate) __padding_end: [u8; 87],
 }
 impl FRigUnit_DistributeRotation {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DistributeRotationForCollection {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub rotations: TArray<FRigUnit_DistributeRotation_Rotation>,
     pub rotation_ease_type: crate::bindings::rig_vm::ERigVMAnimEasingType,
     pub weight: f32,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_DistributeRotationForCollection {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DistributeRotationForItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub rotations: TArray<FRigUnit_DistributeRotation_Rotation>,
     pub rotation_ease_type: crate::bindings::rig_vm::ERigVMAnimEasingType,
     pub weight: f32,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_DistributeRotationForItemArray {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FABRIK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub effector_bone: FName,
     pub effector_transform: crate::bindings::core_u_object::FTransform,
@@ -7865,14 +7865,14 @@ pub struct FRigUnit_FABRIK {
     pub b_propagate_to_children: bool,
     pub max_iterations: i32,
     #[doc(hidden)]
-    __padding_224: [u8; 64],
+    pub(crate) __padding_224: [u8; 64],
     pub b_set_effector_transform: bool,
 }
 impl FRigUnit_FABRIK {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FABRIKPerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub effector_transform: crate::bindings::core_u_object::FTransform,
     pub precision: f32,
@@ -7880,14 +7880,14 @@ pub struct FRigUnit_FABRIKPerItem {
     pub b_propagate_to_children: bool,
     pub max_iterations: i32,
     #[doc(hidden)]
-    __padding_208: [u8; 64],
+    pub(crate) __padding_208: [u8; 64],
     pub b_set_effector_transform: bool,
 }
 impl FRigUnit_FABRIKPerItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FABRIKItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub effector_transform: crate::bindings::core_u_object::FTransform,
     pub precision: f32,
@@ -7895,7 +7895,7 @@ pub struct FRigUnit_FABRIKItemArray {
     pub b_propagate_to_children: bool,
     pub max_iterations: i32,
     #[doc(hidden)]
-    __padding_208: [u8; 64],
+    pub(crate) __padding_208: [u8; 64],
     pub b_set_effector_transform: bool,
 }
 impl FRigUnit_FABRIKItemArray {}
@@ -7917,7 +7917,7 @@ impl FRigUnit_FitChainToCurve_DebugSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FitChainToCurve {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub end_bone: FName,
     pub bezier: crate::bindings::rig_vm::FRigVMFourPointBezier,
@@ -7933,13 +7933,13 @@ pub struct FRigUnit_FitChainToCurve {
     pub weight: f32,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_FitChainToCurve_DebugSettings,
-    __padding_end: [u8; 160],
+    pub(crate) __padding_end: [u8; 160],
 }
 impl FRigUnit_FitChainToCurve {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FitChainToCurvePerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub bezier: crate::bindings::rig_vm::FRigVMFourPointBezier,
     pub alignment: EControlRigCurveAlignment,
@@ -7954,13 +7954,13 @@ pub struct FRigUnit_FitChainToCurvePerItem {
     pub weight: f32,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_FitChainToCurve_DebugSettings,
-    __padding_end: [u8; 160],
+    pub(crate) __padding_end: [u8; 160],
 }
 impl FRigUnit_FitChainToCurvePerItem {}
 #[repr(C, align(16))]
 pub struct FRigUnit_FitChainToCurveItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub bezier: crate::bindings::rig_vm::FRigVMFourPointBezier,
     pub alignment: EControlRigCurveAlignment,
@@ -7975,7 +7975,7 @@ pub struct FRigUnit_FitChainToCurveItemArray {
     pub weight: f32,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_FitChainToCurve_DebugSettings,
-    __padding_end: [u8; 160],
+    pub(crate) __padding_end: [u8; 160],
 }
 impl FRigUnit_FitChainToCurveItemArray {}
 #[repr(C, align(16))]
@@ -7987,13 +7987,13 @@ impl FRigUnit_ModifyBoneTransforms_PerBone {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ModifyBoneTransforms {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone_to_modify: TArray<FRigUnit_ModifyBoneTransforms_PerBone>,
     pub weight: f32,
     pub weight_minimum: f32,
     pub weight_maximum: f32,
     pub mode: EControlRigModifyBoneMode,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FRigUnit_ModifyBoneTransforms {}
 #[repr(C, align(16))]
@@ -8005,13 +8005,13 @@ impl FRigUnit_ModifyTransforms_PerItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ModifyTransforms {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item_to_modify: TArray<FRigUnit_ModifyTransforms_PerItem>,
     pub weight: f32,
     pub weight_minimum: f32,
     pub weight_maximum: f32,
     pub mode: EControlRigModifyBoneMode,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FRigUnit_ModifyTransforms {}
 #[repr(C, align(8))]
@@ -8023,44 +8023,44 @@ impl FRigUnit_MultiFABRIK_EndEffector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_MultiFABRIK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub root_bone: FName,
     pub effectors: TArray<FRigUnit_MultiFABRIK_EndEffector>,
     pub precision: f32,
     pub b_propagate_to_children: bool,
     pub max_iterations: i32,
-    __padding_end: [u8; 116],
+    pub(crate) __padding_end: [u8; 116],
 }
 impl FRigUnit_MultiFABRIK {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SlideChain {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub end_bone: FName,
     pub slide_amount: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 75],
+    pub(crate) __padding_end: [u8; 75],
 }
 impl FRigUnit_SlideChain {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SlideChainPerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub slide_amount: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 75],
+    pub(crate) __padding_end: [u8; 75],
 }
 impl FRigUnit_SlideChainPerItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SlideChainItemArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: TArray<FRigElementKey>,
     pub slide_amount: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 75],
+    pub(crate) __padding_end: [u8; 75],
 }
 impl FRigUnit_SlideChainItemArray {}
 #[repr(C, align(4))]
@@ -8084,7 +8084,7 @@ impl FSphericalPoseReaderDebugSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SphericalPoseReader {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub output_param: f32,
     pub driver_item: FRigElementKey,
     pub driver_axis: crate::bindings::core_u_object::FVector,
@@ -8097,7 +8097,7 @@ pub struct FRigUnit_SphericalPoseReader {
     pub flip_height_scaling: bool,
     pub optional_parent_item: FRigElementKey,
     pub debug: FSphericalPoseReaderDebugSettings,
-    __padding_end: [u8; 284],
+    pub(crate) __padding_end: [u8; 284],
 }
 impl FRigUnit_SphericalPoseReader {}
 #[repr(C, align(16))]
@@ -8111,7 +8111,7 @@ impl FRigUnit_SpringIK_DebugSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SpringIK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub end_bone: FName,
     pub hierarchy_strength: f32,
@@ -8131,40 +8131,40 @@ pub struct FRigUnit_SpringIK {
     pub b_limit_local_position: bool,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_SpringIK_DebugSettings,
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FRigUnit_SpringIK {}
 #[repr(C, align(16))]
 pub struct FConstraintTarget {
     #[doc(hidden)]
-    __padding_101: [u8; 101],
+    pub(crate) __padding_101: [u8; 101],
     pub filter: crate::bindings::animation_core::FTransformFilter,
 }
 impl FConstraintTarget {}
 #[repr(C, align(16))]
 pub struct FRigUnit_TransformConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone: FName,
     pub base_transform_space: ETransformSpaceMode,
     pub base_transform: crate::bindings::core_u_object::FTransform,
     pub base_bone: FName,
     pub targets: TArray<FConstraintTarget>,
     pub b_use_initial_transforms: bool,
-    __padding_end: [u8; 111],
+    pub(crate) __padding_end: [u8; 111],
 }
 impl FRigUnit_TransformConstraint {}
 #[repr(C, align(16))]
 pub struct FRigUnit_TransformConstraintPerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item: FRigElementKey,
     pub base_transform_space: ETransformSpaceMode,
     pub base_transform: crate::bindings::core_u_object::FTransform,
     pub base_item: FRigElementKey,
     pub targets: TArray<FConstraintTarget>,
     pub b_use_initial_transforms: bool,
-    __padding_end: [u8; 111],
+    pub(crate) __padding_end: [u8; 111],
 }
 impl FRigUnit_TransformConstraintPerItem {}
 #[repr(C, align(1))]
@@ -8176,14 +8176,14 @@ impl FRigUnit_ParentConstraint_AdvancedSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ParentConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FTransformFilter,
     pub parents: TArray<FConstraintParent>,
     pub advanced_settings: FRigUnit_ParentConstraint_AdvancedSettings,
     pub weight: f32,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_ParentConstraint {}
 #[repr(C, align(1))]
@@ -8194,18 +8194,18 @@ impl FRigUnit_ParentConstraintMath_AdvancedSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ParentConstraintMath {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FTransform,
     pub parents: TArray<FConstraintParent>,
     pub advanced_settings: FRigUnit_ParentConstraintMath_AdvancedSettings,
     pub output: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_ParentConstraintMath {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PositionConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
@@ -8216,13 +8216,13 @@ impl FRigUnit_PositionConstraint {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PositionConstraintLocalSpaceOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
     pub parents: TArray<FConstraintParent>,
     pub weight: f32,
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FRigUnit_PositionConstraintLocalSpaceOffset {}
 #[repr(C, align(1))]
@@ -8234,7 +8234,7 @@ impl FRigUnit_RotationConstraint_AdvancedSettings {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RotationConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
@@ -8246,20 +8246,20 @@ impl FRigUnit_RotationConstraint {}
 #[repr(C, align(8))]
 pub struct FRigUnit_RotationConstraintLocalSpaceOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
     pub parents: TArray<FConstraintParent>,
     pub advanced_settings: FRigUnit_RotationConstraint_AdvancedSettings,
     pub weight: f32,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigUnit_RotationConstraintLocalSpaceOffset {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ScaleConstraint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
@@ -8270,19 +8270,19 @@ impl FRigUnit_ScaleConstraint {}
 #[repr(C, align(8))]
 pub struct FRigUnit_ScaleConstraintLocalSpaceOffset {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub child: FRigElementKey,
     pub b_maintain_offset: bool,
     pub filter: crate::bindings::animation_core::FFilterOptionPerAxis,
     pub parents: TArray<FConstraintParent>,
     pub weight: f32,
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FRigUnit_ScaleConstraintLocalSpaceOffset {}
 #[repr(C, align(8))]
 pub struct FRigUnit_TwistBones {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub start_bone: FName,
     pub end_bone: FName,
     pub twist_axis: crate::bindings::core_u_object::FVector,
@@ -8290,20 +8290,20 @@ pub struct FRigUnit_TwistBones {
     pub twist_ease_type: crate::bindings::rig_vm::ERigVMAnimEasingType,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 55],
+    pub(crate) __padding_end: [u8; 55],
 }
 impl FRigUnit_TwistBones {}
 #[repr(C, align(8))]
 pub struct FRigUnit_TwistBonesPerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub items: FRigElementKeyCollection,
     pub twist_axis: crate::bindings::core_u_object::FVector,
     pub pole_axis: crate::bindings::core_u_object::FVector,
     pub twist_ease_type: crate::bindings::rig_vm::ERigVMAnimEasingType,
     pub weight: f32,
     pub b_propagate_to_children: bool,
-    __padding_end: [u8; 55],
+    pub(crate) __padding_end: [u8; 55],
 }
 impl FRigUnit_TwistBonesPerItem {}
 #[repr(C, align(16))]
@@ -8316,7 +8316,7 @@ impl FRigUnit_TwoBoneIKSimple_DebugSettings {}
 #[repr(C, align(16))]
 pub struct FRigUnit_TwoBoneIKSimple {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone_a: FName,
     pub bone_b: FName,
     pub effector_bone: FName,
@@ -8335,13 +8335,13 @@ pub struct FRigUnit_TwoBoneIKSimple {
     pub bone_b_length: f32,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_TwoBoneIKSimple_DebugSettings,
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FRigUnit_TwoBoneIKSimple {}
 #[repr(C, align(16))]
 pub struct FRigUnit_TwoBoneIKSimplePerItem {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item_a: FRigElementKey,
     pub item_b: FRigElementKey,
     pub effector_item: FRigElementKey,
@@ -8360,13 +8360,13 @@ pub struct FRigUnit_TwoBoneIKSimplePerItem {
     pub item_b_length: f32,
     pub b_propagate_to_children: bool,
     pub debug_settings: FRigUnit_TwoBoneIKSimple_DebugSettings,
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FRigUnit_TwoBoneIKSimplePerItem {}
 #[repr(C, align(8))]
 pub struct FRigUnit_TwoBoneIKSimpleVectors {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub root: crate::bindings::core_u_object::FVector,
     pub pole_vector: crate::bindings::core_u_object::FVector,
     pub effector: crate::bindings::core_u_object::FVector,
@@ -8381,7 +8381,7 @@ impl FRigUnit_TwoBoneIKSimpleVectors {}
 #[repr(C, align(16))]
 pub struct FRigUnit_TwoBoneIKSimpleTransforms {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub root: crate::bindings::core_u_object::FTransform,
     pub pole_vector: crate::bindings::core_u_object::FVector,
     pub effector: crate::bindings::core_u_object::FTransform,
@@ -8399,7 +8399,7 @@ impl FRigUnit_TwoBoneIKSimpleTransforms {}
 #[repr(C, align(8))]
 pub struct FRigUnit_GetCandidates {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub connector: FRigElementKey,
     pub candidates: TArray<FRigElementKey>,
 }
@@ -8407,7 +8407,7 @@ impl FRigUnit_GetCandidates {}
 #[repr(C, align(8))]
 pub struct FRigUnit_DiscardMatches {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub excluded: TArray<FRigElementKey>,
     pub message: FString,
 }
@@ -8415,14 +8415,14 @@ impl FRigUnit_DiscardMatches {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SetDefaultMatch {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub default: FRigElementKey,
 }
 impl FRigUnit_SetDefaultMatch {}
 #[repr(C, align(16))]
 pub struct FRigUnit_ConnectorExecution {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub execute_context: FControlRigExecuteContext,
 }
 impl FRigUnit_ConnectorExecution {}
@@ -8447,7 +8447,7 @@ impl FRigUnit_PointSimulation_BoneTarget {}
 #[repr(C, align(16))]
 pub struct FRigUnit_PointSimulation {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub points: TArray<crate::bindings::rig_vm::FRigVMSimPoint>,
     pub links: TArray<FCRSimLinearSpring>,
     pub forces: TArray<FCRSimPointForce>,
@@ -8462,39 +8462,39 @@ pub struct FRigUnit_PointSimulation {
     pub secondary_aim_axis: crate::bindings::core_u_object::FVector,
     pub debug_settings: FRigUnit_PointSimulation_DebugSettings,
     pub bezier: crate::bindings::rig_vm::FRigVMFourPointBezier,
-    __padding_end: [u8; 144],
+    pub(crate) __padding_end: [u8; 144],
 }
 impl FRigUnit_PointSimulation {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SpringInterp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub current: f32,
     pub target: f32,
     pub stiffness: f32,
     pub critical_damping: f32,
     pub mass: f32,
     pub result: f32,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_SpringInterp {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SpringInterpVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub current: crate::bindings::core_u_object::FVector,
     pub target: crate::bindings::core_u_object::FVector,
     pub stiffness: f32,
     pub critical_damping: f32,
     pub mass: f32,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigUnit_SpringInterpVector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SpringInterpV2 {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub target: f32,
     pub strength: f32,
     pub critical_damping: f32,
@@ -8505,13 +8505,13 @@ pub struct FRigUnit_SpringInterpV2 {
     pub b_initialize_from_target: bool,
     pub result: f32,
     pub velocity: f32,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigUnit_SpringInterpV2 {}
 #[repr(C, align(8))]
 pub struct FRigUnit_SpringInterpVectorV2 {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub target: crate::bindings::core_u_object::FVector,
     pub strength: f32,
     pub critical_damping: f32,
@@ -8522,13 +8522,13 @@ pub struct FRigUnit_SpringInterpVectorV2 {
     pub b_initialize_from_target: bool,
     pub result: crate::bindings::core_u_object::FVector,
     pub velocity: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigUnit_SpringInterpVectorV2 {}
 #[repr(C, align(16))]
 pub struct FRigUnit_SpringInterpQuaternionV2 {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub target: crate::bindings::core_u_object::FQuat,
     pub strength: f32,
     pub critical_damping: f32,
@@ -8539,7 +8539,7 @@ pub struct FRigUnit_SpringInterpQuaternionV2 {
     pub b_initialize_from_target: bool,
     pub result: crate::bindings::core_u_object::FQuat,
     pub angular_velocity: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 104],
+    pub(crate) __padding_end: [u8; 104],
 }
 impl FRigUnit_SpringInterpQuaternionV2 {}
 #[repr(C, align(8))]
@@ -8714,7 +8714,7 @@ impl UAnimNodeControlRigLibrary {
 #[repr(C, align(16))]
 pub struct UTransformableControlHandle {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub control_rig: TSoftObjectPtr<UControlRig>,
     pub control_name: FName,
     __padding_end: [u8; 180],
@@ -9221,7 +9221,7 @@ impl UControlRigAnimInstance {
 #[repr(C, align(8))]
 pub struct UControlRigShapeLibraryLink {
     #[doc(hidden)]
-    __padding_264: [u8; 264],
+    pub(crate) __padding_264: [u8; 264],
     pub shape_library: TSoftObjectPtr<UControlRigShapeLibrary>,
     __padding_end: [u8; 24],
 }
@@ -9329,7 +9329,7 @@ impl UControlRigBlueprintGeneratedClass {
 #[repr(C, align(16))]
 pub struct UControlRigComponent {
     #[doc(hidden)]
-    __padding_1504: [u8; 1504],
+    pub(crate) __padding_1504: [u8; 1504],
     pub control_rig_class: TSubclassOf<UControlRig>,
     __padding_end: [u8; 552],
 }
@@ -11217,7 +11217,7 @@ impl UControlRigComponent {
 #[repr(C, align(8))]
 pub struct AControlRigControlActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub actor_to_track: UPtr<crate::bindings::engine::AActor>,
     pub control_rig_class: TSubclassOf<UControlRig>,
     pub b_refresh_on_tick: bool,
@@ -11322,10 +11322,10 @@ impl AControlRigControlActor {
 #[repr(C, align(16))]
 pub struct AControlRigShapeActor {
     #[doc(hidden)]
-    __padding_1152: [u8; 1152],
+    pub(crate) __padding_1152: [u8; 1152],
     pub static_mesh_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
     #[doc(hidden)]
-    __padding_1360: [u8; 200],
+    pub(crate) __padding_1360: [u8; 200],
     pub flags_1360: u8,
     __padding_end: [u8; 31],
 }
@@ -11823,12 +11823,12 @@ impl UControlRigOverrideAsset {
 #[repr(C, align(8))]
 pub struct UControlRigReplay {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub description: FText,
     pub control_rig_object_path: crate::bindings::core_u_object::FSoftObjectPath,
     pub preview_skeletal_mesh_object_path: crate::bindings::core_u_object::FSoftObjectPath,
     #[doc(hidden)]
-    __padding_896: [u8; 752],
+    pub(crate) __padding_896: [u8; 752],
     pub tolerance: f64,
     pub b_validate_hierarchy_topology: bool,
     pub b_validate_pose: bool,
@@ -12230,7 +12230,7 @@ impl UControlRigReplay {
 #[repr(C, align(8))]
 pub struct UControlRigTestData {
     #[doc(hidden)]
-    __padding_1024: [u8; 1024],
+    pub(crate) __padding_1024: [u8; 1024],
     pub initial: FControlRigTestDataFrame,
     pub input_frames: TArray<FControlRigTestDataFrame>,
     pub output_frames: TArray<FControlRigTestDataFrame>,
@@ -14289,7 +14289,7 @@ impl UFKControlRig {
 #[repr(C, align(16))]
 pub struct URigHierarchy {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub modified_event_dynamic: FRigHierarchy_ModifiedEventDynamic,
     __padding_end: [u8; 1656],
 }
@@ -25768,7 +25768,7 @@ impl UControlRigEditorSettings {
 #[repr(C, align(8))]
 pub struct UControlRigPoseAsset {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub pose: FControlRigControlPose,
     __padding_end: [u8; 8],
 }
@@ -26116,7 +26116,7 @@ impl UControlRigPoseAsset {
 #[repr(C, align(8))]
 pub struct UControlRigPoseMirrorSettings {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub mirror_axis: crate::bindings::core_u_object::EAxis,
     pub axis_to_flip: crate::bindings::core_u_object::EAxis,
     pub mirror_match_tolerance: f64,
@@ -26141,7 +26141,7 @@ impl UControlRigPoseMirrorSettings {
 #[repr(C, align(8))]
 pub struct UControlRigPoseProjectSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub root_save_dirs: TArray<crate::bindings::core_u_object::FDirectoryPath>,
 }
 impl UControlRigPoseProjectSettings {
@@ -26164,7 +26164,7 @@ impl UControlRigPoseProjectSettings {
 #[repr(C, align(8))]
 pub struct UControlRigWorkflowOptions {
     #[doc(hidden)]
-    __padding_192: [u8; 192],
+    pub(crate) __padding_192: [u8; 192],
     pub hierarchy: UPtr<URigHierarchy>,
     pub selection: TArray<FRigElementKey>,
 }
@@ -26214,7 +26214,7 @@ impl UControlRigWorkflowOptions {
 #[repr(C, align(8))]
 pub struct UControlRigTransformWorkflowOptions {
     #[doc(hidden)]
-    __padding_216: [u8; 216],
+    pub(crate) __padding_216: [u8; 216],
     pub transform_type: ERigTransformType,
 }
 impl UControlRigTransformWorkflowOptions {

@@ -335,13 +335,13 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FMediaPlateResource {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FMediaPlateResource {}
 #[repr(C, align(8))]
 pub struct AMediaPlate {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub media_plate_component: UPtr<UMediaPlateComponent>,
     pub static_mesh_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
     pub b_enable_holdout_composite: bool,
@@ -446,22 +446,22 @@ impl UMediaPlateAssetUserData {
 #[repr(C, align(8))]
 pub struct UMediaPlateComponent {
     #[doc(hidden)]
-    __padding_248: [u8; 248],
+    pub(crate) __padding_248: [u8; 248],
     pub b_play_on_open: bool,
     pub start_time: f32,
     #[doc(hidden)]
-    __padding_296: [u8; 40],
+    pub(crate) __padding_296: [u8; 40],
     pub media_plate_resource: FMediaPlateResource,
     pub playlist_index: i32,
     #[doc(hidden)]
-    __padding_436: [u8; 8],
+    pub(crate) __padding_436: [u8; 8],
     pub b_is_media_plate_playing: bool,
     #[doc(hidden)]
-    __padding_456: [u8; 19],
+    pub(crate) __padding_456: [u8; 19],
     pub b_play_only_when_visible: bool,
     pub b_loop: bool,
     #[doc(hidden)]
-    __padding_464: [u8; 6],
+    pub(crate) __padding_464: [u8; 6],
     pub b_is_aspect_ratio_auto: bool,
     __padding_end: [u8; 239],
 }

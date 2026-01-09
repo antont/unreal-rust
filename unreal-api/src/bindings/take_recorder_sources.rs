@@ -62,7 +62,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct UTakeRecorderActorSource {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub target: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub record_type: ETakeRecorderActorRecordType,
     pub b_record_parent_hierarchy: bool,
@@ -277,7 +277,7 @@ impl UTakeRecorderCameraCutSource {
 #[repr(C, align(8))]
 pub struct UTakeRecorderLevelSequenceSource {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub level_sequences_to_trigger: TArray<
         UPtr<crate::bindings::level_sequence::ULevelSequence>,
     >,
@@ -303,7 +303,7 @@ impl UTakeRecorderLevelSequenceSource {
 #[repr(C, align(8))]
 pub struct UTakeRecorderLevelVisibilitySourceSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub level_visibility_track_name: FText,
 }
 impl UTakeRecorderLevelVisibilitySourceSettings {
@@ -347,7 +347,7 @@ impl UTakeRecorderLevelVisibilitySource {
 #[repr(C, align(8))]
 pub struct UTakeRecorderMicrophoneAudioManager {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub audio_input_device: crate::bindings::takes_core::FAudioInputDeviceProperty,
     __padding_end: [u8; 40],
 }
@@ -371,7 +371,7 @@ impl UTakeRecorderMicrophoneAudioManager {
 #[repr(C, align(8))]
 pub struct UTakeRecorderMicrophoneAudioSourceSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub audio_source_name: FText,
     pub audio_track_name: FText,
     pub audio_asset_name: FString,
@@ -397,10 +397,10 @@ impl UTakeRecorderMicrophoneAudioSourceSettings {
 #[repr(C, align(8))]
 pub struct UTakeRecorderMicrophoneAudioSource {
     #[doc(hidden)]
-    __padding_128: [u8; 128],
+    pub(crate) __padding_128: [u8; 128],
     pub audio_gain: f32,
     #[doc(hidden)]
-    __padding_133: [u8; 1],
+    pub(crate) __padding_133: [u8; 1],
     pub b_replace_recorded_audio: bool,
     pub audio_channel: crate::bindings::takes_core::FAudioInputDeviceChannelProperty,
     __padding_end: [u8; 84],
@@ -425,7 +425,7 @@ impl UTakeRecorderMicrophoneAudioSource {
 #[repr(C, align(8))]
 pub struct UTakeRecorderNearbySpawnedActorSource {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub proximity: f32,
     pub b_filter_spawned_actors: bool,
     pub filter_types: TArray<TSubclassOf<crate::bindings::engine::AActor>>,
@@ -472,7 +472,7 @@ impl UTakeRecorderPlayerSource {
 #[repr(C, align(8))]
 pub struct UTakeRecorderWorldSourceSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub b_record_world_settings: bool,
     pub b_autotrack_actors: bool,
 }

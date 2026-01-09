@@ -536,19 +536,19 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct FRigVMUserWorkflow {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub title: FString,
     pub tooltip: FString,
     pub ty: ERigVMUserWorkflowType,
     #[doc(hidden)]
-    __padding_72: [u8; 24],
+    pub(crate) __padding_72: [u8; 24],
     pub perform_dynamic_delegate: FRigVMUserWorkflow_PerformDynamicDelegate,
     pub options_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
 }
 impl FRigVMUserWorkflow {}
 #[repr(C, align(16))]
 pub struct FRigVMExtendedExecuteContext {
-    __padding_end: [u8; 768],
+    pub(crate) __padding_end: [u8; 768],
 }
 impl FRigVMExtendedExecuteContext {}
 #[repr(C, align(4))]
@@ -560,43 +560,43 @@ impl FRigVMDebugDrawSettings {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_DebugBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub debug_draw_settings: FRigVMDebugDrawSettings,
 }
 impl FRigVMFunction_DebugBase {}
 #[repr(C, align(8))]
 pub struct FRigVMStructMutable {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: FRigVMExecutePin,
 }
 impl FRigVMStructMutable {}
 #[repr(C, align(8))]
 pub struct FRigVMExecutePin {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigVMExecutePin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_DebugBaseMutable {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub debug_draw_settings: FRigVMDebugDrawSettings,
 }
 impl FRigVMFunction_DebugBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathMutableBase {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathMutableBase {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_SimBaseMutable {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_SimBaseMutable {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_DampFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub target: f32,
     pub smoothing_time: f32,
@@ -605,13 +605,13 @@ pub struct FRigVMFunction_DampFloat {
 impl FRigVMFunction_DampFloat {}
 #[repr(C, align(16))]
 pub struct FRigVMExecuteContext {
-    __padding_end: [u8; 288],
+    pub(crate) __padding_end: [u8; 288],
 }
 impl FRigVMExecuteContext {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_DampVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub target: crate::bindings::core_u_object::FVector,
     pub smoothing_time: f32,
@@ -621,7 +621,7 @@ impl FRigVMFunction_DampVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DampQuaternion {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub target: crate::bindings::core_u_object::FQuat,
     pub smoothing_time: f32,
@@ -631,7 +631,7 @@ impl FRigVMFunction_DampQuaternion {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_SpringDampFloat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: f32,
     pub value_velocity: f32,
     pub target: f32,
@@ -641,7 +641,7 @@ impl FRigVMFunction_SpringDampFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_SpringDampVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FVector,
     pub value_velocity: crate::bindings::core_u_object::FVector,
     pub target: crate::bindings::core_u_object::FVector,
@@ -651,7 +651,7 @@ impl FRigVMFunction_SpringDampVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_SpringDampQuat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub value_velocity: crate::bindings::core_u_object::FVector,
     pub target: crate::bindings::core_u_object::FQuat,
@@ -684,22 +684,22 @@ pub struct FRigVMStatistics {
 impl FRigVMStatistics {}
 #[repr(C, align(8))]
 pub struct FRigVMParameter {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigVMParameter {}
 #[repr(C, align(8))]
 pub struct FRigVMExternalVariableDef {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMExternalVariableDef {}
 #[repr(C, align(8))]
 pub struct FRigVMExternalVariable {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigVMExternalVariable {}
 #[repr(C, align(8))]
 pub struct FRigVMFunctionCompilationData {
-    __padding_end: [u8; 912],
+    pub(crate) __padding_end: [u8; 912],
 }
 impl FRigVMFunctionCompilationData {}
 #[repr(C, align(8))]
@@ -712,13 +712,13 @@ pub struct FRigVMGraphFunctionArgument {
     pub direction: ERigVMPinDirection,
     pub default_value: FString,
     pub b_is_const: bool,
-    __padding_end: [u8; 87],
+    pub(crate) __padding_end: [u8; 87],
 }
 impl FRigVMGraphFunctionArgument {}
 #[repr(C, align(8))]
 pub struct FRigVMGraphFunctionIdentifier {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub host_object: crate::bindings::core_u_object::FSoftObjectPath,
 }
 impl FRigVMGraphFunctionIdentifier {}
@@ -730,12 +730,12 @@ pub struct FRigVMGraphFunctionHeader {
     pub node_title: FString,
     pub node_color: crate::bindings::core_u_object::FLinearColor,
     #[doc(hidden)]
-    __padding_192: [u8; 16],
+    pub(crate) __padding_192: [u8; 16],
     pub description: FString,
     pub category: FString,
     pub keywords: FString,
     pub arguments: TArray<FRigVMGraphFunctionArgument>,
-    __padding_end: [u8; 272],
+    pub(crate) __padding_end: [u8; 272],
 }
 impl FRigVMGraphFunctionHeader {}
 #[repr(C, align(8))]
@@ -770,12 +770,12 @@ pub struct FRigVMTag {
 impl FRigVMTag {}
 #[repr(C, align(8))]
 pub struct FRigVMGraphFunctionData {
-    __padding_end: [u8; 1488],
+    pub(crate) __padding_end: [u8; 1488],
 }
 impl FRigVMGraphFunctionData {}
 #[repr(C, align(8))]
 pub struct FRigVMInstructionSetExecuteState {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMInstructionSetExecuteState {}
 #[repr(C, align(8))]
@@ -787,14 +787,14 @@ impl FRigVMVariantRef {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AnimEasingType {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub ty: ERigVMAnimEasingType,
 }
 impl FRigVMFunction_AnimEasingType {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AnimEasing {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub ty: ERigVMAnimEasingType,
     pub source_minimum: f32,
@@ -807,7 +807,7 @@ impl FRigVMFunction_AnimEasing {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AnimEvalRichCurve {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub curve: crate::bindings::engine::FRuntimeFloatCurve,
     pub source_minimum: f32,
@@ -820,21 +820,21 @@ impl FRigVMFunction_AnimEvalRichCurve {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AnimRichCurve {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub curve: crate::bindings::engine::FRuntimeFloatCurve,
 }
 impl FRigVMFunction_AnimRichCurve {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_GetDeltaTime {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub result: f32,
 }
 impl FRigVMFunction_GetDeltaTime {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_GetWorldTime {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub year: f32,
     pub month: f32,
     pub day: f32,
@@ -848,7 +848,7 @@ impl FRigVMFunction_GetWorldTime {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_FramesToSeconds {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub frames: f32,
     pub seconds: f32,
 }
@@ -856,7 +856,7 @@ impl FRigVMFunction_FramesToSeconds {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_SecondsToFrames {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub seconds: f32,
     pub frames: f32,
 }
@@ -864,7 +864,7 @@ impl FRigVMFunction_SecondsToFrames {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugLineNoSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -876,7 +876,7 @@ impl FRigVMFunction_DebugLineNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugLineStripNoSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub points: TArray<crate::bindings::core_u_object::FVector>,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub thickness: f32,
@@ -887,7 +887,7 @@ impl FRigVMFunction_DebugLineStripNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugPoint {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub vector: crate::bindings::core_u_object::FVector,
     pub mode: ERigUnitDebugPointMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -901,7 +901,7 @@ impl FRigVMFunction_DebugPoint {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugPointMutable {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub vector: crate::bindings::core_u_object::FVector,
     pub mode: ERigUnitDebugPointMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -915,7 +915,7 @@ impl FRigVMFunction_DebugPointMutable {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugRectangle {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub scale: f32,
@@ -928,7 +928,7 @@ impl FRigVMFunction_DebugRectangle {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugRectangleNoSpace {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub scale: f32,
@@ -940,7 +940,7 @@ impl FRigVMFunction_DebugRectangleNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugArc {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub radius: f32,
@@ -956,7 +956,7 @@ impl FRigVMFunction_DebugArc {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugArcNoSpace {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub radius: f32,
@@ -971,7 +971,7 @@ impl FRigVMFunction_DebugArcNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugBoxNoSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub box_: crate::bindings::core_u_object::FBox,
     pub color: crate::bindings::core_u_object::FLinearColor,
     pub thickness: f32,
@@ -982,7 +982,7 @@ impl FRigVMFunction_DebugBoxNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugTransformMutableNoSpace {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub mode: ERigUnitDebugTransformMode,
     pub color: crate::bindings::core_u_object::FLinearColor,
@@ -995,7 +995,7 @@ impl FRigVMFunction_DebugTransformMutableNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DebugTransformArrayMutableNoSpace {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub parent_indices: TArray<i32>,
     pub mode: ERigUnitDebugTransformMode,
@@ -1009,7 +1009,7 @@ impl FRigVMFunction_DebugTransformArrayMutableNoSpace {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualDebugVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FVector,
     pub b_enabled: bool,
     pub mode: ERigUnitVisualDebugPointMode,
@@ -1022,7 +1022,7 @@ impl FRigVMFunction_VisualDebugVector {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualDebugVectorNoSpace {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FVector,
     pub b_enabled: bool,
     pub mode: ERigUnitVisualDebugPointMode,
@@ -1034,7 +1034,7 @@ impl FRigVMFunction_VisualDebugVectorNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_VisualDebugQuat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -1045,7 +1045,7 @@ impl FRigVMFunction_VisualDebugQuat {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_VisualDebugQuatNoSpace {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -1055,7 +1055,7 @@ impl FRigVMFunction_VisualDebugQuatNoSpace {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_VisualDebugTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -1066,7 +1066,7 @@ impl FRigVMFunction_VisualDebugTransform {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_VisualDebugTransformNoSpace {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub b_enabled: bool,
     pub thickness: f32,
@@ -1076,27 +1076,27 @@ impl FRigVMFunction_VisualDebugTransformNoSpace {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogBase {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub text: FString,
     pub category: FName,
 }
 impl FRigVMFunction_VisualLogBase {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogText {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_VisualLogText {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogObject {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub object_color: crate::bindings::core_u_object::FLinearColor,
 }
 impl FRigVMFunction_VisualLogObject {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogLocation {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub location: crate::bindings::core_u_object::FVector,
     pub radius: f32,
 }
@@ -1104,14 +1104,14 @@ impl FRigVMFunction_VisualLogLocation {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogWireframeOptional {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub b_wireframe: bool,
 }
 impl FRigVMFunction_VisualLogWireframeOptional {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogSphere {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub center: crate::bindings::core_u_object::FVector,
     pub radius: f32,
 }
@@ -1119,7 +1119,7 @@ impl FRigVMFunction_VisualLogSphere {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogCone {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub origin: crate::bindings::core_u_object::FVector,
     pub direction: crate::bindings::core_u_object::FVector,
     pub length: f32,
@@ -1129,7 +1129,7 @@ impl FRigVMFunction_VisualLogCone {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogCylinder {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub start: crate::bindings::core_u_object::FVector,
     pub end: crate::bindings::core_u_object::FVector,
     pub radius: f32,
@@ -1138,7 +1138,7 @@ impl FRigVMFunction_VisualLogCylinder {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_VisualLogCapsule {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub base: crate::bindings::core_u_object::FVector,
     pub half_height: f32,
     pub radius: f32,
@@ -1148,14 +1148,14 @@ impl FRigVMFunction_VisualLogCapsule {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogBox {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub box_: crate::bindings::core_u_object::FBox,
 }
 impl FRigVMFunction_VisualLogBox {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_VisualLogOrientedBox {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub box_: crate::bindings::core_u_object::FBox,
     pub transform: crate::bindings::core_u_object::FTransform,
 }
@@ -1163,7 +1163,7 @@ impl FRigVMFunction_VisualLogOrientedBox {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogArrow {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub segment_start: crate::bindings::core_u_object::FVector,
     pub segment_end: crate::bindings::core_u_object::FVector,
     pub arrow_head_size: f32,
@@ -1172,7 +1172,7 @@ impl FRigVMFunction_VisualLogArrow {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogCircle {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub center: crate::bindings::core_u_object::FVector,
     pub up_axis: crate::bindings::core_u_object::FVector,
     pub radius: f32,
@@ -1182,7 +1182,7 @@ impl FRigVMFunction_VisualLogCircle {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VisualLogSegment {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub segment_start: crate::bindings::core_u_object::FVector,
     pub segment_end: crate::bindings::core_u_object::FVector,
     pub thickness: f32,
@@ -1191,14 +1191,14 @@ impl FRigVMFunction_VisualLogSegment {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_IsHostBeingDebugged {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub result: bool,
 }
 impl FRigVMFunction_IsHostBeingDebugged {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_ForLoopCount {
     #[doc(hidden)]
-    __padding_28: [u8; 28],
+    pub(crate) __padding_28: [u8; 28],
     pub count: i32,
     pub index: i32,
     pub ratio: f32,
@@ -1208,7 +1208,7 @@ impl FRigVMFunction_ForLoopCount {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_Sequence {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub execute_context: FRigVMExecuteContext,
     pub a: FRigVMExecuteContext,
     pub b: FRigVMExecuteContext,
@@ -1217,7 +1217,7 @@ impl FRigVMFunction_Sequence {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_UserDefinedEvent {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub execute_pin: FRigVMExecutePin,
     pub event_name: FName,
 }
@@ -1225,14 +1225,14 @@ impl FRigVMFunction_UserDefinedEvent {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolConstant {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: bool,
 }
 impl FRigVMFunction_MathBoolConstant {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolUnaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: bool,
     pub result: bool,
 }
@@ -1240,7 +1240,7 @@ impl FRigVMFunction_MathBoolUnaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolBinaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: bool,
     pub b: bool,
     pub result: bool,
@@ -1249,7 +1249,7 @@ impl FRigVMFunction_MathBoolBinaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: bool,
     pub b: bool,
     pub result: bool,
@@ -1258,49 +1258,49 @@ impl FRigVMFunction_MathBoolBinaryAggregateOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: bool,
 }
 impl FRigVMFunction_MathBoolMake {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolConstTrue {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolConstTrue {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolConstFalse {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolConstFalse {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolNot {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolNot {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolAnd {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolAnd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolNand {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolNand {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolNand2 {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolNand2 {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolOr {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathBoolOr {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: bool,
     pub b: bool,
     pub result: bool,
@@ -1309,7 +1309,7 @@ impl FRigVMFunction_MathBoolEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: bool,
     pub b: bool,
     pub result: bool,
@@ -1318,7 +1318,7 @@ impl FRigVMFunction_MathBoolNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolToggled {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: bool,
     pub toggled: bool,
 }
@@ -1326,7 +1326,7 @@ impl FRigVMFunction_MathBoolToggled {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolFlipFlop {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start_value: bool,
     pub duration: f32,
     pub result: bool,
@@ -1335,16 +1335,16 @@ impl FRigVMFunction_MathBoolFlipFlop {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolOnce {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub duration: f32,
     pub result: bool,
-    __padding_end: [u8; 11],
+    pub(crate) __padding_end: [u8; 11],
 }
 impl FRigVMFunction_MathBoolOnce {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolToFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: bool,
     pub result: f32,
 }
@@ -1352,7 +1352,7 @@ impl FRigVMFunction_MathBoolToFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoolToInteger {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: bool,
     pub result: i32,
 }
@@ -1360,7 +1360,7 @@ impl FRigVMFunction_MathBoolToInteger {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxFromArray {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<crate::bindings::core_u_object::FVector>,
     pub box_: crate::bindings::core_u_object::FBox,
     pub minimum: crate::bindings::core_u_object::FVector,
@@ -1372,7 +1372,7 @@ impl FRigVMFunction_MathBoxFromArray {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxIsValid {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub valid: bool,
 }
@@ -1380,7 +1380,7 @@ impl FRigVMFunction_MathBoxIsValid {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxGetCenter {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub center: crate::bindings::core_u_object::FVector,
 }
@@ -1388,7 +1388,7 @@ impl FRigVMFunction_MathBoxGetCenter {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxGetSize {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub size: crate::bindings::core_u_object::FVector,
     pub extent: crate::bindings::core_u_object::FVector,
@@ -1397,7 +1397,7 @@ impl FRigVMFunction_MathBoxGetSize {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxShift {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub amount: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FBox,
@@ -1406,7 +1406,7 @@ impl FRigVMFunction_MathBoxShift {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxMoveTo {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub center: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FBox,
@@ -1415,7 +1415,7 @@ impl FRigVMFunction_MathBoxMoveTo {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxExpand {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub amount: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FBox,
@@ -1424,7 +1424,7 @@ impl FRigVMFunction_MathBoxExpand {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathBoxTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FBox,
@@ -1433,7 +1433,7 @@ impl FRigVMFunction_MathBoxTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxGetDistance {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub position: crate::bindings::core_u_object::FVector,
     pub square: bool,
@@ -1444,7 +1444,7 @@ impl FRigVMFunction_MathBoxGetDistance {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxIsInside {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub position: crate::bindings::core_u_object::FVector,
     pub result: bool,
@@ -1453,7 +1453,7 @@ impl FRigVMFunction_MathBoxIsInside {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathBoxGetVolume {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub box_: crate::bindings::core_u_object::FBox,
     pub volume: f32,
 }
@@ -1461,7 +1461,7 @@ impl FRigVMFunction_MathBoxGetVolume {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorBinaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FLinearColor,
     pub b: crate::bindings::core_u_object::FLinearColor,
     pub result: crate::bindings::core_u_object::FLinearColor,
@@ -1470,7 +1470,7 @@ impl FRigVMFunction_MathColorBinaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FLinearColor,
     pub b: crate::bindings::core_u_object::FLinearColor,
     pub result: crate::bindings::core_u_object::FLinearColor,
@@ -1479,7 +1479,7 @@ impl FRigVMFunction_MathColorBinaryAggregateOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub r: f32,
     pub g: f32,
     pub b: f32,
@@ -1490,7 +1490,7 @@ impl FRigVMFunction_MathColorMake {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorFromFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: crate::bindings::core_u_object::FLinearColor,
 }
@@ -1498,30 +1498,30 @@ impl FRigVMFunction_MathColorFromFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorFromDouble {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: crate::bindings::core_u_object::FLinearColor,
 }
 impl FRigVMFunction_MathColorFromDouble {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorAdd {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathColorAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorSub {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathColorSub {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorMul {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathColorMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathColorLerp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FLinearColor,
     pub b: crate::bindings::core_u_object::FLinearColor,
     pub t: f32,
@@ -1531,14 +1531,14 @@ impl FRigVMFunction_MathColorLerp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleConstant {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
 }
 impl FRigVMFunction_MathDoubleConstant {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleUnaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: f64,
 }
@@ -1546,7 +1546,7 @@ impl FRigVMFunction_MathDoubleUnaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleBinaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: f64,
@@ -1555,7 +1555,7 @@ impl FRigVMFunction_MathDoubleBinaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: f64,
@@ -1564,89 +1564,89 @@ impl FRigVMFunction_MathDoubleBinaryAggregateOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
 }
 impl FRigVMFunction_MathDoubleMake {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleConstPi {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathDoubleConstPi {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleConstHalfPi {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathDoubleConstHalfPi {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleConstTwoPi {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathDoubleConstTwoPi {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleConstE {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathDoubleConstE {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleAdd {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleSub {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleSub {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleMul {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleDiv {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleDiv {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleMod {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleMod {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleMin {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleMin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleMax {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleMax {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoublePow {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoublePow {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleSqrt {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleSqrt {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleNegate {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleNegate {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleAbs {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleAbs {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleFloor {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: f64,
     pub int: i32,
@@ -1655,7 +1655,7 @@ impl FRigVMFunction_MathDoubleFloor {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleCeil {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: f64,
     pub int: i32,
@@ -1664,7 +1664,7 @@ impl FRigVMFunction_MathDoubleCeil {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleRound {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: f64,
     pub int: i32,
@@ -1673,7 +1673,7 @@ impl FRigVMFunction_MathDoubleRound {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleToInt {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: i32,
 }
@@ -1681,20 +1681,20 @@ impl FRigVMFunction_MathDoubleToInt {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleToFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: f32,
 }
 impl FRigVMFunction_MathDoubleToFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleSign {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleSign {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleClamp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub minimum: f64,
     pub maximum: f64,
@@ -1704,7 +1704,7 @@ impl FRigVMFunction_MathDoubleClamp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleLerp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub t: f64,
@@ -1714,7 +1714,7 @@ impl FRigVMFunction_MathDoubleLerp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleRemap {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub source_minimum: f64,
     pub source_maximum: f64,
@@ -1727,7 +1727,7 @@ impl FRigVMFunction_MathDoubleRemap {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: bool,
@@ -1736,7 +1736,7 @@ impl FRigVMFunction_MathDoubleEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: bool,
@@ -1745,7 +1745,7 @@ impl FRigVMFunction_MathDoubleNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleGreater {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: bool,
@@ -1754,7 +1754,7 @@ impl FRigVMFunction_MathDoubleGreater {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleLess {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: bool,
@@ -1763,7 +1763,7 @@ impl FRigVMFunction_MathDoubleLess {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleGreaterEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: bool,
@@ -1772,7 +1772,7 @@ impl FRigVMFunction_MathDoubleGreaterEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleLessEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub result: bool,
@@ -1781,7 +1781,7 @@ impl FRigVMFunction_MathDoubleLessEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleIsNearlyZero {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub tolerance: f64,
     pub result: bool,
@@ -1790,7 +1790,7 @@ impl FRigVMFunction_MathDoubleIsNearlyZero {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleIsNearlyEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub tolerance: f64,
@@ -1799,53 +1799,53 @@ pub struct FRigVMFunction_MathDoubleIsNearlyEqual {
 impl FRigVMFunction_MathDoubleIsNearlyEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleDeg {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleDeg {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleRad {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleRad {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleSin {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleSin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleCos {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleCos {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleTan {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleTan {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleAsin {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleAsin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleAcos {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleAcos {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleAtan {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleAtan {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleAtan2 {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_MathDoubleAtan2 {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleLawOfCosine {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f64,
     pub b: f64,
     pub c: f64,
@@ -1857,13 +1857,13 @@ pub struct FRigVMFunction_MathDoubleLawOfCosine {
 impl FRigVMFunction_MathDoubleLawOfCosine {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleExponential {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathDoubleExponential {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleArraySum {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<f64>,
     pub sum: f64,
 }
@@ -1871,7 +1871,7 @@ impl FRigVMFunction_MathDoubleArraySum {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDoubleArrayAverage {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<f64>,
     pub average: f64,
 }
@@ -1879,14 +1879,14 @@ impl FRigVMFunction_MathDoubleArrayAverage {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatConstant {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
 }
 impl FRigVMFunction_MathFloatConstant {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatUnaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: f32,
 }
@@ -1894,7 +1894,7 @@ impl FRigVMFunction_MathFloatUnaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatBinaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: f32,
@@ -1903,7 +1903,7 @@ impl FRigVMFunction_MathFloatBinaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: f32,
@@ -1912,89 +1912,89 @@ impl FRigVMFunction_MathFloatBinaryAggregateOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
 }
 impl FRigVMFunction_MathFloatMake {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatConstPi {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatConstPi {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatConstHalfPi {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatConstHalfPi {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatConstTwoPi {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatConstTwoPi {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatConstE {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatConstE {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatAdd {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatSub {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatSub {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatMul {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatDiv {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatDiv {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatMod {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatMod {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatMin {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatMin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatMax {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatMax {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatPow {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatPow {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatSqrt {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatSqrt {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatNegate {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatNegate {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatAbs {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatAbs {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatFloor {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: f32,
     pub int: i32,
@@ -2003,7 +2003,7 @@ impl FRigVMFunction_MathFloatFloor {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatCeil {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: f32,
     pub int: i32,
@@ -2012,7 +2012,7 @@ impl FRigVMFunction_MathFloatCeil {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatRound {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: f32,
     pub int: i32,
@@ -2021,7 +2021,7 @@ impl FRigVMFunction_MathFloatRound {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatToInt {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: i32,
 }
@@ -2029,20 +2029,20 @@ impl FRigVMFunction_MathFloatToInt {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatToDouble {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: f64,
 }
 impl FRigVMFunction_MathFloatToDouble {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatSign {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatSign {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatClamp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub minimum: f32,
     pub maximum: f32,
@@ -2052,7 +2052,7 @@ impl FRigVMFunction_MathFloatClamp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatLerp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub t: f32,
@@ -2062,7 +2062,7 @@ impl FRigVMFunction_MathFloatLerp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatRemap {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub source_minimum: f32,
     pub source_maximum: f32,
@@ -2075,7 +2075,7 @@ impl FRigVMFunction_MathFloatRemap {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: bool,
@@ -2084,7 +2084,7 @@ impl FRigVMFunction_MathFloatEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: bool,
@@ -2093,7 +2093,7 @@ impl FRigVMFunction_MathFloatNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatGreater {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: bool,
@@ -2102,7 +2102,7 @@ impl FRigVMFunction_MathFloatGreater {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatLess {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: bool,
@@ -2111,7 +2111,7 @@ impl FRigVMFunction_MathFloatLess {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatGreaterEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: bool,
@@ -2120,7 +2120,7 @@ impl FRigVMFunction_MathFloatGreaterEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatLessEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub result: bool,
@@ -2129,7 +2129,7 @@ impl FRigVMFunction_MathFloatLessEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatIsNearlyZero {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub tolerance: f32,
     pub result: bool,
@@ -2138,7 +2138,7 @@ impl FRigVMFunction_MathFloatIsNearlyZero {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatIsNearlyEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub tolerance: f32,
@@ -2148,7 +2148,7 @@ impl FRigVMFunction_MathFloatIsNearlyEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatSelectBool {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub condition: bool,
     pub if_true: f32,
     pub if_false: f32,
@@ -2157,53 +2157,53 @@ pub struct FRigVMFunction_MathFloatSelectBool {
 impl FRigVMFunction_MathFloatSelectBool {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatDeg {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatDeg {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatRad {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatRad {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatSin {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatSin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatCos {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatCos {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatTan {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatTan {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatAsin {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatAsin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatAcos {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatAcos {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatAtan {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatAtan {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatAtan2 {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathFloatAtan2 {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatLawOfCosine {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: f32,
     pub b: f32,
     pub c: f32,
@@ -2215,13 +2215,13 @@ pub struct FRigVMFunction_MathFloatLawOfCosine {
 impl FRigVMFunction_MathFloatLawOfCosine {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatExponential {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathFloatExponential {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatArraySum {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<f32>,
     pub sum: f32,
 }
@@ -2229,7 +2229,7 @@ impl FRigVMFunction_MathFloatArraySum {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathFloatArrayAverage {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<f32>,
     pub average: f32,
 }
@@ -2237,7 +2237,7 @@ impl FRigVMFunction_MathFloatArrayAverage {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntUnaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: i32,
     pub result: i32,
 }
@@ -2245,7 +2245,7 @@ impl FRigVMFunction_MathIntUnaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntBinaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: i32,
@@ -2254,7 +2254,7 @@ impl FRigVMFunction_MathIntBinaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: i32,
@@ -2263,64 +2263,64 @@ impl FRigVMFunction_MathIntBinaryAggregateOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: i32,
 }
 impl FRigVMFunction_MathIntMake {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntAdd {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntSub {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntSub {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntMul {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntDiv {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntDiv {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntMod {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntMod {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntMin {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntMin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntMax {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntMax {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntPow {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_MathIntPow {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntNegate {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathIntNegate {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntAbs {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathIntAbs {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntToFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: i32,
     pub result: f32,
 }
@@ -2328,20 +2328,20 @@ impl FRigVMFunction_MathIntToFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntToDouble {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: i32,
     pub result: f64,
 }
 impl FRigVMFunction_MathIntToDouble {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntSign {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathIntSign {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntClamp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: i32,
     pub minimum: i32,
     pub maximum: i32,
@@ -2351,7 +2351,7 @@ impl FRigVMFunction_MathIntClamp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: bool,
@@ -2360,7 +2360,7 @@ impl FRigVMFunction_MathIntEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: bool,
@@ -2369,7 +2369,7 @@ impl FRigVMFunction_MathIntNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntGreater {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: bool,
@@ -2378,7 +2378,7 @@ impl FRigVMFunction_MathIntGreater {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntLess {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: bool,
@@ -2387,7 +2387,7 @@ impl FRigVMFunction_MathIntLess {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntGreaterEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: bool,
@@ -2396,7 +2396,7 @@ impl FRigVMFunction_MathIntGreaterEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntLessEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: i32,
     pub b: i32,
     pub result: bool,
@@ -2405,7 +2405,7 @@ impl FRigVMFunction_MathIntLessEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntArraySum {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<i32>,
     pub sum: i32,
 }
@@ -2413,7 +2413,7 @@ impl FRigVMFunction_MathIntArraySum {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntArrayAverage {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<i32>,
     pub average: i32,
 }
@@ -2421,7 +2421,7 @@ impl FRigVMFunction_MathIntArrayAverage {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntToString {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub number: i32,
     pub padded_size: i32,
     pub result: FString,
@@ -2430,7 +2430,7 @@ impl FRigVMFunction_MathIntToString {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntToName {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub number: i32,
     pub padded_size: i32,
     pub result: FName,
@@ -2439,7 +2439,7 @@ impl FRigVMFunction_MathIntToName {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixUnaryOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FMatrix,
     pub result: crate::bindings::core_u_object::FMatrix,
 }
@@ -2447,7 +2447,7 @@ impl FRigVMFunction_MathMatrixUnaryOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixBinaryOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FMatrix,
     pub b: crate::bindings::core_u_object::FMatrix,
     pub result: crate::bindings::core_u_object::FMatrix,
@@ -2456,7 +2456,7 @@ impl FRigVMFunction_MathMatrixBinaryOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FMatrix,
     pub b: crate::bindings::core_u_object::FMatrix,
     pub result: crate::bindings::core_u_object::FMatrix,
@@ -2465,7 +2465,7 @@ impl FRigVMFunction_MathMatrixBinaryAggregateOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixToTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FMatrix,
     pub result: crate::bindings::core_u_object::FTransform,
 }
@@ -2473,7 +2473,7 @@ impl FRigVMFunction_MathMatrixToTransform {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixFromTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FMatrix,
 }
@@ -2481,7 +2481,7 @@ impl FRigVMFunction_MathMatrixFromTransform {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixFromTransformV2 {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FMatrix,
 }
@@ -2489,7 +2489,7 @@ impl FRigVMFunction_MathMatrixFromTransformV2 {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixToVectors {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FMatrix,
     pub origin: crate::bindings::core_u_object::FVector,
     pub x: crate::bindings::core_u_object::FVector,
@@ -2500,7 +2500,7 @@ impl FRigVMFunction_MathMatrixToVectors {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixFromVectors {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub origin: crate::bindings::core_u_object::FVector,
     pub x: crate::bindings::core_u_object::FVector,
     pub y: crate::bindings::core_u_object::FVector,
@@ -2510,18 +2510,18 @@ pub struct FRigVMFunction_MathMatrixFromVectors {
 impl FRigVMFunction_MathMatrixFromVectors {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixMul {
-    __padding_end: [u8; 400],
+    pub(crate) __padding_end: [u8; 400],
 }
 impl FRigVMFunction_MathMatrixMul {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathMatrixInverse {
-    __padding_end: [u8; 272],
+    pub(crate) __padding_end: [u8; 272],
 }
 impl FRigVMFunction_MathMatrixInverse {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionUnaryOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FQuat,
 }
@@ -2529,7 +2529,7 @@ impl FRigVMFunction_MathQuaternionUnaryOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionBinaryOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -2538,7 +2538,7 @@ impl FRigVMFunction_MathQuaternionBinaryOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -2547,7 +2547,7 @@ impl FRigVMFunction_MathQuaternionBinaryAggregateOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub x: f32,
     pub y: f32,
     pub z: f32,
@@ -2558,7 +2558,7 @@ impl FRigVMFunction_MathQuaternionMake {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionFromAxisAndAngle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub axis: crate::bindings::core_u_object::FVector,
     pub angle: f32,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -2567,7 +2567,7 @@ impl FRigVMFunction_MathQuaternionFromAxisAndAngle {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionFromEuler {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub euler: crate::bindings::core_u_object::FVector,
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -2576,7 +2576,7 @@ impl FRigVMFunction_MathQuaternionFromEuler {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionFromRotator {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub rotator: crate::bindings::core_u_object::FRotator,
     pub result: crate::bindings::core_u_object::FQuat,
 }
@@ -2584,7 +2584,7 @@ impl FRigVMFunction_MathQuaternionFromRotator {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionFromRotatorV2 {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FRotator,
     pub result: crate::bindings::core_u_object::FQuat,
 }
@@ -2592,7 +2592,7 @@ impl FRigVMFunction_MathQuaternionFromRotatorV2 {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionFromTwoVectors {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -2601,7 +2601,7 @@ impl FRigVMFunction_MathQuaternionFromTwoVectors {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionToAxisAndAngle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub axis: crate::bindings::core_u_object::FVector,
     pub angle: f32,
@@ -2610,7 +2610,7 @@ impl FRigVMFunction_MathQuaternionToAxisAndAngle {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionToVectors {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub forward: crate::bindings::core_u_object::FVector,
     pub right: crate::bindings::core_u_object::FVector,
@@ -2620,7 +2620,7 @@ impl FRigVMFunction_MathQuaternionToVectors {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionScale {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub scale: f32,
 }
@@ -2628,7 +2628,7 @@ impl FRigVMFunction_MathQuaternionScale {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionScaleV2 {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub factor: f32,
     pub result: crate::bindings::core_u_object::FQuat,
@@ -2637,7 +2637,7 @@ impl FRigVMFunction_MathQuaternionScaleV2 {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionToEuler {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
     pub result: crate::bindings::core_u_object::FVector,
@@ -2646,25 +2646,25 @@ impl FRigVMFunction_MathQuaternionToEuler {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionToRotator {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub result: crate::bindings::core_u_object::FRotator,
 }
 impl FRigVMFunction_MathQuaternionToRotator {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionMul {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigVMFunction_MathQuaternionMul {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionInverse {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathQuaternionInverse {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionSlerp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub t: f32,
@@ -2674,7 +2674,7 @@ impl FRigVMFunction_MathQuaternionSlerp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionEquals {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: bool,
@@ -2683,7 +2683,7 @@ impl FRigVMFunction_MathQuaternionEquals {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionNotEquals {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: bool,
@@ -2692,7 +2692,7 @@ impl FRigVMFunction_MathQuaternionNotEquals {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionSelectBool {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub condition: bool,
     pub if_true: crate::bindings::core_u_object::FQuat,
     pub if_false: crate::bindings::core_u_object::FQuat,
@@ -2702,7 +2702,7 @@ impl FRigVMFunction_MathQuaternionSelectBool {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionDot {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FQuat,
     pub b: crate::bindings::core_u_object::FQuat,
     pub result: f32,
@@ -2710,13 +2710,13 @@ pub struct FRigVMFunction_MathQuaternionDot {
 impl FRigVMFunction_MathQuaternionDot {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionUnit {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathQuaternionUnit {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionRotateVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub transform: crate::bindings::core_u_object::FQuat,
     pub vector: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -2725,7 +2725,7 @@ impl FRigVMFunction_MathQuaternionRotateVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionGetAxis {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub quaternion: crate::bindings::core_u_object::FQuat,
     pub axis: crate::bindings::core_u_object::EAxis,
     pub result: crate::bindings::core_u_object::FVector,
@@ -2734,7 +2734,7 @@ impl FRigVMFunction_MathQuaternionGetAxis {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionSwingTwist {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub twist_axis: crate::bindings::core_u_object::FVector,
     pub swing: crate::bindings::core_u_object::FQuat,
@@ -2744,14 +2744,14 @@ impl FRigVMFunction_MathQuaternionSwingTwist {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathQuaternionRotationOrder {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
 }
 impl FRigVMFunction_MathQuaternionRotationOrder {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionMakeRelative {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub global: crate::bindings::core_u_object::FQuat,
     pub parent: crate::bindings::core_u_object::FQuat,
     pub local: crate::bindings::core_u_object::FQuat,
@@ -2760,7 +2760,7 @@ impl FRigVMFunction_MathQuaternionMakeRelative {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionMakeAbsolute {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub local: crate::bindings::core_u_object::FQuat,
     pub parent: crate::bindings::core_u_object::FQuat,
     pub global: crate::bindings::core_u_object::FQuat,
@@ -2769,7 +2769,7 @@ impl FRigVMFunction_MathQuaternionMakeAbsolute {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathQuaternionMirrorTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub mirror_axis: crate::bindings::core_u_object::EAxis,
     pub axis_to_flip: crate::bindings::core_u_object::EAxis,
@@ -2780,7 +2780,7 @@ impl FRigVMFunction_MathQuaternionMirrorTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathRayIntersectRay {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FRay,
     pub b: crate::bindings::core_u_object::FRay,
     pub result: crate::bindings::core_u_object::FVector,
@@ -2792,7 +2792,7 @@ impl FRigVMFunction_MathRayIntersectRay {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathRayIntersectPlane {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub ray: crate::bindings::core_u_object::FRay,
     pub plane_point: crate::bindings::core_u_object::FVector,
     pub plane_normal: crate::bindings::core_u_object::FVector,
@@ -2804,7 +2804,7 @@ impl FRigVMFunction_MathRayIntersectPlane {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathRayGetAt {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub ray: crate::bindings::core_u_object::FRay,
     pub ratio: f32,
     pub result: crate::bindings::core_u_object::FVector,
@@ -2813,7 +2813,7 @@ impl FRigVMFunction_MathRayGetAt {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRayTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub ray: crate::bindings::core_u_object::FRay,
     pub transform: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FRay,
@@ -2822,26 +2822,26 @@ impl FRigVMFunction_MathRayTransform {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateQuatBase {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub input: crate::bindings::core_u_object::FQuat,
     pub distance_function: ERBFQuatDistanceType,
     pub smoothing_function: ERBFKernelType,
     pub smoothing_angle: f32,
     pub b_normalize_output: bool,
     pub twist_axis: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 136],
+    pub(crate) __padding_end: [u8; 136],
 }
 impl FRigVMFunction_MathRBFInterpolateQuatBase {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateVectorBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub input: crate::bindings::core_u_object::FVector,
     pub distance_function: ERBFVectorDistanceType,
     pub smoothing_function: ERBFKernelType,
     pub smoothing_radius: f32,
     pub b_normalize_output: bool,
-    __padding_end: [u8; 135],
+    pub(crate) __padding_end: [u8; 135],
 }
 impl FRigVMFunction_MathRBFInterpolateVectorBase {}
 #[repr(C, align(16))]
@@ -2853,7 +2853,7 @@ impl FMathRBFInterpolateQuatFloat_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateQuatFloat {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatFloat_Target>,
     pub output: f32,
 }
@@ -2867,7 +2867,7 @@ impl FMathRBFInterpolateQuatVector_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateQuatVector {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatVector_Target>,
     pub output: crate::bindings::core_u_object::FVector,
 }
@@ -2881,7 +2881,7 @@ impl FMathRBFInterpolateQuatColor_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateQuatColor {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatColor_Target>,
     pub output: crate::bindings::core_u_object::FLinearColor,
 }
@@ -2895,7 +2895,7 @@ impl FMathRBFInterpolateQuatQuat_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateQuatQuat {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatQuat_Target>,
     pub output: crate::bindings::core_u_object::FQuat,
 }
@@ -2909,7 +2909,7 @@ impl FMathRBFInterpolateQuatXform_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateQuatXform {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub targets: TArray<FMathRBFInterpolateQuatXform_Target>,
     pub output: crate::bindings::core_u_object::FTransform,
 }
@@ -2923,7 +2923,7 @@ impl FMathRBFInterpolateVectorFloat_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateVectorFloat {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorFloat_Target>,
     pub output: f32,
 }
@@ -2937,7 +2937,7 @@ impl FMathRBFInterpolateVectorVector_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateVectorVector {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorVector_Target>,
     pub output: crate::bindings::core_u_object::FVector,
 }
@@ -2951,7 +2951,7 @@ impl FMathRBFInterpolateVectorColor_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateVectorColor {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorColor_Target>,
     pub output: crate::bindings::core_u_object::FLinearColor,
 }
@@ -2965,7 +2965,7 @@ impl FMathRBFInterpolateVectorQuat_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateVectorQuat {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorQuat_Target>,
     pub output: crate::bindings::core_u_object::FQuat,
 }
@@ -2979,20 +2979,20 @@ impl FMathRBFInterpolateVectorXform_Target {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathRBFInterpolateVectorXform {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub targets: TArray<FMathRBFInterpolateVectorXform_Target>,
     pub output: crate::bindings::core_u_object::FTransform,
 }
 impl FRigVMFunction_MathRBFInterpolateVectorXform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathTransformMutableBase {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_MathTransformMutableBase {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformUnaryOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
 }
@@ -3000,7 +3000,7 @@ impl FRigVMFunction_MathTransformUnaryOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformBinaryOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FTransform,
     pub b: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
@@ -3009,7 +3009,7 @@ impl FRigVMFunction_MathTransformBinaryOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FTransform,
     pub b: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::core_u_object::FTransform,
@@ -3018,7 +3018,7 @@ impl FRigVMFunction_MathTransformBinaryAggregateOp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub translation: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FQuat,
     pub scale: crate::bindings::core_u_object::FVector,
@@ -3028,7 +3028,7 @@ impl FRigVMFunction_MathTransformMake {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformFromEulerTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub euler_transform: crate::bindings::animation_core::FEulerTransform,
     pub result: crate::bindings::core_u_object::FTransform,
 }
@@ -3036,7 +3036,7 @@ impl FRigVMFunction_MathTransformFromEulerTransform {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformFromEulerTransformV2 {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::animation_core::FEulerTransform,
     pub result: crate::bindings::core_u_object::FTransform,
 }
@@ -3044,7 +3044,7 @@ impl FRigVMFunction_MathTransformFromEulerTransformV2 {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformToEulerTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub result: crate::bindings::animation_core::FEulerTransform,
 }
@@ -3052,7 +3052,7 @@ impl FRigVMFunction_MathTransformToEulerTransform {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformToVectors {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub forward: crate::bindings::core_u_object::FVector,
     pub right: crate::bindings::core_u_object::FVector,
@@ -3061,13 +3061,13 @@ pub struct FRigVMFunction_MathTransformToVectors {
 impl FRigVMFunction_MathTransformToVectors {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformMul {
-    __padding_end: [u8; 304],
+    pub(crate) __padding_end: [u8; 304],
 }
 impl FRigVMFunction_MathTransformMul {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformMakeRelative {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub global: crate::bindings::core_u_object::FTransform,
     pub parent: crate::bindings::core_u_object::FTransform,
     pub local: crate::bindings::core_u_object::FTransform,
@@ -3076,7 +3076,7 @@ impl FRigVMFunction_MathTransformMakeRelative {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformMakeAbsolute {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub local: crate::bindings::core_u_object::FTransform,
     pub parent: crate::bindings::core_u_object::FTransform,
     pub global: crate::bindings::core_u_object::FTransform,
@@ -3085,7 +3085,7 @@ impl FRigVMFunction_MathTransformMakeAbsolute {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformAccumulateArray {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub target_space: ERigVMTransformSpace,
     pub root: crate::bindings::core_u_object::FTransform,
@@ -3094,13 +3094,13 @@ pub struct FRigVMFunction_MathTransformAccumulateArray {
 impl FRigVMFunction_MathTransformAccumulateArray {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformInverse {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FRigVMFunction_MathTransformInverse {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformLerp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub a: crate::bindings::core_u_object::FTransform,
     pub b: crate::bindings::core_u_object::FTransform,
     pub t: f32,
@@ -3110,7 +3110,7 @@ impl FRigVMFunction_MathTransformLerp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformSelectBool {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub condition: bool,
     pub if_true: crate::bindings::core_u_object::FTransform,
     pub if_false: crate::bindings::core_u_object::FTransform,
@@ -3120,7 +3120,7 @@ impl FRigVMFunction_MathTransformSelectBool {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformRotateVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub vector: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3129,7 +3129,7 @@ impl FRigVMFunction_MathTransformRotateVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformTransformVector {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub transform: crate::bindings::core_u_object::FTransform,
     pub location: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3138,7 +3138,7 @@ impl FRigVMFunction_MathTransformTransformVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformFromSRT {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub location: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FVector,
     pub rotation_order: crate::bindings::animation_core::EEulerRotationOrder,
@@ -3150,7 +3150,7 @@ impl FRigVMFunction_MathTransformFromSRT {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathTransformArrayToSRT {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
     pub translations: TArray<crate::bindings::core_u_object::FVector>,
     pub rotations: TArray<crate::bindings::core_u_object::FQuat>,
@@ -3160,7 +3160,7 @@ impl FRigVMFunction_MathTransformArrayToSRT {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformClampSpatially {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub axis: crate::bindings::core_u_object::EAxis,
     pub ty: ERigVMClampSpatialMode,
@@ -3176,7 +3176,7 @@ impl FRigVMFunction_MathTransformClampSpatially {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathTransformMirrorTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub mirror_axis: crate::bindings::core_u_object::EAxis,
     pub axis_to_flip: crate::bindings::core_u_object::EAxis,
@@ -3187,7 +3187,7 @@ impl FRigVMFunction_MathTransformMirrorTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorUnaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
 }
@@ -3195,7 +3195,7 @@ impl FRigVMFunction_MathVectorUnaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorBinaryOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3204,7 +3204,7 @@ impl FRigVMFunction_MathVectorBinaryOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorBinaryAggregateOp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3213,7 +3213,7 @@ impl FRigVMFunction_MathVectorBinaryAggregateOp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMake {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub x: f32,
     pub y: f32,
     pub z: f32,
@@ -3223,7 +3223,7 @@ impl FRigVMFunction_MathVectorMake {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorFromFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub result: crate::bindings::core_u_object::FVector,
 }
@@ -3231,30 +3231,30 @@ impl FRigVMFunction_MathVectorFromFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorFromDouble {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub result: crate::bindings::core_u_object::FVector,
 }
 impl FRigVMFunction_MathVectorFromDouble {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorAdd {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorSub {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorSub {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMul {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorScale {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub factor: f32,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3262,58 +3262,58 @@ pub struct FRigVMFunction_MathVectorScale {
 impl FRigVMFunction_MathVectorScale {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorDiv {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorDiv {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMod {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorMod {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMin {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorMin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMax {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorMax {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorNegate {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorNegate {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorAbs {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorAbs {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorFloor {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorFloor {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorCeil {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorCeil {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorRound {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorRound {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorSign {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorSign {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorClamp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub minimum: crate::bindings::core_u_object::FVector,
     pub maximum: crate::bindings::core_u_object::FVector,
@@ -3323,7 +3323,7 @@ impl FRigVMFunction_MathVectorClamp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorLerp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub t: f32,
@@ -3333,7 +3333,7 @@ impl FRigVMFunction_MathVectorLerp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorRemap {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub source_minimum: crate::bindings::core_u_object::FVector,
     pub source_maximum: crate::bindings::core_u_object::FVector,
@@ -3346,7 +3346,7 @@ impl FRigVMFunction_MathVectorRemap {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
@@ -3355,7 +3355,7 @@ impl FRigVMFunction_MathVectorEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorNotEquals {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
@@ -3364,7 +3364,7 @@ impl FRigVMFunction_MathVectorNotEquals {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorIsNearlyZero {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub tolerance: f32,
     pub result: bool,
@@ -3373,7 +3373,7 @@ impl FRigVMFunction_MathVectorIsNearlyZero {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorIsNearlyEqual {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub tolerance: f32,
@@ -3383,7 +3383,7 @@ impl FRigVMFunction_MathVectorIsNearlyEqual {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorSelectBool {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub condition: bool,
     pub if_true: crate::bindings::core_u_object::FVector,
     pub if_false: crate::bindings::core_u_object::FVector,
@@ -3392,18 +3392,18 @@ pub struct FRigVMFunction_MathVectorSelectBool {
 impl FRigVMFunction_MathVectorSelectBool {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorDeg {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorDeg {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorRad {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorRad {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorLengthSquared {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub result: f32,
 }
@@ -3411,7 +3411,7 @@ impl FRigVMFunction_MathVectorLengthSquared {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorLength {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub result: f32,
 }
@@ -3419,7 +3419,7 @@ impl FRigVMFunction_MathVectorLength {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorDistance {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: f32,
@@ -3427,13 +3427,13 @@ pub struct FRigVMFunction_MathVectorDistance {
 impl FRigVMFunction_MathVectorDistance {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorCross {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FRigVMFunction_MathVectorCross {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorDot {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: f32,
@@ -3441,13 +3441,13 @@ pub struct FRigVMFunction_MathVectorDot {
 impl FRigVMFunction_MathVectorDot {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorUnit {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_MathVectorUnit {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorSetLength {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub length: f32,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3456,7 +3456,7 @@ impl FRigVMFunction_MathVectorSetLength {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorClampLength {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub minimum_length: f32,
     pub maximum_length: f32,
@@ -3466,7 +3466,7 @@ impl FRigVMFunction_MathVectorClampLength {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMirror {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub normal: crate::bindings::core_u_object::FVector,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3475,7 +3475,7 @@ impl FRigVMFunction_MathVectorMirror {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorAngle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: f32,
@@ -3484,7 +3484,7 @@ impl FRigVMFunction_MathVectorAngle {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorParallel {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
@@ -3493,7 +3493,7 @@ impl FRigVMFunction_MathVectorParallel {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorOrthogonal {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: crate::bindings::core_u_object::FVector,
     pub b: crate::bindings::core_u_object::FVector,
     pub result: bool,
@@ -3502,7 +3502,7 @@ impl FRigVMFunction_MathVectorOrthogonal {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorBezierFourPoint {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bezier: FRigVMFourPointBezier,
     pub t: f32,
     pub result: crate::bindings::core_u_object::FVector,
@@ -3511,20 +3511,20 @@ pub struct FRigVMFunction_MathVectorBezierFourPoint {
 impl FRigVMFunction_MathVectorBezierFourPoint {}
 #[repr(C, align(8))]
 pub struct FRigVMFourPointBezier {
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FRigVMFourPointBezier {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMakeBezierFourPoint {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bezier: FRigVMFourPointBezier,
 }
 impl FRigVMFunction_MathVectorMakeBezierFourPoint {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathVectorClampSpatially {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub axis: crate::bindings::core_u_object::EAxis,
     pub ty: ERigVMClampSpatialMode,
@@ -3540,7 +3540,7 @@ impl FRigVMFunction_MathVectorClampSpatially {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathIntersectPlane {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start: crate::bindings::core_u_object::FVector,
     pub direction: crate::bindings::core_u_object::FVector,
     pub plane_point: crate::bindings::core_u_object::FVector,
@@ -3552,7 +3552,7 @@ impl FRigVMFunction_MathIntersectPlane {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathDistanceToPlane {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub point: crate::bindings::core_u_object::FVector,
     pub plane_point: crate::bindings::core_u_object::FVector,
     pub plane_normal: crate::bindings::core_u_object::FVector,
@@ -3563,7 +3563,7 @@ impl FRigVMFunction_MathDistanceToPlane {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMakeRelative {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub global: crate::bindings::core_u_object::FVector,
     pub parent: crate::bindings::core_u_object::FVector,
     pub local: crate::bindings::core_u_object::FVector,
@@ -3572,7 +3572,7 @@ impl FRigVMFunction_MathVectorMakeRelative {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorMakeAbsolute {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub local: crate::bindings::core_u_object::FVector,
     pub parent: crate::bindings::core_u_object::FVector,
     pub global: crate::bindings::core_u_object::FVector,
@@ -3581,7 +3581,7 @@ impl FRigVMFunction_MathVectorMakeAbsolute {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_MathVectorMirrorTransform {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub mirror_axis: crate::bindings::core_u_object::EAxis,
     pub axis_to_flip: crate::bindings::core_u_object::EAxis,
@@ -3592,7 +3592,7 @@ impl FRigVMFunction_MathVectorMirrorTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorArraySum {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<crate::bindings::core_u_object::FVector>,
     pub sum: crate::bindings::core_u_object::FVector,
 }
@@ -3600,7 +3600,7 @@ impl FRigVMFunction_MathVectorArraySum {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_MathVectorArrayAverage {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub array: TArray<crate::bindings::core_u_object::FVector>,
     pub average: crate::bindings::core_u_object::FVector,
 }
@@ -3608,77 +3608,77 @@ impl FRigVMFunction_MathVectorArrayAverage {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NoiseFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub speed: f32,
     pub frequency: f32,
     pub minimum: f32,
     pub maximum: f32,
     pub result: f32,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigVMFunction_NoiseFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NoiseDouble {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f64,
     pub speed: f64,
     pub frequency: f64,
     pub minimum: f64,
     pub maximum: f64,
     pub result: f64,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigVMFunction_NoiseDouble {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NoiseVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub position: crate::bindings::core_u_object::FVector,
     pub speed: crate::bindings::core_u_object::FVector,
     pub frequency: crate::bindings::core_u_object::FVector,
     pub minimum: f32,
     pub maximum: f32,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_NoiseVector {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NoiseVector2 {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub speed: crate::bindings::core_u_object::FVector,
     pub frequency: crate::bindings::core_u_object::FVector,
     pub minimum: f64,
     pub maximum: f64,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_NoiseVector2 {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_RandomFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub seed: i32,
     pub minimum: f32,
     pub maximum: f32,
     pub duration: f32,
     pub result: f32,
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FRigVMFunction_RandomFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_RandomVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub seed: i32,
     pub minimum: f32,
     pub maximum: f32,
     pub duration: f32,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMFunction_RandomVector {}
 #[repr(C, align(8))]
@@ -3691,25 +3691,25 @@ pub struct FRigVMMirrorSettings {
 impl FRigVMMirrorSettings {}
 #[repr(C, align(8))]
 pub struct FRigVMSimPoint {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRigVMSimPoint {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_ControlFlowBranch {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub execute_context: FRigVMExecuteContext,
     pub condition: bool,
     pub true_: FRigVMExecuteContext,
     pub false_: FRigVMExecuteContext,
     pub completed: FRigVMExecuteContext,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunction_ControlFlowBranch {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NameConcat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FName,
     pub b: FName,
     pub result: FName,
@@ -3718,7 +3718,7 @@ impl FRigVMFunction_NameConcat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NameTruncate {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub count: i32,
     pub from_end: bool,
@@ -3729,7 +3729,7 @@ impl FRigVMFunction_NameTruncate {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_NameReplace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub old: FName,
     pub new: FName,
@@ -3739,7 +3739,7 @@ impl FRigVMFunction_NameReplace {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_EndsWith {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub ending: FName,
     pub result: bool,
@@ -3748,7 +3748,7 @@ impl FRigVMFunction_EndsWith {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StartsWith {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub start: FName,
     pub result: bool,
@@ -3757,7 +3757,7 @@ impl FRigVMFunction_StartsWith {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_Contains {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub search: FName,
     pub result: bool,
@@ -3766,7 +3766,7 @@ impl FRigVMFunction_Contains {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_IsNone {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub result: bool,
 }
@@ -3774,7 +3774,7 @@ impl FRigVMFunction_IsNone {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_IsNameValid {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FName,
     pub result: bool,
 }
@@ -3782,7 +3782,7 @@ impl FRigVMFunction_IsNameValid {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_GetNameNumericSuffix {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FName,
     pub suffix: i32,
     pub success: bool,
@@ -3791,7 +3791,7 @@ impl FRigVMFunction_GetNameNumericSuffix {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringConcat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub a: FString,
     pub b: FString,
     pub result: FString,
@@ -3800,7 +3800,7 @@ impl FRigVMFunction_StringConcat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringTruncate {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FString,
     pub count: i32,
     pub from_end: bool,
@@ -3811,7 +3811,7 @@ impl FRigVMFunction_StringTruncate {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringReplace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FString,
     pub old: FString,
     pub new: FString,
@@ -3821,7 +3821,7 @@ impl FRigVMFunction_StringReplace {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringEndsWith {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FString,
     pub ending: FString,
     pub result: bool,
@@ -3830,7 +3830,7 @@ impl FRigVMFunction_StringEndsWith {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringStartsWith {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FString,
     pub start: FString,
     pub result: bool,
@@ -3839,7 +3839,7 @@ impl FRigVMFunction_StringStartsWith {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringContains {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub name: FString,
     pub search: FString,
     pub result: bool,
@@ -3848,7 +3848,7 @@ impl FRigVMFunction_StringContains {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringLength {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub length: i32,
 }
@@ -3856,7 +3856,7 @@ impl FRigVMFunction_StringLength {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringTrimWhitespace {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub result: FString,
 }
@@ -3864,7 +3864,7 @@ impl FRigVMFunction_StringTrimWhitespace {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringToUppercase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub result: FString,
 }
@@ -3872,7 +3872,7 @@ impl FRigVMFunction_StringToUppercase {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringToLowercase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub result: FString,
 }
@@ -3880,7 +3880,7 @@ impl FRigVMFunction_StringToLowercase {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringReverse {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub reverse: FString,
 }
@@ -3888,7 +3888,7 @@ impl FRigVMFunction_StringReverse {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringLeft {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub count: i32,
     pub result: FString,
@@ -3897,7 +3897,7 @@ impl FRigVMFunction_StringLeft {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringRight {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub count: i32,
     pub result: FString,
@@ -3906,7 +3906,7 @@ impl FRigVMFunction_StringRight {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringMiddle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub start: i32,
     pub count: i32,
@@ -3916,7 +3916,7 @@ impl FRigVMFunction_StringMiddle {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringFind {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub search: FString,
     pub found: bool,
@@ -3926,7 +3926,7 @@ impl FRigVMFunction_StringFind {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringSplit {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub separator: FString,
     pub result: TArray<FString>,
@@ -3935,7 +3935,7 @@ impl FRigVMFunction_StringSplit {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringJoin {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub values: TArray<FString>,
     pub separator: FString,
     pub result: FString,
@@ -3944,7 +3944,7 @@ impl FRigVMFunction_StringJoin {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringPadInteger {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: i32,
     pub digits: i32,
     pub result: FString,
@@ -3953,7 +3953,7 @@ impl FRigVMFunction_StringPadInteger {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_StringToInteger {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: FString,
     pub chop_left: bool,
     pub chop_right: bool,
@@ -3964,143 +3964,143 @@ impl FRigVMFunction_StringToInteger {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateFloatAdd {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub increment: f32,
     pub initial_value: f32,
     pub b_integrate_delta_time: bool,
     pub result: f32,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigVMFunction_AccumulateFloatAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateVectorAdd {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub increment: crate::bindings::core_u_object::FVector,
     pub initial_value: crate::bindings::core_u_object::FVector,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_AccumulateVectorAdd {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateFloatMul {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub multiplier: f32,
     pub initial_value: f32,
     pub b_integrate_delta_time: bool,
     pub result: f32,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigVMFunction_AccumulateFloatMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateVectorMul {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub multiplier: crate::bindings::core_u_object::FVector,
     pub initial_value: crate::bindings::core_u_object::FVector,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_AccumulateVectorMul {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_AccumulateQuatMul {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub multiplier: crate::bindings::core_u_object::FQuat,
     pub initial_value: crate::bindings::core_u_object::FQuat,
     pub b_flip_order: bool,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FQuat,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMFunction_AccumulateQuatMul {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_AccumulateTransformMul {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub multiplier: crate::bindings::core_u_object::FTransform,
     pub initial_value: crate::bindings::core_u_object::FTransform,
     pub b_flip_order: bool,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigVMFunction_AccumulateTransformMul {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateFloatLerp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub target_value: f32,
     pub initial_value: f32,
     pub blend: f32,
     pub b_integrate_delta_time: bool,
     pub result: f32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FRigVMFunction_AccumulateFloatLerp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateVectorLerp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub target_value: crate::bindings::core_u_object::FVector,
     pub initial_value: crate::bindings::core_u_object::FVector,
     pub blend: f32,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_AccumulateVectorLerp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_AccumulateQuatLerp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub target_value: crate::bindings::core_u_object::FQuat,
     pub initial_value: crate::bindings::core_u_object::FQuat,
     pub blend: f32,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FQuat,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMFunction_AccumulateQuatLerp {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_AccumulateTransformLerp {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub target_value: crate::bindings::core_u_object::FTransform,
     pub initial_value: crate::bindings::core_u_object::FTransform,
     pub blend: f32,
     pub b_integrate_delta_time: bool,
     pub result: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigVMFunction_AccumulateTransformLerp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateFloatRange {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub minimum: f32,
     pub maximum: f32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FRigVMFunction_AccumulateFloatRange {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AccumulateVectorRange {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub minimum: crate::bindings::core_u_object::FVector,
     pub maximum: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FRigVMFunction_AccumulateVectorRange {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AlphaInterp {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub scale: f32,
     pub bias: f32,
@@ -4114,13 +4114,13 @@ pub struct FRigVMFunction_AlphaInterp {
     pub interp_speed_increasing: f32,
     pub interp_speed_decreasing: f32,
     pub result: f32,
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FRigVMFunction_AlphaInterp {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_AlphaInterpVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub scale: f32,
     pub bias: f32,
@@ -4134,13 +4134,13 @@ pub struct FRigVMFunction_AlphaInterpVector {
     pub interp_speed_increasing: f32,
     pub interp_speed_decreasing: f32,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMFunction_AlphaInterpVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_AlphaInterpQuat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub scale: f32,
     pub bias: f32,
@@ -4154,92 +4154,92 @@ pub struct FRigVMFunction_AlphaInterpQuat {
     pub interp_speed_increasing: f32,
     pub interp_speed_decreasing: f32,
     pub result: crate::bindings::core_u_object::FQuat,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMFunction_AlphaInterpQuat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_DeltaFromPreviousFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub delta: f32,
     pub previous_value: f32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FRigVMFunction_DeltaFromPreviousFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_DeltaFromPreviousVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub delta: crate::bindings::core_u_object::FVector,
     pub previous_value: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_DeltaFromPreviousVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DeltaFromPreviousQuat {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FQuat,
     pub delta: crate::bindings::core_u_object::FQuat,
     pub previous_value: crate::bindings::core_u_object::FQuat,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMFunction_DeltaFromPreviousQuat {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_DeltaFromPreviousTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub delta: crate::bindings::core_u_object::FTransform,
     pub previous_value: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FRigVMFunction_DeltaFromPreviousTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_KalmanFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub buffer_size: i32,
     pub result: f32,
-    __padding_end: [u8; 28],
+    pub(crate) __padding_end: [u8; 28],
 }
 impl FRigVMFunction_KalmanFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_KalmanVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub buffer_size: i32,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FRigVMFunction_KalmanVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_KalmanTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub buffer_size: i32,
     pub result: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRigVMFunction_KalmanTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_Timeline {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub speed: f32,
     pub time: f32,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRigVMFunction_Timeline {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_TimeLoop {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub speed: f32,
     pub duration: f32,
     pub normalize: bool,
@@ -4247,49 +4247,49 @@ pub struct FRigVMFunction_TimeLoop {
     pub relative: f32,
     pub flip_flop: f32,
     pub even: bool,
-    __padding_end: [u8; 23],
+    pub(crate) __padding_end: [u8; 23],
 }
 impl FRigVMFunction_TimeLoop {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_TimeOffsetFloat {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: f32,
     pub seconds_ago: f32,
     pub buffer_size: i32,
     pub time_range: f32,
     pub result: f32,
-    __padding_end: [u8; 44],
+    pub(crate) __padding_end: [u8; 44],
 }
 impl FRigVMFunction_TimeOffsetFloat {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_TimeOffsetVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub value: crate::bindings::core_u_object::FVector,
     pub seconds_ago: f32,
     pub buffer_size: i32,
     pub time_range: f32,
     pub result: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FRigVMFunction_TimeOffsetVector {}
 #[repr(C, align(16))]
 pub struct FRigVMFunction_TimeOffsetTransform {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub value: crate::bindings::core_u_object::FTransform,
     pub seconds_ago: f32,
     pub buffer_size: i32,
     pub time_range: f32,
     pub result: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FRigVMFunction_TimeOffsetTransform {}
 #[repr(C, align(8))]
 pub struct FRigVMFunction_VerletIntegrateVector {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub target: crate::bindings::core_u_object::FVector,
     pub strength: f32,
     pub damp: f32,
@@ -4298,7 +4298,7 @@ pub struct FRigVMFunction_VerletIntegrateVector {
     pub position: crate::bindings::core_u_object::FVector,
     pub velocity: crate::bindings::core_u_object::FVector,
     pub acceleration: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FRigVMFunction_VerletIntegrateVector {}
 #[repr(C, align(8))]
@@ -5370,7 +5370,7 @@ impl UNameSpacedUserData {
 #[repr(C, align(8))]
 pub struct UDataAssetLink {
     #[doc(hidden)]
-    __padding_264: [u8; 264],
+    pub(crate) __padding_264: [u8; 264],
     pub data_asset: TSoftObjectPtr<crate::bindings::engine::UDataAsset>,
     __padding_end: [u8; 8],
 }
@@ -5547,7 +5547,7 @@ impl URigVMNativized {
 #[repr(C, align(8))]
 pub struct URigVMUserWorkflowOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub subject: UPtr<crate::bindings::core_u_object::UObject>,
     pub workflow: FRigVMUserWorkflow,
     __padding_end: [u8; 24],

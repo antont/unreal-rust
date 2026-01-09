@@ -561,7 +561,7 @@ impl UObjectMixerEditorListMenuContext {
 #[repr(C, align(8))]
 pub struct UObjectMixerEditorUWidget {
     #[doc(hidden)]
-    __padding_696: [u8; 696],
+    pub(crate) __padding_696: [u8; 696],
     pub object_mixer_widget_user_config: FObjectMixerWidgetUserConfig,
 }
 impl UObjectMixerEditorUWidget {

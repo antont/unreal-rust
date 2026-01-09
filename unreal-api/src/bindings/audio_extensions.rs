@@ -185,7 +185,7 @@ pub struct FAudioParameter {
     pub array_object_param: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
     pub array_string_param: TArray<FString>,
     pub param_type: EAudioParameterType,
-    __padding_end: [u8; 31],
+    pub(crate) __padding_end: [u8; 31],
 }
 impl FAudioParameter {}
 #[repr(C, align(8))]

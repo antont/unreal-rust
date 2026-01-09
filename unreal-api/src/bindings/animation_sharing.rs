@@ -222,7 +222,7 @@ impl UAnimationSharingStateProcessor {
 #[repr(C, align(16))]
 pub struct UAnimSharingStateInstance {
     #[doc(hidden)]
-    __padding_1128: [u8; 1128],
+    pub(crate) __padding_1128: [u8; 1128],
     pub animation_to_play: UPtr<crate::bindings::engine::UAnimSequence>,
     pub permutation_time_offset: f32,
     pub play_rate: f32,
@@ -290,7 +290,7 @@ impl UAnimSharingStateInstance {
 #[repr(C, align(16))]
 pub struct UAnimSharingTransitionInstance {
     #[doc(hidden)]
-    __padding_1128: [u8; 1128],
+    pub(crate) __padding_1128: [u8; 1128],
     pub from_component: TWeakObjectPtr<crate::bindings::engine::USkeletalMeshComponent>,
     pub to_component: TWeakObjectPtr<crate::bindings::engine::USkeletalMeshComponent>,
     pub blend_time: f32,
@@ -316,7 +316,7 @@ impl UAnimSharingTransitionInstance {
 #[repr(C, align(16))]
 pub struct UAnimSharingAdditiveInstance {
     #[doc(hidden)]
-    __padding_1128: [u8; 1128],
+    pub(crate) __padding_1128: [u8; 1128],
     pub base_component: TWeakObjectPtr<crate::bindings::engine::USkeletalMeshComponent>,
     pub additive_animation: TWeakObjectPtr<crate::bindings::engine::UAnimSequence>,
     pub alpha: f32,

@@ -2060,7 +2060,7 @@ pub struct FCSVImportSettings {
     pub import_row_struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
     pub import_type: ECSVImportType,
     pub import_curve_interp_mode: crate::bindings::engine::ERichCurveInterpMode,
-    __padding_end: [u8; 22],
+    pub(crate) __padding_end: [u8; 22],
 }
 impl FCSVImportSettings {}
 #[repr(C, align(4))]
@@ -2071,7 +2071,7 @@ pub struct FFbxMaterialBakeSize {
 impl FFbxMaterialBakeSize {}
 #[repr(C, align(8))]
 pub struct FImportMeshLodSectionsData {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FImportMeshLodSectionsData {}
 #[repr(C, align(8))]
@@ -2111,7 +2111,7 @@ impl UAssetDefinitionDefault {
 #[repr(C, align(8))]
 pub struct UFactory {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub flags_48: u8,
     pub supported_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub context_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
@@ -3341,7 +3341,7 @@ impl UActorFactoryVolumetricCloud {
 #[repr(C, align(8))]
 pub struct UBlendSpaceFactory1D {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     __padding_end: [u8; 16],
@@ -3387,7 +3387,7 @@ impl UAimOffsetBlendSpaceFactory1D {
 #[repr(C, align(8))]
 pub struct UBlendSpaceFactoryNew {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     __padding_end: [u8; 16],
@@ -4516,15 +4516,15 @@ impl UExportTextContainer {
 #[repr(C, align(8))]
 pub struct UFbxImportUI {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub b_is_obj_import: bool,
     pub original_import_type: EFBXImportType,
     pub mesh_type_to_import: EFBXImportType,
     #[doc(hidden)]
-    __padding_60: [u8; 1],
+    pub(crate) __padding_60: [u8; 1],
     pub flags_60: u8,
     #[doc(hidden)]
-    __padding_64: [u8; 3],
+    pub(crate) __padding_64: [u8; 3],
     pub b_import_as_skeletal: bool,
     pub b_import_mesh: bool,
     pub skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -5189,10 +5189,10 @@ impl UMaterialEditorParameters {
 #[repr(C, align(8))]
 pub struct UMaterialEditorInstanceConstant {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub subsurface_profile: UPtr<crate::bindings::engine::USubsurfaceProfile>,
     #[doc(hidden)]
-    __padding_136: [u8; 8],
+    pub(crate) __padding_136: [u8; 8],
     pub specular_profile: UPtr<crate::bindings::engine::USpecularProfile>,
     __padding_end: [u8; 200],
 }
@@ -5846,7 +5846,7 @@ impl UPropertyColorSettings {
 #[repr(C, align(8))]
 pub struct UCSVImportFactory {
     #[doc(hidden)]
-    __padding_152: [u8; 152],
+    pub(crate) __padding_152: [u8; 152],
     pub automated_import_settings: FCSVImportSettings,
     __padding_end: [u8; 8],
 }
@@ -8094,7 +8094,7 @@ impl UCrashReportsPrivacySettings {
 #[repr(C, align(8))]
 pub struct UAnimSeqExportOption {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_export_transforms: bool,
     pub b_export_morph_targets: bool,
     pub b_export_attribute_curves: bool,
@@ -8348,7 +8348,7 @@ impl UAssetGuideline {
 #[repr(C, align(8))]
 pub struct UAssetImportTask {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub filename: FString,
     pub destination_path: FString,
     pub destination_name: FString,
@@ -8439,7 +8439,7 @@ impl UAssetImportTask {
 #[repr(C, align(8))]
 pub struct UAutomatedAssetImportData {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub group_name: FString,
     pub filenames: TArray<FString>,
     pub destination_path: FString,
@@ -10903,7 +10903,7 @@ impl UActorElementEditorAssetDataInterface {
 #[repr(C, align(8))]
 pub struct UActorElementsCopy {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub actors_to_copy: TArray<UPtr<crate::bindings::engine::AActor>>,
 }
 impl UActorElementsCopy {
@@ -11010,7 +11010,7 @@ impl UComponentElementDetailsInterface {
 #[repr(C, align(8))]
 pub struct UComponentElementsCopy {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub components_to_copy: TArray<UPtr<crate::bindings::engine::UActorComponent>>,
 }
 impl UComponentElementsCopy {
@@ -11285,7 +11285,7 @@ impl UActorFactorySpotLight {
 #[repr(C, align(8))]
 pub struct UAnimBankFactory {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     __padding_end: [u8; 16],
@@ -11457,7 +11457,7 @@ impl UAnimCurveCompressionSettingsFactory {
 #[repr(C, align(8))]
 pub struct UAnimMontageFactory {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub source_animation: UPtr<crate::bindings::engine::UAnimSequence>,
     __padding_end: [u8; 24],
@@ -11482,7 +11482,7 @@ impl UAnimMontageFactory {
 #[repr(C, align(8))]
 pub struct UAnimSequenceFactory {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub target_skeleton: UPtr<crate::bindings::engine::USkeleton>,
     pub preview_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     __padding_end: [u8; 16],
@@ -11549,7 +11549,7 @@ impl UCompositeCurveTableFactory {
 #[repr(C, align(8))]
 pub struct UDataTableFactory {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub _struct: UPtr<crate::bindings::core_u_object::UScriptStruct>,
 }
 impl UDataTableFactory {
@@ -11937,7 +11937,7 @@ impl UPhysicsAssetFactory {
 #[repr(C, align(8))]
 pub struct UPoseAssetFactory {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub source_animation: UPtr<crate::bindings::engine::UAnimSequence>,
     pub pose_names: TArray<FString>,
     __padding_end: [u8; 16],
@@ -12172,12 +12172,12 @@ impl UWorldFactory {
 #[repr(C, align(8))]
 pub struct UFbxAssetImportData {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub import_translation: crate::bindings::core_u_object::FVector,
     pub import_rotation: crate::bindings::core_u_object::FRotator,
     pub import_uniform_scale: f32,
     #[doc(hidden)]
-    __padding_149: [u8; 1],
+    pub(crate) __padding_149: [u8; 1],
     pub b_convert_scene: bool,
     pub b_force_front_x_axis: bool,
     pub b_convert_scene_unit: bool,
@@ -12224,14 +12224,14 @@ impl UFbxAnimSequenceImportData {
 #[repr(C, align(8))]
 pub struct UFbxExportOption {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub fbx_export_compatibility: EFbxExportCompatibility,
     #[doc(hidden)]
-    __padding_52: [u8; 3],
+    pub(crate) __padding_52: [u8; 3],
     pub flags_52: u8,
     pub flags_53: u8,
     #[doc(hidden)]
-    __padding_56: [u8; 2],
+    pub(crate) __padding_56: [u8; 2],
     pub bake_camera_and_light_animation: EMovieSceneBakeType,
     pub bake_actor_animation: EMovieSceneBakeType,
     pub bake_material_inputs: EFbxMaterialBakeMode,
@@ -12257,21 +12257,21 @@ impl UFbxExportOption {
 #[repr(C, align(8))]
 pub struct UFbxMeshImportData {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub b_transform_vertex_to_absolute: bool,
     pub b_bake_pivot_in_vertex: bool,
     #[doc(hidden)]
-    __padding_180: [u8; 2],
+    pub(crate) __padding_180: [u8; 2],
     pub flags_180: u8,
     #[doc(hidden)]
-    __padding_184: [u8; 3],
+    pub(crate) __padding_184: [u8; 3],
     pub normal_import_method: EFBXNormalImportMethod,
     pub normal_generation_method: EFBXNormalGenerationMethod,
     #[doc(hidden)]
-    __padding_188: [u8; 2],
+    pub(crate) __padding_188: [u8; 2],
     pub flags_188: u8,
     #[doc(hidden)]
-    __padding_192: [u8; 3],
+    pub(crate) __padding_192: [u8; 3],
     pub b_reorder_material_to_fbx_order: bool,
     __padding_end: [u8; 39],
 }
@@ -12316,7 +12316,7 @@ impl UFbxSceneImportData {
 #[repr(C, align(8))]
 pub struct UFbxSceneImportFactory {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub scene_import_options: UPtr<UFbxSceneImportOptions>,
     pub scene_import_options_static_mesh: UPtr<UFbxSceneImportOptionsStaticMesh>,
     pub scene_import_options_skeletal_mesh: UPtr<UFbxSceneImportOptionsSkeletalMesh>,
@@ -12405,7 +12405,7 @@ impl UFbxSceneImportOptionsStaticMesh {
 #[repr(C, align(8))]
 pub struct UFbxSkeletalMeshImportData {
     #[doc(hidden)]
-    __padding_234: [u8; 234],
+    pub(crate) __padding_234: [u8; 234],
     pub vertex_color_import_option: EVertexColorImportOption,
     pub vertex_override_color: crate::bindings::core_u_object::FColor,
     __padding_end: [u8; 24],
@@ -12430,7 +12430,7 @@ impl UFbxSkeletalMeshImportData {
 #[repr(C, align(8))]
 pub struct UFbxStaticMeshImportData {
     #[doc(hidden)]
-    __padding_232: [u8; 232],
+    pub(crate) __padding_232: [u8; 232],
     pub static_mesh_lod_group: FName,
     pub vertex_color_import_option: EVertexColorImportOption,
     pub vertex_override_color: crate::bindings::core_u_object::FColor,
@@ -12457,14 +12457,14 @@ impl UFbxStaticMeshImportData {
 #[repr(C, align(8))]
 pub struct UFbxTextureImportData {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub flags_176: u8,
     #[doc(hidden)]
-    __padding_180: [u8; 3],
+    pub(crate) __padding_180: [u8; 3],
     pub material_search_location: EMaterialSearchLocation,
     pub base_material_name: crate::bindings::core_u_object::FSoftObjectPath,
     #[doc(hidden)]
-    __padding_232: [u8; 8],
+    pub(crate) __padding_232: [u8; 8],
     pub base_color_name: FString,
     pub base_diffuse_texture_name: FString,
     pub base_normal_texture_name: FString,

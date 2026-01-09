@@ -4899,7 +4899,7 @@ impl UNiagaraPythonScriptModuleInput {
 #[repr(C, align(8))]
 pub struct UUpgradeNiagaraScriptResults {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_cancelled_by_python_error: bool,
     pub old_inputs: TArray<UPtr<UNiagaraPythonScriptModuleInput>>,
     pub new_inputs: TArray<UPtr<UNiagaraPythonScriptModuleInput>>,
@@ -5724,7 +5724,7 @@ impl UNiagaraPythonEmitter {
 #[repr(C, align(8))]
 pub struct UUpgradeNiagaraEmitterContext {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_cancelled_by_python_error: bool,
     pub old_emitter: UPtr<UNiagaraPythonEmitter>,
     pub new_emitter: UPtr<UNiagaraPythonEmitter>,

@@ -295,32 +295,32 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FStateTreeDelegateDispatcher {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FStateTreeDelegateDispatcher {}
 #[repr(C, align(4))]
 pub struct FStateTreeDelegateListener {
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FStateTreeDelegateListener {}
 #[repr(C, align(2))]
 pub struct FStateTreeDataHandle {
-    __padding_end: [u8; 6],
+    pub(crate) __padding_end: [u8; 6],
 }
 impl FStateTreeDataHandle {}
 #[repr(C, align(2))]
 pub struct FStateTreeStateHandle {
-    __padding_end: [u8; 2],
+    pub(crate) __padding_end: [u8; 2],
 }
 impl FStateTreeStateHandle {}
 #[repr(C, align(2))]
 pub struct FStateTreeIndex16 {
-    __padding_end: [u8; 2],
+    pub(crate) __padding_end: [u8; 2],
 }
 impl FStateTreeIndex16 {}
 #[repr(C, align(8))]
 pub struct FStateTreeBlueprintPropertyRef {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FStateTreeBlueprintPropertyRef {}
 #[repr(C, align(8))]
@@ -332,23 +332,23 @@ pub struct FStateTreeEvent {
 impl FStateTreeEvent {}
 #[repr(C, align(8))]
 pub struct FStateTreeTransitionRequest {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FStateTreeTransitionRequest {}
 #[repr(C, align(4))]
 pub struct FStateTreeActiveStates {
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FStateTreeActiveStates {}
 #[repr(C, align(8))]
 pub struct FStateTreeExecutionFrame {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FStateTreeExecutionFrame {}
 #[repr(C, align(8))]
 pub struct FStateTreeTransitionResult {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub target_state: FStateTreeStateHandle,
     pub current_state: FStateTreeStateHandle,
     pub current_run_status: EStateTreeRunStatus,
@@ -356,7 +356,7 @@ pub struct FStateTreeTransitionResult {
     pub priority: EStateTreeTransitionPriority,
     pub next_active_frames: TArray<FStateTreeExecutionFrame>,
     #[doc(hidden)]
-    __padding_48: [u8; 16],
+    pub(crate) __padding_48: [u8; 16],
     pub source_state_tree: UPtr<UStateTree>,
     pub source_root_state: FStateTreeStateHandle,
     pub source_state: FStateTreeStateHandle,
@@ -364,22 +364,22 @@ pub struct FStateTreeTransitionResult {
 impl FStateTreeTransitionResult {}
 #[repr(C, align(8))]
 pub struct FStateTreeReference {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FStateTreeReference {}
 #[repr(C, align(8))]
 pub struct FStateTreeStructRef {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FStateTreeStructRef {}
 #[repr(C, align(4))]
 pub struct FStateTreeStateLink {
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FStateTreeStateLink {}
 #[repr(C, align(1))]
 pub struct FStateTreeIndex8 {
-    __padding_end: [u8; 1],
+    pub(crate) __padding_end: [u8; 1],
 }
 impl FStateTreeIndex8 {}
 pub struct IStateTreeSchemaProvider {}

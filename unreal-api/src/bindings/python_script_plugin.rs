@@ -688,7 +688,7 @@ pub struct FPyTestStruct {
     pub string_set: TSet<FString>,
     pub string_int_map: TMap<FString, i32>,
     #[doc(hidden)]
-    __padding_342: [u8; 6],
+    pub(crate) __padding_342: [u8; 6],
     pub bool_mutable: bool,
 }
 impl FPyTestStruct {}
@@ -700,7 +700,7 @@ pub struct FPythonLogOutputEntry {
 impl FPythonLogOutputEntry {}
 #[repr(C, align(8))]
 pub struct FPyTestChildStruct {
-    __padding_end: [u8; 344],
+    pub(crate) __padding_end: [u8; 344],
 }
 impl FPyTestChildStruct {}
 #[repr(C, align(4))]
@@ -1323,7 +1323,7 @@ impl UPyTestStructLibrary {
 #[repr(C, align(8))]
 pub struct UPyTestObject {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub bool: bool,
     pub int: i32,
     pub float: f32,
@@ -1338,7 +1338,7 @@ pub struct UPyTestObject {
     pub string_int_map: TMap<FString, i32>,
     pub delegate: FPyTestObject_Delegate,
     #[doc(hidden)]
-    __padding_456: [u8; 24],
+    pub(crate) __padding_456: [u8; 24],
     pub _struct: FPyTestStruct,
     pub struct_array: TArray<FPyTestStruct>,
     pub child_struct: FPyTestChildStruct,
@@ -2221,7 +2221,7 @@ impl UPyTestVectorDelegate {
 #[repr(C, align(8))]
 pub struct UPyTestTypeHint {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub bool_prop: bool,
     pub int_prop: i32,
     pub float_prop: f32,
@@ -2240,7 +2240,7 @@ pub struct UPyTestTypeHint {
     pub map_prop: TMap<i32, FString>,
     pub delegate_prop: FPyTestTypeHint_DelegateProp,
     #[doc(hidden)]
-    __padding_792: [u8; 24],
+    pub(crate) __padding_792: [u8; 24],
     pub slate_tick_delegate: FPyTestTypeHint_SlateTickDelegate,
 }
 impl UPyTestTypeHint {

@@ -667,7 +667,7 @@ pub struct FDynamicMeshChangeInfo {
     pub ty: EDynamicMeshChangeType,
     pub flags: EDynamicMeshAttributeChangeFlags,
     pub b_is_revert_change: bool,
-    __padding_end: [u8; 29],
+    pub(crate) __padding_end: [u8; 29],
 }
 impl FDynamicMeshChangeInfo {}
 #[repr(C, align(8))]
@@ -802,18 +802,18 @@ impl UMeshVertexCommandChangeTarget {
 #[repr(C, align(16))]
 pub struct UBaseDynamicMeshComponent {
     #[doc(hidden)]
-    __padding_1608: [u8; 1608],
+    pub(crate) __padding_1608: [u8; 1608],
     pub b_explicit_show_wireframe: bool,
     pub wireframe_color: crate::bindings::core_u_object::FLinearColor,
     pub color_mode: EDynamicMeshComponentColorOverrideMode,
     pub constant_color: crate::bindings::core_u_object::FColor,
     pub color_space_mode: EDynamicMeshVertexColorTransformMode,
     #[doc(hidden)]
-    __padding_1638: [u8; 1],
+    pub(crate) __padding_1638: [u8; 1],
     pub b_enable_flat_shading: bool,
     pub b_enable_view_mode_overrides: bool,
     #[doc(hidden)]
-    __padding_1680: [u8; 40],
+    pub(crate) __padding_1680: [u8; 40],
     pub b_enable_raytracing: bool,
     pub draw_path: EDynamicMeshDrawPath,
     __padding_end: [u8; 30],
@@ -1860,10 +1860,10 @@ impl UBaseDynamicMeshComponent {
 #[repr(C, align(16))]
 pub struct UDynamicMeshComponent {
     #[doc(hidden)]
-    __padding_2040: [u8; 2040],
+    pub(crate) __padding_2040: [u8; 2040],
     pub tangents_type: EDynamicMeshComponentTangentsMode,
     #[doc(hidden)]
-    __padding_2272: [u8; 231],
+    pub(crate) __padding_2272: [u8; 231],
     pub collision_type: crate::bindings::physics_core::ECollisionTraceFlag,
     pub b_use_async_cooking: bool,
     pub b_enable_complex_collision: bool,
@@ -2367,7 +2367,7 @@ impl UDynamicMeshComponent {
 #[repr(C, align(8))]
 pub struct ADynamicMeshActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub dynamic_mesh_component: UPtr<UDynamicMeshComponent>,
     pub b_enable_compute_mesh_pool: bool,
     __padding_end: [u8; 15],

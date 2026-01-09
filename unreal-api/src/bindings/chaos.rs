@@ -32,7 +32,7 @@ pub struct FSolverCollisionFilterSettings {
 impl FSolverCollisionFilterSettings {}
 #[repr(C, align(8))]
 pub struct FClosestPhysicsObjectResult {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FClosestPhysicsObjectResult {}
 #[repr(C, align(4))]

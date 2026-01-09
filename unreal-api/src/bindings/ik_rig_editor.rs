@@ -974,7 +974,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FAnimNode_PreviewRetargetPose {
-    __padding_end: [u8; 224],
+    pub(crate) __padding_end: [u8; 224],
 }
 impl FAnimNode_PreviewRetargetPose {}
 #[repr(C, align(16))]
@@ -3701,7 +3701,7 @@ impl UFloorConstraintSettingsWrapper {
 #[repr(C, align(8))]
 pub struct UBatchExportOptions {
     #[doc(hidden)]
-    __padding_49: [u8; 49],
+    pub(crate) __padding_49: [u8; 49],
     pub b_include_referenced_assets: bool,
     pub b_retain_additive_flags: bool,
 }
@@ -3725,7 +3725,7 @@ impl UBatchExportOptions {
 #[repr(C, align(8))]
 pub struct UBatchRetargetSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub source_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub target_skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     pub b_auto_generate_retargeter: bool,

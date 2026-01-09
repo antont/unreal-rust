@@ -159,10 +159,10 @@ pub fn initialize() {
 #[repr(C, align(16))]
 pub struct UNamingTokensEditableText {
     #[doc(hidden)]
-    __padding_1736: [u8; 1736],
+    pub(crate) __padding_1736: [u8; 1736],
     pub filter_args: crate::bindings::naming_tokens::FNamingTokenFilterArgs,
     #[doc(hidden)]
-    __padding_1761: [u8; 1],
+    pub(crate) __padding_1761: [u8; 1],
     pub b_is_multiline: bool,
     pub b_display_token_icon: bool,
     pub b_display_error_message: bool,
@@ -171,7 +171,7 @@ pub struct UNamingTokensEditableText {
     pub background_color: crate::bindings::slate_core::FSlateColor,
     pub b_can_display_resolved_text: bool,
     #[doc(hidden)]
-    __padding_2704: [u8; 56],
+    pub(crate) __padding_2704: [u8; 56],
     pub contexts: TArray<UPtr<crate::bindings::core_u_object::UObject>>,
 }
 impl UNamingTokensEditableText {

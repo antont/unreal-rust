@@ -17,13 +17,13 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FCollectionAttributeKey {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FCollectionAttributeKey {}
 #[repr(C, align(8))]
 pub struct ADataflowActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub dataflow_component: UPtr<UDataflowComponent>,
 }
 impl ADataflowActor {

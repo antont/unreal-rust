@@ -60,7 +60,7 @@ impl UMovieSceneTakeSection {
 #[repr(C, align(8))]
 pub struct UMovieSceneTakeSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub hours_name: FString,
     pub minutes_name: FString,
     pub seconds_name: FString,

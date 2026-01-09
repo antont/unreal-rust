@@ -1019,10 +1019,10 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct FAnimNode_IKRig {
     #[doc(hidden)]
-    __padding_248: [u8; 248],
+    pub(crate) __padding_248: [u8; 248],
     pub goals: TArray<FIKRigGoal>,
     #[doc(hidden)]
-    __padding_272: [u8; 8],
+    pub(crate) __padding_272: [u8; 8],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
     pub alpha: f32,
@@ -1030,7 +1030,7 @@ pub struct FAnimNode_IKRig {
     pub alpha_bool_blend: crate::bindings::engine::FInputAlphaBoolBlend,
     pub alpha_curve_name: FName,
     pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
-    __padding_end: [u8; 516],
+    pub(crate) __padding_end: [u8; 516],
 }
 impl FAnimNode_IKRig {}
 #[repr(C, align(16))]
@@ -1039,20 +1039,20 @@ pub struct FIKRigGoal {
     pub bone_name: FName,
     pub transform_source: EIKRigGoalTransformSource,
     #[doc(hidden)]
-    __padding_48: [u8; 16],
+    pub(crate) __padding_48: [u8; 16],
     pub position: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub position_alpha: f32,
     pub rotation_alpha: f32,
     pub position_space: EIKRigGoalSpace,
     pub rotation_space: EIKRigGoalSpace,
-    __padding_end: [u8; 86],
+    pub(crate) __padding_end: [u8; 86],
 }
 impl FIKRigGoal {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RetargetPoseFromMesh {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub retarget_from: ERetargetSourceMode,
     pub source_mesh_component: TWeakObjectPtr<
         crate::bindings::engine::USkeletalMeshComponent,
@@ -1062,7 +1062,7 @@ pub struct FAnimNode_RetargetPoseFromMesh {
     pub lod_threshold: i32,
     pub lod_threshold_for_ik: i32,
     pub b_suppress_warnings: bool,
-    __padding_end: [u8; 599],
+    pub(crate) __padding_end: [u8; 599],
 }
 impl FAnimNode_RetargetPoseFromMesh {}
 #[repr(C, align(8))]
@@ -1160,39 +1160,39 @@ impl FTargetChainFKSettings {}
 pub struct FRetargetOpProfile {
     pub op_to_apply_settings_to: FName,
     pub settings_to_apply: crate::bindings::core_u_object::FInstancedStruct,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRetargetOpProfile {}
 #[repr(C, align(16))]
 pub struct FIKRigGoalInput {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FIKRigGoalInput {}
 #[repr(C, align(8))]
 pub struct FRigUnit_IKRig {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub ik_rig_asset: UPtr<UIKRigDefinition>,
     pub goals: TArray<FIKRigGoalInput>,
-    __padding_end: [u8; 320],
+    pub(crate) __padding_end: [u8; 320],
 }
 impl FRigUnit_IKRig {}
 #[repr(C, align(8))]
 pub struct FIKRetargetPose {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FIKRetargetPose {}
 #[repr(C, align(8))]
 pub struct FIKRetargetOpSettingsBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub lod_threshold: i32,
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FIKRetargetOpSettingsBase {}
 #[repr(C, align(8))]
 pub struct FIKRetargetOpBase {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FIKRetargetOpBase {}
 #[repr(C, align(8))]
@@ -1207,27 +1207,27 @@ impl FRetargetPoleVectorSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetAlignPoleVectorOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub ik_rig_asset: UPtr<UIKRigDefinition>,
     pub chains_to_align: TArray<FRetargetPoleVectorSettings>,
 }
 impl FIKRetargetAlignPoleVectorOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetAlignPoleVectorOp {
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FIKRetargetAlignPoleVectorOp {}
 #[repr(C, align(8))]
 pub struct FIKRetargetCopyBasePoseOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub b_copy_base_pose: bool,
-    __padding_end: [u8; 55],
+    pub(crate) __padding_end: [u8; 55],
 }
 impl FIKRetargetCopyBasePoseOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetCopyBasePoseOp {
-    __padding_end: [u8; 272],
+    pub(crate) __padding_end: [u8; 272],
 }
 impl FIKRetargetCopyBasePoseOp {}
 #[repr(C, align(4))]
@@ -1239,7 +1239,7 @@ impl FCurveRemapPair {}
 #[repr(C, align(8))]
 pub struct FIKRetargetCurveRemapOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub b_copy_all_source_curves: bool,
     pub b_remap_curves: bool,
     pub curves_to_remap: TArray<FCurveRemapPair>,
@@ -1247,18 +1247,18 @@ pub struct FIKRetargetCurveRemapOpSettings {
 impl FIKRetargetCurveRemapOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetCurveRemapOp {
-    __padding_end: [u8; 176],
+    pub(crate) __padding_end: [u8; 176],
 }
 impl FIKRetargetCurveRemapOp {}
 #[repr(C, align(16))]
 pub struct FFilterBoneData {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FFilterBoneData {}
 #[repr(C, align(8))]
 pub struct FIKRetargetFilterBoneOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub bones_to_filter: TArray<FFilterBoneData>,
     pub min_frequency: f64,
     pub responsiveness: f64,
@@ -1268,7 +1268,7 @@ pub struct FIKRetargetFilterBoneOpSettings {
 impl FIKRetargetFilterBoneOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetFilterBoneOp {
-    __padding_end: [u8; 176],
+    pub(crate) __padding_end: [u8; 176],
 }
 impl FIKRetargetFilterBoneOp {}
 #[repr(C, align(8))]
@@ -1284,15 +1284,15 @@ impl FRetargetFKChainSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetFKChainsOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub ik_rig_asset: UPtr<UIKRigDefinition>,
     pub chains_to_retarget: TArray<FRetargetFKChainSettings>,
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FIKRetargetFKChainsOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetFKChainsOp {
-    __padding_end: [u8; 296],
+    pub(crate) __padding_end: [u8; 296],
 }
 impl FIKRetargetFKChainsOp {}
 #[repr(C, align(8))]
@@ -1306,7 +1306,7 @@ impl FFloorConstraintChainSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetFloorConstraintOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub chains_to_affect: TArray<FFloorConstraintChainSettings>,
     pub height_falloff_offset: f64,
     pub height_falloff_distance: f64,
@@ -1314,7 +1314,7 @@ pub struct FIKRetargetFloorConstraintOpSettings {
 impl FIKRetargetFloorConstraintOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetFloorConstraintOp {
-    __padding_end: [u8; 168],
+    pub(crate) __padding_end: [u8; 168],
 }
 impl FIKRetargetFloorConstraintOp {}
 #[repr(C, align(8))]
@@ -1336,20 +1336,20 @@ impl FRetargetIKChainSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetIKChainsOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub chains_to_retarget: TArray<FRetargetIKChainSettings>,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FIKRetargetIKChainsOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetIKChainsOp {
-    __padding_end: [u8; 216],
+    pub(crate) __padding_end: [u8; 216],
 }
 impl FIKRetargetIKChainsOp {}
 #[repr(C, align(8))]
 pub struct FIKRetargetPelvisMotionOpSettings {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub source_crotch_offset: f64,
     pub target_crotch_offset: f64,
     pub rotation_alpha: f64,
@@ -1364,23 +1364,23 @@ pub struct FIKRetargetPelvisMotionOpSettings {
     pub scale_vertical: f64,
     pub affect_ik_horizontal: f64,
     pub affect_ik_vertical: f64,
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FIKRetargetPelvisMotionOpSettings {}
 #[repr(C, align(16))]
 pub struct FIKRetargetPelvisMotionOp {
-    __padding_end: [u8; 864],
+    pub(crate) __padding_end: [u8; 864],
 }
 impl FIKRetargetPelvisMotionOp {}
 #[repr(C, align(16))]
 pub struct FPinBoneData {
-    __padding_end: [u8; 400],
+    pub(crate) __padding_end: [u8; 400],
 }
 impl FPinBoneData {}
 #[repr(C, align(16))]
 pub struct FIKRetargetPinBoneOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub bones_to_pin: TArray<FPinBoneData>,
     pub skeleton_to_copy_from: ERetargetSourceOrTarget,
     pub b_copy_translation: bool,
@@ -1394,70 +1394,70 @@ pub struct FIKRetargetPinBoneOpSettings {
 impl FIKRetargetPinBoneOpSettings {}
 #[repr(C, align(16))]
 pub struct FIKRetargetPinBoneOp {
-    __padding_end: [u8; 368],
+    pub(crate) __padding_end: [u8; 368],
 }
 impl FIKRetargetPinBoneOp {}
 #[repr(C, align(8))]
 pub struct FIKRetargetAdditivePoseOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub pose_to_apply: FName,
     pub alpha: f32,
 }
 impl FIKRetargetAdditivePoseOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetAdditivePoseOp {
-    __padding_end: [u8; 152],
+    pub(crate) __padding_end: [u8; 152],
 }
 impl FIKRetargetAdditivePoseOp {}
 #[repr(C, align(16))]
 pub struct FIKRetargetRootMotionOpSettings {
     #[doc(hidden)]
-    __padding_104: [u8; 104],
+    pub(crate) __padding_104: [u8; 104],
     pub root_motion_source: ERootMotionSource,
     #[doc(hidden)]
-    __padding_128: [u8; 23],
+    pub(crate) __padding_128: [u8; 23],
     pub b_rotate_with_pelvis: bool,
     pub root_height_source: ERootMotionHeightSource,
     pub global_offset: crate::bindings::core_u_object::FTransform,
     pub b_maintain_offset_from_pelvis: bool,
     pub b_propagate_to_non_retargeted_children: bool,
-    __padding_end: [u8; 46],
+    pub(crate) __padding_end: [u8; 46],
 }
 impl FIKRetargetRootMotionOpSettings {}
 #[repr(C, align(16))]
 pub struct FIKRetargetRootMotionOp {
-    __padding_end: [u8; 768],
+    pub(crate) __padding_end: [u8; 768],
 }
 impl FIKRetargetRootMotionOp {}
 #[repr(C, align(8))]
 pub struct FIKRetargetRunIKRigOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub ik_rig_asset: UPtr<UIKRigDefinition>,
     pub excluded_goals: TArray<FName>,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FIKRetargetRunIKRigOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetRunIKRigOp {
-    __padding_end: [u8; 600],
+    pub(crate) __padding_end: [u8; 600],
 }
 impl FIKRetargetRunIKRigOp {}
 #[repr(C, align(8))]
 pub struct FIKRetargetScaleSourceOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub source_scale_factor: f64,
     pub scale_pivot: EScaleSourcePivot,
     #[doc(hidden)]
-    __padding_96: [u8; 23],
+    pub(crate) __padding_96: [u8; 23],
     pub b_project_scale_pivot_to_floor: bool,
 }
 impl FIKRetargetScaleSourceOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetScaleSourceOp {
-    __padding_end: [u8; 176],
+    pub(crate) __padding_end: [u8; 176],
 }
 impl FIKRetargetScaleSourceOp {}
 #[repr(C, align(4))]
@@ -1469,7 +1469,7 @@ impl FRetargetSpeedPlantingSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetSpeedPlantingOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub chains_to_speed_plant: TArray<FRetargetSpeedPlantingSettings>,
     pub speed_threshold: f64,
     pub stiffness: f64,
@@ -1478,7 +1478,7 @@ pub struct FIKRetargetSpeedPlantingOpSettings {
 impl FIKRetargetSpeedPlantingOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetSpeedPlantingOp {
-    __padding_end: [u8; 184],
+    pub(crate) __padding_end: [u8; 184],
 }
 impl FIKRetargetSpeedPlantingOp {}
 #[repr(C, align(8))]
@@ -1492,14 +1492,14 @@ impl FRetargetStretchChainSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetStretchChainOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub ik_rig_asset: UPtr<UIKRigDefinition>,
     pub chains_to_stretch: TArray<FRetargetStretchChainSettings>,
 }
 impl FIKRetargetStretchChainOpSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetStretchChainOp {
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FIKRetargetStretchChainOp {}
 #[repr(C, align(4))]
@@ -1511,7 +1511,7 @@ impl FRetargetStrideWarpChainSettings {}
 #[repr(C, align(8))]
 pub struct FIKRetargetStrideWarpingOpSettings {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub chain_settings: TArray<FRetargetStrideWarpChainSettings>,
     pub direction_source: EWarpingDirectionSource,
     pub forward_direction: EBasicAxis,
@@ -1521,19 +1521,19 @@ pub struct FIKRetargetStrideWarpingOpSettings {
     pub warp_splay: f64,
     pub debug_draw_size: f64,
     pub debug_draw_thickness: f64,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FIKRetargetStrideWarpingOpSettings {}
 #[repr(C, align(16))]
 pub struct FIKRetargetStrideWarpingOp {
-    __padding_end: [u8; 336],
+    pub(crate) __padding_end: [u8; 336],
 }
 impl FIKRetargetStrideWarpingOp {}
 #[repr(C, align(4))]
 pub struct FBoneChain {
     pub chain_name: FName,
     #[doc(hidden)]
-    __padding_52: [u8; 40],
+    pub(crate) __padding_52: [u8; 40],
     pub ik_goal_name: FName,
 }
 impl FBoneChain {}
@@ -1545,33 +1545,33 @@ pub struct FRetargetDefinition {
 impl FRetargetDefinition {}
 #[repr(C, align(8))]
 pub struct FIKRigSettingsBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FIKRigSettingsBase {}
 #[repr(C, align(8))]
 pub struct FIKRigGoalSettingsBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub goal: FName,
 }
 impl FIKRigGoalSettingsBase {}
 #[repr(C, align(8))]
 pub struct FIKRigBodyMoverGoalSettings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub bone_name: FName,
     pub influence_multiplier: f32,
 }
 impl FIKRigBodyMoverGoalSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigSolverSettingsBase {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FIKRigSolverSettingsBase {}
 #[repr(C, align(8))]
 pub struct FIKRigBodyMoverSettings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start_bone: FName,
     pub position_alpha: f32,
     pub position_positive_x: f32,
@@ -1588,18 +1588,18 @@ pub struct FIKRigBodyMoverSettings {
 impl FIKRigBodyMoverSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigSolverBase {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FIKRigSolverBase {}
 #[repr(C, align(8))]
 pub struct FIKRigBodyMoverSolver {
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FIKRigBodyMoverSolver {}
 #[repr(C, align(8))]
 pub struct FIKRigFBIKGoalSettings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub bone_name: FName,
     pub chain_depth: i32,
     pub strength_alpha: f32,
@@ -1610,14 +1610,14 @@ impl FIKRigFBIKGoalSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigBoneSettingsBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub bone: FName,
 }
 impl FIKRigBoneSettingsBase {}
 #[repr(C, align(8))]
 pub struct FIKRigFBIKBoneSettings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub rotation_stiffness: f32,
     pub position_stiffness: f32,
     pub x: crate::bindings::pbik::EPBIKLimitType,
@@ -1636,7 +1636,7 @@ impl FIKRigFBIKBoneSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigFBIKSettings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub root_bone: FName,
     pub iterations: i32,
     pub sub_iterations: i32,
@@ -1651,18 +1651,18 @@ pub struct FIKRigFBIKSettings {
 impl FIKRigFBIKSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigFullBodyIKSolver {
-    __padding_end: [u8; 224],
+    pub(crate) __padding_end: [u8; 224],
 }
 impl FIKRigFullBodyIKSolver {}
 #[repr(C, align(8))]
 pub struct FLimbSolverSettings {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FLimbSolverSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigLimbSolverSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub start_bone: FName,
     pub goal_name: FName,
     pub end_bone: FName,
@@ -1670,13 +1670,13 @@ pub struct FIKRigLimbSolverSettings {
 impl FIKRigLimbSolverSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigLimbSolver {
-    __padding_end: [u8; 152],
+    pub(crate) __padding_end: [u8; 152],
 }
 impl FIKRigLimbSolver {}
 #[repr(C, align(8))]
 pub struct FIKRigPoleSolverSettings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start_bone: FName,
     pub end_bone: FName,
     pub aim_at_goal: FName,
@@ -1685,13 +1685,13 @@ pub struct FIKRigPoleSolverSettings {
 impl FIKRigPoleSolverSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigPoleSolver {
-    __padding_end: [u8; 104],
+    pub(crate) __padding_end: [u8; 104],
 }
 impl FIKRigPoleSolver {}
 #[repr(C, align(8))]
 pub struct FIKRigSetTransformSettings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub goal: FName,
     pub bone_to_affect: FName,
     pub position_alpha: f32,
@@ -1701,21 +1701,21 @@ pub struct FIKRigSetTransformSettings {
 impl FIKRigSetTransformSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigSetTransform {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FIKRigSetTransform {}
 #[repr(C, align(8))]
 pub struct FIKRigStretchLimbBoneSettings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub squash_direction: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FIKRigStretchLimbBoneSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigStretchLimbSettings {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub start_bone: FName,
     pub end_bone: FName,
     pub goal: FName,
@@ -1731,7 +1731,7 @@ pub struct FIKRigStretchLimbSettings {
 impl FIKRigStretchLimbSettings {}
 #[repr(C, align(8))]
 pub struct FIKRigStretchLimbSolver {
-    __padding_end: [u8; 240],
+    pub(crate) __padding_end: [u8; 240],
 }
 impl FIKRigStretchLimbSolver {}
 pub struct IIKGoalCreatorInterface {}
@@ -1994,7 +1994,7 @@ impl UIKRigComponent {
 #[repr(C, align(8))]
 pub struct URetargetChainSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub source_chain: FName,
     pub target_chain: FName,
     pub settings: FTargetChainSettings,
@@ -2020,7 +2020,7 @@ impl URetargetChainSettings {
 #[repr(C, align(8))]
 pub struct URetargetRootSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub settings: FTargetRootSettings,
     __padding_end: [u8; 88],
 }
@@ -2044,7 +2044,7 @@ impl URetargetRootSettings {
 #[repr(C, align(8))]
 pub struct UIKRetargetGlobalSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub settings: FRetargetGlobalSettings,
 }
 impl UIKRetargetGlobalSettings {
@@ -4885,7 +4885,7 @@ impl UIKRetargetStrideWarpingController {
 #[repr(C, align(16))]
 pub struct UIKRigEffectorGoal {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub goal_name: FName,
     pub bone_name: FName,
     pub position_alpha: f32,

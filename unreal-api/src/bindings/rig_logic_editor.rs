@@ -47,7 +47,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct UDNAAssetImportUI {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
     __padding_end: [u8; 32],
 }

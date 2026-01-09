@@ -1143,32 +1143,32 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpaceGraphBase {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub x: f32,
     pub y: f32,
     pub group_name: FName,
     pub group_role: crate::bindings::engine::EAnimGroupRole,
-    __padding_end: [u8; 99],
+    pub(crate) __padding_end: [u8; 99],
 }
 impl FAnimNode_BlendSpaceGraphBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpaceGraph {
-    __padding_end: [u8; 256],
+    pub(crate) __padding_end: [u8; 256],
 }
 impl FAnimNode_BlendSpaceGraph {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpaceSampleResult {
-    __padding_end: [u8; 200],
+    pub(crate) __padding_end: [u8; 200],
 }
 impl FAnimNode_BlendSpaceSampleResult {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SkeletalControlBase {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub component_pose: crate::bindings::engine::FComponentSpacePoseLink,
     pub lod_threshold: i32,
     #[doc(hidden)]
-    __padding_168: [u8; 4],
+    pub(crate) __padding_168: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
     pub alpha: f32,
@@ -1176,50 +1176,50 @@ pub struct FAnimNode_SkeletalControlBase {
     pub alpha_bool_blend: crate::bindings::engine::FInputAlphaBoolBlend,
     pub alpha_curve_name: FName,
     pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
-    __padding_end: [u8; 108],
+    pub(crate) __padding_end: [u8; 108],
 }
 impl FAnimNode_SkeletalControlBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RotationMultiplier {
     #[doc(hidden)]
-    __padding_464: [u8; 464],
+    pub(crate) __padding_464: [u8; 464],
     pub multiplier: f32,
 }
 impl FAnimNode_RotationMultiplier {}
 #[repr(C, align(16))]
 pub struct FRotationRetargetingInfo {
-    __padding_end: [u8; 416],
+    pub(crate) __padding_end: [u8; 416],
 }
 impl FRotationRetargetingInfo {}
 #[repr(C, align(8))]
 pub struct FPositionHistory {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FPositionHistory {}
 #[repr(C, align(8))]
 pub struct FAnimationStateResultReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FAnimationStateResultReference {}
 #[repr(C, align(8))]
 pub struct FAnimationStateMachineReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FAnimationStateMachineReference {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpacePlayerBase {
-    __padding_end: [u8; 232],
+    pub(crate) __padding_end: [u8; 232],
 }
 impl FAnimNode_BlendSpacePlayerBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpacePlayer {
-    __padding_end: [u8; 280],
+    pub(crate) __padding_end: [u8; 280],
 }
 impl FAnimNode_BlendSpacePlayer {}
 #[repr(C, align(16))]
 pub struct FAnimNode_AimOffsetLookAt {
     #[doc(hidden)]
-    __padding_480: [u8; 480],
+    pub(crate) __padding_480: [u8; 480],
     pub base_pose: crate::bindings::engine::FPoseLink,
     pub lod_threshold: i32,
     pub source_socket_name: FName,
@@ -1227,13 +1227,13 @@ pub struct FAnimNode_AimOffsetLookAt {
     pub look_at_location: crate::bindings::core_u_object::FVector,
     pub socket_axis: crate::bindings::core_u_object::FVector,
     pub alpha: f32,
-    __padding_end: [u8; 84],
+    pub(crate) __padding_end: [u8; 84],
 }
 impl FAnimNode_AimOffsetLookAt {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ApplyAdditive {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub base: crate::bindings::engine::FPoseLink,
     pub additive: crate::bindings::engine::FPoseLink,
     pub alpha: f32,
@@ -1243,72 +1243,72 @@ pub struct FAnimNode_ApplyAdditive {
     pub alpha_curve_name: FName,
     pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
     #[doc(hidden)]
-    __padding_336: [u8; 4],
+    pub(crate) __padding_336: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
 }
 impl FAnimNode_ApplyAdditive {}
 #[repr(C, align(4))]
 pub struct FBlendBoneByChannelEntry {
-    __padding_end: [u8; 44],
+    pub(crate) __padding_end: [u8; 44],
 }
 impl FBlendBoneByChannelEntry {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendBoneByChannel {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub a: crate::bindings::engine::FPoseLink,
     pub b: crate::bindings::engine::FPoseLink,
     #[doc(hidden)]
-    __padding_216: [u8; 32],
+    pub(crate) __padding_216: [u8; 32],
     pub alpha: f32,
     #[doc(hidden)]
-    __padding_224: [u8; 4],
+    pub(crate) __padding_224: [u8; 4],
     pub alpha_scale_bias: crate::bindings::engine::FInputScaleBias,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FAnimNode_BlendBoneByChannel {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendListBase {
-    __padding_end: [u8; 240],
+    pub(crate) __padding_end: [u8; 240],
 }
 impl FAnimNode_BlendListBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendListByBool {
-    __padding_end: [u8; 256],
+    pub(crate) __padding_end: [u8; 256],
 }
 impl FAnimNode_BlendListByBool {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendListByEnum {
-    __padding_end: [u8; 264],
+    pub(crate) __padding_end: [u8; 264],
 }
 impl FAnimNode_BlendListByEnum {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendListByInt {
-    __padding_end: [u8; 248],
+    pub(crate) __padding_end: [u8; 248],
 }
 impl FAnimNode_BlendListByInt {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpaceEvaluator {
     #[doc(hidden)]
-    __padding_280: [u8; 280],
+    pub(crate) __padding_280: [u8; 280],
     pub normalized_time: f32,
 }
 impl FAnimNode_BlendSpaceEvaluator {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BlendSpacePlayer_Standalone {
-    __padding_end: [u8; 280],
+    pub(crate) __padding_end: [u8; 280],
 }
 impl FAnimNode_BlendSpacePlayer_Standalone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_CallFunction {
-    __padding_end: [u8; 224],
+    pub(crate) __padding_end: [u8; 224],
 }
 impl FAnimNode_CallFunction {}
 #[repr(C, align(8))]
 pub struct FAnimNode_CopyPoseFromMesh {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub source_mesh_component: TWeakObjectPtr<
         crate::bindings::engine::USkeletalMeshComponent,
     >,
@@ -1316,30 +1316,30 @@ pub struct FAnimNode_CopyPoseFromMesh {
     pub b_copy_custom_attributes: bool,
     pub flags_146: u8,
     pub root_bone_to_copy: FName,
-    __padding_end: [u8; 304],
+    pub(crate) __padding_end: [u8; 304],
 }
 impl FAnimNode_CopyPoseFromMesh {}
 #[repr(C, align(8))]
 pub struct FAnimNode_CurveSource {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub source_pose: crate::bindings::engine::FPoseLink,
     pub source_binding: FName,
     pub alpha: f32,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FAnimNode_CurveSource {}
 #[repr(C, align(8))]
 pub struct FAnimNode_LayeredBoneBlend {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub base_pose: crate::bindings::engine::FPoseLink,
     pub blend_poses: TArray<crate::bindings::engine::FPoseLink>,
     #[doc(hidden)]
-    __padding_216: [u8; 40],
+    pub(crate) __padding_216: [u8; 40],
     pub blend_weights: TArray<f32>,
     #[doc(hidden)]
-    __padding_348: [u8; 116],
+    pub(crate) __padding_348: [u8; 116],
     pub lod_threshold: i32,
     pub b_mesh_space_rotation_blend: bool,
     pub b_root_space_rotation_blend: bool,
@@ -1350,7 +1350,7 @@ impl FAnimNode_LayeredBoneBlend {}
 #[repr(C, align(8))]
 pub struct FAnimNode_MakeDynamicAdditive {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub base: crate::bindings::engine::FPoseLink,
     pub additive: crate::bindings::engine::FPoseLink,
     pub b_mesh_space_additive: bool,
@@ -1358,28 +1358,28 @@ pub struct FAnimNode_MakeDynamicAdditive {
 impl FAnimNode_MakeDynamicAdditive {}
 #[repr(C, align(8))]
 pub struct FAnimNode_MirrorBase {
-    __padding_end: [u8; 200],
+    pub(crate) __padding_end: [u8; 200],
 }
 impl FAnimNode_MirrorBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_Mirror {
-    __padding_end: [u8; 224],
+    pub(crate) __padding_end: [u8; 224],
 }
 impl FAnimNode_Mirror {}
 #[repr(C, align(8))]
 pub struct FAnimNode_Mirror_Standalone {
-    __padding_end: [u8; 224],
+    pub(crate) __padding_end: [u8; 224],
 }
 impl FAnimNode_Mirror_Standalone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ModifyCurve {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub source_pose: crate::bindings::engine::FPoseLink,
     pub curve_map: TMap<FName, f32>,
     pub curve_values: TArray<f32>,
     #[doc(hidden)]
-    __padding_408: [u8; 152],
+    pub(crate) __padding_408: [u8; 152],
     pub alpha: f32,
     pub apply_mode: EModifyCurveApplyMode,
 }
@@ -1387,11 +1387,11 @@ impl FAnimNode_ModifyCurve {}
 #[repr(C, align(8))]
 pub struct FAnimNode_MultiWayBlend {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub poses: TArray<crate::bindings::engine::FPoseLink>,
     pub desired_alphas: TArray<f32>,
     #[doc(hidden)]
-    __padding_184: [u8; 16],
+    pub(crate) __padding_184: [u8; 16],
     pub alpha_scale_bias: crate::bindings::engine::FInputScaleBias,
     pub b_additive_node: bool,
     pub b_normalize_alpha: bool,
@@ -1400,40 +1400,40 @@ impl FAnimNode_MultiWayBlend {}
 #[repr(C, align(8))]
 pub struct FAnimNode_PoseHandler {
     #[doc(hidden)]
-    __padding_184: [u8; 184],
+    pub(crate) __padding_184: [u8; 184],
     pub pose_asset: UPtr<crate::bindings::engine::UPoseAsset>,
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FAnimNode_PoseHandler {}
 #[repr(C, align(8))]
 pub struct FAnimNode_PoseBlendNode {
     #[doc(hidden)]
-    __padding_320: [u8; 320],
+    pub(crate) __padding_320: [u8; 320],
     pub source_pose: crate::bindings::engine::FPoseLink,
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FAnimNode_PoseBlendNode {}
 #[repr(C, align(8))]
 pub struct FAnimNode_PoseByName {
     #[doc(hidden)]
-    __padding_320: [u8; 320],
+    pub(crate) __padding_320: [u8; 320],
     pub pose_name: FName,
     pub pose_weight: f32,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FAnimNode_PoseByName {}
 #[repr(C, align(8))]
 pub struct FAnimNode_PoseDriver {
     #[doc(hidden)]
-    __padding_320: [u8; 320],
+    pub(crate) __padding_320: [u8; 320],
     pub source_pose: crate::bindings::engine::FPoseLink,
-    __padding_end: [u8; 288],
+    pub(crate) __padding_end: [u8; 288],
 }
 impl FAnimNode_PoseDriver {}
 #[repr(C, align(8))]
 pub struct FRBFParams {
     #[doc(hidden)]
-    __padding_4: [u8; 4],
+    pub(crate) __padding_4: [u8; 4],
     pub solver_type: ERBFSolverType,
     pub radius: f32,
     pub b_automatic_radius: bool,
@@ -1450,11 +1450,11 @@ impl FRBFParams {}
 #[repr(C, align(8))]
 pub struct FAnimNode_PoseSnapshot {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub snapshot_name: FName,
     pub snapshot: crate::bindings::engine::FPoseSnapshot,
     pub mode: ESnapshotSourceMode,
-    __padding_end: [u8; 79],
+    pub(crate) __padding_end: [u8; 79],
 }
 impl FAnimNode_PoseSnapshot {}
 #[repr(C, align(8))]
@@ -1465,16 +1465,16 @@ pub struct FRandomPlayerSequenceEntry {
     pub max_loop_count: i32,
     pub min_play_rate: f32,
     pub max_play_rate: f32,
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FRandomPlayerSequenceEntry {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RandomPlayer {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub entries: TArray<FRandomPlayerSequenceEntry>,
     #[doc(hidden)]
-    __padding_236: [u8; 84],
+    pub(crate) __padding_236: [u8; 84],
     pub blend_weight: f32,
     pub b_shuffle_mode: bool,
 }
@@ -1482,7 +1482,7 @@ impl FAnimNode_RandomPlayer {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RotateRootBone {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub base_pose: crate::bindings::engine::FPoseLink,
     pub pitch: f32,
     pub yaw: f32,
@@ -1490,13 +1490,13 @@ pub struct FAnimNode_RotateRootBone {
     pub yaw_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
     pub mesh_to_component: crate::bindings::core_u_object::FRotator,
     pub b_rotate_root_motion_attribute: bool,
-    __padding_end: [u8; 15],
+    pub(crate) __padding_end: [u8; 15],
 }
 impl FAnimNode_RotateRootBone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RotationOffsetBlendSpace {
     #[doc(hidden)]
-    __padding_280: [u8; 280],
+    pub(crate) __padding_280: [u8; 280],
     pub base_pose: crate::bindings::engine::FPoseLink,
     pub lod_threshold: i32,
     pub alpha: f32,
@@ -1505,7 +1505,7 @@ pub struct FAnimNode_RotationOffsetBlendSpace {
     pub alpha_curve_name: FName,
     pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
     #[doc(hidden)]
-    __padding_456: [u8; 4],
+    pub(crate) __padding_456: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
 }
@@ -1513,7 +1513,7 @@ impl FAnimNode_RotationOffsetBlendSpace {}
 #[repr(C, align(8))]
 pub struct FAnimNode_RotationOffsetBlendSpaceGraph {
     #[doc(hidden)]
-    __padding_256: [u8; 256],
+    pub(crate) __padding_256: [u8; 256],
     pub base_pose: crate::bindings::engine::FPoseLink,
     pub lod_threshold: i32,
     pub alpha: f32,
@@ -1522,45 +1522,45 @@ pub struct FAnimNode_RotationOffsetBlendSpaceGraph {
     pub alpha_curve_name: FName,
     pub alpha_scale_bias_clamp: crate::bindings::engine::FInputScaleBiasClamp,
     #[doc(hidden)]
-    __padding_432: [u8; 4],
+    pub(crate) __padding_432: [u8; 4],
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
     pub b_alpha_bool_enabled: bool,
 }
 impl FAnimNode_RotationOffsetBlendSpaceGraph {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SequenceEvaluatorBase {
-    __padding_end: [u8; 192],
+    pub(crate) __padding_end: [u8; 192],
 }
 impl FAnimNode_SequenceEvaluatorBase {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SequenceEvaluator {
-    __padding_end: [u8; 240],
+    pub(crate) __padding_end: [u8; 240],
 }
 impl FAnimNode_SequenceEvaluator {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SequenceEvaluator_Standalone {
-    __padding_end: [u8; 240],
+    pub(crate) __padding_end: [u8; 240],
 }
 impl FAnimNode_SequenceEvaluator_Standalone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_Slot {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub source: crate::bindings::engine::FPoseLink,
     pub slot_name: FName,
     pub b_always_update_source_pose: bool,
-    __padding_end: [u8; 35],
+    pub(crate) __padding_end: [u8; 35],
 }
 impl FAnimNode_Slot {}
 #[repr(C, align(8))]
 pub struct FAnimNode_Sync {
-    __padding_end: [u8; 176],
+    pub(crate) __padding_end: [u8; 176],
 }
 impl FAnimNode_Sync {}
 #[repr(C, align(8))]
 pub struct FAnimNode_TwoWayBlend {
     #[doc(hidden)]
-    __padding_136: [u8; 136],
+    pub(crate) __padding_136: [u8; 136],
     pub a: crate::bindings::engine::FPoseLink,
     pub b: crate::bindings::engine::FPoseLink,
     pub alpha_input_type: crate::bindings::engine::EAnimAlphaInputType,
@@ -1574,17 +1574,17 @@ pub struct FAnimNode_TwoWayBlend {
 impl FAnimNode_TwoWayBlend {}
 #[repr(C, align(8))]
 pub struct FBlendListBaseReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FBlendListBaseReference {}
 #[repr(C, align(8))]
 pub struct FBlendSpaceReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FBlendSpaceReference {}
 #[repr(C, align(8))]
 pub struct FBlendSpacePlayerReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FBlendSpacePlayerReference {}
 #[repr(C, align(8))]
@@ -1598,53 +1598,53 @@ impl FAnimPhysSimSpaceSettings {}
 #[repr(C, align(16))]
 pub struct FAnimNode_AnimDynamics {
     #[doc(hidden)]
-    __padding_424: [u8; 424],
+    pub(crate) __padding_424: [u8; 424],
     pub linear_damping_override: f32,
     pub angular_damping_override: f32,
     #[doc(hidden)]
-    __padding_800: [u8; 368],
+    pub(crate) __padding_800: [u8; 368],
     pub gravity_scale: f32,
     pub gravity_override: crate::bindings::core_u_object::FVector,
     pub linear_spring_constant: f32,
     pub angular_spring_constant: f32,
     #[doc(hidden)]
-    __padding_960: [u8; 120],
+    pub(crate) __padding_960: [u8; 120],
     pub angular_bias_override: f32,
     #[doc(hidden)]
-    __padding_1032: [u8; 68],
+    pub(crate) __padding_1032: [u8; 68],
     pub simulation_space: AnimPhysSimSpaceType,
     #[doc(hidden)]
-    __padding_1036: [u8; 3],
+    pub(crate) __padding_1036: [u8; 3],
     pub flags_1036: u8,
-    __padding_end: [u8; 883],
+    pub(crate) __padding_end: [u8; 883],
 }
 impl FAnimNode_AnimDynamics {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ApplyLimits {
     #[doc(hidden)]
-    __padding_440: [u8; 440],
+    pub(crate) __padding_440: [u8; 440],
     pub angular_offsets: TArray<crate::bindings::core_u_object::FVector>,
 }
 impl FAnimNode_ApplyLimits {}
 #[repr(C, align(8))]
 pub struct FAnimNode_BoneDrivenController {
-    __padding_end: [u8; 536],
+    pub(crate) __padding_end: [u8; 536],
 }
 impl FAnimNode_BoneDrivenController {}
 #[repr(C, align(16))]
 pub struct FAnimNode_CCDIK {
-    __padding_end: [u8; 720],
+    pub(crate) __padding_end: [u8; 720],
 }
 impl FAnimNode_CCDIK {}
 #[repr(C, align(16))]
 pub struct FAnimNode_Constraint {
-    __padding_end: [u8; 704],
+    pub(crate) __padding_end: [u8; 704],
 }
 impl FAnimNode_Constraint {}
 #[repr(C, align(8))]
 pub struct FAnimNode_CopyBone {
     #[doc(hidden)]
-    __padding_464: [u8; 464],
+    pub(crate) __padding_464: [u8; 464],
     pub b_copy_translation: bool,
     pub b_copy_rotation: bool,
     pub b_copy_scale: bool,
@@ -1653,7 +1653,7 @@ impl FAnimNode_CopyBone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_CopyBoneDelta {
     #[doc(hidden)]
-    __padding_464: [u8; 464],
+    pub(crate) __padding_464: [u8; 464],
     pub b_copy_translation: bool,
     pub b_copy_rotation: bool,
     pub b_copy_scale: bool,
@@ -1665,65 +1665,65 @@ impl FAnimNode_CopyBoneDelta {}
 #[repr(C, align(16))]
 pub struct FAnimNode_Fabrik {
     #[doc(hidden)]
-    __padding_432: [u8; 432],
+    pub(crate) __padding_432: [u8; 432],
     pub effector_transform: crate::bindings::core_u_object::FTransform,
-    __padding_end: [u8; 336],
+    pub(crate) __padding_end: [u8; 336],
 }
 impl FAnimNode_Fabrik {}
 #[repr(C, align(8))]
 pub struct FAnimNode_HandIKRetargeting {
     #[doc(hidden)]
-    __padding_520: [u8; 520],
+    pub(crate) __padding_520: [u8; 520],
     pub per_axis_alpha: crate::bindings::core_u_object::FVector,
     pub hand_fk_weight: f32,
 }
 impl FAnimNode_HandIKRetargeting {}
 #[repr(C, align(8))]
 pub struct FAnimNode_LegIK {
-    __padding_end: [u8; 480],
+    pub(crate) __padding_end: [u8; 480],
 }
 impl FAnimNode_LegIK {}
 #[repr(C, align(16))]
 pub struct FAnimNode_LookAt {
     #[doc(hidden)]
-    __padding_608: [u8; 608],
+    pub(crate) __padding_608: [u8; 608],
     pub look_at_location: crate::bindings::core_u_object::FVector,
     #[doc(hidden)]
-    __padding_665: [u8; 33],
+    pub(crate) __padding_665: [u8; 33],
     pub interpolation_type: EInterpolationBlend,
     #[doc(hidden)]
-    __padding_704: [u8; 36],
+    pub(crate) __padding_704: [u8; 36],
     pub look_at_clamp: f32,
     pub interpolation_time: f32,
     pub interpolation_trigger_threashold: f32,
-    __padding_end: [u8; 548],
+    pub(crate) __padding_end: [u8; 548],
 }
 impl FAnimNode_LookAt {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ModifyBone {
     #[doc(hidden)]
-    __padding_448: [u8; 448],
+    pub(crate) __padding_448: [u8; 448],
     pub translation: crate::bindings::core_u_object::FVector,
     pub rotation: crate::bindings::core_u_object::FRotator,
     pub scale: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FAnimNode_ModifyBone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ObserveBone {
-    __padding_end: [u8; 520],
+    pub(crate) __padding_end: [u8; 520],
 }
 impl FAnimNode_ObserveBone {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ResetRoot {
-    __padding_end: [u8; 440],
+    pub(crate) __padding_end: [u8; 440],
 }
 impl FAnimNode_ResetRoot {}
 #[repr(C, align(8))]
 pub struct FSimSpaceSettings {
     pub world_alpha: f32,
     #[doc(hidden)]
-    __padding_8: [u8; 4],
+    pub(crate) __padding_8: [u8; 4],
     pub velocity_scale_z: f32,
     pub damping_alpha: f32,
     pub max_linear_velocity: f32,
@@ -1731,7 +1731,7 @@ pub struct FSimSpaceSettings {
     pub max_linear_acceleration: f32,
     pub max_angular_acceleration: f32,
     #[doc(hidden)]
-    __padding_40: [u8; 8],
+    pub(crate) __padding_40: [u8; 8],
     pub external_linear_drag_v: crate::bindings::core_u_object::FVector,
     pub external_linear_velocity: crate::bindings::core_u_object::FVector,
     pub external_angular_velocity: crate::bindings::core_u_object::FVector,
@@ -1740,84 +1740,84 @@ impl FSimSpaceSettings {}
 #[repr(C, align(16))]
 pub struct FAnimNode_RigidBody {
     #[doc(hidden)]
-    __padding_744: [u8; 744],
+    pub(crate) __padding_744: [u8; 744],
     pub b_use_local_lod_threshold_only: bool,
-    __padding_end: [u8; 1895],
+    pub(crate) __padding_end: [u8; 1895],
 }
 impl FAnimNode_RigidBody {}
 #[repr(C, align(8))]
 pub struct FRigidBodyAnimNodeReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigidBodyAnimNodeReference {}
 #[repr(C, align(8))]
 pub struct FAnimNode_ScaleChainLength {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub default_chain_length: f32,
     #[doc(hidden)]
-    __padding_208: [u8; 40],
+    pub(crate) __padding_208: [u8; 40],
     pub target_location: crate::bindings::core_u_object::FVector,
     pub alpha: f32,
-    __padding_end: [u8; 36],
+    pub(crate) __padding_end: [u8; 36],
 }
 impl FAnimNode_ScaleChainLength {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SplineIK {
     #[doc(hidden)]
-    __padding_472: [u8; 472],
+    pub(crate) __padding_472: [u8; 472],
     pub control_points: TArray<crate::bindings::core_u_object::FTransform>,
     pub roll: f32,
     pub twist_start: f32,
     pub twist_end: f32,
     #[doc(hidden)]
-    __padding_552: [u8; 52],
+    pub(crate) __padding_552: [u8; 52],
     pub stretch: f32,
     pub offset: f32,
-    __padding_end: [u8; 296],
+    pub(crate) __padding_end: [u8; 296],
 }
 impl FAnimNode_SplineIK {}
 #[repr(C, align(8))]
 pub struct FAnimNode_SpringBone {
     #[doc(hidden)]
-    __padding_448: [u8; 448],
+    pub(crate) __padding_448: [u8; 448],
     pub max_displacement: f64,
-    __padding_end: [u8; 160],
+    pub(crate) __padding_end: [u8; 160],
 }
 impl FAnimNode_SpringBone {}
 #[repr(C, align(16))]
 pub struct FAnimNode_Trail {
     #[doc(hidden)]
-    __padding_568: [u8; 568],
+    pub(crate) __padding_568: [u8; 568],
     pub relaxation_speed_scale: f32,
     #[doc(hidden)]
-    __padding_712: [u8; 140],
+    pub(crate) __padding_712: [u8; 140],
     pub relaxation_speed_scale_input_processor: crate::bindings::engine::FInputScaleBiasClamp,
     #[doc(hidden)]
-    __padding_776: [u8; 16],
+    pub(crate) __padding_776: [u8; 16],
     pub rotation_offsets: TArray<crate::bindings::core_u_object::FVector>,
-    __padding_end: [u8; 168],
+    pub(crate) __padding_end: [u8; 168],
 }
 impl FAnimNode_Trail {}
 #[repr(C, align(8))]
 pub struct FAnimNode_TwistCorrectiveNode {
-    __padding_end: [u8; 616],
+    pub(crate) __padding_end: [u8; 616],
 }
 impl FAnimNode_TwistCorrectiveNode {}
 #[repr(C, align(16))]
 pub struct FAnimNode_TwoBoneIK {
     #[doc(hidden)]
-    __padding_512: [u8; 512],
+    pub(crate) __padding_512: [u8; 512],
     pub effector_location: crate::bindings::core_u_object::FVector,
     #[doc(hidden)]
-    __padding_704: [u8; 168],
+    pub(crate) __padding_704: [u8; 168],
     pub joint_target_location: crate::bindings::core_u_object::FVector,
-    __padding_end: [u8; 312],
+    pub(crate) __padding_end: [u8; 312],
 }
 impl FAnimNode_TwoBoneIK {}
 #[repr(C, align(8))]
 pub struct FIKFootPelvisPullDownSolver {
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FIKFootPelvisPullDownSolver {}
 #[repr(C, align(8))]
@@ -1828,37 +1828,37 @@ pub struct FWarpingVectorValue {
 impl FWarpingVectorValue {}
 #[repr(C, align(8))]
 pub struct FLayeredBoneBlendReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FLayeredBoneBlendReference {}
 #[repr(C, align(8))]
 pub struct FLinkedAnimGraphReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FLinkedAnimGraphReference {}
 #[repr(C, align(8))]
 pub struct FMirrorAnimNodeReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FMirrorAnimNodeReference {}
 #[repr(C, align(8))]
 pub struct FModifyCurveAnimNodeReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FModifyCurveAnimNodeReference {}
 #[repr(C, align(8))]
 pub struct FSequenceEvaluatorReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FSequenceEvaluatorReference {}
 #[repr(C, align(8))]
 pub struct FSequencePlayerReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FSequencePlayerReference {}
 #[repr(C, align(8))]
 pub struct FSkeletalControlReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FSkeletalControlReference {}
 pub struct ISequencerAnimationOverride {}
@@ -2931,7 +2931,7 @@ impl UAnimExecutionContextLibrary {
 #[repr(C, align(8))]
 pub struct UAnimNotify_PlayMontageNotify {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub notify_name: FName,
 }
 impl UAnimNotify_PlayMontageNotify {
@@ -2954,7 +2954,7 @@ impl UAnimNotify_PlayMontageNotify {
 #[repr(C, align(8))]
 pub struct UAnimNotify_PlayMontageNotifyWindow {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub notify_name: FName,
 }
 impl UAnimNotify_PlayMontageNotifyWindow {

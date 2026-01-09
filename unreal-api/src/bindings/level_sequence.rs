@@ -815,13 +815,13 @@ pub struct FLevelSequencePlayerSnapshot {
     pub source_timecode: FString,
     pub camera_component: TSoftObjectPtr<crate::bindings::engine::UCameraComponent>,
     pub active_shot: UPtr<ULevelSequence>,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FLevelSequencePlayerSnapshot {}
 #[repr(C, align(16))]
 pub struct UDefaultLevelSequenceInstanceData {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub transform_origin_actor: UPtr<crate::bindings::engine::AActor>,
     pub transform_origin: crate::bindings::core_u_object::FTransform,
 }
@@ -845,7 +845,7 @@ impl UDefaultLevelSequenceInstanceData {
 #[repr(C, align(8))]
 pub struct UAnimSequenceLevelSequenceLink {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub skel_track_guid: crate::bindings::core_u_object::FGuid,
     pub path_to_level_sequence: crate::bindings::core_u_object::FSoftObjectPath,
 }
@@ -1075,7 +1075,7 @@ impl ULevelSequenceBurnInInitSettings {
 #[repr(C, align(8))]
 pub struct ULevelSequenceBurnInOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_use_burn_in: bool,
     pub burn_in_class: crate::bindings::core_u_object::FSoftClassPath,
     pub settings: UPtr<ULevelSequenceBurnInInitSettings>,
@@ -1135,12 +1135,12 @@ impl ULevelSequenceBurnInOptions {
 #[repr(C, align(8))]
 pub struct ALevelSequenceActor {
     #[doc(hidden)]
-    __padding_1160: [u8; 1160],
+    pub(crate) __padding_1160: [u8; 1160],
     pub playback_settings: crate::bindings::movie_scene::FMovieSceneSequencePlaybackSettings,
     pub sequence_player: UPtr<ULevelSequencePlayer>,
     pub level_sequence_asset: UPtr<ULevelSequence>,
     #[doc(hidden)]
-    __padding_1256: [u8; 40],
+    pub(crate) __padding_1256: [u8; 40],
     pub camera_settings: FLevelSequenceCameraSettings,
     pub burn_in_options: UPtr<ULevelSequenceBurnInOptions>,
     pub binding_overrides: UPtr<
@@ -1787,7 +1787,7 @@ impl AReplicatedLevelSequenceActor {
 #[repr(C, align(8))]
 pub struct ULevelSequenceAnimSequenceLink {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub anim_sequence_links: TArray<FLevelSequenceAnimSequenceLinkItem>,
 }
 impl ULevelSequenceAnimSequenceLink {
@@ -1810,7 +1810,7 @@ impl ULevelSequenceAnimSequenceLink {
 #[repr(C, align(8))]
 pub struct ULevelSequenceBurnIn {
     #[doc(hidden)]
-    __padding_1288: [u8; 1288],
+    pub(crate) __padding_1288: [u8; 1288],
     pub frame_information: FLevelSequencePlayerSnapshot,
     pub level_sequence_actor: UPtr<ALevelSequenceActor>,
 }
@@ -1900,7 +1900,7 @@ impl ULevelSequenceBurnIn {
 #[repr(C, align(8))]
 pub struct ULevelSequenceDirector {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub player: UPtr<ULevelSequencePlayer>,
     __padding_end: [u8; 8],
 }
@@ -3766,7 +3766,7 @@ impl ULevelSequenceShotMetaDataLibrary {
 #[repr(C, align(8))]
 pub struct ALevelSequenceMediaController {
     #[doc(hidden)]
-    __padding_1144: [u8; 1144],
+    pub(crate) __padding_1144: [u8; 1144],
     pub sequence: UPtr<ALevelSequenceActor>,
     pub media_component: UPtr<crate::bindings::media_assets::UMediaComponent>,
     pub server_start_time_seconds: f32,

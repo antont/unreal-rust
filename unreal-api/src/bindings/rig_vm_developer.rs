@@ -4293,7 +4293,7 @@ pub struct FRigVMGraphVariableDescription {
     pub cpp_type: FString,
     pub cpp_type_object: UPtr<crate::bindings::core_u_object::UObject>,
     #[doc(hidden)]
-    __padding_56: [u8; 16],
+    pub(crate) __padding_56: [u8; 16],
     pub default_value: FString,
     pub category: FText,
     pub tooltip: FText,
@@ -4306,9 +4306,9 @@ impl FRigVMGraphVariableDescription {}
 #[repr(C, align(8))]
 pub struct FRigVMParserASTSettings {
     #[doc(hidden)]
-    __padding_3: [u8; 3],
+    pub(crate) __padding_3: [u8; 3],
     pub b_setup_traits: bool,
-    __padding_end: [u8; 52],
+    pub(crate) __padding_end: [u8; 52],
 }
 impl FRigVMParserASTSettings {}
 #[repr(C, align(8))]
@@ -4319,7 +4319,7 @@ pub struct FRigVMCompileSettings {
     pub enable_pin_watches: bool,
     pub ast_settings: FRigVMParserASTSettings,
     #[doc(hidden)]
-    __padding_66: [u8; 2],
+    pub(crate) __padding_66: [u8; 2],
     pub b_warn_about_deprecated_nodes: bool,
     pub b_warn_about_duplicate_events: bool,
 }
@@ -4335,12 +4335,12 @@ pub struct FRigVMGraphParameterDescription {
 impl FRigVMGraphParameterDescription {}
 #[repr(C, align(8))]
 pub struct FRigVMFunctionReferenceArray {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigVMFunctionReferenceArray {}
 #[repr(C, align(8))]
 pub struct FRigStructScope {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRigStructScope {}
 #[repr(C, align(8))]
@@ -4431,7 +4431,7 @@ impl URigVMAssetInterface {
 #[repr(C, align(8))]
 pub struct URigVMBlueprint {
     #[doc(hidden)]
-    __padding_2992: [u8; 2992],
+    pub(crate) __padding_2992: [u8; 2992],
     pub vm_compile_settings: FRigVMCompileSettings,
     __padding_end: [u8; 744],
 }
@@ -13549,7 +13549,7 @@ impl URigVMUserWorkflowRegistry {
 #[repr(C, align(8))]
 pub struct URigVMController {
     #[doc(hidden)]
-    __padding_296: [u8; 296],
+    pub(crate) __padding_296: [u8; 296],
     pub modified_event_dynamic: FRigVMController_ModifiedEventDynamic,
     __padding_end: [u8; 408],
 }

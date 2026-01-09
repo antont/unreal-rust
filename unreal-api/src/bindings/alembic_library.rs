@@ -72,7 +72,7 @@ pub struct FAbcGeometryCacheSettings {
     pub b_store_imported_vertex_numbers: bool,
     pub b_apply_constant_topology_optimizations: bool,
     #[doc(hidden)]
-    __padding_4: [u8; 1],
+    pub(crate) __padding_4: [u8; 1],
     pub motion_vectors: EAbcGeometryCacheMotionVectorsImport,
     pub b_optimize_index_buffers: bool,
     pub compressed_position_precision: f32,
@@ -103,7 +103,7 @@ impl UAbcAssetImportData {
 #[repr(C, align(8))]
 pub struct UAbcImportSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub import_type: EAlembicImportType,
     pub sampling_settings: FAbcSamplingSettings,
     pub normal_generation_settings: FAbcNormalGenerationSettings,

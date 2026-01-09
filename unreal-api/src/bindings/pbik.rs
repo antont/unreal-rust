@@ -47,35 +47,35 @@ pub struct FPBIKSolverSettings {
     pub global_pull_chain_alpha: f32,
     pub max_angle: f32,
     pub over_relaxation: f32,
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FPBIKSolverSettings {}
 #[repr(C, align(4))]
 pub struct FPBIKDebug {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FPBIKDebug {}
 #[repr(C, align(16))]
 pub struct FPBIKEffector {
     #[doc(hidden)]
-    __padding_124: [u8; 124],
+    pub(crate) __padding_124: [u8; 124],
     pub chain_depth: i32,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FPBIKEffector {}
 #[repr(C, align(8))]
 pub struct FRigUnit_PBIK {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub root: FName,
     pub effectors: TArray<FPBIKEffector>,
     #[doc(hidden)]
-    __padding_64: [u8; 16],
+    pub(crate) __padding_64: [u8; 16],
     pub bone_settings: TArray<FPBIKBoneSetting>,
     pub excluded_bones: TArray<FName>,
     pub settings: FPBIKSolverSettings,
     pub debug: FPBIKDebug,
-    __padding_end: [u8; 128],
+    pub(crate) __padding_end: [u8; 128],
 }
 impl FRigUnit_PBIK {}
 #[repr(transparent)]

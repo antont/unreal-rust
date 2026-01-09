@@ -322,7 +322,7 @@ impl UGLTFStaticMeshExporter {
 #[repr(C, align(8))]
 pub struct UGLTFExportOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub export_uniform_scale: f32,
     pub b_export_preview_mesh: bool,
     pub b_skip_near_default_values: bool,
@@ -407,7 +407,7 @@ impl UGLTFExportOptions {
 #[repr(C, align(8))]
 pub struct UGLTFProxyOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_bake_material_inputs: bool,
     pub b_use_thin_translucent_shading_model: bool,
     pub default_material_bake_size: FGLTFMaterialBakeSize,
@@ -463,7 +463,7 @@ impl UGLTFProxyOptions {
 #[repr(C, align(8))]
 pub struct UGLTFMaterialExportOptions {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub proxy: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub default: FGLTFOverrideMaterialBakeSettings,
     pub inputs: TMap<EGLTFMaterialPropertyGroup, FGLTFOverrideMaterialBakeSettings>,

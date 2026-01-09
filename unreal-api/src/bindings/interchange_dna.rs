@@ -41,7 +41,7 @@ impl FMeshVertexColorData {}
 #[repr(C, align(8))]
 pub struct UDNAMeshVertexColorDataAsset {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub mesh_color_entries: TArray<FMeshVertexColorData>,
 }
 impl UDNAMeshVertexColorDataAsset {

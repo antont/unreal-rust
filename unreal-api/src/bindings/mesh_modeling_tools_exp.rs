@@ -802,7 +802,7 @@ impl UBakeTexture2DProperties {
 #[repr(C, align(8))]
 pub struct UBakeMultiTexture2DProperties {
     #[doc(hidden)]
-    __padding_232: [u8; 232],
+    pub(crate) __padding_232: [u8; 232],
     pub all_source_textures: TArray<UPtr<crate::bindings::engine::UTexture2D>>,
 }
 impl UBakeMultiTexture2DProperties {

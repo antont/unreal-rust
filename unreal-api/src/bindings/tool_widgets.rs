@@ -35,7 +35,7 @@ pub fn initialize() {
 #[repr(C, align(16))]
 pub struct FActionButtonStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub button_style: crate::bindings::slate_core::FButtonStyle,
     pub button_content_padding: TOptional<crate::bindings::slate_core::FMargin>,
     pub combo_button_style: crate::bindings::slate_core::FComboButtonStyle,

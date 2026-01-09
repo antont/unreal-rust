@@ -398,7 +398,7 @@ impl UAudioCaptureBlueprintLibrary {
 #[repr(C, align(16))]
 pub struct UAudioCaptureComponent {
     #[doc(hidden)]
-    __padding_2384: [u8; 2384],
+    pub(crate) __padding_2384: [u8; 2384],
     pub jitter_latency_frames: i32,
     __padding_end: [u8; 188],
 }

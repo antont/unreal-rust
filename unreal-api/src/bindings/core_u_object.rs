@@ -33,12 +33,12 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FGuid {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FGuid {}
 #[repr(C, align(8))]
 pub struct FDateTime {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FDateTime {}
 #[repr(C, align(8))]
@@ -70,22 +70,22 @@ pub struct FVector2D {
 impl FVector2D {}
 #[repr(C, align(4))]
 pub struct FBox2f {
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FBox2f {}
 #[repr(C, align(4))]
 pub struct FVector2f {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FVector2f {}
 #[repr(C, align(4))]
 pub struct FBox3f {
-    __padding_end: [u8; 28],
+    pub(crate) __padding_end: [u8; 28],
 }
 impl FBox3f {}
 #[repr(C, align(4))]
 pub struct FVector3f {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FVector3f {}
 #[repr(C, align(8))]
@@ -164,7 +164,7 @@ pub struct FFrameTime {
 impl FFrameTime {}
 #[repr(C, align(4))]
 pub struct FInputDeviceId {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FInputDeviceId {}
 #[repr(C, align(4))]
@@ -347,23 +347,23 @@ impl FMatrix {}
 #[repr(C, align(16))]
 pub struct FPlane {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub w: f64,
 }
 impl FPlane {}
 #[repr(C, align(16))]
 pub struct FMatrix44f {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FMatrix44f {}
 #[repr(C, align(16))]
 pub struct FPlane4f {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FPlane4f {}
 #[repr(C, align(4))]
 pub struct FMusicalTime {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FMusicalTime {}
 #[repr(C, align(8))]
@@ -379,7 +379,7 @@ pub struct FOrientedBox {
 impl FOrientedBox {}
 #[repr(C, align(8))]
 pub struct FPackedRemoteObjectPathName {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FPackedRemoteObjectPathName {}
 #[repr(C, align(4))]
@@ -390,7 +390,7 @@ pub struct FPlatformInputDeviceState {
 impl FPlatformInputDeviceState {}
 #[repr(C, align(4))]
 pub struct FPlatformUserId {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FPlatformUserId {}
 #[repr(C, align(8))]
@@ -402,7 +402,7 @@ pub struct FPolyglotTextData {
     pub native_string: FString,
     pub localized_strings: TMap<FString, FString>,
     pub b_is_minimal_patch: bool,
-    __padding_end: [u8; 23],
+    pub(crate) __padding_end: [u8; 23],
 }
 impl FPolyglotTextData {}
 #[repr(C, align(4))]
@@ -413,13 +413,13 @@ pub struct FQualifiedFrameTime {
 impl FQualifiedFrameTime {}
 #[repr(C, align(16))]
 pub struct FQuat4f {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FQuat4f {}
 #[repr(C, align(4))]
 pub struct FRandomStream {
     pub initial_seed: i32,
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FRandomStream {}
 #[repr(C, align(8))]
@@ -430,47 +430,47 @@ pub struct FRay {
 impl FRay {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectBytes {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRemoteObjectBytes {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectData {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FRemoteObjectData {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectTables {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRemoteObjectTables {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectId {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRemoteObjectId {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectPathName {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FRemoteObjectPathName {}
 #[repr(C, align(8))]
 pub struct FRemoteObjectReference {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FRemoteObjectReference {}
 #[repr(C, align(4))]
 pub struct FRemoteServerId {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FRemoteServerId {}
 #[repr(C, align(4))]
 pub struct FRemoteTransactionId {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FRemoteTransactionId {}
 #[repr(C, align(8))]
 pub struct FRemoteWorkPriority {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FRemoteWorkPriority {}
 #[repr(C, align(8))]
@@ -482,7 +482,7 @@ pub struct FRotator {
 impl FRotator {}
 #[repr(C, align(4))]
 pub struct FRotator3f {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FRotator3f {}
 #[repr(C, align(8))]
@@ -503,7 +503,7 @@ pub struct FTimecode {
 impl FTimecode {}
 #[repr(C, align(8))]
 pub struct FTimespan {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FTimespan {}
 #[repr(C, align(16))]
@@ -511,13 +511,13 @@ pub struct FTransform {
     pub rotation: FQuat,
     pub translation: FVector,
     #[doc(hidden)]
-    __padding_64: [u8; 8],
+    pub(crate) __padding_64: [u8; 8],
     pub scale3_d: FVector,
 }
 impl FTransform {}
 #[repr(C, align(16))]
 pub struct FTransform3f {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FTransform3f {}
 #[repr(C, align(16))]
@@ -530,7 +530,7 @@ pub struct FVector4 {
 impl FVector4 {}
 #[repr(C, align(16))]
 pub struct FVector4f {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FVector4f {}
 #[repr(C, align(4))]
@@ -541,7 +541,7 @@ pub struct FTopLevelAssetPath {
 impl FTopLevelAssetPath {}
 #[repr(C, align(8))]
 pub struct FSoftObjectPath {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FSoftObjectPath {}
 #[repr(C, align(8))]
@@ -549,23 +549,23 @@ pub struct FARFilter {
     pub package_names: TArray<FName>,
     pub package_paths: TArray<FName>,
     #[doc(hidden)]
-    __padding_48: [u8; 16],
+    pub(crate) __padding_48: [u8; 16],
     pub soft_object_paths: TArray<FSoftObjectPath>,
     pub class_names: TArray<FName>,
     pub class_paths: TArray<FTopLevelAssetPath>,
     #[doc(hidden)]
-    __padding_176: [u8; 80],
+    pub(crate) __padding_176: [u8; 80],
     pub recursive_classes_exclusion_set: TSet<FName>,
     pub recursive_class_paths_exclusion_set: TSet<FTopLevelAssetPath>,
     pub b_recursive_paths: bool,
     pub b_recursive_classes: bool,
     pub b_include_only_on_disk_assets: bool,
-    __padding_end: [u8; 13],
+    pub(crate) __padding_end: [u8; 13],
 }
 impl FARFilter {}
 #[repr(C, align(8))]
 pub struct FSoftClassPath {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FSoftClassPath {}
 #[repr(C, align(4))]
@@ -582,40 +582,40 @@ impl FPrimaryAssetType {}
 #[repr(C, align(8))]
 pub struct FAssetData {
     #[doc(hidden)]
-    __padding_12: [u8; 12],
+    pub(crate) __padding_12: [u8; 12],
     pub package_name: FName,
     pub package_path: FName,
     pub asset_name: FName,
     pub asset_class: FName,
     pub asset_class_path: FTopLevelAssetPath,
-    __padding_end: [u8; 68],
+    pub(crate) __padding_end: [u8; 68],
 }
 impl FAssetData {}
 #[repr(C, align(8))]
 pub struct FInstancedStructBaseStructQueryParams {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FInstancedStructBaseStructQueryParams {}
 #[repr(C, align(8))]
 pub struct FInstancedStruct {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FInstancedStruct {}
 #[repr(C, align(8))]
 pub struct FPerPlatformInt {
     pub default: i32,
-    __padding_end: [u8; 84],
+    pub(crate) __padding_end: [u8; 84],
 }
 impl FPerPlatformInt {}
 #[repr(C, align(8))]
 pub struct FPerPlatformFloat {
     pub default: f32,
-    __padding_end: [u8; 84],
+    pub(crate) __padding_end: [u8; 84],
 }
 impl FPerPlatformFloat {}
 #[repr(C, align(8))]
 pub struct FPerPlatformFrameRate {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FPerPlatformFrameRate {}
 #[repr(C, align(8))]

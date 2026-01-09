@@ -701,22 +701,22 @@ pub struct FMovieSceneCameraShakeSourceTrigger {
 impl FMovieSceneCameraShakeSourceTrigger {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEventPayloadVariable {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FMovieSceneEventPayloadVariable {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEventPtrs {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FMovieSceneEventPtrs {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEvent {
-    __padding_end: [u8; 208],
+    pub(crate) __padding_end: [u8; 208],
 }
 impl FMovieSceneEvent {}
 #[repr(C, align(8))]
 pub struct FMovieSceneDirectorBlueprintConditionPayloadVariable {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FMovieSceneDirectorBlueprintConditionPayloadVariable {}
 #[repr(C, align(8))]
@@ -727,7 +727,7 @@ pub struct FEventPayload {
 impl FEventPayload {}
 #[repr(C, align(8))]
 pub struct FMovieSceneEventParameters {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FMovieSceneEventParameters {}
 #[repr(C, align(8))]
@@ -741,12 +741,12 @@ pub struct FMovieSceneSkeletalAnimationParams {
     pub slot_name: FName,
     pub mirror_data_table: UPtr<crate::bindings::engine::UMirrorDataTable>,
     #[doc(hidden)]
-    __padding_368: [u8; 304],
+    pub(crate) __padding_368: [u8; 304],
     pub b_skip_anim_notifiers: bool,
     pub b_force_custom_mode: bool,
     pub swap_root_bone: crate::bindings::anim_graph_runtime::ESwapRootBone,
     pub b_linear_playback_when_scaled: bool,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FMovieSceneSkeletalAnimationParams {}
 #[repr(C, align(4))]
@@ -915,7 +915,7 @@ impl UMovieSceneReplaceableActorBinding {
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableActorBinding_BPBase {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub binding_type_pretty_name: FText,
     pub binding_type_tooltip: FText,
     pub custom_binding_priority: i32,
@@ -1069,7 +1069,7 @@ impl UMovieSceneReplaceableActorBinding_BPBase {
 #[repr(C, align(8))]
 pub struct UMovieSceneReplaceableDirectorBlueprintBinding {
     #[doc(hidden)]
-    __padding_224: [u8; 224],
+    pub(crate) __padding_224: [u8; 224],
     pub preview_spawnable_type: TSubclassOf<
         crate::bindings::movie_scene::UMovieSceneSpawnableBindingBase,
     >,
@@ -1094,7 +1094,7 @@ impl UMovieSceneReplaceableDirectorBlueprintBinding {
 #[repr(C, align(8))]
 pub struct UMovieSceneSpawnableActorBindingBase {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub b_net_addressable_name: bool,
     pub level_name: FName,
 }
@@ -1398,11 +1398,11 @@ impl UMovieScene3DConstraintSection {
 #[repr(C, align(8))]
 pub struct UMovieScene3DAttachSection {
     #[doc(hidden)]
-    __padding_416: [u8; 416],
+    pub(crate) __padding_416: [u8; 416],
     pub attach_socket_name: FName,
     pub attach_component_name: FName,
     #[doc(hidden)]
-    __padding_496: [u8; 56],
+    pub(crate) __padding_496: [u8; 56],
     pub attachment_location_rule: crate::bindings::engine::EAttachmentRule,
     pub attachment_rotation_rule: crate::bindings::engine::EAttachmentRule,
     pub attachment_scale_rule: crate::bindings::engine::EAttachmentRule,
@@ -1430,11 +1430,11 @@ impl UMovieScene3DAttachSection {
 #[repr(C, align(8))]
 pub struct UMovieScene3DPathSection {
     #[doc(hidden)]
-    __padding_712: [u8; 712],
+    pub(crate) __padding_712: [u8; 712],
     pub front_axis_enum: MovieScene3DPathSection_Axis,
     pub up_axis_enum: MovieScene3DPathSection_Axis,
     #[doc(hidden)]
-    __padding_716: [u8; 2],
+    pub(crate) __padding_716: [u8; 2],
     pub flags_716: u8,
 }
 impl UMovieScene3DPathSection {
@@ -1520,7 +1520,7 @@ impl UMovieSceneActorReferenceSection {
 #[repr(C, align(8))]
 pub struct UMovieSceneAudioSection {
     #[doc(hidden)]
-    __padding_376: [u8; 376],
+    pub(crate) __padding_376: [u8; 376],
     pub sound: UPtr<crate::bindings::engine::USoundBase>,
     __padding_end: [u8; 1456],
 }
@@ -3995,14 +3995,14 @@ impl UMovieSceneRotatorSection {
 #[repr(C, align(16))]
 pub struct UMovieSceneSkeletalAnimationSection {
     #[doc(hidden)]
-    __padding_368: [u8; 368],
+    pub(crate) __padding_368: [u8; 368],
     pub params: FMovieSceneSkeletalAnimationParams,
     #[doc(hidden)]
-    __padding_808: [u8; 56],
+    pub(crate) __padding_808: [u8; 56],
     pub start_location_offset: crate::bindings::core_u_object::FVector,
     pub start_rotation_offset: crate::bindings::core_u_object::FRotator,
     #[doc(hidden)]
-    __padding_872: [u8; 16],
+    pub(crate) __padding_872: [u8; 16],
     pub matched_location_offset: crate::bindings::core_u_object::FVector,
     pub matched_rotation_offset: crate::bindings::core_u_object::FRotator,
     pub flags_920: u8,
@@ -6700,7 +6700,7 @@ impl UMovieSceneRotatorTrack {
 #[repr(C, align(16))]
 pub struct UMovieSceneSkeletalAnimationTrack {
     #[doc(hidden)]
-    __padding_569: [u8; 569],
+    pub(crate) __padding_569: [u8; 569],
     pub swap_root_bone: crate::bindings::anim_graph_runtime::ESwapRootBone,
 }
 impl UMovieSceneSkeletalAnimationTrack {

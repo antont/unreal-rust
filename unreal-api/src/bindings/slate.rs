@@ -72,7 +72,7 @@ impl USlateSettings {
 #[repr(C, align(16))]
 pub struct UButtonWidgetStyle {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub button_style: crate::bindings::slate_core::FButtonStyle,
 }
 impl UButtonWidgetStyle {
@@ -200,7 +200,7 @@ impl UEditableTextWidgetStyle {
 #[repr(C, align(16))]
 pub struct UProgressWidgetStyle {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub progress_bar_style: crate::bindings::slate_core::FProgressBarStyle,
 }
 impl UProgressWidgetStyle {

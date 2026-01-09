@@ -583,7 +583,7 @@ impl UMegascansMaterialParentSettings {
 #[repr(C, align(8))]
 pub struct UInterchangeMegascansPipeline {
     #[doc(hidden)]
-    __padding_344: [u8; 344],
+    pub(crate) __padding_344: [u8; 344],
     pub megascan_import_type: EMegascanImportType,
     pub megascans_material_parent_settings: UPtr<UMegascansMaterialParentSettings>,
     __padding_end: [u8; 80],

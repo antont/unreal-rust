@@ -43,7 +43,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct UMediaPlayerEditorMediaContext {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub selected_asset: UPtr<crate::bindings::core_u_object::UObject>,
     pub style_set_name: FName,
     __padding_end: [u8; 20],

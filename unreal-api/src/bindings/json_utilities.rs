@@ -17,7 +17,7 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FJsonObjectWrapper {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FJsonObjectWrapper {}
 #[repr(C, align(8))]

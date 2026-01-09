@@ -17,7 +17,7 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FLiveLinkSourceHandle {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FLiveLinkSourceHandle {}
 #[repr(C, align(8))]
@@ -28,7 +28,7 @@ impl FLiveLinkBaseStaticData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkSkeletonStaticData {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub bone_names: TArray<FName>,
     pub bone_parents: TArray<i32>,
 }
@@ -36,10 +36,10 @@ impl FLiveLinkSkeletonStaticData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkBaseFrameData {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub meta_data: FLiveLinkMetaData,
     pub property_values: TArray<f32>,
-    __padding_end: [u8; 112],
+    pub(crate) __padding_end: [u8; 112],
 }
 impl FLiveLinkBaseFrameData {}
 #[repr(C, align(8))]
@@ -51,24 +51,24 @@ impl FLiveLinkMetaData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkAnimationFrameData {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub transforms: TArray<crate::bindings::core_u_object::FTransform>,
 }
 impl FLiveLinkAnimationFrameData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkFloatAnimationFrameData {
-    __padding_end: [u8; 256],
+    pub(crate) __padding_end: [u8; 256],
 }
 impl FLiveLinkFloatAnimationFrameData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkBaseBlueprintData {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FLiveLinkBaseBlueprintData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkBasicBlueprintData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub static_data: FLiveLinkBaseStaticData,
     pub frame_data: FLiveLinkBaseFrameData,
 }
@@ -76,7 +76,7 @@ impl FLiveLinkBasicBlueprintData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkTransformStaticData {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub b_is_location_supported: bool,
     pub b_is_rotation_supported: bool,
     pub b_is_scale_supported: bool,
@@ -85,7 +85,7 @@ impl FLiveLinkTransformStaticData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkCameraStaticData {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub b_is_field_of_view_supported: bool,
     pub b_is_aspect_ratio_supported: bool,
     pub b_is_focal_length_supported: bool,
@@ -101,14 +101,14 @@ impl FLiveLinkCameraStaticData {}
 #[repr(C, align(16))]
 pub struct FLiveLinkTransformFrameData {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub transform: crate::bindings::core_u_object::FTransform,
 }
 impl FLiveLinkTransformFrameData {}
 #[repr(C, align(16))]
 pub struct FLiveLinkCameraFrameData {
     #[doc(hidden)]
-    __padding_336: [u8; 336],
+    pub(crate) __padding_336: [u8; 336],
     pub field_of_view: f32,
     pub aspect_ratio: f32,
     pub focal_length: f32,
@@ -122,7 +122,7 @@ impl FLiveLinkCameraFrameData {}
 #[repr(C, align(16))]
 pub struct FLiveLinkCameraBlueprintData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub static_data: FLiveLinkCameraStaticData,
     pub frame_data: FLiveLinkCameraFrameData,
 }
@@ -130,7 +130,7 @@ impl FLiveLinkCameraBlueprintData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkLightStaticData {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub b_is_temperature_supported: bool,
     pub b_is_intensity_supported: bool,
     pub b_is_light_color_supported: bool,
@@ -145,7 +145,7 @@ impl FLiveLinkLightStaticData {}
 #[repr(C, align(16))]
 pub struct FLiveLinkLightFrameData {
     #[doc(hidden)]
-    __padding_336: [u8; 336],
+    pub(crate) __padding_336: [u8; 336],
     pub temperature: f32,
     pub intensity: f32,
     pub light_color: crate::bindings::core_u_object::FColor,
@@ -160,7 +160,7 @@ impl FLiveLinkLightFrameData {}
 #[repr(C, align(16))]
 pub struct FLiveLinkLightBlueprintData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub static_data: FLiveLinkLightStaticData,
     pub frame_data: FLiveLinkLightFrameData,
 }
@@ -185,24 +185,24 @@ impl FLiveLinkSubjectRepresentation {}
 #[repr(C, align(16))]
 pub struct FLiveLinkTransformBlueprintData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub static_data: FLiveLinkTransformStaticData,
     pub frame_data: FLiveLinkTransformFrameData,
 }
 impl FLiveLinkTransformBlueprintData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkCurveConversionSettings {
-    __padding_end: [u8; 80],
+    pub(crate) __padding_end: [u8; 80],
 }
 impl FLiveLinkCurveConversionSettings {}
 #[repr(C, align(8))]
 pub struct FLiveLinkTime {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FLiveLinkTime {}
 #[repr(C, align(4))]
 pub struct FLiveLinkFrameRate {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FLiveLinkFrameRate {}
 #[repr(C, align(8))]
@@ -214,23 +214,23 @@ pub struct FSubjectMetadata {
 impl FSubjectMetadata {}
 #[repr(C, align(8))]
 pub struct FLiveLinkTransform {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FLiveLinkTransform {}
 #[repr(C, align(8))]
 pub struct FSubjectFrameHandle {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FSubjectFrameHandle {}
 #[repr(C, align(8))]
 pub struct FLiveLinkGamepadInputDeviceStaticData {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FLiveLinkGamepadInputDeviceStaticData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkGamepadInputDeviceFrameData {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub left_analog_x: f32,
     pub left_analog_y: f32,
     pub right_analog_x: f32,
@@ -268,7 +268,7 @@ impl FLiveLinkGamepadInputDeviceFrameData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkGamepadInputDeviceBlueprintData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub static_data: FLiveLinkGamepadInputDeviceStaticData,
     pub frame_data: FLiveLinkGamepadInputDeviceFrameData,
 }
@@ -276,7 +276,7 @@ impl FLiveLinkGamepadInputDeviceBlueprintData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkLocatorStaticData {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub locator_names: TArray<FName>,
     pub b_unlabelled_data: bool,
 }
@@ -284,14 +284,14 @@ impl FLiveLinkLocatorStaticData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkLocatorFrameData {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub locators: TArray<crate::bindings::core_u_object::FVector>,
 }
 impl FLiveLinkLocatorFrameData {}
 #[repr(C, align(8))]
 pub struct FLiveLinkLocatorBlueprintData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub static_data: FLiveLinkLocatorStaticData,
     pub frame_data: FLiveLinkLocatorFrameData,
 }

@@ -60,7 +60,7 @@ impl UHLODBuilderCustomHLODActor {
 #[repr(C, align(8))]
 pub struct UHLODBuilderInstancingSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_disallow_nanite: bool,
     pub instance_filtering_type: EInstanceFilteringType,
     pub minimum_extent: f64,

@@ -3081,7 +3081,7 @@ impl FNiagaraSimCacheCaptureParameters {}
 pub struct FNiagaraSimCacheCreateParameters {
     pub attribute_capture_mode: ENiagaraSimCacheAttributeCaptureMode,
     #[doc(hidden)]
-    __padding_4: [u8; 3],
+    pub(crate) __padding_4: [u8; 3],
     pub flags_4: u8,
     pub rebase_include_attributes: TArray<FName>,
     pub rebase_exclude_attributes: TArray<FName>,
@@ -3101,17 +3101,17 @@ pub struct FNiagaraMeshRendererMeshPropertiesBase {
 impl FNiagaraMeshRendererMeshPropertiesBase {}
 #[repr(C, align(8))]
 pub struct FNiagaraMeshRendererMeshProperties {
-    __padding_end: [u8; 1232],
+    pub(crate) __padding_end: [u8; 1232],
 }
 impl FNiagaraMeshRendererMeshProperties {}
 #[repr(C, align(8))]
 pub struct FNiagaraVariable {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FNiagaraVariable {}
 #[repr(C, align(4))]
 pub struct FNDIDistributionIntArrayEntry {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FNDIDistributionIntArrayEntry {}
 #[repr(C, align(8))]
@@ -3124,7 +3124,7 @@ impl FNiagaraDataChannelSearchParameters {}
 #[repr(C, align(8))]
 pub struct FNDCAccessContextBase {
     pub owning_component: UPtr<crate::bindings::engine::USceneComponent>,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FNDCAccessContextBase {}
 #[repr(C, align(4))]
@@ -3135,7 +3135,7 @@ impl FNDCSpawnedSystemRef {}
 #[repr(C, align(8))]
 pub struct FNDCAccessContext {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub location: crate::bindings::core_u_object::FVector,
     pub flags_40: u8,
     pub system_to_spawn: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3145,7 +3145,7 @@ impl FNDCAccessContext {}
 #[repr(C, align(8))]
 pub struct FNDCAccessContextLegacy {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub location: crate::bindings::core_u_object::FVector,
     pub flags_40: u8,
 }
@@ -3164,18 +3164,18 @@ pub struct FNiagaraDataChannelReference {
 impl FNiagaraDataChannelReference {}
 #[repr(C, align(8))]
 pub struct FNiagaraDataChannelVariable {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FNiagaraDataChannelVariable {}
 #[repr(C, align(8))]
 pub struct FNDCAccessContext_MapBase {
-    __padding_end: [u8; 72],
+    pub(crate) __padding_end: [u8; 72],
 }
 impl FNDCAccessContext_MapBase {}
 #[repr(C, align(8))]
 pub struct FNDCAccessContext_GameplayBurst {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub flags_72: u8,
     pub cell_size_override: crate::bindings::core_u_object::FVector,
     pub system_bounds_padding: crate::bindings::core_u_object::FVector,
@@ -3192,21 +3192,21 @@ impl FBasicParticleData {}
 #[repr(C, align(8))]
 pub struct FVersionedNiagaraEmitterData {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub b_local_space: bool,
     pub b_determinism: bool,
     pub random_seed: i32,
     pub interpolated_spawn_mode: ENiagaraInterpolatedSpawnMode,
     #[doc(hidden)]
-    __padding_128: [u8; 7],
+    pub(crate) __padding_128: [u8; 7],
     pub sim_target: ENiagaraSimTarget,
     pub fixed_bounds: crate::bindings::core_u_object::FBox,
     pub flags_192: u8,
     #[doc(hidden)]
-    __padding_328: [u8; 132],
+    pub(crate) __padding_328: [u8; 132],
     pub max_gpu_particles_spawn_per_frame: i32,
     pub allocation_mode: EParticleAllocationMode,
-    __padding_end: [u8; 1307],
+    pub(crate) __padding_end: [u8; 1307],
 }
 impl FVersionedNiagaraEmitterData {}
 #[repr(C, align(4))]
@@ -3230,12 +3230,12 @@ pub struct FNiagaraRendererReadbackParameters {
 impl FNiagaraRendererReadbackParameters {}
 #[repr(C, align(8))]
 pub struct FNiagaraSystemCollectionData {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FNiagaraSystemCollectionData {}
 #[repr(C, align(4))]
 pub struct FNiagaraPosition {
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FNiagaraPosition {}
 #[repr(C, align(4))]
@@ -3297,10 +3297,10 @@ impl UNiagaraDataInterfacePlatformSet {
 #[repr(C, align(8))]
 pub struct UNiagaraSystem {
     #[doc(hidden)]
-    __padding_857: [u8; 857],
+    pub(crate) __padding_857: [u8; 857],
     pub flags_857: u8,
     #[doc(hidden)]
-    __padding_860: [u8; 2],
+    pub(crate) __padding_860: [u8; 2],
     pub custom_depth_stencil_write_mask: crate::bindings::engine::ERendererStencilMask,
     pub custom_depth_stencil_value: i32,
     pub translucency_sort_priority: i32,
@@ -3632,7 +3632,7 @@ impl UNiagaraDataInterfaceRWBase {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArray {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub gpu_sync_mode: ENiagaraGpuSyncMode,
     pub max_elements: i32,
 }
@@ -4896,7 +4896,7 @@ impl UMovieSceneNiagaraVectorParameterTrack {
 #[repr(C, align(8))]
 pub struct ANiagaraActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub niagara_component: UPtr<UNiagaraComponent>,
     __padding_end: [u8; 24],
 }
@@ -5149,20 +5149,20 @@ impl UNiagaraBakerSettings {
 #[repr(C, align(16))]
 pub struct UNiagaraComponent {
     #[doc(hidden)]
-    __padding_2552: [u8; 2552],
+    pub(crate) __padding_2552: [u8; 2552],
     pub flags_2552: u8,
     #[doc(hidden)]
-    __padding_2561: [u8; 8],
+    pub(crate) __padding_2561: [u8; 8],
     pub occlusion_query_mode: ENiagaraOcclusionQueryMode,
     #[doc(hidden)]
-    __padding_2592: [u8; 28],
+    pub(crate) __padding_2592: [u8; 28],
     pub auto_attach_parent: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
     pub auto_attach_socket_name: FName,
     pub auto_attach_location_rule: crate::bindings::engine::EAttachmentRule,
     pub auto_attach_rotation_rule: crate::bindings::engine::EAttachmentRule,
     pub auto_attach_scale_rule: crate::bindings::engine::EAttachmentRule,
     #[doc(hidden)]
-    __padding_2648: [u8; 33],
+    pub(crate) __padding_2648: [u8; 33],
     pub flags_2648: u8,
     __padding_end: [u8; 311],
 }
@@ -11012,7 +11012,7 @@ impl UNDIArraySimCacheData {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayFloat {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub float_data: TArray<f32>,
 }
 impl UNiagaraDataInterfaceArrayFloat {
@@ -11035,7 +11035,7 @@ impl UNiagaraDataInterfaceArrayFloat {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayFloat2 {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub float_data: TArray<crate::bindings::core_u_object::FVector2D>,
     __padding_end: [u8; 16],
 }
@@ -11059,7 +11059,7 @@ impl UNiagaraDataInterfaceArrayFloat2 {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayFloat3 {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub float_data: TArray<crate::bindings::core_u_object::FVector>,
     __padding_end: [u8; 16],
 }
@@ -11083,7 +11083,7 @@ impl UNiagaraDataInterfaceArrayFloat3 {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayPosition {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub position_data: TArray<FNiagaraPosition>,
 }
 impl UNiagaraDataInterfaceArrayPosition {
@@ -11106,7 +11106,7 @@ impl UNiagaraDataInterfaceArrayPosition {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayFloat4 {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub float_data: TArray<crate::bindings::core_u_object::FVector4>,
     __padding_end: [u8; 16],
 }
@@ -11130,7 +11130,7 @@ impl UNiagaraDataInterfaceArrayFloat4 {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayColor {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub color_data: TArray<crate::bindings::core_u_object::FLinearColor>,
 }
 impl UNiagaraDataInterfaceArrayColor {
@@ -11153,7 +11153,7 @@ impl UNiagaraDataInterfaceArrayColor {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayQuat {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub quat_data: TArray<crate::bindings::core_u_object::FQuat>,
     __padding_end: [u8; 16],
 }
@@ -11177,7 +11177,7 @@ impl UNiagaraDataInterfaceArrayQuat {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayMatrix {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub matrix_data: TArray<crate::bindings::core_u_object::FMatrix>,
     __padding_end: [u8; 16],
 }
@@ -13524,7 +13524,7 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayInt32 {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub int_data: TArray<i32>,
 }
 impl UNiagaraDataInterfaceArrayInt32 {
@@ -13547,7 +13547,7 @@ impl UNiagaraDataInterfaceArrayInt32 {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayUInt8 {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub int_data: TArray<i32>,
     __padding_end: [u8; 16],
 }
@@ -13571,7 +13571,7 @@ impl UNiagaraDataInterfaceArrayUInt8 {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayBool {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub bool_data: TArray<bool>,
 }
 impl UNiagaraDataInterfaceArrayBool {
@@ -13594,7 +13594,7 @@ impl UNiagaraDataInterfaceArrayBool {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceArrayNiagaraID {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub int_data: TArray<FNiagaraID>,
 }
 impl UNiagaraDataInterfaceArrayNiagaraID {
@@ -13659,7 +13659,7 @@ impl UNiagaraDataInterfaceAudioOscilloscope {
 #[repr(C, align(8))]
 pub struct UNiagaraDataInterfaceAudioPlayerSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_override_concurrency: bool,
     pub concurrency: UPtr<crate::bindings::engine::USoundConcurrency>,
     pub b_override_attenuation_settings: bool,
@@ -15257,7 +15257,7 @@ impl UNiagaraEditorParametersAdapterBase {
 #[repr(C, align(8))]
 pub struct ANiagaraEditorPreviewActor {
     #[doc(hidden)]
-    __padding_1288: [u8; 1288],
+    pub(crate) __padding_1288: [u8; 1288],
     pub niagara_component: UPtr<UNiagaraComponent>,
     __padding_end: [u8; 8],
 }
@@ -16663,7 +16663,7 @@ impl ANiagaraLensEffectBase {
 #[repr(C, align(8))]
 pub struct UNiagaraLightRendererProperties {
     #[doc(hidden)]
-    __padding_708: [u8; 708],
+    pub(crate) __padding_708: [u8; 708],
     pub inverse_exposure_blend: f32,
     __padding_end: [u8; 3608],
 }
@@ -17383,7 +17383,7 @@ impl UNiagaraParameterCollection {
 #[repr(C, align(8))]
 pub struct UNiagaraBaselineController {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub test_duration: f32,
     pub effect_type: UPtr<UNiagaraEffectType>,
     pub owner: UPtr<ANiagaraPerfBaselineActor>,
@@ -18155,7 +18155,7 @@ impl UNiagaraScript {
 #[repr(C, align(8))]
 pub struct UNiagaraSettings {
     #[doc(hidden)]
-    __padding_171: [u8; 171],
+    pub(crate) __padding_171: [u8; 171],
     pub b_limit_delta_time: bool,
     pub max_delta_time_per_tick: f32,
     __padding_end: [u8; 256],
@@ -19691,7 +19691,7 @@ impl UNiagaraSimulationStageGeneric {
 #[repr(C, align(8))]
 pub struct UNiagaraSpriteRendererProperties {
     #[doc(hidden)]
-    __padding_11512: [u8; 11512],
+    pub(crate) __padding_11512: [u8; 11512],
     pub b_use_material_cutout_texture: bool,
     __padding_end: [u8; 127],
 }

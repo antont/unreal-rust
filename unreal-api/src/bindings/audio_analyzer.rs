@@ -227,7 +227,7 @@ impl UAudioAnalyzerNRTSettings {
 #[repr(C, align(8))]
 pub struct UAudioAnalyzerNRT {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub sound: UPtr<crate::bindings::engine::USoundWave>,
     pub duration_in_seconds: f32,
     __padding_end: [u8; 172],

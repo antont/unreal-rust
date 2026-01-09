@@ -3378,19 +3378,19 @@ impl USynthSound {
 #[repr(C, align(16))]
 pub struct USynthComponent {
     #[doc(hidden)]
-    __padding_656: [u8; 656],
+    pub(crate) __padding_656: [u8; 656],
     pub flags_656: u8,
     #[doc(hidden)]
-    __padding_660: [u8; 3],
+    pub(crate) __padding_660: [u8; 3],
     pub flags_660: u8,
     pub attenuation_settings: UPtr<crate::bindings::engine::USoundAttenuation>,
     pub attenuation_overrides: crate::bindings::engine::FSoundAttenuationSettings,
     #[doc(hidden)]
-    __padding_1704: [u8; 8],
+    pub(crate) __padding_1704: [u8; 8],
     pub concurrency_set: TSet<UPtr<crate::bindings::engine::USoundConcurrency>>,
     pub modulation_routing: crate::bindings::engine::FSoundModulationDefaultRoutingSettings,
     #[doc(hidden)]
-    __padding_2200: [u8; 24],
+    pub(crate) __padding_2200: [u8; 24],
     pub sound_submix_sends: TArray<crate::bindings::engine::FSoundSubmixSendInfo>,
     pub bus_sends: TArray<crate::bindings::engine::FSoundSourceBusSendInfo>,
     pub pre_effect_bus_sends: TArray<crate::bindings::engine::FSoundSourceBusSendInfo>,
@@ -4089,7 +4089,7 @@ impl USynthComponent {
 #[repr(C, align(8))]
 pub struct USubmixEffectDynamicsProcessorPreset {
     #[doc(hidden)]
-    __padding_248: [u8; 248],
+    pub(crate) __padding_248: [u8; 248],
     pub settings: FSubmixEffectDynamicsProcessorSettings,
 }
 impl USubmixEffectDynamicsProcessorPreset {
@@ -4239,7 +4239,7 @@ impl USubmixEffectDynamicsProcessorPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectSubmixEQPreset {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: FSubmixEffectSubmixEQSettings,
 }
 impl USubmixEffectSubmixEQPreset {
@@ -4294,7 +4294,7 @@ impl USubmixEffectSubmixEQPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectReverbPreset {
     #[doc(hidden)]
-    __padding_216: [u8; 216],
+    pub(crate) __padding_216: [u8; 216],
     pub settings: FSubmixEffectReverbSettings,
 }
 impl USubmixEffectReverbPreset {

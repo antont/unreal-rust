@@ -424,62 +424,62 @@ pub fn initialize() {
 }
 #[repr(C, align(1))]
 pub struct FModelingToolsAxisFilter {
-    __padding_end: [u8; 3],
+    pub(crate) __padding_end: [u8; 3],
 }
 impl FModelingToolsAxisFilter {}
 #[repr(C, align(1))]
 pub struct FModelingToolsColorChannelFilter {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FModelingToolsColorChannelFilter {}
 #[repr(C, align(16))]
 pub struct FCreateMeshObjectParams {
-    __padding_end: [u8; 1712],
+    pub(crate) __padding_end: [u8; 1712],
 }
 impl FCreateMeshObjectParams {}
 #[repr(C, align(8))]
 pub struct FCreateMeshObjectResult {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FCreateMeshObjectResult {}
 #[repr(C, align(8))]
 pub struct FCreateTextureObjectParams {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FCreateTextureObjectParams {}
 #[repr(C, align(8))]
 pub struct FCreateTextureObjectResult {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FCreateTextureObjectResult {}
 #[repr(C, align(8))]
 pub struct FCreateMaterialObjectParams {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FCreateMaterialObjectParams {}
 #[repr(C, align(8))]
 pub struct FCreateMaterialObjectResult {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FCreateMaterialObjectResult {}
 #[repr(C, align(16))]
 pub struct FCreateActorParams {
-    __padding_end: [u8; 144],
+    pub(crate) __padding_end: [u8; 144],
 }
 impl FCreateActorParams {}
 #[repr(C, align(8))]
 pub struct FCreateActorResult {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FCreateActorResult {}
 #[repr(C, align(8))]
 pub struct FCreateComponentParams {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FCreateComponentParams {}
 #[repr(C, align(8))]
 pub struct FCreateComponentResult {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FCreateComponentResult {}
 pub struct IDynamicMeshProvider {}

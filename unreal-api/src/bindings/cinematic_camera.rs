@@ -376,7 +376,7 @@ pub struct FCameraLookatTrackingSettings {
     pub flags_0: u8,
     pub look_at_tracking_interp_speed: f32,
     #[doc(hidden)]
-    __padding_40: [u8; 32],
+    pub(crate) __padding_40: [u8; 32],
     pub actor_to_track: TSoftObjectPtr<crate::bindings::engine::AActor>,
     pub relative_offset: crate::bindings::core_u_object::FVector,
     pub flags_112: u8,
@@ -439,7 +439,7 @@ pub struct FCameraFocusSettings {
     pub manual_focus_distance: f32,
     pub tracking_focus_settings: FCameraTrackingFocusSettings,
     #[doc(hidden)]
-    __padding_96: [u8; 8],
+    pub(crate) __padding_96: [u8; 8],
     pub flags_96: u8,
     pub focus_smoothing_interp_speed: f32,
     pub focus_offset: f32,
@@ -448,7 +448,7 @@ impl FCameraFocusSettings {}
 #[repr(C, align(8))]
 pub struct ACameraRig_Crane {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub crane_pitch: f32,
     pub crane_yaw: f32,
     pub crane_arm_length: f32,
@@ -476,7 +476,7 @@ impl ACameraRig_Crane {
 #[repr(C, align(8))]
 pub struct ACameraRig_Rail {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub current_position_on_rail: f32,
     pub b_lock_orientation_to_rail: bool,
     __padding_end: [u8; 75],
@@ -534,7 +534,7 @@ impl ACameraRig_Rail {
 #[repr(C, align(16))]
 pub struct ACineCameraActor {
     #[doc(hidden)]
-    __padding_3136: [u8; 3136],
+    pub(crate) __padding_3136: [u8; 3136],
     pub lookat_tracking_settings: FCameraLookatTrackingSettings,
     __padding_end: [u8; 24],
 }
@@ -584,7 +584,7 @@ impl ACineCameraActor {
 #[repr(C, align(16))]
 pub struct UCineCameraComponent {
     #[doc(hidden)]
-    __padding_2876: [u8; 2876],
+    pub(crate) __padding_2876: [u8; 2876],
     pub filmback: FCameraFilmbackSettings,
     pub lens_settings: FCameraLensSettings,
     pub focus_settings: FCameraFocusSettings,
@@ -594,7 +594,7 @@ pub struct UCineCameraComponent {
     pub current_focus_distance: f32,
     pub exposure_method: ECameraExposureMethod,
     #[doc(hidden)]
-    __padding_3060: [u8; 3],
+    pub(crate) __padding_3060: [u8; 3],
     pub flags_3060: u8,
     pub custom_near_clipping_plane: f32,
     __padding_end: [u8; 132],
@@ -1202,7 +1202,7 @@ impl UCineCameraComponent {
 #[repr(C, align(8))]
 pub struct UCineCameraSettings {
     #[doc(hidden)]
-    __padding_104: [u8; 104],
+    pub(crate) __padding_104: [u8; 104],
     pub default_lens_preset_name: FString,
     pub default_lens_focal_length: f32,
     pub default_lens_f_stop: f32,

@@ -163,7 +163,7 @@ impl AConstraintsActor {
 #[repr(C, align(8))]
 pub struct UTickableConstraint {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub active: bool,
     __padding_end: [u8; 103],
 }
@@ -581,7 +581,7 @@ impl UConstraintSubsystem {
 #[repr(C, align(8))]
 pub struct UTransformableHandle {
     #[doc(hidden)]
-    __padding_52: [u8; 52],
+    pub(crate) __padding_52: [u8; 52],
     pub constraint_binding_id: crate::bindings::movie_scene::FMovieSceneObjectBindingID,
     __padding_end: [u8; 32],
 }
@@ -605,7 +605,7 @@ impl UTransformableHandle {
 #[repr(C, align(8))]
 pub struct UTransformableComponentHandle {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub component: TWeakObjectPtr<crate::bindings::engine::USceneComponent>,
     pub socket_name: FName,
 }
@@ -629,12 +629,12 @@ impl UTransformableComponentHandle {
 #[repr(C, align(8))]
 pub struct UTickableTransformConstraint {
     #[doc(hidden)]
-    __padding_152: [u8; 152],
+    pub(crate) __padding_152: [u8; 152],
     pub parent_trs_handle: UPtr<UTransformableHandle>,
     pub child_trs_handle: UPtr<UTransformableHandle>,
     pub b_maintain_offset: bool,
     #[doc(hidden)]
-    __padding_176: [u8; 7],
+    pub(crate) __padding_176: [u8; 7],
     pub b_dynamic_offset: bool,
 }
 impl UTickableTransformConstraint {
@@ -657,7 +657,7 @@ impl UTickableTransformConstraint {
 #[repr(C, align(8))]
 pub struct UTickableTranslationConstraint {
     #[doc(hidden)]
-    __padding_192: [u8; 192],
+    pub(crate) __padding_192: [u8; 192],
     pub offset_translation: crate::bindings::core_u_object::FVector,
     pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
 }
@@ -681,7 +681,7 @@ impl UTickableTranslationConstraint {
 #[repr(C, align(16))]
 pub struct UTickableRotationConstraint {
     #[doc(hidden)]
-    __padding_192: [u8; 192],
+    pub(crate) __padding_192: [u8; 192],
     pub offset_rotation: crate::bindings::core_u_object::FQuat,
     pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
 }
@@ -705,7 +705,7 @@ impl UTickableRotationConstraint {
 #[repr(C, align(8))]
 pub struct UTickableScaleConstraint {
     #[doc(hidden)]
-    __padding_192: [u8; 192],
+    pub(crate) __padding_192: [u8; 192],
     pub offset_scale: crate::bindings::core_u_object::FVector,
     pub axis_filter: crate::bindings::animation_core::FFilterOptionPerAxis,
 }
@@ -729,7 +729,7 @@ impl UTickableScaleConstraint {
 #[repr(C, align(16))]
 pub struct UTickableParentConstraint {
     #[doc(hidden)]
-    __padding_192: [u8; 192],
+    pub(crate) __padding_192: [u8; 192],
     pub offset_transform: crate::bindings::core_u_object::FTransform,
     pub b_scaling: bool,
     pub transform_filter: crate::bindings::animation_core::FTransformFilter,
@@ -754,7 +754,7 @@ impl UTickableParentConstraint {
 #[repr(C, align(8))]
 pub struct UTickableLookAtConstraint {
     #[doc(hidden)]
-    __padding_184: [u8; 184],
+    pub(crate) __padding_184: [u8; 184],
     pub axis: crate::bindings::core_u_object::FVector,
 }
 impl UTickableLookAtConstraint {

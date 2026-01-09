@@ -978,15 +978,15 @@ impl FGeometryCollectionSource {}
 #[repr(C, align(8))]
 pub struct FGeometryCollectionAutoInstanceMesh {
     #[doc(hidden)]
-    __padding_40: [u8; 40],
+    pub(crate) __padding_40: [u8; 40],
     pub mesh: UPtr<crate::bindings::engine::UStaticMesh>,
     pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FGeometryCollectionAutoInstanceMesh {}
 #[repr(C, align(8))]
 pub struct FGeometryCollectionEmbeddedExemplar {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FGeometryCollectionEmbeddedExemplar {}
 #[repr(C, align(8))]
@@ -1048,7 +1048,7 @@ impl UGeometryCollectionCustomDataInterface {
 #[repr(C, align(16))]
 pub struct UChaosDestructionListener {
     #[doc(hidden)]
-    __padding_656: [u8; 656],
+    pub(crate) __padding_656: [u8; 656],
     pub flags_656: u8,
     pub collision_event_request_settings: FChaosCollisionEventRequestSettings,
     pub breaking_event_request_settings: FChaosBreakingEventRequestSettings,
@@ -1718,7 +1718,7 @@ impl UChaosDestructionListener {
 #[repr(C, align(8))]
 pub struct AGeometryCollectionActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub geometry_collection_component: UPtr<UGeometryCollectionComponent>,
     __padding_end: [u8; 8],
 }
@@ -1989,7 +1989,7 @@ impl UGeometryCollectionCache {
 #[repr(C, align(16))]
 pub struct UGeometryCollectionComponent {
     #[doc(hidden)]
-    __padding_1616: [u8; 1616],
+    pub(crate) __padding_1616: [u8; 1616],
     pub chaos_solver_actor: UPtr<
         crate::bindings::chaos_solver_engine::AChaosSolverActor,
     >,
@@ -1998,7 +1998,7 @@ pub struct UGeometryCollectionComponent {
         UPtr<crate::bindings::field_system_engine::AFieldSystemActor>,
     >,
     #[doc(hidden)]
-    __padding_1650: [u8; 2],
+    pub(crate) __padding_1650: [u8; 2],
     pub object_type: crate::bindings::chaos::EObjectStateTypeEnum,
     pub gravity_group_index: i32,
     pub one_way_interaction_level: i32,
@@ -2018,20 +2018,20 @@ pub struct UGeometryCollectionComponent {
     pub b_allow_removal_on_break: bool,
     pub b_force_update_active_transforms: bool,
     #[doc(hidden)]
-    __padding_1720: [u8; 4],
+    pub(crate) __padding_1720: [u8; 4],
     pub collision_group: i32,
     pub collision_sample_fraction: f32,
     #[doc(hidden)]
-    __padding_1744: [u8; 16],
+    pub(crate) __padding_1744: [u8; 16],
     pub initial_velocity_type: crate::bindings::chaos::EInitialVelocityTypeEnum,
     pub initial_linear_velocity: crate::bindings::core_u_object::FVector,
     pub initial_angular_velocity: crate::bindings::core_u_object::FVector,
     #[doc(hidden)]
-    __padding_2152: [u8; 352],
+    pub(crate) __padding_2152: [u8; 352],
     pub desired_cache_time: f32,
     pub cache_playback: bool,
     #[doc(hidden)]
-    __padding_2184: [u8; 27],
+    pub(crate) __padding_2184: [u8; 27],
     pub b_notify_breaks: bool,
     pub b_notify_collisions: bool,
     pub b_notify_trailing: bool,
@@ -2045,29 +2045,29 @@ pub struct UGeometryCollectionComponent {
     pub b_global_crumbling_event_includes_children: bool,
     pub b_store_velocities: bool,
     #[doc(hidden)]
-    __padding_2197: [u8; 1],
+    pub(crate) __padding_2197: [u8; 1],
     pub b_show_bone_colors: bool,
     pub b_update_component_transform_to_root_bone: bool,
     pub b_use_root_proxy_for_navigation: bool,
     pub b_update_navigation_in_tick: bool,
     pub run_time_data_collection_guid: crate::bindings::core_u_object::FGuid,
     #[doc(hidden)]
-    __padding_2221: [u8; 1],
+    pub(crate) __padding_2221: [u8; 1],
     pub b_enable_replication: bool,
     pub b_enable_abandon_after_level: bool,
     pub abandoned_collision_profile_name: FName,
     #[doc(hidden)]
-    __padding_2248: [u8; 8],
+    pub(crate) __padding_2248: [u8; 8],
     pub custom_renderer_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub b_override_custom_renderer: bool,
     #[doc(hidden)]
-    __padding_2259: [u8; 2],
+    pub(crate) __padding_2259: [u8; 2],
     pub b_use_static_mesh_collision_for_traces: bool,
     #[doc(hidden)]
-    __padding_2280: [u8; 16],
+    pub(crate) __padding_2280: [u8; 16],
     pub collision_profile_per_level: TArray<FName>,
     #[doc(hidden)]
-    __padding_2312: [u8; 16],
+    pub(crate) __padding_2312: [u8; 16],
     pub replication_abandon_after_level: i32,
     pub replication_max_position_and_velocity_correction_level: i32,
     __padding_end: [u8; 672],
@@ -4184,7 +4184,7 @@ impl UGeometryCollectionDebugDrawComponent {
 #[repr(C, align(8))]
 pub struct AGeometryCollectionISMPoolActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub ism_pool_comp: UPtr<UGeometryCollectionISMPoolComponent>,
     pub ism_pool_debug_draw_comp: UPtr<UGeometryCollectionISMPoolDebugDrawComponent>,
 }
@@ -4271,39 +4271,39 @@ impl UGeometryCollectionISMPoolSubSystem {
 #[repr(C, align(8))]
 pub struct UGeometryCollection {
     #[doc(hidden)]
-    __padding_132: [u8; 132],
+    pub(crate) __padding_132: [u8; 132],
     pub damage_model: crate::bindings::chaos::EDamageModelTypeEnum,
     #[doc(hidden)]
-    __padding_153: [u8; 20],
+    pub(crate) __padding_153: [u8; 20],
     pub b_use_material_damage_modifiers: bool,
     #[doc(hidden)]
-    __padding_176: [u8; 16],
+    pub(crate) __padding_176: [u8; 16],
     pub geometry_source: TArray<FGeometryCollectionSource>,
     #[doc(hidden)]
-    __padding_225: [u8; 33],
+    pub(crate) __padding_225: [u8; 33],
     pub b_strip_on_cook: bool,
     pub b_strip_render_data_on_cook: bool,
     pub custom_renderer_type: TSubclassOf<crate::bindings::core_u_object::UObject>,
     pub root_proxy_data: FGeometryCollectionProxyMeshData,
     #[doc(hidden)]
-    __padding_304: [u8; 16],
+    pub(crate) __padding_304: [u8; 16],
     pub enable_nanite: bool,
     #[doc(hidden)]
-    __padding_312: [u8; 7],
+    pub(crate) __padding_312: [u8; 7],
     pub b_convert_vertex_colors_to_srgb: bool,
     #[doc(hidden)]
-    __padding_376: [u8; 56],
+    pub(crate) __padding_376: [u8; 56],
     pub physics_material: UPtr<crate::bindings::physics_core::UPhysicalMaterial>,
     pub b_density_from_physics_material: bool,
     #[doc(hidden)]
-    __padding_392: [u8; 7],
+    pub(crate) __padding_392: [u8; 7],
     pub b_mass_as_density: bool,
     pub mass: f32,
     pub minimum_mass_clamp: f32,
     pub b_import_collision_from_source: bool,
     pub b_optimize_convexes: bool,
     #[doc(hidden)]
-    __padding_416: [u8; 10],
+    pub(crate) __padding_416: [u8; 10],
     pub b_scale_on_removal: bool,
     pub b_remove_on_max_sleep: bool,
     pub b_automatic_crumble_partial_clusters: bool,
@@ -4312,13 +4312,13 @@ pub struct UGeometryCollection {
     pub b_slow_moving_as_sleeping: bool,
     pub slow_moving_velocity_threshold: f32,
     #[doc(hidden)]
-    __padding_504: [u8; 40],
+    pub(crate) __padding_504: [u8; 40],
     pub asset_import_data: UPtr<crate::bindings::engine::UAssetImportData>,
     #[doc(hidden)]
-    __padding_520: [u8; 8],
+    pub(crate) __padding_520: [u8; 8],
     pub dataflow_asset: UPtr<crate::bindings::dataflow_engine::UDataflow>,
     #[doc(hidden)]
-    __padding_544: [u8; 16],
+    pub(crate) __padding_544: [u8; 16],
     pub overrides: TMap<FString, FString>,
     __padding_end: [u8; 264],
 }
@@ -4468,7 +4468,7 @@ impl UGeometryCollection {
 #[repr(C, align(16))]
 pub struct AGeometryCollectionRenderLevelSetActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub target_volume_texture: UPtr<crate::bindings::engine::UVolumeTexture>,
     pub ray_march_material: UPtr<crate::bindings::engine::UMaterial>,
     pub surface_tolerance: f32,

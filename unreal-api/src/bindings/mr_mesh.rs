@@ -223,13 +223,13 @@ pub fn initialize() {
 }
 #[repr(C, align(1))]
 pub struct FMRMeshConfiguration {
-    __padding_end: [u8; 1],
+    pub(crate) __padding_end: [u8; 1],
 }
 impl FMRMeshConfiguration {}
 #[repr(C, align(16))]
 pub struct UMockDataMeshTrackerComponent {
     #[doc(hidden)]
-    __padding_680: [u8; 680],
+    pub(crate) __padding_680: [u8; 680],
     pub scan_world: bool,
     pub request_normals: bool,
     pub request_vertex_confidence: bool,

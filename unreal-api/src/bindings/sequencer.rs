@@ -111,7 +111,7 @@ pub fn initialize() {
 }
 #[repr(C, align(4))]
 pub struct FColumnVisibilitySetting {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FColumnVisibilitySetting {}
 #[repr(C, align(8))]

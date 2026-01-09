@@ -383,7 +383,7 @@ pub fn initialize() {
 pub struct FActorRecordedProperty {
     pub property_name: FName,
     pub b_enabled: bool,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FActorRecordedProperty {}
 #[repr(C, align(8))]
@@ -1335,7 +1335,7 @@ impl UTakePresetSettings {
 #[repr(C, align(8))]
 pub struct UTakeRecorderSource {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_enabled: bool,
     pub take_number: i32,
     pub track_tint: crate::bindings::core_u_object::FColor,
@@ -1360,7 +1360,7 @@ impl UTakeRecorderSource {
 #[repr(C, align(8))]
 pub struct UActorRecorderPropertyMap {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub recorded_object: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
     pub properties: TArray<FActorRecordedProperty>,
     pub children: TArray<UPtr<UActorRecorderPropertyMap>>,

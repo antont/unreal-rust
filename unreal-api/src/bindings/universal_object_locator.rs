@@ -8,12 +8,12 @@ pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[repr(C, align(8))]
 pub struct FUniversalObjectLocator {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FUniversalObjectLocator {}
 #[repr(C, align(8))]
 pub struct FUniversalObjectLocatorFragment {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FUniversalObjectLocatorFragment {}
 #[repr(transparent)]

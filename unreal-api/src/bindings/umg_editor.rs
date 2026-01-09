@@ -233,7 +233,7 @@ impl UAssetDefinition_WidgetBlueprintGeneratedClass {
 #[repr(C, align(8))]
 pub struct UAssetThumbnailWidget {
     #[doc(hidden)]
-    __padding_848: [u8; 848],
+    pub(crate) __padding_848: [u8; 848],
     pub resolution: crate::bindings::core_u_object::FIntPoint,
     pub thumbnail_settings: FAssetThumbnailWidgetSettings,
     __padding_end: [u8; 32],

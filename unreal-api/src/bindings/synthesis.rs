@@ -2247,7 +2247,7 @@ pub struct FSynth1PatchCable {
 impl FSynth1PatchCable {}
 #[repr(C, align(4))]
 pub struct FPatchId {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FPatchId {}
 #[repr(C, align(8))]
@@ -2259,10 +2259,10 @@ impl FEpicSynth1Patch {}
 #[repr(C, align(8))]
 pub struct FModularSynthPreset {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub flags_8: u8,
     #[doc(hidden)]
-    __padding_12: [u8; 3],
+    pub(crate) __padding_12: [u8; 3],
     pub osc1_type: ESynth1OscType,
     pub osc1_gain: f32,
     pub osc1_octave: f32,
@@ -2297,7 +2297,7 @@ pub struct FModularSynthPreset {
     pub mod_env_patch_type: ESynthModEnvPatch,
     pub mod_env_bias_patch_type: ESynthModEnvBiasPatch,
     #[doc(hidden)]
-    __padding_124: [u8; 2],
+    pub(crate) __padding_124: [u8; 2],
     pub flags_124: u8,
     pub modulation_envelope_depth: f32,
     pub modulation_envelope_attack_time: f32,
@@ -2310,10 +2310,10 @@ pub struct FModularSynthPreset {
     pub filter_type: ESynthFilterType,
     pub filter_algorithm: ESynthFilterAlgorithm,
     #[doc(hidden)]
-    __padding_164: [u8; 2],
+    pub(crate) __padding_164: [u8; 2],
     pub flags_164: u8,
     #[doc(hidden)]
-    __padding_168: [u8; 3],
+    pub(crate) __padding_168: [u8; 3],
     pub stereo_delay_mode: ESynthStereoDelayMode,
     pub stereo_delay_time: f32,
     pub stereo_delay_feedback: f32,
@@ -2357,7 +2357,7 @@ impl FSourceEffectChorusBaseSettings {}
 #[repr(C, align(8))]
 pub struct FSourceEffectChorusSettings {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub depth_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
     pub frequency_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
     pub feedback_modulation: crate::bindings::engine::FSoundModulationDestinationSettings,
@@ -2369,7 +2369,7 @@ impl FSourceEffectChorusSettings {}
 #[repr(C, align(4))]
 pub struct FSourceEffectConvolutionReverbSettings {
     #[doc(hidden)]
-    __padding_4: [u8; 4],
+    pub(crate) __padding_4: [u8; 4],
     pub wet_volume_db: f32,
     pub dry_volume_db: f32,
     pub b_bypass: bool,
@@ -2389,7 +2389,7 @@ pub struct FSourceEffectDynamicsProcessorSettings {
     pub output_gain_db: f32,
     pub flags_36: u8,
     #[doc(hidden)]
-    __padding_40: [u8; 3],
+    pub(crate) __padding_40: [u8; 3],
     pub flags_40: u8,
 }
 impl FSourceEffectDynamicsProcessorSettings {}
@@ -2421,7 +2421,7 @@ pub struct FSourceEffectFilterAudioBusModulationSettings {
     pub envelope_follower_release_time_msec: i32,
     pub envelope_gain_multiplier: f32,
     #[doc(hidden)]
-    __padding_24: [u8; 4],
+    pub(crate) __padding_24: [u8; 4],
     pub min_frequency_modulation: f32,
     pub max_frequency_modulation: f32,
     pub min_resonance_modulation: f32,
@@ -2540,7 +2540,7 @@ impl FSourceEffectWaveShaperSettings {}
 #[repr(C, align(8))]
 pub struct FSubmixEffectConvolutionReverbSettings {
     #[doc(hidden)]
-    __padding_4: [u8; 4],
+    pub(crate) __padding_4: [u8; 4],
     pub wet_volume_db: f32,
     pub dry_volume_db: f32,
     pub b_bypass: bool,
@@ -2549,7 +2549,7 @@ pub struct FSubmixEffectConvolutionReverbSettings {
     pub surround_rear_channel_bleed_db: f32,
     pub b_invert_rear_channel_bleed_phase: bool,
     pub b_surround_rear_channel_flip: bool,
-    __padding_end: [u8; 26],
+    pub(crate) __padding_end: [u8; 26],
 }
 impl FSubmixEffectConvolutionReverbSettings {}
 #[repr(C, align(4))]
@@ -2631,7 +2631,7 @@ pub struct FTapDelayInfo {
     pub gain: f32,
     pub output_channel: i32,
     pub pan_in_degrees: f32,
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FTapDelayInfo {}
 #[repr(C, align(8))]
@@ -2644,7 +2644,7 @@ impl FSubmixEffectTapDelaySettings {}
 #[repr(C, align(16))]
 pub struct FSynth2DSliderStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub normal_thumb_image: crate::bindings::slate_core::FSlateBrush,
     pub disabled_thumb_image: crate::bindings::slate_core::FSlateBrush,
     pub normal_bar_image: crate::bindings::slate_core::FSlateBrush,
@@ -2656,7 +2656,7 @@ impl FSynth2DSliderStyle {}
 #[repr(C, align(16))]
 pub struct FSynthKnobStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub large_knob: crate::bindings::slate_core::FSlateBrush,
     pub large_knob_overlay: crate::bindings::slate_core::FSlateBrush,
     pub medium_knob: crate::bindings::slate_core::FSlateBrush,
@@ -2669,7 +2669,7 @@ impl FSynthKnobStyle {}
 #[repr(C, align(8))]
 pub struct FSynthSlateStyle {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub size_type: ESynthSlateSizeType,
     pub color_style: ESynthSlateColorStyle,
 }
@@ -2677,7 +2677,7 @@ impl FSynthSlateStyle {}
 #[repr(C, align(8))]
 pub struct UAudioImpulseResponse {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub normalization_volume_db: f32,
     pub b_true_stereo: bool,
     __padding_end: [u8; 59],
@@ -2702,7 +2702,7 @@ impl UAudioImpulseResponse {
 #[repr(C, align(8))]
 pub struct UModularSynthPresetBank {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub presets: TArray<FModularSynthPresetBankEntry>,
 }
 impl UModularSynthPresetBank {
@@ -2796,7 +2796,7 @@ impl UModularSynthLibrary {
 #[repr(C, align(16))]
 pub struct UModularSynthComponent {
     #[doc(hidden)]
-    __padding_2384: [u8; 2384],
+    pub(crate) __padding_2384: [u8; 2384],
     pub voice_count: i32,
     __padding_end: [u8; 1788],
 }
@@ -4714,7 +4714,7 @@ impl UModularSynthComponent {
 #[repr(C, align(8))]
 pub struct USourceEffectBitCrusherPreset {
     #[doc(hidden)]
-    __padding_344: [u8; 344],
+    pub(crate) __padding_344: [u8; 344],
     pub settings: FSourceEffectBitCrusherSettings,
 }
 impl USourceEffectBitCrusherPreset {
@@ -5028,7 +5028,7 @@ impl USourceEffectBitCrusherPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectChorusPreset {
     #[doc(hidden)]
-    __padding_752: [u8; 752],
+    pub(crate) __padding_752: [u8; 752],
     pub settings: FSourceEffectChorusSettings,
 }
 impl USourceEffectChorusPreset {
@@ -5766,7 +5766,7 @@ impl USourceEffectChorusPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectConvolutionReverbPreset {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub impulse_response: UPtr<UAudioImpulseResponse>,
     pub settings: FSourceEffectConvolutionReverbSettings,
     pub block_size: ESubmixEffectConvolutionReverbBlockSize,
@@ -5863,7 +5863,7 @@ impl USourceEffectConvolutionReverbPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectDynamicsProcessorPreset {
     #[doc(hidden)]
-    __padding_196: [u8; 196],
+    pub(crate) __padding_196: [u8; 196],
     pub settings: FSourceEffectDynamicsProcessorSettings,
 }
 impl USourceEffectDynamicsProcessorPreset {
@@ -5942,7 +5942,7 @@ impl UEnvelopeFollowerListener {
 #[repr(C, align(8))]
 pub struct USourceEffectEnvelopeFollowerPreset {
     #[doc(hidden)]
-    __padding_164: [u8; 164],
+    pub(crate) __padding_164: [u8; 164],
     pub settings: FSourceEffectEnvelopeFollowerSettings,
 }
 impl USourceEffectEnvelopeFollowerPreset {
@@ -6067,7 +6067,7 @@ impl USourceEffectEnvelopeFollowerPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectEQPreset {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: FSourceEffectEQSettings,
 }
 impl USourceEffectEQPreset {
@@ -6122,7 +6122,7 @@ impl USourceEffectEQPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectFilterPreset {
     #[doc(hidden)]
-    __padding_184: [u8; 184],
+    pub(crate) __padding_184: [u8; 184],
     pub settings: FSourceEffectFilterSettings,
 }
 impl USourceEffectFilterPreset {
@@ -6177,7 +6177,7 @@ impl USourceEffectFilterPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectFoldbackDistortionPreset {
     #[doc(hidden)]
-    __padding_164: [u8; 164],
+    pub(crate) __padding_164: [u8; 164],
     pub settings: FSourceEffectFoldbackDistortionSettings,
 }
 impl USourceEffectFoldbackDistortionPreset {
@@ -6235,7 +6235,7 @@ impl USourceEffectFoldbackDistortionPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectMidSideSpreaderPreset {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub settings: FSourceEffectMidSideSpreaderSettings,
 }
 impl USourceEffectMidSideSpreaderPreset {
@@ -6290,7 +6290,7 @@ impl USourceEffectMidSideSpreaderPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectMotionFilterPreset {
     #[doc(hidden)]
-    __padding_272: [u8; 272],
+    pub(crate) __padding_272: [u8; 272],
     pub settings: FSourceEffectMotionFilterSettings,
 }
 impl USourceEffectMotionFilterPreset {
@@ -6345,7 +6345,7 @@ impl USourceEffectMotionFilterPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectPannerPreset {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub settings: FSourceEffectPannerSettings,
 }
 impl USourceEffectPannerPreset {
@@ -6400,7 +6400,7 @@ impl USourceEffectPannerPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectPhaserPreset {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: FSourceEffectPhaserSettings,
 }
 impl USourceEffectPhaserPreset {
@@ -6455,7 +6455,7 @@ impl USourceEffectPhaserPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectRingModulationPreset {
     #[doc(hidden)]
-    __padding_184: [u8; 184],
+    pub(crate) __padding_184: [u8; 184],
     pub settings: FSourceEffectRingModulationSettings,
 }
 impl USourceEffectRingModulationPreset {
@@ -6510,7 +6510,7 @@ impl USourceEffectRingModulationPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectSimpleDelayPreset {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub settings: FSourceEffectSimpleDelaySettings,
 }
 impl USourceEffectSimpleDelayPreset {
@@ -6565,7 +6565,7 @@ impl USourceEffectSimpleDelayPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectStereoDelayPreset {
     #[doc(hidden)]
-    __padding_188: [u8; 188],
+    pub(crate) __padding_188: [u8; 188],
     pub settings: FSourceEffectStereoDelaySettings,
 }
 impl USourceEffectStereoDelayPreset {
@@ -6620,7 +6620,7 @@ impl USourceEffectStereoDelayPreset {
 #[repr(C, align(8))]
 pub struct USourceEffectWaveShaperPreset {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub settings: FSourceEffectWaveShaperSettings,
 }
 impl USourceEffectWaveShaperPreset {
@@ -6675,7 +6675,7 @@ impl USourceEffectWaveShaperPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectConvolutionReverbPreset {
     #[doc(hidden)]
-    __padding_112: [u8; 112],
+    pub(crate) __padding_112: [u8; 112],
     pub impulse_response: UPtr<UAudioImpulseResponse>,
     pub settings: FSubmixEffectConvolutionReverbSettings,
     pub block_size: ESubmixEffectConvolutionReverbBlockSize,
@@ -6931,7 +6931,7 @@ impl USubmixEffectDelayStatics {
 #[repr(C, align(8))]
 pub struct USubmixEffectDelayPreset {
     #[doc(hidden)]
-    __padding_164: [u8; 164],
+    pub(crate) __padding_164: [u8; 164],
     pub settings: FSubmixEffectDelaySettings,
     __padding_end: [u8; 16],
 }
@@ -7101,7 +7101,7 @@ impl USubmixEffectDelayPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectFilterPreset {
     #[doc(hidden)]
-    __padding_164: [u8; 164],
+    pub(crate) __padding_164: [u8; 164],
     pub settings: FSubmixEffectFilterSettings,
 }
 impl USubmixEffectFilterPreset {
@@ -7340,7 +7340,7 @@ impl USubmixEffectFilterPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectFlexiverbPreset {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub settings: FSubmixEffectFlexiverbSettings,
 }
 impl USubmixEffectFlexiverbPreset {
@@ -7395,7 +7395,7 @@ impl USubmixEffectFlexiverbPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectMultibandCompressorPreset {
     #[doc(hidden)]
-    __padding_208: [u8; 208],
+    pub(crate) __padding_208: [u8; 208],
     pub settings: FSubmixEffectMultibandCompressorSettings,
 }
 impl USubmixEffectMultibandCompressorPreset {
@@ -7548,7 +7548,7 @@ impl USubmixEffectMultibandCompressorPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectStereoDelayPreset {
     #[doc(hidden)]
-    __padding_188: [u8; 188],
+    pub(crate) __padding_188: [u8; 188],
     pub settings: FSubmixEffectStereoDelaySettings,
 }
 impl USubmixEffectStereoDelayPreset {
@@ -7603,7 +7603,7 @@ impl USubmixEffectStereoDelayPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectStereoToQuadPreset {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub settings: FSubmixEffectStereoToQuadSettings,
 }
 impl USubmixEffectStereoToQuadPreset {
@@ -7658,7 +7658,7 @@ impl USubmixEffectStereoToQuadPreset {
 #[repr(C, align(8))]
 pub struct USubmixEffectTapDelayPreset {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub settings: FSubmixEffectTapDelaySettings,
     __padding_end: [u8; 24],
 }
@@ -8634,7 +8634,7 @@ impl UGranularSynth {
 #[repr(C, align(8))]
 pub struct UMonoWaveTableSynthPreset {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub preset_name: FString,
     pub flags_64: u8,
     pub lock_keyframes_to_grid: i32,
@@ -10086,7 +10086,7 @@ impl USynthComponentMonoWaveTable {
 #[repr(C, align(16))]
 pub struct USynthComponentToneGenerator {
     #[doc(hidden)]
-    __padding_2384: [u8; 2384],
+    pub(crate) __padding_2384: [u8; 2384],
     pub frequency: f32,
     pub volume: f32,
     pub distance_attenuation_curve: crate::bindings::engine::FRuntimeFloatCurve,
@@ -10174,7 +10174,7 @@ impl USynthComponentToneGenerator {
 #[repr(C, align(16))]
 pub struct USynthSamplePlayer {
     #[doc(hidden)]
-    __padding_2384: [u8; 2384],
+    pub(crate) __padding_2384: [u8; 2384],
     pub sound_wave: UPtr<crate::bindings::engine::USoundWave>,
     __padding_end: [u8; 312],
 }
@@ -10630,7 +10630,7 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
 #[repr(C, align(16))]
 pub struct USynth2DSlider {
     #[doc(hidden)]
-    __padding_768: [u8; 768],
+    pub(crate) __padding_768: [u8; 768],
     pub widget_style: FSynth2DSliderStyle,
     pub slider_handle_color: crate::bindings::core_u_object::FLinearColor,
     pub indent_handle: bool,
@@ -10832,7 +10832,7 @@ impl USynth2DSlider {
 #[repr(C, align(16))]
 pub struct USynthKnob {
     #[doc(hidden)]
-    __padding_700: [u8; 700],
+    pub(crate) __padding_700: [u8; 700],
     pub step_size: f32,
     pub mouse_speed: f32,
     pub mouse_fine_tune_speed: f32,
@@ -10840,7 +10840,7 @@ pub struct USynthKnob {
     pub parameter_name: FText,
     pub parameter_units: FText,
     #[doc(hidden)]
-    __padding_784: [u8; 32],
+    pub(crate) __padding_784: [u8; 32],
     pub widget_style: FSynthKnobStyle,
     pub locked: bool,
     pub is_focusable: bool,

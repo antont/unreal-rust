@@ -315,12 +315,12 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FScriptTypedElementHandle {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FScriptTypedElementHandle {}
 #[repr(C, align(8))]
 pub struct FScriptTypedElementListProxy {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FScriptTypedElementListProxy {}
 #[repr(C, align(8))]

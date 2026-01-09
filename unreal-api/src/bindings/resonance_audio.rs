@@ -181,7 +181,7 @@ impl FResonanceAudioReverbPluginSettings {}
 #[repr(C, align(8))]
 pub struct UResonanceAudioSoundfieldSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub render_mode: EResonanceRenderMode,
 }
 impl UResonanceAudioSoundfieldSettings {

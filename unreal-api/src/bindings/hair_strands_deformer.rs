@@ -39,7 +39,7 @@ impl UOptimusGroomCollisionReadDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomCollisionReadDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub solver_component: UPtr<
         crate::bindings::hair_strands_solver::UGroomSolverComponent,
     >,
@@ -85,7 +85,7 @@ impl UOptimusGroomAttributeReadDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomAttributeReadDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
     __padding_end: [u8; 16],
 }
@@ -235,7 +235,7 @@ impl UOptimusGroomGuidesReadDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomGuidesReadDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
 }
 impl UOptimusGroomGuidesReadDataProvider {
@@ -279,7 +279,7 @@ impl UOptimusGroomGuidesWriteDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomGuidesWriteDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
     __padding_end: [u8; 8],
 }
@@ -324,7 +324,7 @@ impl UOptimusGroomMeshesReadDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomMeshesReadDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
 }
 impl UOptimusGroomMeshesReadDataProvider {
@@ -368,7 +368,7 @@ impl UOptimusGroomSolverReadDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomSolverReadDataProvider {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub solver_component: UPtr<
         crate::bindings::hair_strands_solver::UGroomSolverComponent,
     >,
@@ -415,7 +415,7 @@ impl UOptimusGroomStrandsReadDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomStrandsReadDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
 }
 impl UOptimusGroomStrandsReadDataProvider {
@@ -459,7 +459,7 @@ impl UOptimusGroomStrandsWriteDataInterface {
 #[repr(C, align(8))]
 pub struct UOptimusGroomStrandsWriteDataProvider {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mesh_component: UPtr<crate::bindings::engine::UMeshComponent>,
     __padding_end: [u8; 8],
 }

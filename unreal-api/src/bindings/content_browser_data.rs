@@ -209,7 +209,7 @@ pub struct FContentBrowserDataFilter {
     pub item_type_filter: EContentBrowserItemTypeFilter,
     pub item_category_filter: EContentBrowserItemCategoryFilter,
     pub item_attribute_filter: EContentBrowserItemAttributeFilter,
-    __padding_end: [u8; 28],
+    pub(crate) __padding_end: [u8; 28],
 }
 impl FContentBrowserDataFilter {}
 #[repr(C, align(8))]
@@ -217,7 +217,7 @@ pub struct FContentBrowserDataObjectFilter {
     pub object_names_to_include: TArray<FName>,
     pub object_names_to_exclude: TArray<FName>,
     pub b_on_disk_objects_only: bool,
-    __padding_end: [u8; 167],
+    pub(crate) __padding_end: [u8; 167],
 }
 impl FContentBrowserDataObjectFilter {}
 #[repr(C, align(8))]
@@ -228,7 +228,7 @@ pub struct FContentBrowserDataPackageFilter {
     pub package_paths_to_exclude: TArray<FName>,
     pub b_recursive_package_paths_to_include: bool,
     pub b_recursive_package_paths_to_exclude: bool,
-    __padding_end: [u8; 22],
+    pub(crate) __padding_end: [u8; 22],
 }
 impl FContentBrowserDataPackageFilter {}
 #[repr(C, align(8))]
@@ -237,30 +237,30 @@ pub struct FContentBrowserDataClassFilter {
     pub class_names_to_exclude: TArray<FString>,
     pub b_recursive_class_names_to_include: bool,
     pub b_recursive_class_names_to_exclude: bool,
-    __padding_end: [u8; 22],
+    pub(crate) __padding_end: [u8; 22],
 }
 impl FContentBrowserDataClassFilter {}
 #[repr(C, align(8))]
 pub struct FContentBrowserDataCollectionFilter {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub b_include_child_collections: bool,
 }
 impl FContentBrowserDataCollectionFilter {}
 #[repr(C, align(8))]
 pub struct FContentBrowserItem {
-    __padding_end: [u8; 96],
+    pub(crate) __padding_end: [u8; 96],
 }
 impl FContentBrowserItem {}
 #[repr(C, align(4))]
 pub struct FContentBrowserItemPath {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FContentBrowserItemPath {}
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_AddNewMenu {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub selected_paths: TArray<FName>,
     pub b_contains_valid_package_path: bool,
     pub b_can_be_modified: bool,
@@ -287,7 +287,7 @@ impl UContentBrowserDataMenuContext_AddNewMenu {
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_FolderMenu {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub selected_items: TArray<FContentBrowserItem>,
     pub b_can_be_modified: bool,
     __padding_end: [u8; 23],
@@ -312,10 +312,10 @@ impl UContentBrowserDataMenuContext_FolderMenu {
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_FileMenu {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub selected_items: TArray<FContentBrowserItem>,
     #[doc(hidden)]
-    __padding_96: [u8; 32],
+    pub(crate) __padding_96: [u8; 32],
     pub b_can_be_modified: bool,
     pub b_can_view: bool,
     pub b_has_cooked_packages: bool,
@@ -342,7 +342,7 @@ impl UContentBrowserDataMenuContext_FileMenu {
 #[repr(C, align(8))]
 pub struct UContentBrowserDataMenuContext_DragDropMenu {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub drop_target_item: FContentBrowserItem,
     pub dragged_items: TArray<FContentBrowserItem>,
     pub b_can_move: bool,

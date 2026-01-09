@@ -82,7 +82,7 @@ impl UActorSequence {
 #[repr(C, align(8))]
 pub struct UActorSequenceComponent {
     #[doc(hidden)]
-    __padding_288: [u8; 288],
+    pub(crate) __padding_288: [u8; 288],
     pub sequence_player: UPtr<UActorSequencePlayer>,
 }
 impl UActorSequenceComponent {

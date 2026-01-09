@@ -243,7 +243,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FTimedDataChannelSampleTime {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FTimedDataChannelSampleTime {}
 #[repr(C, align(4))]
@@ -319,7 +319,7 @@ impl UCatchupFixedRateCustomTimeStep {
 #[repr(C, align(8))]
 pub struct UTimecodeRegressionProvider {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub num_sampled_frames: i32,
     __padding_end: [u8; 180],
 }

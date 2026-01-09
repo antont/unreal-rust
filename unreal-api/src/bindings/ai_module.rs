@@ -2217,13 +2217,13 @@ pub struct FAIStimulus {
     pub receiver_location: crate::bindings::core_u_object::FVector,
     pub tag: FName,
     #[doc(hidden)]
-    __padding_92: [u8; 16],
+    pub(crate) __padding_92: [u8; 16],
     pub flags_92: u8,
 }
 impl FAIStimulus {}
 #[repr(C, align(4))]
 pub struct FAIRequestID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FAIRequestID {}
 #[repr(C, align(1))]
@@ -2243,80 +2243,80 @@ impl FBlackboardKeySelector {}
 #[repr(C, align(8))]
 pub struct FValueOrBlackboardKeyBase {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub key: FName,
 }
 impl FValueOrBlackboardKeyBase {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Bool {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FValueOrBBKey_Bool {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Class {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FValueOrBBKey_Class {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Enum {
-    __padding_end: [u8; 56],
+    pub(crate) __padding_end: [u8; 56],
 }
 impl FValueOrBBKey_Enum {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Float {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FValueOrBBKey_Float {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Int32 {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FValueOrBBKey_Int32 {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Name {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FValueOrBBKey_Name {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_String {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FValueOrBBKey_String {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Object {
-    __padding_end: [u8; 40],
+    pub(crate) __padding_end: [u8; 40],
 }
 impl FValueOrBBKey_Object {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Rotator {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FValueOrBBKey_Rotator {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Vector {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FValueOrBBKey_Vector {}
 #[repr(C, align(8))]
 pub struct FValueOrBBKey_Struct {
-    __padding_end: [u8; 48],
+    pub(crate) __padding_end: [u8; 48],
 }
 impl FValueOrBBKey_Struct {}
 #[repr(C, align(8))]
 pub struct FEnvQueryResult {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub item_type: TSubclassOf<UEnvQueryItemType>,
     #[doc(hidden)]
-    __padding_44: [u8; 20],
+    pub(crate) __padding_44: [u8; 20],
     pub option_index: i32,
     pub query_id: i32,
-    __padding_end: [u8; 12],
+    pub(crate) __padding_end: [u8; 12],
 }
 impl FEnvQueryResult {}
 #[repr(C, align(8))]
 pub struct FEnvQueryInstance {
-    __padding_end: [u8; 448],
+    pub(crate) __padding_end: [u8; 448],
 }
 impl FEnvQueryInstance {}
 #[repr(C, align(4))]
@@ -2360,7 +2360,7 @@ impl FAIDamageEvent {}
 #[repr(C, align(8))]
 pub struct FAINoiseEvent {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub noise_location: crate::bindings::core_u_object::FVector,
     pub loudness: f32,
     pub max_range: f32,
@@ -2435,7 +2435,7 @@ impl UAISenseBlueprintListener {
 #[repr(C, align(8))]
 pub struct UAISenseConfig {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub debug_color: crate::bindings::core_u_object::FColor,
     pub max_age: f32,
     pub flags_56: u8,
@@ -2461,7 +2461,7 @@ impl UAISenseConfig {
 #[repr(C, align(8))]
 pub struct UAISenseConfig_Blueprint {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Blueprint>,
 }
 impl UAISenseConfig_Blueprint {
@@ -2484,12 +2484,12 @@ impl UAISenseConfig_Blueprint {
 #[repr(C, align(8))]
 pub struct UAISenseConfig_Hearing {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Hearing>,
     pub hearing_range: f32,
     pub lo_s_hearing_range: f32,
     #[doc(hidden)]
-    __padding_100: [u8; 4],
+    pub(crate) __padding_100: [u8; 4],
     pub detection_by_affiliation: FAISenseAffiliationFilter,
 }
 impl UAISenseConfig_Hearing {
@@ -2533,7 +2533,7 @@ impl UAISenseConfig_Prediction {
 #[repr(C, align(8))]
 pub struct UAISenseConfig_Sight {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Sight>,
     pub sight_radius: f32,
     pub lose_sight_radius: f32,
@@ -2584,7 +2584,7 @@ impl UAISenseConfig_Team {
 #[repr(C, align(8))]
 pub struct UAISenseConfig_Touch {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub detection_by_affiliation: FAISenseAffiliationFilter,
 }
 impl UAISenseConfig_Touch {
@@ -2628,7 +2628,7 @@ impl UAISenseEvent {
 #[repr(C, align(8))]
 pub struct UAISenseEvent_Damage {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub event: FAIDamageEvent,
 }
 impl UAISenseEvent_Damage {
@@ -2651,7 +2651,7 @@ impl UAISenseEvent_Damage {
 #[repr(C, align(8))]
 pub struct UAISenseEvent_Hearing {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub event: FAINoiseEvent,
 }
 impl UAISenseEvent_Hearing {
@@ -2740,16 +2740,16 @@ impl UGenericTeamAgentInterface {
 #[repr(C, align(8))]
 pub struct AAIController {
     #[doc(hidden)]
-    __padding_1376: [u8; 1376],
+    pub(crate) __padding_1376: [u8; 1376],
     pub flags_1376: u8,
     #[doc(hidden)]
-    __padding_1392: [u8; 8],
+    pub(crate) __padding_1392: [u8; 8],
     pub brain_component: UPtr<UBrainComponent>,
     #[doc(hidden)]
-    __padding_1408: [u8; 8],
+    pub(crate) __padding_1408: [u8; 8],
     pub blackboard: UPtr<UBlackboardComponent>,
     #[doc(hidden)]
-    __padding_1424: [u8; 8],
+    pub(crate) __padding_1424: [u8; 8],
     pub default_navigation_filter_class: TSubclassOf<
         crate::bindings::navigation_system::UNavigationQueryFilter,
     >,
@@ -3803,7 +3803,7 @@ impl UBrainComponent {
 #[repr(C, align(8))]
 pub struct UBehaviorTreeComponent {
     #[doc(hidden)]
-    __padding_848: [u8; 848],
+    pub(crate) __padding_848: [u8; 848],
     pub default_behavior_tree_asset: UPtr<UBehaviorTree>,
     __padding_end: [u8; 32],
 }
@@ -6630,7 +6630,7 @@ impl UBTDecorator_Blackboard {
 #[repr(C, align(8))]
 pub struct UBTDecorator_BlueprintBase {
     #[doc(hidden)]
-    __padding_168: [u8; 168],
+    pub(crate) __padding_168: [u8; 168],
     pub custom_description: FString,
     __padding_end: [u8; 8],
 }
@@ -7565,7 +7565,7 @@ impl UBTService_BlackboardBase {
 #[repr(C, align(8))]
 pub struct UBTService_BlueprintBase {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub custom_description: FString,
     __padding_end: [u8; 8],
 }
@@ -8006,7 +8006,7 @@ impl UBTTask_BlackboardBase {
 #[repr(C, align(8))]
 pub struct UBTTask_BlueprintBase {
     #[doc(hidden)]
-    __padding_176: [u8; 176],
+    pub(crate) __padding_176: [u8; 176],
     pub custom_description: FString,
     __padding_end: [u8; 8],
 }
@@ -10740,10 +10740,10 @@ impl UEnvQueryGenerator {
 #[repr(C, align(8))]
 pub struct UEnvQueryInstanceBlueprintWrapper {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub query_id: i32,
     #[doc(hidden)]
-    __padding_96: [u8; 32],
+    pub(crate) __padding_96: [u8; 32],
     pub item_type: TSubclassOf<UEnvQueryItemType>,
     pub option_index: i32,
     __padding_end: [u8; 36],
@@ -12214,7 +12214,7 @@ impl UNavFilter_AIControllerDefault {
 #[repr(C, align(8))]
 pub struct ANavLinkProxy {
     #[doc(hidden)]
-    __padding_1152: [u8; 1152],
+    pub(crate) __padding_1152: [u8; 1152],
     pub point_links: TArray<crate::bindings::engine::FNavigationLink>,
     __padding_end: [u8; 88],
 }
@@ -13260,7 +13260,7 @@ impl UAIPerceptionListenerInterface {
 #[repr(C, align(8))]
 pub struct UAIPerceptionStimuliSourceComponent {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub flags_240: u8,
     pub register_as_source_for_senses: TArray<TSubclassOf<UAISense>>,
 }
@@ -13587,10 +13587,10 @@ impl UAIPerceptionSystem {
 #[repr(C, align(8))]
 pub struct UAISense {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub notify_type: EAISenseNotifyType,
     #[doc(hidden)]
-    __padding_52: [u8; 3],
+    pub(crate) __padding_52: [u8; 3],
     pub flags_52: u8,
     __padding_end: [u8; 107],
 }
@@ -13610,7 +13610,7 @@ impl UAISense {
 #[repr(C, align(8))]
 pub struct UAISenseConfig_Damage {
     #[doc(hidden)]
-    __padding_80: [u8; 80],
+    pub(crate) __padding_80: [u8; 80],
     pub implementation: TSubclassOf<UAISense_Damage>,
 }
 impl UAISenseConfig_Damage {
@@ -13633,7 +13633,7 @@ impl UAISenseConfig_Damage {
 #[repr(C, align(8))]
 pub struct UAISense_Blueprint {
     #[doc(hidden)]
-    __padding_160: [u8; 160],
+    pub(crate) __padding_160: [u8; 160],
     pub listener_data_type: TSubclassOf<
         crate::bindings::core_u_object::UUserDefinedStruct,
     >,
@@ -14382,7 +14382,7 @@ impl UAISightTargetInterface {
 #[repr(C, align(8))]
 pub struct UPawnSensingComponent {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub hearing_threshold: f32,
     pub los_hearing_threshold: f32,
     pub sight_radius: f32,
@@ -14390,7 +14390,7 @@ pub struct UPawnSensingComponent {
     pub hearing_max_sound_age: f32,
     pub flags_260: u8,
     #[doc(hidden)]
-    __padding_320: [u8; 56],
+    pub(crate) __padding_320: [u8; 56],
     pub peripheral_vision_angle: f32,
 }
 impl UPawnSensingComponent {
@@ -14557,7 +14557,7 @@ impl UPawnSensingComponent {
 #[repr(C, align(8))]
 pub struct UAITask {
     #[doc(hidden)]
-    __padding_128: [u8; 128],
+    pub(crate) __padding_128: [u8; 128],
     pub owner_controller: UPtr<AAIController>,
 }
 impl UAITask {

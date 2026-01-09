@@ -354,11 +354,11 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct UGeometryCache {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub materials: TArray<UPtr<crate::bindings::engine::UMaterialInterface>>,
     pub material_slot_names: TArray<FName>,
     #[doc(hidden)]
-    __padding_168: [u8; 64],
+    pub(crate) __padding_168: [u8; 64],
     pub start_frame: i32,
     pub end_frame: i32,
     __padding_end: [u8; 8],
@@ -383,7 +383,7 @@ impl UGeometryCache {
 #[repr(C, align(8))]
 pub struct AGeometryCacheActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub geometry_cache_component: UPtr<UGeometryCacheComponent>,
 }
 impl AGeometryCacheActor {
@@ -495,7 +495,7 @@ impl UGeometryCacheCodecV1 {
 #[repr(C, align(16))]
 pub struct UGeometryCacheComponent {
     #[doc(hidden)]
-    __padding_1576: [u8; 1576],
+    pub(crate) __padding_1576: [u8; 1576],
     pub geometry_cache: UPtr<UGeometryCache>,
     pub b_running: bool,
     pub b_looping: bool,
@@ -503,7 +503,7 @@ pub struct UGeometryCacheComponent {
     pub playback_speed: f32,
     pub motion_vector_scale: f32,
     #[doc(hidden)]
-    __padding_1684: [u8; 84],
+    pub(crate) __padding_1684: [u8; 84],
     pub duration: f32,
     __padding_end: [u8; 24],
 }

@@ -87,7 +87,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FDataflowGroomSolverProxy {
-    __padding_end: [u8; 344],
+    pub(crate) __padding_end: [u8; 344],
 }
 impl FDataflowGroomSolverProxy {}
 #[repr(C, align(16))]

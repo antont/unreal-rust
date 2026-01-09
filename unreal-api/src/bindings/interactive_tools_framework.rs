@@ -314,7 +314,7 @@ pub struct FInputRayHit {
     pub b_has_hit_normal: bool,
     pub hit_identifier: i32,
     #[doc(hidden)]
-    __padding_56: [u8; 8],
+    pub(crate) __padding_56: [u8; 8],
     pub hit_object: TWeakObjectPtr<crate::bindings::core_u_object::UObject>,
 }
 impl FInputRayHit {}

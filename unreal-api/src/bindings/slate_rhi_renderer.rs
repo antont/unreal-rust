@@ -72,7 +72,7 @@ pub struct FSlatePostSettings {
     pub flags_0: u8,
     pub resolution: ESlatePostResolution,
     pub post_processor_class: TSubclassOf<USlateRHIPostBufferProcessor>,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FSlatePostSettings {}
 #[repr(C, align(8))]
@@ -156,7 +156,7 @@ impl USlateRHIPostBufferProcessor {
 #[repr(C, align(8))]
 pub struct USlatePostBufferBlur {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub gaussian_blur_strength: f32,
     __padding_end: [u8; 20],
 }

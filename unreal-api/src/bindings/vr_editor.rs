@@ -1241,7 +1241,7 @@ impl AFloatingText {
 #[repr(C, align(16))]
 pub struct UVREditorInteractor {
     #[doc(hidden)]
-    __padding_1968: [u8; 1968],
+    pub(crate) __padding_1968: [u8; 1968],
     pub hand_mesh_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
     __padding_end: [u8; 600],
 }
@@ -1999,7 +1999,7 @@ impl UVREditorModeBase {
 #[repr(C, align(8))]
 pub struct UVREditorMode {
     #[doc(hidden)]
-    __padding_392: [u8; 392],
+    pub(crate) __padding_392: [u8; 392],
     pub interactor_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     pub teleporter_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
     __padding_end: [u8; 88],
@@ -2150,10 +2150,10 @@ impl UVRModeSettings {
 #[repr(C, align(16))]
 pub struct UVRScoutingInteractor {
     #[doc(hidden)]
-    __padding_2576: [u8; 2576],
+    pub(crate) __padding_2576: [u8; 2576],
     pub flying_indicator_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
     #[doc(hidden)]
-    __padding_2592: [u8; 8],
+    pub(crate) __padding_2592: [u8; 8],
     pub b_receives_editor_input: bool,
 }
 impl UVRScoutingInteractor {

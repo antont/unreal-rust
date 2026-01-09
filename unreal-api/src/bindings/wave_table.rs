@@ -17,7 +17,7 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FWaveTableData {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FWaveTableData {}
 #[repr(C, align(8))]
@@ -25,9 +25,9 @@ pub struct FWaveTableTransform {
     pub curve: EWaveTableCurve,
     pub scalar: f32,
     #[doc(hidden)]
-    __padding_136: [u8; 128],
+    pub(crate) __padding_136: [u8; 128],
     pub curve_shared: UPtr<crate::bindings::engine::UCurveFloat>,
-    __padding_end: [u8; 168],
+    pub(crate) __padding_end: [u8; 168],
 }
 impl FWaveTableTransform {}
 #[repr(C, align(8))]

@@ -195,25 +195,25 @@ impl FMetasoundFrontendInterfaceMetadata {}
 #[repr(C, align(4))]
 pub struct FMetasoundFrontendInterfaceUClassOptions {
     pub class_path: crate::bindings::core_u_object::FTopLevelAssetPath,
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FMetasoundFrontendInterfaceUClassOptions {}
 #[repr(C, align(8))]
 pub struct FMetaSoundDocumentInfo {
     pub document_version: FMetasoundFrontendVersionNumber,
     #[doc(hidden)]
-    __padding_24: [u8; 16],
+    pub(crate) __padding_24: [u8; 16],
     pub flags_24: u8,
 }
 impl FMetaSoundDocumentInfo {}
 #[repr(C, align(4))]
 pub struct FMetasoundCommentNodeIntVector {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FMetasoundCommentNodeIntVector {}
 #[repr(C, align(8))]
 pub struct FMetasoundFrontendLiteral {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FMetasoundFrontendLiteral {}
 #[repr(C, align(4))]

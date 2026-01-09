@@ -656,7 +656,7 @@ impl FJoinStaticMeshActorsOptions {}
 #[repr(C, align(8))]
 pub struct FMergeStaticMeshActorsOptions {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub b_spawn_merged_actor: bool,
     pub base_package_name: FString,
     pub mesh_merging_settings: crate::bindings::engine::FMeshMergingSettings,
@@ -665,7 +665,7 @@ impl FMergeStaticMeshActorsOptions {}
 #[repr(C, align(8))]
 pub struct FCreateProxyMeshActorOptions {
     #[doc(hidden)]
-    __padding_32: [u8; 32],
+    pub(crate) __padding_32: [u8; 32],
     pub b_spawn_merged_actor: bool,
     pub base_package_name: FString,
     pub mesh_proxy_settings: crate::bindings::engine::FMeshProxySettings,

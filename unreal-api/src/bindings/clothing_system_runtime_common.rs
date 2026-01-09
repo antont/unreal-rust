@@ -81,7 +81,7 @@ impl UClothingAssetCustomData {
 #[repr(C, align(8))]
 pub struct UClothingAssetCommon {
     #[doc(hidden)]
-    __padding_88: [u8; 88],
+    pub(crate) __padding_88: [u8; 88],
     pub cloth_configs: TMap<
         FName,
         UPtr<crate::bindings::clothing_system_runtime_interface::UClothConfigBase>,

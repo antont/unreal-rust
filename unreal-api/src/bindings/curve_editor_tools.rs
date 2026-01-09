@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct UCurveEditorFFTFilter {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub cutoff_frequency: f32,
     pub ty: ECurveEditorFFTFilterType,
     pub response: ECurveEditorFFTFilterClass,

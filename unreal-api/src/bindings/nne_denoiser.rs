@@ -26,7 +26,7 @@ impl FTilingConfig {}
 #[repr(C, align(8))]
 pub struct FNNEDenoiserBaseMappingData {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub tensor_index: i32,
     pub tensor_channel: i32,
     pub resource_channel: i32,
@@ -35,21 +35,21 @@ impl FNNEDenoiserBaseMappingData {}
 #[repr(C, align(8))]
 pub struct FNNEDenoiserInputMappingData {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub resource: EInputResourceName,
 }
 impl FNNEDenoiserInputMappingData {}
 #[repr(C, align(8))]
 pub struct FNNEDenoiserOutputMappingData {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub resource: EOutputResourceName,
 }
 impl FNNEDenoiserOutputMappingData {}
 #[repr(C, align(8))]
 pub struct FNNEDenoiserTemporalInputMappingData {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub resource: ETemporalInputResourceName,
     pub frame_index: i32,
 }
@@ -57,14 +57,14 @@ impl FNNEDenoiserTemporalInputMappingData {}
 #[repr(C, align(8))]
 pub struct FNNEDenoiserTemporalOutputMappingData {
     #[doc(hidden)]
-    __padding_24: [u8; 24],
+    pub(crate) __padding_24: [u8; 24],
     pub resource: ETemporalOutputResourceName,
 }
 impl FNNEDenoiserTemporalOutputMappingData {}
 #[repr(C, align(8))]
 pub struct UNNEDenoiserAsset {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub model_data: TSoftObjectPtr<crate::bindings::nne::UNNEModelData>,
     pub input_mapping: TSoftObjectPtr<crate::bindings::engine::UDataTable>,
     pub output_mapping: TSoftObjectPtr<crate::bindings::engine::UDataTable>,
@@ -90,7 +90,7 @@ impl UNNEDenoiserAsset {
 #[repr(C, align(8))]
 pub struct UNNEDenoiserTemporalAsset {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub model_data: TSoftObjectPtr<crate::bindings::nne::UNNEModelData>,
     pub input_mapping: TSoftObjectPtr<crate::bindings::engine::UDataTable>,
     pub output_mapping: TSoftObjectPtr<crate::bindings::engine::UDataTable>,

@@ -533,7 +533,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FInterchangeFilePickerParameters {
-    __padding_end: [u8; 64],
+    pub(crate) __padding_end: [u8; 64],
 }
 impl FInterchangeFilePickerParameters {}
 #[repr(C, align(8))]
@@ -557,15 +557,15 @@ pub struct FImportAssetParameters {
     pub b_force_show_dialog: bool,
     pub on_asset_done: FImportAssetParameters_OnAssetDone,
     #[doc(hidden)]
-    __padding_120: [u8; 24],
+    pub(crate) __padding_120: [u8; 24],
     pub on_assets_import_done: FImportAssetParameters_OnAssetsImportDone,
     #[doc(hidden)]
-    __padding_176: [u8; 24],
+    pub(crate) __padding_176: [u8; 24],
     pub on_scene_object_done: FImportAssetParameters_OnSceneObjectDone,
     #[doc(hidden)]
-    __padding_232: [u8; 24],
+    pub(crate) __padding_232: [u8; 24],
     pub on_scene_import_done: FImportAssetParameters_OnSceneImportDone,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FImportAssetParameters {}
 #[repr(C, align(8))]
@@ -577,7 +577,7 @@ impl FInterchangeTranslatorPipelines {}
 #[repr(C, align(8))]
 pub struct FInterchangePipelineStack {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub per_translator_pipelines: TArray<FInterchangeTranslatorPipelines>,
 }
 impl FInterchangePipelineStack {}
@@ -609,14 +609,14 @@ impl FInterchangeImportSettings {}
 #[repr(C, align(8))]
 pub struct FInterchangeSceneImportSettings {
     #[doc(hidden)]
-    __padding_152: [u8; 152],
+    pub(crate) __padding_152: [u8; 152],
     pub per_translator_dialog_override: TArray<FInterchangePerTranslatorDialogOverride>,
 }
 impl FInterchangeSceneImportSettings {}
 #[repr(C, align(8))]
 pub struct FInterchangeContentImportSettings {
     #[doc(hidden)]
-    __padding_152: [u8; 152],
+    pub(crate) __padding_152: [u8; 152],
     pub default_pipeline_stack_override: TMap<
         crate::bindings::interchange_core::EInterchangeTranslatorAssetType,
         FName,
@@ -1823,7 +1823,7 @@ impl UInterchangeAssetImportDataConverterBase {
 #[repr(C, align(8))]
 pub struct UInterchangePipelineStackOverride {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub override_pipelines: TArray<crate::bindings::core_u_object::FSoftObjectPath>,
 }
 impl UInterchangePipelineStackOverride {
@@ -3063,7 +3063,7 @@ impl UInterchangeMeshUtilities {
 #[repr(C, align(8))]
 pub struct UInterchangeProjectSettings {
     #[doc(hidden)]
-    __padding_104: [u8; 104],
+    pub(crate) __padding_104: [u8; 104],
     pub content_import_settings: FInterchangeContentImportSettings,
     pub scene_import_settings: FInterchangeSceneImportSettings,
     pub file_picker_class: TSoftObjectPtr<crate::bindings::core_u_object::UClass>,
@@ -3257,7 +3257,7 @@ impl UInterchangeProjectSettingsScript {
 #[repr(C, align(8))]
 pub struct UInterchangeEditorSettings {
     #[doc(hidden)]
-    __padding_104: [u8; 104],
+    pub(crate) __padding_104: [u8; 104],
     pub b_show_import_dialog_at_reimport: bool,
     __padding_end: [u8; 31],
 }

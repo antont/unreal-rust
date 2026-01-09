@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(4))]
 pub struct FBodyInstanceCore {
     #[doc(hidden)]
-    __padding_8: [u8; 8],
+    pub(crate) __padding_8: [u8; 8],
     pub flags_8: u8,
     pub flags_9: u8,
 }
@@ -80,7 +80,7 @@ impl UBodySetupCore {
 #[repr(C, align(8))]
 pub struct UChaosPhysicalMaterial {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub friction: f32,
     pub static_friction: f32,
     pub restitution: f32,
@@ -109,7 +109,7 @@ impl UChaosPhysicalMaterial {
 #[repr(C, align(8))]
 pub struct UPhysicalMaterial {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub friction: f32,
     pub static_friction: f32,
     pub friction_combine_mode: EFrictionCombineMode,
@@ -123,7 +123,7 @@ pub struct UPhysicalMaterial {
     pub sleep_counter_threshold: i32,
     pub raise_mass_to_power: f32,
     #[doc(hidden)]
-    __padding_104: [u8; 16],
+    pub(crate) __padding_104: [u8; 16],
     pub surface_type: EPhysicalSurface,
     pub strength: FPhysicalMaterialStrength,
     pub damage_modifier: FPhysicalMaterialDamageModifier,

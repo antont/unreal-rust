@@ -1110,14 +1110,14 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FInputActionValue {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FInputActionValue {}
 #[repr(C, align(8))]
 pub struct FPlayerMappableKeyProfileCreationArgs {
     pub profile_type: TSubclassOf<UEnhancedPlayerMappableKeyProfile>,
     #[doc(hidden)]
-    __padding_24: [u8; 16],
+    pub(crate) __padding_24: [u8; 16],
     pub profile_string_identifier: FString,
     pub user_id: crate::bindings::core_u_object::FPlatformUserId,
     pub display_name: FText,
@@ -1145,7 +1145,7 @@ pub struct FMapPlayerKeyArgs {
     pub new_key: crate::bindings::input_core::FKey,
     pub hardware_device_id: FName,
     #[doc(hidden)]
-    __padding_72: [u8; 8],
+    pub(crate) __padding_72: [u8; 8],
     pub profile_id_string: FString,
     pub flags_88: u8,
 }
@@ -1163,7 +1163,7 @@ pub struct FEnhancedActionKeyMapping {
     pub modifiers: TArray<UPtr<UInputModifier>>,
     pub action: UPtr<UInputAction>,
     pub key: crate::bindings::input_core::FKey,
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FEnhancedActionKeyMapping {}
 #[repr(C, align(1))]
@@ -1175,13 +1175,13 @@ impl FModifyContextOptions {}
 pub struct FInputActionInstance {
     pub source_action: UPtr<UInputAction>,
     #[doc(hidden)]
-    __padding_19: [u8; 11],
+    pub(crate) __padding_19: [u8; 11],
     pub trigger_event: ETriggerEvent,
     pub last_triggered_world_time: f32,
     pub triggers: TArray<UPtr<UInputTrigger>>,
     pub modifiers: TArray<UPtr<UInputModifier>>,
     #[doc(hidden)]
-    __padding_88: [u8; 32],
+    pub(crate) __padding_88: [u8; 32],
     pub elapsed_processed_time: f32,
     pub elapsed_triggered_time: f32,
 }
@@ -1908,7 +1908,7 @@ impl UEnhancedInputLibrary {
 #[repr(C, align(8))]
 pub struct UEnhancedInputPlatformData {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub mapping_context_redirects: TMap<
         UPtr<UInputMappingContext>,
         UPtr<UInputMappingContext>,
@@ -3358,7 +3358,7 @@ impl UEnhancedPlayerInput {
 #[repr(C, align(8))]
 pub struct UInputAction {
     #[doc(hidden)]
-    __padding_120: [u8; 120],
+    pub(crate) __padding_120: [u8; 120],
     pub action_description: FText,
     pub b_trigger_when_paused: bool,
     pub b_consume_input: bool,
@@ -3412,7 +3412,7 @@ impl UInputDebugKeyDelegateBinding {
 #[repr(C, align(8))]
 pub struct UInputMappingContext {
     #[doc(hidden)]
-    __padding_56: [u8; 56],
+    pub(crate) __padding_56: [u8; 56],
     pub mappings: TArray<FEnhancedActionKeyMapping>,
     pub default_key_mappings: FInputMappingContextMappingData,
     pub mapping_profile_overrides: TMap<FString, FInputMappingContextMappingData>,
@@ -3707,7 +3707,7 @@ impl UInputModifier {
 #[repr(C, align(8))]
 pub struct UInputModifierSmoothDelta {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub smoothing_method: ENormalizeInputSmoothingType,
     pub speed: f32,
     pub easing_exponent: f32,
@@ -3733,7 +3733,7 @@ impl UInputModifierSmoothDelta {
 #[repr(C, align(8))]
 pub struct UInputModifierDeadZone {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub lower_threshold: f32,
     pub upper_threshold: f32,
     pub ty: EDeadZoneType,
@@ -3758,7 +3758,7 @@ impl UInputModifierDeadZone {
 #[repr(C, align(8))]
 pub struct UInputModifierScalar {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub scalar: crate::bindings::core_u_object::FVector,
 }
 impl UInputModifierScalar {
@@ -3802,7 +3802,7 @@ impl UInputModifierScaleByDeltaTime {
 #[repr(C, align(8))]
 pub struct UInputModifierNegate {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub b_x: bool,
     pub b_y: bool,
     pub b_z: bool,
@@ -3848,7 +3848,7 @@ impl UInputModifierSmooth {
 #[repr(C, align(8))]
 pub struct UInputModifierResponseCurveExponential {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub curve_exponent: crate::bindings::core_u_object::FVector,
 }
 impl UInputModifierResponseCurveExponential {
@@ -3871,7 +3871,7 @@ impl UInputModifierResponseCurveExponential {
 #[repr(C, align(8))]
 pub struct UInputModifierResponseCurveUser {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub response_x: UPtr<crate::bindings::engine::UCurveFloat>,
     pub response_y: UPtr<crate::bindings::engine::UCurveFloat>,
     pub response_z: UPtr<crate::bindings::engine::UCurveFloat>,
@@ -3896,7 +3896,7 @@ impl UInputModifierResponseCurveUser {
 #[repr(C, align(8))]
 pub struct UInputModifierFOVScaling {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub fov_scale: f32,
     pub fov_scaling_type: EFOVScalingType,
 }
@@ -3941,7 +3941,7 @@ impl UInputModifierToWorldSpace {
 #[repr(C, align(8))]
 pub struct UInputModifierSwizzleAxis {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub order: EInputAxisSwizzle,
 }
 impl UInputModifierSwizzleAxis {
@@ -3964,7 +3964,7 @@ impl UInputModifierSwizzleAxis {
 #[repr(C, align(8))]
 pub struct UInputTrigger {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub actuation_threshold: f32,
     pub b_should_always_tick: bool,
     pub last_value: FInputActionValue,
@@ -4100,7 +4100,7 @@ impl UInputTrigger {
 #[repr(C, align(8))]
 pub struct UInputTriggerTimedBase {
     #[doc(hidden)]
-    __padding_88: [u8; 88],
+    pub(crate) __padding_88: [u8; 88],
     pub held_duration: f32,
     pub b_affected_by_time_dilation: bool,
 }
@@ -4187,7 +4187,7 @@ impl UInputTriggerReleased {
 #[repr(C, align(8))]
 pub struct UInputTriggerHold {
     #[doc(hidden)]
-    __padding_100: [u8; 100],
+    pub(crate) __padding_100: [u8; 100],
     pub hold_time_threshold: f32,
     pub b_is_one_shot: bool,
 }
@@ -4211,7 +4211,7 @@ impl UInputTriggerHold {
 #[repr(C, align(8))]
 pub struct UInputTriggerHoldAndRelease {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub hold_time_threshold: f32,
 }
 impl UInputTriggerHoldAndRelease {
@@ -4234,7 +4234,7 @@ impl UInputTriggerHoldAndRelease {
 #[repr(C, align(8))]
 pub struct UInputTriggerTap {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub tap_release_time_threshold: f32,
 }
 impl UInputTriggerTap {
@@ -4257,10 +4257,10 @@ impl UInputTriggerTap {
 #[repr(C, align(8))]
 pub struct UInputTriggerRepeatedTap {
     #[doc(hidden)]
-    __padding_96: [u8; 96],
+    pub(crate) __padding_96: [u8; 96],
     pub repeat_delay: f64,
     #[doc(hidden)]
-    __padding_112: [u8; 8],
+    pub(crate) __padding_112: [u8; 8],
     pub number_of_taps_which_trigger_repeat: i32,
     pub tap_release_time_threshold: f32,
     __padding_end: [u8; 8],
@@ -4285,7 +4285,7 @@ impl UInputTriggerRepeatedTap {
 #[repr(C, align(8))]
 pub struct UInputTriggerPulse {
     #[doc(hidden)]
-    __padding_100: [u8; 100],
+    pub(crate) __padding_100: [u8; 100],
     pub b_trigger_on_start: bool,
     pub interval: f32,
     pub trigger_limit: i32,
@@ -4310,7 +4310,7 @@ impl UInputTriggerPulse {
 #[repr(C, align(8))]
 pub struct UInputTriggerChordAction {
     #[doc(hidden)]
-    __padding_88: [u8; 88],
+    pub(crate) __padding_88: [u8; 88],
     pub chord_action: UPtr<UInputAction>,
 }
 impl UInputTriggerChordAction {
@@ -4354,7 +4354,7 @@ impl UInputTriggerChordBlocker {
 #[repr(C, align(8))]
 pub struct UInputTriggerCombo {
     #[doc(hidden)]
-    __padding_88: [u8; 88],
+    pub(crate) __padding_88: [u8; 88],
     pub current_combo_step_index: i32,
     pub current_time_between_combo_steps: f32,
     pub combo_actions: TArray<FInputComboStepData>,
@@ -4380,7 +4380,7 @@ impl UInputTriggerCombo {
 #[repr(C, align(8))]
 pub struct UPlayerMappableInputConfig {
     #[doc(hidden)]
-    __padding_72: [u8; 72],
+    pub(crate) __padding_72: [u8; 72],
     pub config_name: FName,
     pub config_display_name: FText,
     pub b_is_deprecated: bool,
@@ -4662,13 +4662,13 @@ impl UPlayerMappableInputConfig {
 #[repr(C, align(8))]
 pub struct UPlayerMappableKeySettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub metadata: UPtr<crate::bindings::core_u_object::UObject>,
     pub name: FName,
     pub display_name: FText,
     pub display_category: FText,
     #[doc(hidden)]
-    __padding_136: [u8; 32],
+    pub(crate) __padding_136: [u8; 32],
     pub supported_key_profile_ids: TArray<FString>,
 }
 impl UPlayerMappableKeySettings {
@@ -4691,7 +4691,7 @@ impl UPlayerMappableKeySettings {
 #[repr(C, align(8))]
 pub struct UEnhancedPlayerMappableKeyProfile {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub profile_identifier_string: FString,
     pub owning_user_id: crate::bindings::core_u_object::FPlatformUserId,
     pub display_name: FText,

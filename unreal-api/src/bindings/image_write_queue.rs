@@ -38,7 +38,7 @@ pub struct FImageWriteOptions {
     pub compression_quality: i32,
     pub b_overwrite_file: bool,
     pub b_async: bool,
-    __padding_end: [u8; 50],
+    pub(crate) __padding_end: [u8; 50],
 }
 impl FImageWriteOptions {}
 #[repr(C, align(8))]

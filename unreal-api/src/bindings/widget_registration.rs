@@ -18,7 +18,7 @@ pub fn initialize() {}
 #[repr(C, align(16))]
 pub struct FToolkitWidgetStyle {
     #[doc(hidden)]
-    __padding_16: [u8; 16],
+    pub(crate) __padding_16: [u8; 16],
     pub title_background_brush: crate::bindings::slate_core::FSlateBrush,
     pub tool_details_background_brush: crate::bindings::slate_core::FSlateBrush,
     pub title_foreground_color: crate::bindings::slate_core::FSlateColor,

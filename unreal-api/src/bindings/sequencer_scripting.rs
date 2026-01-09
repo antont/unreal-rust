@@ -3700,7 +3700,7 @@ pub struct FSequencerScriptingRange {
     pub flags_0: u8,
     pub inclusive_start: i32,
     pub exclusive_end: i32,
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FSequencerScriptingRange {}
 #[repr(C, align(8))]
@@ -3905,7 +3905,7 @@ impl UMovieSceneScriptingActorReferenceKey {
 #[repr(C, align(8))]
 pub struct UMovieSceneScriptingChannel {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub channel_name: FName,
 }
 impl UMovieSceneScriptingChannel {

@@ -17,12 +17,12 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(4))]
 pub struct FBoneID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FBoneID {}
 #[repr(C, align(4))]
 pub struct FSourceGeometryPartID {
-    __padding_end: [u8; 4],
+    pub(crate) __padding_end: [u8; 4],
 }
 impl FSourceGeometryPartID {}
 #[repr(C, align(8))]

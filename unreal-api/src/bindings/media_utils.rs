@@ -34,7 +34,7 @@ pub struct FMediaPlayerOptions {
     pub seek_time_type: EMediaPlayerOptionSeekTimeType,
     pub play_on_open: EMediaPlayerOptionBooleanOverride,
     pub loop_: EMediaPlayerOptionBooleanOverride,
-    __padding_end: [u8; 85],
+    pub(crate) __padding_end: [u8; 85],
 }
 impl FMediaPlayerOptions {}
 #[repr(transparent)]

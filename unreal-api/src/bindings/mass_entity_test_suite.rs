@@ -17,7 +17,7 @@ impl FunctionPtrs {
 pub fn initialize() {}
 #[repr(C, align(8))]
 pub struct FFarmVisualDataRow {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FFarmVisualDataRow {}
 #[repr(C, align(16))]
@@ -548,7 +548,7 @@ impl UFarmHarvestTimerSetIcon {
 #[repr(C, align(8))]
 pub struct AMassEntityTestFarmPlot {
     #[doc(hidden)]
-    __padding_1288: [u8; 1288],
+    pub(crate) __padding_1288: [u8; 1288],
     pub harvest_icon_ismc: UPtr<
         crate::bindings::engine::UHierarchicalInstancedStaticMeshComponent,
     >,

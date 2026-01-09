@@ -782,7 +782,7 @@ pub struct FTakeRecorderProjectParameters {
     pub b_record_sources_into_sub_sequences: bool,
     pub b_record_to_possessable: bool,
     #[doc(hidden)]
-    __padding_88: [u8; 19],
+    pub(crate) __padding_88: [u8; 19],
     pub b_show_notifications: bool,
 }
 impl FTakeRecorderProjectParameters {}
@@ -793,7 +793,7 @@ pub struct FTakeRecorderParameters {
     pub take_recorder_mode: ETakeRecorderMode,
     pub start_frame: crate::bindings::core_u_object::FFrameNumber,
     #[doc(hidden)]
-    __padding_129: [u8; 1],
+    pub(crate) __padding_129: [u8; 1],
     pub b_open_sequencer: bool,
 }
 impl FTakeRecorderParameters {}
@@ -3515,7 +3515,7 @@ impl UTakeRecorderSubsystemImplementation {
 #[repr(C, align(8))]
 pub struct UTakeRecorderOverlayWidget {
     #[doc(hidden)]
-    __padding_1288: [u8; 1288],
+    pub(crate) __padding_1288: [u8; 1288],
     pub recorder: UPtr<UTakeRecorder>,
 }
 impl UTakeRecorderOverlayWidget {
@@ -3538,7 +3538,7 @@ impl UTakeRecorderOverlayWidget {
 #[repr(C, align(8))]
 pub struct UTakeRecorderUserSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub settings: FTakeRecorderUserParameters,
     __padding_end: [u8; 72],
 }
@@ -3562,7 +3562,7 @@ impl UTakeRecorderUserSettings {
 #[repr(C, align(8))]
 pub struct UTakeRecorderProjectSettings {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub settings: FTakeRecorderProjectParameters,
     __padding_end: [u8; 80],
 }

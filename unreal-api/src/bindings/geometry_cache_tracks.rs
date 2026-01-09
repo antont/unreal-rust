@@ -23,18 +23,18 @@ pub struct FMovieSceneGeometryCacheParams {
     pub end_frame_offset: crate::bindings::core_u_object::FFrameNumber,
     pub play_rate: f32,
     pub flags_24: u8,
-    __padding_end: [u8; 55],
+    pub(crate) __padding_end: [u8; 55],
 }
 impl FMovieSceneGeometryCacheParams {}
 #[repr(C, align(8))]
 pub struct FMovieSceneGeometryCacheSectionTemplateParameters {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FMovieSceneGeometryCacheSectionTemplateParameters {}
 #[repr(C, align(8))]
 pub struct UMovieSceneGeometryCacheSection {
     #[doc(hidden)]
-    __padding_360: [u8; 360],
+    pub(crate) __padding_360: [u8; 360],
     pub params: FMovieSceneGeometryCacheParams,
     __padding_end: [u8; 8],
 }

@@ -81,7 +81,7 @@ impl UMovieSceneChaosCacheTrackRecorder {
 #[repr(C, align(8))]
 pub struct UTakeRecorderChaosCacheSource {
     #[doc(hidden)]
-    __padding_64: [u8; 64],
+    pub(crate) __padding_64: [u8; 64],
     pub chaos_cache_manager: TSoftObjectPtr<
         crate::bindings::chaos_caching::AChaosCacheManager,
     >,

@@ -179,7 +179,7 @@ pub fn initialize() {
 #[repr(C, align(8))]
 pub struct FSequencerViewModelScriptingStruct {
     pub ty: FName,
-    __padding_end: [u8; 20],
+    pub(crate) __padding_end: [u8; 20],
 }
 impl FSequencerViewModelScriptingStruct {}
 #[repr(C, align(8))]
@@ -698,7 +698,7 @@ impl USequencerOutlinerScriptingObject {
 #[repr(C, align(8))]
 pub struct USequencerScriptingLayer {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub outliner: UPtr<USequencerOutlinerScriptingObject>,
 }
 impl USequencerScriptingLayer {

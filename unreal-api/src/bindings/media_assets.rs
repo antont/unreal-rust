@@ -1158,7 +1158,7 @@ pub struct FMediaSoundComponentSpectralData {
 impl FMediaSoundComponentSpectralData {}
 #[repr(C, align(4))]
 pub struct FMediaSourceCacheSettings {
-    __padding_end: [u8; 8],
+    pub(crate) __padding_end: [u8; 8],
 }
 impl FMediaSourceCacheSettings {}
 #[repr(C, align(8))]
@@ -1385,7 +1385,7 @@ impl UMediaSource {
 #[repr(C, align(8))]
 pub struct UBaseMediaSource {
     #[doc(hidden)]
-    __padding_152: [u8; 152],
+    pub(crate) __padding_152: [u8; 152],
     pub platform_player_names: TMap<FString, FName>,
     __padding_end: [u8; 96],
 }
@@ -1409,7 +1409,7 @@ impl UBaseMediaSource {
 #[repr(C, align(8))]
 pub struct UFileMediaSource {
     #[doc(hidden)]
-    __padding_328: [u8; 328],
+    pub(crate) __padding_328: [u8; 328],
     pub file_path: FString,
     pub precache_file: bool,
     __padding_end: [u8; 23],
@@ -1462,7 +1462,7 @@ impl UFileMediaSource {
 #[repr(C, align(8))]
 pub struct UMediaComponent {
     #[doc(hidden)]
-    __padding_240: [u8; 240],
+    pub(crate) __padding_240: [u8; 240],
     pub media_texture: UPtr<UMediaTexture>,
     pub media_player: UPtr<UMediaPlayer>,
 }
@@ -1538,7 +1538,7 @@ impl UMediaComponent {
 #[repr(C, align(8))]
 pub struct UMediaTimeStampInfo {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub time: crate::bindings::core_u_object::FTimespan,
     pub sequence_index: i64,
 }
@@ -1562,20 +1562,20 @@ impl UMediaTimeStampInfo {
 #[repr(C, align(8))]
 pub struct UMediaPlayer {
     #[doc(hidden)]
-    __padding_320: [u8; 320],
+    pub(crate) __padding_320: [u8; 320],
     pub cache_ahead: crate::bindings::core_u_object::FTimespan,
     pub cache_behind: crate::bindings::core_u_object::FTimespan,
     pub cache_behind_game: crate::bindings::core_u_object::FTimespan,
     pub native_audio_out: bool,
     pub play_on_open: bool,
     #[doc(hidden)]
-    __padding_348: [u8; 2],
+    pub(crate) __padding_348: [u8; 2],
     pub flags_348: u8,
     pub playlist: UPtr<UMediaPlaylist>,
     pub playlist_index: i32,
     pub time_delay: crate::bindings::core_u_object::FTimespan,
     #[doc(hidden)]
-    __padding_496: [u8; 120],
+    pub(crate) __padding_496: [u8; 120],
     pub affected_by_pie_handling: bool,
 }
 impl UMediaPlayer {
@@ -4927,14 +4927,14 @@ impl UMediaSoundComponent {
 #[repr(C, align(16))]
 pub struct UMediaTexture {
     #[doc(hidden)]
-    __padding_1240: [u8; 1240],
+    pub(crate) __padding_1240: [u8; 1240],
     pub address_x: crate::bindings::engine::TextureAddress,
     pub address_y: crate::bindings::engine::TextureAddress,
     pub auto_clear: bool,
     pub clear_color: crate::bindings::core_u_object::FLinearColor,
     pub enable_gen_mips: bool,
     #[doc(hidden)]
-    __padding_1262: [u8; 1],
+    pub(crate) __padding_1262: [u8; 1],
     pub new_style_output: bool,
     pub current_aspect_ratio: f32,
     pub current_orientation: MediaTextureOrientation,
@@ -5166,7 +5166,7 @@ impl UPlatformMediaSource {
 #[repr(C, align(8))]
 pub struct UStreamMediaSource {
     #[doc(hidden)]
-    __padding_328: [u8; 328],
+    pub(crate) __padding_328: [u8; 328],
     pub stream_url: FString,
 }
 impl UStreamMediaSource {
@@ -5189,7 +5189,7 @@ impl UStreamMediaSource {
 #[repr(C, align(8))]
 pub struct UTimeSynchronizableMediaSource {
     #[doc(hidden)]
-    __padding_328: [u8; 328],
+    pub(crate) __padding_328: [u8; 328],
     pub b_use_time_synchronization: bool,
     __padding_end: [u8; 23],
 }

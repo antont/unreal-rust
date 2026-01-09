@@ -1808,7 +1808,7 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FMetaSoundOutput {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FMetaSoundOutput {}
 #[repr(C, align(8))]
@@ -1818,24 +1818,24 @@ pub struct FMetaSoundAssetDirectory {
 impl FMetaSoundAssetDirectory {}
 #[repr(C, align(4))]
 pub struct FMetaSoundBuilderNodeInputHandle {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FMetaSoundBuilderNodeInputHandle {}
 #[repr(C, align(4))]
 pub struct FMetaSoundBuilderNodeOutputHandle {
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FMetaSoundBuilderNodeOutputHandle {}
 #[repr(C, align(4))]
 pub struct FMetaSoundNodeHandle {
-    __padding_end: [u8; 16],
+    pub(crate) __padding_end: [u8; 16],
 }
 impl FMetaSoundNodeHandle {}
 #[repr(C, align(8))]
 pub struct FMetaSoundBuilderOptions {
     pub name: FName,
     pub b_force_unique_class_name: bool,
-    __padding_end: [u8; 19],
+    pub(crate) __padding_end: [u8; 19],
 }
 impl FMetaSoundBuilderOptions {}
 #[repr(C, align(8))]
@@ -10450,11 +10450,11 @@ impl UMetaSoundSettings {
 #[repr(C, align(16))]
 pub struct UMetaSoundSource {
     #[doc(hidden)]
-    __padding_3880: [u8; 3880],
+    pub(crate) __padding_3880: [u8; 3880],
     pub output_format: EMetaSoundOutputAudioFormat,
     pub quality_setting: FName,
     #[doc(hidden)]
-    __padding_3912: [u8; 16],
+    pub(crate) __padding_3912: [u8; 16],
     pub block_rate_override: crate::bindings::core_u_object::FPerPlatformFloat,
     pub sample_rate_override: crate::bindings::core_u_object::FPerPlatformInt,
     __padding_end: [u8; 440],

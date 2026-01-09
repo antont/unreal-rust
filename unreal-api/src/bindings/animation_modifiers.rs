@@ -169,7 +169,7 @@ impl UAnimationModifier {
 #[repr(C, align(8))]
 pub struct UAnimationModifiersAssetUserData {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub animation_modifier_instances: TArray<UPtr<UAnimationModifier>>,
     pub applied_modifiers: TMap<
         crate::bindings::core_u_object::FSoftObjectPath,

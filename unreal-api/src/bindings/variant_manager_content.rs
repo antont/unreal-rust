@@ -547,7 +547,7 @@ impl ULevelVariantSets {
 #[repr(C, align(8))]
 pub struct ALevelVariantSetsActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub level_variant_sets: crate::bindings::core_u_object::FSoftObjectPath,
     __padding_end: [u8; 80],
 }

@@ -376,7 +376,7 @@ pub struct FGrassVariety {
     pub b_cast_contact_shadow: bool,
     pub b_keep_instance_buffer_cpu_copy: bool,
     #[doc(hidden)]
-    __padding_744: [u8; 6],
+    pub(crate) __padding_744: [u8; 6],
     pub shadow_cache_invalidation_behavior: crate::bindings::engine::EShadowCacheInvalidationBehavior,
 }
 impl FGrassVariety {}
@@ -542,7 +542,7 @@ impl ULandscapeGizmoRenderComponent {
 #[repr(C, align(8))]
 pub struct ULandscapeGrassType {
     #[doc(hidden)]
-    __padding_48: [u8; 48],
+    pub(crate) __padding_48: [u8; 48],
     pub grass_varieties: TArray<FGrassVariety>,
     pub flags_64: u8,
     __padding_end: [u8; 39],
@@ -567,54 +567,54 @@ impl ULandscapeGrassType {
 #[repr(C, align(8))]
 pub struct ALandscapeProxy {
     #[doc(hidden)]
-    __padding_1272: [u8; 1272],
+    pub(crate) __padding_1272: [u8; 1272],
     pub b_enable_nanite: bool,
     #[doc(hidden)]
-    __padding_1872: [u8; 592],
+    pub(crate) __padding_1872: [u8; 592],
     pub landscape_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     #[doc(hidden)]
-    __padding_1928: [u8; 48],
+    pub(crate) __padding_1928: [u8; 48],
     pub runtime_virtual_textures: TArray<
         UPtr<crate::bindings::engine::URuntimeVirtualTexture>,
     >,
     #[doc(hidden)]
-    __padding_1945: [u8; 1],
+    pub(crate) __padding_1945: [u8; 1],
     pub b_virtual_texture_render_with_quad: bool,
     pub b_virtual_texture_render_with_quad_hq: bool,
     pub virtual_texture_num_lods: i32,
     pub virtual_texture_lod_bias: i32,
     pub virtual_texture_render_pass_type: crate::bindings::engine::ERuntimeVirtualTextureMainPassType,
     #[doc(hidden)]
-    __padding_2164: [u8; 207],
+    pub(crate) __padding_2164: [u8; 207],
     pub flags_2164: u8,
     pub shadow_cache_invalidation_behavior: crate::bindings::engine::EShadowCacheInvalidationBehavior,
     pub flags_2166: u8,
     #[doc(hidden)]
-    __padding_2168: [u8; 1],
+    pub(crate) __padding_2168: [u8; 1],
     pub flags_2168: u8,
     #[doc(hidden)]
-    __padding_2172: [u8; 3],
+    pub(crate) __padding_2172: [u8; 3],
     pub flags_2172: u8,
     #[doc(hidden)]
-    __padding_2176: [u8; 3],
+    pub(crate) __padding_2176: [u8; 3],
     pub flags_2176: u8,
     #[doc(hidden)]
-    __padding_2180: [u8; 3],
+    pub(crate) __padding_2180: [u8; 3],
     pub flags_2180: u8,
     pub lighting_channels: crate::bindings::engine::FLightingChannels,
     #[doc(hidden)]
-    __padding_2200: [u8; 18],
+    pub(crate) __padding_2200: [u8; 18],
     pub flags_2200: u8,
     #[doc(hidden)]
-    __padding_2204: [u8; 3],
+    pub(crate) __padding_2204: [u8; 3],
     pub flags_2204: u8,
     #[doc(hidden)]
-    __padding_2208: [u8; 3],
+    pub(crate) __padding_2208: [u8; 3],
     pub custom_depth_stencil_write_mask: crate::bindings::engine::ERendererStencilMask,
     pub custom_depth_stencil_value: i32,
     pub ld_max_draw_distance: f32,
     #[doc(hidden)]
-    __padding_2256: [u8; 32],
+    pub(crate) __padding_2256: [u8; 32],
     pub body_instance: crate::bindings::engine::FBodyInstance,
     pub flags_2688: u8,
     __padding_end: [u8; 655],
@@ -1326,7 +1326,7 @@ impl ULandscapeMeshCollisionComponent_DEPRECATED {
 #[repr(C, align(8))]
 pub struct ALandscapeMeshProxyActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub landscape_mesh_proxy_component: UPtr<ULandscapeMeshProxyComponent>,
 }
 impl ALandscapeMeshProxyActor {
@@ -1424,7 +1424,7 @@ impl ULandscapeSplinesComponent {
 #[repr(C, align(8))]
 pub struct ULandscapeSplineControlPoint {
     #[doc(hidden)]
-    __padding_280: [u8; 280],
+    pub(crate) __padding_280: [u8; 280],
     pub body_instance: crate::bindings::engine::FBodyInstance,
     __padding_end: [u8; 168],
 }
@@ -1448,7 +1448,7 @@ impl ULandscapeSplineControlPoint {
 #[repr(C, align(8))]
 pub struct ULandscapeSplineSegment {
     #[doc(hidden)]
-    __padding_200: [u8; 200],
+    pub(crate) __padding_200: [u8; 200],
     pub body_instance: crate::bindings::engine::FBodyInstance,
     __padding_end: [u8; 152],
 }
@@ -1535,7 +1535,7 @@ impl UMaterialExpressionLandscapeGrassOutput {
 #[repr(C, align(8))]
 pub struct AControlPointMeshActor {
     #[doc(hidden)]
-    __padding_1136: [u8; 1136],
+    pub(crate) __padding_1136: [u8; 1136],
     pub control_point_mesh_component: UPtr<UControlPointMeshComponent>,
 }
 impl AControlPointMeshActor {
@@ -1814,7 +1814,7 @@ impl ALandscape {
 #[repr(C, align(16))]
 pub struct ALandscapeBlueprintBrushBase {
     #[doc(hidden)]
-    __padding_1152: [u8; 1152],
+    pub(crate) __padding_1152: [u8; 1152],
     pub update_on_property_change: bool,
     pub affect_heightmap: bool,
     pub affect_weightmap: bool,
@@ -2090,15 +2090,15 @@ impl ULandscapeLODStreamingProxy_DEPRECATED {
 #[repr(C, align(16))]
 pub struct ULandscapeComponent {
     #[doc(hidden)]
-    __padding_1504: [u8; 1504],
+    pub(crate) __padding_1504: [u8; 1504],
     pub section_base_x: i32,
     pub section_base_y: i32,
     #[doc(hidden)]
-    __padding_1528: [u8; 16],
+    pub(crate) __padding_1528: [u8; 16],
     pub override_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     pub override_hole_material: UPtr<crate::bindings::engine::UMaterialInterface>,
     #[doc(hidden)]
-    __padding_2172: [u8; 628],
+    pub(crate) __padding_2172: [u8; 628],
     pub forced_lod: i32,
     pub lod_bias: i32,
     __padding_end: [u8; 364],
@@ -2716,7 +2716,7 @@ impl ALandscapeSplineActor {
 #[repr(C, align(8))]
 pub struct ALandscapeSplineMeshesActor {
     #[doc(hidden)]
-    __padding_1144: [u8; 1144],
+    pub(crate) __padding_1144: [u8; 1144],
     pub static_mesh_components: TArray<
         UPtr<crate::bindings::engine::UStaticMeshComponent>,
     >,

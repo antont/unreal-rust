@@ -1130,12 +1130,12 @@ pub fn initialize() {
 }
 #[repr(C, align(8))]
 pub struct FInterchangeTestScreenshotParameters {
-    __padding_end: [u8; 88],
+    pub(crate) __padding_end: [u8; 88],
 }
 impl FInterchangeTestScreenshotParameters {}
 #[repr(C, align(8))]
 pub struct FInterchangeTestPlanPipelineSettings {
-    __padding_end: [u8; 24],
+    pub(crate) __padding_end: [u8; 24],
 }
 impl FInterchangeTestPlanPipelineSettings {}
 #[repr(C, align(8))]

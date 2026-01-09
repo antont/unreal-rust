@@ -227,7 +227,7 @@ impl UControlRigAssetInterface {
 #[repr(C, align(8))]
 pub struct UControlRigBlueprint {
     #[doc(hidden)]
-    __padding_4648: [u8; 4648],
+    pub(crate) __padding_4648: [u8; 4648],
     pub hierarchy: UPtr<crate::bindings::control_rig::URigHierarchy>,
     pub modular_rig_model: crate::bindings::control_rig::FModularRigModel,
     __padding_end: [u8; 288],

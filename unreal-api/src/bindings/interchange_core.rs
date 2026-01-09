@@ -1554,7 +1554,7 @@ impl FInterchangePipelinePropertyStates {}
 #[repr(C, align(8))]
 pub struct FInterchangeUserDefinedAttributeInfo {
     pub name: FString,
-    __padding_end: [u8; 32],
+    pub(crate) __padding_end: [u8; 32],
 }
 impl FInterchangeUserDefinedAttributeInfo {}
 #[repr(C, align(8))]
