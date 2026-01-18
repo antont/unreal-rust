@@ -1,4 +1,5 @@
 use crate::Component;
+use bevy_ecs::component::{Mutable, StorageType};
 use ffi::AActorOpaque;
 use glam::{Quat, Vec3};
 use unreal_ffi as ffi;

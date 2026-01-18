@@ -1,9 +1,11 @@
+use bevy_ecs::query::QueryData;
 use bevy_ecs::{prelude::*, query::WorldQuery};
 use unreal_api::api::{SweepHit, SweepParams, UnrealApi};
 use unreal_api::core::EntityEvent;
+use unreal_api::ecs::{PostUpdate, Update};
 use unreal_api::{Component, Event, register_editor_components, register_events};
 use unreal_api::{
-    core::{ActorComponent, CoreStage, Frame, TransformComponent},
+    core::{ActorComponent, Frame, TransformComponent},
     ffi,
     input::Input,
     log::LogCategory,
@@ -21,8 +23,7 @@ fn project_onto_plane(dir: Vec3, normal: Vec3) -> Vec3 {
 #[uuid = "5464a09a-51f8-4a34-92dd-ef4c043108fa"]
 pub struct JumpCommand {}
 
-#[derive(Debug, Copy, Clone)]
-#[derive(Default)]
+#[derive(Debug, Copy, Clone, Default)]
 pub enum MovementState {
     #[default]
     Walking,
@@ -171,8 +172,8 @@ fn do_gliding(movement: &mut MovementQueryItem, dt: f32, api: &UnrealApi) -> Opt
     }
 }
 
-#[derive(WorldQuery)]
-#[world_query(mutable)]
+#[derive(QueryData)]
+#[query_data(mutable)]
 pub struct MovementQuery {
     entity: Entity,
     actor: &'static ActorComponent,
@@ -181,7 +182,7 @@ pub struct MovementQuery {
     controller: &'static mut CharacterControllerComponent,
     config: &'static CharacterConfigComponent,
 }
-impl<'w> MovementQueryItem<'w> {
+impl<'w, 's> MovementQueryItem<'w, 's> {
     pub fn try_step_up(&self, move_result: &SweepHit, api: &UnrealApi) -> Option<StepUpResult> {
         let params = SweepParams::default()
             // Don't test against ourselves
@@ -240,6 +241,7 @@ impl<'w> MovementQueryItem<'w> {
             })
         })
     }
+
     pub fn resolve_possible_penetration(&self, api: &UnrealApi) -> Option<Vec3> {
         let params = SweepParams::default().add_ignored_entity(self.entity);
         let shape = self.physics.get_collision_shape();
@@ -385,10 +387,10 @@ impl<'w> MovementQueryItem<'w> {
     }
 }
 fn character_jump(
-    mut jumps: EventReader<EntityEvent<JumpCommand>>,
+    mut jumps: MessageReader<EntityEvent<JumpCommand>>,
     mut query: Query<MovementQuery>,
 ) {
-    for jump in jumps.iter() {
+    for jump in jumps.read() {
         if let Ok(mut movement) = query.get_mut(jump.entity) {
             let new_state = match movement.controller.movement_state {
                 MovementState::Walking => {
@@ -418,7 +420,7 @@ fn character_control_system(
     api: Res<UnrealApi>,
     mut query: Query<MovementQuery>,
     phys: Query<&PhysicsComponent>,
-    mut jumps: EventWriter<EntityEvent<JumpCommand>>,
+    mut jumps: MessageWriter<EntityEvent<JumpCommand>>,
 ) {
     let api = &api;
     let forward = input
@@ -438,8 +440,7 @@ fn character_control_system(
         }
 
         if input.is_action_pressed(PlayerInput::JUMP) {
-            log::info!("jump");
-            jumps.send(EntityEvent {
+            jumps.write(EntityEvent {
                 entity: movement.entity,
                 event: JumpCommand {},
             });
@@ -487,15 +488,11 @@ impl Plugin for MovementPlugin {
             => module
         }
 
-        module.add_system_set_to_stage(
-            CoreStage::PostUpdate,
-            SystemSet::new().with_system(character_jump),
-        );
-        module.add_system_set_to_stage(
-            CoreStage::Update,
-            SystemSet::new()
-                .with_system(character_control_system)
-                .with_system(update_movement_component.after(character_control_system)),
+        module.app.add_systems(PostUpdate, character_jump);
+
+        module.app.add_systems(
+            Update,
+            (character_control_system, update_movement_component).chain(),
         );
     }
 }

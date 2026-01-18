@@ -71,11 +71,13 @@ pub fn reflect_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
                 fn has_component(&self, world: &unreal_api::World, entity: unreal_api::Entity) -> bool {
                     world
                         .get_entity(entity)
+                        .ok()
                         .and_then(|entity_ref| entity_ref.get::<#self_ty>()).is_some()
                 }
                 fn get_field_value(&self, world: &unreal_api::World, entity: unreal_api::Entity, idx: u32) -> Option<unreal_api::registry::ReflectValue> {
                     world
                         .get_entity(entity)
+                        .ok()
                         .and_then(|entity_ref| entity_ref.get::<#self_ty>())
                         .and_then(|component| {
                             let ty = match idx {

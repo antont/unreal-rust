@@ -1,24 +1,15 @@
 use std::collections::HashMap;
-use std::ffi::c_void;
-use std::mem::offset_of;
-use std::ops::Deref;
 
 use bevy_ecs::prelude::*;
 use unreal_api::api::UnrealApi;
-use unreal_api::bindings::core_u_object::{FTransform, FVector};
-use unreal_api::bindings::engine::{
-    AActor, FBodyInstance, FHitResult, UCharacterMovementComponent, UKismetSystemLibrary, USceneComponent, UStaticMesh, UVolumetricCloudComponent, UWorldPartition
-};
-use unreal_api::bindings::rust_plugin::{ARustActor, URustExtension_FHitResult};
-use unreal_api::bindings::umg::UWidget;
+use unreal_api::bindings::core_u_object::FVector;
+use unreal_api::bindings::engine::{AActor, FHitResult};
 use unreal_api::core::{ActorHitEvent, Despawn};
-use unreal_api::core_data::StackAlloc;
-use unreal_api::ffi::{StrRustAlloc, UFunctionOpague, Utf8Str};
 use unreal_api::registry::USound;
 use unreal_api::sound::{SoundSettings, play_sound_at_location};
 use unreal_api::{Component, register_editor_components};
 use unreal_api::{
-    core::{ActorComponent, ActorPtr, CoreStage, ParentComponent, TransformComponent},
+    core::{ActorComponent, ActorPtr, ParentComponent, TransformComponent},
     ffi::{self, UClassOpague},
     input::Input,
     math::{Quat, Vec3},
@@ -129,21 +120,19 @@ fn register_class_resource(mut commands: Commands) {
     commands.insert_resource(classes_resource);
 }
 
-fn register_hit_events(mut query: Query<(&mut ActorComponent, Added<PlaySoundOnImpactComponent>)>) {
-    for (mut actor, added) in &mut query {
-        if added {
-            actor.register_on_hit();
-        }
+fn register_hit_events(mut query: Query<&mut ActorComponent, Added<PlaySoundOnImpactComponent>>) {
+    for mut actor in &mut query {
+        actor.register_on_hit();
     }
 }
 
 fn play_sound_on_hit(
     api: Res<UnrealApi>,
-    mut events: EventReader<ActorHitEvent>,
+    mut events: MessageReader<ActorHitEvent>,
     query: Query<(&TransformComponent, &PlaySoundOnImpactComponent)>,
     mut commands: Commands,
 ) {
-    for event in events.iter() {
+    for event in events.read() {
         if event.normal_impulse.length() <= PlaySoundOnImpactComponent::MINIMUM_FORCE {
             continue;
         }
@@ -157,7 +146,7 @@ fn play_sound_on_hit(
                     &SoundSettings::default(),
                 )
             }
-            commands.add(Despawn { entity });
+            commands.queue(Despawn { entity });
         }
     }
 }
@@ -234,9 +223,8 @@ fn update_controller_view(
     camera: Query<(&ParentComponent, &TransformComponent, &CameraComponent)>,
 ) {
     for (parent, spatial, _) in camera.iter() {
-        if let Ok(mut movement) =
-            movement.get_component_mut::<CharacterControllerComponent>(parent.parent)
-        {
+        let mut lens = movement.transmute_lens::<&mut CharacterControllerComponent>();
+        if let Ok(mut movement) = lens.query().get_mut(parent.parent) {
             movement.camera_view = spatial.rotation;
         }
     }
@@ -269,12 +257,10 @@ fn rotate_camera(mut query: Query<(&mut TransformComponent, &mut CameraComponent
 
 fn spawn_camera(
     mut commands: Commands,
-    mut query: Query<(Entity, &ActorComponent, Added<CharacterControllerComponent>)>,
+    mut query: Query<(Entity, &ActorComponent), Added<CharacterControllerComponent>>,
 ) {
-    for (entity, _, added) in query.iter_mut() {
-        if !added {
-            continue;
-        }
+    for (entity, _) in query.iter_mut() {
+        log::info!("{:?}", entity);
         let pos = Vec3::new(-2587.0, -1800.0, 150.0);
         unsafe {
             let actor = (bindings().spawn_actor)(
@@ -337,15 +323,23 @@ fn begin(query: Query<(Entity, &ActorComponent)>) {
     // log::warn!("Class: {}", ptrs.name_to_ptr.keys().count());
 }
 fn update(query: Query<(Entity, &ActorComponent)>) {
-    let mut hit_result = FHitResult::new();
-    for (_entity, actor) in query.iter() {
-
-        let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
-        let v = actor.get_actor_location();
-
-        actor.set_actor_location(FVector { x: 0.0, y: 0.0, z: 0.0 }, true, &mut hit_result, false);
-        log::warn!("{} {} {}", v.x, v.y, v.z);
-    }
+    // let mut hit_result = FHitResult::new();
+    // for (_entity, actor) in query.iter() {
+    //     let mut actor = unsafe { actor.actor.0.cast::<AActor>().as_mut().unwrap() };
+    //     let v = actor.get_actor_location();
+    //
+    //     actor.set_actor_location(
+    //         FVector {
+    //             x: 0.0,
+    //             y: 0.0,
+    //             z: 0.0,
+    //         },
+    //         true,
+    //         &mut hit_result,
+    //         false,
+    //     );
+    //     log::warn!("{} {} {}", v.x, v.y, v.z);
+    // }
 
     // for &class in classes {
     //     let mut str_alloc = StrRustAlloc::empty();
@@ -443,14 +437,13 @@ fn update_camera(
     mut spatial_query: Query<&mut TransformComponent>,
 ) {
     for (entity, parent, camera) in query.iter_mut() {
-        let spatial_parent = spatial_query
-            .get_component::<TransformComponent>(parent.parent)
-            .ok()
-            .cloned();
-        let spatial = spatial_query
-            .get_component_mut::<TransformComponent>(entity)
-            .ok();
-        if let (Some(mut spatial), Some(parent)) = (spatial, spatial_parent) {
+        let mut lens = spatial_query.transmute_lens::<&mut TransformComponent>();
+
+        let mut lens_query = lens.query();
+
+        let spatial = lens_query.get_many_mut([entity, parent.parent]).ok();
+
+        if let Some([mut spatial, parent]) = spatial {
             let local_offset = match camera.mode {
                 CameraMode::ThirdPerson => spatial.rotation * Vec3::new(-500.0, 0.0, 150.0),
                 CameraMode::FirstPerson => Vec3::new(0.0, 0.0, 50.0),
@@ -483,26 +476,45 @@ impl UserModule for MyModule {
         };
 
         module
-            .add_plugin(MovementPlugin)
-            .add_startup_system_set(
-                SystemSet::new()
-                    .with_system(register_class_resource)
-                    .with_system(register_player_input)
-                    .with_system(register_hit_events)
-                    .with_system(begin),
+            .app
+            .add_systems(
+                unreal_api::ecs::Startup,
+                (
+                    register_class_resource,
+                    register_player_input,
+                    register_hit_events,
+                    begin,
+                )
+                    .chain(),
             )
-            .add_system_set_to_stage(
-                CoreStage::Update,
-                SystemSet::new()
-                    .with_system(spawn_class)
-                    .with_system(spawn_camera)
-                    .with_system(update_controller_view)
-                    .with_system(rotate_camera)
-                    .with_system(update_camera.after(rotate_camera))
-                    .with_system(toggle_camera)
-                    .with_system(play_sound_on_hit)
-                    .with_system(update),
+            .add_systems(
+                unreal_api::ecs::Update,
+                (
+                    spawn_class,
+                    spawn_camera,
+                    update_controller_view,
+                    rotate_camera,
+                    update_camera,
+                    toggle_camera,
+                    play_sound_on_hit,
+                    update,
+                )
+                    .chain(),
             );
+
+        module.add_plugin(MovementPlugin);
+        // .add_system_set_to_stage(
+        //     CoreStage::Update,
+        //     SystemSet::new()
+        //         .with_system(spawn_class)
+        //         .with_system(spawn_camera)
+        //         .with_system(update_controller_view)
+        //         .with_system(rotate_camera)
+        //         .with_system(update_camera.after(rotate_camera))
+        //         .with_system(toggle_camera)
+        //         .with_system(play_sound_on_hit)
+        //         .with_system(update),
+        // );
     }
 }
 

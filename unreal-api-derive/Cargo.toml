@@ -13,4 +13,4 @@ syn = "1.0"
 proc-macro2 = "1.0"
 quote = "1.0"
 uuid = { version = "1", features = ["v4", "serde"] }
-darling = "0.14.1"
+darling = "0.14"

@@ -3,16 +3,18 @@ use std::{
     sync::OnceLock,
 };
 
+use bevy_app::App;
 use bevy_ecs::{
     event::Event,
-    prelude::{Events, System},
-    schedule::{Schedule, StageLabel, SystemSet, SystemStage},
-    system::Resource,
+    message::{Message, Messages},
+    prelude::System,
+    resource::Resource,
+    schedule::{Schedule, ScheduleLabel, SystemSet},
 };
 use unreal_reflect::{TypeUuid, World, registry::ReflectDyn, uuid};
 
 use crate::{
-    core::{CoreStage, EntityEvent, SendEntityEvent, StartupStage, UnrealCore},
+    core::{EntityEvent, SendEntityEvent, UnrealCore},
     editor_component::AddSerializedComponent,
     ffi::UnrealBindings,
     plugin::Plugin,
@@ -103,60 +105,66 @@ impl ReflectionRegistry {
 }
 
 pub struct Module {
-    pub(crate) schedule: Schedule,
-    pub(crate) startup: Schedule,
+    // pub(crate) schedule: Schedule,
     pub reflection_registry: ReflectionRegistry,
-    pub(crate) world: World,
+    pub app: App,
 }
 
 impl Module {
+    pub fn world(&self) -> &World {
+        self.app.world()
+    }
+
+    pub fn world_mut(&mut self) -> &mut World {
+        self.app.world_mut()
+    }
+
     pub fn new() -> Self {
-        let mut startup = Schedule::default();
-        startup.add_stage(StartupStage, SystemStage::single_threaded());
+        // let mut startup = Schedule::default();
+        // startup.add_stage(StartupStage, SystemStage::single_threaded());
 
         Self {
-            schedule: Schedule::default(),
-            startup,
+            app: App::new(),
+            // schedule: Schedule::default(),
             reflection_registry: ReflectionRegistry::default(),
-            world: World::new(),
         }
     }
-    pub fn insert_resource(&mut self, resource: impl Resource) -> &mut Self {
-        self.world.insert_resource(resource);
-        self
-    }
-
-    pub fn add_stage(&mut self, label: impl StageLabel) -> &mut Self {
-        self.schedule
-            .add_stage(label, SystemStage::single_threaded());
-        self
-    }
-
-    pub fn add_stage_after(
-        &mut self,
-        label: impl StageLabel,
-        insert: impl StageLabel,
-    ) -> &mut Self {
-        self.schedule
-            .add_stage_after(label, insert, SystemStage::single_threaded());
-        self
-    }
-
-    pub fn add_stage_before(
-        &mut self,
-        label: impl StageLabel,
-        insert: impl StageLabel,
-    ) -> &mut Self {
-        self.schedule
-            .add_stage_before(label, insert, SystemStage::single_threaded());
-        self
-    }
-
-    pub fn add_system_set_to_stage(&mut self, label: impl StageLabel, set: SystemSet) -> &mut Self {
-        self.schedule.add_system_set_to_stage(label, set);
-        self
-    }
-
+    // pub fn insert_resource(&mut self, resource: impl Resource) -> &mut Self {
+    //     self.world.insert_resource(resource);
+    //     self
+    // }
+    //
+    // pub fn add_stage(&mut self, label: impl ScheduleLabel) -> &mut Self {
+    //     self.schedule
+    //         .add_stage(label, SystemStage::single_threaded());
+    //     self
+    // }
+    //
+    // pub fn add_stage_after(
+    //     &mut self,
+    //     label: impl ScheduleLabel,
+    //     insert: impl ScheduleLabel,
+    // ) -> &mut Self {
+    //     self.schedule
+    //         .add_stage_after(label, insert, SystemStage::single_threaded());
+    //     self
+    // }
+    //
+    // pub fn add_stage_before(
+    //     &mut self,
+    //     label: impl ScheduleLabel,
+    //     insert: impl ScheduleLabel,
+    // ) -> &mut Self {
+    //     self.schedule
+    //         .add_stage_before(label, insert, SystemStage::single_threaded());
+    //     self
+    // }
+    //
+    // pub fn add_system_set_to_stage(&mut self, label: impl ScheduleLabel, set: SystemSet) -> &mut Self {
+    //     self.schedule.add_system_set_to_stage(label, set);
+    //     self
+    // }
+    //
     pub fn register_component<T>(&mut self)
     where
         T: RegisterReflection + TypeUuid + 'static,
@@ -179,7 +187,7 @@ impl Module {
 
     pub fn register_event<T>(&mut self)
     where
-        T: RegisterReflection + RegisterEvent + TypeUuid + Send + Sync + 'static,
+        T: RegisterReflection + RegisterEvent + TypeUuid + Send + Sync + Message + 'static,
     {
         self.reflection_registry.uuid_set.insert(T::TYPE_UUID);
         T::register_event(&mut self.reflection_registry);
@@ -194,18 +202,26 @@ impl Module {
         self
     }
 
-    pub fn add_startup_system_set(&mut self, system_set: SystemSet) -> &mut Self {
-        self.startup
-            .add_system_set_to_stage(StartupStage, system_set);
-        self
-    }
+    // pub fn add_startup_system_set(&mut self, system_set: SystemSet) -> &mut Self {
+    //     self.startup
+    //         .add_system_set_to_stage(StartupStage, system_set);
+    //     self
+    // }
+    //
+    pub fn add_event<T: bevy_ecs::message::Message>(&mut self) -> &mut Self {
+        // TODO
+        // self.app.world_mut().init_resource::<Events<T>>();
 
-    pub fn add_event<T: Event>(&mut self) -> &mut Self {
-        self.world.init_resource::<Events<T>>();
-        self.add_system_set_to_stage(
-            CoreStage::RegisterEvent,
-            SystemSet::new().with_system(Events::<T>::update_system),
-        );
+       
+        self.app.add_message::<T>();
+        
+
+        // self.app
+        //     .add_systems(bevy_app::First, Events::<T>::update_system);
+        // self.add_system_set_to_stage(
+        //     CoreStage::RegisterEvent,
+        //     SystemSet::new().with_system(Events::<T>::update_system),
+        // );
         self
     }
 }

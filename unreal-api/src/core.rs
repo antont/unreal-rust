@@ -3,7 +3,6 @@ use std::ffi::c_void;
 
 use std::panic;
 
-use bevy_ecs::schedule::{StageLabel, SystemSet};
 use bevy_ecs::system::Command;
 use ffi::{EventType, Quaternion, StrRustAlloc};
 use unreal_api::{Component, module::ReflectionRegistry};
@@ -44,39 +43,39 @@ impl Plugin for CorePlugin {
         };
 
         module
+            .app
             .insert_resource(Frame::default())
             .insert_resource(Time::default())
             .insert_resource(Input::default())
             .insert_resource(UnrealApi::default())
-            .add_stage(CoreStage::RegisterEvent)
-            .add_stage_after(CoreStage::RegisterEvent, CoreStage::PreUpdate)
-            .add_stage_after(CoreStage::PreUpdate, CoreStage::Update)
-            .add_stage_after(CoreStage::Update, CoreStage::PostUpdate)
-            // TODO: Order matters here. Needs to be defined after the stages
+            .add_systems(
+                bevy_app::First,
+                (process_actor_spawned, process_actor_destroyed).chain(),
+            )
+            .add_systems(
+                bevy_app::PreUpdate,
+                (
+                    update_input,
+                    download_transform_from_unreal,
+                    download_physics_from_unreal,
+                )
+                    .chain(),
+            )
+            .add_systems(
+                bevy_app::PostUpdate,
+                (upload_transform_to_unreal, upload_physics_to_unreal).chain(),
+            );
+        // .add_stage(CoreStage::RegisterEvent)
+        // .add_stage_after(CoreStage::RegisterEvent, CoreStage::PreUpdate)
+        // .add_stage_after(CoreStage::PreUpdate, CoreStage::Update)
+        // .add_stage_after(CoreStage::Update, CoreStage::PostUpdate)
+        // TODO: Order matters here. Needs to be defined after the stages
+        module
             .add_event::<OnActorBeginOverlapEvent>()
             .add_event::<OnActorEndOverlapEvent>()
             .add_event::<ActorHitEvent>()
             .add_event::<ActorSpawnedEvent>()
-            .add_event::<ActorDestroyEvent>()
-            .add_system_set_to_stage(
-                CoreStage::RegisterEvent,
-                SystemSet::new()
-                    .with_system(process_actor_spawned)
-                    .with_system(process_actor_destroyed),
-            )
-            .add_system_set_to_stage(
-                CoreStage::PreUpdate,
-                SystemSet::new()
-                    .with_system(update_input)
-                    .with_system(download_transform_from_unreal)
-                    .with_system(download_physics_from_unreal),
-            )
-            .add_system_set_to_stage(
-                CoreStage::PostUpdate,
-                SystemSet::new()
-                    .with_system(upload_transform_to_unreal)
-                    .with_system(upload_physics_to_unreal),
-            );
+            .add_event::<ActorDestroyEvent>();
     }
 }
 
@@ -89,18 +88,22 @@ impl UnrealCore {
     }
 
     pub fn begin_play(&mut self, user_module: &dyn UserModule) {
-        *self = Self::new(user_module);
-
-        self.module.startup.run_once(&mut self.module.world);
+        // *self = Self::new(user_module);
+        //
+        // self.module.startup.run_once(&mut self.module.world);
     }
     pub fn tick(&mut self, dt: f32) {
-        if let Some(mut frame) = self.module.world.get_resource_mut::<Frame>() {
+        if let Some(mut frame) = self.module.world_mut().get_resource_mut::<Frame>() {
             frame.dt = dt;
         }
-        if let Some(mut time) = self.module.world.get_resource_mut::<Time>() {
+        if let Some(mut time) = self.module.world_mut().get_resource_mut::<Time>() {
             time.time += dt as f64;
         }
-        self.module.schedule.run_once(&mut self.module.world);
+
+        self.module.app.update();
+
+        // TODO
+        // self.module.schedule.run_once(&mut self.module.world);
         //self.module.world.clear_trackers();
     }
 }
@@ -128,30 +131,36 @@ pub unsafe extern "C" fn retrieve_uuids(ptr: *mut ffi::Uuid, len: *mut usize) {
     }
 }
 
+#[derive(Message)]
 pub struct ActorSpawnedEvent {
     pub actor: ActorPtr,
 }
 
+#[derive(Message)]
 pub struct OnActorBeginOverlapEvent {
     pub overlapped_actor: ActorPtr,
     pub other: ActorPtr,
 }
 
+#[derive(Message)]
 pub struct OnActorEndOverlapEvent {
     pub overlapped_actor: ActorPtr,
     pub other: ActorPtr,
 }
 
+#[derive(Message)]
 pub struct ActorHitEvent {
     pub self_actor: ActorPtr,
     pub other: ActorPtr,
     pub normal_impulse: Vec3,
 }
 
+#[derive(Message)]
 pub struct ActorDestroyEvent {
     pub actor: ActorPtr,
 }
 
+#[derive(Message)]
 pub struct EntityEvent<E> {
     pub entity: Entity,
     pub event: E,
@@ -184,12 +193,17 @@ pub unsafe extern "C" fn send_actor_event(
                 let api = global
                     .core
                     .module
-                    .world
+                    .app
+                    .world_mut()
                     .get_resource::<UnrealApi>()
                     .unwrap();
                 let entity = *api.actor_to_entity.get(&ActorPtr(actor as _)).unwrap();
 
-                send_event.send_entity_event(&mut global.core.module.world, entity, json.as_str());
+                send_event.send_entity_event(
+                    global.core.module.app.world_mut(),
+                    entity,
+                    json.as_str(),
+                );
             }
         });
     });
@@ -200,41 +214,62 @@ pub unsafe extern "C" fn unreal_event(ty: *const EventType, data: *const c_void)
         with_global_mut(|global| match *ty {
             EventType::ActorSpawned => {
                 let actor_spawned_event = data as *const ffi::ActorSpawnedEvent;
-                global.core.module.world.send_event(ActorSpawnedEvent {
-                    actor: ActorPtr((*actor_spawned_event).actor),
-                });
+                global
+                    .core
+                    .module
+                    .app
+                    .world_mut()
+                    .write_message(ActorSpawnedEvent {
+                        actor: ActorPtr((*actor_spawned_event).actor),
+                    });
             }
             EventType::ActorBeginOverlap => {
                 let overlap = data as *const ffi::ActorBeginOverlap;
                 global
                     .core
                     .module
-                    .world
-                    .send_event(OnActorBeginOverlapEvent {
+                    .app
+                    .world_mut()
+                    .write_message(OnActorBeginOverlapEvent {
                         overlapped_actor: ActorPtr((*overlap).overlapped_actor),
                         other: ActorPtr((*overlap).other),
                     });
             }
             EventType::ActorEndOverlap => {
                 let overlap = data as *const ffi::ActorEndOverlap;
-                global.core.module.world.send_event(OnActorEndOverlapEvent {
-                    overlapped_actor: ActorPtr((*overlap).overlapped_actor),
-                    other: ActorPtr((*overlap).other),
-                });
+                global
+                    .core
+                    .module
+                    .app
+                    .world_mut()
+                    .write_message(OnActorEndOverlapEvent {
+                        overlapped_actor: ActorPtr((*overlap).overlapped_actor),
+                        other: ActorPtr((*overlap).other),
+                    });
             }
             EventType::ActorOnHit => {
                 let hit = data as *const ffi::ActorHitEvent;
-                global.core.module.world.send_event(ActorHitEvent {
-                    self_actor: ActorPtr((*hit).self_actor),
-                    other: ActorPtr((*hit).other),
-                    normal_impulse: (*hit).normal_impulse.into(),
-                });
+                global
+                    .core
+                    .module
+                    .app
+                    .world_mut()
+                    .write_message(ActorHitEvent {
+                        self_actor: ActorPtr((*hit).self_actor),
+                        other: ActorPtr((*hit).other),
+                        normal_impulse: (*hit).normal_impulse.into(),
+                    });
             }
             EventType::ActorDestroy => {
                 let destroy = data as *const ffi::ActorDestroyEvent;
-                global.core.module.world.send_event(ActorDestroyEvent {
-                    actor: ActorPtr((*destroy).actor),
-                });
+                global
+                    .core
+                    .module
+                    .app
+                    .world_mut()
+                    .write_message(ActorDestroyEvent {
+                        actor: ActorPtr((*destroy).actor),
+                    });
             }
         });
     }
@@ -319,7 +354,7 @@ fn get_field_value(uuid: ffi::Uuid, entity: ffi::Entity, idx: u32) -> Option<Ref
         let reflect = global.core.module.reflection_registry.reflect.get(&uuid);
 
         let entity = Entity::from_bits(entity.id);
-        reflect.and_then(|r| r.get_field_value(&global.core.module.world, entity, idx))
+        reflect.and_then(|r| r.get_field_value(global.core.module.world(), entity, idx))
     })
 }
 
@@ -369,7 +404,7 @@ unsafe extern "C" fn has_component(entity: ffi::Entity, uuid: ffi::Uuid) -> u32 
             let uuid = from_ffi_uuid(uuid);
             let reflect = global.core.module.reflection_registry.reflect.get(&uuid)?;
             let entity = Entity::from_bits(entity.id);
-            Some(reflect.has_component(&global.core.module.world, entity) as u32)
+            Some(reflect.has_component(global.core.module.world(), entity) as u32)
         })
     }
     let result = panic::catch_unwind(|| has_component(entity, uuid).unwrap_or(0));
@@ -547,17 +582,17 @@ pub fn register_core_components(registry: &mut ReflectionRegistry) {
     registry.register::<PhysicsComponent>();
 }
 
-#[derive(Debug, Hash, PartialEq, Eq, Clone, StageLabel)]
-pub struct StartupStage;
-
-#[derive(Debug, Hash, PartialEq, Eq, Clone, StageLabel)]
-pub enum CoreStage {
-    Startup,
-    RegisterEvent,
-    PreUpdate,
-    Update,
-    PostUpdate,
-}
+// #[derive(Debug, Hash, PartialEq, Eq, Clone, StageLabel)]
+// pub struct StartupStage;
+//
+// #[derive(Debug, Hash, PartialEq, Eq, Clone, StageLabel)]
+// pub enum CoreStage {
+//     Startup,
+//     RegisterEvent,
+//     PreUpdate,
+//     Update,
+//     PostUpdate,
+// }
 #[derive(Resource, Default, Debug, Copy, Clone)]
 pub struct Frame {
     pub dt: f32,
@@ -576,9 +611,8 @@ pub struct ActorComponent {
 }
 
 impl ActorComponent {
-    pub fn get(&self) -> Option<&AActor>
-    {
-        self.actor.cast::<AActor>().as_ref()
+    pub fn get(&self) -> Option<&AActor> {
+        unsafe { self.actor.0.cast::<AActor>().as_ref() }
     }
     pub fn register_on_hit(&mut self) {
         unsafe {
@@ -804,7 +838,7 @@ pub struct Despawn {
 }
 
 impl Command for Despawn {
-    fn write(self, world: &mut World) {
+    fn apply(self, world: &mut World) {
         world.despawn(self.entity);
         if let Some(mut api) = world.get_resource_mut::<UnrealApi>() {
             // If this entity had an actor, we will also remove it from the map. Otherwise
@@ -825,27 +859,27 @@ impl Command for Despawn {
 /// it would be strange to keep the rust entity part alive, if the actor has been removed.
 fn process_actor_destroyed(
     mut api: ResMut<UnrealApi>,
-    mut reader: EventReader<ActorDestroyEvent>,
+    mut reader: MessageReader<ActorDestroyEvent>,
     mut commands: Commands,
 ) {
-    for event in reader.iter() {
+    for event in reader.read() {
         if let Some(entity) = api.actor_to_entity.remove(&event.actor) {
-            commands.add(Despawn { entity });
+            commands.queue(Despawn { entity });
         }
     }
 }
 
 fn process_actor_spawned(
     mut api: ResMut<UnrealApi>,
-    mut reader: EventReader<ActorSpawnedEvent>,
+    mut reader: MessageReader<ActorSpawnedEvent>,
     mut commands: Commands,
 ) {
     unsafe {
         with_global_mut(|global| {
-            for &ActorSpawnedEvent { actor } in reader.iter() {
+            for &ActorSpawnedEvent { actor } in reader.read() {
                 // If we have already entity for this actor, we just get their entity commands
                 let mut entity_cmds = if let Some(&entity) = api.actor_to_entity.get(&actor) {
-                    commands.get_or_spawn(entity)
+                    commands.get_spawned_entity(entity).unwrap()
                 } else {
                     commands.spawn_empty()
                 };
