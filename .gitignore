@@ -16,3 +16,4 @@ rusttemp
 *.exp
 *.dll
 *.code-workspace
+.idea

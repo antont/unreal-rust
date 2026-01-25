@@ -40,56 +40,6 @@ ARustGameModeBase::ARustGameModeBase()
 	// PlayerInput = CreateDefaultSubobject<UPlayerInput>(TEXT("Input"));
 }
 
-void ARustGameModeBase::OnActorSpawnedHandler(AActor* actor)
-{
-	auto Module = GetRustModule();
-	if (!Module.Plugin.IsLoaded())
-	{
-		return;
-	}
-
-	EventType Type = EventType::ActorSpawned;
-	ActorSpawnedEvent Event;
-	Event.actor = (AActorOpaque*)actor;
-	Module.Plugin.Rust.unreal_event(&Type, (void*)&Event);
-}
-
-void ARustGameModeBase::OnActorBeginOverlap(AActor* OverlappedActor, AActor* OtherActor)
-{
-	EventType Type = EventType::ActorBeginOverlap;
-	ActorBeginOverlap Event;
-	Event.overlapped_actor = (AActorOpaque*)OverlappedActor;
-	Event.other = (AActorOpaque*)OtherActor;
-	GetRustModule().Plugin.Rust.unreal_event(&Type, (void*)&Event);
-}
-
-void ARustGameModeBase::OnActorEndOverlap(AActor* OverlappedActor, AActor* OtherActor)
-{
-	EventType Type = EventType::ActorEndOverlap;
-	ActorEndOverlap Event;
-	Event.overlapped_actor = (AActorOpaque*)OverlappedActor;
-	Event.other = (AActorOpaque*)OtherActor;
-	GetRustModule().Plugin.Rust.unreal_event(&Type, (void*)&Event);
-}
-
-void ARustGameModeBase::OnActorHit(AActor* SelfActor, AActor* OtherActor, FVector NormalImpulse, const FHitResult& Hit)
-{
-	EventType Type = EventType::ActorOnHit;
-	ActorHitEvent Event;
-	Event.self_actor = (AActorOpaque*)SelfActor;
-	Event.other = (AActorOpaque*)OtherActor;
-	Event.normal_impulse = ToVector3(NormalImpulse);
-	GetRustModule().Plugin.Rust.unreal_event(&Type, (void*)&Event);
-}
-
-void ARustGameModeBase::OnActorDestroyed(AActor* Actor)
-{
-	EventType Type = EventType::ActorDestroy;
-	ActorDestroyEvent Event;
-	Event.actor = (AActorOpaque*)Actor;
-	GetRustModule().Plugin.Rust.unreal_event(&Type, (void*)&Event);
-}
-
 void ARustGameModeBase::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
@@ -127,9 +77,6 @@ void ARustGameModeBase::StartPlay()
 		return;
 	}
 
-	GetWorld()->AddOnActorSpawnedHandler(
-		FOnActorSpawned::FDelegate::CreateUObject(this, &ARustGameModeBase::OnActorSpawnedHandler));
-
 	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
 	InputComponent->AxisBindings.Empty();
 	for (auto Mapping : PC->PlayerInput->AxisMappings)
@@ -144,11 +91,5 @@ void ARustGameModeBase::StartPlay()
 	else
 	{
 		Module.Plugin.NeedsInit = false;
-	}
-	for (TActorIterator<AActor> ActorItr(GetWorld()); ActorItr; ++ActorItr)
-	{
-		AActor* Actor = *ActorItr;
-		Actor->OnDestroyed.AddUniqueDynamic(this, &ARustGameModeBase::OnActorDestroyed);
-		OnActorSpawnedHandler(Actor);
 	}
 }

@@ -53,7 +53,7 @@ pub fn component_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
                 use unreal_api::*;
                 use unreal_api::ecs::component::{Component, StorageType, Mutable};
                 use unreal_api::module::*;
-                use unreal_api::editor_component::*;
+                // use unreal_api::editor_component::*;
 
                 struct #add_serialized_ident;
 
@@ -64,7 +64,7 @@ pub fn component_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
 
                 }
 
-                #register_add_serialized_component
+                // #register_add_serialized_component
             };
         }
     } else {

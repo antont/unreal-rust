@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "RustProperty.h"
 #include "UObject/Object.h"
 #include "RustEvent.generated.h"
 
@@ -18,7 +17,4 @@ struct RUSTPLUGIN_API FRustEvent
 
 	UPROPERTY(EditAnywhere, Category="Rust")
 	FString Guid;
-
-	UPROPERTY(EditAnywhere, Category="Rust")
-	FDynamicRustComponent Event;
 };

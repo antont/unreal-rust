@@ -1,7 +1,8 @@
 use std::collections::HashMap;
 
 use crate::ffi;
-use bevy_ecs::system::{Commands, Resource};
+use bevy_ecs::system::Commands;
+use bevy_ecs::resource::Resource;
 use glam::{Quat, Vec3};
 use unreal_reflect::registry::UClass;
 

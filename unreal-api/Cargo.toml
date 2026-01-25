@@ -8,7 +8,7 @@ edition.workspace = true
 bevy_ecs = "0.18"
 bevy_app = "0.18"
 glam = { version = "0.21", features = ["serde"] }
-log = { version = "0.4.14", features =["std"] }
+log = { version = "0.4", features =["std"] }
 unreal-api-derive= { path = "../unreal-api-derive" }
 unreal-reflect= { path = "../unreal-reflect" }
 unreal-ffi= { path = "../unreal-ffi" }

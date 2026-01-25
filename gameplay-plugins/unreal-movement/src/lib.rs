@@ -41,7 +41,8 @@ impl PlayerInput {
     pub const JUMP: &'static str = "Jump";
 }
 
-#[derive(Default, Debug, Component)]
+#[derive(Default, Debug, Component, serde::Serialize, serde::Deserialize)]
+#[reflect(editor)]
 #[uuid = "fc8bd668-fc0a-4ab7-8b3d-f0f22bb539e2"]
 pub struct MovementVariablesComponent {
     pub velocity: Vec3,
@@ -477,12 +478,13 @@ impl Plugin for MovementPlugin {
     fn build(&self, module: &mut Module) {
         register_editor_components! {
             CharacterConfigComponent,
-            => module
-        }
-        register_components! {
             MovementVariablesComponent,
             => module
-        };
+        }
+        // register_components! {
+        //     MovementVariablesComponent,
+        //     => module
+        // };
         register_events! {
             JumpCommand,
             => module

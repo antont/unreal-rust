@@ -11,4 +11,6 @@ syn = "2"
 quote = "1"
 proc-macro2 = "1.0"
 prettyplease = "0.2"
+goblin = "0.10"
 heck = "0.5"
+

@@ -1,0 +1,11 @@
+[package]
+name = "unreal-rust-loader"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+unreal-ffi = { path = "../unreal-ffi" }
+libloading = "0.9"
+
+[lib]
+crate-type = ["cdylib"]

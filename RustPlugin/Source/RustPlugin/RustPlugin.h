@@ -15,20 +15,6 @@ struct FFileChangeData;
 class FString;
 class ARustGameModeBase;
 
-struct FRustReflection
-{
-	FString Name;
-	uint32 NumberOfFields;
-	bool IsEditorComponent;
-	TMap<uint32, FString> IndexToFieldName;
-	TMap<FString, ReflectionType> FieldNameToType;
-};
-
-struct FReflectionData
-{
-	TMap<FGuid, FRustReflection> Types;
-};
-
 struct FPlugin
 {
 	FString TargetPath;
@@ -44,8 +30,8 @@ struct FPlugin
 	FString PluginFolderPath();
 	FString PluginPath();
 	FString PluginFileName();
+	FString PluginPdbPath();
 
-	FReflectionData ReflectionData;
 	FPlugin();
 };
 

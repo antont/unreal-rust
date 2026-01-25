@@ -7,13 +7,13 @@ edition.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-unreal-api = { path = "../unreal-api"}
-unreal-reflect = { path = "../unreal-reflect" }
+unreal-module = { path = "../unreal-module"}
+bevy_app = "0.18"
 bevy_ecs = "0.18"
 log = "0.4"
-unreal-movement = { path = "../gameplay-plugins/unreal-movement" }
+# unreal-movement = { path = "../gameplay-plugins/unreal-movement" }
 
 serde = {version = "1", features = ["derive"]}
 
 [lib]
-crate-type = ["cdylib"]   
+crate-type = ["cdylib"]

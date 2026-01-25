@@ -1,0 +1,190 @@
+use std::{
+    collections::{HashMap, HashSet},
+    panic::catch_unwind,
+    sync::{Mutex, OnceLock},
+};
+
+use log::{LevelFilter, Metadata, Record, SetLoggerError, set_boxed_logger, set_max_level};
+pub use unreal_api::ffi;
+use unreal_api::{
+    bindings::globals::{self, ClassPtrDB},
+    ffi::ResultCode,
+};
+
+use unreal_api::{
+    // core::{EntityEvent, SendEntityEvent, UnrealCore},
+    // editor_component::AddSerializedComponent,
+    ffi::{RustBindings, UnrealBindings},
+    // plugin::Plugin,
+};
+
+struct UnrealLogger;
+
+impl log::Log for UnrealLogger {
+    fn enabled(&self, _metadata: &Metadata) -> bool {
+        // TODO
+        true
+    }
+
+    fn log(&self, record: &Record) {
+        if self.enabled(record.metadata()) {
+            if let Some(text) = record.args().as_str() {
+                unsafe {
+                    (bindings().log)(ffi::Utf8Str::from(text));
+                }
+            } else {
+                unsafe {
+                    (bindings().log)(ffi::Utf8Str::from(record.args().to_string().as_str()));
+                }
+            }
+        }
+    }
+
+    fn flush(&self) {}
+}
+
+pub fn init_log() -> Result<(), SetLoggerError> {
+    set_boxed_logger(Box::new(UnrealLogger)).map(|()| set_max_level(LevelFilter::Info))
+}
+
+pub struct Module {
+    pub user_module: Box<dyn UserModule>,
+}
+
+pub trait UserModule {
+    fn initialize(&mut self);
+    fn tick(&mut self, dt: f32);
+    fn begin_play(&mut self);
+}
+
+pub static BINDINGS: OnceLock<UnrealBindings> = OnceLock::new();
+
+fn set_custom_panic_hook() {
+    std::panic::set_hook(Box::new(|panic_info| {
+        let bt = std::backtrace::Backtrace::force_capture();
+        log::error!("{}", bt);
+        let info = panic_info
+            .payload()
+            .downcast_ref::<&'static str>()
+            .copied()
+            .or(panic_info
+                .payload()
+                .downcast_ref::<String>()
+                .map(String::as_str));
+
+        if let Some(s) = info {
+            let location = panic_info.location().map_or("".to_string(), |loc| {
+                format!("{}, at line {}", loc.file(), loc.line())
+            });
+            log::error!("Panic: {} => {}", location, s);
+        } else {
+            log::error!("panic occurred");
+        }
+    }));
+}
+
+fn create_rust_bindings() -> RustBindings {
+    RustBindings {
+        tick,
+        begin_play,
+        allocate_fns: create_allocate_fns(),
+        // initialize_unreal_api,
+    }
+}
+
+unsafe extern "C" fn tick(dt: f32) -> ffi::ResultCode {
+    let r = catch_unwind(|| unsafe {
+        if !MODULE.is_null() {
+            (*MODULE).user_module.tick(dt);
+        }
+    });
+
+    match r {
+        Ok(_) => ResultCode::Success,
+        Err(_) => ResultCode::Panic,
+    }
+}
+
+unsafe extern "C" fn begin_play() -> ffi::ResultCode {
+    let r = catch_unwind(|| unsafe {
+        if !MODULE.is_null() {
+            (*MODULE).user_module.begin_play();
+        }
+    });
+
+    match r {
+        Ok(_) => ResultCode::Success,
+        Err(_) => ResultCode::Panic,
+    }
+}
+
+unsafe extern "C" fn allocate(size: usize, align: usize, ptr: *mut ffi::RustAlloc) -> u32 {
+    unsafe {
+        use std::alloc::{Layout, alloc};
+        let layout = Layout::from_size_align(size, align);
+        match layout {
+            Ok(layout) => {
+                let alloc_ptr = alloc(layout);
+                *ptr = ffi::RustAlloc {
+                    ptr: alloc_ptr,
+                    size,
+                    align,
+                };
+
+                1
+            }
+            Err(_) => 0,
+        }
+    }
+}
+pub fn create_allocate_fns() -> ffi::AllocateFns {
+    ffi::AllocateFns { allocate }
+}
+
+pub static mut MODULE: *mut Module = std::ptr::null_mut();
+
+/// # Safety
+pub unsafe fn initialize_module(
+    unreal_bindings: ffi::UnrealBindings,
+    rust_bindings: *mut RustBindings,
+    user_module: Box<dyn UserModule>,
+) {
+    set_custom_panic_hook();
+    let _ = init_log();
+    let _ = BINDINGS.set(unreal_bindings);
+    unsafe {
+        *rust_bindings = create_rust_bindings();
+    }
+
+    unsafe {
+        MODULE = Box::leak(Box::new(Module { user_module })) as *mut _;
+    }
+
+    // let class_db = ClassPtrDB::from(bindings());
+    // let _ = globals::CLASS_PTRS.set(class_db);
+    // unreal_api::bindings::globals::initialize_modules();
+}
+
+// extern "C" fn initialize_unreal_api() {
+//     let class_db = ClassPtrDB::from(bindings());
+//     let _ = globals::CLASS_PTRS.set(class_db);
+//     unreal_api::bindings::globals::initialize_modules();
+// }
+
+#[macro_export]
+macro_rules! implement_unreal_module {
+    ($module: expr) => {
+        #[unsafe(no_mangle)]
+        pub unsafe extern "C" fn register_unreal_bindings(
+            bindings: $crate::ffi::UnrealBindings,
+            rust_bindings: *mut $crate::ffi::RustBindings,
+        ) -> u32 {
+            $crate::initialize_module(bindings, rust_bindings, Box::new($module));
+            1
+        }
+    };
+}
+
+pub fn bindings() -> &'static UnrealBindings {
+    BINDINGS.wait()
+}

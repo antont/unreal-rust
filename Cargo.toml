@@ -1,24 +1,27 @@
 [workspace]
 resolver = "2"
 members = [
-    "gameplay-plugins/unreal-movement",
-    "slash-example",
+    # "gameplay-plugins/unreal-movement",
+    # "slash-example",
     "unreal-api",
     "unreal-api-derive", "unreal-api-generator",
-    "unreal-ffi",
+    "unreal-ffi", "unreal-module",
     "unreal-reflect",
-    "unreal-rust-example",
+    "unreal-rust-example", "unreal-rust-loader",
 ]
 #[profile.release]
 #debug = true
 
-[profile.dev]
+[profile.development]
+inherits="release"
 incremental=true
+debug = true
+
 [profile.release]
 # Needed so pdb isn't generated which might block the compilation
-strip = "debuginfo"
-debug = 0
-incremental=true
+# strip = "debuginfo"
+# debug = true
+# incremental=true
 
 [workspace.package]
 edition = "2024"

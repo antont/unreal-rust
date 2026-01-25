@@ -1,11 +1,11 @@
 use std::ffi::c_void;
 
-use glam::{DVec3, Vec3};
+use glam::DVec3;
 
-use crate::bindings::{
-    core_u_object::{FQuat, FTransform, FVector},
-    rig_vm::FRigVMFunction_MathQuaternionUnaryOp,
-};
+use crate::bindings::core_u_object::{FQuat, FTransform, FVector};
+
+// TODO: This whole file is extremely handwavy and needs to be done properly by getting the correct
+// layout from the reflection. Right now most of the layout is just guess work based on my machine
 
 #[repr(C)]
 pub struct FName {
@@ -21,26 +21,26 @@ pub struct UPtr<T> {
 }
 
 #[repr(C)]
-pub struct WeakObject {
+pub struct FWeakObject {
     pub object_index: i32,
     pub object_serial_number: i32,
 }
 
 #[repr(transparent)]
 pub struct TWeakObjectPtr<T> {
-    weak_object: WeakObject,
+    weak_object: FWeakObject,
     _marker: std::marker::PhantomData<T>,
 }
 
 #[repr(C, align(8))]
-pub struct ScriptArray {
+pub struct FScriptArray {
     pub data: *mut c_void,
     pub num: i32,
     pub max: i32,
 }
 #[repr(transparent)]
 pub struct TArray<T> {
-    script_array: ScriptArray,
+    script_array: FScriptArray,
     // TODO: Layout
     _marker: std::marker::PhantomData<T>,
 }

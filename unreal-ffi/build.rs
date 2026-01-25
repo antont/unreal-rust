@@ -12,12 +12,7 @@ fn main() {
         .include_item("EntryUnrealBindingsFn")
         .include_item("EntryBeginPlayFn")
         .include_item("EntryTickFn")
-        .include_item("RetrieveUuids")
-        .include_item("ActorSpawnedEvent")
-        .include_item("ActorBeginOverlap")
-        .include_item("ActorEndOverlap")
-        .include_item("ActorHitEvent")
-        .include_item("ActorDestroyEvent")
+        .include_item("AActorOpague")
         .with_pragma_once(true)
         //.with_config(Config {
         //    structure: StructConfig  {

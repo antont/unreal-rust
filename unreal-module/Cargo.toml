@@ -1,0 +1,9 @@
+[package]
+name = "unreal-module"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+
+unreal-api = { path = "../unreal-api/"}
+log = { version = "0.4", features =["std"] }

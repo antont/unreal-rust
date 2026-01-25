@@ -3,7 +3,6 @@
 #include "RustPlugin.h"
 #include "RustPluginStyle.h"
 #include "RustPluginCommands.h"
-#include "FRustDetailCustomization.h"
 #include "LevelEditor.h"
 #include "Widgets/Docking/SDockTab.h"
 #include "Widgets/Layout/SBox.h"
@@ -12,18 +11,13 @@
 #include "DirectoryWatcherModule.h"
 #include "IDirectoryWatcher.h"
 #include "Misc/Paths.h"
-#include "FUuidGraphPanelPinFactory.h"
 #include "Modules/ModuleManager.h"
 #include "RustUtils.h"
 #include "Bindings.h"
-#include "Framework/Notifications/NotificationManager.h"
 #include "HAL/PlatformFileManager.h"
-#include "Widgets/Notifications/SNotificationList.h"
 
 #include <stdint.h>
 
-#include "AnimNotify_RustEvent.h"
-#include "FRustAnimNotifyDetailCustomization.h"
 static const FName RustPluginTabName("RustPlugin");
 
 #define LOCTEXT_NAMESPACE "FRustPluginModule"
@@ -49,7 +43,12 @@ FString FPlugin::PluginPath()
 
 FString FPlugin::PluginFileName()
 {
-	return FString::Printf(TEXT("%s.%s"), TEXT("rustplugin"), *PlatformExtensionName());
+	return FString::Printf(TEXT("%s.%s"), TEXT("unreal_rust_loader"), *PlatformExtensionName());
+}
+
+FString FPlugin::PluginPdbPath()
+{
+	return FPaths::Combine(*PluginFolderPath(), TEXT("rustplugin.pdb"));
 }
 
 FPlugin::FPlugin()
@@ -69,28 +68,15 @@ bool FPlugin::TryLoad()
 	// This behavior is the same on Linux, Windows and most likely all the other platforms.
 
 	FString Path = PluginPath();
-	FString LocalTargetPath = FPaths::Combine(*PluginFolderPath(),
-	                                          *FString::Printf(
-		                                          TEXT("%s-%i"), *PluginFileName(),
-		                                          FDateTime::Now().ToUnixTimestamp()));
+	//FString PdbPath = PluginPdbPath();
+	FString LocalTargetDllPath = FPaths::Combine(*PluginFolderPath(), PluginFileName());
 	if (this->IsLoaded())
 	{
 		FPlatformProcess::FreeDllHandle(this->Handle);
 		this->Handle = nullptr;
-		// This is leaky. If we close the editor this will not delete the file
-		// TODO: Cleanup unused dlls here
-		if (!FPlatformFileManager::Get().GetPlatformFile().DeleteFile(*this->TargetPath))
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Unable to delete File %s"), *this->TargetPath);
-		}
 	}
 
-	if (!FPlatformFileManager::Get().GetPlatformFile().CopyFile(*LocalTargetPath, *Path))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Unable to copy File from %s to %s"), *Path, *LocalTargetPath);
-		return false;
-	}
-	void* LocalHandle = FPlatformProcess::GetDllHandle(*LocalTargetPath);
+	void* LocalHandle = FPlatformProcess::GetDllHandle(*LocalTargetDllPath);
 
 	if (LocalHandle == nullptr)
 	{
@@ -105,7 +91,7 @@ bool FPlugin::TryLoad()
 
 	this->Bindings = (EntryUnrealBindingsFn)LocalBindings;
 
-	this->TargetPath = LocalTargetPath;
+	this->TargetPath = LocalTargetDllPath;
 	NeedsInit = true;
 	CallEntryPoints();
 	return true;
@@ -124,61 +110,24 @@ bool FPlugin::IsLoaded()
 	return Handle != nullptr;
 }
 
+UE_DISABLE_OPTIMIZATION
 void FPlugin::CallEntryPoints()
 {
 	if (!IsLoaded())
 		return;
 
 	// Pass unreal function pointers to Rust, and also retrieve function pointers from Rust so we can call into Rust
-	if (Bindings(CreateBindings(), &Rust))
+	auto UnrealBindings = CreateBindings();
+	if (Bindings(UnrealBindings, &Rust))
 	{
-		RetrieveReflectionData();
-		Rust.initialize_modules();
+		//Rust.initialize_modules();
 	}
 	else
 	{
 		// TODO: We had a panic when calling the entry point. We need to handle that better, otherwise unreal will segfault because the rust bindings are nullptrs
 	}
 }
-
-void FPlugin::RetrieveReflectionData()
-{
-	uintptr_t len = 0;
-	Rust.retrieve_uuids(nullptr, &len);
-	TArray<Uuid> LocalUuids;
-	LocalUuids.Reserve(len);
-	Rust.retrieve_uuids(LocalUuids.GetData(), &len);
-	LocalUuids.SetNum(len);
-
-	ReflectionData.Types.Reset();
-
-	for (Uuid Id : LocalUuids)
-	{
-		uint32_t NumberOfFields = 0;
-		Rust.reflection_fns.number_of_fields(Id, &NumberOfFields);
-		Utf8Str TypeNameStr;
-		// TODO: Better error handling here. None of this should fail though
-		check(Rust.reflection_fns.get_type_name(Id, &TypeNameStr));
-
-		FRustReflection Reflection;
-		Reflection.Name = ToFString(TypeNameStr);
-		Reflection.IsEditorComponent = Rust.reflection_fns.is_editor_component(Id) == 1;
-
-		for (uint32_t Idx = 0; Idx < NumberOfFields; Idx++)
-		{
-			Utf8Str FieldNamePtr;
-			check(Rust.reflection_fns.get_field_name(Id, Idx, &FieldNamePtr));
-			ReflectionType Type = ReflectionType::Bool;
-			check(Rust.reflection_fns.get_field_type(Id, Idx, &Type));
-
-			FString FieldName = ToFString(FieldNamePtr);
-			Reflection.IndexToFieldName.Add(Idx, FieldName);
-			Reflection.FieldNameToType.Add(FieldName, Type);
-		}
-
-		ReflectionData.Types.Add(ToFGuid(Id), Reflection);
-	}
-}
+UE_ENABLE_OPTIMIZATION
 
 void FRustPluginModule::StartupModule()
 {
@@ -200,31 +149,31 @@ void FRustPluginModule::StartupModule()
 
 	//FGlobalTabmanager::Get()->RegisterNomadTabSpawner(RustPluginTabName, FOnSpawnTab::CreateRaw(this, &FRustPluginModule::OnSpawnPluginTab)).SetDisplayName(LOCTEXT("FRustPluginTabTitle", "RustPlugin")).SetMenuType(ETabSpawnerMenuType::Hidden);
 
-	IDirectoryWatcher* watcher = FModuleManager::LoadModuleChecked<FDirectoryWatcherModule>(
-			TEXT("DirectoryWatcher")).
-		Get();
-	watcher->RegisterDirectoryChangedCallback_Handle(
-		*Plugin.PluginFolderPath(),
-		IDirectoryWatcher::FDirectoryChanged::CreateRaw(this, &FRustPluginModule::OnProjectDirectoryChanged),
-		WatcherHandle, IDirectoryWatcher::WatchOptions::IgnoreChangesInSubtree);
+	//IDirectoryWatcher* watcher = FModuleManager::LoadModuleChecked<FDirectoryWatcherModule>(
+	//		TEXT("DirectoryWatcher")).
+	//	Get();
+	//watcher->RegisterDirectoryChangedCallback_Handle(
+	//	*Plugin.PluginFolderPath(),
+	//	IDirectoryWatcher::FDirectoryChanged::CreateRaw(this, &FRustPluginModule::OnProjectDirectoryChanged),
+	//	WatcherHandle, IDirectoryWatcher::WatchOptions::IgnoreChangesInSubtree);
 	Plugin.TryLoad();
 
-	TSharedPtr<FUuidGraphPanelPinFactory> UuidFactory = MakeShareable(new FUuidGraphPanelPinFactory());
-	FEdGraphUtilities::RegisterVisualPinFactory(UuidFactory);
+	//TSharedPtr<FUuidGraphPanelPinFactory> UuidFactory = MakeShareable(new FUuidGraphPanelPinFactory());
+	//FEdGraphUtilities::RegisterVisualPinFactory(UuidFactory);
 
 	// Register detail customizations
 	{
 		auto& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 
-		PropertyModule.RegisterCustomClassLayout(
-			"EntityComponent",
-			FOnGetDetailCustomizationInstance::CreateStatic(&FRustDetailCustomization::MakeInstance)
-		);
+		//PropertyModule.RegisterCustomClassLayout(
+		//	"EntityComponent",
+		//	FOnGetDetailCustomizationInstance::CreateStatic(&FRustDetailCustomization::MakeInstance)
+		//);
 
-		PropertyModule.RegisterCustomPropertyTypeLayout(
-			FRustEvent::StaticStruct()->GetFName(),
-			FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FRustAnimNotifyDetailCustomization::MakeInstance)
-		);
+		//PropertyModule.RegisterCustomPropertyTypeLayout(
+		//	FRustEvent::StaticStruct()->GetFName(),
+		//	FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FRustAnimNotifyDetailCustomization::MakeInstance)
+		//);
 
 		//PropertyModule.RegisterCustomClassLayout(
 		//	"AnimNotify_RustEvent",
