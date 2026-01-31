@@ -1,4 +1,6 @@
-use std::path::Path;
+use std::path::{Path, PathBuf};
+use std::sync::OnceLock;
+use std::time::SystemTime;
 
 use libloading::{Library, Symbol};
 use unreal_ffi::{self as ffi, TickFn};
@@ -8,11 +10,14 @@ use unreal_ffi::{PluginBindings, RegisterUnrealBindings, RustBindings, UnrealBin
 pub struct Plugin {
     library: Library,
     register_unreal_bindings: RegisterUnrealBindings,
-    bindings: Option<RustBindings>,
+    rust_bindings: RustBindings,
+    timestamp: SystemTime,
 }
 impl Plugin {
-    pub fn new(path: &Path) -> Self {
+    pub fn new(unreal_bindings: &UnrealBindings, path: &Path) -> Self {
         let library = unsafe { Library::new(path).unwrap() };
+
+        let metadata = std::fs::metadata(path).unwrap();
 
         let register_unreal_bindings: RegisterUnrealBindings = unsafe {
             *library
@@ -20,19 +25,69 @@ impl Plugin {
                 .unwrap()
         };
 
+        let mut rust_bindings = RustBindings::uninit();
+
+        (register_unreal_bindings)(unreal_bindings.clone(), &mut rust_bindings);
+
         Plugin {
             library,
             register_unreal_bindings,
-            bindings: None,
+            rust_bindings,
+            timestamp: metadata.modified().unwrap(),
         }
     }
 }
 
 static mut LOADER: *mut Loader = std::ptr::null_mut();
 
-#[derive(Default)]
 pub struct Loader {
+    path: PathBuf,
     loaded_plugin: Option<Plugin>,
+    unreal_bindings: UnrealBindings,
+}
+impl Loader {
+    pub fn new(unreal_bindings: UnrealBindings, path: PathBuf) -> Self {
+        Loader {
+            path,
+            loaded_plugin: None,
+            unreal_bindings,
+        }
+    }
+
+    pub fn is_out_of_date(&self) -> bool {
+        let Ok(metadata) = std::fs::metadata(&self.path) else {
+            return false;
+        };
+        let Ok(timestamp) = metadata.modified() else {
+            return false;
+        };
+
+        let Some(plugin) = self.loaded_plugin.as_ref() else {
+            return false;
+        };
+
+        timestamp > plugin.timestamp
+    }
+
+    /// Safety
+    pub fn load(&mut self, rust_bindings: &mut RustBindings) {
+        // TODO: Maybe add some unloading logic here
+        self.loaded_plugin = None;
+
+        let plugin = Plugin::new(&self.unreal_bindings, &self.path);
+        *rust_bindings = plugin.rust_bindings.clone();
+
+        self.loaded_plugin = Some(plugin);
+    }
+
+    pub fn try_load(&mut self, rust_bindings: &mut RustBindings) -> bool {
+        if self.is_out_of_date() {
+            self.load(rust_bindings);
+            return true;
+        }
+
+        false
+    }
 }
 
 #[unsafe(no_mangle)]
@@ -42,46 +97,35 @@ extern "C" fn register_unreal_bindings(
 ) -> u32 {
     unsafe {
         if LOADER.is_null() {
-            LOADER = Box::leak(Box::new(Loader::default())) as *mut _;
+            LOADER = Box::leak(Box::new(Loader::new(
+                bindings,
+                PathBuf::from(
+                    "D:\\projects\\unreal-rust\\target\\development\\unreal_rust_example.dll",
+                ),
+            ))) as *mut _;
         }
         let loader = &mut (*LOADER);
-        loader.loaded_plugin = Some(Plugin::new(Path::new(
-            "D:\\projects\\unreal-rust\\target\\development\\unreal_rust_example.dll",
-        )));
-
-        (loader
-            .loaded_plugin
-            .as_ref()
-            .unwrap()
-            .register_unreal_bindings)(bindings, rust_bindings);
-        unsafe {
-            loader.loaded_plugin.as_mut().unwrap().bindings = Some((*rust_bindings).clone());
-        }
+        loader.load(&mut *rust_bindings);
     }
     1
 }
+
+// #[unsafe(no_mangle)]
+// unsafe extern "C" fn initialize(plugin_bindings: *mut PluginBindings) -> u32 {
+//     unsafe {
+//         let bindings = PluginBindings { tick, begin_play };
+//         *plugin_bindings = bindings;
+//     }
+//     1
+// }
 
 #[unsafe(no_mangle)]
-unsafe extern "C" fn initialize(plugin_bindings: *mut PluginBindings) -> u32 {
+unsafe extern "C" fn try_load(rust_bindings: *mut RustBindings) -> u32 {
     unsafe {
-        let bindings = PluginBindings { tick, begin_play };
-        *plugin_bindings = bindings;
-    }
-    1
-}
-
-unsafe extern "C" fn tick(dt: f32) -> ffi::ResultCode {
-    unsafe {
-        if !LOADER.is_null()
-            && let Some(plugin) = &mut (*LOADER).loaded_plugin
-            && let Some(bindings) = plugin.bindings.as_ref()
-        {
-            (bindings.tick)(dt);
+        if !LOADER.is_null() {
+            (*LOADER).try_load(&mut *rust_bindings) as u32
+        } else {
+            0
         }
     }
-    ffi::ResultCode::Success
-}
-
-unsafe extern "C" fn begin_play() -> ffi::ResultCode {
-    ffi::ResultCode::Success
 }

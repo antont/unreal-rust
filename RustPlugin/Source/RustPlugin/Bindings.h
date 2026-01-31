@@ -81,14 +81,10 @@ using BeginPlayFn = ResultCode(*)();
 
 using AllocateFn = uint32_t(*)(uintptr_t size, uintptr_t align, RustAlloc *ptr);
 
-struct AllocateFns {
-  AllocateFn allocate;
-};
-
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
-  AllocateFns allocate_fns;
+  AllocateFn allocate;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings, RustBindings *rust_bindings);

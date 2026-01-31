@@ -6,6 +6,10 @@
 #include "Bindings.h"
 #include "Containers/Array.h"
 #include "Modules/ModuleInterface.h"
+#include "EditorSubsystem.h"
+#include "Engine/World.h"
+
+#include "RustPlugin.generated.h"
 
 
 class FToolBarBuilder;
@@ -15,11 +19,12 @@ struct FFileChangeData;
 class FString;
 class ARustGameModeBase;
 
-struct FPlugin
+struct FRustLoader
 {
 	FString TargetPath;
 	void* Handle;
 	EntryUnrealBindingsFn Bindings;
+	TickFn EditorTick;
 	RustBindings Rust;
 
 	bool NeedsInit;
@@ -32,7 +37,7 @@ struct FPlugin
 	FString PluginFileName();
 	FString PluginPdbPath();
 
-	FPlugin();
+	FRustLoader();
 };
 
 FString PlatformExtensionName();
@@ -48,7 +53,7 @@ public:
 	/** This function will be bound to Command (by default it will bring up plugin window) */
 	void PluginButtonClicked();
 
-	FPlugin Plugin;
+	FRustLoader Plugin;
 	ARustGameModeBase* GameMode;
 	void Exit();
 private:
@@ -60,4 +65,18 @@ private:
 private:
 	TSharedPtr<class FUICommandList> PluginCommands;
 	FDelegateHandle WatcherHandle;
+};
+
+
+UCLASS()
+class URustEditorSubsystem : public UEditorSubsystem, public FTickableGameObject
+{
+	GENERATED_BODY()
+	
+	UWorld* GetWorld() const; // Fallback to GWorld
+	virtual bool IsTickableInEditor() const { return true; }
+	virtual void Tick(float DeltaTime) override;
+	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	TStatId GetStatId() const override { RETURN_QUICK_DECLARE_CYCLE_STAT(URustEditorSubsystem, STATGROUP_Tickables); }
+	
 };

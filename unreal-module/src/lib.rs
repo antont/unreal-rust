@@ -87,8 +87,7 @@ fn create_rust_bindings() -> RustBindings {
     RustBindings {
         tick,
         begin_play,
-        allocate_fns: create_allocate_fns(),
-        // initialize_unreal_api,
+        allocate,
     }
 }
 
@@ -136,9 +135,6 @@ unsafe extern "C" fn allocate(size: usize, align: usize, ptr: *mut ffi::RustAllo
             Err(_) => 0,
         }
     }
-}
-pub fn create_allocate_fns() -> ffi::AllocateFns {
-    ffi::AllocateFns { allocate }
 }
 
 pub static mut MODULE: *mut Module = std::ptr::null_mut();

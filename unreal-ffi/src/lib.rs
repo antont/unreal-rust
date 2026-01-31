@@ -1,4 +1,3 @@
-use glam::{Quat, Vec3};
 use std::{ffi::c_void, os::raw::c_char};
 
 #[repr(u8)]
@@ -55,6 +54,7 @@ unsafe extern "C" {
 }
 
 #[repr(C)]
+#[derive(Clone)]
 pub struct UnrealBindings {
     pub log: LogFn,
     pub core_fns: CoreFns,
@@ -74,15 +74,14 @@ pub struct Uuid {
 
 pub type InitializeUnrealApiFn = extern "C" fn();
 
-pub type RegisterUnrealBindings = extern "C" fn(
-    bindings: UnrealBindings,
-    rust_bindings: *mut RustBindings,
-) -> u32;
+pub type RegisterUnrealBindings =
+    extern "C" fn(bindings: UnrealBindings, rust_bindings: *mut RustBindings) -> u32;
 
 pub type EntryUnrealBindingsFn =
     unsafe extern "C" fn(bindings: UnrealBindings, rust_bindings: *mut RustBindings) -> u32;
 pub type BeginPlayFn = unsafe extern "C" fn() -> ResultCode;
 pub type TickFn = unsafe extern "C" fn(dt: f32) -> ResultCode;
+pub type TryLoadFn = unsafe extern "C" fn(*mut RustBindings) -> u32;
 
 #[repr(C)]
 pub struct PluginBindings {
@@ -95,14 +94,33 @@ pub struct PluginBindings {
 pub struct RustBindings {
     pub tick: TickFn,
     pub begin_play: BeginPlayFn,
-    pub allocate_fns: AllocateFns,
-    // pub initialize_unreal_api: InitializeUnrealApiFn
+    pub allocate: AllocateFn,
+}
+
+impl RustBindings {
+    pub fn uninit() -> Self {
+        unsafe extern "C" fn tick_stub(_: f32) -> ResultCode {
+            ResultCode::Panic
+        }
+        unsafe extern "C" fn begin_play_stub() -> ResultCode {
+            ResultCode::Panic
+        }
+
+        unsafe extern "C" fn allocate_stub(_: usize, _: usize, _: *mut RustAlloc) -> u32 {
+            0
+        }
+
+        Self {
+            tick: tick_stub,
+            begin_play: begin_play_stub,
+            allocate: allocate_stub,
+        }
+    }
 }
 
 pub type SendActorEventFn =
     unsafe extern "C" fn(actor: *const AActorOpaque, uuid: Uuid, json: Utf8Str);
-pub type InitializeModulesFn =
-    unsafe extern "C" fn();
+pub type InitializeModulesFn = unsafe extern "C" fn();
 
 #[repr(u32)]
 pub enum ReflectionType {
@@ -176,7 +194,6 @@ pub struct AllocateFns {
     pub allocate: AllocateFn,
 }
 
-
 pub type GetCDOFromClassCoreFn =
     unsafe extern "C" fn(cdo_opague: *const UClassOpague, *mut *mut UObjectOpague) -> u32;
 pub type GetAllUClassesCoreFn = unsafe extern "C" fn(out: *mut RustAlloc) -> u32;
@@ -229,6 +246,7 @@ unsafe extern "C" {
 }
 
 #[repr(C)]
+#[derive(Clone)]
 pub struct CoreFns {
     pub get_cdo_from_class: GetCDOFromClassCoreFn,
     pub get_all_uclasses: GetAllUClassesCoreFn,

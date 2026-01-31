@@ -27,7 +27,7 @@ uint32_t GetAllUClasses(RustAlloc* out)
 		Classes.Add(*It);
 	}
 
-	GetRustModule().Plugin.Rust.allocate_fns.allocate(Classes.Num() * Classes.GetTypeSize(), 16, out);
+	GetRustModule().Plugin.Rust.allocate(Classes.Num() * Classes.GetTypeSize(), 16, out);
 	FMemory::Memcpy(out->ptr, Classes.GetData(), out->size);
 
 	return 1;
@@ -39,7 +39,7 @@ uint32_t GetClassName(const UClassOpague* InClass, StrRustAlloc* out)
 
 	FString Name = Class->GetPrefixCPP() + Class->GetName();
 	auto Utf8 = FTCHARToUTF8(*Name);
-	GetRustModule().Plugin.Rust.allocate_fns.allocate(Utf8.Length(), 1, &out->alloc);
+	GetRustModule().Plugin.Rust.allocate(Utf8.Length(), 1, &out->alloc);
 	FMemory::Memcpy(out->alloc.ptr, Utf8.Get(), out->alloc.size);
 
 	return 1;

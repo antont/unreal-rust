@@ -51,6 +51,7 @@ public class RustPlugin : ModuleRules
 				"ClassViewer",
 				"EditorStyle",
 				"Json",
+				"EditorSubsystem"
 			}
 			);
 		

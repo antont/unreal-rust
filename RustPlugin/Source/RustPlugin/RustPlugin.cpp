@@ -31,31 +31,31 @@ FString PlatformExtensionName()
 #endif
 }
 
-FString FPlugin::PluginFolderPath()
+FString FRustLoader::PluginFolderPath()
 {
 	return FPaths::Combine(*FPaths::ConvertRelativePathToFull(FPaths::ProjectDir()), TEXT("Binaries"));
 }
 
-FString FPlugin::PluginPath()
+FString FRustLoader::PluginPath()
 {
 	return FPaths::Combine(*PluginFolderPath(), *PluginFileName());
 }
 
-FString FPlugin::PluginFileName()
+FString FRustLoader::PluginFileName()
 {
 	return FString::Printf(TEXT("%s.%s"), TEXT("unreal_rust_loader"), *PlatformExtensionName());
 }
 
-FString FPlugin::PluginPdbPath()
+FString FRustLoader::PluginPdbPath()
 {
 	return FPaths::Combine(*PluginFolderPath(), TEXT("rustplugin.pdb"));
 }
 
-FPlugin::FPlugin()
+FRustLoader::FRustLoader()
 {
 }
 
-bool FPlugin::TryLoad()
+bool FRustLoader::TryLoad()
 {
 	// Loading ddls is a bit tricky, see https://fasterthanli.me/articles/so-you-want-to-live-reload-rust
 	// The gist is we can't easily hot reload a dll if the dll uses the thread local storage (TLS).
@@ -87,9 +87,13 @@ bool FPlugin::TryLoad()
 	this->Handle = LocalHandle;
 
 	void* LocalBindings = FPlatformProcess::GetDllExport(LocalHandle, TEXT("register_unreal_bindings\0"));
+	// void* LocalEditorTick = FPlatformProcess::GetDllExport(LocalHandle, TEXT("editor_tick\0"));
 	ensure(LocalBindings);
+	// ensure(LocalEditorTick);
+	
+	// this->EditorTick = static_cast<TickFn>(LocalEditorTick);
 
-	this->Bindings = (EntryUnrealBindingsFn)LocalBindings;
+	this->Bindings = static_cast<EntryUnrealBindingsFn>(LocalBindings);
 
 	this->TargetPath = LocalTargetDllPath;
 	NeedsInit = true;
@@ -105,13 +109,13 @@ void FRustPluginModule::Exit()
 	}
 }
 
-bool FPlugin::IsLoaded()
+bool FRustLoader::IsLoaded()
 {
 	return Handle != nullptr;
 }
 
 UE_DISABLE_OPTIMIZATION
-void FPlugin::CallEntryPoints()
+void FRustLoader::CallEntryPoints()
 {
 	if (!IsLoaded())
 		return;
@@ -212,6 +216,25 @@ void FRustPluginModule::OnProjectDirectoryChanged(const TArray<FFileChangeData>&
 			return;
 		}
 	}
+}
+
+UWorld* URustEditorSubsystem::GetWorld() const
+{
+	return GEditor->GetEditorWorldContext().World();
+}
+
+void URustEditorSubsystem::Tick(float DeltaTime)
+{
+	auto& RustModule = GetRustModule();
+	if (RustModule.Plugin.IsLoaded())
+	{
+		// RustModule.Plugin.EditorTick(DeltaTime);
+	}
+}
+
+void URustEditorSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+	Super::Initialize(Collection);
 }
 
 void FRustPluginModule::ShutdownModule()
