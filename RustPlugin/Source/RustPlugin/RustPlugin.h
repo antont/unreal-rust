@@ -25,6 +25,7 @@ struct FRustLoader
 	void* Handle;
 	EntryUnrealBindingsFn Bindings;
 	TickFn EditorTick;
+	TryLoadFn TryLoadFunction;
 	RustBindings Rust;
 
 	bool NeedsInit;

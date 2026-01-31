@@ -1,3 +1,4 @@
+use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
 use std::time::SystemTime;
@@ -44,6 +45,7 @@ pub struct Loader {
     path: PathBuf,
     loaded_plugin: Option<Plugin>,
     unreal_bindings: UnrealBindings,
+    hotreload_id: u32,
 }
 impl Loader {
     pub fn new(unreal_bindings: UnrealBindings, path: PathBuf) -> Self {
@@ -51,6 +53,7 @@ impl Loader {
             path,
             loaded_plugin: None,
             unreal_bindings,
+            hotreload_id: 0,
         }
     }
 
@@ -74,10 +77,25 @@ impl Loader {
         // TODO: Maybe add some unloading logic here
         self.loaded_plugin = None;
 
-        let plugin = Plugin::new(&self.unreal_bindings, &self.path);
+        let root_dir =
+            PathBuf::from("D:\\projects\\unreal-rust\\example\\RustExample\\Binaries\\rust");
+
+        let _ = fs::create_dir_all(&root_dir);
+
+        let hot_reload_dir = root_dir.join(format!("rust-plugin-{}", self.hotreload_id));
+        if hot_reload_dir.exists() {
+            let _ = fs::remove_dir_all(&hot_reload_dir);
+        }
+        let hotreload_dll_path = hot_reload_dir.join("rust_plugin.dll");
+        let _ = fs::create_dir_all(&hot_reload_dir);
+        let _ = fs::copy(&self.path, &hotreload_dll_path);
+
+        let plugin = Plugin::new(&self.unreal_bindings, &hotreload_dll_path);
         *rust_bindings = plugin.rust_bindings.clone();
 
         self.loaded_plugin = Some(plugin);
+
+        self.hotreload_id += 1;
     }
 
     pub fn try_load(&mut self, rust_bindings: &mut RustBindings) -> bool {

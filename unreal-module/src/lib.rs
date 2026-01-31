@@ -156,9 +156,9 @@ pub unsafe fn initialize_module(
         MODULE = Box::leak(Box::new(Module { user_module })) as *mut _;
     }
 
-    // let class_db = ClassPtrDB::from(bindings());
-    // let _ = globals::CLASS_PTRS.set(class_db);
-    // unreal_api::bindings::globals::initialize_modules();
+    let class_db = ClassPtrDB::from(bindings());
+    let _ = globals::CLASS_PTRS.set(class_db);
+    unreal_api::bindings::globals::initialize_modules();
 }
 
 // extern "C" fn initialize_unreal_api() {

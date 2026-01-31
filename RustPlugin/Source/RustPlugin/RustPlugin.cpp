@@ -88,7 +88,9 @@ bool FRustLoader::TryLoad()
 
 	void* LocalBindings = FPlatformProcess::GetDllExport(LocalHandle, TEXT("register_unreal_bindings\0"));
 	// void* LocalEditorTick = FPlatformProcess::GetDllExport(LocalHandle, TEXT("editor_tick\0"));
+	this->TryLoadFunction = static_cast<TryLoadFn>(FPlatformProcess::GetDllExport(LocalHandle, TEXT("try_load\0")));
 	ensure(LocalBindings);
+	ensure(this->TryLoadFunction);
 	// ensure(LocalEditorTick);
 	
 	// this->EditorTick = static_cast<TickFn>(LocalEditorTick);
@@ -229,6 +231,11 @@ void URustEditorSubsystem::Tick(float DeltaTime)
 	if (RustModule.Plugin.IsLoaded())
 	{
 		// RustModule.Plugin.EditorTick(DeltaTime);
+		TRACE_CPUPROFILER_EVENT_SCOPE(Hotreload);
+		if (RustModule.Plugin.TryLoadFunction(&RustModule.Plugin.Rust))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Hotreload"));
+		}
 	}
 }
 

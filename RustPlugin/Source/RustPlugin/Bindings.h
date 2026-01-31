@@ -89,6 +89,14 @@ struct RustBindings {
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings, RustBindings *rust_bindings);
 
+using TryLoadFn = uint32_t(*)(RustBindings*);
+
+struct PluginBindings {
+  TickFn tick;
+  BeginPlayFn begin_play;
+  TryLoadFn try_load;
+};
+
 extern "C" {
 
 extern void Log(Utf8Str message);

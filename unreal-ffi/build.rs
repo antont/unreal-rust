@@ -12,7 +12,9 @@ fn main() {
         .include_item("EntryUnrealBindingsFn")
         .include_item("EntryBeginPlayFn")
         .include_item("EntryTickFn")
+        .include_item("TryLoadFn")
         .include_item("AActorOpague")
+        .include_item("PluginBindings")
         .with_pragma_once(true)
         //.with_config(Config {
         //    structure: StructConfig  {
