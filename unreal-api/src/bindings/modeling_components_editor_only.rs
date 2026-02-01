@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -29,6 +30,13 @@ impl USkeletonCommitter {
             .get("USkeletonCommitter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletonCommitter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -51,6 +59,13 @@ impl USkeletonProvider {
             .get("USkeletonProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletonProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -71,6 +86,13 @@ impl UEditorModelingObjectsCreationAPI {
             .name_to_ptr
             .get("UEditorModelingObjectsCreationAPI")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorModelingObjectsCreationAPI")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -93,6 +115,13 @@ impl UDynamicMeshComponentToolTarget {
             .get("UDynamicMeshComponentToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshComponentToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -113,6 +142,13 @@ impl UDynamicMeshComponentToolTargetFactory {
             .name_to_ptr
             .get("UDynamicMeshComponentToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshComponentToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -135,6 +171,13 @@ impl USkeletalMeshComponentReadOnlyToolTarget {
             .get("USkeletalMeshComponentReadOnlyToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshComponentReadOnlyToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -155,6 +198,13 @@ impl USkeletalMeshComponentToolTarget {
             .name_to_ptr
             .get("USkeletalMeshComponentToolTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshComponentToolTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -177,6 +227,13 @@ impl USkeletalMeshComponentReadOnlyToolTargetFactory {
             .get("USkeletalMeshComponentReadOnlyToolTargetFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshComponentReadOnlyToolTargetFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -197,6 +254,13 @@ impl USkeletalMeshComponentToolTargetFactory {
             .name_to_ptr
             .get("USkeletalMeshComponentToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshComponentToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -219,6 +283,13 @@ impl USkeletalMeshReadOnlyToolTarget {
             .get("USkeletalMeshReadOnlyToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshReadOnlyToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -239,6 +310,13 @@ impl USkeletalMeshToolTarget {
             .name_to_ptr
             .get("USkeletalMeshToolTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshToolTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -261,6 +339,13 @@ impl USkeletalMeshReadOnlyToolTargetFactory {
             .get("USkeletalMeshReadOnlyToolTargetFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshReadOnlyToolTargetFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -281,6 +366,13 @@ impl USkeletalMeshToolTargetFactory {
             .name_to_ptr
             .get("USkeletalMeshToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -303,6 +395,13 @@ impl UStaticMeshComponentReadOnlyToolTarget {
             .get("UStaticMeshComponentReadOnlyToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshComponentReadOnlyToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -323,6 +422,13 @@ impl UStaticMeshComponentToolTarget {
             .name_to_ptr
             .get("UStaticMeshComponentToolTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshComponentToolTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -345,6 +451,13 @@ impl UStaticMeshComponentToolTargetFactory {
             .get("UStaticMeshComponentToolTargetFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshComponentToolTargetFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -365,6 +478,13 @@ impl UStaticMeshReadOnlyToolTarget {
             .name_to_ptr
             .get("UStaticMeshReadOnlyToolTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshReadOnlyToolTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -387,6 +507,13 @@ impl UStaticMeshToolTarget {
             .get("UStaticMeshToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -407,6 +534,13 @@ impl UStaticMeshToolTargetFactory {
             .name_to_ptr
             .get("UStaticMeshToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -429,6 +563,13 @@ impl UVolumeComponentToolTarget {
             .get("UVolumeComponentToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVolumeComponentToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -449,6 +590,13 @@ impl UVolumeComponentToolTargetFactory {
             .name_to_ptr
             .get("UVolumeComponentToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVolumeComponentToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

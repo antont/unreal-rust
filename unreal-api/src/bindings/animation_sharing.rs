@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -34,70 +35,74 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationSharingStateProcessor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProcessActorState"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sharing_state_processor_process_actor_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationStateEnum"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sharing_state_processor_get_animation_state_enum,
-        );
+        if let Some(class_ptr) = UAnimationSharingStateProcessor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProcessActorState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sharing_state_processor_process_actor_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationStateEnum"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sharing_state_processor_get_animation_state_enum,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimSharingStateInstance::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInstancedActors"),
-            &raw mut __FUNCTION_PTRS.u_anim_sharing_state_instance_get_instanced_actors,
-        );
+        if let Some(class_ptr) = UAnimSharingStateInstance::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInstancedActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_sharing_state_instance_get_instanced_actors,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationSharingManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterActorWithSkeletonBP"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sharing_manager_register_actor_with_skeleton_bp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationSharingManager"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sharing_manager_get_animation_sharing_manager,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAnimationSharingManager"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sharing_manager_create_animation_sharing_manager,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AnimationSharingEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sharing_manager_animation_sharing_enabled,
-        );
+        if let Some(class_ptr) = UAnimationSharingManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterActorWithSkeletonBP"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sharing_manager_register_actor_with_skeleton_bp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationSharingManager"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sharing_manager_get_animation_sharing_manager,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAnimationSharingManager"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sharing_manager_create_animation_sharing_manager,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AnimationSharingEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sharing_manager_animation_sharing_enabled,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -111,6 +116,13 @@ impl UAnimationSharingStateProcessor {
             .name_to_ptr
             .get("UAnimationSharingStateProcessor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSharingStateProcessor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -238,6 +250,13 @@ impl UAnimSharingStateInstance {
             .get("UAnimSharingStateInstance")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingStateInstance")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -305,6 +324,13 @@ impl UAnimSharingTransitionInstance {
             .get("UAnimSharingTransitionInstance")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingTransitionInstance")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -331,6 +357,13 @@ impl UAnimSharingAdditiveInstance {
             .get("UAnimSharingAdditiveInstance")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingAdditiveInstance")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -352,6 +385,13 @@ impl UAnimSharingInstance {
             .get("UAnimSharingInstance")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSharingInstance")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -372,6 +412,13 @@ impl UAnimationSharingManager {
             .name_to_ptr
             .get("UAnimationSharingManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSharingManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -540,6 +587,13 @@ impl UAnimationSharingSetup {
             .name_to_ptr
             .get("UAnimationSharingSetup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSharingSetup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

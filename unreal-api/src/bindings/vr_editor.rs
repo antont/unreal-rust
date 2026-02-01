@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -114,351 +115,360 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AVREditorTeleporter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TeleportDone"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_teleport_done,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopAiming"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_stop_aiming,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartTeleport"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_start_teleport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartAiming"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_start_aiming,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Shutdown"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_shutdown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVisibility"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_set_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColor"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_set_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTeleporting"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_is_teleporting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAiming"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_is_aiming,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Init"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_init,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVRMode"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_vr_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlideDelta"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_slide_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInteractorTryingTeleport"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_interactor_trying_teleport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoTeleport"),
-            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_do_teleport,
-        );
+        if let Some(class_ptr) = AVREditorTeleporter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TeleportDone"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_teleport_done,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopAiming"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_stop_aiming,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartTeleport"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_start_teleport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartAiming"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_start_aiming,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Shutdown"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_shutdown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVisibility"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_set_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColor"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_set_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTeleporting"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_is_teleporting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAiming"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_is_aiming,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Init"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_init,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVRMode"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_vr_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlideDelta"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_slide_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInteractorTryingTeleport"),
+                &raw mut __FUNCTION_PTRS
+                    .avr_editor_teleporter_get_interactor_trying_teleport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoTeleport"),
+                &raw mut __FUNCTION_PTRS.avr_editor_teleporter_do_teleport,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVREditorInteractor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateHandMeshRelativeTransform"),
-            &raw mut __FUNCTION_PTRS
-                .uvr_editor_interactor_update_hand_mesh_relative_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TryOverrideControllerType"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_try_override_controller_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupComponent"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_setup_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForceShowLaser"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_force_show_laser,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForceLaserColor"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_force_laser_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControllerType"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_controller_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControllerHandSide"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_controller_hand_side,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceHandMeshComponent"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_replace_hand_mesh_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTouchingTrackpad"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_touching_trackpad,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHoveringOverUI"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_hovering_over_ui,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsClickingOnUI"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_clicking_on_ui,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Init"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_init,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackpadPosition"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_trackpad_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTeleportActor"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_teleport_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlideDelta"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_slide_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectAndMoveTriggerValue"),
-            &raw mut __FUNCTION_PTRS
-                .uvr_editor_interactor_get_select_and_move_trigger_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMotionControllerComponent"),
-            &raw mut __FUNCTION_PTRS
-                .uvr_editor_interactor_get_motion_controller_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastTrackpadPosition"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_last_trackpad_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLaserStart"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_laser_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLaserEnd"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_laser_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHMDDeviceType"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_hmd_device_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControllerType"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControllerSide"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_side,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControllerHandSide"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_hand_side,
-        );
+        if let Some(class_ptr) = UVREditorInteractor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateHandMeshRelativeTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_editor_interactor_update_hand_mesh_relative_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TryOverrideControllerType"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_editor_interactor_try_override_controller_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupComponent"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_setup_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForceShowLaser"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_force_show_laser,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForceLaserColor"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_force_laser_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControllerType"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_controller_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControllerHandSide"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_controller_hand_side,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceHandMeshComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_editor_interactor_replace_hand_mesh_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTouchingTrackpad"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_touching_trackpad,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHoveringOverUI"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_hovering_over_ui,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsClickingOnUI"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_clicking_on_ui,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Init"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_init,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackpadPosition"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_trackpad_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTeleportActor"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_teleport_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlideDelta"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_slide_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectAndMoveTriggerValue"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_editor_interactor_get_select_and_move_trigger_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMotionControllerComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_editor_interactor_get_motion_controller_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastTrackpadPosition"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_last_trackpad_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLaserStart"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_laser_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLaserEnd"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_laser_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHMDDeviceType"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_hmd_device_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControllerType"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControllerSide"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_side,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControllerHandSide"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_hand_side,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVREditorMode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGameView"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_mode_set_game_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInGameView"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_mode_is_in_game_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorldScaleFactor"),
-            &raw mut __FUNCTION_PTRS.uvr_editor_mode_get_world_scale_factor,
-        );
+        if let Some(class_ptr) = UVREditorMode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGameView"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_mode_set_game_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInGameView"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_mode_is_in_game_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorldScaleFactor"),
+                &raw mut __FUNCTION_PTRS.uvr_editor_mode_get_world_scale_factor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVRScoutingInteractor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReceivesEditorInput"),
-            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_set_receives_editor_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGizmoMode"),
-            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_set_gizmo_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedActors"),
-            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_selected_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReceivesEditorInput"),
-            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_receives_editor_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputComponent"),
-            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_input_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGizmoMode"),
-            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_gizmo_mode,
-        );
+        if let Some(class_ptr) = UVRScoutingInteractor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReceivesEditorInput"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_scouting_interactor_set_receives_editor_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGizmoMode"),
+                &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_set_gizmo_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedActors"),
+                &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_selected_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReceivesEditorInput"),
+                &raw mut __FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_receives_editor_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputComponent"),
+                &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_input_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGizmoMode"),
+                &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_gizmo_mode,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -487,6 +497,13 @@ impl UVREditorAssetContainer {
             .get("UVREditorAssetContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorAssetContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -508,6 +525,13 @@ impl UVREditorAutoScaler {
             .get("UVREditorAutoScaler")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorAutoScaler")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -528,6 +552,13 @@ impl AVREditorTeleporter {
             .name_to_ptr
             .get("AVREditorTeleporter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorTeleporter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -957,6 +988,13 @@ impl UVREditorBaseUserWidget {
             .get("UVREditorBaseUserWidget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorBaseUserWidget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -977,6 +1015,13 @@ impl AVREditorBaseActor {
             .name_to_ptr
             .get("AVREditorBaseActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorBaseActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -999,6 +1044,13 @@ impl AVREditorFloatingUI {
             .get("AVREditorFloatingUI")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorFloatingUI")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1019,6 +1071,13 @@ impl AVREditorDockableWindow {
             .name_to_ptr
             .get("AVREditorDockableWindow")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorDockableWindow")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1041,6 +1100,13 @@ impl AVREditorDockableCameraWindow {
             .get("AVREditorDockableCameraWindow")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorDockableCameraWindow")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1061,6 +1127,13 @@ impl UDockableWindowDragOperation {
             .name_to_ptr
             .get("UDockableWindowDragOperation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDockableWindowDragOperation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1083,6 +1156,13 @@ impl AVREditorFloatingCameraUI {
             .get("AVREditorFloatingCameraUI")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorFloatingCameraUI")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1103,6 +1183,13 @@ impl AVREditorRadialFloatingUI {
             .name_to_ptr
             .get("AVREditorRadialFloatingUI")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorRadialFloatingUI")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1125,6 +1212,13 @@ impl UVREditorUISystem {
             .get("UVREditorUISystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorUISystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1145,6 +1239,13 @@ impl UVRRadialMenuHandler {
             .name_to_ptr
             .get("UVRRadialMenuHandler")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVRRadialMenuHandler")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1167,6 +1268,13 @@ impl AVREditorAvatarActor {
             .get("AVREditorAvatarActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AVREditorAvatarActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1187,6 +1295,13 @@ impl UVREditorWidgetComponent {
             .name_to_ptr
             .get("UVREditorWidgetComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorWidgetComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1209,6 +1324,13 @@ impl UVREditorCameraWidgetComponent {
             .get("UVREditorCameraWidgetComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorCameraWidgetComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1229,6 +1351,13 @@ impl AFloatingText {
             .name_to_ptr
             .get("AFloatingText")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFloatingText")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1253,6 +1382,13 @@ impl UVREditorInteractor {
             .name_to_ptr
             .get("UVREditorInteractor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorInteractor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1988,6 +2124,13 @@ impl UVREditorModeBase {
             .get("UVREditorModeBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorModeBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2012,6 +2155,13 @@ impl UVREditorMode {
             .name_to_ptr
             .get("UVREditorMode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorMode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2118,6 +2268,13 @@ impl UVREditorPlacement {
             .get("UVREditorPlacement")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVREditorPlacement")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2138,6 +2295,13 @@ impl UVRModeSettings {
             .name_to_ptr
             .get("UVRModeSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVRModeSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2164,6 +2328,13 @@ impl UVRScoutingInteractor {
             .name_to_ptr
             .get("UVRScoutingInteractor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVRScoutingInteractor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

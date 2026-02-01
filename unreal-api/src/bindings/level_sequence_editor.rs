@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -208,747 +209,753 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceEditorBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrackFilterEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_track_filter_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrackFilterActive"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_track_filter_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectionRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_selection_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectionRangeEnd"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_selection_range_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRandomColorForChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_random_color_for_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_playback_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLoopMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_loop_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLockLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_lock_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLockCameraCutToViewport"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_local_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGlobalPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_global_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomColorForChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_custom_color_for_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomColorForChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_custom_color_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentLocalTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_set_current_local_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_select_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectSections"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_select_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_select_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectFolders"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_select_folders,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_select_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_select_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshCurrentLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_refresh_current_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayTo"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_play_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Play"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_pause,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_open_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTrackFilterEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_is_track_filter_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTrackFilterActive"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_is_track_filter_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_is_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLevelSequenceLocked"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_is_level_sequence_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCameraCutLockedToViewport"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasCustomColorForChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_has_custom_color_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackFilterNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_track_filter_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSubSequenceHierarchy"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selection_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionRangeEnd"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selection_range_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selected_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedSections"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selected_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selected_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedFolders"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selected_folders,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selected_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_selected_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackStartPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_playback_start_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackSpeed"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_playback_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackEndPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_playback_end_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoopMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_loop_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_local_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGlobalPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_global_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFocusedLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_focused_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomColorForChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_custom_color_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentLocalTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_current_local_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_current_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelsWithSelectedKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_get_bound_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceUpdate"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_force_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FocusParentSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_focus_parent_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FocusLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_focus_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EmptySelection"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_empty_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeselectBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_deselect_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteColorForChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_delete_color_for_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CloseLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_blueprint_library_close_level_sequence,
-        );
+        if let Some(class_ptr) = ULevelSequenceEditorBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrackFilterEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_track_filter_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrackFilterActive"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_track_filter_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectionRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_selection_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectionRangeEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_selection_range_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRandomColorForChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_random_color_for_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_playback_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLoopMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_loop_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLockLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_lock_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLockCameraCutToViewport"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_local_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGlobalPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_global_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomColorForChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_custom_color_for_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomColorForChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_custom_color_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentLocalTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_current_local_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectSections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectFolders"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_folders,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshCurrentLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_refresh_current_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayTo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_play_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Play"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Pause"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_pause,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_open_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTrackFilterEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_track_filter_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTrackFilterActive"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_track_filter_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlaying"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLevelSequenceLocked"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_level_sequence_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCameraCutLockedToViewport"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasCustomColorForChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_has_custom_color_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackFilterNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_track_filter_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSubSequenceHierarchy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selection_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionRangeEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selection_range_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedSections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedFolders"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_folders,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackStartPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_start_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackSpeed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackEndPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_end_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoopMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_loop_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_local_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGlobalPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_global_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFocusedLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_focused_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomColorForChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_custom_color_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentLocalTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_local_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelsWithSelectedKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_bound_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceUpdate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_force_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FocusParentSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_focus_parent_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FocusLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_focus_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EmptySelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_empty_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeselectBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_deselect_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteColorForChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_delete_color_for_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CloseLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_close_level_sequence,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SyncSectionsUsingSourceTimecode"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_sync_sections_using_source_timecode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SnapSectionsToTimelineUsingSourceTimecode"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveDefaultSpawnableState"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_save_default_spawnable_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceBindingWithActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_replace_binding_with_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveInvalidBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_remove_invalid_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_remove_all_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorsFromBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_remove_actors_from_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RebindComponent"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_rebind_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PasteTracks"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PasteSections"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PasteFolders"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_folders,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PasteBindings"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScriptingLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_get_scripting_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBindingType"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_get_custom_binding_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBindingsOfType"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_get_custom_bindings_of_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBindingObjects"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_get_custom_binding_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveEditor"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_get_curve_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FixActorReferences"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_fix_actor_references,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateCamera"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_create_camera,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyTracks"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopySections"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyFolders"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_folders,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyBindings"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToSpawnable"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_convert_to_spawnable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToPossessable"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_convert_to_possessable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToCustomBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_convert_to_custom_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangeActorTemplateClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_change_actor_template_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BakeTransformWithSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_bake_transform_with_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSpawnableFromInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_add_spawnable_from_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSpawnableFromClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_add_spawnable_from_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorsToBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_editor_subsystem_add_actors_to_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActors"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_add_actors,
-        );
+        if let Some(class_ptr) = ULevelSequenceEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SyncSectionsUsingSourceTimecode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_sync_sections_using_source_timecode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SnapSectionsToTimelineUsingSourceTimecode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveDefaultSpawnableState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_save_default_spawnable_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceBindingWithActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_replace_binding_with_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveInvalidBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_invalid_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_all_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorsFromBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_actors_from_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RebindComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_rebind_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PasteTracks"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PasteSections"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PasteFolders"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_folders,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PasteBindings"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScriptingLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_scripting_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBindingType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_binding_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBindingsOfType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_bindings_of_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBindingObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_binding_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_curve_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FixActorReferences"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_fix_actor_references,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateCamera"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_create_camera,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyTracks"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopySections"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyFolders"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_folders,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyBindings"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToSpawnable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_spawnable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToPossessable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_possessable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToCustomBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_custom_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangeActorTemplateClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_change_actor_template_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BakeTransformWithSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_bake_transform_with_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSpawnableFromInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_spawnable_from_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSpawnableFromClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_spawnable_from_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorsToBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_actors_to_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActors"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_add_actors,
+            );
+        }
     }
 }
 #[repr(C, align(1))]
@@ -967,6 +974,13 @@ impl UCinematicLevelViewportToolbarContext {
             .name_to_ptr
             .get("UCinematicLevelViewportToolbarContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCinematicLevelViewportToolbarContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -989,6 +1003,13 @@ impl ULevelSequenceEditorMenuContext {
             .get("ULevelSequenceEditorMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceEditorMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1009,6 +1030,13 @@ impl UAssetDefinition_LevelSequence {
             .name_to_ptr
             .get("UAssetDefinition_LevelSequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_LevelSequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1031,6 +1059,13 @@ impl ULevelSequenceFactoryNew {
             .get("ULevelSequenceFactoryNew")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceFactoryNew")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1052,6 +1087,13 @@ impl UFilmOverlayToolkit {
             .get("UFilmOverlayToolkit")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFilmOverlayToolkit")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1072,6 +1114,13 @@ impl ULevelSequenceEditorBlueprintLibrary {
             .name_to_ptr
             .get("ULevelSequenceEditorBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceEditorBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3257,6 +3306,13 @@ impl UMovieSceneBindingPropertyInfoList {
             .get("UMovieSceneBindingPropertyInfoList")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingPropertyInfoList")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3277,6 +3333,13 @@ impl ULevelSequenceEditorSubsystem {
             .name_to_ptr
             .get("ULevelSequenceEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4843,6 +4906,13 @@ impl ULevelSequenceEditorSettings {
             .get("ULevelSequenceEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4866,6 +4936,13 @@ impl ULevelSequenceWithShotsSettings {
             .name_to_ptr
             .get("ULevelSequenceWithShotsSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceWithShotsSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

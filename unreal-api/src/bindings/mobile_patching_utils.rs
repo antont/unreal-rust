@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -50,124 +51,129 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMobileInstalledContent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Mount"),
-            &raw mut __FUNCTION_PTRS.u_mobile_installed_content_mount,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInstalledContentSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_mobile_installed_content_get_installed_content_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDiskFreeSpace"),
-            &raw mut __FUNCTION_PTRS.u_mobile_installed_content_get_disk_free_space,
-        );
+        if let Some(class_ptr) = UMobileInstalledContent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Mount"),
+                &raw mut __FUNCTION_PTRS.u_mobile_installed_content_mount,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInstalledContentSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mobile_installed_content_get_installed_content_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDiskFreeSpace"),
+                &raw mut __FUNCTION_PTRS.u_mobile_installed_content_get_disk_free_space,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMobilePendingContent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartInstall"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_start_install,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTotalDownloadedSize"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_total_downloaded_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRequiredDiskSpace"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_required_disk_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInstallProgress"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_install_progress,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDownloadStatusText"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_status_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDownloadSpeed"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDownloadSize"),
-            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_size,
-        );
+        if let Some(class_ptr) = UMobilePendingContent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartInstall"),
+                &raw mut __FUNCTION_PTRS.u_mobile_pending_content_start_install,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTotalDownloadedSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mobile_pending_content_get_total_downloaded_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRequiredDiskSpace"),
+                &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_required_disk_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInstallProgress"),
+                &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_install_progress,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDownloadStatusText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_status_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDownloadSpeed"),
+                &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDownloadSize"),
+                &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_size,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMobilePatchingLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestContent"),
-            &raw mut __FUNCTION_PTRS.u_mobile_patching_library_request_content,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasActiveWiFiConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_mobile_patching_library_has_active_wi_fi_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedPlatformNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_mobile_patching_library_get_supported_platform_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInstalledContent"),
-            &raw mut __FUNCTION_PTRS.u_mobile_patching_library_get_installed_content,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveDeviceProfileName"),
-            &raw mut __FUNCTION_PTRS
-                .u_mobile_patching_library_get_active_device_profile_name,
-        );
+        if let Some(class_ptr) = UMobilePatchingLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestContent"),
+                &raw mut __FUNCTION_PTRS.u_mobile_patching_library_request_content,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasActiveWiFiConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mobile_patching_library_has_active_wi_fi_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedPlatformNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mobile_patching_library_get_supported_platform_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInstalledContent"),
+                &raw mut __FUNCTION_PTRS.u_mobile_patching_library_get_installed_content,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveDeviceProfileName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mobile_patching_library_get_active_device_profile_name,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -181,6 +187,13 @@ impl UMobileInstalledContent {
             .name_to_ptr
             .get("UMobileInstalledContent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMobileInstalledContent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -290,6 +303,13 @@ impl UMobilePendingContent {
             .name_to_ptr
             .get("UMobilePendingContent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMobilePendingContent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -510,6 +530,13 @@ impl UMobilePatchingLibrary {
             .name_to_ptr
             .get("UMobilePatchingLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMobilePatchingLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

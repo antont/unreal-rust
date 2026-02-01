@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -48,105 +49,106 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTraceUtilLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TraceScreenshot"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_screenshot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TraceMarkRegionStart"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_mark_region_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TraceMarkRegionEnd"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_mark_region_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TraceBookmark"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_bookmark,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleChannel"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_toggle_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopTracing"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_stop_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartTraceToFile"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_start_trace_to_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartTraceSendTo"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_start_trace_send_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResumeTracing"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_resume_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PauseTracing"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_pause_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTracing"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_is_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsChannelEnabled"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_is_channel_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnabledChannels"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_get_enabled_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllChannels"),
-            &raw mut __FUNCTION_PTRS.u_trace_util_library_get_all_channels,
-        );
+        if let Some(class_ptr) = UTraceUtilLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TraceScreenshot"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_screenshot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TraceMarkRegionStart"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_mark_region_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TraceMarkRegionEnd"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_mark_region_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TraceBookmark"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_bookmark,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleChannel"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_toggle_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopTracing"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_stop_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartTraceToFile"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_start_trace_to_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartTraceSendTo"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_start_trace_send_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResumeTracing"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_resume_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PauseTracing"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_pause_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTracing"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_is_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsChannelEnabled"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_is_channel_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnabledChannels"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_get_enabled_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllChannels"),
+                &raw mut __FUNCTION_PTRS.u_trace_util_library_get_all_channels,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -160,6 +162,13 @@ impl UTraceUtilLibrary {
             .name_to_ptr
             .get("UTraceUtilLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTraceUtilLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

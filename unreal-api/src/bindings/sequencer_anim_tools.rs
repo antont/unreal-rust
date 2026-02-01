@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -29,6 +30,13 @@ impl UBaseSequencerAnimTool {
             .get("UBaseSequencerAnimTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseSequencerAnimTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -49,6 +57,13 @@ impl UMotionTrailToolBuilder {
             .name_to_ptr
             .get("UMotionTrailToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionTrailToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -71,6 +86,13 @@ impl UMotionTrailTool {
             .get("UMotionTrailTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionTrailTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -91,6 +113,13 @@ impl USequencerPivotToolBuilder {
             .name_to_ptr
             .get("USequencerPivotToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerPivotToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -113,6 +142,13 @@ impl USequencerPivotTool {
             .get("USequencerPivotTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerPivotTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -133,6 +169,13 @@ impl USequencerToolsEditMode {
             .name_to_ptr
             .get("USequencerToolsEditMode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerToolsEditMode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

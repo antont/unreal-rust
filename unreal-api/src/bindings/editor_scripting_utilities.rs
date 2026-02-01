@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -294,1046 +295,1059 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorAssetLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SyncBrowserToObjects"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_sync_browser_to_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMetadataTag"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_set_metadata_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveLoadedAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_loaded_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveLoadedAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveDirectory"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameLoadedAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameDirectory"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMetadataTag"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_remove_metadata_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeDirectory"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_make_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadBlueprintClass"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_load_blueprint_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_load_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ListAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_list_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ListAssetByTagValue"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_list_asset_by_tag_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTagValues"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_tag_values,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetProjectRootAssetDirectory"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_asset_library_get_project_root_asset_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathNameForLoadedAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_asset_library_get_path_name_for_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPackageForObject"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_package_for_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetadataTagValues"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_metadata_tag_values,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetadataTag"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_metadata_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindPackageReferencersForAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_asset_library_find_package_referencers_for_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindAssetData"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_find_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateLoadedAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateDirectory"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesDirectoryHaveAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_directory_have_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesDirectoryExist"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_directory_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesAssetExist"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_asset_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoAssetsExist"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_do_assets_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteLoadedAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_loaded_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteLoadedAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteDirectory"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConsolidateAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_consolidate_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckoutLoadedAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_loaded_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckoutLoadedAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckoutDirectory"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckoutAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_asset,
-        );
+        if let Some(class_ptr) = UEditorAssetLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SyncBrowserToObjects"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_sync_browser_to_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMetadataTag"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_set_metadata_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveLoadedAssets"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_loaded_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveLoadedAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveDirectory"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameLoadedAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameDirectory"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMetadataTag"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_remove_metadata_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeDirectory"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_make_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadBlueprintClass"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_load_blueprint_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_load_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ListAssets"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_list_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ListAssetByTagValue"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_list_asset_by_tag_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTagValues"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_tag_values,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetProjectRootAssetDirectory"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_asset_library_get_project_root_asset_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathNameForLoadedAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_asset_library_get_path_name_for_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPackageForObject"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_package_for_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetadataTagValues"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_metadata_tag_values,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetadataTag"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_metadata_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindPackageReferencersForAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_asset_library_find_package_referencers_for_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindAssetData"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_find_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateLoadedAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateDirectory"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesDirectoryHaveAssets"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_asset_library_does_directory_have_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesDirectoryExist"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_directory_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesAssetExist"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_asset_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoAssetsExist"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_do_assets_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteLoadedAssets"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_loaded_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteLoadedAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteDirectory"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConsolidateAssets"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_consolidate_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckoutLoadedAssets"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_loaded_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckoutLoadedAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckoutDirectory"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckoutAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorDialogLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowSuppressableWarningDialog"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_dialog_library_show_suppressable_warning_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowObjectsDetailsView"),
-            &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_objects_details_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowObjectDetailsView"),
-            &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_object_details_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowMessage"),
-            &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_message,
-        );
+        if let Some(class_ptr) = UEditorDialogLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowSuppressableWarningDialog"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_dialog_library_show_suppressable_warning_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowObjectsDetailsView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_dialog_library_show_objects_details_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowObjectDetailsView"),
+                &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_object_details_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowMessage"),
+                &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_message,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorFilterLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BySelection"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ByLevelName"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_level_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ByLayer"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ByIDName"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_id_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ByClass"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ByActorTag"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_actor_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ByActorLabel"),
-            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_actor_label,
-        );
+        if let Some(class_ptr) = UEditorFilterLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BySelection"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ByLevelName"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_level_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ByLayer"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ByIDName"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_id_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ByClass"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ByActorTag"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_actor_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ByActorLabel"),
+                &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_actor_label,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorLevelLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnActorFromObject"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_spawn_actor_from_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnActorFromClass"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_spawn_actor_from_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectedLevelActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_set_selected_level_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_set_level_viewport_camera_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentLevelByName"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_set_current_level_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_set_actor_selection_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_select_nothing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_save_current_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveAllDirtyLevels"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_save_all_dirty_levels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceSelectedActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_replace_selected_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshesOnActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_replace_mesh_components_meshes_on_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_replace_mesh_components_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterialsOnActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_replace_mesh_components_materials_on_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterials"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_replace_mesh_components_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PilotLevelActor"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_pilot_level_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewLevelFromTemplate"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_new_level_from_template,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewLevel"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_new_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MergeStaticMeshActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_merge_static_mesh_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadLevel"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_load_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("JoinStaticMeshActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_join_static_mesh_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedLevelActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_selected_level_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPIEWorlds"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_pie_worlds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_get_level_viewport_camera_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGameWorld"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_game_world,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEditorWorld"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_editor_world,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllLevelActorsComponents"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_level_library_get_all_level_actors_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllLevelActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_all_level_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_actor_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EjectPilotLevelActor"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_eject_pilot_level_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorSetGameView"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_set_game_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorPlaySimulate"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_play_simulate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorInvalidateViewports"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_invalidate_viewports,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorEndPlay"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_end_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DestroyActor"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_destroy_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyMeshActor"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_create_proxy_mesh_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertActors"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_convert_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut __FUNCTION_PTRS.u_editor_level_library_clear_actor_selection_set,
-        );
+        if let Some(class_ptr) = UEditorLevelLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnActorFromObject"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_spawn_actor_from_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnActorFromClass"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_spawn_actor_from_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectedLevelActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_set_selected_level_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_set_level_viewport_camera_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentLevelByName"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_set_current_level_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActorSelectionState"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_set_actor_selection_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectNothing"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_select_nothing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_save_current_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveAllDirtyLevels"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_save_all_dirty_levels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceSelectedActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_replace_selected_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshesOnActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_meshes_on_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterialsOnActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_materials_on_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterials"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PilotLevelActor"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_pilot_level_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewLevelFromTemplate"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_new_level_from_template,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewLevel"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_new_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MergeStaticMeshActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_merge_static_mesh_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadLevel"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_load_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("JoinStaticMeshActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_join_static_mesh_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedLevelActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_get_selected_level_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPIEWorlds"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_get_pie_worlds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_get_level_viewport_camera_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGameWorld"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_get_game_world,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEditorWorld"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_get_editor_world,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllLevelActorsComponents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_get_all_level_actors_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllLevelActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_get_all_level_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorReference"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_get_actor_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EjectPilotLevelActor"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_eject_pilot_level_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorSetGameView"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_set_game_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorPlaySimulate"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_play_simulate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorInvalidateViewports"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_level_library_editor_invalidate_viewports,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorEndPlay"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_end_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DestroyActor"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_destroy_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyMeshActor"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_create_proxy_mesh_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertActors"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_convert_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
+                &raw mut __FUNCTION_PTRS.u_editor_level_library_clear_actor_selection_set,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_EditorSkeletalMeshLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StripLODGeometry"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_strip_lod_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_set_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameSocket"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_rename_socket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLODs"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_remove_lo_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegenerateLOD"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_regenerate_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut __FUNCTION_PTRS.udeprecated_editor_skeletal_mesh_library_import_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVerts"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_get_num_verts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODCount"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_get_lod_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_get_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePhysicsAsset"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_skeletal_mesh_library_create_physics_asset,
-        );
+        if let Some(class_ptr) = UDEPRECATED_EditorSkeletalMeshLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StripLODGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_strip_lod_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_set_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameSocket"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_rename_socket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLODs"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_remove_lo_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegenerateLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_regenerate_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_import_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVerts"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_num_verts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODCount"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_lod_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePhysicsAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_create_physics_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_EditorStaticMeshLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodsWithNotification"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_lods_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLods"),
-            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_set_lods,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodReductionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_lod_reduction_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodFromStaticMesh"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_lod_from_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGenerateLightmapUVs"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "SetConvexDecompositionCollisionsWithNotification",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConvexDecompositionCollisions"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowCPUAccess"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_set_allow_cpu_access,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_remove_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLods"),
-            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_remove_lods,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCollisionsWithNotification"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_remove_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCollisions"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_remove_collisions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSectionCollisionEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_is_section_collision_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InsertUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_insert_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_import_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasVertexColors"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_has_vertex_colors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasInstanceVertexColors"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_has_instance_vertex_colors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSimpleCollisionCount"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_simple_collision_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumUVChannels"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_num_uv_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberVerts"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_number_verts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberMaterials"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_number_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodScreenSizes"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodReductionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_lod_reduction_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodCount"),
-            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_get_lod_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConvexCollisionCount"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_convex_collision_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCollisionComplexity"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_get_collision_complexity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GeneratePlanarUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_generate_planar_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateCylindricalUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateBoxUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_generate_box_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionCollision"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_enable_section_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionCastShadow"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_enable_section_cast_shadow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "BulkSetConvexDecompositionCollisionsWithNotification",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BulkSetConvexDecompositionCollisions"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_add_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSimpleCollisionsWithNotification"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSimpleCollisions"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_editor_static_mesh_library_add_simple_collisions,
-        );
+        if let Some(class_ptr) = UDEPRECATED_EditorStaticMeshLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodsWithNotification"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lods_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLods"),
+                &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_set_lods,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodReductionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_reduction_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodFromStaticMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_from_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGenerateLightmapUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetConvexDecompositionCollisionsWithNotification",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConvexDecompositionCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowCPUAccess"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_allow_cpu_access,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLods"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_lods,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCollisionsWithNotification"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_collisions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSectionCollisionEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_is_section_collision_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InsertUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_insert_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_import_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasVertexColors"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_has_vertex_colors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasInstanceVertexColors"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_has_instance_vertex_colors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSimpleCollisionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_simple_collision_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumUVChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_num_uv_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberVerts"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_number_verts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberMaterials"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_number_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodReductionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_reduction_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodCount"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConvexCollisionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_convex_collision_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCollisionComplexity"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_collision_complexity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GeneratePlanarUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_planar_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateCylindricalUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateBoxUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_box_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_enable_section_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionCastShadow"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_enable_section_cast_shadow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "BulkSetConvexDecompositionCollisionsWithNotification",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BulkSetConvexDecompositionCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSimpleCollisionsWithNotification"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSimpleCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_simple_collisions,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -1394,6 +1408,13 @@ impl UEditorAssetLibrary {
             .name_to_ptr
             .get("UEditorAssetLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorAssetLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2936,6 +2957,13 @@ impl UEditorDialogLibrary {
             .get("UEditorDialogLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorDialogLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3179,6 +3207,13 @@ impl UEditorFilterLibrary {
             .name_to_ptr
             .get("UEditorFilterLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorFilterLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3610,6 +3645,13 @@ impl UEditorLevelLibrary {
             .name_to_ptr
             .get("UEditorLevelLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorLevelLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5077,6 +5119,13 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             .get("UDEPRECATED_EditorSkeletalMeshLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_EditorSkeletalMeshLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5592,6 +5641,13 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             .name_to_ptr
             .get("UDEPRECATED_EditorStaticMeshLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_EditorStaticMeshLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,6 +29,13 @@ impl UAssetDefinition_TaggedAssetBrowserConfiguration {
             .get("UAssetDefinition_TaggedAssetBrowserConfiguration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_TaggedAssetBrowserConfiguration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -48,6 +56,13 @@ impl UAssetEditor_TaggedAssetBrowserConfiguration {
             .name_to_ptr
             .get("UAssetEditor_TaggedAssetBrowserConfiguration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetEditor_TaggedAssetBrowserConfiguration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -70,6 +85,13 @@ impl ULocalFavoriteUserAssetTagsConfig {
             .get("ULocalFavoriteUserAssetTagsConfig")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULocalFavoriteUserAssetTagsConfig")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -90,6 +112,13 @@ impl UProjectUserAssetTagSettings {
             .name_to_ptr
             .get("UProjectUserAssetTagSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProjectUserAssetTagSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -112,6 +141,13 @@ impl UTaggedAssetBrowserConfig {
             .get("UTaggedAssetBrowserConfig")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserConfig")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -132,6 +168,13 @@ impl UTaggedAssetBrowserConfiguration {
             .name_to_ptr
             .get("UTaggedAssetBrowserConfiguration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserConfiguration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -154,6 +197,13 @@ impl UTaggedAssetBrowserConfigurationFactory {
             .get("UTaggedAssetBrowserConfigurationFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserConfigurationFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -174,6 +224,13 @@ impl UTaggedAssetBrowserConfigurationHierarchyViewModel {
             .name_to_ptr
             .get("UTaggedAssetBrowserConfigurationHierarchyViewModel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserConfigurationHierarchyViewModel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -196,6 +253,13 @@ impl UTaggedAssetBrowserFilterBase {
             .get("UTaggedAssetBrowserFilterBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilterBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -216,6 +280,13 @@ impl UTaggedAssetBrowserFilterRoot {
             .name_to_ptr
             .get("UTaggedAssetBrowserFilterRoot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilterRoot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -238,6 +309,13 @@ impl UTaggedAssetBrowserSection {
             .get("UTaggedAssetBrowserSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -258,6 +336,13 @@ impl UTaggedAssetBrowserFilter_All {
             .name_to_ptr
             .get("UTaggedAssetBrowserFilter_All")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilter_All")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -280,6 +365,13 @@ impl UTaggedAssetBrowserFilter_UserAssetTag {
             .get("UTaggedAssetBrowserFilter_UserAssetTag")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilter_UserAssetTag")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -300,6 +392,13 @@ impl UTaggedAssetBrowserFilter_UserAssetTagCollection {
             .name_to_ptr
             .get("UTaggedAssetBrowserFilter_UserAssetTagCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilter_UserAssetTagCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -322,6 +421,13 @@ impl UTaggedAssetBrowserFilter_Recent {
             .get("UTaggedAssetBrowserFilter_Recent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilter_Recent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -342,6 +448,13 @@ impl UTaggedAssetBrowserFilter_Directories {
             .name_to_ptr
             .get("UTaggedAssetBrowserFilter_Directories")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilter_Directories")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -364,6 +477,13 @@ impl UTaggedAssetBrowserFilter_Class {
             .get("UTaggedAssetBrowserFilter_Class")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserFilter_Class")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -384,6 +504,13 @@ impl UUserAssetTagEditorContext {
             .name_to_ptr
             .get("UUserAssetTagEditorContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserAssetTagEditorContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -406,6 +533,13 @@ impl UTaggedAssetBrowserMenuContext {
             .get("UTaggedAssetBrowserMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTaggedAssetBrowserMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -426,6 +560,13 @@ impl UUserAssetTagProvider {
             .name_to_ptr
             .get("UUserAssetTagProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserAssetTagProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -448,6 +589,13 @@ impl UUserAssetTagProvider_LocalAssetTypeFavorites {
             .get("UUserAssetTagProvider_LocalAssetTypeFavorites")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserAssetTagProvider_LocalAssetTypeFavorites")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -469,6 +617,13 @@ impl UUserAssetTagProvider_Project {
             .get("UUserAssetTagProvider_Project")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserAssetTagProvider_Project")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -489,6 +644,13 @@ impl UUserAssetTagsEditorConfig {
             .name_to_ptr
             .get("UUserAssetTagsEditorConfig")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserAssetTagsEditorConfig")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

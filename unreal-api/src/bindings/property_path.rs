@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -36,63 +37,64 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPropertyPathTestObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStructRef"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStructConstRef"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct_const_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStruct"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloat"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStructRef"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStructConstRef"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct_const_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStruct"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_float,
-        );
+        if let Some(class_ptr) = UPropertyPathTestObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStructRef"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStructConstRef"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct_const_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStruct"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloat"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStructRef"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStructConstRef"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct_const_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStruct"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloat"),
+                &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_float,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -128,6 +130,13 @@ impl UPropertyPathTestObject {
             .name_to_ptr
             .get("UPropertyPathTestObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyPathTestObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

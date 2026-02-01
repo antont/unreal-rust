@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,21 +25,22 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UWidgetPreview::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidgetSlotNames"),
-            &raw mut __FUNCTION_PTRS.u_widget_preview_get_widget_slot_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailableWidgetSlotNames"),
-            &raw mut __FUNCTION_PTRS.u_widget_preview_get_available_widget_slot_names,
-        );
+        if let Some(class_ptr) = UWidgetPreview::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidgetSlotNames"),
+                &raw mut __FUNCTION_PTRS.u_widget_preview_get_widget_slot_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailableWidgetSlotNames"),
+                &raw mut __FUNCTION_PTRS.u_widget_preview_get_available_widget_slot_names,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -58,6 +60,13 @@ impl UAssetDefinition_WidgetPreview {
             .name_to_ptr
             .get("UAssetDefinition_WidgetPreview")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_WidgetPreview")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -85,6 +94,13 @@ impl UWidgetPreview {
             .name_to_ptr
             .get("UWidgetPreview")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetPreview")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -159,6 +175,13 @@ impl UWidgetPreviewEditor {
             .get("UWidgetPreviewEditor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetPreviewEditor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -179,6 +202,13 @@ impl UWidgetPreviewFactory {
             .name_to_ptr
             .get("UWidgetPreviewFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetPreviewFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

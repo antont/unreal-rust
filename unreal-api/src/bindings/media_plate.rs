@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -88,250 +89,258 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AMediaPlate::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHoldoutCompositeEnabled"),
-            &raw mut __FUNCTION_PTRS.a_media_plate_set_holdout_composite_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHoldoutCompositeEnabled"),
-            &raw mut __FUNCTION_PTRS.a_media_plate_is_holdout_composite_enabled,
-        );
+        if let Some(class_ptr) = AMediaPlate::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHoldoutCompositeEnabled"),
+                &raw mut __FUNCTION_PTRS.a_media_plate_set_holdout_composite_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHoldoutCompositeEnabled"),
+                &raw mut __FUNCTION_PTRS.a_media_plate_is_holdout_composite_enabled,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaPlateComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlayOnlyWhenVisible"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_play_only_when_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeshRange"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_mesh_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLoop"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_loop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLetterboxAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_letterbox_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsAspectRatioAuto"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_is_aspect_ratio_auto,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableAudio"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_enable_audio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectMediaSourceAsset"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_select_media_source_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectMediaPlaylistAsset"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_select_media_playlist_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectExternalMedia"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_select_external_media,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Seek"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_seek,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Rewind"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_rewind,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Previous"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_previous,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Play"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_pause,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenLatent"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_open_latent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Open"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMediaSuspended"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_suspended,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMediaResumed"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_resumed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMediaOpened"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_opened,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMediaEnd"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Next"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_next,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsMediaPlatePlaying"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_is_media_plate_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEventStateChangeAllowed"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_plate_component_is_event_state_change_allowed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedMediaSource"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_selected_media_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshRange"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_mesh_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaTexture"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaPlaylist"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_playlist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoop"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_loop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLetterboxAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_letterbox_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsAspectRatioAuto"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_is_aspect_ratio_auto,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Close"),
-            &raw mut __FUNCTION_PTRS.u_media_plate_component_close,
-        );
+        if let Some(class_ptr) = UMediaPlateComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlayOnlyWhenVisible"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_set_play_only_when_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeshRange"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_set_mesh_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLoop"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_set_loop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLetterboxAspectRatio"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_set_letterbox_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsAspectRatioAuto"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_set_is_aspect_ratio_auto,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableAudio"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_set_enable_audio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectMediaSourceAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_select_media_source_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectMediaPlaylistAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_select_media_playlist_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectExternalMedia"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_select_external_media,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Seek"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_seek,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Rewind"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_rewind,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Previous"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_previous,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Play"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Pause"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_pause,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenLatent"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_open_latent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Open"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMediaSuspended"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_suspended,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMediaResumed"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_resumed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMediaOpened"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_opened,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMediaEnd"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Next"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_next,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsMediaPlatePlaying"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_is_media_plate_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEventStateChangeAllowed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_is_event_state_change_allowed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedMediaSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_get_selected_media_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshRange"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_get_mesh_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaTexture"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaPlaylist"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_playlist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaPlayer"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoop"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_get_loop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLetterboxAspectRatio"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_plate_component_get_letterbox_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsAspectRatioAuto"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_get_is_aspect_ratio_auto,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Close"),
+                &raw mut __FUNCTION_PTRS.u_media_plate_component_close,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -355,6 +364,13 @@ impl AMediaPlate {
             .name_to_ptr
             .get("AMediaPlate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AMediaPlate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -435,6 +451,13 @@ impl UMediaPlateAssetUserData {
             .get("UMediaPlateAssetUserData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlateAssetUserData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -473,6 +496,13 @@ impl UMediaPlateComponent {
             .name_to_ptr
             .get("UMediaPlateComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlateComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

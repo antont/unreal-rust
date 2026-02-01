@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -194,696 +195,717 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UChaosDestructionListener::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortTrailingEvents"),
-            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_trailing_events,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortRemovalEvents"),
-            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_removal_events,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortCollisionEvents"),
-            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_collision_events,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortBreakingEvents"),
-            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_breaking_events,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrailingEventRequestSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_trailing_event_request_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrailingEventEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_trailing_event_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRemovalEventRequestSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_removal_event_request_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRemovalEventEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_removal_event_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCollisionEventRequestSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_collision_event_request_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCollisionEventEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_collision_event_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBreakingEventRequestSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_breaking_event_request_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBreakingEventEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_set_breaking_event_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGeometryCollectionActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_remove_geometry_collection_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChaosSolverActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_remove_chaos_solver_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEventListening"),
-            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_is_event_listening,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGeometryCollectionActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_destruction_listener_add_geometry_collection_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChaosSolverActor"),
-            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_add_chaos_solver_actor,
-        );
+        if let Some(class_ptr) = UChaosDestructionListener::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortTrailingEvents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_trailing_events,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortRemovalEvents"),
+                &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_removal_events,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortCollisionEvents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_collision_events,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortBreakingEvents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_breaking_events,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrailingEventRequestSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_trailing_event_request_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrailingEventEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_trailing_event_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRemovalEventRequestSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_removal_event_request_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRemovalEventEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_removal_event_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCollisionEventRequestSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_collision_event_request_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCollisionEventEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_collision_event_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBreakingEventRequestSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_breaking_event_request_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBreakingEventEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_breaking_event_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGeometryCollectionActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_remove_geometry_collection_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChaosSolverActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_remove_chaos_solver_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEventListening"),
+                &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_is_event_listening,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGeometryCollectionActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_add_geometry_collection_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChaosSolverActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_destruction_listener_add_chaos_solver_actor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGeometryCollectionActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RaycastSingle"),
-            &raw mut __FUNCTION_PTRS.a_geometry_collection_actor_raycast_single,
-        );
+        if let Some(class_ptr) = AGeometryCollectionActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RaycastSingle"),
+                &raw mut __FUNCTION_PTRS.a_geometry_collection_actor_raycast_single,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGeometryCollectionBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetISMPoolCustomInstanceData"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomInstanceDataByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_blueprint_library_set_custom_instance_data_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomInstanceDataByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_blueprint_library_set_custom_instance_data_by_index,
-        );
+        if let Some(class_ptr) = UGeometryCollectionBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetISMPoolCustomInstanceData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomInstanceDataByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_custom_instance_data_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomInstanceDataByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_custom_instance_data_by_index,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGeometryCollectionComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUseStaticMeshCollisionForTraces"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_use_static_mesh_collision_for_traces,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUseMaterialDamageModifiers"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_use_material_damage_modifiers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverActor"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_solver_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRootProxyComponentSpaceTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_root_proxy_component_space_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRestCollection"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_rest_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPerParticleCollisionProfileName"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_per_particle_collision_profile_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPerLevelCollisionProfileNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_per_level_collision_profile_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOneWayInteractionLevel"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_one_way_interaction_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyRemovals"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_notify_removals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyGlobalRemovals"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_notify_global_removals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyGlobalCrumblings"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_notify_global_crumblings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyGlobalCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_notify_global_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyGlobalBreaks"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_notify_global_breaks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyCrumblings"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_notify_crumblings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotifyBreaks"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_notify_breaks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalRestTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_local_rest_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGravityGroupIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_gravity_group_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableDamageFromCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_enable_damage_from_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDensityFromPhysicsMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_density_from_physics_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDamageThreshold"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_damage_threshold,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDamagePropagationData"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_damage_propagation_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDamageModel"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_damage_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnchoredByTransformedBox"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_anchored_by_transformed_box,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnchoredByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_anchored_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnchoredByBox"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_anchored_by_box,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAbandonedParticleCollisionProfileName"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_set_abandoned_particle_collision_profile_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetState"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_reset_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllAnchors"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_remove_all_anchors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceivePhysicsCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_receive_physics_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRep_RepStateData"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_on_rep_rep_state_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRep_RepDynamicData"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_on_rep_rep_dynamic_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRep_RepData"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_on_rep_rep_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "NotifyGeometryCollectionPhysicsStateChange__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_notify_geometry_collection_physics_state_change_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_notify_geometry_collection_physics_loading_state_change_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootBroken"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_is_root_broken,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUseStaticMeshCollisionForTraces"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_get_use_static_mesh_collision_for_traces,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSolverActor"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_solver_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootInitialTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_get_root_initial_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootIndex"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_root_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootCurrentTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_get_root_current_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMassAndExtents"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_mass_and_extents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalRestTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_get_local_rest_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalBounds"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_local_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInitialLocalRestTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_get_initial_local_rest_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInitialLevel"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_initial_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDebugInfo"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_debug_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDamageThreshold"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_damage_threshold,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceBrokenForCustomRenderer"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_force_broken_for_custom_renderer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindLeafTransformByLineTrace"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_find_leaf_transform_by_line_trace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableRootProxyForCustomRenderer"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_enable_root_proxy_for_custom_renderer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CrumbleCluster"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_crumble_cluster,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CrumbleActiveClusters"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_crumble_active_clusters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_apply_physics_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyLinearVelocity"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_linear_velocity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyKinematicField"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_kinematic_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyInternalStrain"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_internal_strain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyExternalStrain"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_external_strain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyBreakingLinearVelocity"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_breaking_linear_velocity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyBreakingAngularVelocity"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_breaking_angular_velocity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyAssetDefaults"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_apply_asset_defaults,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyAngularVelocity"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_component_apply_angular_velocity,
-        );
+        if let Some(class_ptr) = UGeometryCollectionComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUseStaticMeshCollisionForTraces"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_use_static_mesh_collision_for_traces,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUseMaterialDamageModifiers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_use_material_damage_modifiers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverActor"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_solver_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRootProxyComponentSpaceTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_root_proxy_component_space_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRestCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_rest_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPerParticleCollisionProfileName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_per_particle_collision_profile_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPerLevelCollisionProfileNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_per_level_collision_profile_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOneWayInteractionLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_one_way_interaction_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyRemovals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_removals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyGlobalRemovals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_removals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyGlobalCrumblings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_crumblings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyGlobalCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyGlobalBreaks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_breaks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyCrumblings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_crumblings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotifyBreaks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_breaks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalRestTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_local_rest_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGravityGroupIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_gravity_group_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableDamageFromCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_enable_damage_from_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDensityFromPhysicsMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_density_from_physics_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDamageThreshold"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_threshold,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDamagePropagationData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_propagation_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDamageModel"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_damage_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnchoredByTransformedBox"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_transformed_box,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnchoredByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnchoredByBox"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_box,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAbandonedParticleCollisionProfileName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_set_abandoned_particle_collision_profile_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetState"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_reset_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllAnchors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_remove_all_anchors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceivePhysicsCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_receive_physics_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRep_RepStateData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_on_rep_rep_state_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRep_RepDynamicData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_on_rep_rep_dynamic_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRep_RepData"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_on_rep_rep_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "NotifyGeometryCollectionPhysicsStateChange__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_notify_geometry_collection_physics_state_change_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_notify_geometry_collection_physics_loading_state_change_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootBroken"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_is_root_broken,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUseStaticMeshCollisionForTraces"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_use_static_mesh_collision_for_traces,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSolverActor"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_solver_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootInitialTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_initial_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootIndex"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_root_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootCurrentTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_current_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMassAndExtents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_mass_and_extents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalRestTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_local_rest_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalBounds"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_local_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInitialLocalRestTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_initial_local_rest_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInitialLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_initial_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDebugInfo"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_debug_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDamageThreshold"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_get_damage_threshold,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceBrokenForCustomRenderer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_force_broken_for_custom_renderer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindLeafTransformByLineTrace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_find_leaf_transform_by_line_trace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableRootProxyForCustomRenderer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_enable_root_proxy_for_custom_renderer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CrumbleCluster"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_component_crumble_cluster,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CrumbleActiveClusters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_crumble_active_clusters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_physics_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyLinearVelocity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_linear_velocity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyKinematicField"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_kinematic_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyInternalStrain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_internal_strain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyExternalStrain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_external_strain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyBreakingLinearVelocity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_breaking_linear_velocity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyBreakingAngularVelocity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_breaking_angular_velocity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyAssetDefaults"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_asset_defaults,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyAngularVelocity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_angular_velocity,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGeometryCollectionISMPoolSubSystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnActorEndPlay"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_ism_pool_sub_system_on_actor_end_play,
-        );
+        if let Some(class_ptr) = UGeometryCollectionISMPoolSubSystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnActorEndPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_ism_pool_sub_system_on_actor_end_play,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGeometryCollection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableNanite"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_set_enable_nanite,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataflowAsset"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_set_dataflow_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConvertVertexColorsToSRGB"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_collection_set_convert_vertex_colors_to_srgb,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataflowAsset"),
-            &raw mut __FUNCTION_PTRS.u_geometry_collection_get_dataflow_asset,
-        );
+        if let Some(class_ptr) = UGeometryCollection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableNanite"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_set_enable_nanite,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataflowAsset"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_set_dataflow_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConvertVertexColorsToSRGB"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_collection_set_convert_vertex_colors_to_srgb,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataflowAsset"),
+                &raw mut __FUNCTION_PTRS.u_geometry_collection_get_dataflow_asset,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1015,6 +1037,13 @@ impl UGeometryCollectionExternalRenderInterface {
             .get("UGeometryCollectionExternalRenderInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionExternalRenderInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1036,6 +1065,13 @@ impl UGeometryCollectionCustomDataInterface {
             .name_to_ptr
             .get("UGeometryCollectionCustomDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionCustomDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1068,6 +1104,13 @@ impl UChaosDestructionListener {
             .name_to_ptr
             .get("UChaosDestructionListener")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosDestructionListener")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1731,6 +1774,13 @@ impl AGeometryCollectionActor {
             .get("AGeometryCollectionActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1806,6 +1856,13 @@ impl UGeometryCollectionBlueprintLibrary {
             .name_to_ptr
             .get("UGeometryCollectionBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1978,6 +2035,13 @@ impl UGeometryCollectionCache {
             .get("UGeometryCollectionCache")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionCache")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2080,6 +2144,13 @@ impl UGeometryCollectionComponent {
             .name_to_ptr
             .get("UGeometryCollectionComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4152,6 +4223,13 @@ impl AGeometryCollectionDebugDrawActor {
             .get("AGeometryCollectionDebugDrawActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionDebugDrawActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4172,6 +4250,13 @@ impl UGeometryCollectionDebugDrawComponent {
             .name_to_ptr
             .get("UGeometryCollectionDebugDrawComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionDebugDrawComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4197,6 +4282,13 @@ impl AGeometryCollectionISMPoolActor {
             .get("AGeometryCollectionISMPoolActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionISMPoolActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4217,6 +4309,13 @@ impl UGeometryCollectionISMPoolComponent {
             .name_to_ptr
             .get("UGeometryCollectionISMPoolComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4239,6 +4338,13 @@ impl UGeometryCollectionISMPoolRenderer {
             .get("UGeometryCollectionISMPoolRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4259,6 +4365,13 @@ impl UGeometryCollectionISMPoolSubSystem {
             .name_to_ptr
             .get("UGeometryCollectionISMPoolSubSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolSubSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4330,6 +4443,13 @@ impl UGeometryCollection {
             .name_to_ptr
             .get("UGeometryCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4486,6 +4606,13 @@ impl AGeometryCollectionRenderLevelSetActor {
             .get("AGeometryCollectionRenderLevelSetActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCollectionRenderLevelSetActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4507,6 +4634,13 @@ impl UGeometryCollectionRootProxyRenderer {
             .get("UGeometryCollectionRootProxyRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionRootProxyRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4527,6 +4661,13 @@ impl UGeometryCollectionISMPoolDebugDrawComponent {
             .name_to_ptr
             .get("UGeometryCollectionISMPoolDebugDrawComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionISMPoolDebugDrawComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -74,197 +75,199 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceControlHelpers::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SyncFiles"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_sync_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SyncFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_sync_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RevertUnchangedFiles"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_unchanged_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RevertUnchangedFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_unchanged_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RevertFiles"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RevertFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RevertAndReloadPackages"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_and_reload_packages,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryFileStates"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_query_file_states,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryFileStateDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_control_helpers_query_file_state_delegate_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryFileState"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_query_file_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkFilesForDelete"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_files_for_delete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkFilesForAdd"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_files_for_add,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkFileForDelete"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_file_for_delete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkFileForAdd"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_file_for_add,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LastErrorMsg"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_last_error_msg,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_is_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAvailable"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_is_available,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CurrentProvider"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_current_provider,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_copy_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckOutOrAddFiles"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_or_add_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckOutOrAddFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_or_add_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckOutFiles"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckOutFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckInFiles"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_in_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckInFile"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_in_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AsyncQueryFileStates"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_async_query_file_states,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AsyncQueryFileState"),
-            &raw mut __FUNCTION_PTRS.u_source_control_helpers_async_query_file_state,
-        );
+        if let Some(class_ptr) = USourceControlHelpers::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SyncFiles"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_sync_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SyncFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_sync_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RevertUnchangedFiles"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_unchanged_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RevertUnchangedFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_unchanged_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RevertFiles"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RevertFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RevertAndReloadPackages"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_control_helpers_revert_and_reload_packages,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryFileStates"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_query_file_states,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryFileStateDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_control_helpers_query_file_state_delegate_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryFileState"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_query_file_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkFilesForDelete"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_files_for_delete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkFilesForAdd"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_files_for_add,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkFileForDelete"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_file_for_delete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkFileForAdd"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_file_for_add,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LastErrorMsg"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_last_error_msg,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEnabled"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_is_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAvailable"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_is_available,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CurrentProvider"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_current_provider,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_copy_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckOutOrAddFiles"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_or_add_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckOutOrAddFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_or_add_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckOutFiles"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckOutFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckInFiles"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_in_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckInFile"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_in_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AsyncQueryFileStates"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_async_query_file_states,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AsyncQueryFileState"),
+                &raw mut __FUNCTION_PTRS.u_source_control_helpers_async_query_file_state,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -304,6 +307,13 @@ impl USourceControlHelpers {
             .name_to_ptr
             .get("USourceControlHelpers")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceControlHelpers")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1308,6 +1318,13 @@ impl USourceControlPreferences {
             .name_to_ptr
             .get("USourceControlPreferences")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceControlPreferences")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

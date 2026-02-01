@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,14 +23,15 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UImageWriteBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportToDisk"),
-            &raw mut __FUNCTION_PTRS.u_image_write_blueprint_library_export_to_disk,
-        );
+        if let Some(class_ptr) = UImageWriteBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportToDisk"),
+                &raw mut __FUNCTION_PTRS.u_image_write_blueprint_library_export_to_disk,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -53,6 +55,13 @@ impl UImageWriteBlueprintLibrary {
             .name_to_ptr
             .get("UImageWriteBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImageWriteBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

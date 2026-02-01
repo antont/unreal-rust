@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -356,1326 +357,1345 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAIESelectionSets::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowOrHideControls"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_show_or_hide_controls,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowAllControls"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_show_all_controls,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowAndSetSelectedOnly"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_show_and_set_selected_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetItemRow"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_item_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetItemColor"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_item_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActorAsActive"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_actor_as_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectItem"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_select_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameSetItem"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_rename_set_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSelectionFromSetItem"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_remove_selection_from_set_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadFromJsonString"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_load_from_json_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadFromJsonFile"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_load_from_json_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("KeyAll"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_key_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsolateControls"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_isolate_controls,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsMultiAsset"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_is_multi_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetShowAndSetSelectedOnly"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_show_and_set_selected_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemRow"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemName"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemGuids"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_guids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemColor"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllActors"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_all_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveSelectionSets"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_active_selection_sets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveActors"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_active_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAsJsonString"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_export_as_json_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAsJsonFile"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_export_as_json_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteSetItem"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_delete_set_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateSetItemFromSelection"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_create_set_item_from_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMirror"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_create_mirror,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSelectionToSetItem"),
-            &raw mut __FUNCTION_PTRS.uaie_selection_sets_add_selection_to_set_item,
-        );
+        if let Some(class_ptr) = UAIESelectionSets::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowOrHideControls"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_show_or_hide_controls,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowAllControls"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_show_all_controls,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowAndSetSelectedOnly"),
+                &raw mut __FUNCTION_PTRS
+                    .uaie_selection_sets_set_show_and_set_selected_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetItemRow"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_item_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetItemColor"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_item_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActorAsActive"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_actor_as_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectItem"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_select_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameSetItem"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_rename_set_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSelectionFromSetItem"),
+                &raw mut __FUNCTION_PTRS
+                    .uaie_selection_sets_remove_selection_from_set_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadFromJsonString"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_load_from_json_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadFromJsonFile"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_load_from_json_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("KeyAll"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_key_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsolateControls"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_isolate_controls,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsMultiAsset"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_is_multi_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetShowAndSetSelectedOnly"),
+                &raw mut __FUNCTION_PTRS
+                    .uaie_selection_sets_get_show_and_set_selected_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemRow"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemName"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemGuids"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_guids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemColor"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllActors"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_all_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveSelectionSets"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_active_selection_sets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveActors"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_active_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAsJsonString"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_export_as_json_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAsJsonFile"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_export_as_json_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteSetItem"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_delete_set_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateSetItemFromSelection"),
+                &raw mut __FUNCTION_PTRS
+                    .uaie_selection_sets_create_set_item_from_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMirror"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_create_mirror,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSelectionToSetItem"),
+                &raw mut __FUNCTION_PTRS.uaie_selection_sets_add_selection_to_set_item,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UControlRigBlueprintEditorLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupAllEditorMenus"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_setup_all_editor_menus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreviewMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_set_preview_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestControlRigInit"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_request_control_rig_init,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviewMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_get_preview_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHierarchyController"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_get_hierarchy_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHierarchy"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_editor_library_get_hierarchy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentlyOpenRigBlueprints"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailableRigUnits"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_get_available_rig_units,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailableRigModules"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_get_available_rig_modules,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CastToControlRigBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint,
-        );
+        if let Some(class_ptr) = UControlRigBlueprintEditorLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupAllEditorMenus"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_setup_all_editor_menus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreviewMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_set_preview_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestControlRigInit"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_request_control_rig_init,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviewMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_preview_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHierarchyController"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_hierarchy_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHierarchy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_hierarchy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentlyOpenRigBlueprints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailableRigUnits"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_available_rig_units,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailableRigModules"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_available_rig_modules,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CastToControlRigBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UControlRigBlueprintFactory::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewControlRigAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_factory_create_new_control_rig_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateControlRigFromSkeletalMeshOrSkeleton"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton,
-        );
+        if let Some(class_ptr) = UControlRigBlueprintFactory::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewControlRigAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_factory_create_new_control_rig_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateControlRigFromSkeletalMeshOrSkeleton"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UControlRigSequencerEditorLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TweenControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_tween_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpaceCompensate"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_space_compensate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SnapControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_snap_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SmartReduce"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_sequencer_editor_library_smart_reduce,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowAllControls"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_show_all_controls,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigVector2Ds"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigTransformNoScales"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigTransformNoScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigScales"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_scales,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigRotators"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_rotators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigRotator"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigPositions"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_positions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigInts"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_ints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigInt"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigFloats"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_floats,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigEulerTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigEulerTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigBools"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_bools,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalControlRigBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_local_control_rig_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInteraction"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_interaction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlsMask"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_controls_mask,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlRigWorldTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_control_rig_world_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlRigWorldTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_control_rig_world_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlRigSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_control_rig_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlRigPriorityOrder"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_control_rig_priority_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlRigLayeredMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_control_rig_layered_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetControlRigApplyMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_control_rig_apply_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConstraintActiveKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_set_constraint_active_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameControlRigControlChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_rename_control_rig_control_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveControlRigSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_move_control_rig_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveConstraintKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_move_constraint_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MergeAnimLayersWithSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MergeAnimLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_merge_anim_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAnimSequenceIntoControlRigSectionWithRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAnimSequenceIntoControlRigSection"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLayeredControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_is_layered_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFKControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_is_fk_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportFBXToControlRigTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HideAllControls"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_hide_all_controls,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorldSpaceReferenceKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_world_space_reference_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVisibleControlRigs"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_visible_control_rigs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkeletalMeshComponentWorldTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkeletalMeshComponentWorldTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionSets"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_selection_sets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigVector2Ds"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigTransformNoScales"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigTransformNoScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigScales"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_scales,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigRotators"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_rotators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigRotator"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigPositions"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_positions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigInts"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_ints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigInt"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigFloats"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_floats,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigEulerTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigEulerTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigBools"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_bools,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalControlRigBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_local_control_rig_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFKControlRigApplyMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultParentKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_default_parent_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlsMask"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_controls_mask,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigWorldTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_control_rig_world_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigWorldTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_control_rig_world_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigs"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_control_rigs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigPriorityOrder"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_control_rig_priority_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConstraintsForHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_constraints_for_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConstraintKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_constraint_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_anim_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimLayerIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_anim_layer_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorWorldTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_actor_world_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorWorldTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_get_actor_world_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOrCreateControlRigTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_find_or_create_control_rig_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOrCreateControlRigComponentTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportFBXFromControlRigSection"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAnimSequenceFromSequencer"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateAnimLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_duplicate_anim_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteControlRigSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_delete_control_rig_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteConstraintKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_delete_constraint_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteAnimLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_delete_anim_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ControlRigCopyVectorParameterCurvesToTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CompensateAll"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_compensate_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Compensate"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_sequencer_editor_library_compensate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollapseControlRigAnimLayersWithSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollapseControlRigAnimLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BlendValuesOnSelected"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_blend_values_on_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BakeToControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_bake_to_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BakeControlRigSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_bake_control_rig_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BakeConstraints"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_bake_constraints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BakeConstraint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_bake_constraint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddConstraint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_add_constraint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimLayerFromSelection"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_sequencer_editor_library_add_anim_layer_from_selection,
-        );
+        if let Some(class_ptr) = UControlRigSequencerEditorLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TweenControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_tween_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpaceCompensate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_space_compensate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SnapControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_snap_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SmartReduce"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_smart_reduce,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowAllControls"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_show_all_controls,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigVector2Ds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigTransformNoScales"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigTransformNoScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigScales"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_scales,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigRotators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_rotators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigPositions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_positions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigInts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_ints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigFloats"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_floats,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigEulerTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigEulerTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigBools"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_bools,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalControlRigBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInteraction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_interaction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlsMask"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_controls_mask,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlRigWorldTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_world_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlRigWorldTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_world_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlRigSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlRigPriorityOrder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_priority_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlRigLayeredMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_layered_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetControlRigApplyMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_apply_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConstraintActiveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_constraint_active_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameControlRigControlChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_rename_control_rig_control_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveControlRigSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_move_control_rig_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveConstraintKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_move_constraint_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MergeAnimLayersWithSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MergeAnimLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_merge_anim_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "LoadAnimSequenceIntoControlRigSectionWithRange",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAnimSequenceIntoControlRigSection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLayeredControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_is_layered_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFKControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_is_fk_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportFBXToControlRigTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HideAllControls"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_hide_all_controls,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorldSpaceReferenceKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_world_space_reference_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVisibleControlRigs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_visible_control_rigs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkeletalMeshComponentWorldTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkeletalMeshComponentWorldTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionSets"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_selection_sets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigVector2Ds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigTransformNoScales"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigTransformNoScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigScales"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_scales,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigRotators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_rotators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigPositions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_positions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigInts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_ints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigFloats"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_floats,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigEulerTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigEulerTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigBools"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_bools,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalControlRigBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFKControlRigApplyMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultParentKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_default_parent_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlsMask"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_controls_mask,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigWorldTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_world_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigWorldTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_world_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rigs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigPriorityOrder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_priority_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConstraintsForHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_constraints_for_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConstraintKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_constraint_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_anim_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimLayerIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_anim_layer_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorWorldTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_actor_world_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorWorldTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_actor_world_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOrCreateControlRigTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_find_or_create_control_rig_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOrCreateControlRigComponentTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportFBXFromControlRigSection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAnimSequenceFromSequencer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateAnimLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_duplicate_anim_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteControlRigSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_control_rig_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteConstraintKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_constraint_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteAnimLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_anim_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ControlRigCopyVectorParameterCurvesToTransform",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CompensateAll"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_compensate_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Compensate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_compensate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollapseControlRigAnimLayersWithSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollapseControlRigAnimLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BlendValuesOnSelected"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_blend_values_on_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BakeToControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_to_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BakeControlRigSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_control_rig_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BakeConstraints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_constraints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BakeConstraint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_constraint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddConstraint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_add_constraint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimLayerFromSelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_add_anim_layer_from_selection,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UControlRigEditModeDelegateHelper::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PostPoseUpdate"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_edit_mode_delegate_helper_post_pose_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPoseInitialized"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_edit_mode_delegate_helper_on_pose_initialized,
-        );
+        if let Some(class_ptr) = UControlRigEditModeDelegateHelper::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PostPoseUpdate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_edit_mode_delegate_helper_post_pose_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPoseInitialized"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_edit_mode_delegate_helper_on_pose_initialized,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UControlRigContextMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAltDown"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_context_menu_context_is_alt_down,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigHierarchyToGraphDragAndDropContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigHierarchyDragAndDropContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphNodeContextMenuContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_context_menu_context_get_graph_node_context_menu_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_context_menu_context_get_control_rig_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigAssetInterface"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_context_menu_context_get_control_rig_asset_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRig"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_context_menu_context_get_control_rig,
-        );
+        if let Some(class_ptr) = UControlRigContextMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAltDown"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_context_menu_context_is_alt_down,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigHierarchyToGraphDragAndDropContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigHierarchyDragAndDropContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphNodeContextMenuContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_graph_node_context_menu_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigAssetInterface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig_asset_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimLayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWeight"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetType"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelected"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetName"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLock"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_lock,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetKeyed"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_keyed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActive"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_set_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSelectedInSequencer"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_remove_selected_in_sequencer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWeight"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetType"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelected"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetName"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLock"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_lock,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeyed"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_keyed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActive"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_get_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSelectedInSequencer"),
-            &raw mut __FUNCTION_PTRS.u_anim_layer_add_selected_in_sequencer,
-        );
+        if let Some(class_ptr) = UAnimLayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWeight"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetType"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelected"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetName"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLock"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_lock,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetKeyed"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_keyed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActive"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_set_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSelectedInSequencer"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_remove_selected_in_sequencer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWeight"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetType"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelected"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetName"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLock"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_lock,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeyed"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_keyed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActive"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_get_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSelectedInSequencer"),
+                &raw mut __FUNCTION_PTRS.u_anim_layer_add_selected_in_sequencer,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1888,6 +1908,13 @@ impl UAnimDetailsOptionsMenuContext {
             .get("UAnimDetailsOptionsMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsOptionsMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1908,6 +1935,13 @@ impl UAnimDetailsSettings {
             .name_to_ptr
             .get("UAnimDetailsSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1930,6 +1964,13 @@ impl UAnimSequenceConverterFactory {
             .get("UAnimSequenceConverterFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSequenceConverterFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1950,6 +1991,13 @@ impl UConstraintCreationOptions {
             .name_to_ptr
             .get("UConstraintCreationOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstraintCreationOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1977,6 +2025,13 @@ impl UAIESelectionSets {
             .name_to_ptr
             .get("UAIESelectionSets")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIESelectionSets")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3061,6 +3116,13 @@ impl UAnimDetailsProxyManager {
             .get("UAnimDetailsProxyManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3082,6 +3144,13 @@ impl UAnimDetailsSelection {
             .get("UAnimDetailsSelection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsSelection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3102,6 +3171,13 @@ impl UAnimDetailsProxyBase {
             .name_to_ptr
             .get("UAnimDetailsProxyBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3126,6 +3202,13 @@ impl UAnimDetailsProxyBool {
             .get("UAnimDetailsProxyBool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyBool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3148,6 +3231,13 @@ impl UAnimDetailsProxyEnum {
             .name_to_ptr
             .get("UAnimDetailsProxyEnum")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyEnum")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3172,6 +3262,13 @@ impl UAnimDetailsProxyFloat {
             .get("UAnimDetailsProxyFloat")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyFloat")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3194,6 +3291,13 @@ impl UAnimDetailsProxyInteger {
             .name_to_ptr
             .get("UAnimDetailsProxyInteger")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyInteger")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3218,6 +3322,13 @@ impl UAnimDetailsProxyLocation {
             .get("UAnimDetailsProxyLocation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyLocation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3241,6 +3352,13 @@ impl UAnimDetailsProxyRotation {
             .get("UAnimDetailsProxyRotation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyRotation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3263,6 +3381,13 @@ impl UAnimDetailsProxyScale {
             .name_to_ptr
             .get("UAnimDetailsProxyScale")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyScale")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3289,6 +3414,13 @@ impl UAnimDetailsProxyTransform {
             .get("UAnimDetailsProxyTransform")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyTransform")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3312,6 +3444,13 @@ impl UAnimDetailsProxyVector2D {
             .get("UAnimDetailsProxyVector2D")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimDetailsProxyVector2D")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3333,6 +3472,13 @@ impl UBakeToControlRigSettings {
             .get("UBakeToControlRigSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBakeToControlRigSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3353,6 +3499,13 @@ impl UControlRigBlueprintEditorLibrary {
             .name_to_ptr
             .get("UControlRigBlueprintEditorLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigBlueprintEditorLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3815,6 +3968,13 @@ impl UControlRigBlueprintFactory {
             .get("UControlRigBlueprintFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigBlueprintFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3936,6 +4096,13 @@ impl UControlRigShapeLibraryFactory {
             .get("UControlRigShapeLibraryFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigShapeLibraryFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3956,6 +4123,13 @@ impl UControlRigSequencerEditorLibrary {
             .name_to_ptr
             .get("UControlRigSequencerEditorLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigSequencerEditorLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10933,6 +11107,13 @@ impl UControlRigThumbnailRenderer {
             .get("UControlRigThumbnailRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigThumbnailRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10953,6 +11134,13 @@ impl UControlRigEditModeDelegateHelper {
             .name_to_ptr
             .get("UControlRigEditModeDelegateHelper")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigEditModeDelegateHelper")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10975,6 +11163,13 @@ impl UControlRigEditModeSettings {
             .get("UControlRigEditModeSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigEditModeSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10995,6 +11190,13 @@ impl UControlRigContextMenuContext {
             .name_to_ptr
             .get("UControlRigContextMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigContextMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11241,6 +11443,13 @@ impl UControlRigSkeletalMeshComponent {
             .get("UControlRigSkeletalMeshComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigSkeletalMeshComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11261,6 +11470,13 @@ impl UControlRigWrapperObject {
             .name_to_ptr
             .get("UControlRigWrapperObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigWrapperObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11283,6 +11499,13 @@ impl URigConnectorTargetsDetailWrapper {
             .get("URigConnectorTargetsDetailWrapper")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigConnectorTargetsDetailWrapper")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11303,6 +11526,13 @@ impl URigDependencyGraph {
             .name_to_ptr
             .get("URigDependencyGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigDependencyGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11325,6 +11555,13 @@ impl URigDependencyGraphNode {
             .get("URigDependencyGraphNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigDependencyGraphNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11345,6 +11582,13 @@ impl URigDependencyGraphSchema {
             .name_to_ptr
             .get("URigDependencyGraphSchema")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigDependencyGraphSchema")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11367,6 +11611,13 @@ impl UAnimationAuthoringSettings {
             .get("UAnimationAuthoringSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationAuthoringSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11387,6 +11638,13 @@ impl UAnimLayerSequencerFilter {
             .name_to_ptr
             .get("UAnimLayerSequencerFilter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimLayerSequencerFilter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11411,6 +11669,13 @@ impl UAnimLayerWeightProxy {
             .get("UAnimLayerWeightProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimLayerWeightProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11431,6 +11696,13 @@ impl UAnimLayer {
             .name_to_ptr
             .get("UAnimLayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimLayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11906,6 +12178,13 @@ impl UAnimLayers {
             .get("UAnimLayers")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimLayers")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11926,6 +12205,13 @@ impl UControlRigTrackFilter {
             .name_to_ptr
             .get("UControlRigTrackFilter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigTrackFilter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11948,6 +12234,13 @@ impl ULoadAnimToControlRigSettings {
             .get("ULoadAnimToControlRigSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoadAnimToControlRigSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11968,6 +12261,13 @@ impl USelectionSetsSettings {
             .name_to_ptr
             .get("USelectionSetsSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USelectionSetsSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11990,6 +12290,13 @@ impl UAssetDefinition_ControlRigPose {
             .get("UAssetDefinition_ControlRigPose")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_ControlRigPose")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12010,6 +12317,13 @@ impl UControlRigPoseThumbnailRenderer {
             .name_to_ptr
             .get("UControlRigPoseThumbnailRenderer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigPoseThumbnailRenderer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12041,6 +12355,13 @@ impl UControlRigSnapSettings {
             .get("UControlRigSnapSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigSnapSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12061,6 +12382,13 @@ impl UCreateControlPoseAssetRigSettings {
             .name_to_ptr
             .get("UCreateControlPoseAssetRigSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCreateControlPoseAssetRigSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

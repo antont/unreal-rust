@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,51 +29,55 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneDirectorBlueprintConditionEndpointUtil::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SampleDirectorBlueprintCondition"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_director_blueprint_condition_endpoint_util_sample_director_blueprint_condition,
-        );
+        if let Some(class_ptr) = UMovieSceneDirectorBlueprintConditionEndpointUtil::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SampleDirectorBlueprintCondition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_director_blueprint_condition_endpoint_util_sample_director_blueprint_condition,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneDynamicBindingEndpointUtil::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SampleResolveBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_dynamic_binding_endpoint_util_sample_resolve_binding,
-        );
+        if let Some(class_ptr) = UMovieSceneDynamicBindingEndpointUtil::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SampleResolveBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_dynamic_binding_endpoint_util_sample_resolve_binding,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneUserImportFBXControlRigSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset,
-        );
+        if let Some(class_ptr) = UMovieSceneUserImportFBXControlRigSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneUserExportFBXControlRigSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset,
-        );
+        if let Some(class_ptr) = UMovieSceneUserExportFBXControlRigSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -108,6 +113,13 @@ impl UMovieSceneTextKeyStruct {
             .get("UMovieSceneTextKeyStruct")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTextKeyStruct")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -130,6 +142,13 @@ impl USequencerExportTask {
             .name_to_ptr
             .get("USequencerExportTask")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerExportTask")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -169,6 +188,13 @@ impl UAutomatedLevelSequenceCapture {
             .get("UAutomatedLevelSequenceCapture")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomatedLevelSequenceCapture")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -189,6 +215,13 @@ impl UBoolChannelKeyProxy {
             .name_to_ptr
             .get("UBoolChannelKeyProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoolChannelKeyProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -211,6 +244,13 @@ impl UByteChannelKeyProxy {
             .get("UByteChannelKeyProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UByteChannelKeyProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -231,6 +271,13 @@ impl UDoubleChannelKeyProxy {
             .name_to_ptr
             .get("UDoubleChannelKeyProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoubleChannelKeyProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -253,6 +300,13 @@ impl UFloatChannelKeyProxy {
             .get("UFloatChannelKeyProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatChannelKeyProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -273,6 +327,13 @@ impl UIntegerChannelKeyProxy {
             .name_to_ptr
             .get("UIntegerChannelKeyProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIntegerChannelKeyProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -295,6 +356,13 @@ impl UMovieSceneTrackRowMetadataHelper {
             .get("UMovieSceneTrackRowMetadataHelper")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackRowMetadataHelper")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -315,6 +383,13 @@ impl UMovieSceneDirectorBlueprintConditionExtension {
             .name_to_ptr
             .get("UMovieSceneDirectorBlueprintConditionExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDirectorBlueprintConditionExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -337,6 +412,13 @@ impl UMovieSceneDirectorBlueprintConditionEndpointUtil {
             .get("UMovieSceneDirectorBlueprintConditionEndpointUtil")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDirectorBlueprintConditionEndpointUtil")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -357,6 +439,13 @@ impl UK2Node_GetSequenceBinding {
             .name_to_ptr
             .get("UK2Node_GetSequenceBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_GetSequenceBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -379,6 +468,13 @@ impl UMovieSceneDynamicBindingBlueprintExtension {
             .get("UMovieSceneDynamicBindingBlueprintExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDynamicBindingBlueprintExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -399,6 +495,13 @@ impl UMovieSceneDynamicBindingEndpointUtil {
             .name_to_ptr
             .get("UMovieSceneDynamicBindingEndpointUtil")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDynamicBindingEndpointUtil")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -421,6 +524,13 @@ impl UMovieSceneEventBlueprintExtension {
             .get("UMovieSceneEventBlueprintExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventBlueprintExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -441,6 +551,13 @@ impl UMovieSceneToolsProjectSettings {
             .name_to_ptr
             .get("UMovieSceneToolsProjectSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneToolsProjectSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -463,6 +580,13 @@ impl UMovieSceneUserThumbnailSettings {
             .get("UMovieSceneUserThumbnailSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserThumbnailSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -484,6 +608,13 @@ impl UMovieSceneUserImportFBXSettings {
             .get("UMovieSceneUserImportFBXSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserImportFBXSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -504,6 +635,13 @@ impl UMovieSceneUserImportFBXControlRigSettings {
             .name_to_ptr
             .get("UMovieSceneUserImportFBXControlRigSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserImportFBXControlRigSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -565,6 +703,13 @@ impl UMovieSceneUserExportFBXControlRigSettings {
             .name_to_ptr
             .get("UMovieSceneUserExportFBXControlRigSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneUserExportFBXControlRigSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

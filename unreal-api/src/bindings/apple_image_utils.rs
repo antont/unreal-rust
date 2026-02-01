@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,39 +29,40 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAppleImageUtilsBaseAsyncTaskBlueprintProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToTIFF"),
-            &raw mut __FUNCTION_PTRS
-                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToPNG"),
-            &raw mut __FUNCTION_PTRS
-                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToJPEG"),
-            &raw mut __FUNCTION_PTRS
-                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToHEIF"),
-            &raw mut __FUNCTION_PTRS
-                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif,
-        );
+        if let Some(class_ptr) = UAppleImageUtilsBaseAsyncTaskBlueprintProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToTIFF"),
+                &raw mut __FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToPNG"),
+                &raw mut __FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToJPEG"),
+                &raw mut __FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToHEIF"),
+                &raw mut __FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -81,6 +83,13 @@ impl UAppleImageInterface {
             .name_to_ptr
             .get("UAppleImageInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAppleImageInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -105,6 +114,13 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
             .name_to_ptr
             .get("UAppleImageUtilsBaseAsyncTaskBlueprintProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAppleImageUtilsBaseAsyncTaskBlueprintProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

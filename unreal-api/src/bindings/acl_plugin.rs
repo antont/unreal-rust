@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,23 +25,24 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationCompressionLibraryDatabase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVisualFidelity"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_compression_library_database_set_visual_fidelity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVisualFidelity"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_compression_library_database_get_visual_fidelity,
-        );
+        if let Some(class_ptr) = UAnimationCompressionLibraryDatabase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVisualFidelity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_compression_library_database_set_visual_fidelity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVisualFidelity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_compression_library_database_get_visual_fidelity,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -54,6 +56,13 @@ impl UAnimationCompressionLibraryDatabase {
             .name_to_ptr
             .get("UAnimationCompressionLibraryDatabase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationCompressionLibraryDatabase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -180,6 +189,13 @@ impl UAnimBoneCompressionCodec_ACLBase {
             .get("UAnimBoneCompressionCodec_ACLBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -200,6 +216,13 @@ impl UAnimBoneCompressionCodec_ACL {
             .name_to_ptr
             .get("UAnimBoneCompressionCodec_ACL")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACL")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -222,6 +245,13 @@ impl UAnimBoneCompressionCodec_ACLCustom {
             .get("UAnimBoneCompressionCodec_ACLCustom")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLCustom")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -242,6 +272,13 @@ impl UAnimBoneCompressionCodec_ACLDatabase {
             .name_to_ptr
             .get("UAnimBoneCompressionCodec_ACLDatabase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLDatabase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -264,6 +301,13 @@ impl UAnimBoneCompressionCodec_ACLSafe {
             .get("UAnimBoneCompressionCodec_ACLSafe")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimBoneCompressionCodec_ACLSafe")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -284,6 +328,13 @@ impl UAnimCurveCompressionCodec_ACL {
             .name_to_ptr
             .get("UAnimCurveCompressionCodec_ACL")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimCurveCompressionCodec_ACL")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

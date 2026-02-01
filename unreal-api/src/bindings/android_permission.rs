@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,23 +25,24 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAndroidPermissionFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckPermission"),
-            &raw mut __FUNCTION_PTRS
-                .u_android_permission_function_library_check_permission,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AcquirePermissions"),
-            &raw mut __FUNCTION_PTRS
-                .u_android_permission_function_library_acquire_permissions,
-        );
+        if let Some(class_ptr) = UAndroidPermissionFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckPermission"),
+                &raw mut __FUNCTION_PTRS
+                    .u_android_permission_function_library_check_permission,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AcquirePermissions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_android_permission_function_library_acquire_permissions,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -54,6 +56,13 @@ impl UAndroidPermissionCallbackProxy {
             .name_to_ptr
             .get("UAndroidPermissionCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAndroidPermissionCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -75,6 +84,13 @@ impl UAndroidPermissionFunctionLibrary {
             .name_to_ptr
             .get("UAndroidPermissionFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAndroidPermissionFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

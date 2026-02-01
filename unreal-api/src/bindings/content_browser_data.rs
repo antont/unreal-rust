@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -56,152 +57,157 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UContentBrowserDataSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemsUnderPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_get_items_under_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemsAtPath"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_data_subsystem_get_items_at_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemAtPath"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_data_subsystem_get_item_at_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailableDataSources"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_get_available_data_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveDataSources"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_get_active_data_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivateDataSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_deactivate_data_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivateAllDataSources"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_deactivate_all_data_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateDataSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_activate_data_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateAllDataSources"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_data_subsystem_activate_all_data_sources,
-        );
+        if let Some(class_ptr) = UContentBrowserDataSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemsUnderPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_items_under_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemsAtPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_items_at_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemAtPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_item_at_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailableDataSources"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_available_data_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveDataSources"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_active_data_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivateDataSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_deactivate_data_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivateAllDataSources"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_deactivate_all_data_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateDataSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_activate_data_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateAllDataSources"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_activate_all_data_sources,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UContentBrowserItemLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFolder"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_is_folder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFile"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_is_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVirtualPath"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_get_virtual_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_get_display_name,
-        );
+        if let Some(class_ptr) = UContentBrowserItemLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFolder"),
+                &raw mut __FUNCTION_PTRS.u_content_browser_item_library_is_folder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFile"),
+                &raw mut __FUNCTION_PTRS.u_content_browser_item_library_is_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVirtualPath"),
+                &raw mut __FUNCTION_PTRS.u_content_browser_item_library_get_virtual_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_content_browser_item_library_get_display_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UContentBrowserItemPathExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPath"),
-            &raw mut __FUNCTION_PTRS.u_content_browser_item_path_extensions_set_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeContentBrowserItemPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_item_path_extensions_make_content_browser_item_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVirtualPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_item_path_extensions_get_virtual_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInternalPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_item_path_extensions_get_internal_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakContentBrowserItemPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_content_browser_item_path_extensions_break_content_browser_item_path,
-        );
+        if let Some(class_ptr) = UContentBrowserItemPathExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPath"),
+                &raw mut __FUNCTION_PTRS.u_content_browser_item_path_extensions_set_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeContentBrowserItemPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_make_content_browser_item_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVirtualPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_get_virtual_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInternalPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_get_internal_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakContentBrowserItemPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_break_content_browser_item_path,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -276,6 +282,13 @@ impl UContentBrowserDataMenuContext_AddNewMenu {
             .get("UContentBrowserDataMenuContext_AddNewMenu")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_AddNewMenu")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -300,6 +313,13 @@ impl UContentBrowserDataMenuContext_FolderMenu {
             .name_to_ptr
             .get("UContentBrowserDataMenuContext_FolderMenu")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_FolderMenu")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -331,6 +351,13 @@ impl UContentBrowserDataMenuContext_FileMenu {
             .get("UContentBrowserDataMenuContext_FileMenu")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_FileMenu")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -358,6 +385,13 @@ impl UContentBrowserDataMenuContext_DragDropMenu {
             .get("UContentBrowserDataMenuContext_DragDropMenu")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataMenuContext_DragDropMenu")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -379,6 +413,13 @@ impl UContentBrowserDataSource {
             .get("UContentBrowserDataSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -399,6 +440,13 @@ impl UContentBrowserDataSubsystem {
             .name_to_ptr
             .get("UContentBrowserDataSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserDataSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -701,6 +749,13 @@ impl UContentBrowserItemLibrary {
             .get("UContentBrowserItemLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserItemLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -853,6 +908,13 @@ impl UContentBrowserItemPathExtensions {
             .name_to_ptr
             .get("UContentBrowserItemPathExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentBrowserItemPathExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

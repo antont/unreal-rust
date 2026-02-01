@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,6 +29,13 @@ impl UEditorDataStorageSettings {
             .get("UEditorDataStorageSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorDataStorageSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -48,6 +56,13 @@ impl UTedsMementoTranslatorBase {
             .name_to_ptr
             .get("UTedsMementoTranslatorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTedsMementoTranslatorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -70,6 +85,13 @@ impl UTedsDefaultMementoTranslator {
             .get("UTedsDefaultMementoTranslator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTedsDefaultMementoTranslator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -90,6 +112,13 @@ impl UTedsSelectionColumnMementoTranslator {
             .name_to_ptr
             .get("UTedsSelectionColumnMementoTranslator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTedsSelectionColumnMementoTranslator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -112,6 +141,13 @@ impl UTedsObjectReinstancingManager {
             .get("UTedsObjectReinstancingManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTedsObjectReinstancingManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -132,6 +168,13 @@ impl UObjectNameDataStorageFactory {
             .name_to_ptr
             .get("UObjectNameDataStorageFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectNameDataStorageFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -154,6 +197,13 @@ impl UObjectWorldDataStorageFactory {
             .get("UObjectWorldDataStorageFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectWorldDataStorageFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -174,6 +224,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorBase {
             .name_to_ptr
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -196,6 +253,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessor {
             .get("UTypedElementQueryProcessorCallbackAdapterProcessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -216,6 +280,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith1Subquery {
             .name_to_ptr
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith1Subquery")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith1Subquery")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -238,6 +309,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith2Subqueries {
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith2Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith2Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -258,6 +336,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith3Subqueries {
             .name_to_ptr
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith3Subqueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith3Subqueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -280,6 +365,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith4Subqueries {
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith4Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith4Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -300,6 +392,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith5Subqueries {
             .name_to_ptr
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith5Subqueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith5Subqueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -322,6 +421,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith6Subqueries {
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith6Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith6Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -342,6 +448,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith7Subqueries {
             .name_to_ptr
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith7Subqueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith7Subqueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -364,6 +477,13 @@ impl UTypedElementQueryProcessorCallbackAdapterProcessorWith8Subqueries {
             .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith8Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryProcessorCallbackAdapterProcessorWith8Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -384,6 +504,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorBase {
             .name_to_ptr
             .get("UTypedElementQueryObserverCallbackAdapterProcessorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -406,6 +533,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessor {
             .get("UTypedElementQueryObserverCallbackAdapterProcessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -426,6 +560,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith1Subquery {
             .name_to_ptr
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith1Subquery")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith1Subquery")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -448,6 +589,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith2Subqueries {
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith2Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith2Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -468,6 +616,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith3Subqueries {
             .name_to_ptr
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith3Subqueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith3Subqueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -490,6 +645,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith4Subqueries {
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith4Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith4Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -510,6 +672,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith5Subqueries {
             .name_to_ptr
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith5Subqueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith5Subqueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -532,6 +701,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith6Subqueries {
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith6Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith6Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -552,6 +728,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith7Subqueries {
             .name_to_ptr
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith7Subqueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith7Subqueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -574,6 +757,13 @@ impl UTypedElementQueryObserverCallbackAdapterProcessorWith8Subqueries {
             .get("UTypedElementQueryObserverCallbackAdapterProcessorWith8Subqueries")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementQueryObserverCallbackAdapterProcessorWith8Subqueries")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -594,6 +784,13 @@ impl UDefaultPropertySorterFactory {
             .name_to_ptr
             .get("UDefaultPropertySorterFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDefaultPropertySorterFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -616,6 +813,13 @@ impl UTypedElementHiearchyQueriesFactory {
             .get("UTypedElementHiearchyQueriesFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementHiearchyQueriesFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -636,6 +840,13 @@ impl UTypedElementRemoveSyncToWorldTagFactory {
             .name_to_ptr
             .get("UTypedElementRemoveSyncToWorldTagFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementRemoveSyncToWorldTagFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -658,6 +869,13 @@ impl UEditorDataStorage {
             .get("UEditorDataStorage")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorDataStorage")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -679,6 +897,13 @@ impl UEditorDataStorageCompatibility {
             .get("UEditorDataStorageCompatibility")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorDataStorageCompatibility")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -699,6 +924,13 @@ impl UEditorDataStorageUi {
             .name_to_ptr
             .get("UEditorDataStorageUi")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorDataStorageUi")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

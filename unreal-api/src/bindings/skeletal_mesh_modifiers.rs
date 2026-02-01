@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -84,236 +85,239 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USkeletonModifier::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoneTransform"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_bone_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBonesTransforms"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_bones_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameBones"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_rename_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameBone"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_rename_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBones"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_remove_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBone"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_remove_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ParentBones"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_parent_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ParentBone"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_parent_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OrientBones"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_orient_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OrientBone"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_orient_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MirrorBones"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_mirror_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MirrorBone"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_mirror_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentName"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_parent_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildrenNames"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_children_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoneTransform"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_bone_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllBoneNames"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_all_bone_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CommitSkeletonToSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_commit_skeleton_to_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBones"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_add_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBone"),
-            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_add_bone,
-        );
+        if let Some(class_ptr) = USkeletonModifier::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoneTransform"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_bone_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBonesTransforms"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_bones_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameBones"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_rename_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameBone"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_rename_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBones"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_remove_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBone"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_remove_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ParentBones"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_parent_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ParentBone"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_parent_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OrientBones"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_orient_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OrientBone"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_orient_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MirrorBones"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_mirror_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MirrorBone"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_mirror_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentName"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_parent_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildrenNames"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_children_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoneTransform"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_bone_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllBoneNames"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_all_bone_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CommitSkeletonToSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeleton_modifier_commit_skeleton_to_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBones"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_add_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBone"),
+                &raw mut __FUNCTION_PTRS.u_skeleton_modifier_add_bone,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USkinWeightModifier::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVertexWeights"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_set_vertex_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_set_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PruneVertexWeights"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_prune_vertex_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PruneAllWeights"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_prune_all_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NormalizeVertexWeights"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_normalize_vertex_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NormalizeAllWeights"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_normalize_all_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexWeights"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_vertex_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertices"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_num_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllBoneNames"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_all_bone_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnforceMaxInfluences"),
-            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_enforce_max_influences,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CommitWeightsToSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_skin_weight_modifier_commit_weights_to_skeletal_mesh,
-        );
+        if let Some(class_ptr) = USkinWeightModifier::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVertexWeights"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_set_vertex_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_set_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PruneVertexWeights"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_prune_vertex_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PruneAllWeights"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_prune_all_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NormalizeVertexWeights"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_normalize_vertex_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NormalizeAllWeights"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_normalize_all_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexWeights"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_vertex_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertices"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_num_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllBoneNames"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_all_bone_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnforceMaxInfluences"),
+                &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_enforce_max_influences,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CommitWeightsToSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skin_weight_modifier_commit_weights_to_skeletal_mesh,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -345,6 +349,13 @@ impl USkeletonModifier {
             .name_to_ptr
             .get("USkeletonModifier")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletonModifier")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1218,6 +1229,13 @@ impl USkeletalMeshMergeOptions {
             .get("USkeletalMeshMergeOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshMergeOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1238,6 +1256,13 @@ impl USkinWeightModifier {
             .name_to_ptr
             .get("USkinWeightModifier")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkinWeightModifier")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

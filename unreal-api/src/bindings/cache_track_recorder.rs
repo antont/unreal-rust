@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,21 +25,22 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCacheTrackRecorder::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut __FUNCTION_PTRS.u_cache_track_recorder_get_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.u_cache_track_recorder_get_sequence,
-        );
+        if let Some(class_ptr) = UCacheTrackRecorder::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetState"),
+                &raw mut __FUNCTION_PTRS.u_cache_track_recorder_get_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.u_cache_track_recorder_get_sequence,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -52,6 +54,13 @@ impl UCacheTrackRecorder {
             .name_to_ptr
             .get("UCacheTrackRecorder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCacheTrackRecorder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

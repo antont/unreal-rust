@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -46,121 +47,131 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTask::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadyForActivation"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_ready_for_activation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenericGameplayTaskDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_task_generic_gameplay_task_delegate_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndTask"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_end_task,
-        );
+        if let Some(class_ptr) = UGameplayTask::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadyForActivation"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_ready_for_activation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GenericGameplayTaskDelegate__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_task_generic_gameplay_task_delegate_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndTask"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_end_task,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTasksComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRep_SimulatedTasks"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_tasks_component_on_rep_simulated_tasks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_RunGameplayTask"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_tasks_component_k2_run_gameplay_task,
-        );
+        if let Some(class_ptr) = UGameplayTasksComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRep_SimulatedTasks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_tasks_component_on_rep_simulated_tasks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_RunGameplayTask"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_tasks_component_k2_run_gameplay_task,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTask_ClaimResource::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClaimResources"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_claim_resource_claim_resources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClaimResource"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_claim_resource_claim_resource,
-        );
+        if let Some(class_ptr) = UGameplayTask_ClaimResource::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClaimResources"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_claim_resource_claim_resources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClaimResource"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_claim_resource_claim_resource,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTask_SpawnActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnActor"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_spawn_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishSpawningActor"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_finish_spawning_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BeginSpawningActor"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_begin_spawning_actor,
-        );
+        if let Some(class_ptr) = UGameplayTask_SpawnActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnActor"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_spawn_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishSpawningActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_finish_spawning_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BeginSpawningActor"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_begin_spawning_actor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTask_TimeLimitedExecution::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TaskFinishDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_task_time_limited_execution_task_finish_delegate_delegate_signature,
-        );
+        if let Some(class_ptr) = UGameplayTask_TimeLimitedExecution::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TaskFinishDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_task_time_limited_execution_task_finish_delegate_delegate_signature,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTask_WaitDelay::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TaskWaitDelay"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_task_wait_delay_task_wait_delay,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TaskDelayDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_task_wait_delay_task_delay_delegate_delegate_signature,
-        );
+        if let Some(class_ptr) = UGameplayTask_WaitDelay::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TaskWaitDelay"),
+                &raw mut __FUNCTION_PTRS.u_gameplay_task_wait_delay_task_wait_delay,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TaskDelayDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_task_wait_delay_task_delay_delegate_delegate_signature,
+            );
+        }
     }
 }
 #[repr(C, align(2))]
@@ -179,6 +190,13 @@ impl UGameplayTask {
             .name_to_ptr
             .get("UGameplayTask")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTask")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -252,6 +270,13 @@ impl UGameplayTaskOwnerInterface {
             .get("UGameplayTaskOwnerInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTaskOwnerInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -276,6 +301,13 @@ impl UGameplayTaskResource {
             .get("UGameplayTaskResource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTaskResource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -299,6 +331,13 @@ impl UGameplayTasksComponent {
             .name_to_ptr
             .get("UGameplayTasksComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTasksComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -383,6 +422,13 @@ impl UGameplayTask_ClaimResource {
             .name_to_ptr
             .get("UGameplayTask_ClaimResource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTask_ClaimResource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -514,6 +560,13 @@ impl UGameplayTask_SpawnActor {
             .name_to_ptr
             .get("UGameplayTask_SpawnActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTask_SpawnActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -696,6 +749,13 @@ impl UGameplayTask_TimeLimitedExecution {
             .get("UGameplayTask_TimeLimitedExecution")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTask_TimeLimitedExecution")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -716,6 +776,13 @@ impl UGameplayTask_WaitDelay {
             .name_to_ptr
             .get("UGameplayTask_WaitDelay")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTask_WaitDelay")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

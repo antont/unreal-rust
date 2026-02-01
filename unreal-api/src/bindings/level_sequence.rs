@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -172,607 +173,618 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequence::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMetaDataByClass"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_remove_meta_data_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOrAddMetaDataByClass"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_find_or_add_meta_data_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindMetaDataByClass"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_find_meta_data_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyMetaData"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_copy_meta_data,
-        );
+        if let Some(class_ptr) = ULevelSequence::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMetaDataByClass"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_remove_meta_data_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOrAddMetaDataByClass"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_find_or_add_meta_data_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindMetaDataByClass"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_find_meta_data_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyMetaData"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_copy_meta_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceBurnInOptions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBurnIn"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_options_set_burn_in,
-        );
+        if let Some(class_ptr) = ULevelSequenceBurnInOptions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBurnIn"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_options_set_burn_in,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ALevelSequenceActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowBurnin"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_show_burnin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReplicatePlayback"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_replicate_playback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBindingByTag"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_binding_by_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBinding"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetBindings"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_reset_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetBinding"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_reset_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBindingByTag"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_remove_binding_by_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBinding"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_remove_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnLevelSequenceLoaded__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .a_level_sequence_actor_on_level_sequence_loaded_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HideBurnin"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_hide_burnin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequencePlayer"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_get_sequence_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_get_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNamedBindings"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_find_named_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNamedBinding"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_find_named_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBindingByTag"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_add_binding_by_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBinding"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_add_binding,
-        );
+        if let Some(class_ptr) = ALevelSequenceActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowBurnin"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_show_burnin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSequence"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReplicatePlayback"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_replicate_playback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBindingByTag"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_binding_by_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBinding"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetBindings"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_reset_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetBinding"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_reset_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBindingByTag"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_remove_binding_by_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBinding"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_remove_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnLevelSequenceLoaded__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_sequence_actor_on_level_sequence_loaded_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HideBurnin"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_hide_burnin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequencePlayer"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_get_sequence_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_get_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNamedBindings"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_find_named_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNamedBinding"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_find_named_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBindingByTag"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_add_binding_by_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBinding"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_actor_add_binding,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceBurnIn::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettingsClass"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_get_settings_class,
-        );
+        if let Some(class_ptr) = ULevelSequenceBurnIn::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettingsClass"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_get_settings_class,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceDirector::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnCreated"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_on_created,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequenceCustomClock"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_sequence_custom_clock,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootSequenceTime"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_root_sequence_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootSequenceCustomClock"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_director_get_root_sequence_custom_clock,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentTime"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundObject"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundActors"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundActor"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_actor,
-        );
+        if let Some(class_ptr) = ULevelSequenceDirector::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnCreated"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_on_created,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequenceCustomClock"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_director_get_sequence_custom_clock,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootSequenceTime"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_root_sequence_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootSequenceCustomClock"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_director_get_root_sequence_custom_clock,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentTime"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundObjects"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundObject"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundActors"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundActor"),
+                &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_actor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequencePlayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveCameraComponent"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_player_get_active_camera_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateLevelSequencePlayer"),
-            &raw mut __FUNCTION_PTRS.u_level_sequence_player_create_level_sequence_player,
-        );
+        if let Some(class_ptr) = ULevelSequencePlayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveCameraComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_player_get_active_camera_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateLevelSequencePlayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_player_create_level_sequence_player,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceShotMetaDataLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsSubSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_set_is_sub_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsRecorded"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_set_is_recorded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsNoGood"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_set_is_no_good,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsFlagged"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_set_is_flagged,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFavoriteRating"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_set_favorite_rating,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsSubSequenceByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsSubSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_sub_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsRecordedByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsRecorded"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_recorded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsNoGoodByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsNoGood"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_no_good,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsFlaggedByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIsFlagged"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_is_flagged,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasFavoriteRatingByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasFavoriteRating"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_has_favorite_rating,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsSubSequenceByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsSubSequenceAssetTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsSubSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_sub_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsRecordedByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsRecordedAssetTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsRecorded"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_recorded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsNoGoodByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsNoGoodAssetTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsNoGood"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_no_good,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsFlaggedByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsFlaggedAssetTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsFlagged"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_is_flagged,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFavoriteRatingByAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFavoriteRatingAssetTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFavoriteRating"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_get_favorite_rating,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearIsSubSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_clear_is_sub_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearIsRecorded"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_clear_is_recorded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearIsNoGood"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_clear_is_no_good,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearIsFlagged"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_clear_is_flagged,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearFavoriteRating"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_shot_meta_data_library_clear_favorite_rating,
-        );
+        if let Some(class_ptr) = ULevelSequenceShotMetaDataLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsSubSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_sub_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsRecorded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_recorded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsNoGood"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_no_good,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsFlagged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_flagged,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFavoriteRating"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_favorite_rating,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsSubSequenceByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsSubSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_sub_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsRecordedByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsRecorded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_recorded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsNoGoodByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsNoGood"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_no_good,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsFlaggedByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIsFlagged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_flagged,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasFavoriteRatingByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasFavoriteRating"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_favorite_rating,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsSubSequenceByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsSubSequenceAssetTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsSubSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsRecordedByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsRecordedAssetTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsRecorded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsNoGoodByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsNoGoodAssetTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsNoGood"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsFlaggedByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsFlaggedAssetTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsFlagged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFavoriteRatingByAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFavoriteRatingAssetTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFavoriteRating"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearIsSubSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_sub_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearIsRecorded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_recorded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearIsNoGood"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_no_good,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearIsFlagged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_flagged,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearFavoriteRating"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_favorite_rating,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ALevelSequenceMediaController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SynchronizeToServer"),
-            &raw mut __FUNCTION_PTRS
-                .a_level_sequence_media_controller_synchronize_to_server,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Play"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_media_controller_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRep_ServerStartTimeSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .a_level_sequence_media_controller_on_rep_server_start_time_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.a_level_sequence_media_controller_get_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaComponent"),
-            &raw mut __FUNCTION_PTRS
-                .a_level_sequence_media_controller_get_media_component,
-        );
+        if let Some(class_ptr) = ALevelSequenceMediaController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SynchronizeToServer"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_sequence_media_controller_synchronize_to_server,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Play"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_media_controller_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRep_ServerStartTimeSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_sequence_media_controller_on_rep_server_start_time_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.a_level_sequence_media_controller_get_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_sequence_media_controller_get_media_component,
+            );
+        }
     }
 }
 #[repr(C, align(1))]
@@ -834,6 +846,13 @@ impl UDefaultLevelSequenceInstanceData {
             .get("UDefaultLevelSequenceInstanceData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDefaultLevelSequenceInstanceData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -858,6 +877,13 @@ impl UAnimSequenceLevelSequenceLink {
             .get("UAnimSequenceLevelSequenceLink")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimSequenceLevelSequenceLink")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -878,6 +904,13 @@ impl ULevelSequence {
             .name_to_ptr
             .get("ULevelSequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1064,6 +1097,13 @@ impl ULevelSequenceBurnInInitSettings {
             .get("ULevelSequenceBurnInInitSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceBurnInInitSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1088,6 +1128,13 @@ impl ULevelSequenceBurnInOptions {
             .name_to_ptr
             .get("ULevelSequenceBurnInOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceBurnInOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1158,6 +1205,13 @@ impl ALevelSequenceActor {
             .name_to_ptr
             .get("ALevelSequenceActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALevelSequenceActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1776,6 +1830,13 @@ impl AReplicatedLevelSequenceActor {
             .get("AReplicatedLevelSequenceActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AReplicatedLevelSequenceActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1798,6 +1859,13 @@ impl ULevelSequenceAnimSequenceLink {
             .name_to_ptr
             .get("ULevelSequenceAnimSequenceLink")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceAnimSequenceLink")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1822,6 +1890,13 @@ impl ULevelSequenceBurnIn {
             .name_to_ptr
             .get("ULevelSequenceBurnIn")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceBurnIn")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1912,6 +1987,13 @@ impl ULevelSequenceDirector {
             .name_to_ptr
             .get("ULevelSequenceDirector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceDirector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2293,6 +2375,13 @@ impl ULegacyLevelSequenceDirectorBlueprint {
             .get("ULegacyLevelSequenceDirectorBlueprint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULegacyLevelSequenceDirectorBlueprint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2313,6 +2402,13 @@ impl ULevelSequencePlayer {
             .name_to_ptr
             .get("ULevelSequencePlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequencePlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2434,6 +2530,13 @@ impl ULevelSequenceProjectSettings {
             .get("ULevelSequenceProjectSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceProjectSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2454,6 +2557,13 @@ impl ULevelSequenceShotMetaDataLibrary {
             .name_to_ptr
             .get("ULevelSequenceShotMetaDataLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceShotMetaDataLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3780,6 +3890,13 @@ impl ALevelSequenceMediaController {
             .name_to_ptr
             .get("ALevelSequenceMediaController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALevelSequenceMediaController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

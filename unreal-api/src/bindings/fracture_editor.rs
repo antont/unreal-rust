@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -66,202 +67,214 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureConvexSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteFromSelected"),
-            &raw mut __FUNCTION_PTRS.u_fracture_convex_settings_delete_from_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearCustomConvex"),
-            &raw mut __FUNCTION_PTRS.u_fracture_convex_settings_clear_custom_convex,
-        );
+        if let Some(class_ptr) = UFractureConvexSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteFromSelected"),
+                &raw mut __FUNCTION_PTRS.u_fracture_convex_settings_delete_from_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearCustomConvex"),
+                &raw mut __FUNCTION_PTRS.u_fracture_convex_settings_clear_custom_convex,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureConvexActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFromDefaults"),
-            &raw mut __FUNCTION_PTRS.u_fracture_convex_actions_set_from_defaults,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveAsDefaults"),
-            &raw mut __FUNCTION_PTRS.u_fracture_convex_actions_save_as_defaults,
-        );
+        if let Some(class_ptr) = UFractureConvexActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFromDefaults"),
+                &raw mut __FUNCTION_PTRS.u_fracture_convex_actions_set_from_defaults,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveAsDefaults"),
+                &raw mut __FUNCTION_PTRS.u_fracture_convex_actions_save_as_defaults,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureCustomVoronoiSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnfreezeSites"),
-            &raw mut __FUNCTION_PTRS.u_fracture_custom_voronoi_settings_unfreeze_sites,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegenerateLiveSites"),
-            &raw mut __FUNCTION_PTRS
-                .u_fracture_custom_voronoi_settings_regenerate_live_sites,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FreezeLiveSites"),
-            &raw mut __FUNCTION_PTRS.u_fracture_custom_voronoi_settings_freeze_live_sites,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearFrozenSites"),
-            &raw mut __FUNCTION_PTRS
-                .u_fracture_custom_voronoi_settings_clear_frozen_sites,
-        );
+        if let Some(class_ptr) = UFractureCustomVoronoiSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnfreezeSites"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_custom_voronoi_settings_unfreeze_sites,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegenerateLiveSites"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_custom_voronoi_settings_regenerate_live_sites,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FreezeLiveSites"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_custom_voronoi_settings_freeze_live_sites,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearFrozenSites"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_custom_voronoi_settings_clear_frozen_sites,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureCutterSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
-            &raw mut __FUNCTION_PTRS.u_fracture_cutter_settings_get_material_names_func,
-        );
+        if let Some(class_ptr) = UFractureCutterSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_cutter_settings_get_material_names_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureMaterialsSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UseAssetMaterialsOnComponents"),
-            &raw mut __FUNCTION_PTRS
-                .u_fracture_materials_settings_use_asset_materials_on_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMaterialSlot"),
-            &raw mut __FUNCTION_PTRS.u_fracture_materials_settings_remove_material_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_fracture_materials_settings_get_material_names_func,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMaterialSlot"),
-            &raw mut __FUNCTION_PTRS.u_fracture_materials_settings_add_material_slot,
-        );
+        if let Some(class_ptr) = UFractureMaterialsSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UseAssetMaterialsOnComponents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_materials_settings_use_asset_materials_on_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMaterialSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_materials_settings_remove_material_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_materials_settings_get_material_names_func,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMaterialSlot"),
+                &raw mut __FUNCTION_PTRS.u_fracture_materials_settings_add_material_slot,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureRemoveOnBreakSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteRemoveOnBreakData"),
-            &raw mut __FUNCTION_PTRS
-                .u_fracture_remove_on_break_settings_delete_remove_on_break_data,
-        );
+        if let Some(class_ptr) = UFractureRemoveOnBreakSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteRemoveOnBreakData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_remove_on_break_settings_delete_remove_on_break_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureProximityActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFromDefaults"),
-            &raw mut __FUNCTION_PTRS.u_fracture_proximity_actions_set_from_defaults,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveAsDefaults"),
-            &raw mut __FUNCTION_PTRS.u_fracture_proximity_actions_save_as_defaults,
-        );
+        if let Some(class_ptr) = UFractureProximityActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFromDefaults"),
+                &raw mut __FUNCTION_PTRS.u_fracture_proximity_actions_set_from_defaults,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveAsDefaults"),
+                &raw mut __FUNCTION_PTRS.u_fracture_proximity_actions_save_as_defaults,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFractureAutoUVSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LayoutUVs"),
-            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_layout_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_fracture_auto_uv_settings_get_uv_channel_names_func,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisableBoneColors"),
-            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_disable_bone_colors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteUVChannel"),
-            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_delete_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BoxProjectUVs"),
-            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_box_project_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BakeTexture"),
-            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_bake_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUVChannel"),
-            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_add_uv_channel,
-        );
+        if let Some(class_ptr) = UFractureAutoUVSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LayoutUVs"),
+                &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_layout_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_fracture_auto_uv_settings_get_uv_channel_names_func,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisableBoneColors"),
+                &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_disable_bone_colors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteUVChannel"),
+                &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_delete_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BoxProjectUVs"),
+                &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_box_project_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BakeTexture"),
+                &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_bake_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUVChannel"),
+                &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_add_uv_channel,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -275,6 +288,13 @@ impl UFractureEditorMode {
             .name_to_ptr
             .get("UFractureEditorMode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureEditorMode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -297,6 +317,13 @@ impl UFractureModeCustomizationSettings {
             .get("UFractureModeCustomizationSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureModeCustomizationSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -317,6 +344,13 @@ impl UFractureModeSettings {
             .name_to_ptr
             .get("UFractureModeSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureModeSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -339,6 +373,13 @@ impl UFractureSettings {
             .get("UFractureSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -359,6 +400,13 @@ impl UFractureToolSettings {
             .name_to_ptr
             .get("UFractureToolSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -381,6 +429,13 @@ impl UFractureAutoClusterSettings {
             .get("UFractureAutoClusterSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureAutoClusterSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -401,6 +456,13 @@ impl UFractureActionTool {
             .name_to_ptr
             .get("UFractureActionTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureActionTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -423,6 +485,13 @@ impl UFractureModalTool {
             .get("UFractureModalTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureModalTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -443,6 +512,13 @@ impl UFractureToolAutoCluster {
             .name_to_ptr
             .get("UFractureToolAutoCluster")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolAutoCluster")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -465,6 +541,13 @@ impl UFractureBrickSettings {
             .get("UFractureBrickSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureBrickSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -485,6 +568,13 @@ impl UFractureInteractiveTool {
             .name_to_ptr
             .get("UFractureInteractiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureInteractiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -507,6 +597,13 @@ impl UFractureToolCutterBase {
             .get("UFractureToolCutterBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolCutterBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -527,6 +624,13 @@ impl UFractureToolBrick {
             .name_to_ptr
             .get("UFractureToolBrick")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolBrick")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -549,6 +653,13 @@ impl UFractureClusterCutterSettings {
             .get("UFractureClusterCutterSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureClusterCutterSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -569,6 +680,13 @@ impl UFractureToolVoronoiCutterBase {
             .name_to_ptr
             .get("UFractureToolVoronoiCutterBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolVoronoiCutterBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -591,6 +709,13 @@ impl UFractureToolClusterCutter {
             .get("UFractureToolClusterCutter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolClusterCutter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -611,6 +736,13 @@ impl UFractureToolFlattenAll {
             .name_to_ptr
             .get("UFractureToolFlattenAll")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolFlattenAll")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -633,6 +765,13 @@ impl UFractureToolCluster {
             .get("UFractureToolCluster")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolCluster")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -653,6 +792,13 @@ impl UFractureToolUncluster {
             .name_to_ptr
             .get("UFractureToolUncluster")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolUncluster")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -675,6 +821,13 @@ impl UFractureToolMoveUp {
             .get("UFractureToolMoveUp")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolMoveUp")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -695,6 +848,13 @@ impl UFractureToolClusterMerge {
             .name_to_ptr
             .get("UFractureToolClusterMerge")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolClusterMerge")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -717,6 +877,13 @@ impl UFractureClusterMagnetSettings {
             .get("UFractureClusterMagnetSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureClusterMagnetSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -737,6 +904,13 @@ impl UFractureToolClusterMagnet {
             .name_to_ptr
             .get("UFractureToolClusterMagnet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolClusterMagnet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -759,6 +933,13 @@ impl UFractureConvertSettings {
             .get("UFractureConvertSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureConvertSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -779,6 +960,13 @@ impl UFractureReimportSettings {
             .name_to_ptr
             .get("UFractureReimportSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureReimportSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -801,6 +989,13 @@ impl UFractureToolConvert {
             .get("UFractureToolConvert")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolConvert")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -821,6 +1016,13 @@ impl UFractureConvexSettings {
             .name_to_ptr
             .get("UFractureConvexSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureConvexSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -843,6 +1045,13 @@ impl UFractureConvexActions {
             .get("UFractureConvexActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureConvexActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -863,6 +1072,13 @@ impl UFractureToolConvex {
             .name_to_ptr
             .get("UFractureToolConvex")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolConvex")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -885,6 +1101,13 @@ impl UFractureCustomVoronoiSettings {
             .get("UFractureCustomVoronoiSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureCustomVoronoiSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -905,6 +1128,13 @@ impl UFractureToolCustomVoronoi {
             .name_to_ptr
             .get("UFractureToolCustomVoronoi")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolCustomVoronoi")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -927,6 +1157,13 @@ impl UFractureCutterSettings {
             .get("UFractureCutterSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureCutterSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -947,6 +1184,13 @@ impl UFractureCollisionSettings {
             .name_to_ptr
             .get("UFractureCollisionSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureCollisionSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -969,6 +1213,13 @@ impl UFractureTransformGizmoSettings {
             .get("UFractureTransformGizmoSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureTransformGizmoSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -989,6 +1240,13 @@ impl UFractureToolDeleteBranch {
             .name_to_ptr
             .get("UFractureToolDeleteBranch")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolDeleteBranch")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1011,6 +1269,13 @@ impl UFractureToolMergeSelected {
             .get("UFractureToolMergeSelected")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolMergeSelected")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1031,6 +1296,13 @@ impl UFractureToolSplitSelected {
             .name_to_ptr
             .get("UFractureToolSplitSelected")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSplitSelected")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1053,6 +1325,13 @@ impl UFractureToolHide {
             .get("UFractureToolHide")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolHide")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1073,6 +1352,13 @@ impl UFractureToolUnhide {
             .name_to_ptr
             .get("UFractureToolUnhide")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolUnhide")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1095,6 +1381,13 @@ impl UFractureValidateSettings {
             .get("UFractureValidateSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureValidateSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1115,6 +1408,13 @@ impl UFractureToolValidate {
             .name_to_ptr
             .get("UFractureToolValidate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolValidate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1137,6 +1437,13 @@ impl UFractureToolAddEmbeddedGeometry {
             .get("UFractureToolAddEmbeddedGeometry")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolAddEmbeddedGeometry")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1157,6 +1464,13 @@ impl UFractureToolAutoEmbedGeometry {
             .name_to_ptr
             .get("UFractureToolAutoEmbedGeometry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolAutoEmbedGeometry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1179,6 +1493,13 @@ impl UFractureToolFlushEmbeddedGeometrySettings {
             .get("UFractureToolFlushEmbeddedGeometrySettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolFlushEmbeddedGeometrySettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1199,6 +1520,13 @@ impl UFractureToolFlushEmbeddedGeometry {
             .name_to_ptr
             .get("UFractureToolFlushEmbeddedGeometry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolFlushEmbeddedGeometry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1221,6 +1549,13 @@ impl UFractureTinyGeoSettings {
             .get("UFractureTinyGeoSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureTinyGeoSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1241,6 +1576,13 @@ impl UFractureToolFixTinyGeo {
             .name_to_ptr
             .get("UFractureToolFixTinyGeo")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolFixTinyGeo")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1263,6 +1605,13 @@ impl UFractureToolGenerateAsset {
             .get("UFractureToolGenerateAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolGenerateAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1283,6 +1632,13 @@ impl UGeometryCollectionResetSettings {
             .name_to_ptr
             .get("UGeometryCollectionResetSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCollectionResetSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1305,6 +1661,13 @@ impl UFractureToolResetAsset {
             .get("UFractureToolResetAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolResetAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1325,6 +1688,13 @@ impl UFractureMaterialsSettings {
             .name_to_ptr
             .get("UFractureMaterialsSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureMaterialsSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1347,6 +1717,13 @@ impl UFractureToolMaterials {
             .get("UFractureToolMaterials")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolMaterials")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1367,6 +1744,13 @@ impl UFractureMeshCutSettings {
             .name_to_ptr
             .get("UFractureMeshCutSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureMeshCutSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1389,6 +1773,13 @@ impl UFractureToolMeshCut {
             .get("UFractureToolMeshCut")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolMeshCut")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1409,6 +1800,13 @@ impl UFracturePlaneCutSettings {
             .name_to_ptr
             .get("UFracturePlaneCutSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFracturePlaneCutSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1431,6 +1829,13 @@ impl UFractureToolPlaneCut {
             .get("UFractureToolPlaneCut")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolPlaneCut")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1451,6 +1856,13 @@ impl UFractureInitialDynamicStateSettings {
             .name_to_ptr
             .get("UFractureInitialDynamicStateSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureInitialDynamicStateSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1473,6 +1885,13 @@ impl UFractureToolSetInitialDynamicState {
             .get("UFractureToolSetInitialDynamicState")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSetInitialDynamicState")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1493,6 +1912,13 @@ impl UFractureRemoveOnBreakSettings {
             .name_to_ptr
             .get("UFractureRemoveOnBreakSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureRemoveOnBreakSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1515,6 +1941,13 @@ impl UFractureToolSetRemoveOnBreak {
             .get("UFractureToolSetRemoveOnBreak")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSetRemoveOnBreak")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1535,6 +1968,13 @@ impl UFractureProximitySettings {
             .name_to_ptr
             .get("UFractureProximitySettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureProximitySettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1557,6 +1997,13 @@ impl UFractureProximityActions {
             .get("UFractureProximityActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureProximityActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1577,6 +2024,13 @@ impl UFractureToolProximity {
             .name_to_ptr
             .get("UFractureToolProximity")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolProximity")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1599,6 +2053,13 @@ impl UFractureRadialSettings {
             .get("UFractureRadialSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureRadialSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1619,6 +2080,13 @@ impl UFractureToolRadial {
             .name_to_ptr
             .get("UFractureToolRadial")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolRadial")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1641,6 +2109,13 @@ impl UFractureRecomputeNormalsSettings {
             .get("UFractureRecomputeNormalsSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureRecomputeNormalsSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1661,6 +2136,13 @@ impl UFractureToolRecomputeNormals {
             .name_to_ptr
             .get("UFractureToolRecomputeNormals")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolRecomputeNormals")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1683,6 +2165,13 @@ impl UFractureResampleSettings {
             .get("UFractureResampleSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureResampleSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1703,6 +2192,13 @@ impl UFractureToolResample {
             .name_to_ptr
             .get("UFractureToolResample")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolResample")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1725,6 +2221,13 @@ impl UFractureSelectionSettings {
             .get("UFractureSelectionSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureSelectionSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1745,6 +2248,13 @@ impl URectangleMarqueeManager {
             .name_to_ptr
             .get("URectangleMarqueeManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URectangleMarqueeManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1767,6 +2277,13 @@ impl UFractureToolSelection {
             .get("UFractureToolSelection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1787,6 +2304,13 @@ impl UFractureToolSelectAll {
             .name_to_ptr
             .get("UFractureToolSelectAll")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectAll")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1809,6 +2333,13 @@ impl UFractureToolSelectNone {
             .get("UFractureToolSelectNone")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectNone")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1829,6 +2360,13 @@ impl UFractureToolSelectNeighbors {
             .name_to_ptr
             .get("UFractureToolSelectNeighbors")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectNeighbors")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1851,6 +2389,13 @@ impl UFractureToolSelectParent {
             .get("UFractureToolSelectParent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectParent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1871,6 +2416,13 @@ impl UFractureToolSelectChildren {
             .name_to_ptr
             .get("UFractureToolSelectChildren")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectChildren")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1893,6 +2445,13 @@ impl UFractureToolSelectSiblings {
             .get("UFractureToolSelectSiblings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectSiblings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1913,6 +2472,13 @@ impl UFractureToolSelectAllInLevel {
             .name_to_ptr
             .get("UFractureToolSelectAllInLevel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectAllInLevel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1935,6 +2501,13 @@ impl UFractureToolSelectInvert {
             .get("UFractureToolSelectInvert")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectInvert")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1955,6 +2528,13 @@ impl UFractureToolSelectLeaf {
             .name_to_ptr
             .get("UFractureToolSelectLeaf")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectLeaf")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1977,6 +2557,13 @@ impl UFractureToolSelectCluster {
             .get("UFractureToolSelectCluster")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSelectCluster")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1997,6 +2584,13 @@ impl UFractureSliceSettings {
             .name_to_ptr
             .get("UFractureSliceSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureSliceSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2019,6 +2613,13 @@ impl UFractureToolSlice {
             .get("UFractureToolSlice")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolSlice")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2039,6 +2640,13 @@ impl UFractureUniformSettings {
             .name_to_ptr
             .get("UFractureUniformSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureUniformSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2061,6 +2669,13 @@ impl UFractureToolUniform {
             .get("UFractureToolUniform")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolUniform")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2081,6 +2696,13 @@ impl UFractureAutoUVSettings {
             .name_to_ptr
             .get("UFractureAutoUVSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureAutoUVSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2103,6 +2725,13 @@ impl UFractureToolAutoUV {
             .get("UFractureToolAutoUV")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFractureToolAutoUV")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2124,6 +2753,13 @@ impl UHistogramSettings {
             .get("UHistogramSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHistogramSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2144,6 +2780,13 @@ impl UOutlinerSettings {
             .name_to_ptr
             .get("UOutlinerSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOutlinerSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -32,55 +33,57 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationSequenceBrowserContextMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_sequence_browser_context_menu_context_get_selected_objects,
-        );
+        if let Some(class_ptr) = UAnimationSequenceBrowserContextMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_sequence_browser_context_menu_context_get_selected_objects,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPersonaToolMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkeleton"),
-            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_skeleton,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviewMeshComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_persona_tool_menu_context_get_preview_mesh_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMesh"),
-            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimBlueprint"),
-            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_anim_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationAsset"),
-            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_animation_asset,
-        );
+        if let Some(class_ptr) = UPersonaToolMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkeleton"),
+                &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_skeleton,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviewMeshComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_preview_mesh_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMesh"),
+                &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimBlueprint"),
+                &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_anim_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationAsset"),
+                &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_animation_asset,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -94,6 +97,13 @@ impl UAnimationEditorsAssetFamilyExtension {
             .name_to_ptr
             .get("UAnimationEditorsAssetFamilyExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationEditorsAssetFamilyExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -115,6 +125,13 @@ impl UAnimationSequenceBrowserContextMenuContext {
             .name_to_ptr
             .get("UAnimationSequenceBrowserContextMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationSequenceBrowserContextMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -170,6 +187,13 @@ impl UAnimNotifyPanelContextMenuContext {
             .get("UAnimNotifyPanelContextMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotifyPanelContextMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -190,6 +214,13 @@ impl UAnimViewportContext {
             .name_to_ptr
             .get("UAnimViewportContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimViewportContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -212,6 +243,13 @@ impl UAnimViewportToolBarToolMenuContext {
             .get("UAnimViewportToolBarToolMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimViewportToolBarToolMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -232,6 +270,13 @@ impl UCachedAnalysisProperties {
             .name_to_ptr
             .get("UCachedAnalysisProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCachedAnalysisProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -254,6 +299,13 @@ impl ULinearAnalysisPropertiesBase {
             .get("ULinearAnalysisPropertiesBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinearAnalysisPropertiesBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -275,6 +327,13 @@ impl ULinearAnalysisProperties {
             .get("ULinearAnalysisProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinearAnalysisProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -295,6 +354,13 @@ impl UEulerAnalysisProperties {
             .name_to_ptr
             .get("UEulerAnalysisProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEulerAnalysisProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -320,6 +386,13 @@ impl UPersonaPreviewSceneDescription {
             .get("UPersonaPreviewSceneDescription")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaPreviewSceneDescription")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -340,6 +413,13 @@ impl UAnimAssetFindReplaceContext {
             .name_to_ptr
             .get("UAnimAssetFindReplaceContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimAssetFindReplaceContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -362,6 +442,13 @@ impl UAnimAssetFindReplaceProcessor {
             .get("UAnimAssetFindReplaceProcessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimAssetFindReplaceProcessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -382,6 +469,13 @@ impl UAnimAssetFindReplaceProcessor_StringBase {
             .name_to_ptr
             .get("UAnimAssetFindReplaceProcessor_StringBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimAssetFindReplaceProcessor_StringBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -404,6 +498,13 @@ impl UAnimAssetFindReplaceCurves {
             .get("UAnimAssetFindReplaceCurves")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimAssetFindReplaceCurves")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -424,6 +525,13 @@ impl UAnimAssetFindReplaceNotifies {
             .name_to_ptr
             .get("UAnimAssetFindReplaceNotifies")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimAssetFindReplaceNotifies")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -446,6 +554,13 @@ impl UAnimAssetFindReplaceSyncMarkers {
             .get("UAnimAssetFindReplaceSyncMarkers")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimAssetFindReplaceSyncMarkers")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -466,6 +581,13 @@ impl AAnimationEditorPreviewActor {
             .name_to_ptr
             .get("AAnimationEditorPreviewActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AAnimationEditorPreviewActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -488,6 +610,13 @@ impl UAnimCurveBaseCopyObject {
             .get("UAnimCurveBaseCopyObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimCurveBaseCopyObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -508,6 +637,13 @@ impl UFloatCurveCopyObject {
             .name_to_ptr
             .get("UFloatCurveCopyObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatCurveCopyObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -530,6 +666,13 @@ impl UTransformCurveCopyObject {
             .get("UTransformCurveCopyObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTransformCurveCopyObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -551,6 +694,13 @@ impl UVectorCurveCopyObject {
             .get("UVectorCurveCopyObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVectorCurveCopyObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -571,6 +721,13 @@ impl UAnimTimelineClipboardContent {
             .name_to_ptr
             .get("UAnimTimelineClipboardContent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimTimelineClipboardContent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -594,6 +751,13 @@ impl UPersonaManagerContext {
             .get("UPersonaManagerContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaManagerContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -614,6 +778,13 @@ impl UPersonaEditorModeManagerContext {
             .name_to_ptr
             .get("UPersonaEditorModeManagerContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaEditorModeManagerContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -636,6 +807,13 @@ impl ULODInfoUILayout {
             .get("ULODInfoUILayout")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODInfoUILayout")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -656,6 +834,13 @@ impl UAnimationEditorsAssetFamilyExtension_SkeletonAsset {
             .name_to_ptr
             .get("UAnimationEditorsAssetFamilyExtension_SkeletonAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationEditorsAssetFamilyExtension_SkeletonAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -678,6 +863,13 @@ impl UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset {
             .get("UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationEditorsAssetFamilyExtension_SkeletalMeshAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -698,6 +890,13 @@ impl UAnimationEditorsAssetFamilyExtension_AnimationAsset {
             .name_to_ptr
             .get("UAnimationEditorsAssetFamilyExtension_AnimationAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationEditorsAssetFamilyExtension_AnimationAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -720,6 +919,13 @@ impl UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset {
             .get("UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationEditorsAssetFamilyExtension_AnimBlueprintAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -740,6 +946,13 @@ impl UAnimationEditorsAssetFamilyExtension_PhysicsAsset {
             .name_to_ptr
             .get("UAnimationEditorsAssetFamilyExtension_PhysicsAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationEditorsAssetFamilyExtension_PhysicsAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -762,6 +975,13 @@ impl UPersonaPreviewSceneController {
             .get("UPersonaPreviewSceneController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaPreviewSceneController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -782,6 +1002,13 @@ impl UPersonaPreviewSceneAnimationController {
             .name_to_ptr
             .get("UPersonaPreviewSceneAnimationController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaPreviewSceneAnimationController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -804,6 +1031,13 @@ impl UPersonaPreviewSceneDefaultController {
             .get("UPersonaPreviewSceneDefaultController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaPreviewSceneDefaultController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -824,6 +1058,13 @@ impl UPersonaPreviewSceneRefPoseController {
             .name_to_ptr
             .get("UPersonaPreviewSceneRefPoseController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaPreviewSceneRefPoseController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -846,6 +1087,13 @@ impl UPersonaPreviewSceneSkelMeshInstanceController {
             .get("UPersonaPreviewSceneSkelMeshInstanceController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaPreviewSceneSkelMeshInstanceController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -866,6 +1114,13 @@ impl UPersonaToolMenuContext {
             .name_to_ptr
             .get("UPersonaToolMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPersonaToolMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1039,6 +1294,13 @@ impl UPhysicsAssetRenderUtilities {
             .get("UPhysicsAssetRenderUtilities")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPhysicsAssetRenderUtilities")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1059,6 +1321,13 @@ impl USkinWeightImportOptions {
             .name_to_ptr
             .get("USkinWeightImportOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkinWeightImportOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

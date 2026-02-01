@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,21 +25,22 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaSourceRenderer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMediaOpenFailed"),
-            &raw mut __FUNCTION_PTRS.u_media_source_renderer_on_media_open_failed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMediaOpened"),
-            &raw mut __FUNCTION_PTRS.u_media_source_renderer_on_media_opened,
-        );
+        if let Some(class_ptr) = UMediaSourceRenderer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMediaOpenFailed"),
+                &raw mut __FUNCTION_PTRS.u_media_source_renderer_on_media_open_failed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMediaOpened"),
+                &raw mut __FUNCTION_PTRS.u_media_source_renderer_on_media_opened,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -56,6 +58,13 @@ impl UMediaPlayerEditorMediaContext {
             .name_to_ptr
             .get("UMediaPlayerEditorMediaContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlayerEditorMediaContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -78,6 +87,13 @@ impl UMediaPlayerEditorSettings {
             .get("UMediaPlayerEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlayerEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -98,6 +114,13 @@ impl UFileMediaSourceFactoryNew {
             .name_to_ptr
             .get("UFileMediaSourceFactoryNew")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFileMediaSourceFactoryNew")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -120,6 +143,13 @@ impl UMediaPlayerFactoryNew {
             .get("UMediaPlayerFactoryNew")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlayerFactoryNew")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -140,6 +170,13 @@ impl UMediaPlaylistFactoryNew {
             .name_to_ptr
             .get("UMediaPlaylistFactoryNew")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlaylistFactoryNew")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -162,6 +199,13 @@ impl UMediaTextureFactoryNew {
             .get("UMediaTextureFactoryNew")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaTextureFactoryNew")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -182,6 +226,13 @@ impl UPlatformMediaSourceFactoryNew {
             .name_to_ptr
             .get("UPlatformMediaSourceFactoryNew")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlatformMediaSourceFactoryNew")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -204,6 +255,13 @@ impl UStreamMediaSourceFactoryNew {
             .get("UStreamMediaSourceFactoryNew")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStreamMediaSourceFactoryNew")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -225,6 +283,13 @@ impl UMediaSourceRenderer {
             .get("UMediaSourceRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaSourceRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -245,6 +310,13 @@ impl UMediaSourceThumbnailRenderer {
             .name_to_ptr
             .get("UMediaSourceThumbnailRenderer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaSourceThumbnailRenderer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

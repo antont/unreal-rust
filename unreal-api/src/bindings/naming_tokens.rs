@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -52,131 +53,137 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNamingTokens::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProcessTokenTemplateFunction"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_process_token_template_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPreEvaluate"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_on_pre_evaluate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPostEvaluate"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_on_post_evaluate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentDateTime"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_get_current_date_time,
-        );
+        if let Some(class_ptr) = UNamingTokens::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProcessTokenTemplateFunction"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_process_token_template_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPreEvaluate"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_on_pre_evaluate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPostEvaluate"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_on_post_evaluate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentDateTime"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_get_current_date_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNamingTokensEngineSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterGlobalNamespace"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_unregister_global_namespace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterGlobalNamespace"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_register_global_namespace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsGlobalNamespaceRegistered"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_is_global_namespace_registered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNamingTokensNative"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_get_naming_tokens_native,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNamingTokens"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_get_naming_tokens,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMultipleNamingTokens"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_get_multiple_naming_tokens,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGlobalNamespaces"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_get_global_namespaces,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllNamespaces"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_get_all_namespaces,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateTokenText"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_evaluate_token_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateTokenString"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_evaluate_token_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateTokenList"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_evaluate_token_list,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearCachedNamingTokens"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_engine_subsystem_clear_cached_naming_tokens,
-        );
+        if let Some(class_ptr) = UNamingTokensEngineSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterGlobalNamespace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_unregister_global_namespace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterGlobalNamespace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_register_global_namespace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsGlobalNamespaceRegistered"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_is_global_namespace_registered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNamingTokensNative"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_naming_tokens_native,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNamingTokens"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_naming_tokens,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMultipleNamingTokens"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_multiple_naming_tokens,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGlobalNamespaces"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_global_namespaces,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllNamespaces"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_all_namespaces,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateTokenText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateTokenString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateTokenList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_list,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearCachedNamingTokens"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_clear_cached_naming_tokens,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -231,6 +238,13 @@ impl UNamingTokens {
             .name_to_ptr
             .get("UNamingTokens")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamingTokens")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -338,6 +352,13 @@ impl UGlobalNamingTokens {
             .get("UGlobalNamingTokens")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGlobalNamingTokens")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -358,6 +379,13 @@ impl UNamingTokensEngineSubsystem {
             .name_to_ptr
             .get("UNamingTokensEngineSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamingTokensEngineSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

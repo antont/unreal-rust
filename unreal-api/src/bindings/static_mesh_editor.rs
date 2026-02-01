@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -146,493 +147,504 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStaticMeshEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateNaniteSourceFilename"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_update_nanite_source_filename,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNaniteSettings"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_nanite_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodsWithNotification"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_lods_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodScreenSizes"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLods"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lods,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodReductionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_lod_reduction_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLODMaterialSlot"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_material_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLODGroup"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodFromStaticMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_lod_from_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGenerateLightmapUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "SetConvexDecompositionCollisionsWithNotification",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConvexDecompositionCollisions"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowCPUAccess"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_allow_cpu_access,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshesOnActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_replace_mesh_components_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterialsOnActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterials"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_replace_mesh_components_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveUVChannel"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLods"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_lods,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCollisionsWithNotification"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_remove_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCollisions"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_collisions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MergeStaticMeshActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_merge_static_mesh_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("JoinStaticMeshActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_join_static_mesh_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSectionVisibleInRayTracingEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSectionForceOpaqueEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_is_section_force_opaque_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSectionCollisionEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_is_section_collision_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSectionCastShadowEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSectionAffectDistanceFieldLightingEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InsertUVChannel"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_insert_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportNaniteHiResMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_import_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasVertexColors"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_has_vertex_colors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasInstanceVertexColors"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_has_instance_vertex_colors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSimpleCollisionCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_get_simple_collision_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumUVChannels"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_num_uv_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberVerts"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_number_verts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberMaterials"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_number_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNaniteSourceFilename"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_get_nanite_source_filename,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNaniteSettings"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_nanite_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodScreenSizes"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodReductionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_get_lod_reduction_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODMaterialSlot"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_material_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODGroup"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodCount"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_get_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConvexCollisionCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_get_convex_collision_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCollisionComplexity"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_get_collision_complexity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GeneratePlanarUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_generate_planar_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateCylindricalUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateBoxUVChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_generate_box_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionVisibleInRayTracing"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionForceOpaque"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_enable_section_force_opaque,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_enable_section_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionCastShadow"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_enable_section_cast_shadow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableSectionAffectDistanceFieldLighting"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyMeshActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_create_proxy_mesh_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "BulkSetConvexDecompositionCollisionsWithNotification",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BulkSetConvexDecompositionCollisions"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUVChannel"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_add_uv_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSimpleCollisionsWithNotification"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_editor_subsystem_add_simple_collisions_with_notification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSimpleCollisions"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_add_simple_collisions,
-        );
+        if let Some(class_ptr) = UStaticMeshEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateNaniteSourceFilename"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_update_nanite_source_filename,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNaniteSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_nanite_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodsWithNotification"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lods_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLods"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lods,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodReductionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_reduction_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLODMaterialSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_material_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLODGroup"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodFromStaticMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_from_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGenerateLightmapUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetConvexDecompositionCollisionsWithNotification",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConvexDecompositionCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowCPUAccess"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_allow_cpu_access,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshesOnActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterialsOnActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterials"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveUVChannel"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLods"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_lods,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCollisionsWithNotification"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCollisions"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_collisions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MergeStaticMeshActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_merge_static_mesh_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("JoinStaticMeshActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_join_static_mesh_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSectionVisibleInRayTracingEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSectionForceOpaqueEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_force_opaque_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSectionCollisionEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_collision_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSectionCastShadowEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSectionAffectDistanceFieldLightingEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InsertUVChannel"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_insert_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportNaniteHiResMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportLOD"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_import_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasVertexColors"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_has_vertex_colors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasInstanceVertexColors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_has_instance_vertex_colors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSimpleCollisionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_simple_collision_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumUVChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_num_uv_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberVerts"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_number_verts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberMaterials"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_number_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNaniteSourceFilename"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_nanite_source_filename,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNaniteSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_nanite_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodReductionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_reduction_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODMaterialSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_material_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODGroup"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodCount"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConvexCollisionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_convex_collision_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCollisionComplexity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_collision_complexity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GeneratePlanarUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_planar_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateCylindricalUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateBoxUVChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_box_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionVisibleInRayTracing"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionForceOpaque"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_force_opaque,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionCastShadow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_cast_shadow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableSectionAffectDistanceFieldLighting"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyMeshActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_create_proxy_mesh_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "BulkSetConvexDecompositionCollisionsWithNotification",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BulkSetConvexDecompositionCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUVChannel"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_add_uv_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSimpleCollisionsWithNotification"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_simple_collisions_with_notification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSimpleCollisions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_simple_collisions,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -684,6 +696,13 @@ impl UStaticMeshEditorUISubsystem {
             .get("UStaticMeshEditorUISubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshEditorUISubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -704,6 +723,13 @@ impl UStaticMeshEditorSubsystem {
             .name_to_ptr
             .get("UStaticMeshEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

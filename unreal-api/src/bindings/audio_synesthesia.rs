@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -64,186 +65,192 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConstantQAnalyzer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
-            &raw mut __FUNCTION_PTRS.u_constant_q_analyzer_get_num_center_frequencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
-            &raw mut __FUNCTION_PTRS.u_constant_q_analyzer_get_center_frequencies,
-        );
+        if let Some(class_ptr) = UConstantQAnalyzer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
+                &raw mut __FUNCTION_PTRS.u_constant_q_analyzer_get_num_center_frequencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
+                &raw mut __FUNCTION_PTRS.u_constant_q_analyzer_get_center_frequencies,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConstantQNRT::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedChannelConstantQAtTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_constant_qnrt_get_normalized_channel_constant_q_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelConstantQAtTime"),
-            &raw mut __FUNCTION_PTRS.u_constant_qnrt_get_channel_constant_q_at_time,
-        );
+        if let Some(class_ptr) = UConstantQNRT::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedChannelConstantQAtTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constant_qnrt_get_normalized_channel_constant_q_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelConstantQAtTime"),
+                &raw mut __FUNCTION_PTRS.u_constant_qnrt_get_channel_constant_q_at_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULKFSNRT::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoudnessDataForChannelAtTime"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_for_channel_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoudnessDataForChannel"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoudnessDataAtTime"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoudnessData"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntegratedLoudnessForChannel"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_integrated_loudness_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntegratedLoudness"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_integrated_loudness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGatedLoudnessForChannel"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_gated_loudness_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGatedLoudness"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_gated_loudness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
-            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_channel_loudness_at_time,
-        );
+        if let Some(class_ptr) = ULKFSNRT::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoudnessDataForChannelAtTime"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_for_channel_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoudnessDataForChannel"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoudnessDataAtTime"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoudnessData"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntegratedLoudnessForChannel"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_integrated_loudness_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntegratedLoudness"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_integrated_loudness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGatedLoudnessForChannel"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_gated_loudness_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGatedLoudness"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_gated_loudness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
+                &raw mut __FUNCTION_PTRS.ulkfsnrt_get_channel_loudness_at_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULoudnessNRT::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedLoudnessAtTime"),
-            &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_normalized_loudness_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedChannelLoudnessAtTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_loudness_nrt_get_normalized_channel_loudness_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
-            &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_loudness_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
-            &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_channel_loudness_at_time,
-        );
+        if let Some(class_ptr) = ULoudnessNRT::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedLoudnessAtTime"),
+                &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_normalized_loudness_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedChannelLoudnessAtTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_loudness_nrt_get_normalized_channel_loudness_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
+                &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_loudness_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
+                &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_channel_loudness_at_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOnsetNRT::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedChannelOnsetsBetweenTimes"),
-            &raw mut __FUNCTION_PTRS
-                .u_onset_nrt_get_normalized_channel_onsets_between_times,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelOnsetsBetweenTimes"),
-            &raw mut __FUNCTION_PTRS.u_onset_nrt_get_channel_onsets_between_times,
-        );
+        if let Some(class_ptr) = UOnsetNRT::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedChannelOnsetsBetweenTimes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_onset_nrt_get_normalized_channel_onsets_between_times,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelOnsetsBetweenTimes"),
+                &raw mut __FUNCTION_PTRS.u_onset_nrt_get_channel_onsets_between_times,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynesthesiaSpectrumAnalyzer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_synesthesia_spectrum_analyzer_get_num_center_frequencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_synesthesia_spectrum_analyzer_get_center_frequencies,
-        );
+        if let Some(class_ptr) = USynesthesiaSpectrumAnalyzer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synesthesia_spectrum_analyzer_get_num_center_frequencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synesthesia_spectrum_analyzer_get_center_frequencies,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -287,6 +294,13 @@ impl UAudioSynesthesiaSettings {
             .get("UAudioSynesthesiaSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSynesthesiaSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -308,6 +322,13 @@ impl UAudioSynesthesiaNRTSettings {
             .get("UAudioSynesthesiaNRTSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSynesthesiaNRTSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -328,6 +349,13 @@ impl UAudioSynesthesiaNRT {
             .name_to_ptr
             .get("UAudioSynesthesiaNRT")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSynesthesiaNRT")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -362,6 +390,13 @@ impl UConstantQSettings {
             .get("UConstantQSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -385,6 +420,13 @@ impl UConstantQAnalyzer {
             .name_to_ptr
             .get("UConstantQAnalyzer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQAnalyzer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -480,6 +522,13 @@ impl UConstantQNRTSettings {
             .get("UConstantQNRTSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQNRTSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -502,6 +551,13 @@ impl UConstantQNRT {
             .name_to_ptr
             .get("UConstantQNRT")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstantQNRT")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -622,6 +678,13 @@ impl ULKFSSettings {
             .get("ULKFSSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULKFSSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -645,6 +708,13 @@ impl ULKFSAnalyzer {
             .name_to_ptr
             .get("ULKFSAnalyzer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULKFSAnalyzer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -671,6 +741,13 @@ impl ULKFSNRTSettings {
             .get("ULKFSNRTSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULKFSNRTSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -689,6 +766,9 @@ pub struct ULKFSNRT {
 impl ULKFSNRT {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("ULKFSNRT").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("ULKFSNRT").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1064,6 +1144,13 @@ impl ULoudnessSettings {
             .get("ULoudnessSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1087,6 +1174,13 @@ impl ULoudnessAnalyzer {
             .name_to_ptr
             .get("ULoudnessAnalyzer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessAnalyzer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1115,6 +1209,13 @@ impl ULoudnessNRTSettings {
             .get("ULoudnessNRTSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessNRTSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1137,6 +1238,13 @@ impl ULoudnessNRT {
             .name_to_ptr
             .get("ULoudnessNRT")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULoudnessNRT")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1338,6 +1446,13 @@ impl UMeterSettings {
             .get("UMeterSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeterSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1361,6 +1476,13 @@ impl UMeterAnalyzer {
             .name_to_ptr
             .get("UMeterAnalyzer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeterAnalyzer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1389,6 +1511,13 @@ impl UOnsetNRTSettings {
             .get("UOnsetNRTSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnsetNRTSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1411,6 +1540,9 @@ impl UOnsetNRT {
             .name_to_ptr
             .get("UOnsetNRT")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UOnsetNRT").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1577,6 +1709,13 @@ impl USynesthesiaSpectrumAnalysisSettings {
             .get("USynesthesiaSpectrumAnalysisSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynesthesiaSpectrumAnalysisSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1600,6 +1739,13 @@ impl USynesthesiaSpectrumAnalyzer {
             .name_to_ptr
             .get("USynesthesiaSpectrumAnalyzer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynesthesiaSpectrumAnalyzer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

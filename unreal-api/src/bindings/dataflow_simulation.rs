@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,23 +25,24 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataflowSimulationActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PreDataflowSimulationTick"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_simulation_actor_pre_dataflow_simulation_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PostDataflowSimulationTick"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_simulation_actor_post_dataflow_simulation_tick,
-        );
+        if let Some(class_ptr) = UDataflowSimulationActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PreDataflowSimulationTick"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_simulation_actor_pre_dataflow_simulation_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PostDataflowSimulationTick"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_simulation_actor_post_dataflow_simulation_tick,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -67,6 +69,13 @@ impl UDataflowGeometryCachable {
             .get("UDataflowGeometryCachable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowGeometryCachable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -89,6 +98,13 @@ impl UDataflowSimulationInterface {
             .get("UDataflowSimulationInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSimulationInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -109,6 +125,13 @@ impl UDataflowSimulationManager {
             .name_to_ptr
             .get("UDataflowSimulationManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSimulationManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -131,6 +154,13 @@ impl UDataflowSimulationActor {
             .name_to_ptr
             .get("UDataflowSimulationActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSimulationActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -232,6 +262,13 @@ impl UDataflowCollisionObjectInterface {
             .get("UDataflowCollisionObjectInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowCollisionObjectInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -253,6 +290,13 @@ impl UDataflowConstraintObjectInterface {
             .name_to_ptr
             .get("UDataflowConstraintObjectInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowConstraintObjectInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -276,6 +320,13 @@ impl UDataflowPhysicsObjectInterface {
             .get("UDataflowPhysicsObjectInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowPhysicsObjectInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -297,6 +348,13 @@ impl UDataflowPhysicsSolverInterface {
             .name_to_ptr
             .get("UDataflowPhysicsSolverInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowPhysicsSolverInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

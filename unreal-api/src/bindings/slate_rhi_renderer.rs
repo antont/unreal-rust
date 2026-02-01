@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,44 +29,49 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USlateFXSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlatePostProcessor"),
-            &raw mut __FUNCTION_PTRS.u_slate_fx_subsystem_get_slate_post_processor,
-        );
+        if let Some(class_ptr) = USlateFXSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlatePostProcessor"),
+                &raw mut __FUNCTION_PTRS.u_slate_fx_subsystem_get_slate_post_processor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USlateFontBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeSlateFontInfo"),
-            &raw mut __FUNCTION_PTRS.u_slate_font_blueprint_library_make_slate_font_info,
-        );
+        if let Some(class_ptr) = USlateFontBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeSlateFontInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_font_blueprint_library_make_slate_font_info,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USlateRHIRendererSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlatePostSetting"),
-            &raw mut __FUNCTION_PTRS.u_slate_rhi_renderer_settings_get_slate_post_setting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMutableSlatePostSetting"),
-            &raw mut __FUNCTION_PTRS
-                .u_slate_rhi_renderer_settings_get_mutable_slate_post_setting,
-        );
+        if let Some(class_ptr) = USlateRHIRendererSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlatePostSetting"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_rhi_renderer_settings_get_slate_post_setting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMutableSlatePostSetting"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_rhi_renderer_settings_get_mutable_slate_post_setting,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -87,6 +93,13 @@ impl USlateFXSubsystem {
             .name_to_ptr
             .get("USlateFXSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateFXSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -145,6 +158,13 @@ impl USlateRHIPostBufferProcessor {
             .get("USlateRHIPostBufferProcessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateRHIPostBufferProcessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -169,6 +189,13 @@ impl USlatePostBufferBlur {
             .get("USlatePostBufferBlur")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlatePostBufferBlur")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -189,6 +216,13 @@ impl USlateFontBlueprintLibrary {
             .name_to_ptr
             .get("USlateFontBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateFontBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -317,6 +351,13 @@ impl USlateRHIRendererSettings {
             .name_to_ptr
             .get("USlateRHIRendererSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateRHIRendererSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

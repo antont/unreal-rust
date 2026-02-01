@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -40,102 +41,108 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGenerateStaticMeshLODAssetToolPresetProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteToPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_generate_static_mesh_lod_asset_tool_preset_properties_write_to_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFromPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_generate_static_mesh_lod_asset_tool_preset_properties_read_from_preset,
-        );
+        if let Some(class_ptr) = UGenerateStaticMeshLODAssetToolPresetProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteToPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_generate_static_mesh_lod_asset_tool_preset_properties_write_to_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadFromPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_generate_static_mesh_lod_asset_tool_preset_properties_read_from_preset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGenerateStaticMeshLODAssetToolProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGroupLayersFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_generate_static_mesh_lod_asset_tool_properties_get_group_layers_func,
-        );
+        if let Some(class_ptr) = UGenerateStaticMeshLODAssetToolProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGroupLayersFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_generate_static_mesh_lod_asset_tool_properties_get_group_layers_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULODManagerPreviewLODProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
-            &raw mut __FUNCTION_PTRS
-                .ulod_manager_preview_lod_properties_get_lod_names_func,
-        );
+        if let Some(class_ptr) = ULODManagerPreviewLODProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .ulod_manager_preview_lod_properties_get_lod_names_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULODManagerHiResSourceModelActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveToLOD0"),
-            &raw mut __FUNCTION_PTRS
-                .ulod_manager_hi_res_source_model_actions_move_to_lod0,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut __FUNCTION_PTRS.ulod_manager_hi_res_source_model_actions_delete,
-        );
+        if let Some(class_ptr) = ULODManagerHiResSourceModelActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveToLOD0"),
+                &raw mut __FUNCTION_PTRS
+                    .ulod_manager_hi_res_source_model_actions_move_to_lod0,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Delete"),
+                &raw mut __FUNCTION_PTRS.ulod_manager_hi_res_source_model_actions_delete,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULODManagerMaterialActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CleanMaterials"),
-            &raw mut __FUNCTION_PTRS.ulod_manager_material_actions_clean_materials,
-        );
+        if let Some(class_ptr) = ULODManagerMaterialActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CleanMaterials"),
+                &raw mut __FUNCTION_PTRS.ulod_manager_material_actions_clean_materials,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULODManagerTool::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveUnreferencedMaterials"),
-            &raw mut __FUNCTION_PTRS.ulod_manager_tool_remove_unreferenced_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveHiResToLOD0"),
-            &raw mut __FUNCTION_PTRS.ulod_manager_tool_move_hi_res_to_lod0,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteHiResSourceModel"),
-            &raw mut __FUNCTION_PTRS.ulod_manager_tool_delete_hi_res_source_model,
-        );
+        if let Some(class_ptr) = ULODManagerTool::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveUnreferencedMaterials"),
+                &raw mut __FUNCTION_PTRS.ulod_manager_tool_remove_unreferenced_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveHiResToLOD0"),
+                &raw mut __FUNCTION_PTRS.ulod_manager_tool_move_hi_res_to_lod0,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteHiResSourceModel"),
+                &raw mut __FUNCTION_PTRS.ulod_manager_tool_delete_hi_res_source_model,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -149,6 +156,13 @@ impl UAssetDefinition_StaticMeshLODGenerationSettings {
             .name_to_ptr
             .get("UAssetDefinition_StaticMeshLODGenerationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_StaticMeshLODGenerationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -171,6 +185,13 @@ impl UGenerateStaticMeshLODProcess {
             .get("UGenerateStaticMeshLODProcess")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODProcess")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -191,6 +212,13 @@ impl UGenerateStaticMeshLODAssetToolBuilder {
             .name_to_ptr
             .get("UGenerateStaticMeshLODAssetToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -213,6 +241,13 @@ impl UGenerateStaticMeshLODAssetToolOutputProperties {
             .get("UGenerateStaticMeshLODAssetToolOutputProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolOutputProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -233,6 +268,13 @@ impl UGenerateStaticMeshLODAssetToolPresetProperties {
             .name_to_ptr
             .get("UGenerateStaticMeshLODAssetToolPresetProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolPresetProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -255,6 +297,13 @@ impl UGenerateStaticMeshLODAssetToolProperties {
             .get("UGenerateStaticMeshLODAssetToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -275,6 +324,13 @@ impl UGenerateStaticMeshLODAssetToolTextureProperties {
             .name_to_ptr
             .get("UGenerateStaticMeshLODAssetToolTextureProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetToolTextureProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -297,6 +353,13 @@ impl UGenerateStaticMeshLODAssetTool {
             .get("UGenerateStaticMeshLODAssetTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenerateStaticMeshLODAssetTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -317,6 +380,13 @@ impl UStaticMeshLODGenerationSettings {
             .name_to_ptr
             .get("UStaticMeshLODGenerationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshLODGenerationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -339,6 +409,13 @@ impl UStaticMeshLODGenerationSettingsFactory {
             .get("UStaticMeshLODGenerationSettingsFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshLODGenerationSettingsFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -359,6 +436,13 @@ impl ULODManagerToolBuilder {
             .name_to_ptr
             .get("ULODManagerToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -381,6 +465,13 @@ impl ULODManagerLODProperties {
             .get("ULODManagerLODProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerLODProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -401,6 +492,13 @@ impl ULODManagerPreviewLODProperties {
             .name_to_ptr
             .get("ULODManagerPreviewLODProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerPreviewLODProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -423,6 +521,13 @@ impl ULODManagerActionPropertySet {
             .get("ULODManagerActionPropertySet")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerActionPropertySet")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -444,6 +549,13 @@ impl ULODManagerHiResSourceModelActions {
             .get("ULODManagerHiResSourceModelActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerHiResSourceModelActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -464,6 +576,13 @@ impl ULODManagerMaterialActions {
             .name_to_ptr
             .get("ULODManagerMaterialActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerMaterialActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -487,6 +606,13 @@ impl ULODManagerToolChangeTarget {
             .get("ULODManagerToolChangeTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerToolChangeTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -507,6 +633,13 @@ impl ULODManagerTool {
             .name_to_ptr
             .get("ULODManagerTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULODManagerTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

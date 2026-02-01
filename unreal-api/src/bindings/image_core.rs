@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -32,51 +33,53 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USharedImageConstRefBlueprintFns::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidth"),
-            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSize"),
-            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPixelValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_shared_image_const_ref_blueprint_fns_get_pixel_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPixelLinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHeight"),
-            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_height,
-        );
+        if let Some(class_ptr) = USharedImageConstRefBlueprintFns::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidth"),
+                &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSize"),
+                &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPixelValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_pixel_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPixelLinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_height,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -95,6 +98,13 @@ impl USharedImageConstRefBlueprintFns {
             .name_to_ptr
             .get("USharedImageConstRefBlueprintFns")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USharedImageConstRefBlueprintFns")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

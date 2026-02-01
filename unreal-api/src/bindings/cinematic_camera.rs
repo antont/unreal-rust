@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -94,282 +95,295 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ACameraRig_Rail::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRailSplineComponent"),
-            &raw mut __FUNCTION_PTRS.a_camera_rig_rail_get_rail_spline_component,
-        );
+        if let Some(class_ptr) = ACameraRig_Rail::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRailSplineComponent"),
+                &raw mut __FUNCTION_PTRS.a_camera_rig_rail_get_rail_spline_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ACineCameraActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCineCameraComponent"),
-            &raw mut __FUNCTION_PTRS.a_cine_camera_actor_get_cine_camera_component,
-        );
+        if let Some(class_ptr) = ACineCameraActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCineCameraComponent"),
+                &raw mut __FUNCTION_PTRS.a_cine_camera_actor_get_cine_camera_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCineCameraComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLensSettings"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_lens_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLensPresetByName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_lens_preset_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFocusSettings"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_focus_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilmbackPresetByName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_filmback_preset_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilmback"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_filmback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomNearClippingPlane"),
-            &raw mut __FUNCTION_PTRS
-                .u_cine_camera_component_set_custom_near_clipping_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentFocalLength"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_current_focal_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentAperture"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_current_aperture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCropSettings"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_crop_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCropPresetByName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_crop_preset_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVerticalProjectionOffset"),
-            &raw mut __FUNCTION_PTRS
-                .u_cine_camera_component_get_vertical_projection_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVerticalFieldOfView"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_vertical_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLensPresetsCopy"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_lens_presets_copy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLensPresetName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_lens_preset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHorizontalProjectionOffset"),
-            &raw mut __FUNCTION_PTRS
-                .u_cine_camera_component_get_horizontal_projection_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHorizontalFieldOfView"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_horizontal_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFilmbackPresetsCopy"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_filmback_presets_copy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFilmbackPresetName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_filmback_preset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultFilmbackPresetName"),
-            &raw mut __FUNCTION_PTRS
-                .u_cine_camera_component_get_default_filmback_preset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCropPresetName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_crop_preset_name,
-        );
+        if let Some(class_ptr) = UCineCameraComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLensSettings"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_lens_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLensPresetByName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_lens_preset_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFocusSettings"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_focus_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilmbackPresetByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_set_filmback_preset_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilmback"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_filmback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomNearClippingPlane"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_set_custom_near_clipping_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentFocalLength"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_current_focal_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentAperture"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_current_aperture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCropSettings"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_crop_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCropPresetByName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_crop_preset_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVerticalProjectionOffset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_get_vertical_projection_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVerticalFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_get_vertical_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLensPresetsCopy"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_lens_presets_copy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLensPresetName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_lens_preset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHorizontalProjectionOffset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_get_horizontal_projection_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHorizontalFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_get_horizontal_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFilmbackPresetsCopy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_get_filmback_presets_copy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFilmbackPresetName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_filmback_preset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultFilmbackPresetName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_component_get_default_filmback_preset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCropPresetName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_crop_preset_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCineCameraSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLensPresets"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_lens_presets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilmbackPresets"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_filmback_presets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultLensPresetName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_preset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultLensFStop"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_f_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultLensFocalLength"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_focal_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultFilmbackPreset"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_filmback_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultCropPresetName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_crop_preset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCropPresets"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_crop_presets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLensPresetNames"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_lens_preset_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLensPresetByName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_lens_preset_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFilmbackPresetNames"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_filmback_preset_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFilmbackPresetByName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_filmback_preset_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCropPresetNames"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_crop_preset_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCropPresetByName"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_crop_preset_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCineCameraSettings"),
-            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_cine_camera_settings,
-        );
+        if let Some(class_ptr) = UCineCameraSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLensPresets"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_lens_presets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilmbackPresets"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_filmback_presets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultLensPresetName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_preset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultLensFStop"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_f_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultLensFocalLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_focal_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultFilmbackPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_filmback_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultCropPresetName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_crop_preset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCropPresets"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_crop_presets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLensPresetNames"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_lens_preset_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLensPresetByName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_lens_preset_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFilmbackPresetNames"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_filmback_preset_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFilmbackPresetByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_cine_camera_settings_get_filmback_preset_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCropPresetNames"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_crop_preset_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCropPresetByName"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_crop_preset_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCineCameraSettings"),
+                &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_cine_camera_settings,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -465,6 +479,13 @@ impl ACameraRig_Crane {
             .get("ACameraRig_Crane")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ACameraRig_Crane")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -489,6 +510,13 @@ impl ACameraRig_Rail {
             .name_to_ptr
             .get("ACameraRig_Rail")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ACameraRig_Rail")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -546,6 +574,13 @@ impl ACineCameraActor {
             .name_to_ptr
             .get("ACineCameraActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ACineCameraActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -607,6 +642,13 @@ impl UCineCameraComponent {
             .name_to_ptr
             .get("UCineCameraComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCineCameraComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1221,6 +1263,13 @@ impl UCineCameraSettings {
             .name_to_ptr
             .get("UCineCameraSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCineCameraSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

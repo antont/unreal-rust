@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -80,238 +81,250 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementHandleLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Release"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_release,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotEqual"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_not_equal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSet"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_is_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Equal"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_equal,
-        );
+        if let Some(class_ptr) = UTypedElementHandleLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Release"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_release,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotEqual"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_not_equal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSet"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_is_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Equal"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_equal,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementListLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Shrink"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_shrink,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_reset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reserve"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_reserve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Remove"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_remove,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Num"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_num,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidIndex"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_is_valid_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasElementsOfType"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_has_elements_of_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasElements"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_has_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetElementInterface"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetElementHandles"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_handles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetElementHandleAt"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_handle_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Empty"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_empty,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateScriptElementList"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_list_library_create_script_element_list,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CountElementsOfType"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_count_elements_of_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CountElements"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_count_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Contains"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_contains,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Clone"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_clone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AppendList"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_append_list,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Append"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_append,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Add"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_add,
-        );
+        if let Some(class_ptr) = UTypedElementListLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Shrink"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_shrink,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reset"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_reset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reserve"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_reserve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Remove"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_remove,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Num"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_num,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidIndex"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_is_valid_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasElementsOfType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_list_library_has_elements_of_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasElements"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_has_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetElementInterface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetElementHandles"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_handles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetElementHandleAt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_handle_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Empty"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_empty,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateScriptElementList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_list_library_create_script_element_list,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CountElementsOfType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_list_library_count_elements_of_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CountElements"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_count_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Contains"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_contains,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Clone"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_clone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AppendList"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_append_list,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Append"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_append,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Add"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_list_library_add,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementRegistry::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInstance"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_registry_get_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetElementInterface"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_registry_get_element_interface,
-        );
+        if let Some(class_ptr) = UTypedElementRegistry::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInstance"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_registry_get_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetElementInterface"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_registry_get_element_interface,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTestTypedElementInterfaceA::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_a_set_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_a_get_display_name,
-        );
+        if let Some(class_ptr) = UTestTypedElementInterfaceA::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_test_typed_element_interface_a_set_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_test_typed_element_interface_a_get_display_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTestTypedElementInterfaceB::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkAsTested"),
-            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_b_mark_as_tested,
-        );
+        if let Some(class_ptr) = UTestTypedElementInterfaceB::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkAsTested"),
+                &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_b_mark_as_tested,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTestTypedElementInterfaceC::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsTested"),
-            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_c_get_is_tested,
-        );
+        if let Some(class_ptr) = UTestTypedElementInterfaceC::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsTested"),
+                &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_c_get_is_tested,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -336,6 +349,13 @@ impl UEditorDataStorageFactory {
             .get("UEditorDataStorageFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorDataStorageFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -356,6 +376,13 @@ impl UTypedElementHandleLibrary {
             .name_to_ptr
             .get("UTypedElementHandleLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementHandleLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -531,6 +558,13 @@ impl UTypedElementListLibrary {
             .name_to_ptr
             .get("UTypedElementListLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementListLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1361,6 +1395,13 @@ impl UTypedElementCounterInterface {
             .get("UTypedElementCounterInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementCounterInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1381,6 +1422,13 @@ impl UTypedElementRegistry {
             .name_to_ptr
             .get("UTypedElementRegistry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementRegistry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1480,6 +1528,13 @@ impl UTestTypedElementInterfaceA {
             .name_to_ptr
             .get("UTestTypedElementInterfaceA")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestTypedElementInterfaceA")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1587,6 +1642,13 @@ impl UTestTypedElementInterfaceB {
             .get("UTestTypedElementInterfaceB")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestTypedElementInterfaceB")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1645,6 +1707,13 @@ impl UTestTypedElementInterfaceC {
             .get("UTestTypedElementInterfaceC")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestTypedElementInterfaceC")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1699,6 +1768,13 @@ impl UTestTypedElementInterfaceA_ImplTyped {
             .get("UTestTypedElementInterfaceA_ImplTyped")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestTypedElementInterfaceA_ImplTyped")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1719,6 +1795,13 @@ impl UTestTypedElementInterfaceA_ImplUntyped {
             .name_to_ptr
             .get("UTestTypedElementInterfaceA_ImplUntyped")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestTypedElementInterfaceA_ImplUntyped")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1741,6 +1824,13 @@ impl UTestTypedElementInterfaceBAndC_Typed {
             .get("UTestTypedElementInterfaceBAndC_Typed")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestTypedElementInterfaceBAndC_Typed")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1761,6 +1851,13 @@ impl UTest_PingPongBetweenPhaseFactory {
             .name_to_ptr
             .get("UTest_PingPongBetweenPhaseFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTest_PingPongBetweenPhaseFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

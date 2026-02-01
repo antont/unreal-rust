@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,6 +29,13 @@ impl UPropertyBindingUtilsTest_PropertyObjectInstanced {
             .get("UPropertyBindingUtilsTest_PropertyObjectInstanced")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyBindingUtilsTest_PropertyObjectInstanced")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -49,6 +57,13 @@ impl UPropertyBindingUtilsTest_PropertyObjectInstancedWithB {
             .get("UPropertyBindingUtilsTest_PropertyObjectInstancedWithB")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyBindingUtilsTest_PropertyObjectInstancedWithB")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -69,6 +84,13 @@ impl UPropertyBindingUtilsTest_PropertyObject {
             .name_to_ptr
             .get("UPropertyBindingUtilsTest_PropertyObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyBindingUtilsTest_PropertyObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -193,11 +193,12 @@ pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
                     quote! {
                         unsafe {
                             let bindings = crate::module::bindings();
-                            let class_ptr = #name::static_class();
-
-                            #(
-                                #initialize_ptrs_scope
-                            )*
+                            if let Some(class_ptr) = #name::try_static_class()
+                            {
+                                #(
+                                    #initialize_ptrs_scope
+                                )*
+                            }
                         }
                     }
                 )
@@ -645,6 +646,10 @@ pub fn generate_class(
             pub fn static_class() -> *mut crate::ffi::UObjectOpague
             {
                 *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get(#class_str).unwrap()
+            }
+            pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague>
+            {
+                crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get(#class_str).copied()
             }
             pub fn cdo() -> *mut crate::ffi::UObjectOpague {
                 let class = Self::static_class();
@@ -1137,6 +1142,7 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
 
     for (module_name, all_tokens) in &modules {
         let tokens = quote! {
+            #![allow(clippy::all)]
             #![allow(dead_code)]
             #![allow(unused_imports)]
             #![allow(unused_variables)]

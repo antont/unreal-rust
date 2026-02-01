@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,15 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UClothingSimulationInteractorNv::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimDriveDamperStiffness"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness,
-        );
+        if let Some(class_ptr) = UClothingSimulationInteractorNv::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimDriveDamperStiffness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -44,6 +46,13 @@ impl UClothConfigNv {
             .name_to_ptr
             .get("UClothConfigNv")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothConfigNv")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -66,6 +75,13 @@ impl UClothingSimulationFactoryNv {
             .get("UClothingSimulationFactoryNv")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingSimulationFactoryNv")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -86,6 +102,13 @@ impl UClothingSimulationInteractorNv {
             .name_to_ptr
             .get("UClothingSimulationInteractorNv")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingSimulationInteractorNv")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -139,6 +162,13 @@ impl UClothPhysicalMeshDataNv_Legacy {
             .name_to_ptr
             .get("UClothPhysicalMeshDataNv_Legacy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothPhysicalMeshDataNv_Legacy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

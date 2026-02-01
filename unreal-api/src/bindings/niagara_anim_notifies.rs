@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,38 +27,42 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimNotifyState_TimedNiagaraEffect::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
-            &raw mut __FUNCTION_PTRS
-                .u_anim_notify_state_timed_niagara_effect_get_spawned_effect,
-        );
+        if let Some(class_ptr) = UAnimNotifyState_TimedNiagaraEffect::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_notify_state_timed_niagara_effect_get_spawned_effect,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimNotifyState_TimedNiagaraEffectAdvanced::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNotifyProgress"),
-            &raw mut __FUNCTION_PTRS
-                .u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress,
-        );
+        if let Some(class_ptr) = UAnimNotifyState_TimedNiagaraEffectAdvanced::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNotifyProgress"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimNotify_PlayNiagaraEffect::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
-            &raw mut __FUNCTION_PTRS.u_anim_notify_play_niagara_effect_get_spawned_effect,
-        );
+        if let Some(class_ptr) = UAnimNotify_PlayNiagaraEffect::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_notify_play_niagara_effect_get_spawned_effect,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -86,6 +91,13 @@ impl UAnimNotifyState_TimedNiagaraEffect {
             .name_to_ptr
             .get("UAnimNotifyState_TimedNiagaraEffect")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotifyState_TimedNiagaraEffect")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -152,6 +164,13 @@ impl UAnimNotifyState_TimedNiagaraEffectAdvanced {
             .get("UAnimNotifyState_TimedNiagaraEffectAdvanced")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotifyState_TimedNiagaraEffectAdvanced")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -216,6 +235,13 @@ impl UAnimNotify_PlayNiagaraEffect {
             .name_to_ptr
             .get("UAnimNotify_PlayNiagaraEffect")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimNotify_PlayNiagaraEffect")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

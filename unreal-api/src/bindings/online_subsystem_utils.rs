@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -132,551 +133,586 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAchievementBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCachedAchievementProgress"),
-            &raw mut __FUNCTION_PTRS
-                .u_achievement_blueprint_library_get_cached_achievement_progress,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCachedAchievementDescription"),
-            &raw mut __FUNCTION_PTRS
-                .u_achievement_blueprint_library_get_cached_achievement_description,
-        );
+        if let Some(class_ptr) = UAchievementBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCachedAchievementProgress"),
+                &raw mut __FUNCTION_PTRS
+                    .u_achievement_blueprint_library_get_cached_achievement_progress,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCachedAchievementDescription"),
+                &raw mut __FUNCTION_PTRS
+                    .u_achievement_blueprint_library_get_cached_achievement_description,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAchievementQueryCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CacheAchievements"),
-            &raw mut __FUNCTION_PTRS
-                .u_achievement_query_callback_proxy_cache_achievements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CacheAchievementDescriptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_achievement_query_callback_proxy_cache_achievement_descriptions,
-        );
+        if let Some(class_ptr) = UAchievementQueryCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CacheAchievements"),
+                &raw mut __FUNCTION_PTRS
+                    .u_achievement_query_callback_proxy_cache_achievements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CacheAchievementDescriptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_achievement_query_callback_proxy_cache_achievement_descriptions,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAchievementWriteCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteProgress"),
-            &raw mut __FUNCTION_PTRS.u_achievement_write_callback_proxy_write_progress,
-        );
+        if let Some(class_ptr) = UAchievementWriteCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteProgress"),
+                &raw mut __FUNCTION_PTRS
+                    .u_achievement_write_callback_proxy_write_progress,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConnectionCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToService"),
-            &raw mut __FUNCTION_PTRS.u_connection_callback_proxy_connect_to_service,
-        );
+        if let Some(class_ptr) = UConnectionCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToService"),
+                &raw mut __FUNCTION_PTRS.u_connection_callback_proxy_connect_to_service,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCreateSessionCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateSession"),
-            &raw mut __FUNCTION_PTRS.u_create_session_callback_proxy_create_session,
-        );
+        if let Some(class_ptr) = UCreateSessionCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateSession"),
+                &raw mut __FUNCTION_PTRS.u_create_session_callback_proxy_create_session,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDestroySessionCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DestroySession"),
-            &raw mut __FUNCTION_PTRS.u_destroy_session_callback_proxy_destroy_session,
-        );
+        if let Some(class_ptr) = UDestroySessionCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DestroySession"),
+                &raw mut __FUNCTION_PTRS.u_destroy_session_callback_proxy_destroy_session,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEndMatchCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndMatch"),
-            &raw mut __FUNCTION_PTRS.u_end_match_callback_proxy_end_match,
-        );
+        if let Some(class_ptr) = UEndMatchCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndMatch"),
+                &raw mut __FUNCTION_PTRS.u_end_match_callback_proxy_end_match,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEndTurnCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndTurn"),
-            &raw mut __FUNCTION_PTRS.u_end_turn_callback_proxy_end_turn,
-        );
+        if let Some(class_ptr) = UEndTurnCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndTurn"),
+                &raw mut __FUNCTION_PTRS.u_end_turn_callback_proxy_end_turn,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFindSessionsCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetServerName"),
-            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_server_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPingInMs"),
-            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_ping_in_ms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxPlayers"),
-            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_max_players,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPlayers"),
-            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_current_players,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindSessions"),
-            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_find_sessions,
-        );
+        if let Some(class_ptr) = UFindSessionsCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetServerName"),
+                &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_server_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPingInMs"),
+                &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_ping_in_ms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxPlayers"),
+                &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_max_players,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPlayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_current_players,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindSessions"),
+                &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_find_sessions,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFindTurnBasedMatchCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindTurnBasedMatch"),
-            &raw mut __FUNCTION_PTRS
-                .u_find_turn_based_match_callback_proxy_find_turn_based_match,
-        );
+        if let Some(class_ptr) = UFindTurnBasedMatchCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindTurnBasedMatch"),
+                &raw mut __FUNCTION_PTRS
+                    .u_find_turn_based_match_callback_proxy_find_turn_based_match,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInAppPurchaseCallbackProxy2::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "CreateProxyObjectForInAppPurchaseUnprocessedPurchases",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQueryOwned"),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchase"),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase,
-        );
+        if let Some(class_ptr) = UInAppPurchaseCallbackProxy2::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "CreateProxyObjectForInAppPurchaseUnprocessedPurchases",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQueryOwned"),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchase"),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInAppPurchaseCheckoutCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseCheckout"),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout,
-        );
+        if let Some(class_ptr) = UInAppPurchaseCheckoutCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseCheckout"),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInAppPurchaseFinalizeProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseFinalize"),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize,
-        );
+        if let Some(class_ptr) = UInAppPurchaseFinalizeProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseFinalize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInAppPurchaseQueryCallbackProxy2::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQuery"),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query,
-        );
+        if let Some(class_ptr) = UInAppPurchaseQueryCallbackProxy2::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQuery"),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInAppPurchaseReceiptsCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "CreateProxyObjectForInAppPurchaseRestoreOwnedProducts",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "CreateProxyObjectForInAppPurchaseQueryOwnedProducts",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "CreateProxyObjectForInAppPurchaseGetKnownReceipts",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts,
-        );
+        if let Some(class_ptr) = UInAppPurchaseReceiptsCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "CreateProxyObjectForInAppPurchaseRestoreOwnedProducts",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "CreateProxyObjectForInAppPurchaseQueryOwnedProducts",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "CreateProxyObjectForInAppPurchaseGetKnownReceipts",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInAppPurchaseRestoreCallbackProxy2::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseRestore"),
-            &raw mut __FUNCTION_PTRS
-                .u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore,
-        );
+        if let Some(class_ptr) = UInAppPurchaseRestoreCallbackProxy2::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseRestore"),
+                &raw mut __FUNCTION_PTRS
+                    .u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UJoinSessionCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("JoinSession"),
-            &raw mut __FUNCTION_PTRS.u_join_session_callback_proxy_join_session,
-        );
+        if let Some(class_ptr) = UJoinSessionCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("JoinSession"),
+                &raw mut __FUNCTION_PTRS.u_join_session_callback_proxy_join_session,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULeaderboardBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteLeaderboardInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_leaderboard_blueprint_library_write_leaderboard_integer,
-        );
+        if let Some(class_ptr) = ULeaderboardBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteLeaderboardInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_leaderboard_blueprint_library_write_leaderboard_integer,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULeaderboardFlushCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForFlush"),
-            &raw mut __FUNCTION_PTRS
-                .u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush,
-        );
+        if let Some(class_ptr) = ULeaderboardFlushCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForFlush"),
+                &raw mut __FUNCTION_PTRS
+                    .u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULeaderboardQueryCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateProxyObjectForIntQuery"),
-            &raw mut __FUNCTION_PTRS
-                .u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query,
-        );
+        if let Some(class_ptr) = ULeaderboardQueryCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateProxyObjectForIntQuery"),
+                &raw mut __FUNCTION_PTRS
+                    .u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULogoutCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Logout"),
-            &raw mut __FUNCTION_PTRS.u_logout_callback_proxy_logout,
-        );
+        if let Some(class_ptr) = ULogoutCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Logout"),
+                &raw mut __FUNCTION_PTRS.u_logout_callback_proxy_logout,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AOnlineBeaconClient::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientOnConnected"),
-            &raw mut __FUNCTION_PTRS.a_online_beacon_client_client_on_connected,
-        );
+        if let Some(class_ptr) = AOnlineBeaconClient::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientOnConnected"),
+                &raw mut __FUNCTION_PTRS.a_online_beacon_client_client_on_connected,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = APartyBeaconClient::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerUpdateReservationRequest"),
-            &raw mut __FUNCTION_PTRS
-                .a_party_beacon_client_server_update_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerReservationRequest"),
-            &raw mut __FUNCTION_PTRS.a_party_beacon_client_server_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerRemoveMemberFromReservationRequest"),
-            &raw mut __FUNCTION_PTRS
-                .a_party_beacon_client_server_remove_member_from_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
-            &raw mut __FUNCTION_PTRS
-                .a_party_beacon_client_server_cancel_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerAddOrUpdateReservationRequest"),
-            &raw mut __FUNCTION_PTRS
-                .a_party_beacon_client_server_add_or_update_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
-            &raw mut __FUNCTION_PTRS
-                .a_party_beacon_client_client_send_reservation_updates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
-            &raw mut __FUNCTION_PTRS.a_party_beacon_client_client_send_reservation_full,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientReservationResponse"),
-            &raw mut __FUNCTION_PTRS.a_party_beacon_client_client_reservation_response,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
-            &raw mut __FUNCTION_PTRS
-                .a_party_beacon_client_client_cancel_reservation_response,
-        );
+        if let Some(class_ptr) = APartyBeaconClient::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerUpdateReservationRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_server_update_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerReservationRequest"),
+                &raw mut __FUNCTION_PTRS.a_party_beacon_client_server_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerRemoveMemberFromReservationRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_server_remove_member_from_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_server_cancel_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerAddOrUpdateReservationRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_server_add_or_update_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_client_send_reservation_updates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_client_send_reservation_full,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientReservationResponse"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_client_reservation_response,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
+                &raw mut __FUNCTION_PTRS
+                    .a_party_beacon_client_client_cancel_reservation_response,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UQuitMatchCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QuitMatch"),
-            &raw mut __FUNCTION_PTRS.u_quit_match_callback_proxy_quit_match,
-        );
+        if let Some(class_ptr) = UQuitMatchCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QuitMatch"),
+                &raw mut __FUNCTION_PTRS.u_quit_match_callback_proxy_quit_match,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UShowLoginUICallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowExternalLoginUI"),
-            &raw mut __FUNCTION_PTRS
-                .u_show_login_ui_callback_proxy_show_external_login_ui,
-        );
+        if let Some(class_ptr) = UShowLoginUICallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowExternalLoginUI"),
+                &raw mut __FUNCTION_PTRS
+                    .u_show_login_ui_callback_proxy_show_external_login_ui,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ASpectatorBeaconClient::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerReservationRequest"),
-            &raw mut __FUNCTION_PTRS.a_spectator_beacon_client_server_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
-            &raw mut __FUNCTION_PTRS
-                .a_spectator_beacon_client_server_cancel_reservation_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
-            &raw mut __FUNCTION_PTRS
-                .a_spectator_beacon_client_client_send_reservation_updates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
-            &raw mut __FUNCTION_PTRS
-                .a_spectator_beacon_client_client_send_reservation_full,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientReservationResponse"),
-            &raw mut __FUNCTION_PTRS
-                .a_spectator_beacon_client_client_reservation_response,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
-            &raw mut __FUNCTION_PTRS
-                .a_spectator_beacon_client_client_cancel_reservation_response,
-        );
+        if let Some(class_ptr) = ASpectatorBeaconClient::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerReservationRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_spectator_beacon_client_server_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_spectator_beacon_client_server_cancel_reservation_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
+                &raw mut __FUNCTION_PTRS
+                    .a_spectator_beacon_client_client_send_reservation_updates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
+                &raw mut __FUNCTION_PTRS
+                    .a_spectator_beacon_client_client_send_reservation_full,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientReservationResponse"),
+                &raw mut __FUNCTION_PTRS
+                    .a_spectator_beacon_client_client_reservation_response,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
+                &raw mut __FUNCTION_PTRS
+                    .a_spectator_beacon_client_client_cancel_reservation_response,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ATestBeaconClient::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerPong"),
-            &raw mut __FUNCTION_PTRS.a_test_beacon_client_server_pong,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientPing"),
-            &raw mut __FUNCTION_PTRS.a_test_beacon_client_client_ping,
-        );
+        if let Some(class_ptr) = ATestBeaconClient::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerPong"),
+                &raw mut __FUNCTION_PTRS.a_test_beacon_client_server_pong,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientPing"),
+                &raw mut __FUNCTION_PTRS.a_test_beacon_client_client_ping,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTurnBasedBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterTurnBasedMatchInterfaceObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_turn_based_blueprint_library_register_turn_based_match_interface_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerDisplayName"),
-            &raw mut __FUNCTION_PTRS
-                .u_turn_based_blueprint_library_get_player_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMyPlayerIndex"),
-            &raw mut __FUNCTION_PTRS.u_turn_based_blueprint_library_get_my_player_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsMyTurn"),
-            &raw mut __FUNCTION_PTRS.u_turn_based_blueprint_library_get_is_my_turn,
-        );
+        if let Some(class_ptr) = UTurnBasedBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterTurnBasedMatchInterfaceObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_register_turn_based_match_interface_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_player_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMyPlayerIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_my_player_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsMyTurn"),
+                &raw mut __FUNCTION_PTRS.u_turn_based_blueprint_library_get_is_my_turn,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVoipListenerSynthComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsIdling"),
-            &raw mut __FUNCTION_PTRS.u_voip_listener_synth_component_is_idling,
-        );
+        if let Some(class_ptr) = UVoipListenerSynthComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsIdling"),
+                &raw mut __FUNCTION_PTRS.u_voip_listener_synth_component_is_idling,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -749,6 +785,13 @@ impl UAchievementBlueprintLibrary {
             .name_to_ptr
             .get("UAchievementBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAchievementBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -940,6 +983,13 @@ impl UAchievementQueryCallbackProxy {
             .get("UAchievementQueryCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAchievementQueryCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1051,6 +1101,13 @@ impl UAchievementWriteCallbackProxy {
             .get("UAchievementWriteCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAchievementWriteCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1133,6 +1190,13 @@ impl UConnectionCallbackProxy {
             .get("UConnectionCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConnectionCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1198,6 +1262,13 @@ impl UCreateSessionCallbackProxy {
             .name_to_ptr
             .get("UCreateSessionCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCreateSessionCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1289,6 +1360,13 @@ impl UDestroySessionCallbackProxy {
             .get("UDestroySessionCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDestroySessionCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1354,6 +1432,13 @@ impl UEndMatchCallbackProxy {
             .name_to_ptr
             .get("UEndMatchCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEndMatchCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1465,6 +1550,13 @@ impl UEndTurnCallbackProxy {
             .get("UEndTurnCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEndTurnCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1554,6 +1646,13 @@ impl UFindSessionsCallbackProxy {
             .name_to_ptr
             .get("UFindSessionsCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFindSessionsCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1777,6 +1876,13 @@ impl UFindTurnBasedMatchCallbackProxy {
             .get("UFindTurnBasedMatchCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFindTurnBasedMatchCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1892,6 +1998,13 @@ impl UInAppPurchaseCallbackProxy2 {
             .name_to_ptr
             .get("UInAppPurchaseCallbackProxy2")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseCallbackProxy2")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2033,6 +2146,13 @@ impl UInAppPurchaseCheckoutCallbackProxy {
             .get("UInAppPurchaseCheckoutCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseCheckoutCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2101,6 +2221,13 @@ impl UInAppPurchaseFinalizeProxy {
             .get("UInAppPurchaseFinalizeProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseFinalizeProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2166,6 +2293,13 @@ impl UInAppPurchaseQueryCallbackProxy2 {
             .name_to_ptr
             .get("UInAppPurchaseQueryCallbackProxy2")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseQueryCallbackProxy2")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2234,6 +2368,13 @@ impl UInAppPurchaseReceiptsCallbackProxy {
             .name_to_ptr
             .get("UInAppPurchaseReceiptsCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseReceiptsCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2373,6 +2514,13 @@ impl UInAppPurchaseRestoreCallbackProxy2 {
             .get("UInAppPurchaseRestoreCallbackProxy2")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInAppPurchaseRestoreCallbackProxy2")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2441,6 +2589,13 @@ impl UIpConnection {
             .get("UIpConnection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIpConnection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2462,6 +2617,13 @@ impl UIpNetDriver {
             .get("UIpNetDriver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIpNetDriver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2482,6 +2644,13 @@ impl UJoinSessionCallbackProxy {
             .name_to_ptr
             .get("UJoinSessionCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UJoinSessionCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2557,6 +2726,13 @@ impl ULeaderboardBlueprintLibrary {
             .get("ULeaderboardBlueprintLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULeaderboardBlueprintLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2631,6 +2807,13 @@ impl ULeaderboardFlushCallbackProxy {
             .get("ULeaderboardFlushCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULeaderboardFlushCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2696,6 +2879,13 @@ impl ULeaderboardQueryCallbackProxy {
             .name_to_ptr
             .get("ULeaderboardQueryCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULeaderboardQueryCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2763,6 +2953,13 @@ impl ULogoutCallbackProxy {
             .get("ULogoutCallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULogoutCallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2829,6 +3026,13 @@ impl AOnlineBeacon {
             .get("AOnlineBeacon")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeacon")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2849,6 +3053,13 @@ impl AOnlineBeaconClient {
             .name_to_ptr
             .get("AOnlineBeaconClient")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconClient")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2871,6 +3082,13 @@ impl AOnlineBeaconHost {
             .get("AOnlineBeaconHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2891,6 +3109,13 @@ impl AOnlineBeaconHostObject {
             .name_to_ptr
             .get("AOnlineBeaconHostObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconHostObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2913,6 +3138,13 @@ impl UOnlineEngineInterfaceImpl {
             .get("UOnlineEngineInterfaceImpl")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineEngineInterfaceImpl")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2933,6 +3165,13 @@ impl UOnlinePIEConfig {
             .name_to_ptr
             .get("UOnlinePIEConfig")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlinePIEConfig")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2955,6 +3194,13 @@ impl UOnlinePIESettings {
             .get("UOnlinePIESettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlinePIESettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2975,6 +3221,13 @@ impl UOnlineServicesEngineInterfaceImpl {
             .name_to_ptr
             .get("UOnlineServicesEngineInterfaceImpl")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineServicesEngineInterfaceImpl")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2997,6 +3250,13 @@ impl UOnlineSessionClient {
             .get("UOnlineSessionClient")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineSessionClient")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3017,6 +3277,13 @@ impl APartyBeaconClient {
             .name_to_ptr
             .get("APartyBeaconClient")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APartyBeaconClient")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3039,6 +3306,13 @@ impl APartyBeaconHost {
             .get("APartyBeaconHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APartyBeaconHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3060,6 +3334,13 @@ impl UPartyBeaconState {
             .get("UPartyBeaconState")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPartyBeaconState")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3080,6 +3361,13 @@ impl UQuitMatchCallbackProxy {
             .name_to_ptr
             .get("UQuitMatchCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UQuitMatchCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3173,6 +3461,13 @@ impl UShowLoginUICallbackProxy {
             .get("UShowLoginUICallbackProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UShowLoginUICallbackProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3239,6 +3534,13 @@ impl ASpectatorBeaconClient {
             .get("ASpectatorBeaconClient")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ASpectatorBeaconClient")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3259,6 +3561,13 @@ impl ASpectatorBeaconHost {
             .name_to_ptr
             .get("ASpectatorBeaconHost")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ASpectatorBeaconHost")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3281,6 +3590,13 @@ impl USpectatorBeaconState {
             .get("USpectatorBeaconState")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USpectatorBeaconState")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3301,6 +3617,13 @@ impl ATestBeaconClient {
             .name_to_ptr
             .get("ATestBeaconClient")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ATestBeaconClient")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3323,6 +3646,13 @@ impl ATestBeaconHost {
             .get("ATestBeaconHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ATestBeaconHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3343,6 +3673,13 @@ impl AOnlineBeaconUnitTestClient {
             .name_to_ptr
             .get("AOnlineBeaconUnitTestClient")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconUnitTestClient")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3365,6 +3702,13 @@ impl AOnlineBeaconUnitTestHost {
             .get("AOnlineBeaconUnitTestHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconUnitTestHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3385,6 +3729,13 @@ impl AOnlineBeaconUnitTestHostObject {
             .name_to_ptr
             .get("AOnlineBeaconUnitTestHostObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AOnlineBeaconUnitTestHostObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3407,6 +3758,13 @@ impl UOnlineBeaconUnitTestNetConnection {
             .get("UOnlineBeaconUnitTestNetConnection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineBeaconUnitTestNetConnection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3428,6 +3786,13 @@ impl UOnlineBeaconUnitTestNetDriver {
             .get("UOnlineBeaconUnitTestNetDriver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOnlineBeaconUnitTestNetDriver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3448,6 +3813,13 @@ impl UTurnBasedBlueprintLibrary {
             .name_to_ptr
             .get("UTurnBasedBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTurnBasedBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3718,6 +4090,13 @@ impl UVoipListenerSynthComponent {
             .name_to_ptr
             .get("UVoipListenerSynthComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVoipListenerSynthComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

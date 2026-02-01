@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,39 +29,40 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULocalizableMessageLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reset_LocalizableMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_localizable_message_library_reset_localizable_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEmpty_LocalizableMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_localizable_message_library_is_empty_localizable_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EqualEqual_LocalizableMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_localizable_message_library_equal_equal_localizable_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_LocalizableMessageToText"),
-            &raw mut __FUNCTION_PTRS
-                .u_localizable_message_library_conv_localizable_message_to_text,
-        );
+        if let Some(class_ptr) = ULocalizableMessageLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reset_LocalizableMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_localizable_message_library_reset_localizable_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEmpty_LocalizableMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_localizable_message_library_is_empty_localizable_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EqualEqual_LocalizableMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_localizable_message_library_equal_equal_localizable_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_LocalizableMessageToText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_localizable_message_library_conv_localizable_message_to_text,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -74,6 +76,13 @@ impl ULocalizableMessageLibrary {
             .name_to_ptr
             .get("ULocalizableMessageLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULocalizableMessageLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

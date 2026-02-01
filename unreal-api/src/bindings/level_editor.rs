@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -74,205 +75,211 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelEditorContextMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScriptHitProxyElement"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_editor_context_menu_context_get_script_hit_proxy_element,
-        );
+        if let Some(class_ptr) = ULevelEditorContextMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScriptHitProxyElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_context_menu_context_get_script_hit_proxy_element,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetExactCameraView"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_set_exact_camera_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentLevelByName"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_set_current_level_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowsCinematicControl"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_editor_subsystem_set_allows_cinematic_control,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_save_current_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveAllDirtyLevels"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_save_all_dirty_levels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PilotLevelActor"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_pilot_level_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewLevelFromTemplate"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_new_level_from_template,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewLevel"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_new_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadLevel"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_load_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInPlayInEditor"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_is_in_play_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewportConfigKeys"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_viewport_config_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_selection_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPilotLevelActor"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_pilot_level_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetExactCameraView"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_exact_camera_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentLevel"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_current_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllowsCinematicControl"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_editor_subsystem_get_allows_cinematic_control,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveViewportConfigKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_editor_subsystem_get_active_viewport_config_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EjectPilotLevelActor"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_eject_pilot_level_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorSetViewportRealtime"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_editor_subsystem_editor_set_viewport_realtime,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorSetGameView"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_set_game_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorRequestEndPlay"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_request_end_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorRequestBeginPlay"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_request_begin_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorPlaySimulate"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_play_simulate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorInvalidateViewports"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_invalidate_viewports,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorGetGameView"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_get_game_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BuildLightMaps"),
-            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_build_light_maps,
-        );
+        if let Some(class_ptr) = ULevelEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetExactCameraView"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_set_exact_camera_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentLevelByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_current_level_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowsCinematicControl"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_allows_cinematic_control,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_save_current_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveAllDirtyLevels"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_save_all_dirty_levels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PilotLevelActor"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_pilot_level_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewLevelFromTemplate"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_new_level_from_template,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewLevel"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_new_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadLevel"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_load_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInPlayInEditor"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_is_in_play_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewportConfigKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_viewport_config_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionSet"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_selection_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPilotLevelActor"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_pilot_level_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetExactCameraView"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_exact_camera_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentLevel"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_current_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllowsCinematicControl"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_allows_cinematic_control,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveViewportConfigKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_active_viewport_config_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EjectPilotLevelActor"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_eject_pilot_level_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorSetViewportRealtime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_set_viewport_realtime,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorSetGameView"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_set_game_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorRequestEndPlay"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_request_end_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorRequestBeginPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_request_begin_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorPlaySimulate"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_play_simulate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorInvalidateViewports"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_invalidate_viewports,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorGetGameView"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_get_game_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BuildLightMaps"),
+                &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_build_light_maps,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -286,6 +293,13 @@ impl ULevelEditorCameraEditorState {
             .name_to_ptr
             .get("ULevelEditorCameraEditorState")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelEditorCameraEditorState")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -307,6 +321,13 @@ impl ULevelEditorMenuContext {
             .name_to_ptr
             .get("ULevelEditorMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelEditorMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -338,6 +359,13 @@ impl ULevelEditorContextMenuContext {
             .name_to_ptr
             .get("ULevelEditorContextMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelEditorContextMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -395,6 +423,13 @@ impl ULevelViewportContext {
             .get("ULevelViewportContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelViewportContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -415,6 +450,13 @@ impl ULevelViewportToolBarContext {
             .name_to_ptr
             .get("ULevelViewportToolBarContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelViewportToolBarContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -441,6 +483,13 @@ impl UQuickActionMenuContext {
             .get("UQuickActionMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UQuickActionMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -461,6 +510,13 @@ impl ULevelEditorSubsystem {
             .name_to_ptr
             .get("ULevelEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1354,6 +1410,13 @@ impl ULightEditorSubsystem {
             .get("ULightEditorSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULightEditorSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1375,6 +1438,13 @@ impl ULevelEditorUISubsystem {
             .get("ULevelEditorUISubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelEditorUISubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1395,6 +1465,13 @@ impl ULegacyLevelViewportToolbarContext {
             .name_to_ptr
             .get("ULegacyLevelViewportToolbarContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULegacyLevelViewportToolbarContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

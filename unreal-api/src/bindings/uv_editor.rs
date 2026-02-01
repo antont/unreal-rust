@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -32,54 +33,57 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UUVEditorUDIMProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUDIMsFromTexture"),
-            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_set_udi_ms_from_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUDIMsFromAsset"),
-            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_set_udi_ms_from_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetNames"),
-            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_get_asset_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssetByIndex"),
-            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_asset_by_index,
-        );
+        if let Some(class_ptr) = UUVEditorUDIMProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUDIMsFromTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .uuv_editor_udim_properties_set_udi_ms_from_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUDIMsFromAsset"),
+                &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_set_udi_ms_from_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetNames"),
+                &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_get_asset_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssetByIndex"),
+                &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_asset_by_index,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UUVEditorUVChannelProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUVChannelNames"),
-            &raw mut __FUNCTION_PTRS
-                .uuv_editor_uv_channel_properties_get_uv_channel_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetNames"),
-            &raw mut __FUNCTION_PTRS.uuv_editor_uv_channel_properties_get_asset_names,
-        );
+        if let Some(class_ptr) = UUVEditorUVChannelProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUVChannelNames"),
+                &raw mut __FUNCTION_PTRS
+                    .uuv_editor_uv_channel_properties_get_uv_channel_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetNames"),
+                &raw mut __FUNCTION_PTRS.uuv_editor_uv_channel_properties_get_asset_names,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -93,6 +97,13 @@ impl UUVEditorInitializationContext {
             .name_to_ptr
             .get("UUVEditorInitializationContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorInitializationContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -115,6 +126,13 @@ impl UUVEditorUnwrappedUXProperties {
             .get("UUVEditorUnwrappedUXProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorUnwrappedUXProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -135,6 +153,13 @@ impl UUVEditorLivePreviewUXProperties {
             .name_to_ptr
             .get("UUVEditorLivePreviewUXProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorLivePreviewUXProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -157,6 +182,13 @@ impl UUnsetUVsAction {
             .get("UUnsetUVsAction")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUnsetUVsAction")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -177,6 +209,9 @@ impl UUVEditor {
             .name_to_ptr
             .get("UUVEditor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UUVEditor").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -199,6 +234,13 @@ impl UUVEditor2DViewportContext {
             .get("UUVEditor2DViewportContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditor2DViewportContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -219,6 +261,13 @@ impl UUVEditor3DViewportMode {
             .name_to_ptr
             .get("UUVEditor3DViewportMode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditor3DViewportMode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -241,6 +290,13 @@ impl UUVEditorBackgroundPreviewProperties {
             .get("UUVEditorBackgroundPreviewProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorBackgroundPreviewProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -261,6 +317,13 @@ impl UUVEditorBackgroundPreview {
             .name_to_ptr
             .get("UUVEditorBackgroundPreview")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorBackgroundPreview")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -283,6 +346,13 @@ impl UUVEditorDistortionVisualizationProperties {
             .get("UUVEditorDistortionVisualizationProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorDistortionVisualizationProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -303,6 +373,13 @@ impl UUVEditorDistortionVisualization {
             .name_to_ptr
             .get("UUVEditorDistortionVisualization")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorDistortionVisualization")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -325,6 +402,13 @@ impl UUVEditorGridProperties {
             .get("UUVEditorGridProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorGridProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -345,6 +429,13 @@ impl UUVEditorUDIMProperties {
             .name_to_ptr
             .get("UUVEditorUDIMProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorUDIMProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -367,6 +458,13 @@ impl UUVEditorMode {
             .get("UUVEditorMode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorMode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -387,6 +485,13 @@ impl UUVEditorUVChannelProperties {
             .name_to_ptr
             .get("UUVEditorUVChannelProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorUVChannelProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -409,6 +514,13 @@ impl UUVEditorUISubsystem {
             .get("UUVEditorUISubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorUISubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -429,6 +541,13 @@ impl UUVEditorSubsystem {
             .name_to_ptr
             .get("UUVEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

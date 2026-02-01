@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -62,182 +63,186 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeGenericAudioPipeline::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateSoundWaveFactoryNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_generic_audio_pipeline_create_sound_wave_factory_node,
-        );
+        if let Some(class_ptr) = UInterchangeGenericAudioPipeline::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateSoundWaveFactoryNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_generic_audio_pipeline_create_sound_wave_factory_node,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeGenericMeshPipeline::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCombineSkeletalMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCombineSkeletalMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes,
-        );
+        if let Some(class_ptr) = UInterchangeGenericMeshPipeline::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCombineSkeletalMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCombineSkeletalMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangePipelineMeshesUtilities::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetContext"),
-            &raw mut __FUNCTION_PTRS.u_interchange_pipeline_meshes_utilities_set_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidMeshInstanceUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidMeshGeometryUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshInstanceSkeletonRootUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshInstanceByUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshGeometrySkeletonRootUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshGeometryByUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllStaticMeshInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllStaticMeshGeometry"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllSkinnedMeshInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllSkinnedMeshGeometry"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllMeshInstanceUidsUsingMeshGeometryUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllMeshInstanceUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllMeshGeometryNotInstanced"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllMeshGeometry"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllGeometryCacheInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllGeometryCacheGeometry"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateInterchangePipelineMeshesUtilities"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities,
-        );
+        if let Some(class_ptr) = UInterchangePipelineMeshesUtilities::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_set_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidMeshInstanceUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidMeshGeometryUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshInstanceSkeletonRootUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshInstanceByUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshGeometrySkeletonRootUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshGeometryByUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllStaticMeshInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllStaticMeshGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllSkinnedMeshInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllSkinnedMeshGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllMeshInstanceUidsUsingMeshGeometryUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllMeshInstanceUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllMeshGeometryNotInstanced"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllMeshGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllGeometryCacheInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllGeometryCacheGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateInterchangePipelineMeshesUtilities"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -297,6 +302,13 @@ impl UInterchangeGenericCommonMeshesProperties {
             .get("UInterchangeGenericCommonMeshesProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericCommonMeshesProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -324,6 +336,13 @@ impl UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties {
             .name_to_ptr
             .get("UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericCommonSkeletalMeshesAndAnimationsProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -365,6 +384,13 @@ impl UInterchangeGenericAnimationPipeline {
             .get("UInterchangeGenericAnimationPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericAnimationPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -405,6 +431,13 @@ impl UInterchangeGenericAssetsPipeline {
             .get("UInterchangeGenericAssetsPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericAssetsPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -429,6 +462,13 @@ impl UInterchangeGenericAudioPipeline {
             .name_to_ptr
             .get("UInterchangeGenericAudioPipeline")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericAudioPipeline")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -517,6 +557,13 @@ impl UInterchangeGenericGroomPipeline {
             .get("UInterchangeGenericGroomPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericGroomPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -551,6 +598,13 @@ impl UInterchangeGenericMaterialPipeline {
             .name_to_ptr
             .get("UInterchangeGenericMaterialPipeline")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericMaterialPipeline")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -629,6 +683,13 @@ impl UInterchangeGenericMeshPipeline {
             .name_to_ptr
             .get("UInterchangeGenericMeshPipeline")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericMeshPipeline")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -720,6 +781,13 @@ impl UInterchangeGenericLevelPipeline {
             .get("UInterchangeGenericLevelPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericLevelPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -752,6 +820,13 @@ impl UInterchangeGenericTexturePipeline {
             .get("UInterchangeGenericTexturePipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGenericTexturePipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -772,6 +847,13 @@ impl UGLTFPipelineSettings {
             .name_to_ptr
             .get("UGLTFPipelineSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFPipelineSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -797,6 +879,13 @@ impl UInterchangeGLTFPipeline {
             .get("UInterchangeGLTFPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGLTFPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -817,6 +906,13 @@ impl UMaterialXPipelineSettings {
             .name_to_ptr
             .get("UMaterialXPipelineSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialXPipelineSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -839,6 +935,13 @@ impl UInterchangeMaterialXPipeline {
             .get("UInterchangeMaterialXPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialXPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -859,6 +962,13 @@ impl UInterchangePipelineMeshesUtilities {
             .name_to_ptr
             .get("UInterchangePipelineMeshesUtilities")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePipelineMeshesUtilities")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1555,6 +1665,13 @@ impl UInterchangeSparseVolumeTexturePipeline {
             .name_to_ptr
             .get("UInterchangeSparseVolumeTexturePipeline")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSparseVolumeTexturePipeline")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

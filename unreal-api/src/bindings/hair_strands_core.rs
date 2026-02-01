@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -164,530 +165,545 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGroomAsset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRiggedSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_rigged_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairInterpolationType"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_interpolation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsRendering"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_rendering,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsPhysics"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_physics,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsMeshes"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsMaterials"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsInterpolation"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_interpolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairGroupsCards"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_cards,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableSimulationCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_enable_simulation_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableGlobalInterpolation"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_enable_global_interpolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDeformedGroupSections"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_set_deformed_group_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRiggedSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_rigged_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairInterpolationType"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_interpolation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsRendering"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_rendering,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsPhysics"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_physics,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsMeshes"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsMaterials"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsInterpolation"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_interpolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHairGroupsCards"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_cards,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnableSimulationCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_enable_simulation_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnableGlobalInterpolation"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_enable_global_interpolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDeformedGroupSections"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_get_deformed_group_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateGroomDataflow"),
-            &raw mut __FUNCTION_PTRS.u_groom_asset_create_groom_dataflow,
-        );
+        if let Some(class_ptr) = UGroomAsset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRiggedSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_rigged_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairInterpolationType"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_interpolation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsRendering"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_rendering,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsPhysics"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_physics,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsMeshes"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsMaterials"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsLOD"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsInterpolation"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_interpolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairGroupsCards"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_cards,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableSimulationCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_enable_simulation_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableGlobalInterpolation"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_enable_global_interpolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDeformedGroupSections"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_set_deformed_group_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRiggedSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_rigged_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairInterpolationType"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_interpolation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsRendering"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_rendering,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsPhysics"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_physics,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsMeshes"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsMaterials"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsLOD"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsInterpolation"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_interpolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHairGroupsCards"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_cards,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnableSimulationCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_enable_simulation_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnableGlobalInterpolation"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_enable_global_interpolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDeformedGroupSections"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_get_deformed_group_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateGroomDataflow"),
+                &raw mut __FUNCTION_PTRS.u_groom_asset_create_groom_dataflow,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGroomBindingAsset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetMeshUsedMinLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_mesh_used_min_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetMeshRequestedMinLOD"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_binding_asset_set_target_mesh_requested_min_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetGeometryCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_geometry_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetBindingAttribute"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_binding_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceMeshUsedLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_mesh_used_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceMeshRequestedLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_mesh_requested_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceGeometryCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_geometry_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumInterpolationPoints"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_num_interpolation_points,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMatchingSection"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_matching_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGroupInfos"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_group_infos,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGroomBindingType"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_groom_binding_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGroom"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_groom,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetMeshUsedMinLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_mesh_used_min_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetMeshRequestedMinLOD"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_binding_asset_get_target_mesh_requested_min_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetGeometryCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_geometry_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetBindingAttribute"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_binding_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceSkeletalMesh"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceMeshUsedLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_mesh_used_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceMeshRequestedLOD"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_mesh_requested_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceGeometryCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_geometry_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumInterpolationPoints"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_num_interpolation_points,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMatchingSection"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_matching_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGroupInfos"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_group_infos,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGroomBindingType"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_groom_binding_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGroom"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_groom,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Build"),
-            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_build,
-        );
+        if let Some(class_ptr) = UGroomBindingAsset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetMeshUsedMinLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_mesh_used_min_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetMeshRequestedMinLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_mesh_requested_min_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetGeometryCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_geometry_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetBindingAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_binding_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceMeshUsedLOD"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_mesh_used_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceMeshRequestedLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_mesh_requested_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceGeometryCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_geometry_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumInterpolationPoints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_set_num_interpolation_points,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMatchingSection"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_matching_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGroupInfos"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_group_infos,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGroomBindingType"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_groom_binding_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGroom"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_groom,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetMeshUsedMinLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_mesh_used_min_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetMeshRequestedMinLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_mesh_requested_min_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetGeometryCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_geometry_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetBindingAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_binding_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceSkeletalMesh"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceMeshUsedLOD"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_mesh_used_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceMeshRequestedLOD"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_mesh_requested_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceGeometryCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_geometry_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumInterpolationPoints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_binding_asset_get_num_interpolation_points,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMatchingSection"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_matching_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGroupInfos"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_group_infos,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGroomBindingType"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_groom_binding_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGroom"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_groom,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Build"),
+                &raw mut __FUNCTION_PTRS.u_groom_binding_asset_build,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGroomBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHairStrandsSupportedInWorld"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_blueprint_library_is_hair_strands_supported_in_world,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewGroomBindingAssetWithPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_blueprint_library_create_new_groom_binding_asset_with_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewGroomBindingAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_blueprint_library_create_new_groom_binding_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAssetWithPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset,
-        );
+        if let Some(class_ptr) = UGroomBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHairStrandsSupportedInWorld"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_blueprint_library_is_hair_strands_supported_in_world,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewGroomBindingAssetWithPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_groom_binding_asset_with_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewGroomBindingAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_groom_binding_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "CreateNewGeometryCacheGroomBindingAssetWithPath",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGroomComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPhysicsAsset"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_physics_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeshDeformer"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_mesh_deformer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairLengthScaleEnable"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_hair_length_scale_enable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHairLengthScale"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_hair_length_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGroomCache"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_groom_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGroomAsset"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_groom_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableSimulation"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_enable_simulation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBindingAsset"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_set_binding_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetSimulation"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_reset_simulation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_reset_collision_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraComponent"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_get_niagara_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsHairLengthScaleEnabled"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_get_is_hair_length_scale_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCollisionComponent"),
-            &raw mut __FUNCTION_PTRS.u_groom_component_add_collision_component,
-        );
+        if let Some(class_ptr) = UGroomComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPhysicsAsset"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_physics_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeshDeformer"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_mesh_deformer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairLengthScaleEnable"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_hair_length_scale_enable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHairLengthScale"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_hair_length_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGroomCache"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_groom_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGroomAsset"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_groom_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableSimulation"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_enable_simulation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBindingAsset"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_set_binding_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetSimulation"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_reset_simulation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_reset_collision_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraComponent"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_get_niagara_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsHairLengthScaleEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_component_get_is_hair_length_scale_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCollisionComponent"),
+                &raw mut __FUNCTION_PTRS.u_groom_component_add_collision_component,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -971,6 +987,13 @@ impl UGroomCacheImportOptions {
             .get("UGroomCacheImportOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCacheImportOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -991,6 +1014,13 @@ impl UGroomCacheImportData {
             .name_to_ptr
             .get("UGroomCacheImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCacheImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1015,6 +1045,13 @@ impl AGroomActor {
             .name_to_ptr
             .get("AGroomActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGroomActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1049,6 +1086,13 @@ impl UGroomAsset {
             .name_to_ptr
             .get("UGroomAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1804,6 +1848,13 @@ impl UHairCardGenerationSettings {
             .get("UHairCardGenerationSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHairCardGenerationSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1825,6 +1876,13 @@ impl UDataflowGroomContent {
             .get("UDataflowGroomContent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowGroomContent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1845,6 +1903,13 @@ impl UGroomAssetImportData {
             .name_to_ptr
             .get("UGroomAssetImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomAssetImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1882,6 +1947,13 @@ impl UGroomBindingAsset {
             .name_to_ptr
             .get("UGroomBindingAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomBindingAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2792,6 +2864,13 @@ impl UGroomBindingAssetList {
             .get("UGroomBindingAssetList")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomBindingAssetList")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2812,6 +2891,13 @@ impl UGroomBlueprintLibrary {
             .name_to_ptr
             .get("UGroomBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3169,6 +3255,13 @@ impl UGroomCache {
             .get("UGroomCache")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCache")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3212,6 +3305,13 @@ impl UGroomComponent {
             .name_to_ptr
             .get("UGroomComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3651,6 +3751,13 @@ impl UGroomCreateBindingOptions {
             .get("UGroomCreateBindingOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCreateBindingOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3675,6 +3782,13 @@ impl UGroomCreateFollicleMaskOptions {
             .name_to_ptr
             .get("UGroomCreateFollicleMaskOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCreateFollicleMaskOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3711,6 +3825,13 @@ impl UGroomCreateStrandsTexturesOptions {
             .get("UGroomCreateStrandsTexturesOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomCreateStrandsTexturesOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3735,6 +3856,13 @@ impl UGroomImportOptions {
             .get("UGroomImportOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomImportOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3757,6 +3885,13 @@ impl UGroomHairGroupsPreview {
             .name_to_ptr
             .get("UGroomHairGroupsPreview")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomHairGroupsPreview")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3785,6 +3920,13 @@ impl UGroomHairGroupsMapping {
             .get("UGroomHairGroupsMapping")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomHairGroupsMapping")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3805,6 +3947,13 @@ impl UGroomPluginSettings {
             .name_to_ptr
             .get("UGroomPluginSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomPluginSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3827,6 +3976,13 @@ impl UMovieSceneGroomCacheSection {
             .get("UMovieSceneGroomCacheSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneGroomCacheSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3847,6 +4003,13 @@ impl UMovieSceneGroomCacheTrack {
             .name_to_ptr
             .get("UMovieSceneGroomCacheTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneGroomCacheTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3869,6 +4032,13 @@ impl UNiagaraDataInterfaceHairStrands {
             .get("UNiagaraDataInterfaceHairStrands")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceHairStrands")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3890,6 +4060,13 @@ impl UNiagaraDataInterfaceVelocityGrid {
             .get("UNiagaraDataInterfaceVelocityGrid")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVelocityGrid")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3910,6 +4087,13 @@ impl UNiagaraDataInterfacePressureGrid {
             .name_to_ptr
             .get("UNiagaraDataInterfacePressureGrid")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfacePressureGrid")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,38 +29,40 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMotionExtractorUtilityLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStoppedRangesFromRootMotion"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMovingRangesFromRootMotion"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_extractor_utility_library_get_moving_ranges_from_root_motion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDesiredValue"),
-            &raw mut __FUNCTION_PTRS.u_motion_extractor_utility_library_get_desired_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_extractor_utility_library_generate_curve_name,
-        );
+        if let Some(class_ptr) = UMotionExtractorUtilityLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStoppedRangesFromRootMotion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMovingRangesFromRootMotion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_moving_ranges_from_root_motion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDesiredValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_desired_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_generate_curve_name,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -90,6 +93,13 @@ impl UCopyBonesModifier {
             .get("UCopyBonesModifier")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCopyBonesModifier")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -110,6 +120,13 @@ impl UEncodeRootBoneModifier {
             .name_to_ptr
             .get("UEncodeRootBoneModifier")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEncodeRootBoneModifier")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -139,6 +156,13 @@ impl UFootstepAnimEventsModifier {
             .get("UFootstepAnimEventsModifier")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFootstepAnimEventsModifier")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -159,6 +183,13 @@ impl UMirrorModifier {
             .name_to_ptr
             .get("UMirrorModifier")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMirrorModifier")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -199,6 +230,13 @@ impl UMotionExtractorModifier {
             .get("UMotionExtractorModifier")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionExtractorModifier")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -219,6 +257,13 @@ impl UMotionExtractorUtilityLibrary {
             .name_to_ptr
             .get("UMotionExtractorUtilityLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionExtractorUtilityLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -473,6 +518,13 @@ impl UReOrientRootBoneModifier {
             .get("UReOrientRootBoneModifier")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UReOrientRootBoneModifier")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -496,6 +548,13 @@ impl UZeroOutRootBoneModifier {
             .name_to_ptr
             .get("UZeroOutRootBoneModifier")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UZeroOutRootBoneModifier")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

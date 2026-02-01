@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -96,290 +97,295 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UViewportInteractor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Tick"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Shutdown"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_shutdown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHitResultGizmoFilterMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_interactor_set_hit_result_gizmo_filter_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDraggingMode"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_set_dragging_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCanCarry"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_set_can_carry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHoveringOverGizmo"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_is_hovering_over_gizmo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HandleInputKey_BP"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_handle_input_key_bp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HandleInputAxis_BP"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_handle_input_axis_bp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorldInteraction"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_world_interaction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransformAndForwardVector"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_interactor_get_transform_and_forward_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRoomSpaceTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_room_space_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOtherInteractor"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_other_interactor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_last_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastRoomSpaceTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_last_room_space_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLaserPointer"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_laser_pointer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHoverLocation"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_hover_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHitResultGizmoFilterMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_interactor_get_hit_result_gizmo_filter_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDraggingMode"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_dragging_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanCarry"),
-            &raw mut __FUNCTION_PTRS.u_viewport_interactor_can_carry,
-        );
+        if let Some(class_ptr) = UViewportInteractor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Tick"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Shutdown"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_shutdown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHitResultGizmoFilterMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_interactor_set_hit_result_gizmo_filter_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDraggingMode"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_set_dragging_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCanCarry"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_set_can_carry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHoveringOverGizmo"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_is_hovering_over_gizmo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HandleInputKey_BP"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_handle_input_key_bp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HandleInputAxis_BP"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_handle_input_axis_bp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorldInteraction"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_world_interaction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransformAndForwardVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_interactor_get_transform_and_forward_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransform"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRoomSpaceTransform"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_room_space_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOtherInteractor"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_other_interactor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastTransform"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_last_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastRoomSpaceTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_interactor_get_last_room_space_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLaserPointer"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_laser_pointer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHoverLocation"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_hover_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHitResultGizmoFilterMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_interactor_get_hit_result_gizmo_filter_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDraggingMode"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_dragging_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanCarry"),
+                &raw mut __FUNCTION_PTRS.u_viewport_interactor_can_carry,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UViewportTransformer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Shutdown"),
-            &raw mut __FUNCTION_PTRS.u_viewport_transformer_shutdown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldCenterTransformGizmoPivot"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_transformer_should_center_transform_gizmo_pivot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnStopDragging"),
-            &raw mut __FUNCTION_PTRS.u_viewport_transformer_on_stop_dragging,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnStartDragging"),
-            &raw mut __FUNCTION_PTRS.u_viewport_transformer_on_start_dragging,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Init"),
-            &raw mut __FUNCTION_PTRS.u_viewport_transformer_init,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanAlignToActors"),
-            &raw mut __FUNCTION_PTRS.u_viewport_transformer_can_align_to_actors,
-        );
+        if let Some(class_ptr) = UViewportTransformer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Shutdown"),
+                &raw mut __FUNCTION_PTRS.u_viewport_transformer_shutdown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldCenterTransformGizmoPivot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_transformer_should_center_transform_gizmo_pivot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnStopDragging"),
+                &raw mut __FUNCTION_PTRS.u_viewport_transformer_on_stop_dragging,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnStartDragging"),
+                &raw mut __FUNCTION_PTRS.u_viewport_transformer_on_start_dragging,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Init"),
+                &raw mut __FUNCTION_PTRS.u_viewport_transformer_init,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanAlignToActors"),
+                &raw mut __FUNCTION_PTRS.u_viewport_transformer_can_align_to_actors,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UViewportWorldInteraction::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWorldToMetersScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_world_interaction_set_world_to_meters_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRoomTransformForNextFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_world_interaction_set_room_transform_for_next_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHeadTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_set_head_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveInteractor"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_remove_interactor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorldScaleFactor"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_world_scale_factor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransformGizmoActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_world_interaction_get_transform_gizmo_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRoomTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_room_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRoomSpaceHeadTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_world_interaction_get_room_space_head_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInteractors"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_interactors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHeadTransform"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_head_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInteractor"),
-            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_add_interactor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorToExcludeFromHitTests"),
-            &raw mut __FUNCTION_PTRS
-                .u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests,
-        );
+        if let Some(class_ptr) = UViewportWorldInteraction::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWorldToMetersScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_world_to_meters_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRoomTransformForNextFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_room_transform_for_next_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHeadTransform"),
+                &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_set_head_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveInteractor"),
+                &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_remove_interactor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorldScaleFactor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_world_scale_factor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransformGizmoActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_transform_gizmo_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRoomTransform"),
+                &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_room_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRoomSpaceHeadTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_room_space_head_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInteractors"),
+                &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_interactors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHeadTransform"),
+                &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_head_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInteractor"),
+                &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_add_interactor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorToExcludeFromHitTests"),
+                &raw mut __FUNCTION_PTRS
+                    .u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -399,6 +405,13 @@ impl UViewportDragOperation {
             .name_to_ptr
             .get("UViewportDragOperation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportDragOperation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -420,6 +433,13 @@ impl UViewportInteractor {
             .name_to_ptr
             .get("UViewportInteractor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportInteractor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1153,6 +1173,13 @@ impl UVISettings {
             .get("UVISettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVISettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1173,6 +1200,13 @@ impl UViewportInteractionAssetContainer {
             .name_to_ptr
             .get("UViewportInteractionAssetContainer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportInteractionAssetContainer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1195,6 +1229,13 @@ impl UViewportTransformer {
             .get("UViewportTransformer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportTransformer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1215,6 +1256,13 @@ impl UActorTransformer {
             .name_to_ptr
             .get("UActorTransformer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorTransformer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1237,6 +1285,13 @@ impl ABaseTransformGizmo {
             .get("ABaseTransformGizmo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ABaseTransformGizmo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1257,6 +1312,13 @@ impl UGizmoHandleGroup {
             .name_to_ptr
             .get("UGizmoHandleGroup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGizmoHandleGroup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1279,6 +1341,13 @@ impl UAxisGizmoHandleGroup {
             .get("UAxisGizmoHandleGroup")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAxisGizmoHandleGroup")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1299,6 +1368,13 @@ impl UGizmoHandleMeshComponent {
             .name_to_ptr
             .get("UGizmoHandleMeshComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGizmoHandleMeshComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1321,6 +1397,13 @@ impl APivotTransformGizmo {
             .get("APivotTransformGizmo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APivotTransformGizmo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1341,6 +1424,13 @@ impl UPivotTranslationGizmoHandleGroup {
             .name_to_ptr
             .get("UPivotTranslationGizmoHandleGroup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPivotTranslationGizmoHandleGroup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1363,6 +1453,13 @@ impl UPivotScaleGizmoHandleGroup {
             .get("UPivotScaleGizmoHandleGroup")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPivotScaleGizmoHandleGroup")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1383,6 +1480,13 @@ impl UPivotPlaneTranslationGizmoHandleGroup {
             .name_to_ptr
             .get("UPivotPlaneTranslationGizmoHandleGroup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPivotPlaneTranslationGizmoHandleGroup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1405,6 +1509,13 @@ impl UPivotRotationGizmoHandleGroup {
             .get("UPivotRotationGizmoHandleGroup")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPivotRotationGizmoHandleGroup")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1425,6 +1536,13 @@ impl UStretchGizmoHandleGroup {
             .name_to_ptr
             .get("UStretchGizmoHandleGroup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStretchGizmoHandleGroup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1447,6 +1565,13 @@ impl UStretchGizmoHandleDragOperation {
             .get("UStretchGizmoHandleDragOperation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStretchGizmoHandleDragOperation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1467,6 +1592,13 @@ impl UUniformScaleGizmoHandleGroup {
             .name_to_ptr
             .get("UUniformScaleGizmoHandleGroup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformScaleGizmoHandleGroup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1489,6 +1621,13 @@ impl UMouseCursorInteractor {
             .get("UMouseCursorInteractor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMouseCursorInteractor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1509,6 +1648,13 @@ impl UViewportDragOperationComponent {
             .name_to_ptr
             .get("UViewportDragOperationComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportDragOperationComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1532,6 +1678,13 @@ impl UViewportInteractableInterface {
             .get("UViewportInteractableInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportInteractableInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1552,6 +1705,13 @@ impl UTranslationDragOperation {
             .name_to_ptr
             .get("UTranslationDragOperation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTranslationDragOperation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1574,6 +1734,13 @@ impl UPlaneTranslationDragOperation {
             .get("UPlaneTranslationDragOperation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlaneTranslationDragOperation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1594,6 +1761,13 @@ impl URotateOnAngleDragOperation {
             .name_to_ptr
             .get("URotateOnAngleDragOperation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URotateOnAngleDragOperation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1616,6 +1790,13 @@ impl UScaleDragOperation {
             .get("UScaleDragOperation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScaleDragOperation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1637,6 +1818,13 @@ impl UUniformScaleDragOperation {
             .get("UUniformScaleDragOperation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformScaleDragOperation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1657,6 +1845,13 @@ impl UViewportWorldInteraction {
             .name_to_ptr
             .get("UViewportWorldInteraction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewportWorldInteraction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -54,133 +55,137 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGooglePADFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowConfirmationDialog"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_show_confirmation_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowCellularDataConfirmation"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_show_cellular_data_confirmation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRemoval"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_removal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestInfo"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestDownload"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_download,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseDownloadState"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_release_download_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseAssetPackLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_release_asset_pack_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTotalBytesToDownload"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_get_total_bytes_to_download,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStorageMethod"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_storage_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetShowConfirmationDialogStatus"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_get_show_confirmation_dialog_status,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetShowCellularDataConfirmationStatus"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_get_show_cellular_data_confirmation_status,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDownloadStatus"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_download_status,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDownloadState"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_download_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBytesDownloaded"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_bytes_downloaded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsPath"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_assets_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetPackLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_google_pad_function_library_get_asset_pack_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelDownload"),
-            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_cancel_download,
-        );
+        if let Some(class_ptr) = UGooglePADFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowConfirmationDialog"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_show_confirmation_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowCellularDataConfirmation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_show_cellular_data_confirmation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRemoval"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_removal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestInfo"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestDownload"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_download,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseDownloadState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_release_download_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseAssetPackLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_release_asset_pack_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTotalBytesToDownload"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_get_total_bytes_to_download,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStorageMethod"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_storage_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetShowConfirmationDialogStatus"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_get_show_confirmation_dialog_status,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetShowCellularDataConfirmationStatus"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_get_show_cellular_data_confirmation_status,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDownloadStatus"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_get_download_status,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDownloadState"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_download_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBytesDownloaded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_get_bytes_downloaded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsPath"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_assets_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetPackLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_google_pad_function_library_get_asset_pack_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelDownload"),
+                &raw mut __FUNCTION_PTRS.u_google_pad_function_library_cancel_download,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -194,6 +199,13 @@ impl UGooglePADFunctionLibrary {
             .name_to_ptr
             .get("UGooglePADFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGooglePADFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

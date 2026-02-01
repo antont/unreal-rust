@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,39 +29,40 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UProceduralFoliageEditorLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResimulateProceduralFoliageVolumes"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_foliage_editor_library_resimulate_procedural_foliage_volumes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResimulateProceduralFoliageComponents"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_foliage_editor_library_resimulate_procedural_foliage_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearProceduralFoliageVolumes"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_foliage_editor_library_clear_procedural_foliage_volumes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearProceduralFoliageComponents"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_foliage_editor_library_clear_procedural_foliage_components,
-        );
+        if let Some(class_ptr) = UProceduralFoliageEditorLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResimulateProceduralFoliageVolumes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_foliage_editor_library_resimulate_procedural_foliage_volumes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResimulateProceduralFoliageComponents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_foliage_editor_library_resimulate_procedural_foliage_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearProceduralFoliageVolumes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_foliage_editor_library_clear_procedural_foliage_volumes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearProceduralFoliageComponents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_foliage_editor_library_clear_procedural_foliage_components,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -74,6 +76,13 @@ impl UActorFactoryProceduralFoliage {
             .name_to_ptr
             .get("UActorFactoryProceduralFoliage")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorFactoryProceduralFoliage")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -96,6 +105,13 @@ impl UFoliageEditorSubsystem {
             .get("UFoliageEditorSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageEditorSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -116,6 +132,13 @@ impl UFoliageType_InstancedStaticMeshFactory {
             .name_to_ptr
             .get("UFoliageType_InstancedStaticMeshFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType_InstancedStaticMeshFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -138,6 +161,13 @@ impl UFoliageType_ActorFactory {
             .get("UFoliageType_ActorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType_ActorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -158,6 +188,13 @@ impl UFoliageType_ActorThumbnailRenderer {
             .name_to_ptr
             .get("UFoliageType_ActorThumbnailRenderer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType_ActorThumbnailRenderer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -180,6 +217,13 @@ impl UFoliageType_ISMThumbnailRenderer {
             .get("UFoliageType_ISMThumbnailRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFoliageType_ISMThumbnailRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -201,6 +245,13 @@ impl ULandscapeGrassTypeFactory {
             .get("ULandscapeGrassTypeFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeGrassTypeFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -221,6 +272,13 @@ impl UProceduralFoliageEditorLibrary {
             .name_to_ptr
             .get("UProceduralFoliageEditorLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralFoliageEditorLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -406,6 +464,13 @@ impl UProceduralFoliageSpawnerFactory {
             .name_to_ptr
             .get("UProceduralFoliageSpawnerFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralFoliageSpawnerFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

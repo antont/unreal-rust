@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,36 +29,37 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStaticMeshDescription::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVertexInstanceUV"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_description_set_vertex_instance_uv,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPolygonGroupMaterialSlotName"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_description_set_polygon_group_material_slot_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceUV"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_description_get_vertex_instance_uv,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateCube"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_description_create_cube,
-        );
+        if let Some(class_ptr) = UStaticMeshDescription::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVertexInstanceUV"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_description_set_vertex_instance_uv,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPolygonGroupMaterialSlotName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_description_set_polygon_group_material_slot_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceUV"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_description_get_vertex_instance_uv,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateCube"),
+                &raw mut __FUNCTION_PTRS.u_static_mesh_description_create_cube,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -80,6 +82,13 @@ impl UStaticMeshDescription {
             .name_to_ptr
             .get("UStaticMeshDescription")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshDescription")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

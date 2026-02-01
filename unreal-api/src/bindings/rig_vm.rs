@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -130,408 +131,413 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVM::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueVector2D"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueVector"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueTransform"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueString"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueQuat"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueInt"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueFloat"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueDouble"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_double,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameterValueBool"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatistics"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_statistics,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigVMFunctionName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_rig_vm_function_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueVector2D"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueVector"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueTransform"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueString"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueQuat"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueInt"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueFloat"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueDouble"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_double,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValueBool"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Execute"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_execute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddRigVMFunction"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_add_rig_vm_function,
-        );
+        if let Some(class_ptr) = URigVM::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueVector2D"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueVector"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueTransform"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueString"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueQuat"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueInt"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueFloat"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueDouble"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_double,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameterValueBool"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_set_parameter_value_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatistics"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_statistics,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigVMFunctionName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_rig_vm_function_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueVector2D"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueVector"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueTransform"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueString"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueQuat"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueInt"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueFloat"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueDouble"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_double,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValueBool"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_get_parameter_value_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Execute"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_execute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddRigVMFunction"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_add_rig_vm_function,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataAssetLink::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataAsset"),
-            &raw mut __FUNCTION_PTRS.u_data_asset_link_set_data_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataAsset"),
-            &raw mut __FUNCTION_PTRS.u_data_asset_link_get_data_asset,
-        );
+        if let Some(class_ptr) = UDataAssetLink::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataAsset"),
+                &raw mut __FUNCTION_PTRS.u_data_asset_link_set_data_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataAsset"),
+                &raw mut __FUNCTION_PTRS.u_data_asset_link_get_data_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMUserWorkflowOptions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequiresDialog"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_requires_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportWarning"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_report_warning,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportInfo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_report_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportError"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_report_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_is_valid,
-        );
+        if let Some(class_ptr) = URigVMUserWorkflowOptions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequiresDialog"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_requires_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportWarning"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_report_warning,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportInfo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_report_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportError"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_report_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_options_is_valid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMHost::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SupportsEvent"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_supports_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableFromString"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_variable_from_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFramesPerSecond"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_frames_per_second,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDeltaTime"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_delta_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAbsoluteTime"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_absolute_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAbsoluteAndDeltaTime"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_absolute_and_delta_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRunOnceEvent"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_request_run_once_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestInit"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_request_init,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveRunOnceEvent"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_remove_run_once_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInitRequired"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_is_init_required,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVM"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_vm,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_variable_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableAsString"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_variable_as_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedEvents"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_supported_events,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScriptAccessibleVariables"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_script_accessible_variables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetExtendedExecuteContext"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_extended_execute_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDeltaTime"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_delta_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentFramesPerSecond"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_current_frames_per_second,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAbsoluteTime"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_absolute_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindRigVMHosts"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_find_rig_vm_hosts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExecuteEvent"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_execute_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Execute"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_execute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanExecute"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_host_can_execute,
-        );
+        if let Some(class_ptr) = URigVMHost::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SupportsEvent"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_supports_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableFromString"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_variable_from_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFramesPerSecond"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_frames_per_second,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDeltaTime"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_delta_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAbsoluteTime"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_absolute_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAbsoluteAndDeltaTime"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_set_absolute_and_delta_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRunOnceEvent"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_request_run_once_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestInit"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_request_init,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveRunOnceEvent"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_remove_run_once_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInitRequired"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_is_init_required,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVM"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_vm,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_variable_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableAsString"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_variable_as_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedEvents"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_supported_events,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScriptAccessibleVariables"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_script_accessible_variables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetExtendedExecuteContext"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_extended_execute_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDeltaTime"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_delta_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentFramesPerSecond"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_current_frames_per_second,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAbsoluteTime"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_get_absolute_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindRigVMHosts"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_find_rig_vm_hosts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExecuteEvent"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_execute_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Execute"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_execute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanExecute"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_host_can_execute,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMProjectSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTag"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_project_settings_get_tag,
-        );
+        if let Some(class_ptr) = URigVMProjectSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTag"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_project_settings_get_tag,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -4314,6 +4320,13 @@ impl URigVMBlueprintGeneratedClass {
             .get("URigVMBlueprintGeneratedClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMBlueprintGeneratedClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4330,6 +4343,9 @@ pub struct URigVM {
 impl URigVM {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("URigVM").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("URigVM").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5359,6 +5375,13 @@ impl UNameSpacedUserData {
             .get("UNameSpacedUserData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNameSpacedUserData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5382,6 +5405,13 @@ impl UDataAssetLink {
             .name_to_ptr
             .get("UDataAssetLink")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataAssetLink")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5473,6 +5503,13 @@ impl URigVMGraphFunctionHost {
             .get("URigVMGraphFunctionHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMGraphFunctionHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5493,6 +5530,13 @@ impl URigVMMemoryStorageGeneratorClass {
             .name_to_ptr
             .get("URigVMMemoryStorageGeneratorClass")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMMemoryStorageGeneratorClass")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5515,6 +5559,13 @@ impl URigVMMemoryStorage {
             .get("URigVMMemoryStorage")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMMemoryStorage")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5535,6 +5586,13 @@ impl URigVMNativized {
             .name_to_ptr
             .get("URigVMNativized")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMNativized")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5560,6 +5618,13 @@ impl URigVMUserWorkflowOptions {
             .name_to_ptr
             .get("URigVMUserWorkflowOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMUserWorkflowOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5729,6 +5794,13 @@ impl URigVMHost {
             .name_to_ptr
             .get("URigVMHost")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMHost")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6462,6 +6534,13 @@ impl URigVMEditorSettings {
             .get("URigVMEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6482,6 +6561,13 @@ impl URigVMProjectSettings {
             .name_to_ptr
             .get("URigVMProjectSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMProjectSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

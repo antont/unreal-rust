@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -92,283 +93,285 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFabBrowserApi::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreferredQualityTier"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_set_preferred_quality_tier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PluginOpened"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_plugin_opened,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenUrlInBrowser"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_open_url_in_browser,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenPluginSettings"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_open_plugin_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragInfoSuccess"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_on_drag_info_success,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragInfoFailure"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_on_drag_info_failure,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Logout"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_logout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Login"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_login,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUrl"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_url,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRefreshToken"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_refresh_token,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAuthToken"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_auth_token,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetApiVersion"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_api_version,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DragStart"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_drag_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyToClipboard"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_copy_to_clipboard,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddToProject"),
-            &raw mut __FUNCTION_PTRS.u_fab_browser_api_add_to_project,
-        );
+        if let Some(class_ptr) = UFabBrowserApi::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreferredQualityTier"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_set_preferred_quality_tier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PluginOpened"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_plugin_opened,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenUrlInBrowser"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_open_url_in_browser,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenPluginSettings"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_open_plugin_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragInfoSuccess"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_on_drag_info_success,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragInfoFailure"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_on_drag_info_failure,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Logout"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_logout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Login"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_login,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUrl"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_url,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRefreshToken"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_refresh_token,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAuthToken"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_auth_token,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetApiVersion"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_api_version,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DragStart"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_drag_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyToClipboard"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_copy_to_clipboard,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddToProject"),
+                &raw mut __FUNCTION_PTRS.u_fab_browser_api_add_to_project,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeInstancedFoliageTypeFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomWorldPositionOffsetDisableDistance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomStaticMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomScaling"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_scaling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomScaleZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomScaleY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomScaleX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRandomYaw"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRandomPitchAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAlignToNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAffectDistanceFieldLighting"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomWorldPositionOffsetDisableDistance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomStaticMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomScaling"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_scaling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomScaleZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomScaleY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomScaleX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRandomYaw"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRandomPitchAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAlignToNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAffectDistanceFieldLighting"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting,
-        );
+        if let Some(class_ptr) = UInterchangeInstancedFoliageTypeFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomWorldPositionOffsetDisableDistance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomStaticMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomScaling"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scaling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomScaleZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomScaleY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomScaleX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRandomYaw"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRandomPitchAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAlignToNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAffectDistanceFieldLighting"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomWorldPositionOffsetDisableDistance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomStaticMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomScaling"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scaling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomScaleZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomScaleY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomScaleX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRandomYaw"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRandomPitchAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAlignToNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAffectDistanceFieldLighting"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -382,6 +385,13 @@ impl UFabLocalAssets {
             .name_to_ptr
             .get("UFabLocalAssets")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabLocalAssets")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -404,6 +414,13 @@ impl UEosConstants {
             .get("UEosConstants")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEosConstants")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -424,6 +441,13 @@ impl UFabBrowserApi {
             .name_to_ptr
             .get("UFabBrowserApi")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabBrowserApi")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -446,6 +470,13 @@ impl UFabSettings {
             .get("UFabSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -466,6 +497,13 @@ impl UFabPlaceholderSpawner {
             .name_to_ptr
             .get("UFabPlaceholderSpawner")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabPlaceholderSpawner")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -488,6 +526,13 @@ impl UFabStaticMeshPlaceholderSpawner {
             .get("UFabStaticMeshPlaceholderSpawner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabStaticMeshPlaceholderSpawner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -508,6 +553,13 @@ impl UFabSkeletalMeshPlaceholderSpawner {
             .name_to_ptr
             .get("UFabSkeletalMeshPlaceholderSpawner")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabSkeletalMeshPlaceholderSpawner")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -530,6 +582,13 @@ impl UFabDecalPlaceholderSpawner {
             .get("UFabDecalPlaceholderSpawner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabDecalPlaceholderSpawner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -551,6 +610,13 @@ impl UInterchangeInstancedFoliageTypeFactory {
             .get("UInterchangeInstancedFoliageTypeFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeInstancedFoliageTypeFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -571,6 +637,13 @@ impl UMegascansMaterialParentSettings {
             .name_to_ptr
             .get("UMegascansMaterialParentSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMegascansMaterialParentSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -597,6 +670,13 @@ impl UInterchangeMegascansPipeline {
             .get("UInterchangeMegascansPipeline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMegascansPipeline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -617,6 +697,13 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             .name_to_ptr
             .get("UInterchangeInstancedFoliageTypeFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeInstancedFoliageTypeFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1433,6 +1520,13 @@ impl UFabFactory {
             .name_to_ptr
             .get("UFabFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFabFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

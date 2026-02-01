@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,35 +29,36 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UActorSequenceComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopSequence"),
-            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_stop_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlaySequenceReverse"),
-            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_play_sequence_reverse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlaySequence"),
-            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_play_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PauseSequence"),
-            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_pause_sequence,
-        );
+        if let Some(class_ptr) = UActorSequenceComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopSequence"),
+                &raw mut __FUNCTION_PTRS.u_actor_sequence_component_stop_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlaySequenceReverse"),
+                &raw mut __FUNCTION_PTRS.u_actor_sequence_component_play_sequence_reverse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlaySequence"),
+                &raw mut __FUNCTION_PTRS.u_actor_sequence_component_play_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PauseSequence"),
+                &raw mut __FUNCTION_PTRS.u_actor_sequence_component_pause_sequence,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -70,6 +72,13 @@ impl UActorSequence {
             .name_to_ptr
             .get("UActorSequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorSequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -93,6 +102,13 @@ impl UActorSequenceComponent {
             .name_to_ptr
             .get("UActorSequenceComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorSequenceComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -214,6 +230,13 @@ impl UActorSequencePlayer {
             .name_to_ptr
             .get("UActorSequencePlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorSequencePlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -32,49 +33,50 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UImgMediaSource::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTokenizedSequencePath"),
-            &raw mut __FUNCTION_PTRS.u_img_media_source_set_tokenized_sequence_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSequencePath"),
-            &raw mut __FUNCTION_PTRS.u_img_media_source_set_sequence_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTargetObject"),
-            &raw mut __FUNCTION_PTRS.u_img_media_source_remove_target_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequencePath"),
-            &raw mut __FUNCTION_PTRS.u_img_media_source_get_sequence_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetProxies"),
-            &raw mut __FUNCTION_PTRS.u_img_media_source_get_proxies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTargetObject"),
-            &raw mut __FUNCTION_PTRS.u_img_media_source_add_target_object,
-        );
+        if let Some(class_ptr) = UImgMediaSource::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTokenizedSequencePath"),
+                &raw mut __FUNCTION_PTRS.u_img_media_source_set_tokenized_sequence_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSequencePath"),
+                &raw mut __FUNCTION_PTRS.u_img_media_source_set_sequence_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTargetObject"),
+                &raw mut __FUNCTION_PTRS.u_img_media_source_remove_target_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequencePath"),
+                &raw mut __FUNCTION_PTRS.u_img_media_source_get_sequence_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetProxies"),
+                &raw mut __FUNCTION_PTRS.u_img_media_source_get_proxies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTargetObject"),
+                &raw mut __FUNCTION_PTRS.u_img_media_source_add_target_object,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -107,6 +109,13 @@ impl UImgMediaSource {
             .name_to_ptr
             .get("UImgMediaSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImgMediaSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

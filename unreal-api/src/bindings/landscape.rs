@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -84,266 +85,273 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ALandscapeProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVirtualTextureRenderPassType"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_set_virtual_texture_render_pass_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLandscapeMaterialVectorParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_set_landscape_material_vector_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLandscapeMaterialTextureParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_set_landscape_material_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLandscapeMaterialScalarParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_set_landscape_material_scalar_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LandscapeImportWeightmapFromRenderTarget"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_landscape_import_weightmap_from_render_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LandscapeImportHeightmapFromRenderTarget"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_landscape_import_heightmap_from_render_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LandscapeExportWeightmapToRenderTarget"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_landscape_export_weightmap_to_render_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LandscapeExportHeightmapToRenderTarget"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_landscape_export_heightmap_to_render_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLandscapeActor"),
-            &raw mut __FUNCTION_PTRS.a_landscape_proxy_get_landscape_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorSetLandscapeMaterial"),
-            &raw mut __FUNCTION_PTRS.a_landscape_proxy_editor_set_landscape_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorApplySpline"),
-            &raw mut __FUNCTION_PTRS.a_landscape_proxy_editor_apply_spline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteUnusedLayers"),
-            &raw mut __FUNCTION_PTRS.a_landscape_proxy_delete_unused_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangeLODDistanceFactor"),
-            &raw mut __FUNCTION_PTRS.a_landscape_proxy_change_lod_distance_factor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangeComponentScreenSizeToUseSubSections"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_proxy_change_component_screen_size_to_use_sub_sections,
-        );
+        if let Some(class_ptr) = ALandscapeProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVirtualTextureRenderPassType"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_set_virtual_texture_render_pass_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLandscapeMaterialVectorParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_vector_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLandscapeMaterialTextureParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLandscapeMaterialScalarParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_scalar_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LandscapeImportWeightmapFromRenderTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_import_weightmap_from_render_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LandscapeImportHeightmapFromRenderTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_import_heightmap_from_render_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LandscapeExportWeightmapToRenderTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_export_weightmap_to_render_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LandscapeExportHeightmapToRenderTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_export_heightmap_to_render_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLandscapeActor"),
+                &raw mut __FUNCTION_PTRS.a_landscape_proxy_get_landscape_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorSetLandscapeMaterial"),
+                &raw mut __FUNCTION_PTRS.a_landscape_proxy_editor_set_landscape_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorApplySpline"),
+                &raw mut __FUNCTION_PTRS.a_landscape_proxy_editor_apply_spline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteUnusedLayers"),
+                &raw mut __FUNCTION_PTRS.a_landscape_proxy_delete_unused_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangeLODDistanceFactor"),
+                &raw mut __FUNCTION_PTRS.a_landscape_proxy_change_lod_distance_factor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangeComponentScreenSizeToUseSubSections"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_proxy_change_component_screen_size_to_use_sub_sections,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULandscapeHeightfieldCollisionComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRenderComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_landscape_heightfield_collision_component_get_render_component,
-        );
+        if let Some(class_ptr) = ULandscapeHeightfieldCollisionComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRenderComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_landscape_heightfield_collision_component_get_render_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULandscapeSplinesComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSplineMeshComponents"),
-            &raw mut __FUNCTION_PTRS
-                .u_landscape_splines_component_get_spline_mesh_components,
-        );
+        if let Some(class_ptr) = ULandscapeSplinesComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSplineMeshComponents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_landscape_splines_component_get_spline_mesh_components,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ALandscape::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenderWeightmaps"),
-            &raw mut __FUNCTION_PTRS.a_landscape_render_weightmaps,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenderWeightmap"),
-            &raw mut __FUNCTION_PTRS.a_landscape_render_weightmap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenderHeightmap"),
-            &raw mut __FUNCTION_PTRS.a_landscape_render_heightmap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetLayerNames"),
-            &raw mut __FUNCTION_PTRS.a_landscape_get_target_layer_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceLayersFullUpdate"),
-            &raw mut __FUNCTION_PTRS.a_landscape_force_layers_full_update,
-        );
+        if let Some(class_ptr) = ALandscape::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenderWeightmaps"),
+                &raw mut __FUNCTION_PTRS.a_landscape_render_weightmaps,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenderWeightmap"),
+                &raw mut __FUNCTION_PTRS.a_landscape_render_weightmap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenderHeightmap"),
+                &raw mut __FUNCTION_PTRS.a_landscape_render_heightmap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetLayerNames"),
+                &raw mut __FUNCTION_PTRS.a_landscape_get_target_layer_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceLayersFullUpdate"),
+                &raw mut __FUNCTION_PTRS.a_landscape_force_layers_full_update,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ALandscapeBlueprintBrushBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestLandscapeUpdate"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_blueprint_brush_base_request_landscape_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenderLayer"),
-            &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_render_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Render"),
-            &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_render,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Initialize"),
-            &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_initialize,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlueprintRenderDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .a_landscape_blueprint_brush_base_get_blueprint_render_dependencies,
-        );
+        if let Some(class_ptr) = ALandscapeBlueprintBrushBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestLandscapeUpdate"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_request_landscape_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenderLayer"),
+                &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_render_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Render"),
+                &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_render,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Initialize"),
+                &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_initialize,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlueprintRenderDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_get_blueprint_render_dependencies,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULandscapeComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLODBias"),
-            &raw mut __FUNCTION_PTRS.u_landscape_component_set_lod_bias,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForcedLOD"),
-            &raw mut __FUNCTION_PTRS.u_landscape_component_set_forced_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInstanceDynamic"),
-            &raw mut __FUNCTION_PTRS.u_landscape_component_get_material_instance_dynamic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGrassTypesBP"),
-            &raw mut __FUNCTION_PTRS.u_landscape_component_get_grass_types_bp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightByNameAtLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_landscape_component_editor_get_paint_layer_weight_by_name_at_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightAtLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_landscape_component_editor_get_paint_layer_weight_at_location,
-        );
+        if let Some(class_ptr) = ULandscapeComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLODBias"),
+                &raw mut __FUNCTION_PTRS.u_landscape_component_set_lod_bias,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForcedLOD"),
+                &raw mut __FUNCTION_PTRS.u_landscape_component_set_forced_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInstanceDynamic"),
+                &raw mut __FUNCTION_PTRS
+                    .u_landscape_component_get_material_instance_dynamic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGrassTypesBP"),
+                &raw mut __FUNCTION_PTRS.u_landscape_component_get_grass_types_bp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightByNameAtLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_landscape_component_editor_get_paint_layer_weight_by_name_at_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightAtLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_landscape_component_editor_get_paint_layer_weight_at_location,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -402,6 +410,13 @@ impl UControlPointMeshComponent {
             .get("UControlPointMeshComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlPointMeshComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -423,6 +438,13 @@ impl ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED {
             .name_to_ptr
             .get("ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeBrushRenderCallAdapter_GlobalMergeLegacySupport_DEPRECATED")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -446,6 +468,13 @@ impl ULandscapeSplineInterface {
             .get("ULandscapeSplineInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplineInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -468,6 +497,13 @@ impl ULandscapeEditLayerRenderer {
             .get("ULandscapeEditLayerRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -488,6 +524,13 @@ impl ALandscapeGizmoActor {
             .name_to_ptr
             .get("ALandscapeGizmoActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeGizmoActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -510,6 +553,13 @@ impl ALandscapeGizmoActiveActor {
             .get("ALandscapeGizmoActiveActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeGizmoActiveActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -530,6 +580,13 @@ impl ULandscapeGizmoRenderComponent {
             .name_to_ptr
             .get("ULandscapeGizmoRenderComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeGizmoRenderComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -555,6 +612,13 @@ impl ULandscapeGrassType {
             .name_to_ptr
             .get("ULandscapeGrassType")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeGrassType")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -627,6 +691,13 @@ impl ALandscapeProxy {
             .name_to_ptr
             .get("ALandscapeProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1247,6 +1318,13 @@ impl ULandscapeHeightfieldCollisionComponent {
             .get("ULandscapeHeightfieldCollisionComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHeightfieldCollisionComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1294,6 +1372,13 @@ impl ULandscapeMaterialInstanceConstant {
             .get("ULandscapeMaterialInstanceConstant")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeMaterialInstanceConstant")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1314,6 +1399,13 @@ impl ULandscapeMeshCollisionComponent_DEPRECATED {
             .name_to_ptr
             .get("ULandscapeMeshCollisionComponent_DEPRECATED")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeMeshCollisionComponent_DEPRECATED")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1338,6 +1430,13 @@ impl ALandscapeMeshProxyActor {
             .get("ALandscapeMeshProxyActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeMeshProxyActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1359,6 +1458,13 @@ impl ULandscapeMeshProxyComponent {
             .get("ULandscapeMeshProxyComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeMeshProxyComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1379,6 +1485,13 @@ impl ULandscapeSplinesComponent {
             .name_to_ptr
             .get("ULandscapeSplinesComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplinesComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1437,6 +1550,13 @@ impl ULandscapeSplineControlPoint {
             .get("ULandscapeSplineControlPoint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplineControlPoint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1461,6 +1581,13 @@ impl ULandscapeSplineSegment {
             .get("ULandscapeSplineSegment")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSplineSegment")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1481,6 +1608,13 @@ impl ALandscapeStreamingProxy {
             .name_to_ptr
             .get("ALandscapeStreamingProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeStreamingProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1503,6 +1637,13 @@ impl ULandscapeWeightmapUsage {
             .get("ULandscapeWeightmapUsage")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeWeightmapUsage")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1523,6 +1664,13 @@ impl UMaterialExpressionLandscapeGrassOutput {
             .name_to_ptr
             .get("UMaterialExpressionLandscapeGrassOutput")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeGrassOutput")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1547,6 +1695,13 @@ impl AControlPointMeshActor {
             .get("AControlPointMeshActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AControlPointMeshActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1567,6 +1722,13 @@ impl ALandscape {
             .name_to_ptr
             .get("ALandscape")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscape")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1832,6 +1994,13 @@ impl ALandscapeBlueprintBrushBase {
             .get("ALandscapeBlueprintBrushBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeBlueprintBrushBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2079,6 +2248,13 @@ impl ULandscapeLODStreamingProxy_DEPRECATED {
             .get("ULandscapeLODStreamingProxy_DEPRECATED")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeLODStreamingProxy_DEPRECATED")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2111,6 +2287,13 @@ impl ULandscapeComponent {
             .name_to_ptr
             .get("ULandscapeComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2348,6 +2531,13 @@ impl ULandscapeHeightmapTextureEdgeFixup {
             .get("ULandscapeHeightmapTextureEdgeFixup")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHeightmapTextureEdgeFixup")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2368,6 +2558,13 @@ impl ULandscapeEditLayerBase {
             .name_to_ptr
             .get("ULandscapeEditLayerBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2390,6 +2587,13 @@ impl ULandscapeEditLayerPersistent {
             .get("ULandscapeEditLayerPersistent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerPersistent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2410,6 +2614,13 @@ impl ULandscapeEditLayer {
             .name_to_ptr
             .get("ULandscapeEditLayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2432,6 +2643,13 @@ impl ULandscapeEditLayerProcedural {
             .get("ULandscapeEditLayerProcedural")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerProcedural")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2452,6 +2670,13 @@ impl ULandscapeEditLayerSplines {
             .name_to_ptr
             .get("ULandscapeEditLayerSplines")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditLayerSplines")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2474,6 +2699,13 @@ impl ULandscapeDefaultEditLayerRenderer {
             .get("ULandscapeDefaultEditLayerRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeDefaultEditLayerRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2494,6 +2726,13 @@ impl ULandscapeHeightmapNormalsEditLayerRenderer {
             .name_to_ptr
             .get("ULandscapeHeightmapNormalsEditLayerRenderer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHeightmapNormalsEditLayerRenderer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2516,6 +2755,13 @@ impl ULandscapeWeightmapWeightBlendedLayersRenderer {
             .get("ULandscapeWeightmapWeightBlendedLayersRenderer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeWeightmapWeightBlendedLayersRenderer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2536,6 +2782,13 @@ impl ULandscapeScratchRenderTarget {
             .name_to_ptr
             .get("ULandscapeScratchRenderTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeScratchRenderTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2558,6 +2811,13 @@ impl ULandscapeEditResourcesSubsystem {
             .get("ULandscapeEditResourcesSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeEditResourcesSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2578,6 +2838,13 @@ impl ULandscapeHLODBuilder {
             .name_to_ptr
             .get("ULandscapeHLODBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeHLODBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2600,6 +2867,13 @@ impl ULandscapeInfo {
             .get("ULandscapeInfo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeInfo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2620,6 +2894,13 @@ impl ULandscapeInfoMap {
             .name_to_ptr
             .get("ULandscapeInfoMap")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeInfoMap")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2642,6 +2923,13 @@ impl ULandscapeLayerInfoObject {
             .get("ULandscapeLayerInfoObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeLayerInfoObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2662,6 +2950,13 @@ impl ULandscapeNaniteComponent {
             .name_to_ptr
             .get("ULandscapeNaniteComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeNaniteComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2684,6 +2979,13 @@ impl ULandscapeSettings {
             .get("ULandscapeSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2704,6 +3006,13 @@ impl ALandscapeSplineActor {
             .name_to_ptr
             .get("ALandscapeSplineActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeSplineActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2731,6 +3040,13 @@ impl ALandscapeSplineMeshesActor {
             .get("ALandscapeSplineMeshesActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALandscapeSplineMeshesActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2751,6 +3067,13 @@ impl ULandscapeSubsystem {
             .name_to_ptr
             .get("ULandscapeSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2773,6 +3096,13 @@ impl ULandscapeTextureHash {
             .get("ULandscapeTextureHash")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeTextureHash")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2793,6 +3123,13 @@ impl ULandscapeTextureMipEdgeOverrideFactory {
             .name_to_ptr
             .get("ULandscapeTextureMipEdgeOverrideFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeTextureMipEdgeOverrideFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2815,6 +3152,13 @@ impl ULandscapeTextureStorageProviderFactory {
             .get("ULandscapeTextureStorageProviderFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULandscapeTextureStorageProviderFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2835,6 +3179,13 @@ impl UMaterialExpressionLandscapeLayerBlend {
             .name_to_ptr
             .get("UMaterialExpressionLandscapeLayerBlend")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerBlend")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2857,6 +3208,13 @@ impl UMaterialExpressionLandscapeLayerCoords {
             .get("UMaterialExpressionLandscapeLayerCoords")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerCoords")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2877,6 +3235,13 @@ impl UMaterialExpressionLandscapeLayerSample {
             .name_to_ptr
             .get("UMaterialExpressionLandscapeLayerSample")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerSample")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2899,6 +3264,13 @@ impl UMaterialExpressionLandscapeLayerSwitch {
             .get("UMaterialExpressionLandscapeLayerSwitch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerSwitch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2919,6 +3291,13 @@ impl UMaterialExpressionLandscapeLayerWeight {
             .name_to_ptr
             .get("UMaterialExpressionLandscapeLayerWeight")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeLayerWeight")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2941,6 +3320,13 @@ impl UMaterialExpressionLandscapePhysicalMaterialOutput {
             .get("UMaterialExpressionLandscapePhysicalMaterialOutput")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapePhysicalMaterialOutput")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2961,6 +3347,13 @@ impl UMaterialExpressionLandscapeVisibilityMask {
             .name_to_ptr
             .get("UMaterialExpressionLandscapeVisibilityMask")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialExpressionLandscapeVisibilityMask")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -50,121 +51,127 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UClothingSimulationInteractor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumSubsteps"),
-            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_set_num_substeps,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumIterations"),
-            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_set_num_iterations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxNumIterations"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_set_max_num_iterations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimDriveSpringStiffness"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_set_anim_drive_spring_stiffness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PhysicsAssetUpdated"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_physics_asset_updated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSimulationTime"),
-            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_simulation_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumSubsteps"),
-            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_substeps,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKinematicParticles"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_get_num_kinematic_particles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumIterations"),
-            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_iterations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumDynamicParticles"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_get_num_dynamic_particles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumCloths"),
-            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_cloths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClothingInteractor"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_get_clothing_interactor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableGravityOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_enable_gravity_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisableGravityOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_disable_gravity_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClothConfigUpdated"),
-            &raw mut __FUNCTION_PTRS
-                .u_clothing_simulation_interactor_cloth_config_updated,
-        );
+        if let Some(class_ptr) = UClothingSimulationInteractor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumSubsteps"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_num_substeps,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumIterations"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_num_iterations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxNumIterations"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_max_num_iterations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimDriveSpringStiffness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_anim_drive_spring_stiffness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PhysicsAssetUpdated"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_physics_asset_updated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSimulationTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_simulation_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumSubsteps"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_substeps,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKinematicParticles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_kinematic_particles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumIterations"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_iterations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumDynamicParticles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_dynamic_particles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumCloths"),
+                &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_cloths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClothingInteractor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_clothing_interactor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableGravityOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_enable_gravity_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisableGravityOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_disable_gravity_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClothConfigUpdated"),
+                &raw mut __FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_cloth_config_updated,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -178,6 +185,13 @@ impl UClothConfigBase {
             .name_to_ptr
             .get("UClothConfigBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothConfigBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -200,6 +214,13 @@ impl UDEPRECATED_ClothSharedSimConfigBase {
             .get("UDEPRECATED_ClothSharedSimConfigBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_ClothSharedSimConfigBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -220,6 +241,13 @@ impl UClothingAssetBase {
             .name_to_ptr
             .get("UClothingAssetBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingAssetBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -242,6 +270,13 @@ impl UClothingSimulationFactory {
             .get("UClothingSimulationFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingSimulationFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -263,6 +298,13 @@ impl UClothingInteractor {
             .get("UClothingInteractor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingInteractor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -283,6 +325,13 @@ impl UClothingSimulationInteractor {
             .name_to_ptr
             .get("UClothingSimulationInteractor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothingSimulationInteractor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -734,6 +783,13 @@ impl UClothPhysicalMeshDataBase_Legacy {
             .name_to_ptr
             .get("UClothPhysicalMeshDataBase_Legacy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClothPhysicalMeshDataBase_Legacy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

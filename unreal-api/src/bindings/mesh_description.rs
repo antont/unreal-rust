@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -202,666 +203,688 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshDescriptionBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVertexPosition"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_vertex_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPolygonVertexInstances"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_polygon_vertex_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPolygonPolygonGroup"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_polygon_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReversePolygonFacing"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reverse_polygon_facing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReserveNewVertices"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReserveNewVertexInstances"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_vertex_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReserveNewTriangles"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReserveNewPolygons"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReserveNewPolygonGroups"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_polygon_groups,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReserveNewEdges"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVertexValid"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVertexOrphaned"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_orphaned,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVertexInstanceValid"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_instance_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTriangleValid"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_triangle_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTrianglePartOfNgon"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_triangle_part_of_ngon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPolygonValid"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_polygon_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPolygonGroupValid"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_polygon_group_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEmpty"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_empty,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEdgeValid"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEdgeInternalToPolygon"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_internal_to_polygon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEdgeInternal"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_internal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexVertexInstances"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_vertex_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexPosition"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexPairEdge"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_pair_edge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceVertex"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_instance_vertex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstancePairEdge"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_instance_pair_edge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceForTriangleVertex"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_instance_for_triangle_vertex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceForPolygonVertex"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_instance_for_polygon_vertex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceCount"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_instance_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceConnectedTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_instance_connected_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexInstanceConnectedPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_instance_connected_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexCount"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexConnectedTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_connected_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexConnectedPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_vertex_connected_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexConnectedEdges"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_connected_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexAdjacentVertices"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_adjacent_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleVertices"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleVertexInstances"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_triangle_vertex_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleVertexInstance"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_vertex_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrianglePolygonGroup"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrianglePolygon"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_polygon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleEdges"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleCount"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleAdjacentTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_triangle_adjacent_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonVertices"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonVertexInstances"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_vertex_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonTriangles"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonPolygonGroup"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonPerimeterEdges"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_perimeter_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonInternalEdges"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_internal_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonGroupPolygons"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_group_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonGroupCount"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_group_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonCount"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPolygonAdjacentPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_polygon_adjacent_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertexVertexInstances"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_vertex_vertex_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertexInstanceConnectedTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_vertex_instance_connected_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertexInstanceConnectedPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_vertex_instance_connected_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertexConnectedTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_vertex_connected_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertexConnectedPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_vertex_connected_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVertexConnectedEdges"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_vertex_connected_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumPolygonVertices"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_num_polygon_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumPolygonTriangles"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_num_polygon_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumPolygonInternalEdges"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_polygon_internal_edges,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumPolygonGroupPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_polygon_group_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumEdgeConnectedTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_edge_connected_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumEdgeConnectedPolygons"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_get_num_edge_connected_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEdgeVertices"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_vertices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEdgeVertex"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_vertex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEdgeCount"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEdgeConnectedTriangles"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_connected_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEdgeConnectedPolygons"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_connected_polygons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Empty"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_empty,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteVertexInstance"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_vertex_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteVertex"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_vertex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteTriangle"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_triangle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeletePolygonGroup"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeletePolygon"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_polygon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteEdge"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_edge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateVertexWithID"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateVertexInstanceWithID"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_create_vertex_instance_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateVertexInstance"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateVertex"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateTriangleWithID"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_triangle_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateTriangle"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_triangle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePolygonWithID"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePolygonGroupWithID"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_group_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePolygonGroup"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePolygon"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateEdgeWithID"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_edge_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateEdge"),
-            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_edge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ComputePolygonTriangulation"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_description_base_compute_polygon_triangulation,
-        );
+        if let Some(class_ptr) = UMeshDescriptionBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVertexPosition"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_vertex_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPolygonVertexInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_set_polygon_vertex_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPolygonPolygonGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_set_polygon_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReversePolygonFacing"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_reverse_polygon_facing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReserveNewVertices"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReserveNewVertexInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_vertex_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReserveNewTriangles"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReserveNewPolygons"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReserveNewPolygonGroups"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_polygon_groups,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReserveNewEdges"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVertexValid"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVertexOrphaned"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_orphaned,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVertexInstanceValid"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_instance_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTriangleValid"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_triangle_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTrianglePartOfNgon"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_triangle_part_of_ngon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPolygonValid"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_polygon_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPolygonGroupValid"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_polygon_group_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEmpty"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_empty,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEdgeValid"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEdgeInternalToPolygon"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_internal_to_polygon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEdgeInternal"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_internal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexVertexInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_vertex_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexPosition"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexPairEdge"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_pair_edge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceVertex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_vertex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstancePairEdge"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_pair_edge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceForTriangleVertex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_for_triangle_vertex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceForPolygonVertex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_for_polygon_vertex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceConnectedTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_connected_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexInstanceConnectedPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_connected_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexCount"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexConnectedTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexConnectedPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexConnectedEdges"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexAdjacentVertices"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_adjacent_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleVertices"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleVertexInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertex_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleVertexInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertex_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrianglePolygonGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrianglePolygon"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_polygon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleEdges"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleCount"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleAdjacentTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_adjacent_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonVertices"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonVertexInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_vertex_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonTriangles"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonPolygonGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonPerimeterEdges"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_perimeter_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonInternalEdges"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_internal_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonGroupPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_group_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonGroupCount"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_group_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonCount"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPolygonAdjacentPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_adjacent_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertexVertexInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_vertex_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertexInstanceConnectedTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_instance_connected_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertexInstanceConnectedPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_instance_connected_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertexConnectedTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertexConnectedPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVertexConnectedEdges"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumPolygonVertices"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_num_polygon_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumPolygonTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumPolygonInternalEdges"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_internal_edges,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumPolygonGroupPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_group_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumEdgeConnectedTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_edge_connected_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumEdgeConnectedPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_edge_connected_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEdgeVertices"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_vertices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEdgeVertex"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_vertex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEdgeCount"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEdgeConnectedTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_connected_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEdgeConnectedPolygons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_connected_polygons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Empty"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_empty,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteVertexInstance"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_vertex_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteVertex"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_vertex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteTriangle"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_triangle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeletePolygonGroup"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeletePolygon"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_polygon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteEdge"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_edge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateVertexWithID"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateVertexInstanceWithID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_instance_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateVertexInstance"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateVertex"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateTriangleWithID"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_triangle_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateTriangle"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_triangle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePolygonWithID"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePolygonGroupWithID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_group_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePolygonGroup"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePolygon"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateEdgeWithID"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_edge_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateEdge"),
+                &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_edge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ComputePolygonTriangulation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_description_base_compute_polygon_triangulation,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -915,6 +938,13 @@ impl UMeshDescriptionBase {
             .name_to_ptr
             .get("UMeshDescriptionBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshDescriptionBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4539,6 +4569,13 @@ impl UMeshDescriptionBaseBulkData {
             .name_to_ptr
             .get("UMeshDescriptionBaseBulkData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshDescriptionBaseBulkData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

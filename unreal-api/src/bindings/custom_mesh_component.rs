@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,28 +27,32 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCustomMeshComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMeshTriangles"),
-            &raw mut __FUNCTION_PTRS.u_custom_mesh_component_set_custom_mesh_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearCustomMeshTriangles"),
-            &raw mut __FUNCTION_PTRS.u_custom_mesh_component_clear_custom_mesh_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCustomMeshTriangles"),
-            &raw mut __FUNCTION_PTRS.u_custom_mesh_component_add_custom_mesh_triangles,
-        );
+        if let Some(class_ptr) = UCustomMeshComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMeshTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_custom_mesh_component_set_custom_mesh_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearCustomMeshTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_custom_mesh_component_clear_custom_mesh_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCustomMeshTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_custom_mesh_component_add_custom_mesh_triangles,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -68,6 +73,13 @@ impl UCustomMeshComponent {
             .name_to_ptr
             .get("UCustomMeshComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCustomMeshComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

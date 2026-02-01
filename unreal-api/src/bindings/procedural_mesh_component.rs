@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -62,171 +63,177 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UKismetProceduralMeshLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SliceProceduralMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_slice_procedural_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionFromStaticMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_get_section_from_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionFromProceduralMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_get_section_from_procedural_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateBoxMesh"),
-            &raw mut __FUNCTION_PTRS.u_kismet_procedural_mesh_library_generate_box_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateGridMeshWelded"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_create_grid_mesh_welded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateGridMeshTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_create_grid_mesh_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateGridMeshSplit"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_create_grid_mesh_split,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyProceduralMeshFromStaticMeshComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertQuadToTriangles"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_convert_quad_to_triangles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CalculateTangentsForMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_kismet_procedural_mesh_library_calculate_tangents_for_mesh,
-        );
+        if let Some(class_ptr) = UKismetProceduralMeshLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SliceProceduralMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_slice_procedural_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionFromStaticMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_get_section_from_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionFromProceduralMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_get_section_from_procedural_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateBoxMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_generate_box_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateGridMeshWelded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_welded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateGridMeshTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateGridMeshSplit"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_split,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyProceduralMeshFromStaticMeshComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertQuadToTriangles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_convert_quad_to_triangles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CalculateTangentsForMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_calculate_tangents_for_mesh,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UProceduralMeshComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateMeshSection_LinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_mesh_component_update_mesh_section_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateMeshSection"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_update_mesh_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeshSectionVisible"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_set_mesh_section_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsMeshSectionVisible"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_is_mesh_section_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumSections"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_get_num_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMeshSection_LinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_mesh_component_create_mesh_section_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMeshSection"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_create_mesh_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMeshSection"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_clear_mesh_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearCollisionConvexMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_mesh_component_clear_collision_convex_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAllMeshSections"),
-            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_clear_all_mesh_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCollisionConvexMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_procedural_mesh_component_add_collision_convex_mesh,
-        );
+        if let Some(class_ptr) = UProceduralMeshComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateMeshSection_LinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_update_mesh_section_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateMeshSection"),
+                &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_update_mesh_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeshSectionVisible"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_set_mesh_section_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsMeshSectionVisible"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_is_mesh_section_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumSections"),
+                &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_get_num_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMeshSection_LinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_create_mesh_section_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMeshSection"),
+                &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_create_mesh_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMeshSection"),
+                &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_clear_mesh_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearCollisionConvexMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_collision_convex_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAllMeshSections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_all_mesh_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCollisionConvexMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_procedural_mesh_component_add_collision_convex_mesh,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -258,6 +265,13 @@ impl UKismetProceduralMeshLibrary {
             .name_to_ptr
             .get("UKismetProceduralMeshLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UKismetProceduralMeshLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1130,6 +1144,13 @@ impl UProceduralMeshComponent {
             .name_to_ptr
             .get("UProceduralMeshComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralMeshComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

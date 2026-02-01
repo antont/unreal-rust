@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -468,1776 +469,1837 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UModularSynthLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddModularSynthPresetToBankAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_modular_synth_library_add_modular_synth_preset_to_bank_asset,
-        );
+        if let Some(class_ptr) = UModularSynthLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddModularSynthPresetToBankAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_library_add_modular_synth_preset_to_bank_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UModularSynthComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSynthPreset"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_synth_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSustainGain"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_sustain_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStereoDelayWetlevel"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_wetlevel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStereoDelayTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStereoDelayRatio"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStereoDelayMode"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStereoDelayIsEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_modular_synth_component_set_stereo_delay_is_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStereoDelayFeedback"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_feedback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSpread"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_spread,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReleaseTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_release_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPortamento"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_portamento,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPitchBend"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_pitch_bend,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPan"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_pan,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscType"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscSync"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_sync,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscSemitones"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_semitones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscPulsewidth"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_pulsewidth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscOctave"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_octave,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscGainMod"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_gain_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscGain"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscFrequencyMod"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_frequency_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOscCents"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_cents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvSustainGain"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_sustain_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvReleaseTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_release_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvPatch"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_patch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvInvert"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvDepth"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvDecayTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_decay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvBiasPatch"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_bias_patch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvBiasInvert"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_bias_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModEnvAttackTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_attack_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOType"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOPatch"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_patch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOMode"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOGainMod"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_gain_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOGain"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOFrequencyMod"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_frequency_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLFOFrequency"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGainDb"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_gain_db,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterType"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterQMod"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_q_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterQ"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_q,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterFrequencyMod"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_frequency_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterFrequency"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_algorithm,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableUnison"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_unison,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableRetrigger"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_retrigger,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnablePolyphony"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_polyphony,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnablePatch"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_patch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableLegato"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_legato,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDecayTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_decay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChorusFrequency"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChorusFeedback"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_feedback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChorusEnabled"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChorusDepth"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAttackTime"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_attack_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoteOn"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_note_on,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoteOff"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_note_off,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePatch"),
-            &raw mut __FUNCTION_PTRS.u_modular_synth_component_create_patch,
-        );
+        if let Some(class_ptr) = UModularSynthComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSynthPreset"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_synth_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSustainGain"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_sustain_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStereoDelayWetlevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_wetlevel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStereoDelayTime"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStereoDelayRatio"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStereoDelayMode"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStereoDelayIsEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_is_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStereoDelayFeedback"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_feedback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSpread"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_spread,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReleaseTime"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_release_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPortamento"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_portamento,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPitchBend"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_pitch_bend,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPan"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_pan,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscType"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscSync"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_sync,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscSemitones"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_semitones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscPulsewidth"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_pulsewidth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscOctave"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_octave,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscGainMod"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_gain_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscGain"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscFrequencyMod"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_frequency_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOscCents"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_cents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvSustainGain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_sustain_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvReleaseTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_release_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvPatch"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_patch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvInvert"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvDepth"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvDecayTime"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_decay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvBiasPatch"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_bias_patch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvBiasInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_bias_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModEnvAttackTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_attack_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOType"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOPatch"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_patch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOMode"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOGainMod"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_gain_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOGain"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOFrequencyMod"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_frequency_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLFOFrequency"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGainDb"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_gain_db,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterType"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterQMod"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_q_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterQ"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_q,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterFrequencyMod"),
+                &raw mut __FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_frequency_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterFrequency"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_algorithm,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableUnison"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_unison,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableRetrigger"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_retrigger,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnablePolyphony"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_polyphony,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnablePatch"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_patch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableLegato"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_legato,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDecayTime"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_decay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChorusFrequency"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChorusFeedback"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_feedback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChorusEnabled"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChorusDepth"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAttackTime"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_attack_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoteOn"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_note_on,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoteOff"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_note_off,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePatch"),
+                &raw mut __FUNCTION_PTRS.u_modular_synth_component_create_patch,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectBitCrusherPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSampleRateModulators"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_bit_crusher_preset_set_sample_rate_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSampleRateModulator"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_bit_crusher_preset_set_sample_rate_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSampleRate"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_sample_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModulationSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_bit_crusher_preset_set_modulation_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBits"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_bits,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBitModulators"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_bit_crusher_preset_set_bit_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBitModulator"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_bit_modulator,
-        );
+        if let Some(class_ptr) = USourceEffectBitCrusherPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSampleRateModulators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSampleRateModulator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSampleRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModulationSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_modulation_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBits"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_bits,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBitModulators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bit_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBitModulator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bit_modulator,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectChorusPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWetModulators"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWetModulator"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWet"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSpreadModulators"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSpreadModulator"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSpread"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetModulationSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_chorus_preset_set_modulation_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequencyModulators"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_chorus_preset_set_frequency_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequencyModulator"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_chorus_preset_set_frequency_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequency"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFeedbackModulators"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_chorus_preset_set_feedback_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFeedbackModulator"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_feedback_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFeedback"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_feedback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDryModulators"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDryModulator"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDry"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDepthModulators"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth_modulators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDepthModulator"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth_modulator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDepth"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth,
-        );
+        if let Some(class_ptr) = USourceEffectChorusPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWetModulators"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWetModulator"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWet"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSpreadModulators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSpreadModulator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSpread"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetModulationSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_modulation_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequencyModulators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequencyModulator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequency"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFeedbackModulators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFeedbackModulator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFeedback"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_feedback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDryModulators"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDryModulator"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDry"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDepthModulators"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth_modulators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDepthModulator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth_modulator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDepth"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectConvolutionReverbPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_convolution_reverb_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetImpulseResponse"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_convolution_reverb_preset_set_impulse_response,
-        );
+        if let Some(class_ptr) = USourceEffectConvolutionReverbPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_convolution_reverb_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetImpulseResponse"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_convolution_reverb_preset_set_impulse_response,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectDynamicsProcessorPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_dynamics_processor_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectDynamicsProcessorPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_dynamics_processor_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectEnvelopeFollowerPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterEnvelopeFollowerListener"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_envelope_follower_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterEnvelopeFollowerListener"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_envelope_follower_preset_register_envelope_follower_listener,
-        );
+        if let Some(class_ptr) = USourceEffectEnvelopeFollowerPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterEnvelopeFollowerListener"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterEnvelopeFollowerListener"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_register_envelope_follower_listener,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectEQPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_eq_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectEQPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_eq_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectFilterPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_filter_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectFilterPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_filter_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectFoldbackDistortionPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_foldback_distortion_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectFoldbackDistortionPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_foldback_distortion_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectMidSideSpreaderPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_source_effect_mid_side_spreader_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectMidSideSpreaderPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_mid_side_spreader_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectMotionFilterPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_motion_filter_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectMotionFilterPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_motion_filter_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectPannerPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_panner_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectPannerPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_panner_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectPhaserPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_phaser_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectPhaserPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_phaser_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectRingModulationPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_ring_modulation_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectRingModulationPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_source_effect_ring_modulation_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectSimpleDelayPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_simple_delay_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectSimpleDelayPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_simple_delay_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectStereoDelayPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_stereo_delay_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectStereoDelayPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_stereo_delay_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USourceEffectWaveShaperPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_source_effect_wave_shaper_preset_set_settings,
-        );
+        if let Some(class_ptr) = USourceEffectWaveShaperPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_source_effect_wave_shaper_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectConvolutionReverbPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_convolution_reverb_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetImpulseResponse"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_convolution_reverb_preset_set_impulse_response,
-        );
+        if let Some(class_ptr) = USubmixEffectConvolutionReverbPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_convolution_reverb_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetImpulseResponse"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_convolution_reverb_preset_set_impulse_response,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectDelayStatics::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaximumDelayLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_delay_statics_set_maximum_delay_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInterpolationTime"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_statics_set_interpolation_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDelayLength"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_statics_set_delay_length,
-        );
+        if let Some(class_ptr) = USubmixEffectDelayStatics::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaximumDelayLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_maximum_delay_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInterpolationTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_interpolation_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDelayLength"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_delay_statics_set_delay_length,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectDelayPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInterpolationTime"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_interpolation_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDelay"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_delay,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_default_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_delay_preset_get_max_delay_in_milliseconds,
-        );
+        if let Some(class_ptr) = USubmixEffectDelayPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInterpolationTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_interpolation_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDelay"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_delay,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_default_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_get_max_delay_in_milliseconds,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectFilterPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterType"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterQMod"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_q_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterQ"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_q,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterCutoffFrequencyMod"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterCutoffFrequency"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_filter_preset_set_filter_cutoff_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_algorithm,
-        );
+        if let Some(class_ptr) = USubmixEffectFilterPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterType"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterQMod"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_q_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterQ"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_q,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterCutoffFrequencyMod"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterCutoffFrequency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_cutoff_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_algorithm,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectFlexiverbPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_flexiverb_preset_set_settings,
-        );
+        if let Some(class_ptr) = USubmixEffectFlexiverbPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_flexiverb_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectMultibandCompressorPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_multiband_compressor_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetExternalSubmix"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_multiband_compressor_preset_set_external_submix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAudioBus"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_multiband_compressor_preset_set_audio_bus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_multiband_compressor_preset_reset_key,
-        );
+        if let Some(class_ptr) = USubmixEffectMultibandCompressorPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetExternalSubmix"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_external_submix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAudioBus"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_audio_bus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_reset_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectStereoDelayPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_stereo_delay_preset_set_settings,
-        );
+        if let Some(class_ptr) = USubmixEffectStereoDelayPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_stereo_delay_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectStereoToQuadPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_stereo_to_quad_preset_set_settings,
-        );
+        if let Some(class_ptr) = USubmixEffectStereoToQuadPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_stereo_to_quad_preset_set_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubmixEffectTapDelayPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTap"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_set_tap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInterpolationTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_tap_delay_preset_set_interpolation_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTap"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_remove_tap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTapIds"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_get_tap_ids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTap"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_get_tap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTap"),
-            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_add_tap,
-        );
+        if let Some(class_ptr) = USubmixEffectTapDelayPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTap"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_set_tap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInterpolationTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_interpolation_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTap"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_remove_tap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTapIds"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_get_tap_ids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTap"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_get_tap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTap"),
+                &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_add_tap,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGranularSynth::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSustainGain"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_sustain_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSoundWave"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_sound_wave,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrubMode"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_scrub_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReleaseTimeMsec"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_release_time_msec,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlayheadTime"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_playhead_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_playback_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainVolume"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_volume,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainsPerSecond"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grains_per_second,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainProbability"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_probability,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainPitch"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_pitch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainPan"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_pan,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainEnvelopeType"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_envelope_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGrainDuration"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDecayTime"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_decay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAttackTime"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_set_attack_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoteOn"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_note_on,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoteOff"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_note_off,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLoaded"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_is_loaded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSampleDuration"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_get_sample_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPlayheadTime"),
-            &raw mut __FUNCTION_PTRS.u_granular_synth_get_current_playhead_time,
-        );
+        if let Some(class_ptr) = UGranularSynth::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSustainGain"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_sustain_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSoundWave"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_sound_wave,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrubMode"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_scrub_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReleaseTimeMsec"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_release_time_msec,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlayheadTime"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_playhead_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_playback_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainVolume"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_volume,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainsPerSecond"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grains_per_second,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainProbability"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_probability,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainPitch"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_pitch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainPan"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_pan,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainEnvelopeType"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_envelope_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGrainDuration"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDecayTime"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_decay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAttackTime"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_set_attack_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoteOn"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_note_on,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoteOff"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_note_off,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLoaded"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_is_loaded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSampleDuration"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_get_sample_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPlayheadTime"),
+                &raw mut __FUNCTION_PTRS.u_granular_synth_get_current_playhead_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynthComponentMonoWaveTable::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWaveTablePosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_wave_table_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSustainPedalState"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_sustain_pedal_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPosLfoType"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_pos_lfo_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPosLfoFrequency"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_pos_lfo_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPosLfoDepth"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_pos_lfo_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeSustainGain"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_sustain_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeReleaseTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_release_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeInvert"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeDepth"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeDecayTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_decay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasInvert"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_bias_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasDepth"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_bias_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionEnvelopeAttackTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_position_envelope_attack_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLowPassFilterResonance"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_low_pass_filter_resonance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequencyWithMidiNote"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_frequency_with_midi_note,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequencyPitchBend"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_frequency_pitch_bend,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequency"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeSustainGain"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeReleaseTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_release_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopenDecayTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelopen_decay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeInvert"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeDepth"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasInvert"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_bias_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasDepth"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_bias_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterEnvelopeAttackTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_filter_envelope_attack_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurveValue"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_curve_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurveTangent"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_curve_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurveInterpolationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_curve_interpolation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeSustainGain"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeReleaseTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_release_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeInvert"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeDepth"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeDecayTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_decay_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasInvert"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_bias_invert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasDepth"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_bias_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAmpEnvelopeAttackTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_set_amp_envelope_attack_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshWaveTable"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_refresh_wave_table,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshAllWaveTables"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_refresh_all_wave_tables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoteOn"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_note_on,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoteOff"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_note_off,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumTableEntries"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_get_num_table_entries,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxTableIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_get_max_table_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeyFrameValuesForTable"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_component_mono_wave_table_get_key_frame_values_for_table,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveTangent"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_get_curve_tangent,
-        );
+        if let Some(class_ptr) = USynthComponentMonoWaveTable::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWaveTablePosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_wave_table_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSustainPedalState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_sustain_pedal_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPosLfoType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPosLfoFrequency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPosLfoDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeSustainGain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_sustain_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeReleaseTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_release_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeDecayTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_decay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_bias_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_bias_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionEnvelopeAttackTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_attack_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLowPassFilterResonance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_low_pass_filter_resonance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequencyWithMidiNote"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency_with_midi_note,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequencyPitchBend"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency_pitch_bend,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequency"),
+                &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeSustainGain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeReleaseTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_release_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopenDecayTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelopen_decay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_bias_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_bias_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterEnvelopeAttackTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_attack_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurveValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurveInterpolationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_interpolation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeSustainGain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeReleaseTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_release_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeDecayTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_decay_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasInvert"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_bias_invert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasDepth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_bias_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAmpEnvelopeAttackTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_attack_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshWaveTable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_refresh_wave_table,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshAllWaveTables"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_refresh_all_wave_tables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoteOn"),
+                &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_note_on,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoteOff"),
+                &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_note_off,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumTableEntries"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_num_table_entries,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxTableIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_max_table_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeyFrameValuesForTable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_key_frame_values_for_table,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_curve_tangent,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynthComponentToneGenerator::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVolume"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_tone_generator_set_volume,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrequency"),
-            &raw mut __FUNCTION_PTRS.u_synth_component_tone_generator_set_frequency,
-        );
+        if let Some(class_ptr) = USynthComponentToneGenerator::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVolume"),
+                &raw mut __FUNCTION_PTRS.u_synth_component_tone_generator_set_volume,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrequency"),
+                &raw mut __FUNCTION_PTRS.u_synth_component_tone_generator_set_frequency,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynthSamplePlayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSoundWave"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_sound_wave,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrubTimeWidth"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_scrub_time_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrubMode"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_scrub_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPitch"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_pitch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SeekToTime"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_seek_to_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLoaded"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_is_loaded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSampleDuration"),
-            &raw mut __FUNCTION_PTRS.u_synth_sample_player_get_sample_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_sample_player_get_current_playback_progress_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressPercent"),
-            &raw mut __FUNCTION_PTRS
-                .u_synth_sample_player_get_current_playback_progress_percent,
-        );
+        if let Some(class_ptr) = USynthSamplePlayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSoundWave"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_sound_wave,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrubTimeWidth"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_scrub_time_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrubMode"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_scrub_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPitch"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_pitch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SeekToTime"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_seek_to_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLoaded"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_is_loaded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSampleDuration"),
+                &raw mut __FUNCTION_PTRS.u_synth_sample_player_get_sample_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_sample_player_get_current_playback_progress_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressPercent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synth_sample_player_get_current_playback_progress_percent,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynthesisUtilitiesBlueprintFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLogFrequency"),
-            &raw mut __FUNCTION_PTRS
-                .u_synthesis_utilities_blueprint_function_library_get_log_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinearFrequency"),
-            &raw mut __FUNCTION_PTRS
-                .u_synthesis_utilities_blueprint_function_library_get_linear_frequency,
-        );
+        if let Some(class_ptr) = USynthesisUtilitiesBlueprintFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLogFrequency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synthesis_utilities_blueprint_function_library_get_log_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinearFrequency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_synthesis_utilities_blueprint_function_library_get_linear_frequency,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynth2DSlider::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
-            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_slider_handle_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIndentHandle"),
-            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_indent_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_get_value,
-        );
+        if let Some(class_ptr) = USynth2DSlider::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
+                &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_slider_handle_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocked"),
+                &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIndentHandle"),
+                &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_indent_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_synth2_d_slider_get_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USynthKnob::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_synth_knob_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_synth_knob_set_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut __FUNCTION_PTRS.u_synth_knob_set_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_synth_knob_get_value,
-        );
+        if let Some(class_ptr) = USynthKnob::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_synth_knob_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_synth_knob_set_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocked"),
+                &raw mut __FUNCTION_PTRS.u_synth_knob_set_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_synth_knob_get_value,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -2691,6 +2753,13 @@ impl UAudioImpulseResponse {
             .get("UAudioImpulseResponse")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioImpulseResponse")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2714,6 +2783,13 @@ impl UModularSynthPresetBank {
             .get("UModularSynthPresetBank")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularSynthPresetBank")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2734,6 +2810,13 @@ impl UModularSynthLibrary {
             .name_to_ptr
             .get("UModularSynthLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularSynthLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2808,6 +2891,13 @@ impl UModularSynthComponent {
             .name_to_ptr
             .get("UModularSynthComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModularSynthComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4726,6 +4816,13 @@ impl USourceEffectBitCrusherPreset {
             .get("USourceEffectBitCrusherPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectBitCrusherPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5039,6 +5136,13 @@ impl USourceEffectChorusPreset {
             .name_to_ptr
             .get("USourceEffectChorusPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectChorusPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5782,6 +5886,13 @@ impl USourceEffectConvolutionReverbPreset {
             .get("USourceEffectConvolutionReverbPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectConvolutionReverbPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5875,6 +5986,13 @@ impl USourceEffectDynamicsProcessorPreset {
             .get("USourceEffectDynamicsProcessorPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectDynamicsProcessorPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5931,6 +6049,13 @@ impl UEnvelopeFollowerListener {
             .get("UEnvelopeFollowerListener")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvelopeFollowerListener")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5953,6 +6078,13 @@ impl USourceEffectEnvelopeFollowerPreset {
             .name_to_ptr
             .get("USourceEffectEnvelopeFollowerPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectEnvelopeFollowerPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6079,6 +6211,13 @@ impl USourceEffectEQPreset {
             .get("USourceEffectEQPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectEQPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6134,6 +6273,13 @@ impl USourceEffectFilterPreset {
             .get("USourceEffectFilterPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectFilterPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6188,6 +6334,13 @@ impl USourceEffectFoldbackDistortionPreset {
             .name_to_ptr
             .get("USourceEffectFoldbackDistortionPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectFoldbackDistortionPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6247,6 +6400,13 @@ impl USourceEffectMidSideSpreaderPreset {
             .get("USourceEffectMidSideSpreaderPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectMidSideSpreaderPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6301,6 +6461,13 @@ impl USourceEffectMotionFilterPreset {
             .name_to_ptr
             .get("USourceEffectMotionFilterPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectMotionFilterPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6357,6 +6524,13 @@ impl USourceEffectPannerPreset {
             .get("USourceEffectPannerPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectPannerPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6411,6 +6585,13 @@ impl USourceEffectPhaserPreset {
             .name_to_ptr
             .get("USourceEffectPhaserPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectPhaserPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6467,6 +6648,13 @@ impl USourceEffectRingModulationPreset {
             .get("USourceEffectRingModulationPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectRingModulationPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6521,6 +6709,13 @@ impl USourceEffectSimpleDelayPreset {
             .name_to_ptr
             .get("USourceEffectSimpleDelayPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectSimpleDelayPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6577,6 +6772,13 @@ impl USourceEffectStereoDelayPreset {
             .get("USourceEffectStereoDelayPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectStereoDelayPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6631,6 +6833,13 @@ impl USourceEffectWaveShaperPreset {
             .name_to_ptr
             .get("USourceEffectWaveShaperPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceEffectWaveShaperPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6690,6 +6899,13 @@ impl USubmixEffectConvolutionReverbPreset {
             .name_to_ptr
             .get("USubmixEffectConvolutionReverbPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectConvolutionReverbPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6781,6 +6997,13 @@ impl USubmixEffectDelayStatics {
             .name_to_ptr
             .get("USubmixEffectDelayStatics")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectDelayStatics")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6943,6 +7166,13 @@ impl USubmixEffectDelayPreset {
             .name_to_ptr
             .get("USubmixEffectDelayPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectDelayPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7112,6 +7342,13 @@ impl USubmixEffectFilterPreset {
             .name_to_ptr
             .get("USubmixEffectFilterPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectFilterPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7352,6 +7589,13 @@ impl USubmixEffectFlexiverbPreset {
             .get("USubmixEffectFlexiverbPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectFlexiverbPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7406,6 +7650,13 @@ impl USubmixEffectMultibandCompressorPreset {
             .name_to_ptr
             .get("USubmixEffectMultibandCompressorPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectMultibandCompressorPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7560,6 +7811,13 @@ impl USubmixEffectStereoDelayPreset {
             .get("USubmixEffectStereoDelayPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectStereoDelayPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7614,6 +7872,13 @@ impl USubmixEffectStereoToQuadPreset {
             .name_to_ptr
             .get("USubmixEffectStereoToQuadPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectStereoToQuadPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7670,6 +7935,13 @@ impl USubmixEffectTapDelayPreset {
             .name_to_ptr
             .get("USubmixEffectTapDelayPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubmixEffectTapDelayPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7944,6 +8216,13 @@ impl UGranularSynth {
             .name_to_ptr
             .get("UGranularSynth")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGranularSynth")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8652,6 +8931,13 @@ impl UMonoWaveTableSynthPreset {
             .get("UMonoWaveTableSynthPreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMonoWaveTableSynthPreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8672,6 +8958,13 @@ impl USynthComponentMonoWaveTable {
             .name_to_ptr
             .get("USynthComponentMonoWaveTable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthComponentMonoWaveTable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10103,6 +10396,13 @@ impl USynthComponentToneGenerator {
             .get("USynthComponentToneGenerator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthComponentToneGenerator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10186,6 +10486,13 @@ impl USynthSamplePlayer {
             .name_to_ptr
             .get("USynthSamplePlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthSamplePlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10485,6 +10792,13 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
             .get("USynthesisUtilitiesBlueprintFunctionLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthesisUtilitiesBlueprintFunctionLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10647,6 +10961,13 @@ impl USynth2DSlider {
             .name_to_ptr
             .get("USynth2DSlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynth2DSlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10854,6 +11175,13 @@ impl USynthKnob {
             .name_to_ptr
             .get("USynthKnob")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USynthKnob")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

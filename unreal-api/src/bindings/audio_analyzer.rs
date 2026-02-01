@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,39 +29,41 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioAnalyzer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopAnalyzing"),
-            &raw mut __FUNCTION_PTRS.u_audio_analyzer_stop_analyzing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartAnalyzing"),
-            &raw mut __FUNCTION_PTRS.u_audio_analyzer_start_analyzing,
-        );
+        if let Some(class_ptr) = UAudioAnalyzer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopAnalyzing"),
+                &raw mut __FUNCTION_PTRS.u_audio_analyzer_stop_analyzing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartAnalyzing"),
+                &raw mut __FUNCTION_PTRS.u_audio_analyzer_start_analyzing,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioAnalyzerNRT::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSound"),
-            &raw mut __FUNCTION_PTRS.u_audio_analyzer_nrt_set_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AnalyzeAudio"),
-            &raw mut __FUNCTION_PTRS.u_audio_analyzer_nrt_analyze_audio,
-        );
+        if let Some(class_ptr) = UAudioAnalyzerNRT::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSound"),
+                &raw mut __FUNCTION_PTRS.u_audio_analyzer_nrt_set_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AnalyzeAudio"),
+                &raw mut __FUNCTION_PTRS.u_audio_analyzer_nrt_analyze_audio,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -74,6 +77,13 @@ impl UAudioAnalyzerAssetBase {
             .name_to_ptr
             .get("UAudioAnalyzerAssetBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioAnalyzerAssetBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -96,6 +106,13 @@ impl UAudioAnalyzerSettings {
             .get("UAudioAnalyzerSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioAnalyzerSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -116,6 +133,13 @@ impl UAudioAnalyzer {
             .name_to_ptr
             .get("UAudioAnalyzer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioAnalyzer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -216,6 +240,13 @@ impl UAudioAnalyzerNRTSettings {
             .get("UAudioAnalyzerNRTSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioAnalyzerNRTSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -240,6 +271,13 @@ impl UAudioAnalyzerNRT {
             .name_to_ptr
             .get("UAudioAnalyzerNRT")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioAnalyzerNRT")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -318,6 +356,13 @@ impl UAudioAnalyzerSubsystem {
             .name_to_ptr
             .get("UAudioAnalyzerSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioAnalyzerSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

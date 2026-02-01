@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -34,56 +35,59 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGroomSolverComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDeformerSolver"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_set_deformer_solver,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetGroomComponents"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_reset_groom_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_reset_collision_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGroomComponent"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_remove_groom_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCollisionComponent"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_remove_collision_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGroomComponent"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_add_groom_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCollisionComponent"),
-            &raw mut __FUNCTION_PTRS.u_groom_solver_component_add_collision_component,
-        );
+        if let Some(class_ptr) = UGroomSolverComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDeformerSolver"),
+                &raw mut __FUNCTION_PTRS.u_groom_solver_component_set_deformer_solver,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetGroomComponents"),
+                &raw mut __FUNCTION_PTRS.u_groom_solver_component_reset_groom_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_solver_component_reset_collision_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGroomComponent"),
+                &raw mut __FUNCTION_PTRS.u_groom_solver_component_remove_groom_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCollisionComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_groom_solver_component_remove_collision_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGroomComponent"),
+                &raw mut __FUNCTION_PTRS.u_groom_solver_component_add_groom_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCollisionComponent"),
+                &raw mut __FUNCTION_PTRS.u_groom_solver_component_add_collision_component,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -102,6 +106,13 @@ impl UGroomSolverComponent {
             .name_to_ptr
             .get("UGroomSolverComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroomSolverComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -232,901 +233,928 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UActorImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedActorCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_actor_import_test_functions_check_imported_actor_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckComponentPropertyValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_actor_import_test_functions_check_component_property_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckActorPropertyValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_actor_import_test_functions_check_actor_property_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckActorClassCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_actor_import_test_functions_check_actor_class_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckActorClass"),
-            &raw mut __FUNCTION_PTRS.u_actor_import_test_functions_check_actor_class,
-        );
+        if let Some(class_ptr) = UActorImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedActorCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_actor_import_test_functions_check_imported_actor_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckComponentPropertyValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_actor_import_test_functions_check_component_property_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckActorPropertyValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_actor_import_test_functions_check_actor_property_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckActorClassCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_actor_import_test_functions_check_actor_class_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckActorClass"),
+                &raw mut __FUNCTION_PTRS.u_actor_import_test_functions_check_actor_class,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedAnimSequenceCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_imported_anim_sequence_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckCurveKeyValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_curve_key_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckCurveKeyTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_curve_key_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckCurveKeyLeaveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_curve_key_leave_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckCurveKeyLeaveTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_curve_key_leave_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckCurveKeyArriveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_curve_key_arrive_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckCurveKeyArriveTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_curve_key_arrive_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckAnimationLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_animation_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckAnimationFrameNumber"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_import_test_functions_check_animation_frame_number,
-        );
+        if let Some(class_ptr) = UAnimationImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedAnimSequenceCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_imported_anim_sequence_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckCurveKeyValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_curve_key_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckCurveKeyTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_curve_key_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckCurveKeyLeaveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_curve_key_leave_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckCurveKeyLeaveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_curve_key_leave_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckCurveKeyArriveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_curve_key_arrive_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckCurveKeyArriveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_curve_key_arrive_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckAnimationLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_animation_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckAnimationFrameNumber"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_import_test_functions_check_animation_frame_number,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckObjectPathHasSubstring"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_import_test_functions_check_object_path_has_substring,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMetadataValue"),
-            &raw mut __FUNCTION_PTRS.u_asset_import_test_functions_check_metadata_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMetadataExist"),
-            &raw mut __FUNCTION_PTRS.u_asset_import_test_functions_check_metadata_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedMetadataCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_import_test_functions_check_imported_metadata_count,
-        );
+        if let Some(class_ptr) = UAssetImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckObjectPathHasSubstring"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_import_test_functions_check_object_path_has_substring,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMetadataValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_import_test_functions_check_metadata_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMetadataExist"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_import_test_functions_check_metadata_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedMetadataCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_import_test_functions_check_imported_metadata_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeResultImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckIfErrorOrWarningWasGenerated"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_result_import_test_functions_check_if_error_or_warning_was_generated,
-        );
+        if let Some(class_ptr) = UInterchangeResultImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckIfErrorOrWarningWasGenerated"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_result_import_test_functions_check_if_error_or_warning_was_generated,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelSequenceImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSequenceLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_import_test_functions_check_sequence_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionInterpolationMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_import_test_functions_check_section_interpolation_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_import_test_functions_check_section_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLevelSequenceCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_sequence_import_test_functions_check_level_sequence_count,
-        );
+        if let Some(class_ptr) = ULevelSequenceImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSequenceLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_import_test_functions_check_sequence_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionInterpolationMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_import_test_functions_check_section_interpolation_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_import_test_functions_check_section_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLevelSequenceCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_sequence_import_test_functions_check_level_sequence_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelVariantSetsImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVariantSetsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_variant_sets_import_test_functions_check_variant_sets_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVariantsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_variant_sets_import_test_functions_check_variants_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLevelVariantSetsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_variant_sets_import_test_functions_check_level_variant_sets_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBindingsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_level_variant_sets_import_test_functions_check_bindings_count,
-        );
+        if let Some(class_ptr) = ULevelVariantSetsImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVariantSetsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_variant_sets_import_test_functions_check_variant_sets_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVariantsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_variant_sets_import_test_functions_check_variants_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLevelVariantSetsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_variant_sets_import_test_functions_check_level_variant_sets_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBindingsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_level_variant_sets_import_test_functions_check_bindings_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULightImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightPosition"),
-            &raw mut __FUNCTION_PTRS.u_light_import_test_functions_check_light_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightIntensity"),
-            &raw mut __FUNCTION_PTRS.u_light_import_test_functions_check_light_intensity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightDirection"),
-            &raw mut __FUNCTION_PTRS.u_light_import_test_functions_check_light_direction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightColor"),
-            &raw mut __FUNCTION_PTRS.u_light_import_test_functions_check_light_color,
-        );
+        if let Some(class_ptr) = ULightImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_light_import_test_functions_check_light_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightIntensity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_light_import_test_functions_check_light_intensity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightDirection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_light_import_test_functions_check_light_direction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightColor"),
+                &raw mut __FUNCTION_PTRS.u_light_import_test_functions_check_light_color,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMaterialImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVectorParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_import_test_functions_check_vector_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckShadingModel"),
-            &raw mut __FUNCTION_PTRS.u_material_import_test_functions_check_shading_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckScalarParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_import_test_functions_check_scalar_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckOpacityMaskClipValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_import_test_functions_check_opacity_mask_clip_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckIsTwoSided"),
-            &raw mut __FUNCTION_PTRS.u_material_import_test_functions_check_is_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedMaterialInstanceCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_import_test_functions_check_imported_material_instance_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedMaterialCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_import_test_functions_check_imported_material_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBlendMode"),
-            &raw mut __FUNCTION_PTRS.u_material_import_test_functions_check_blend_mode,
-        );
+        if let Some(class_ptr) = UMaterialImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVectorParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_vector_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckShadingModel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_shading_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckScalarParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_scalar_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckOpacityMaskClipValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_opacity_mask_clip_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckIsTwoSided"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_is_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedMaterialInstanceCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_imported_material_instance_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedMaterialCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_imported_material_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBlendMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_import_test_functions_check_blend_mode,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMaterialXTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckInputConnected"),
-            &raw mut __FUNCTION_PTRS.u_material_x_test_functions_check_input_connected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckConnectedInputCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_x_test_functions_check_connected_input_count,
-        );
+        if let Some(class_ptr) = UMaterialXTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckInputConnected"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_x_test_functions_check_input_connected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckConnectedInputCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_x_test_functions_check_connected_input_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPointLightImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightFalloffExponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_point_light_import_test_functions_check_light_falloff_exponent,
-        );
+        if let Some(class_ptr) = UPointLightImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightFalloffExponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_point_light_import_test_functions_check_light_falloff_exponent,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USkeletalMeshImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVertexIndexPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_vertex_index_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVertexIndexNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_vertex_index_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVertexIndexColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_vertex_index_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckUVChannelCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_uv_channel_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTriangleCountInSection"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_triangle_count_in_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSocketName"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_socket_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSocketLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_socket_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSocketCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_socket_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSkinnedVertexCountForBone"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_skinned_vertex_count_for_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionMaterialName"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_section_material_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionImportedMaterialSlotName"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_section_imported_material_slot_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_section_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderVertexCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_render_vertex_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderTriangleCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_render_triangle_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMorphTargetName"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_morph_target_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMorphTargetCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_morph_target_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMaterialSlotCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_material_slot_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLodCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_lod_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedSkeletalMeshCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_imported_skeletal_mesh_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBonePosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_bone_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBoneCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_import_test_functions_check_bone_count,
-        );
+        if let Some(class_ptr) = USkeletalMeshImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVertexIndexPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_vertex_index_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVertexIndexNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_vertex_index_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVertexIndexColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_vertex_index_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckUVChannelCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_uv_channel_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTriangleCountInSection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_triangle_count_in_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSocketName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_socket_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSocketLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_socket_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSocketCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_socket_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSkinnedVertexCountForBone"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_skinned_vertex_count_for_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionMaterialName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_section_material_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionImportedMaterialSlotName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_section_imported_material_slot_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_section_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderVertexCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_render_vertex_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderTriangleCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_render_triangle_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMorphTargetName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_morph_target_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMorphTargetCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_morph_target_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMaterialSlotCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_material_slot_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLodCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_lod_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedSkeletalMeshCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_imported_skeletal_mesh_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBonePosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_bone_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBoneCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_import_test_functions_check_bone_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USpotLightImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightOuterConeAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_spot_light_import_test_functions_check_light_outer_cone_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLightInnerConeAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_spot_light_import_test_functions_check_light_inner_cone_angle,
-        );
+        if let Some(class_ptr) = USpotLightImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightOuterConeAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_spot_light_import_test_functions_check_light_outer_cone_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLightInnerConeAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_spot_light_import_test_functions_check_light_inner_cone_angle,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStaticMeshImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVertexIndexPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_vertex_index_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckVertexCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_vertex_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckUVChannelCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_uv_channel_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTriangleCountInPolygonGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_triangle_count_in_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTriangleCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_triangle_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckThatMeshHasQuadsOrNgons"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_that_mesh_has_quads_or_ngons,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSocketName"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_socket_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSocketLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_socket_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSocketCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_socket_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSimpleCollisionPrimitiveCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_simple_collision_primitive_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionMaterialName"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_section_material_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionMaterialIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_section_material_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionImportedMaterialSlotName"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_section_imported_material_slot_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSectionCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_section_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderVertexIndexNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_render_vertex_index_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderVertexIndexColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_render_vertex_index_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderVertexCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_render_vertex_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderUVChannelCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_render_uv_channel_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderTriangleCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_render_triangle_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckRenderHasVertexColors"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_render_has_vertex_colors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckPolygonGroupImportedMaterialSlotName"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_polygon_group_imported_material_slot_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckPolygonGroupCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_polygon_group_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckPolygonCountInPolygonGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_polygon_count_in_polygon_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckPolygonCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_polygon_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckNaniteSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_nanite_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMaterialSlotCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_material_slot_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckLodCount"),
-            &raw mut __FUNCTION_PTRS.u_static_mesh_import_test_functions_check_lod_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedStaticMeshCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_imported_static_mesh_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedMaterialSlotName"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_imported_material_slot_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBoundingBoxSizeLessThan"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_bounding_box_size_less_than,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBoundingBoxSizeGreaterThan"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_bounding_box_size_greater_than,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBoundingBoxSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_bounding_box_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckAgainstGroundTruth"),
-            &raw mut __FUNCTION_PTRS
-                .u_static_mesh_import_test_functions_check_against_ground_truth,
-        );
+        if let Some(class_ptr) = UStaticMeshImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVertexIndexPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_vertex_index_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckVertexCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_vertex_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckUVChannelCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_uv_channel_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTriangleCountInPolygonGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_triangle_count_in_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTriangleCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_triangle_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckThatMeshHasQuadsOrNgons"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_that_mesh_has_quads_or_ngons,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSocketName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_socket_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSocketLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_socket_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSocketCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_socket_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSimpleCollisionPrimitiveCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_simple_collision_primitive_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionMaterialName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_section_material_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionMaterialIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_section_material_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionImportedMaterialSlotName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_section_imported_material_slot_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSectionCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_section_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderVertexIndexNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_render_vertex_index_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderVertexIndexColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_render_vertex_index_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderVertexCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_render_vertex_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderUVChannelCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_render_uv_channel_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderTriangleCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_render_triangle_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckRenderHasVertexColors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_render_has_vertex_colors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckPolygonGroupImportedMaterialSlotName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_polygon_group_imported_material_slot_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckPolygonGroupCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_polygon_group_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckPolygonCountInPolygonGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_polygon_count_in_polygon_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckPolygonCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_polygon_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckNaniteSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_nanite_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMaterialSlotCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_material_slot_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckLodCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_lod_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedStaticMeshCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_imported_static_mesh_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedMaterialSlotName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_imported_material_slot_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBoundingBoxSizeLessThan"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_bounding_box_size_less_than,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBoundingBoxSizeGreaterThan"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_bounding_box_size_greater_than,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBoundingBoxSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_bounding_box_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckAgainstGroundTruth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_static_mesh_import_test_functions_check_against_ground_truth,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTextureImportTestFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTextureFilter"),
-            &raw mut __FUNCTION_PTRS.u_texture_import_test_functions_check_texture_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTextureAddressZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_texture_import_test_functions_check_texture_address_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTextureAddressY"),
-            &raw mut __FUNCTION_PTRS
-                .u_texture_import_test_functions_check_texture_address_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTextureAddressX"),
-            &raw mut __FUNCTION_PTRS
-                .u_texture_import_test_functions_check_texture_address_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckImportedTextureCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_texture_import_test_functions_check_imported_texture_count,
-        );
+        if let Some(class_ptr) = UTextureImportTestFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTextureFilter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_texture_import_test_functions_check_texture_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTextureAddressZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_texture_import_test_functions_check_texture_address_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTextureAddressY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_texture_import_test_functions_check_texture_address_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTextureAddressX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_texture_import_test_functions_check_texture_address_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckImportedTextureCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_texture_import_test_functions_check_imported_texture_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeImportTestPlan::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunThisTest"),
-            &raw mut __FUNCTION_PTRS.u_interchange_import_test_plan_run_this_test,
-        );
+        if let Some(class_ptr) = UInterchangeImportTestPlan::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunThisTest"),
+                &raw mut __FUNCTION_PTRS.u_interchange_import_test_plan_run_this_test,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeTestsBlueprintFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPipelinePropertiesAsJSON"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_tests_blueprint_function_library_get_pipeline_properties_as_json,
-        );
+        if let Some(class_ptr) = UInterchangeTestsBlueprintFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPipelinePropertiesAsJSON"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_tests_blueprint_function_library_get_pipeline_properties_as_json,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1151,6 +1179,13 @@ impl UInterchangeImportTestSettings {
             .get("UInterchangeImportTestSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeImportTestSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1171,6 +1206,13 @@ impl UImportTestFunctionsBase {
             .name_to_ptr
             .get("UImportTestFunctionsBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImportTestFunctionsBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1193,6 +1235,13 @@ impl UActorImportTestFunctions {
             .get("UActorImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1213,6 +1262,13 @@ impl UAnimationImportTestFunctions {
             .name_to_ptr
             .get("UAnimationImportTestFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationImportTestFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1235,6 +1291,13 @@ impl UAssetImportTestFunctions {
             .get("UAssetImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1255,6 +1318,13 @@ impl UInterchangeResultImportTestFunctions {
             .name_to_ptr
             .get("UInterchangeResultImportTestFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeResultImportTestFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1277,6 +1347,13 @@ impl ULevelSequenceImportTestFunctions {
             .get("ULevelSequenceImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelSequenceImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1297,6 +1374,13 @@ impl ULevelVariantSetsImportTestFunctions {
             .name_to_ptr
             .get("ULevelVariantSetsImportTestFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelVariantSetsImportTestFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1319,6 +1403,13 @@ impl ULightImportTestFunctions {
             .get("ULightImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULightImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1339,6 +1430,13 @@ impl UMaterialImportTestFunctions {
             .name_to_ptr
             .get("UMaterialImportTestFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialImportTestFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1361,6 +1459,13 @@ impl UMaterialXTestFunctions {
             .get("UMaterialXTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialXTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1381,6 +1486,13 @@ impl UPointLightImportTestFunctions {
             .name_to_ptr
             .get("UPointLightImportTestFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPointLightImportTestFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1403,6 +1515,13 @@ impl USkeletalMeshImportTestFunctions {
             .get("USkeletalMeshImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1423,6 +1542,13 @@ impl USpotLightImportTestFunctions {
             .name_to_ptr
             .get("USpotLightImportTestFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USpotLightImportTestFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1445,6 +1571,13 @@ impl UStaticMeshImportTestFunctions {
             .get("UStaticMeshImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStaticMeshImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1466,6 +1599,13 @@ impl UTextureImportTestFunctions {
             .get("UTextureImportTestFunctions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextureImportTestFunctions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1486,6 +1626,13 @@ impl UInterchangeImportTestPlan {
             .name_to_ptr
             .get("UInterchangeImportTestPlan")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeImportTestPlan")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1533,6 +1680,13 @@ impl UInterchangeImportTestStepBase {
             .get("UInterchangeImportTestStepBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeImportTestStepBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1553,6 +1707,13 @@ impl UInterchangeImportTestStepImport {
             .name_to_ptr
             .get("UInterchangeImportTestStepImport")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeImportTestStepImport")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1575,6 +1736,13 @@ impl UInterchangeImportTestStepReimport {
             .get("UInterchangeImportTestStepReimport")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeImportTestStepReimport")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1595,6 +1763,13 @@ impl UInterchangeTestsBlueprintFunctionLibrary {
             .name_to_ptr
             .get("UInterchangeTestsBlueprintFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTestsBlueprintFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

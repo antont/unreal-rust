@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -150,517 +151,530 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDynamicMeshProcessorBlueprint::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProcessDynamicMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_dynamic_mesh_processor_blueprint_process_dynamic_mesh,
-        );
+        if let Some(class_ptr) = UDynamicMeshProcessorBlueprint::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProcessDynamicMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_processor_blueprint_process_dynamic_mesh,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBaseDynamicMeshComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewModeOverridesEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_view_mode_overrides_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVertexColorSpaceTransformMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShadowsEnabled"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_shadows_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSecondaryRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_secondary_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSecondaryBuffersVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_secondary_buffers_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOverrideWireframeRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_override_wireframe_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOverrideSecondaryWireframeRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOverrideRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_override_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeshDrawPath"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_mesh_draw_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableWireframeRenderPass"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_enable_wireframe_render_pass,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableRaytracing"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_enable_raytracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableFlatShading"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_enable_flat_shading,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDistanceFieldMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_distance_field_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConstantOverrideColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_constant_override_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorOverrideMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_set_color_override_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasOverrideRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_has_override_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewModeOverridesEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_view_mode_overrides_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVertexColorSpaceTransformMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetShadowsEnabled"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_shadows_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSecondaryRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_secondary_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSecondaryBuffersVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_secondary_buffers_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverrideWireframeRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_override_wireframe_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverrideSecondaryWireframeRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverrideRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_override_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshDrawPath"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_mesh_draw_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFlatShadingEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_flat_shading_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnableWireframeRenderPass"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_enable_wireframe_render_pass,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnableRaytracing"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_enable_raytracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicMesh"),
-            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_dynamic_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDistanceFieldMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_distance_field_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConstantOverrideColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_constant_override_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetColorOverrideMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_get_color_override_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSecondaryRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_clear_secondary_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideWireframeRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_clear_override_wireframe_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideSecondaryWireframeRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideRenderMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_base_dynamic_mesh_component_clear_override_render_material,
-        );
+        if let Some(class_ptr) = UBaseDynamicMeshComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewModeOverridesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_view_mode_overrides_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVertexColorSpaceTransformMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShadowsEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_shadows_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSecondaryRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_secondary_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSecondaryBuffersVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_secondary_buffers_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOverrideWireframeRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_wireframe_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOverrideSecondaryWireframeRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOverrideRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeshDrawPath"),
+                &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_mesh_draw_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableWireframeRenderPass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_wireframe_render_pass,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableRaytracing"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_raytracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableFlatShading"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_flat_shading,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDistanceFieldMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_distance_field_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConstantOverrideColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_constant_override_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorOverrideMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_color_override_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasOverrideRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_has_override_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewModeOverridesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_view_mode_overrides_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVertexColorSpaceTransformMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetShadowsEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_shadows_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSecondaryRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_secondary_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSecondaryBuffersVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_secondary_buffers_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverrideWireframeRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_wireframe_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverrideSecondaryWireframeRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverrideRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshDrawPath"),
+                &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_mesh_draw_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFlatShadingEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_flat_shading_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnableWireframeRenderPass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_enable_wireframe_render_pass,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnableRaytracing"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_enable_raytracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicMesh"),
+                &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_dynamic_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDistanceFieldMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_distance_field_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConstantOverrideColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_constant_override_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetColorOverrideMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_color_override_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSecondaryRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_secondary_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOverrideWireframeRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_wireframe_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ClearOverrideSecondaryWireframeRenderMaterial",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOverrideRenderMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_render_material,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDynamicMeshComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ValidateMaterialSlots"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_validate_material_slots,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateCollision"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_update_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTangentsType"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_set_tangents_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDynamicMesh"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_set_dynamic_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDeferredCollisionUpdatesEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_dynamic_mesh_component_set_deferred_collision_updates_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetComplexAsSimpleCollisionEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_dynamic_mesh_component_set_complex_as_simple_collision_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowsGeometrySelection"),
-            &raw mut __FUNCTION_PTRS
-                .u_dynamic_mesh_component_set_allows_geometry_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotifyMeshVertexAttributesModified"),
-            &raw mut __FUNCTION_PTRS
-                .u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotifyMeshModified"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_notify_mesh_modified,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentsTypePure"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_get_tangents_type_pure,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentsType"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_get_tangents_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableComplexAsSimpleCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_dynamic_mesh_component_enable_complex_as_simple_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConfigureMaterialSet"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_configure_material_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AllowsGeometrySelection"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_allows_geometry_selection,
-        );
+        if let Some(class_ptr) = UDynamicMeshComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ValidateMaterialSlots"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_validate_material_slots,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateCollision"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_update_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTangentsType"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_set_tangents_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDynamicMesh"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_set_dynamic_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDeferredCollisionUpdatesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_deferred_collision_updates_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetComplexAsSimpleCollisionEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_complex_as_simple_collision_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowsGeometrySelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_allows_geometry_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotifyMeshVertexAttributesModified"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotifyMeshModified"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_notify_mesh_modified,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentsTypePure"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_get_tangents_type_pure,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentsType"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_get_tangents_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableComplexAsSimpleCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_component_enable_complex_as_simple_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConfigureMaterialSet"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_configure_material_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AllowsGeometrySelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dynamic_mesh_component_allows_geometry_selection,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ADynamicMeshActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseComputeMesh"),
-            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_release_compute_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseAllComputeMeshes"),
-            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_release_all_compute_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicMeshComponent"),
-            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_get_dynamic_mesh_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetComputeMeshPool"),
-            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_get_compute_mesh_pool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FreeAllComputeMeshes"),
-            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_free_all_compute_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AllocateComputeMesh"),
-            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_allocate_compute_mesh,
-        );
+        if let Some(class_ptr) = ADynamicMeshActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseComputeMesh"),
+                &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_release_compute_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseAllComputeMeshes"),
+                &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_release_all_compute_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicMeshComponent"),
+                &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_get_dynamic_mesh_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetComputeMeshPool"),
+                &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_get_compute_mesh_pool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FreeAllComputeMeshes"),
+                &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_free_all_compute_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AllocateComputeMesh"),
+                &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_allocate_compute_mesh,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDynamicMesh::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToCube"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_reset_to_cube,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_reset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEmpty"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_is_empty,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriangleCount"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_get_triangle_count,
-        );
+        if let Some(class_ptr) = UDynamicMesh::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToCube"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_reset_to_cube,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reset"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_reset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEmpty"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_is_empty,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriangleCount"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_get_triangle_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDynamicMeshPool::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReturnMesh"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_return_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReturnAllMeshes"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_return_all_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestMesh"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_request_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FreeAllMeshes"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_free_all_meshes,
-        );
+        if let Some(class_ptr) = UDynamicMeshPool::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReturnMesh"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_return_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReturnAllMeshes"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_return_all_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestMesh"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_request_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FreeAllMeshes"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_free_all_meshes,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -682,6 +696,13 @@ impl UDynamicMeshProcessorBlueprint {
             .name_to_ptr
             .get("UDynamicMeshProcessorBlueprint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshProcessorBlueprint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -747,6 +768,13 @@ impl UMeshCommandChangeTarget {
             .get("UMeshCommandChangeTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshCommandChangeTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -769,6 +797,13 @@ impl UMeshReplacementCommandChangeTarget {
             .get("UMeshReplacementCommandChangeTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshReplacementCommandChangeTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -790,6 +825,13 @@ impl UMeshVertexCommandChangeTarget {
             .name_to_ptr
             .get("UMeshVertexCommandChangeTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexCommandChangeTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -826,6 +868,13 @@ impl UBaseDynamicMeshComponent {
             .name_to_ptr
             .get("UBaseDynamicMeshComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseDynamicMeshComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1880,6 +1929,13 @@ impl UDynamicMeshComponent {
             .get("UDynamicMeshComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2381,6 +2437,13 @@ impl ADynamicMeshActor {
             .get("ADynamicMeshActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADynamicMeshActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2563,6 +2626,13 @@ impl UDynamicMeshGenerator {
             .get("UDynamicMeshGenerator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshGenerator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2583,6 +2653,13 @@ impl UDynamicMesh {
             .name_to_ptr
             .get("UDynamicMesh")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMesh")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2708,6 +2785,13 @@ impl UDynamicMeshPool {
             .name_to_ptr
             .get("UDynamicMeshPool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshPool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

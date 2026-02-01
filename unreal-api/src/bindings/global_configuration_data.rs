@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -44,103 +45,104 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGlobalConfigurationDataBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataTextWithDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataText"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataStruct"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataStringWithDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataString"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataIntWithDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataInt"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataFloatWithDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataBoolWithDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigDataBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_global_configuration_data_blueprint_library_get_config_data_bool,
-        );
+        if let Some(class_ptr) = UGlobalConfigurationDataBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataTextWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataStruct"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataStringWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataIntWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataFloatWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataBoolWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -154,6 +156,13 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             .name_to_ptr
             .get("UGlobalConfigurationDataBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGlobalConfigurationDataBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

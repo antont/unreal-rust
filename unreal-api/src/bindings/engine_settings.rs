@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,30 +27,31 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameMapsSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkipAssigningGamepadToPlayer1"),
-            &raw mut __FUNCTION_PTRS
-                .u_game_maps_settings_set_skip_assigning_gamepad_to_player1,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkipAssigningGamepadToPlayer1"),
-            &raw mut __FUNCTION_PTRS
-                .u_game_maps_settings_get_skip_assigning_gamepad_to_player1,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGameMapsSettings"),
-            &raw mut __FUNCTION_PTRS.u_game_maps_settings_get_game_maps_settings,
-        );
+        if let Some(class_ptr) = UGameMapsSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkipAssigningGamepadToPlayer1"),
+                &raw mut __FUNCTION_PTRS
+                    .u_game_maps_settings_set_skip_assigning_gamepad_to_player1,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkipAssigningGamepadToPlayer1"),
+                &raw mut __FUNCTION_PTRS
+                    .u_game_maps_settings_get_skip_assigning_gamepad_to_player1,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGameMapsSettings"),
+                &raw mut __FUNCTION_PTRS.u_game_maps_settings_get_game_maps_settings,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -63,6 +65,13 @@ impl UGameMapsSettings {
             .name_to_ptr
             .get("UGameMapsSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameMapsSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -169,6 +178,13 @@ impl UGameNetworkManagerSettings {
             .get("UGameNetworkManagerSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameNetworkManagerSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -189,6 +205,13 @@ impl UGameSessionSettings {
             .name_to_ptr
             .get("UGameSessionSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameSessionSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -211,6 +234,13 @@ impl UGeneralEngineSettings {
             .get("UGeneralEngineSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeneralEngineSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -231,6 +261,13 @@ impl UGeneralProjectSettings {
             .name_to_ptr
             .get("UGeneralProjectSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeneralProjectSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -253,6 +290,13 @@ impl UHudSettings {
             .get("UHudSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHudSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -273,6 +317,13 @@ impl UConsoleSettings {
             .name_to_ptr
             .get("UConsoleSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConsoleSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

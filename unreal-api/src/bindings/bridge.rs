@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -64,165 +65,168 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNodePort::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsNodeRunning"),
-            &raw mut __FUNCTION_PTRS.u_node_port_is_node_running,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodePort"),
-            &raw mut __FUNCTION_PTRS.u_node_port_get_node_port,
-        );
+        if let Some(class_ptr) = UNodePort::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsNodeRunning"),
+                &raw mut __FUNCTION_PTRS.u_node_port_is_node_running,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodePort"),
+                &raw mut __FUNCTION_PTRS.u_node_port_get_node_port,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBrowserBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartNodeProcess"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_start_node_process,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowLoginDialog"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_show_login_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowDialog"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_show_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SendSuccess"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_send_success,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SendFailure"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_send_failure,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveAuthToken"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_save_auth_token,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RestartNodeProcess"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_restart_node_process,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenMegascansPluginSettings"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_open_megascans_plugin_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenExternalUrl"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_open_external_url,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnExitCallback"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_on_exit_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDroppedCallback"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_on_dropped_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDropDiscardedCallback"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_on_drop_discarded_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnBulkExportMetahumansCallback"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_on_bulk_export_metahumans_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Logout"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_logout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetProjectPath"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_get_project_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAuthToken"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_get_auth_token,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportDataToMSPlugin"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_export_data_to_ms_plugin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DragStarted"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_drag_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DialogSuccessCallback"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_dialog_success_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DialogFailCallback"),
-            &raw mut __FUNCTION_PTRS.u_browser_binding_dialog_fail_callback,
-        );
+        if let Some(class_ptr) = UBrowserBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartNodeProcess"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_start_node_process,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowLoginDialog"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_show_login_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowDialog"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_show_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SendSuccess"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_send_success,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SendFailure"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_send_failure,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveAuthToken"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_save_auth_token,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RestartNodeProcess"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_restart_node_process,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenMegascansPluginSettings"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_open_megascans_plugin_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenExternalUrl"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_open_external_url,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnExitCallback"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_on_exit_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDroppedCallback"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_on_dropped_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDropDiscardedCallback"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_on_drop_discarded_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnBulkExportMetahumansCallback"),
+                &raw mut __FUNCTION_PTRS
+                    .u_browser_binding_on_bulk_export_metahumans_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Logout"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_logout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetProjectPath"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_get_project_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAuthToken"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_get_auth_token,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportDataToMSPlugin"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_export_data_to_ms_plugin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DragStarted"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_drag_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DialogSuccessCallback"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_dialog_success_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DialogFailCallback"),
+                &raw mut __FUNCTION_PTRS.u_browser_binding_dialog_fail_callback,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -236,6 +240,9 @@ impl UNodePort {
             .name_to_ptr
             .get("UNodePort")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UNodePort").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -257,6 +264,13 @@ impl UBrowserBinding {
             .name_to_ptr
             .get("UBrowserBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBrowserBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,15 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAutomationUtilsBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TakeGameplayAutomationScreenshot"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_utils_blueprint_library_take_gameplay_automation_screenshot,
-        );
+        if let Some(class_ptr) = UAutomationUtilsBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TakeGameplayAutomationScreenshot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_utils_blueprint_library_take_gameplay_automation_screenshot,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -44,6 +46,13 @@ impl UAutomationUtilsBlueprintLibrary {
             .name_to_ptr
             .get("UAutomationUtilsBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationUtilsBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

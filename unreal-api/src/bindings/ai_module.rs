@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -464,1742 +465,1817 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAIAsyncTaskBlueprintProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMoveCompleted"),
-            &raw mut __FUNCTION_PTRS.uai_async_task_blueprint_proxy_on_move_completed,
-        );
+        if let Some(class_ptr) = UAIAsyncTaskBlueprintProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMoveCompleted"),
+                &raw mut __FUNCTION_PTRS.uai_async_task_blueprint_proxy_on_move_completed,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AAIController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UseBlackboard"),
-            &raw mut __FUNCTION_PTRS.aai_controller_use_blackboard,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnclaimTaskResource"),
-            &raw mut __FUNCTION_PTRS.aai_controller_unclaim_task_resource,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPathFollowingComponent"),
-            &raw mut __FUNCTION_PTRS.aai_controller_set_path_following_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMoveBlockDetection"),
-            &raw mut __FUNCTION_PTRS.aai_controller_set_move_block_detection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunBehaviorTree"),
-            &raw mut __FUNCTION_PTRS.aai_controller_run_behavior_tree,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnUsingBlackBoard"),
-            &raw mut __FUNCTION_PTRS.aai_controller_on_using_black_board,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnGameplayTaskResourcesClaimed"),
-            &raw mut __FUNCTION_PTRS.aai_controller_on_gameplay_task_resources_claimed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveToLocation"),
-            &raw mut __FUNCTION_PTRS.aai_controller_move_to_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveToActor"),
-            &raw mut __FUNCTION_PTRS.aai_controller_move_to_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_SetFocus"),
-            &raw mut __FUNCTION_PTRS.aai_controller_k2_set_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_SetFocalPoint"),
-            &raw mut __FUNCTION_PTRS.aai_controller_k2_set_focal_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_ClearFocus"),
-            &raw mut __FUNCTION_PTRS.aai_controller_k2_clear_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasPartialPath"),
-            &raw mut __FUNCTION_PTRS.aai_controller_has_partial_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathFollowingComponent"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_path_following_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMoveStatus"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_move_status,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetImmediateMoveDestination"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_immediate_move_destination,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFocusActor"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_focus_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFocalPointOnActor"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_focal_point_on_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFocalPoint"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_focal_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAIPerceptionComponent"),
-            &raw mut __FUNCTION_PTRS.aai_controller_get_ai_perception_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClaimTaskResource"),
-            &raw mut __FUNCTION_PTRS.aai_controller_claim_task_resource,
-        );
+        if let Some(class_ptr) = AAIController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UseBlackboard"),
+                &raw mut __FUNCTION_PTRS.aai_controller_use_blackboard,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnclaimTaskResource"),
+                &raw mut __FUNCTION_PTRS.aai_controller_unclaim_task_resource,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPathFollowingComponent"),
+                &raw mut __FUNCTION_PTRS.aai_controller_set_path_following_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMoveBlockDetection"),
+                &raw mut __FUNCTION_PTRS.aai_controller_set_move_block_detection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunBehaviorTree"),
+                &raw mut __FUNCTION_PTRS.aai_controller_run_behavior_tree,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnUsingBlackBoard"),
+                &raw mut __FUNCTION_PTRS.aai_controller_on_using_black_board,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnGameplayTaskResourcesClaimed"),
+                &raw mut __FUNCTION_PTRS
+                    .aai_controller_on_gameplay_task_resources_claimed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveToLocation"),
+                &raw mut __FUNCTION_PTRS.aai_controller_move_to_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveToActor"),
+                &raw mut __FUNCTION_PTRS.aai_controller_move_to_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_SetFocus"),
+                &raw mut __FUNCTION_PTRS.aai_controller_k2_set_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_SetFocalPoint"),
+                &raw mut __FUNCTION_PTRS.aai_controller_k2_set_focal_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_ClearFocus"),
+                &raw mut __FUNCTION_PTRS.aai_controller_k2_clear_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasPartialPath"),
+                &raw mut __FUNCTION_PTRS.aai_controller_has_partial_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathFollowingComponent"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_path_following_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMoveStatus"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_move_status,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetImmediateMoveDestination"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_immediate_move_destination,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFocusActor"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_focus_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFocalPointOnActor"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_focal_point_on_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFocalPoint"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_focal_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAIPerceptionComponent"),
+                &raw mut __FUNCTION_PTRS.aai_controller_get_ai_perception_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClaimTaskResource"),
+                &raw mut __FUNCTION_PTRS.aai_controller_claim_task_resource,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAISystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AILoggingVerbose"),
-            &raw mut __FUNCTION_PTRS.uai_system_ai_logging_verbose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AIIgnorePlayers"),
-            &raw mut __FUNCTION_PTRS.uai_system_ai_ignore_players,
-        );
+        if let Some(class_ptr) = UAISystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AILoggingVerbose"),
+                &raw mut __FUNCTION_PTRS.uai_system_ai_logging_verbose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AIIgnorePlayers"),
+                &raw mut __FUNCTION_PTRS.uai_system_ai_ignore_players,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBrainComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopLogic"),
-            &raw mut __FUNCTION_PTRS.u_brain_component_stop_logic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartLogic"),
-            &raw mut __FUNCTION_PTRS.u_brain_component_start_logic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RestartLogic"),
-            &raw mut __FUNCTION_PTRS.u_brain_component_restart_logic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRunning"),
-            &raw mut __FUNCTION_PTRS.u_brain_component_is_running,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut __FUNCTION_PTRS.u_brain_component_is_paused,
-        );
+        if let Some(class_ptr) = UBrainComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopLogic"),
+                &raw mut __FUNCTION_PTRS.u_brain_component_stop_logic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartLogic"),
+                &raw mut __FUNCTION_PTRS.u_brain_component_start_logic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RestartLogic"),
+                &raw mut __FUNCTION_PTRS.u_brain_component_restart_logic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRunning"),
+                &raw mut __FUNCTION_PTRS.u_brain_component_is_running,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPaused"),
+                &raw mut __FUNCTION_PTRS.u_brain_component_is_paused,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBehaviorTreeComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDynamicSubtree"),
-            &raw mut __FUNCTION_PTRS.u_behavior_tree_component_set_dynamic_subtree,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTagCooldownEndTime"),
-            &raw mut __FUNCTION_PTRS.u_behavior_tree_component_get_tag_cooldown_end_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCooldownTagDuration"),
-            &raw mut __FUNCTION_PTRS.u_behavior_tree_component_add_cooldown_tag_duration,
-        );
+        if let Some(class_ptr) = UBehaviorTreeComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDynamicSubtree"),
+                &raw mut __FUNCTION_PTRS.u_behavior_tree_component_set_dynamic_subtree,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTagCooldownEndTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_behavior_tree_component_get_tag_cooldown_end_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCooldownTagDuration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_behavior_tree_component_add_cooldown_tag_duration,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlackboardAssetProvider::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardAsset"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_asset_provider_get_blackboard_asset,
-        );
+        if let Some(class_ptr) = UBlackboardAssetProvider::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardAsset"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_asset_provider_get_blackboard_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlackboardComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsVector"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsString"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsRotator"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsObject"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsName"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsInt"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsFloat"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsEnum"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsClass"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueAsBool"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVectorValueSet"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_is_vector_value_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsVector"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsString"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsRotator"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsObject"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsName"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsInt"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsFloat"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsEnum"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsClass"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueAsBool"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRotationFromEntry"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_rotation_from_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocationFromEntry"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_location_from_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearValue"),
-            &raw mut __FUNCTION_PTRS.u_blackboard_component_clear_value,
-        );
+        if let Some(class_ptr) = UBlackboardComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsVector"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsString"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsRotator"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsObject"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsName"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsInt"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsFloat"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsEnum"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsClass"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueAsBool"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVectorValueSet"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_is_vector_value_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsVector"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsString"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsRotator"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsObject"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsName"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsInt"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsFloat"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsEnum"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsClass"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueAsBool"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRotationFromEntry"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_rotation_from_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocationFromEntry"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_get_location_from_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearValue"),
+                &raw mut __FUNCTION_PTRS.u_blackboard_component_clear_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBTFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopUsingExternalEvent"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_stop_using_external_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartUsingExternalEvent"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_start_using_external_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsVector"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsString"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsRotator"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsObject"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsName"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsInt"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsFloat"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsEnum"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsClass"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlackboardValueAsBool"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwnersBlackboard"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_owners_blackboard,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwnerComponent"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_owner_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsVector"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsString"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsRotator"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsObject"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsName"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsInt"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsFloat"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsEnum"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsClass"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsBool"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboardValueAsActor"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearBlackboardValueAsVector"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_function_library_clear_blackboard_value_as_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearBlackboardValue"),
-            &raw mut __FUNCTION_PTRS.ubt_function_library_clear_blackboard_value,
-        );
+        if let Some(class_ptr) = UBTFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopUsingExternalEvent"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_stop_using_external_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartUsingExternalEvent"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_start_using_external_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsVector"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsString"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsObject"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsName"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsInt"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsEnum"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsClass"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlackboardValueAsBool"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwnersBlackboard"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_get_owners_blackboard,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwnerComponent"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_get_owner_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsVector"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsString"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsObject"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsName"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsInt"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsEnum"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsClass"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsBool"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboardValueAsActor"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearBlackboardValueAsVector"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_function_library_clear_blackboard_value_as_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearBlackboardValue"),
+                &raw mut __FUNCTION_PTRS.ubt_function_library_clear_blackboard_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBTDecorator_BlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTickAI"),
-            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_tick_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveObserverDeactivatedAI"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_observer_deactivated_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveObserverDeactivated"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_observer_deactivated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveObserverActivatedAI"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_observer_activated_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveObserverActivated"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_observer_activated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExecutionStartAI"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_execution_start_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExecutionStart"),
-            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_execution_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExecutionFinishAI"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_execution_finish_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExecutionFinish"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_receive_execution_finish,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PerformConditionCheckAI"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_perform_condition_check_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PerformConditionCheck"),
-            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_perform_condition_check,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDecoratorObserverActive"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_is_decorator_observer_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDecoratorExecutionActive"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_decorator_blueprint_base_is_decorator_execution_active,
-        );
+        if let Some(class_ptr) = UBTDecorator_BlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTickAI"),
+                &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_tick_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTick"),
+                &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveObserverDeactivatedAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_deactivated_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveObserverDeactivated"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_deactivated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveObserverActivatedAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_activated_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveObserverActivated"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_activated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExecutionStartAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_start_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExecutionStart"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExecutionFinishAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_finish_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExecutionFinish"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_finish,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PerformConditionCheckAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_perform_condition_check_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PerformConditionCheck"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_perform_condition_check,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDecoratorObserverActive"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_is_decorator_observer_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDecoratorExecutionActive"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_is_decorator_execution_active,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBTService_BlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTickAI"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_tick_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveSearchStartAI"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_search_start_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveSearchStart"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_search_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveDeactivationAI"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_deactivation_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveDeactivation"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_deactivation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveActivationAI"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_activation_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveActivation"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_activation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsServiceActive"),
-            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_is_service_active,
-        );
+        if let Some(class_ptr) = UBTService_BlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTickAI"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_tick_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTick"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveSearchStartAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_search_start_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveSearchStart"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_search_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveDeactivationAI"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_deactivation_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveDeactivation"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_deactivation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveActivationAI"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_activation_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveActivation"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_activation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsServiceActive"),
+                &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_is_service_active,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBTTask_BlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFinishOnMessageWithId"),
-            &raw mut __FUNCTION_PTRS
-                .ubt_task_blueprint_base_set_finish_on_message_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFinishOnMessage"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_set_finish_on_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTickAI"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_tick_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExecuteAI"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_execute_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExecute"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_execute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveAbortAI"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_abort_ai,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveAbort"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_abort,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTaskExecuting"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_is_task_executing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTaskAborting"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_is_task_aborting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishExecute"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_finish_execute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishAbort"),
-            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_finish_abort,
-        );
+        if let Some(class_ptr) = UBTTask_BlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFinishOnMessageWithId"),
+                &raw mut __FUNCTION_PTRS
+                    .ubt_task_blueprint_base_set_finish_on_message_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFinishOnMessage"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_set_finish_on_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTickAI"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_tick_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTick"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExecuteAI"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_execute_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExecute"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_execute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveAbortAI"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_abort_ai,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveAbort"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_abort,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTaskExecuting"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_is_task_executing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTaskAborting"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_is_task_aborting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishExecute"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_finish_execute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishAbort"),
+                &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_finish_abort,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UValueOrBBKeyBlueprintUtility::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVector"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStruct"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRotator"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetName"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInt32"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_int32,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnum"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClass"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBool"),
-            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_bool,
-        );
+        if let Some(class_ptr) = UValueOrBBKeyBlueprintUtility::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVector"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStruct"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetString"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRotator"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObject"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetName"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInt32"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_int32,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloat"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnum"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClass"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBool"),
+                &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_bool,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAIBlueprintHelperLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnlockAIResourcesWithAnimation"),
-            &raw mut __FUNCTION_PTRS
-                .uai_blueprint_helper_library_unlock_ai_resources_with_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAIFromClass"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_spawn_ai_from_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SimpleMoveToLocation"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_simple_move_to_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SimpleMoveToActor"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_simple_move_to_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SendAIMessage"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_send_ai_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LockAIResourcesWithAnimation"),
-            &raw mut __FUNCTION_PTRS
-                .uai_blueprint_helper_library_lock_ai_resources_with_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidAIRotation"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_is_valid_ai_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidAILocation"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_is_valid_ai_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidAIDirection"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_is_valid_ai_direction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNextNavLinkIndex"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_next_nav_link_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPathPoints"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path_points,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPathIndex"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentPath"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlackboard"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_blackboard,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAIController"),
-            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_ai_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMoveToProxyObject"),
-            &raw mut __FUNCTION_PTRS
-                .uai_blueprint_helper_library_create_move_to_proxy_object,
-        );
+        if let Some(class_ptr) = UAIBlueprintHelperLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnlockAIResourcesWithAnimation"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_unlock_ai_resources_with_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAIFromClass"),
+                &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_spawn_ai_from_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SimpleMoveToLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_simple_move_to_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SimpleMoveToActor"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_simple_move_to_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SendAIMessage"),
+                &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_send_ai_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LockAIResourcesWithAnimation"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_lock_ai_resources_with_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidAIRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidAILocation"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidAIDirection"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_direction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNextNavLinkIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_next_nav_link_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPathPoints"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path_points,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPathIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentPath"),
+                &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlackboard"),
+                &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_blackboard,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAIController"),
+                &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_ai_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMoveToProxyObject"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_blueprint_helper_library_create_move_to_proxy_object,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnvQueryContext_BlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProvideSingleLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_context_blueprint_base_provide_single_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProvideSingleActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_context_blueprint_base_provide_single_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProvideLocationsSet"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_context_blueprint_base_provide_locations_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProvideActorsSet"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_context_blueprint_base_provide_actors_set,
-        );
+        if let Some(class_ptr) = UEnvQueryContext_BlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProvideSingleLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_single_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProvideSingleActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_single_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProvideLocationsSet"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_locations_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProvideActorsSet"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_actors_set,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnvQueryInstanceBlueprintWrapper::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNamedParam"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_set_named_param,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetResultsAsLocations"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_get_results_as_locations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetResultsAsActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_get_results_as_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetQueryResultsAsLocations"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_get_query_results_as_locations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetQueryResultsAsActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_get_query_results_as_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemScore"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_get_item_score,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EQSQueryDoneSignature__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_instance_blueprint_wrapper_eqs_query_done_signature_delegate_signature,
-        );
+        if let Some(class_ptr) = UEnvQueryInstanceBlueprintWrapper::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNamedParam"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_set_named_param,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetResultsAsLocations"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_results_as_locations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetResultsAsActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_results_as_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetQueryResultsAsLocations"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_query_results_as_locations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetQueryResultsAsActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_query_results_as_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemScore"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_item_score,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EQSQueryDoneSignature__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_eqs_query_done_signature_delegate_signature,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnvQueryManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunEQSQuery"),
-            &raw mut __FUNCTION_PTRS.u_env_query_manager_run_eqs_query,
-        );
+        if let Some(class_ptr) = UEnvQueryManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunEQSQuery"),
+                &raw mut __FUNCTION_PTRS.u_env_query_manager_run_eqs_query,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnvQueryGenerator_BlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetQuerier"),
-            &raw mut __FUNCTION_PTRS.u_env_query_generator_blueprint_base_get_querier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoItemGenerationFromActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_generator_blueprint_base_do_item_generation_from_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoItemGeneration"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_generator_blueprint_base_do_item_generation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGeneratedVector"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_generator_blueprint_base_add_generated_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGeneratedActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_env_query_generator_blueprint_base_add_generated_actor,
-        );
+        if let Some(class_ptr) = UEnvQueryGenerator_BlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetQuerier"),
+                &raw mut __FUNCTION_PTRS.u_env_query_generator_blueprint_base_get_querier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoItemGenerationFromActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_do_item_generation_from_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoItemGeneration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_do_item_generation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGeneratedVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_add_generated_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGeneratedActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_add_generated_actor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPathFollowingComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnNavDataRegistered"),
-            &raw mut __FUNCTION_PTRS.u_path_following_component_on_nav_data_registered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnActorBump"),
-            &raw mut __FUNCTION_PTRS.u_path_following_component_on_actor_bump,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathDestination"),
-            &raw mut __FUNCTION_PTRS.u_path_following_component_get_path_destination,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathActionType"),
-            &raw mut __FUNCTION_PTRS.u_path_following_component_get_path_action_type,
-        );
+        if let Some(class_ptr) = UPathFollowingComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnNavDataRegistered"),
+                &raw mut __FUNCTION_PTRS
+                    .u_path_following_component_on_nav_data_registered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnActorBump"),
+                &raw mut __FUNCTION_PTRS.u_path_following_component_on_actor_bump,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathDestination"),
+                &raw mut __FUNCTION_PTRS.u_path_following_component_get_path_destination,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathActionType"),
+                &raw mut __FUNCTION_PTRS.u_path_following_component_get_path_action_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCrowdFollowingComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SuspendCrowdSteering"),
-            &raw mut __FUNCTION_PTRS.u_crowd_following_component_suspend_crowd_steering,
-        );
+        if let Some(class_ptr) = UCrowdFollowingComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SuspendCrowdSteering"),
+                &raw mut __FUNCTION_PTRS
+                    .u_crowd_following_component_suspend_crowd_steering,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGeneratedNavLinksProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveSmartLinkReached"),
-            &raw mut __FUNCTION_PTRS
-                .u_generated_nav_links_proxy_receive_smart_link_reached,
-        );
+        if let Some(class_ptr) = UGeneratedNavLinksProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveSmartLinkReached"),
+                &raw mut __FUNCTION_PTRS
+                    .u_generated_nav_links_proxy_receive_smart_link_reached,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANavLinkProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSmartLinkEnabled"),
-            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_set_smart_link_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResumePathFollowing"),
-            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_resume_path_following,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveSmartLinkReached"),
-            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_receive_smart_link_reached,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSmartLinkEnabled"),
-            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_is_smart_link_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMovingAgents"),
-            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_has_moving_agents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyEndPointsFromSimpleLinkToSmartLink"),
-            &raw mut __FUNCTION_PTRS
-                .a_nav_link_proxy_copy_end_points_from_simple_link_to_smart_link,
-        );
+        if let Some(class_ptr) = ANavLinkProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSmartLinkEnabled"),
+                &raw mut __FUNCTION_PTRS.a_nav_link_proxy_set_smart_link_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResumePathFollowing"),
+                &raw mut __FUNCTION_PTRS.a_nav_link_proxy_resume_path_following,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveSmartLinkReached"),
+                &raw mut __FUNCTION_PTRS.a_nav_link_proxy_receive_smart_link_reached,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSmartLinkEnabled"),
+                &raw mut __FUNCTION_PTRS.a_nav_link_proxy_is_smart_link_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMovingAgents"),
+                &raw mut __FUNCTION_PTRS.a_nav_link_proxy_has_moving_agents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyEndPointsFromSimpleLinkToSmartLink"),
+                &raw mut __FUNCTION_PTRS
+                    .a_nav_link_proxy_copy_end_points_from_simple_link_to_smart_link,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNavLocalGridManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalNavigationGridDensity"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_set_local_navigation_grid_density,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLocalNavigationGrid"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_remove_local_navigation_grid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindLocalNavigationGridPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_find_local_navigation_grid_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLocalNavigationGridForPoints"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_add_local_navigation_grid_for_points,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLocalNavigationGridForPoint"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_add_local_navigation_grid_for_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLocalNavigationGridForCapsule"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_add_local_navigation_grid_for_capsule,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLocalNavigationGridForBox"),
-            &raw mut __FUNCTION_PTRS
-                .u_nav_local_grid_manager_add_local_navigation_grid_for_box,
-        );
+        if let Some(class_ptr) = UNavLocalGridManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalNavigationGridDensity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_set_local_navigation_grid_density,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLocalNavigationGrid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_remove_local_navigation_grid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindLocalNavigationGridPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_find_local_navigation_grid_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLocalNavigationGridForPoints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_points,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLocalNavigationGridForPoint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLocalNavigationGridForCapsule"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_capsule,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLocalNavigationGridForBox"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_box,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAIPerceptionComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSenseEnabled"),
-            &raw mut __FUNCTION_PTRS.uai_perception_component_set_sense_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestStimuliListenerUpdate"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_component_request_stimuli_listener_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnOwnerEndPlay"),
-            &raw mut __FUNCTION_PTRS.uai_perception_component_on_owner_end_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSenseEnabled"),
-            &raw mut __FUNCTION_PTRS.uai_perception_component_is_sense_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPerceivedHostileActorsBySense"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_component_get_perceived_hostile_actors_by_sense,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPerceivedHostileActors"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_component_get_perceived_hostile_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKnownPerceivedActors"),
-            &raw mut __FUNCTION_PTRS.uai_perception_component_get_known_perceived_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentlyPerceivedActors"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_component_get_currently_perceived_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorsPerception"),
-            &raw mut __FUNCTION_PTRS.uai_perception_component_get_actors_perception,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForgetAll"),
-            &raw mut __FUNCTION_PTRS.uai_perception_component_forget_all,
-        );
+        if let Some(class_ptr) = UAIPerceptionComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSenseEnabled"),
+                &raw mut __FUNCTION_PTRS.uai_perception_component_set_sense_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestStimuliListenerUpdate"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_component_request_stimuli_listener_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnOwnerEndPlay"),
+                &raw mut __FUNCTION_PTRS.uai_perception_component_on_owner_end_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSenseEnabled"),
+                &raw mut __FUNCTION_PTRS.uai_perception_component_is_sense_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPerceivedHostileActorsBySense"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_component_get_perceived_hostile_actors_by_sense,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPerceivedHostileActors"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_component_get_perceived_hostile_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKnownPerceivedActors"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_component_get_known_perceived_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentlyPerceivedActors"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_component_get_currently_perceived_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorsPerception"),
+                &raw mut __FUNCTION_PTRS.uai_perception_component_get_actors_perception,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForgetAll"),
+                &raw mut __FUNCTION_PTRS.uai_perception_component_forget_all,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAIPerceptionStimuliSourceComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterFromSense"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_stimuli_source_component_unregister_from_sense,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterFromPerceptionSystem"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_stimuli_source_component_unregister_from_perception_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterWithPerceptionSystem"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_stimuli_source_component_register_with_perception_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterForSense"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_stimuli_source_component_register_for_sense,
-        );
+        if let Some(class_ptr) = UAIPerceptionStimuliSourceComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterFromSense"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_unregister_from_sense,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterFromPerceptionSystem"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_unregister_from_perception_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterWithPerceptionSystem"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_register_with_perception_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterForSense"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_register_for_sense,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAIPerceptionSystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportPerceptionEvent"),
-            &raw mut __FUNCTION_PTRS.uai_perception_system_report_perception_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportEvent"),
-            &raw mut __FUNCTION_PTRS.uai_perception_system_report_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterPerceptionStimuliSource"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_system_register_perception_stimuli_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPerceptionStimuliSourceEndPlay"),
-            &raw mut __FUNCTION_PTRS
-                .uai_perception_system_on_perception_stimuli_source_end_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSenseClassForStimulus"),
-            &raw mut __FUNCTION_PTRS.uai_perception_system_get_sense_class_for_stimulus,
-        );
+        if let Some(class_ptr) = UAIPerceptionSystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportPerceptionEvent"),
+                &raw mut __FUNCTION_PTRS.uai_perception_system_report_perception_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportEvent"),
+                &raw mut __FUNCTION_PTRS.uai_perception_system_report_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterPerceptionStimuliSource"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_system_register_perception_stimuli_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPerceptionStimuliSourceEndPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_system_on_perception_stimuli_source_end_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSenseClassForStimulus"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_perception_system_get_sense_class_for_stimulus,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAISense_Blueprint::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnUpdate"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnListenerUpdated"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_updated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnListenerUnregistered"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_unregistered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnListenerRegistered"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_registered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_OnNewPawn"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_k2_on_new_pawn,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllListenerComponents"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_get_all_listener_components,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllListenerActors"),
-            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_get_all_listener_actors,
-        );
+        if let Some(class_ptr) = UAISense_Blueprint::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnUpdate"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnListenerUpdated"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_updated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnListenerUnregistered"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_unregistered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnListenerRegistered"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_registered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_OnNewPawn"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_k2_on_new_pawn,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllListenerComponents"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_get_all_listener_components,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllListenerActors"),
+                &raw mut __FUNCTION_PTRS.uai_sense_blueprint_get_all_listener_actors,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAISense_Damage::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportDamageEvent"),
-            &raw mut __FUNCTION_PTRS.uai_sense_damage_report_damage_event,
-        );
+        if let Some(class_ptr) = UAISense_Damage::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportDamageEvent"),
+                &raw mut __FUNCTION_PTRS.uai_sense_damage_report_damage_event,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAISense_Hearing::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportNoiseEvent"),
-            &raw mut __FUNCTION_PTRS.uai_sense_hearing_report_noise_event,
-        );
+        if let Some(class_ptr) = UAISense_Hearing::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportNoiseEvent"),
+                &raw mut __FUNCTION_PTRS.uai_sense_hearing_report_noise_event,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAISense_Prediction::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestPawnPredictionEvent"),
-            &raw mut __FUNCTION_PTRS.uai_sense_prediction_request_pawn_prediction_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestControllerPredictionEvent"),
-            &raw mut __FUNCTION_PTRS
-                .uai_sense_prediction_request_controller_prediction_event,
-        );
+        if let Some(class_ptr) = UAISense_Prediction::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestPawnPredictionEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_sense_prediction_request_pawn_prediction_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestControllerPredictionEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .uai_sense_prediction_request_controller_prediction_event,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAISense_Touch::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReportTouchEvent"),
-            &raw mut __FUNCTION_PTRS.uai_sense_touch_report_touch_event,
-        );
+        if let Some(class_ptr) = UAISense_Touch::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReportTouchEvent"),
+                &raw mut __FUNCTION_PTRS.uai_sense_touch_report_touch_event,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPawnSensingComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSensingUpdatesEnabled"),
-            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_sensing_updates_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSensingInterval"),
-            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_sensing_interval,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPeripheralVisionAngle"),
-            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_peripheral_vision_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SeePawnDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_pawn_sensing_component_see_pawn_delegate_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HearNoiseDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_pawn_sensing_component_hear_noise_delegate_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPeripheralVisionCosine"),
-            &raw mut __FUNCTION_PTRS
-                .u_pawn_sensing_component_get_peripheral_vision_cosine,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPeripheralVisionAngle"),
-            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_get_peripheral_vision_angle,
-        );
+        if let Some(class_ptr) = UPawnSensingComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSensingUpdatesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_sensing_updates_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSensingInterval"),
+                &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_sensing_interval,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPeripheralVisionAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_peripheral_vision_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SeePawnDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_pawn_sensing_component_see_pawn_delegate_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HearNoiseDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_pawn_sensing_component_hear_noise_delegate_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPeripheralVisionCosine"),
+                &raw mut __FUNCTION_PTRS
+                    .u_pawn_sensing_component_get_peripheral_vision_cosine,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPeripheralVisionAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_pawn_sensing_component_get_peripheral_vision_angle,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAITask_MoveTo::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AIMoveTo"),
-            &raw mut __FUNCTION_PTRS.uai_task_move_to_ai_move_to,
-        );
+        if let Some(class_ptr) = UAITask_MoveTo::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AIMoveTo"),
+                &raw mut __FUNCTION_PTRS.uai_task_move_to_ai_move_to,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAITask_RunEQS::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunEQS"),
-            &raw mut __FUNCTION_PTRS.uai_task_run_eqs_run_eqs,
-        );
+        if let Some(class_ptr) = UAITask_RunEQS::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunEQS"),
+                &raw mut __FUNCTION_PTRS.uai_task_run_eqs_run_eqs,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -2381,6 +2457,13 @@ impl UAIAsyncTaskBlueprintProxy {
             .get("UAIAsyncTaskBlueprintProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIAsyncTaskBlueprintProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2403,6 +2486,13 @@ impl UAIResourceInterface {
             .get("UAIResourceInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIResourceInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2423,6 +2513,13 @@ impl UAISenseBlueprintListener {
             .name_to_ptr
             .get("UAISenseBlueprintListener")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseBlueprintListener")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2450,6 +2547,13 @@ impl UAISenseConfig {
             .get("UAISenseConfig")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2472,6 +2576,13 @@ impl UAISenseConfig_Blueprint {
             .name_to_ptr
             .get("UAISenseConfig_Blueprint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Blueprint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2501,6 +2612,13 @@ impl UAISenseConfig_Hearing {
             .get("UAISenseConfig_Hearing")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Hearing")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2521,6 +2639,13 @@ impl UAISenseConfig_Prediction {
             .name_to_ptr
             .get("UAISenseConfig_Prediction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Prediction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2552,6 +2677,13 @@ impl UAISenseConfig_Sight {
             .get("UAISenseConfig_Sight")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Sight")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2572,6 +2704,13 @@ impl UAISenseConfig_Team {
             .name_to_ptr
             .get("UAISenseConfig_Team")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Team")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2596,6 +2735,13 @@ impl UAISenseConfig_Touch {
             .get("UAISenseConfig_Touch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Touch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2616,6 +2762,13 @@ impl UAISenseEvent {
             .name_to_ptr
             .get("UAISenseEvent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseEvent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2640,6 +2793,13 @@ impl UAISenseEvent_Damage {
             .get("UAISenseEvent_Damage")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseEvent_Damage")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2663,6 +2823,13 @@ impl UAISenseEvent_Hearing {
             .get("UAISenseEvent_Hearing")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseEvent_Hearing")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2684,6 +2851,13 @@ impl UCrowdAgentInterface {
             .name_to_ptr
             .get("UCrowdAgentInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCrowdAgentInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2707,6 +2881,13 @@ impl UEQSQueryResultSourceInterface {
             .get("UEQSQueryResultSourceInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEQSQueryResultSourceInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2728,6 +2909,13 @@ impl UGenericTeamAgentInterface {
             .name_to_ptr
             .get("UGenericTeamAgentInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenericTeamAgentInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2763,6 +2951,13 @@ impl AAIController {
             .name_to_ptr
             .get("AAIController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AAIController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3563,6 +3758,13 @@ impl UAIResource_Movement {
             .get("UAIResource_Movement")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIResource_Movement")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3583,6 +3785,13 @@ impl UAIResource_Logic {
             .name_to_ptr
             .get("UAIResource_Logic")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIResource_Logic")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3605,6 +3814,13 @@ impl UAISubsystem {
             .get("UAISubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3625,6 +3841,9 @@ impl UAISystem {
             .name_to_ptr
             .get("UAISystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UAISystem").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3647,6 +3866,13 @@ impl UBehaviorTree {
             .get("UBehaviorTree")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBehaviorTree")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3667,6 +3893,13 @@ impl UBrainComponent {
             .name_to_ptr
             .get("UBrainComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBrainComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3815,6 +4048,13 @@ impl UBehaviorTreeComponent {
             .name_to_ptr
             .get("UBehaviorTreeComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBehaviorTreeComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3967,6 +4207,13 @@ impl UBehaviorTreeManager {
             .get("UBehaviorTreeManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBehaviorTreeManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3987,6 +4234,13 @@ impl UBehaviorTreeTypes {
             .name_to_ptr
             .get("UBehaviorTreeTypes")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBehaviorTreeTypes")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4009,6 +4263,13 @@ impl UBlackboardAssetProvider {
             .name_to_ptr
             .get("UBlackboardAssetProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardAssetProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4056,6 +4317,13 @@ impl UBlackboardComponent {
             .name_to_ptr
             .get("UBlackboardComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4903,6 +5171,13 @@ impl UBlackboardData {
             .get("UBlackboardData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4923,6 +5198,13 @@ impl UBlackboardKeyType {
             .name_to_ptr
             .get("UBlackboardKeyType")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4945,6 +5227,13 @@ impl UBlackboardKeyType_Bool {
             .get("UBlackboardKeyType_Bool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Bool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4965,6 +5254,13 @@ impl UBlackboardKeyType_Class {
             .name_to_ptr
             .get("UBlackboardKeyType_Class")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Class")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4987,6 +5283,13 @@ impl UBlackboardKeyType_Enum {
             .get("UBlackboardKeyType_Enum")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Enum")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5007,6 +5310,13 @@ impl UBlackboardKeyType_Float {
             .name_to_ptr
             .get("UBlackboardKeyType_Float")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Float")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5029,6 +5339,13 @@ impl UBlackboardKeyType_Int {
             .get("UBlackboardKeyType_Int")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Int")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5049,6 +5366,13 @@ impl UBlackboardKeyType_Name {
             .name_to_ptr
             .get("UBlackboardKeyType_Name")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Name")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5071,6 +5395,13 @@ impl UBlackboardKeyType_NativeEnum {
             .get("UBlackboardKeyType_NativeEnum")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_NativeEnum")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5091,6 +5422,13 @@ impl UBlackboardKeyType_Object {
             .name_to_ptr
             .get("UBlackboardKeyType_Object")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Object")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5113,6 +5451,13 @@ impl UBlackboardKeyType_Rotator {
             .get("UBlackboardKeyType_Rotator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Rotator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5133,6 +5478,13 @@ impl UBlackboardKeyType_String {
             .name_to_ptr
             .get("UBlackboardKeyType_String")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_String")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5155,6 +5507,13 @@ impl UBlackboardKeyType_Struct {
             .get("UBlackboardKeyType_Struct")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Struct")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5176,6 +5535,13 @@ impl UBlackboardKeyType_Vector {
             .get("UBlackboardKeyType_Vector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlackboardKeyType_Vector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5192,6 +5558,9 @@ pub struct UBTNode {
 impl UBTNode {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UBTNode").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UBTNode").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5214,6 +5583,13 @@ impl UBTAuxiliaryNode {
             .get("UBTAuxiliaryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTAuxiliaryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5234,6 +5610,13 @@ impl UBTCompositeNode {
             .name_to_ptr
             .get("UBTCompositeNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTCompositeNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5256,6 +5639,13 @@ impl UBTDecorator {
             .get("UBTDecorator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5276,6 +5666,13 @@ impl UBTFunctionLibrary {
             .name_to_ptr
             .get("UBTFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6493,6 +6890,13 @@ impl UBTService {
             .get("UBTService")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTService")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6513,6 +6917,13 @@ impl UBTTaskNode {
             .name_to_ptr
             .get("UBTTaskNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTaskNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6535,6 +6946,13 @@ impl UBTComposite_Selector {
             .get("UBTComposite_Selector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTComposite_Selector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6555,6 +6973,13 @@ impl UBTComposite_Sequence {
             .name_to_ptr
             .get("UBTComposite_Sequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTComposite_Sequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6577,6 +7002,13 @@ impl UBTComposite_SimpleParallel {
             .get("UBTComposite_SimpleParallel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTComposite_SimpleParallel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6598,6 +7030,13 @@ impl UBTDecorator_BlackboardBase {
             .get("UBTDecorator_BlackboardBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_BlackboardBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6618,6 +7057,13 @@ impl UBTDecorator_Blackboard {
             .name_to_ptr
             .get("UBTDecorator_Blackboard")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_Blackboard")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6642,6 +7088,13 @@ impl UBTDecorator_BlueprintBase {
             .name_to_ptr
             .get("UBTDecorator_BlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_BlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7218,6 +7671,13 @@ impl UBTDecorator_CheckGameplayTagsOnActor {
             .get("UBTDecorator_CheckGameplayTagsOnActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_CheckGameplayTagsOnActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7238,6 +7698,13 @@ impl UBTDecorator_CompareBBEntries {
             .name_to_ptr
             .get("UBTDecorator_CompareBBEntries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_CompareBBEntries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7260,6 +7727,13 @@ impl UBTDecorator_ConditionalLoop {
             .get("UBTDecorator_ConditionalLoop")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_ConditionalLoop")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7280,6 +7754,13 @@ impl UBTDecorator_ConeCheck {
             .name_to_ptr
             .get("UBTDecorator_ConeCheck")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_ConeCheck")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7302,6 +7783,13 @@ impl UBTDecorator_Cooldown {
             .get("UBTDecorator_Cooldown")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_Cooldown")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7322,6 +7810,13 @@ impl UBTDecorator_DoesPathExist {
             .name_to_ptr
             .get("UBTDecorator_DoesPathExist")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_DoesPathExist")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7344,6 +7839,13 @@ impl UBTDecorator_ForceSuccess {
             .get("UBTDecorator_ForceSuccess")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_ForceSuccess")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7364,6 +7866,13 @@ impl UBTDecorator_IsAtLocation {
             .name_to_ptr
             .get("UBTDecorator_IsAtLocation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_IsAtLocation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7386,6 +7895,13 @@ impl UBTDecorator_IsBBEntryOfClass {
             .get("UBTDecorator_IsBBEntryOfClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_IsBBEntryOfClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7406,6 +7922,13 @@ impl UBTDecorator_KeepInCone {
             .name_to_ptr
             .get("UBTDecorator_KeepInCone")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_KeepInCone")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7428,6 +7951,13 @@ impl UBTDecorator_Loop {
             .get("UBTDecorator_Loop")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_Loop")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7448,6 +7978,13 @@ impl UBTDecorator_LoopUntil {
             .name_to_ptr
             .get("UBTDecorator_LoopUntil")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_LoopUntil")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7470,6 +8007,13 @@ impl UBTDecorator_ReachedMoveGoal {
             .get("UBTDecorator_ReachedMoveGoal")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_ReachedMoveGoal")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7490,6 +8034,13 @@ impl UBTDecorator_SetTagCooldown {
             .name_to_ptr
             .get("UBTDecorator_SetTagCooldown")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_SetTagCooldown")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7512,6 +8063,13 @@ impl UBTDecorator_TagCooldown {
             .get("UBTDecorator_TagCooldown")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_TagCooldown")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7533,6 +8091,13 @@ impl UBTDecorator_TimeLimit {
             .get("UBTDecorator_TimeLimit")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTDecorator_TimeLimit")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7553,6 +8118,13 @@ impl UBTService_BlackboardBase {
             .name_to_ptr
             .get("UBTService_BlackboardBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTService_BlackboardBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7577,6 +8149,13 @@ impl UBTService_BlueprintBase {
             .name_to_ptr
             .get("UBTService_BlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTService_BlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7953,6 +8532,13 @@ impl UBTService_DefaultFocus {
             .get("UBTService_DefaultFocus")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTService_DefaultFocus")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7974,6 +8560,13 @@ impl UBTService_RunEQS {
             .get("UBTService_RunEQS")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTService_RunEQS")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7994,6 +8587,13 @@ impl UBTTask_BlackboardBase {
             .name_to_ptr
             .get("UBTTask_BlackboardBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_BlackboardBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8018,6 +8618,13 @@ impl UBTTask_BlueprintBase {
             .name_to_ptr
             .get("UBTTask_BlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_BlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8467,6 +9074,13 @@ impl UBTTask_FinishWithResult {
             .get("UBTTask_FinishWithResult")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_FinishWithResult")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8487,6 +9101,13 @@ impl UBTTask_GameplayTaskBase {
             .name_to_ptr
             .get("UBTTask_GameplayTaskBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_GameplayTaskBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8509,6 +9130,13 @@ impl UBTTask_MakeNoise {
             .get("UBTTask_MakeNoise")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_MakeNoise")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8529,6 +9157,13 @@ impl UBTTask_MoveTo {
             .name_to_ptr
             .get("UBTTask_MoveTo")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_MoveTo")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8551,6 +9186,13 @@ impl UBTTask_MoveDirectlyToward {
             .get("UBTTask_MoveDirectlyToward")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_MoveDirectlyToward")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8571,6 +9213,13 @@ impl UBTTask_PlayAnimation {
             .name_to_ptr
             .get("UBTTask_PlayAnimation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_PlayAnimation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8593,6 +9242,13 @@ impl UBTTask_PlaySound {
             .get("UBTTask_PlaySound")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_PlaySound")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8613,6 +9269,13 @@ impl UBTTask_RotateToFaceBBEntry {
             .name_to_ptr
             .get("UBTTask_RotateToFaceBBEntry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_RotateToFaceBBEntry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8635,6 +9298,13 @@ impl UBTTask_RunBehavior {
             .get("UBTTask_RunBehavior")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_RunBehavior")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8655,6 +9325,13 @@ impl UBTTask_RunBehaviorDynamic {
             .name_to_ptr
             .get("UBTTask_RunBehaviorDynamic")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_RunBehaviorDynamic")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8677,6 +9354,13 @@ impl UBTTask_RunEQSQuery {
             .get("UBTTask_RunEQSQuery")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_RunEQSQuery")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8697,6 +9381,13 @@ impl UBTTask_SetKeyValueBool {
             .name_to_ptr
             .get("UBTTask_SetKeyValueBool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueBool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8719,6 +9410,13 @@ impl UBTTask_SetKeyValueClass {
             .get("UBTTask_SetKeyValueClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8739,6 +9437,13 @@ impl UBTTask_SetKeyValueEnum {
             .name_to_ptr
             .get("UBTTask_SetKeyValueEnum")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueEnum")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8761,6 +9466,13 @@ impl UBTTask_SetKeyValueInt32 {
             .get("UBTTask_SetKeyValueInt32")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueInt32")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8781,6 +9493,13 @@ impl UBTTask_SetKeyValueFloat {
             .name_to_ptr
             .get("UBTTask_SetKeyValueFloat")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueFloat")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8803,6 +9522,13 @@ impl UBTTask_SetKeyValueName {
             .get("UBTTask_SetKeyValueName")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueName")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8823,6 +9549,13 @@ impl UBTTask_SetKeyValueString {
             .name_to_ptr
             .get("UBTTask_SetKeyValueString")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueString")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8845,6 +9578,13 @@ impl UBTTask_SetKeyValueObject {
             .get("UBTTask_SetKeyValueObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8865,6 +9605,13 @@ impl UBTTask_SetKeyValueRotator {
             .name_to_ptr
             .get("UBTTask_SetKeyValueRotator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueRotator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8887,6 +9634,13 @@ impl UBTTask_SetKeyValueStruct {
             .get("UBTTask_SetKeyValueStruct")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueStruct")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8907,6 +9661,13 @@ impl UBTTask_SetKeyValueVector {
             .name_to_ptr
             .get("UBTTask_SetKeyValueVector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetKeyValueVector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8929,6 +9690,13 @@ impl UBTTask_SetTagCooldown {
             .get("UBTTask_SetTagCooldown")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_SetTagCooldown")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8949,6 +9717,13 @@ impl UBTTask_Wait {
             .name_to_ptr
             .get("UBTTask_Wait")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_Wait")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8971,6 +9746,13 @@ impl UBTTask_WaitBlackboardTime {
             .get("UBTTask_WaitBlackboardTime")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBTTask_WaitBlackboardTime")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8991,6 +9773,13 @@ impl UValueOrBBKeyBlueprintUtility {
             .name_to_ptr
             .get("UValueOrBBKeyBlueprintUtility")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UValueOrBBKeyBlueprintUtility")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9504,6 +10293,13 @@ impl UAIBlueprintHelperLibrary {
             .name_to_ptr
             .get("UAIBlueprintHelperLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIBlueprintHelperLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10247,6 +11043,13 @@ impl UAIDataProvider {
             .get("UAIDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10267,6 +11070,13 @@ impl UAIDataProvider_QueryParams {
             .name_to_ptr
             .get("UAIDataProvider_QueryParams")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIDataProvider_QueryParams")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10289,6 +11099,13 @@ impl UAIDataProvider_Random {
             .get("UAIDataProvider_Random")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIDataProvider_Random")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10309,6 +11126,13 @@ impl ADetourCrowdAIController {
             .name_to_ptr
             .get("ADetourCrowdAIController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADetourCrowdAIController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10331,6 +11155,13 @@ impl UEnvQueryContext {
             .get("UEnvQueryContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10351,6 +11182,13 @@ impl UEnvQueryContext_BlueprintBase {
             .name_to_ptr
             .get("UEnvQueryContext_BlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryContext_BlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10603,6 +11441,13 @@ impl UEnvQueryContext_Item {
             .get("UEnvQueryContext_Item")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryContext_Item")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10623,6 +11468,13 @@ impl UEnvQueryContext_NavigationData {
             .name_to_ptr
             .get("UEnvQueryContext_NavigationData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryContext_NavigationData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10645,6 +11497,13 @@ impl UEnvQueryContext_Querier {
             .get("UEnvQueryContext_Querier")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryContext_Querier")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10665,6 +11524,9 @@ impl UEnvQuery {
             .name_to_ptr
             .get("UEnvQuery")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UEnvQuery").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10687,6 +11549,13 @@ impl UEnvQueryDebugHelpers {
             .get("UEnvQueryDebugHelpers")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryDebugHelpers")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10708,6 +11577,13 @@ impl UEnvQueryNode {
             .get("UEnvQueryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10728,6 +11604,13 @@ impl UEnvQueryGenerator {
             .name_to_ptr
             .get("UEnvQueryGenerator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10756,6 +11639,13 @@ impl UEnvQueryInstanceBlueprintWrapper {
             .name_to_ptr
             .get("UEnvQueryInstanceBlueprintWrapper")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryInstanceBlueprintWrapper")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10994,6 +11884,13 @@ impl UEnvQueryManager {
             .get("UEnvQueryManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11086,6 +11983,13 @@ impl UEnvQueryOption {
             .get("UEnvQueryOption")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryOption")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11106,6 +12010,13 @@ impl UEnvQueryTest {
             .name_to_ptr
             .get("UEnvQueryTest")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11128,6 +12039,13 @@ impl UEnvQueryTypes {
             .get("UEnvQueryTypes")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTypes")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11148,6 +12066,13 @@ impl UEQSRenderingComponent {
             .name_to_ptr
             .get("UEQSRenderingComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEQSRenderingComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11170,6 +12095,13 @@ impl AEQSTestingPawn {
             .get("AEQSTestingPawn")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AEQSTestingPawn")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11191,6 +12123,13 @@ impl UEnvQueryGenerator_ActorsOfClass {
             .get("UEnvQueryGenerator_ActorsOfClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_ActorsOfClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11211,6 +12150,13 @@ impl UEnvQueryGenerator_BlueprintBase {
             .name_to_ptr
             .get("UEnvQueryGenerator_BlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_BlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11406,6 +12352,13 @@ impl UEnvQueryGenerator_Composite {
             .get("UEnvQueryGenerator_Composite")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_Composite")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11426,6 +12379,13 @@ impl UEnvQueryGenerator_ProjectedPoints {
             .name_to_ptr
             .get("UEnvQueryGenerator_ProjectedPoints")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_ProjectedPoints")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11448,6 +12408,13 @@ impl UEnvQueryGenerator_Cone {
             .get("UEnvQueryGenerator_Cone")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_Cone")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11468,6 +12435,13 @@ impl UEnvQueryGenerator_CurrentLocation {
             .name_to_ptr
             .get("UEnvQueryGenerator_CurrentLocation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_CurrentLocation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11490,6 +12464,13 @@ impl UEnvQueryGenerator_Donut {
             .get("UEnvQueryGenerator_Donut")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_Donut")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11510,6 +12491,13 @@ impl UEnvQueryGenerator_OnCircle {
             .name_to_ptr
             .get("UEnvQueryGenerator_OnCircle")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_OnCircle")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11532,6 +12520,13 @@ impl UEnvQueryGenerator_SimpleGrid {
             .get("UEnvQueryGenerator_SimpleGrid")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_SimpleGrid")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11552,6 +12547,13 @@ impl UEnvQueryGenerator_PathingGrid {
             .name_to_ptr
             .get("UEnvQueryGenerator_PathingGrid")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_PathingGrid")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11574,6 +12576,13 @@ impl UEnvQueryGenerator_PerceivedActors {
             .get("UEnvQueryGenerator_PerceivedActors")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryGenerator_PerceivedActors")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11594,6 +12603,13 @@ impl UEnvQueryItemType {
             .name_to_ptr
             .get("UEnvQueryItemType")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryItemType")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11616,6 +12632,13 @@ impl UEnvQueryItemType_VectorBase {
             .get("UEnvQueryItemType_VectorBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryItemType_VectorBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11636,6 +12659,13 @@ impl UEnvQueryItemType_ActorBase {
             .name_to_ptr
             .get("UEnvQueryItemType_ActorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryItemType_ActorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11658,6 +12688,13 @@ impl UEnvQueryItemType_Actor {
             .get("UEnvQueryItemType_Actor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryItemType_Actor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11678,6 +12715,13 @@ impl UEnvQueryItemType_Direction {
             .name_to_ptr
             .get("UEnvQueryItemType_Direction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryItemType_Direction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11700,6 +12744,13 @@ impl UEnvQueryItemType_Point {
             .get("UEnvQueryItemType_Point")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryItemType_Point")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11720,6 +12771,13 @@ impl UEnvQueryTest_Distance {
             .name_to_ptr
             .get("UEnvQueryTest_Distance")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Distance")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11742,6 +12800,13 @@ impl UEnvQueryTest_Dot {
             .get("UEnvQueryTest_Dot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Dot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11762,6 +12827,13 @@ impl UEnvQueryTest_GameplayTags {
             .name_to_ptr
             .get("UEnvQueryTest_GameplayTags")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_GameplayTags")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11784,6 +12856,13 @@ impl UEnvQueryTest_Overlap {
             .get("UEnvQueryTest_Overlap")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Overlap")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11804,6 +12883,13 @@ impl UEnvQueryTest_Pathfinding {
             .name_to_ptr
             .get("UEnvQueryTest_Pathfinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Pathfinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11826,6 +12912,13 @@ impl UEnvQueryTest_PathfindingBatch {
             .get("UEnvQueryTest_PathfindingBatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_PathfindingBatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11846,6 +12939,13 @@ impl UEnvQueryTest_Project {
             .name_to_ptr
             .get("UEnvQueryTest_Project")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Project")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11868,6 +12968,13 @@ impl UEnvQueryTest_Random {
             .get("UEnvQueryTest_Random")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Random")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11888,6 +12995,13 @@ impl UEnvQueryTest_Trace {
             .name_to_ptr
             .get("UEnvQueryTest_Trace")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Trace")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11910,6 +13024,13 @@ impl UEnvQueryTest_Volume {
             .get("UEnvQueryTest_Volume")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvQueryTest_Volume")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11930,6 +13051,13 @@ impl AGridPathAIController {
             .name_to_ptr
             .get("AGridPathAIController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGridPathAIController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11952,6 +13080,13 @@ impl UAIHotSpotManager {
             .get("UAIHotSpotManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIHotSpotManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11972,6 +13107,13 @@ impl UPathFollowingComponent {
             .name_to_ptr
             .get("UPathFollowingComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPathFollowingComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12048,6 +13190,13 @@ impl UCrowdFollowingComponent {
             .get("UCrowdFollowingComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCrowdFollowingComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12097,6 +13246,13 @@ impl UCrowdManager {
             .get("UCrowdManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCrowdManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12117,6 +13273,13 @@ impl UGeneratedNavLinksProxy {
             .name_to_ptr
             .get("UGeneratedNavLinksProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeneratedNavLinksProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12182,6 +13345,13 @@ impl UGridPathFollowingComponent {
             .get("UGridPathFollowingComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGridPathFollowingComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12202,6 +13372,13 @@ impl UNavFilter_AIControllerDefault {
             .name_to_ptr
             .get("UNavFilter_AIControllerDefault")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavFilter_AIControllerDefault")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12226,6 +13403,13 @@ impl ANavLinkProxy {
             .name_to_ptr
             .get("ANavLinkProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavLinkProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12405,6 +13589,13 @@ impl UNavLocalGridManager {
             .name_to_ptr
             .get("UNavLocalGridManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLocalGridManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12849,6 +14040,13 @@ impl UPathFollowingManager {
             .get("UPathFollowingManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPathFollowingManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12869,6 +14067,13 @@ impl UAIPerceptionComponent {
             .name_to_ptr
             .get("UAIPerceptionComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIPerceptionComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13249,6 +14454,13 @@ impl UAIPerceptionListenerInterface {
             .get("UAIPerceptionListenerInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIPerceptionListenerInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13272,6 +14484,13 @@ impl UAIPerceptionStimuliSourceComponent {
             .name_to_ptr
             .get("UAIPerceptionStimuliSourceComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIPerceptionStimuliSourceComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13407,6 +14626,13 @@ impl UAIPerceptionSystem {
             .name_to_ptr
             .get("UAIPerceptionSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAIPerceptionSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13599,6 +14825,9 @@ impl UAISense {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UAISense").unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UAISense").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13621,6 +14850,13 @@ impl UAISenseConfig_Damage {
             .name_to_ptr
             .get("UAISenseConfig_Damage")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISenseConfig_Damage")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13648,6 +14884,13 @@ impl UAISense_Blueprint {
             .name_to_ptr
             .get("UAISense_Blueprint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Blueprint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13946,6 +15189,13 @@ impl UAISense_Damage {
             .get("UAISense_Damage")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Damage")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14045,6 +15295,13 @@ impl UAISense_Hearing {
             .get("UAISense_Hearing")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Hearing")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14127,6 +15384,13 @@ impl UAISense_Prediction {
             .name_to_ptr
             .get("UAISense_Prediction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Prediction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14249,6 +15513,13 @@ impl UAISense_Sight {
             .get("UAISense_Sight")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Sight")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14270,6 +15541,13 @@ impl UAISense_Team {
             .get("UAISense_Team")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Team")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14290,6 +15568,13 @@ impl UAISense_Touch {
             .name_to_ptr
             .get("UAISense_Touch")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISense_Touch")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14371,6 +15656,13 @@ impl UAISightTargetInterface {
             .get("UAISightTargetInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAISightTargetInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14401,6 +15693,13 @@ impl UPawnSensingComponent {
             .name_to_ptr
             .get("UPawnSensingComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPawnSensingComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14565,6 +15864,9 @@ impl UAITask {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UAITask").unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UAITask").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14586,6 +15888,13 @@ impl UAITask_LockLogic {
             .get("UAITask_LockLogic")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAITask_LockLogic")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14606,6 +15915,13 @@ impl UAITask_MoveTo {
             .name_to_ptr
             .get("UAITask_MoveTo")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAITask_MoveTo")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14741,6 +16057,13 @@ impl UAITask_RunEQS {
             .get("UAITask_RunEQS")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAITask_RunEQS")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14802,6 +16125,13 @@ impl UVisualLoggerExtension {
             .name_to_ptr
             .get("UVisualLoggerExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVisualLoggerExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

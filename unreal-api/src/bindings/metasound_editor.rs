@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -44,109 +45,116 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundPresetWidgetInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnConstructed"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_preset_widget_interface_on_constructed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAuditionStateChanged"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_preset_widget_interface_on_audition_state_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedMetaSounds"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_preset_widget_interface_get_supported_meta_sounds,
-        );
+        if let Some(class_ptr) = UMetaSoundPresetWidgetInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnConstructed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_on_constructed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAuditionStateChanged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_on_audition_state_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedMetaSounds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_get_supported_meta_sounds,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundEditorBuilderListener::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllDelegates"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_editor_builder_listener_remove_all_delegates,
-        );
+        if let Some(class_ptr) = UMetaSoundEditorBuilderListener::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllDelegates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_editor_builder_listener_remove_all_delegates,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetasoundEditorSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAuditionPlatformNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_editor_settings_get_audition_platform_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAuditionPageNames"),
-            &raw mut __FUNCTION_PTRS.u_metasound_editor_settings_get_audition_page_names,
-        );
+        if let Some(class_ptr) = UMetasoundEditorSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAuditionPlatformNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_editor_settings_get_audition_platform_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAuditionPageNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_editor_settings_get_audition_page_names,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeLocation"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_set_node_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFocusedPage"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_set_focused_page,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOrCreateGraphInputMetadata"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOrBeginBuilding"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_find_or_begin_building,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BuildToAsset"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_build_to_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBuilderDelegateListener"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_editor_subsystem_add_builder_delegate_listener,
-        );
+        if let Some(class_ptr) = UMetaSoundEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeLocation"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_set_node_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFocusedPage"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_set_focused_page,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOrCreateGraphInputMetadata"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOrBeginBuilding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_find_or_begin_building,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BuildToAsset"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_build_to_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBuilderDelegateListener"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_add_builder_delegate_listener,
+            );
+        }
     }
 }
 pub struct IMetaSoundPresetWidgetInterface {}
@@ -161,6 +169,13 @@ impl UMetaSoundPresetWidgetInterface {
             .name_to_ptr
             .get("UMetaSoundPresetWidgetInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundPresetWidgetInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -367,6 +382,13 @@ impl UAssetDefinition_MetaSoundPatch {
             .get("UAssetDefinition_MetaSoundPatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_MetaSoundPatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -387,6 +409,13 @@ impl UAssetDefinition_MetaSoundSource {
             .name_to_ptr
             .get("UAssetDefinition_MetaSoundSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_MetaSoundSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -409,6 +438,13 @@ impl UMetasoundEditorViewBase {
             .get("UMetasoundEditorViewBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorViewBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -429,6 +465,13 @@ impl UMetasoundInterfacesView {
             .name_to_ptr
             .get("UMetasoundInterfacesView")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundInterfacesView")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -451,6 +494,13 @@ impl UMetasoundPagesView {
             .get("UMetasoundPagesView")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundPagesView")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -471,6 +521,13 @@ impl UMetaSoundEditorBuilderListener {
             .name_to_ptr
             .get("UMetaSoundEditorBuilderListener")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundEditorBuilderListener")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -518,6 +575,13 @@ impl UMetasoundEditorGraphMemberDefaultLiteral {
             .get("UMetasoundEditorGraphMemberDefaultLiteral")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultLiteral")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -538,6 +602,13 @@ impl UMetasoundEditorGraphMember {
             .name_to_ptr
             .get("UMetasoundEditorGraphMember")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMember")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -560,6 +631,13 @@ impl UMetasoundEditorGraphVertex {
             .get("UMetasoundEditorGraphVertex")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphVertex")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -580,6 +658,13 @@ impl UMetasoundEditorGraphInput {
             .name_to_ptr
             .get("UMetasoundEditorGraphInput")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphInput")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -602,6 +687,13 @@ impl UMetasoundEditorGraphOutput {
             .get("UMetasoundEditorGraphOutput")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphOutput")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -622,6 +714,13 @@ impl UMetasoundEditorGraphVariable {
             .name_to_ptr
             .get("UMetasoundEditorGraphVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -644,6 +743,13 @@ impl UMetasoundEditorGraph {
             .get("UMetasoundEditorGraph")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraph")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -664,6 +770,13 @@ impl UMetasoundEditorGraphCommentNode {
             .name_to_ptr
             .get("UMetasoundEditorGraphCommentNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphCommentNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -686,6 +799,13 @@ impl UMetasoundEditorGraphNode {
             .get("UMetasoundEditorGraphNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -706,6 +826,13 @@ impl UMetasoundEditorGraphMemberNode {
             .name_to_ptr
             .get("UMetasoundEditorGraphMemberNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -728,6 +855,13 @@ impl UMetasoundEditorGraphInputNode {
             .get("UMetasoundEditorGraphInputNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphInputNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -748,6 +882,13 @@ impl UMetasoundEditorGraphMemberDefaultBool {
             .name_to_ptr
             .get("UMetasoundEditorGraphMemberDefaultBool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultBool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -770,6 +911,13 @@ impl UMetasoundEditorGraphMemberDefaultBoolArray {
             .get("UMetasoundEditorGraphMemberDefaultBoolArray")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultBoolArray")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -791,6 +939,13 @@ impl UMetasoundEditorGraphMemberDefaultInt {
             .get("UMetasoundEditorGraphMemberDefaultInt")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultInt")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -811,6 +966,13 @@ impl UMetasoundEditorGraphMemberDefaultIntArray {
             .name_to_ptr
             .get("UMetasoundEditorGraphMemberDefaultIntArray")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultIntArray")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -836,6 +998,13 @@ impl UMetasoundEditorGraphMemberDefaultFloat {
             .get("UMetasoundEditorGraphMemberDefaultFloat")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultFloat")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -856,6 +1025,13 @@ impl UMetasoundEditorGraphMemberDefaultFloatArray {
             .name_to_ptr
             .get("UMetasoundEditorGraphMemberDefaultFloatArray")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultFloatArray")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -878,6 +1054,13 @@ impl UMetasoundEditorGraphMemberDefaultString {
             .get("UMetasoundEditorGraphMemberDefaultString")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultString")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -898,6 +1081,13 @@ impl UMetasoundEditorGraphMemberDefaultStringArray {
             .name_to_ptr
             .get("UMetasoundEditorGraphMemberDefaultStringArray")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultStringArray")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -920,6 +1110,13 @@ impl UMetasoundEditorGraphMemberDefaultObject {
             .get("UMetasoundEditorGraphMemberDefaultObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -940,6 +1137,13 @@ impl UMetasoundEditorGraphMemberDefaultObjectArray {
             .name_to_ptr
             .get("UMetasoundEditorGraphMemberDefaultObjectArray")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphMemberDefaultObjectArray")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -962,6 +1166,13 @@ impl UMetasoundEditorGraphOutputNode {
             .get("UMetasoundEditorGraphOutputNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphOutputNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -982,6 +1193,13 @@ impl UMetasoundEditorGraphExternalNode {
             .name_to_ptr
             .get("UMetasoundEditorGraphExternalNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphExternalNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1004,6 +1222,13 @@ impl UMetasoundEditorGraphVariableNode {
             .get("UMetasoundEditorGraphVariableNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphVariableNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1024,6 +1249,13 @@ impl UMetasoundEditorGraphSchema {
             .name_to_ptr
             .get("UMetasoundEditorGraphSchema")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphSchema")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1046,6 +1278,13 @@ impl UMetasoundEditorSettings {
             .get("UMetasoundEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1066,6 +1305,13 @@ impl UMetaSoundEditorSubsystem {
             .name_to_ptr
             .get("UMetaSoundEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1535,6 +1781,13 @@ impl UMetaSoundBaseFactory {
             .get("UMetaSoundBaseFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundBaseFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1556,6 +1809,13 @@ impl UMetaSoundFactory {
             .get("UMetaSoundFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1576,6 +1836,13 @@ impl UMetaSoundSourceFactory {
             .name_to_ptr
             .get("UMetaSoundSourceFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundSourceFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

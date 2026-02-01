@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,42 +29,44 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintEditorToolMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlueprintObj"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_tool_menu_context_get_blueprint_obj,
-        );
+        if let Some(class_ptr) = UBlueprintEditorToolMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlueprintObj"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_tool_menu_context_get_blueprint_obj,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UJsonObjectGraphFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WritePackageToTempFile"),
-            &raw mut __FUNCTION_PTRS
-                .u_json_object_graph_function_library_write_package_to_temp_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteBlueprintClassToTempFile"),
-            &raw mut __FUNCTION_PTRS
-                .u_json_object_graph_function_library_write_blueprint_class_to_temp_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Stringify"),
-            &raw mut __FUNCTION_PTRS.u_json_object_graph_function_library_stringify,
-        );
+        if let Some(class_ptr) = UJsonObjectGraphFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WritePackageToTempFile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_json_object_graph_function_library_write_package_to_temp_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteBlueprintClassToTempFile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_json_object_graph_function_library_write_blueprint_class_to_temp_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Stringify"),
+                &raw mut __FUNCTION_PTRS.u_json_object_graph_function_library_stringify,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -77,6 +80,13 @@ impl UBlueprintEditorToolMenuContext {
             .name_to_ptr
             .get("UBlueprintEditorToolMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintEditorToolMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -127,6 +137,13 @@ impl USSCSEditorMenuContext {
             .get("USSCSEditorMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USSCSEditorMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -147,6 +164,13 @@ impl UBlueprintCompilerExtension {
             .name_to_ptr
             .get("UBlueprintCompilerExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCompilerExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -169,6 +193,13 @@ impl UBlueprintPaletteFavorites {
             .get("UBlueprintPaletteFavorites")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintPaletteFavorites")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -189,6 +220,13 @@ impl UJsonObjectGraphFunctionLibrary {
             .name_to_ptr
             .get("UJsonObjectGraphFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UJsonObjectGraphFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -386,6 +424,13 @@ impl USCSEditorExtensionContext {
             .get("USCSEditorExtensionContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USCSEditorExtensionContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -406,6 +451,13 @@ impl USubobjectEditorExtensionContext {
             .name_to_ptr
             .get("USubobjectEditorExtensionContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectEditorExtensionContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

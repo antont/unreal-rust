@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -34,56 +35,59 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULocationServices::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopLocationServices"),
-            &raw mut __FUNCTION_PTRS.u_location_services_stop_location_services,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartLocationServices"),
-            &raw mut __FUNCTION_PTRS.u_location_services_start_location_services,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLocationAccuracyAvailable"),
-            &raw mut __FUNCTION_PTRS.u_location_services_is_location_accuracy_available,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitLocationServices"),
-            &raw mut __FUNCTION_PTRS.u_location_services_init_location_services,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocationServicesImpl"),
-            &raw mut __FUNCTION_PTRS.u_location_services_get_location_services_impl,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastKnownLocation"),
-            &raw mut __FUNCTION_PTRS.u_location_services_get_last_known_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AreLocationServicesEnabled"),
-            &raw mut __FUNCTION_PTRS.u_location_services_are_location_services_enabled,
-        );
+        if let Some(class_ptr) = ULocationServices::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopLocationServices"),
+                &raw mut __FUNCTION_PTRS.u_location_services_stop_location_services,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartLocationServices"),
+                &raw mut __FUNCTION_PTRS.u_location_services_start_location_services,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLocationAccuracyAvailable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_location_services_is_location_accuracy_available,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitLocationServices"),
+                &raw mut __FUNCTION_PTRS.u_location_services_init_location_services,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocationServicesImpl"),
+                &raw mut __FUNCTION_PTRS.u_location_services_get_location_services_impl,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastKnownLocation"),
+                &raw mut __FUNCTION_PTRS.u_location_services_get_last_known_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AreLocationServicesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_location_services_are_location_services_enabled,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -108,6 +112,13 @@ impl ULocationServicesImpl {
             .get("ULocationServicesImpl")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULocationServicesImpl")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -128,6 +139,13 @@ impl ULocationServices {
             .name_to_ptr
             .get("ULocationServices")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULocationServices")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

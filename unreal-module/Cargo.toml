@@ -7,3 +7,6 @@ edition.workspace = true
 
 unreal-api = { path = "../unreal-api/"}
 log = { version = "0.4", features =["std"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_System_Diagnostics_Debug"] }

@@ -18,11 +18,16 @@
 		{
 			"Name": "RustPlugin",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "PostEngineInit"
 		},
 		{
 			"Name": "RustEditor",
 			"Type": "Editor",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "RustGameplay",
+			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
 	]

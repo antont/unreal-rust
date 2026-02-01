@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,14 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UXcodeProjectSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldDisableIOSSettings"),
-            &raw mut __FUNCTION_PTRS.u_xcode_project_settings_should_disable_ios_settings,
-        );
+        if let Some(class_ptr) = UXcodeProjectSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldDisableIOSSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_xcode_project_settings_should_disable_ios_settings,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -43,6 +46,13 @@ impl UMacTargetSettings {
             .name_to_ptr
             .get("UMacTargetSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMacTargetSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -64,6 +74,13 @@ impl UXcodeProjectSettings {
             .name_to_ptr
             .get("UXcodeProjectSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UXcodeProjectSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

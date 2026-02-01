@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -286,1136 +287,1169 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCameraRigInstanceFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_camera_rig_instance_functions_is_valid,
-        );
+        if let Some(class_ptr) = UCameraRigInstanceFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_camera_rig_instance_functions_is_valid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintCameraDirectorEvaluator::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunChildCameraDirector"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_run_child_camera_director,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunCameraDirector"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_run_camera_director,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResolveCameraRigProxy"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChildEvaluationContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_remove_child_evaluation_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInitialContextResult"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_get_initial_context_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConditionalContextResult"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_get_conditional_context_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindEvaluationContextOwnerActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivatePersistentVisualCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivatePersistentGlobalCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivatePersistentBaseCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivateCameraDirector"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_deactivate_camera_director,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildEvaluationContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_add_child_evaluation_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraRigViaProxy"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_activate_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraDirector"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_director_evaluator_activate_camera_director,
-        );
+        if let Some(class_ptr) = UBlueprintCameraDirectorEvaluator::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunChildCameraDirector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_run_child_camera_director,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunCameraDirector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_run_camera_director,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResolveCameraRigProxy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChildEvaluationContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_remove_child_evaluation_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInitialContextResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_get_initial_context_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConditionalContextResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_get_conditional_context_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindEvaluationContextOwnerActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivatePersistentVisualCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivatePersistentGlobalCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivatePersistentBaseCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivateCameraDirector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_camera_director,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildEvaluationContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_add_child_evaluation_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraRigViaProxy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraDirector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_director,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UActivateCameraRigFunctions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_activate_camera_rig_functions_activate_persistent_visual_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_activate_camera_rig_functions_activate_persistent_global_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_activate_camera_rig_functions_activate_persistent_base_camera_rig,
-        );
+        if let Some(class_ptr) = UActivateCameraRigFunctions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_visual_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_global_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_base_camera_rig,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintCameraEvaluationDataFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultCameraRigParameters"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCameraPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_evaluation_data_function_library_set_camera_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeCameraEvaluationData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_evaluation_data_function_library_get_camera_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BlendCameraEvaluationData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data,
-        );
+        if let Some(class_ptr) = UBlueprintCameraEvaluationDataFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultCameraRigParameters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCameraPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_set_camera_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeCameraEvaluationData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_get_camera_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BlendCameraEvaluationData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintCameraVariableTableFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector4CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector3CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector2CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTransformCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_transform_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRotatorCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInteger32CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloatCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_float_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDoubleCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_double_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBooleanCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVector4CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVector3CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVector2CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransformCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_transform_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRotatorCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInteger32CameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloatCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_float_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDoubleCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_double_camera_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBooleanCameraVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable,
-        );
+        if let Some(class_ptr) = UBlueprintCameraVariableTableFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector4CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector3CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector2CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTransformCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_transform_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRotatorCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInteger32CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloatCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_float_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDoubleCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_double_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBooleanCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVector4CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVector3CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVector2CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransformCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_transform_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRotatorCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInteger32CameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloatCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_float_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDoubleCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_double_camera_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBooleanCameraVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintCameraContextDataTableFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStructData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_set_struct_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStringData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_set_string_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetObjectData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_set_object_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNameData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_set_name_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnumData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_set_enum_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetClassData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_set_class_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStructData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_get_struct_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStringData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_get_string_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_get_object_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNameData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_get_name_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnumData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_get_enum_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClassData"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_context_data_table_function_library_get_class_data,
-        );
+        if let Some(class_ptr) = UBlueprintCameraContextDataTableFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStructData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_struct_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStringData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_string_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetObjectData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_object_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNameData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_name_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnumData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_enum_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetClassData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_class_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStructData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_struct_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStringData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_string_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_object_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNameData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_name_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnumData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_enum_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClassData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_class_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintCameraPoseFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_set_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetDistance"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_set_target_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRotation"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_set_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_set_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFocalLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_set_focal_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFieldOfView"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_set_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeCameraPoseFromCineCameraComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeCameraPoseFromCameraComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetDistance"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_target_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetAtDistance"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_target_at_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTarget"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_camera_pose_function_library_get_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSensorAspectRatio"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRotation"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocation"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFocalLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_focal_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFieldOfView"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEffectiveFieldOfView"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_pose_function_library_get_effective_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAimRay"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_camera_pose_function_library_get_aim_ray,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAimDir"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_camera_pose_function_library_get_aim_dir,
-        );
+        if let Some(class_ptr) = UBlueprintCameraPoseFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetDistance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_target_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFocalLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_focal_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeCameraPoseFromCineCameraComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeCameraPoseFromCameraComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetDistance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetAtDistance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target_at_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSensorAspectRatio"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFocalLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_focal_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEffectiveFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_effective_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAimRay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_aim_ray,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAimDir"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_aim_dir,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCameraRigParameterInterop::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCameraParameter"),
-            &raw mut __FUNCTION_PTRS.u_camera_rig_parameter_interop_set_camera_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraParameter"),
-            &raw mut __FUNCTION_PTRS.u_camera_rig_parameter_interop_get_camera_parameter,
-        );
+        if let Some(class_ptr) = UCameraRigParameterInterop::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCameraParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_set_camera_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_get_camera_parameter,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCameraRigParameterInteropLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralVector3f"),
-            &raw mut __FUNCTION_PTRS
-                .u_camera_rig_parameter_interop_library_make_literal_vector3f,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_camera_rig_parameter_interop_library_make_literal_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralVector"),
-            &raw mut __FUNCTION_PTRS
-                .u_camera_rig_parameter_interop_library_make_literal_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralRotator"),
-            &raw mut __FUNCTION_PTRS
-                .u_camera_rig_parameter_interop_library_make_literal_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralLinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_camera_rig_parameter_interop_library_make_literal_linear_color,
-        );
+        if let Some(class_ptr) = UCameraRigParameterInteropLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralVector3f"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector3f,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralLinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_linear_color,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGameplayCameraActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraComponent"),
-            &raw mut __FUNCTION_PTRS.a_gameplay_camera_actor_get_camera_component,
-        );
+        if let Some(class_ptr) = AGameplayCameraActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraComponent"),
+                &raw mut __FUNCTION_PTRS.a_gameplay_camera_actor_get_camera_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayCameraComponentBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOutputCameraComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_get_output_camera_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInitialResult"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_camera_component_base_get_initial_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEvaluatedCameraRotation"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_get_evaluated_camera_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConditionalResult"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_get_conditional_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivateCamera"),
-            &raw mut __FUNCTION_PTRS.u_gameplay_camera_component_base_deactivate_camera,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_activate_persistent_visual_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_activate_persistent_global_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_activate_persistent_base_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraForPlayerIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_activate_camera_for_player_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraForPlayerController"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_base_activate_camera_for_player_controller,
-        );
+        if let Some(class_ptr) = UGameplayCameraComponentBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOutputCameraComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_output_camera_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInitialResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_initial_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEvaluatedCameraRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_evaluated_camera_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConditionalResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_conditional_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivateCamera"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_deactivate_camera,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_visual_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_global_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_base_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraForPlayerIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_camera_for_player_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraForPlayerController"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_camera_for_player_controller,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayCameraComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotifyChangeCameraReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_component_notify_change_camera_reference,
-        );
+        if let Some(class_ptr) = UGameplayCameraComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotifyChangeCameraReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_component_notify_change_camera_reference,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayCameraParameterSetterComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopParameterSetters"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_parameter_setter_component_stop_parameter_setters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartParameterSetters"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_parameter_setter_component_start_parameter_setters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnActorEndOverlap"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_parameter_setter_component_on_actor_end_overlap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnActorBeginOverlap"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_parameter_setter_component_on_actor_begin_overlap,
-        );
+        if let Some(class_ptr) = UGameplayCameraParameterSetterComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopParameterSetters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_stop_parameter_setters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartParameterSetters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_start_parameter_setters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnActorEndOverlap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_on_actor_end_overlap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnActorBeginOverlap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_on_actor_begin_overlap,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGameplayCameraRigActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraRigComponent"),
-            &raw mut __FUNCTION_PTRS.a_gameplay_camera_rig_actor_get_camera_rig_component,
-        );
+        if let Some(class_ptr) = AGameplayCameraRigActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraRigComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_camera_rig_actor_get_camera_rig_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayCameraRigComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotifyChangeCameraRigReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_rig_component_notify_change_camera_rig_reference,
-        );
+        if let Some(class_ptr) = UGameplayCameraRigComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotifyChangeCameraRigReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_rig_component_notify_change_camera_rig_reference,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGameplayCamerasPlayerCameraManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopCameraShakeAsset"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopCameraModifierRig"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StealPlayerController"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_steal_player_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartVisualCameraModifierRig"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartGlobalCameraModifierRig"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartCameraShakeAsset"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_start_camera_shake_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleasePlayerController"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_release_player_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCameraShakeAssetPlaying"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig,
-        );
+        if let Some(class_ptr) = AGameplayCamerasPlayerCameraManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopCameraShakeAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopCameraModifierRig"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StealPlayerController"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_steal_player_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartVisualCameraModifierRig"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartGlobalCameraModifierRig"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartCameraShakeAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_camera_shake_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleasePlayerController"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_release_player_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCameraShakeAssetPlaying"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGameplayCameraSystemActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraSystemComponent"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_camera_system_actor_get_camera_system_component,
-        );
+        if let Some(class_ptr) = AGameplayCameraSystemActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraSystemComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_camera_system_actor_get_camera_system_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayCameraSystemComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopCameraModifierRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_stop_camera_modifier_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartVisualCameraModifierRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_start_visual_camera_modifier_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartGlobalCameraModifierRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_start_global_camera_modifier_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCameraSystemActiveForPlayController"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_is_camera_system_active_for_play_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivateCameraSystem"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_deactivate_camera_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraSystemForPlayerIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_activate_camera_system_for_player_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateCameraSystemForPlayerController"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_camera_system_component_activate_camera_system_for_player_controller,
-        );
+        if let Some(class_ptr) = UGameplayCameraSystemComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopCameraModifierRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_stop_camera_modifier_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartVisualCameraModifierRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_start_visual_camera_modifier_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartGlobalCameraModifierRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_start_global_camera_modifier_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCameraSystemActiveForPlayController"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_is_camera_system_active_for_play_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivateCameraSystem"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_deactivate_camera_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraSystemForPlayerIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_activate_camera_system_for_player_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivateCameraSystemForPlayerController"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_activate_camera_system_for_player_controller,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayControlRotationComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivateControlRotationManagement"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_control_rotation_component_deactivate_control_rotation_management,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivateControlRotationManagementForPlayerIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "ActivateControlRotationManagementForPlayerController",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller,
-        );
+        if let Some(class_ptr) = UGameplayControlRotationComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivateControlRotationManagement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_deactivate_control_rotation_management,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ActivateControlRotationManagementForPlayerIndex",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ActivateControlRotationManagementForPlayerController",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintCameraNodeEvaluator::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TickCameraNode"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_camera_node_evaluator_tick_camera_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultOwningCameraRigParameters"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentCameraPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_node_evaluator_set_current_camera_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCameraPose"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_camera_node_evaluator_set_camera_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeCameraNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_node_evaluator_initialize_camera_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerController"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_node_evaluator_get_player_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentCameraPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_node_evaluator_get_current_camera_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraPose"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_camera_node_evaluator_get_camera_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindEvaluationContextOwnerActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor,
-        );
+        if let Some(class_ptr) = UBlueprintCameraNodeEvaluator::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TickCameraNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_tick_camera_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultOwningCameraRigParameters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentCameraPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_current_camera_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCameraPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_camera_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeCameraNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_initialize_camera_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerController"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_player_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentCameraPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_current_camera_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_camera_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindEvaluationContextOwnerActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -1638,6 +1672,13 @@ impl UHasCameraBuildStatus {
             .get("UHasCameraBuildStatus")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHasCameraBuildStatus")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1658,6 +1699,13 @@ impl UCameraRigInstanceFunctions {
             .name_to_ptr
             .get("UCameraRigInstanceFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigInstanceFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1714,6 +1762,13 @@ impl UAssetReferenceCameraNode {
             .get("UAssetReferenceCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetReferenceCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1735,6 +1790,13 @@ impl UObjectTreeGraphObject {
             .name_to_ptr
             .get("UObjectTreeGraphObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectTreeGraphObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1758,6 +1820,13 @@ impl UObjectTreeGraphRootObject {
             .get("UObjectTreeGraphRootObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectTreeGraphRootObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1778,6 +1847,13 @@ impl UBaseCameraObject {
             .name_to_ptr
             .get("UBaseCameraObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseCameraObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1800,6 +1876,13 @@ impl UCameraNode {
             .get("UCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1820,6 +1903,13 @@ impl UBlendCameraNode {
             .name_to_ptr
             .get("UBlendCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1842,6 +1932,13 @@ impl UBlendStackCameraNode {
             .get("UBlendStackCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendStackCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1862,6 +1959,13 @@ impl UBlendStackRootCameraNode {
             .name_to_ptr
             .get("UBlendStackRootCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlendStackRootCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1884,6 +1988,13 @@ impl UCameraAsset {
             .get("UCameraAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1904,6 +2015,13 @@ impl UCameraDirector {
             .name_to_ptr
             .get("UCameraDirector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraDirector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1926,6 +2044,13 @@ impl UCameraObjectInterfaceParameterBase {
             .get("UCameraObjectInterfaceParameterBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraObjectInterfaceParameterBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1946,6 +2071,13 @@ impl UCameraObjectInterfaceBlendableParameter {
             .name_to_ptr
             .get("UCameraObjectInterfaceBlendableParameter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraObjectInterfaceBlendableParameter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1968,6 +2100,13 @@ impl UCameraObjectInterfaceDataParameter {
             .get("UCameraObjectInterfaceDataParameter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraObjectInterfaceDataParameter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1988,6 +2127,13 @@ impl UCameraRigAsset {
             .name_to_ptr
             .get("UCameraRigAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2010,6 +2156,13 @@ impl UCombinedCameraRigsCameraNode {
             .get("UCombinedCameraRigsCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCombinedCameraRigsCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2030,6 +2183,13 @@ impl UCameraRigProxyAsset {
             .name_to_ptr
             .get("UCameraRigProxyAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigProxyAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2052,6 +2212,13 @@ impl UCameraRigProxyTable {
             .get("UCameraRigProxyTable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigProxyTable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2072,6 +2239,13 @@ impl UCameraRigTransitionCondition {
             .name_to_ptr
             .get("UCameraRigTransitionCondition")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigTransitionCondition")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2094,6 +2268,13 @@ impl UCameraRigTransition {
             .get("UCameraRigTransition")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigTransition")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2114,6 +2295,13 @@ impl UCameraShakeAsset {
             .name_to_ptr
             .get("UCameraShakeAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraShakeAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2136,6 +2324,13 @@ impl UCameraValueInterpolator {
             .get("UCameraValueInterpolator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraValueInterpolator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2156,6 +2351,13 @@ impl UPopValueInterpolator {
             .name_to_ptr
             .get("UPopValueInterpolator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPopValueInterpolator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2178,6 +2380,13 @@ impl UCameraVariableAsset {
             .get("UCameraVariableAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraVariableAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2198,6 +2407,13 @@ impl UBooleanCameraVariable {
             .name_to_ptr
             .get("UBooleanCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBooleanCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2220,6 +2436,13 @@ impl UInteger32CameraVariable {
             .get("UInteger32CameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInteger32CameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2240,6 +2463,13 @@ impl UFloatCameraVariable {
             .name_to_ptr
             .get("UFloatCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2262,6 +2492,13 @@ impl UDoubleCameraVariable {
             .get("UDoubleCameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoubleCameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2282,6 +2519,13 @@ impl UVector2fCameraVariable {
             .name_to_ptr
             .get("UVector2fCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVector2fCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2304,6 +2548,13 @@ impl UVector2dCameraVariable {
             .get("UVector2dCameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVector2dCameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2324,6 +2575,13 @@ impl UVector3fCameraVariable {
             .name_to_ptr
             .get("UVector3fCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVector3fCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2346,6 +2604,13 @@ impl UVector3dCameraVariable {
             .get("UVector3dCameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVector3dCameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2366,6 +2631,13 @@ impl UVector4fCameraVariable {
             .name_to_ptr
             .get("UVector4fCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVector4fCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2388,6 +2660,13 @@ impl UVector4dCameraVariable {
             .get("UVector4dCameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVector4dCameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2408,6 +2687,13 @@ impl URotator3fCameraVariable {
             .name_to_ptr
             .get("URotator3fCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URotator3fCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2430,6 +2716,13 @@ impl URotator3dCameraVariable {
             .get("URotator3dCameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URotator3dCameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2450,6 +2743,13 @@ impl UTransform3fCameraVariable {
             .name_to_ptr
             .get("UTransform3fCameraVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTransform3fCameraVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2472,6 +2772,13 @@ impl UTransform3dCameraVariable {
             .get("UTransform3dCameraVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTransform3dCameraVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2492,6 +2799,13 @@ impl UCameraVariableCollection {
             .name_to_ptr
             .get("UCameraVariableCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraVariableCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2514,6 +2828,13 @@ impl URootCameraNode {
             .get("URootCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URootCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2534,6 +2855,13 @@ impl UDefaultRootCameraNode {
             .name_to_ptr
             .get("UDefaultRootCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDefaultRootCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2557,6 +2885,13 @@ impl UCustomCameraNodeParameterProvider {
             .get("UCustomCameraNodeParameterProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCustomCameraNodeParameterProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2577,6 +2912,13 @@ impl UObjectTreeGraphComment {
             .name_to_ptr
             .get("UObjectTreeGraphComment")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UObjectTreeGraphComment")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2599,6 +2941,13 @@ impl UShakeCameraNode {
             .get("UShakeCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UShakeCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2619,6 +2968,13 @@ impl UBlueprintCameraDirectorEvaluator {
             .name_to_ptr
             .get("UBlueprintCameraDirectorEvaluator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraDirectorEvaluator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3324,6 +3680,13 @@ impl UBlueprintCameraDirector {
             .get("UBlueprintCameraDirector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraDirector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3344,6 +3707,13 @@ impl UCameraDirectorStateTreeSchema {
             .name_to_ptr
             .get("UCameraDirectorStateTreeSchema")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraDirectorStateTreeSchema")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3366,6 +3736,13 @@ impl UPriorityQueueCameraDirector {
             .get("UPriorityQueueCameraDirector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPriorityQueueCameraDirector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3386,6 +3763,13 @@ impl USingleCameraDirector {
             .name_to_ptr
             .get("USingleCameraDirector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USingleCameraDirector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3408,6 +3792,13 @@ impl UStateTreeCameraDirector {
             .get("UStateTreeCameraDirector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeCameraDirector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3428,6 +3819,13 @@ impl UActivateCameraRigFunctions {
             .name_to_ptr
             .get("UActivateCameraRigFunctions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActivateCameraRigFunctions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3606,6 +4004,13 @@ impl UCameraComponentCameraNode {
             .get("UCameraComponentCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraComponentCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3627,6 +4032,13 @@ impl UCalcCameraActorCameraNode {
             .get("UCalcCameraActorCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCalcCameraActorCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3647,6 +4059,13 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             .name_to_ptr
             .get("UBlueprintCameraEvaluationDataFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraEvaluationDataFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3859,6 +4278,13 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             .name_to_ptr
             .get("UBlueprintCameraVariableTableFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraVariableTableFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4712,6 +5138,13 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             .get("UBlueprintCameraContextDataTableFunctionLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraContextDataTableFunctionLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5329,6 +5762,13 @@ impl UBlueprintCameraPoseFunctionLibrary {
             .name_to_ptr
             .get("UBlueprintCameraPoseFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraPoseFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6117,6 +6557,13 @@ impl UCameraRigParameterInterop {
             .get("UCameraRigParameterInterop")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigParameterInterop")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6250,6 +6697,13 @@ impl UCameraRigParameterInteropLibrary {
             .name_to_ptr
             .get("UCameraRigParameterInteropLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigParameterInteropLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6460,6 +6914,13 @@ impl UControllerGameplayCameraEvaluationComponent {
             .get("UControllerGameplayCameraEvaluationComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControllerGameplayCameraEvaluationComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6480,6 +6941,13 @@ impl AGameplayCameraActorBase {
             .name_to_ptr
             .get("AGameplayCameraActorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayCameraActorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6503,6 +6971,13 @@ impl AGameplayCameraActor {
             .name_to_ptr
             .get("AGameplayCameraActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayCameraActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6554,6 +7029,13 @@ impl UGameplayCameraComponentBase {
             .name_to_ptr
             .get("UGameplayCameraComponentBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCameraComponentBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6945,6 +7427,13 @@ impl UGameplayCameraComponent {
             .get("UGameplayCameraComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCameraComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6971,6 +7460,13 @@ impl UGameplayCameraParameterSetterComponent {
             .name_to_ptr
             .get("UGameplayCameraParameterSetterComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCameraParameterSetterComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7052,6 +7548,13 @@ impl AGameplayCameraRigActor {
             .get("AGameplayCameraRigActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayCameraRigActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7102,6 +7605,13 @@ impl UGameplayCameraRigComponent {
             .get("UGameplayCameraRigComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCameraRigComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7122,6 +7632,13 @@ impl AGameplayCamerasPlayerCameraManager {
             .name_to_ptr
             .get("AGameplayCamerasPlayerCameraManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayCamerasPlayerCameraManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7578,6 +8095,13 @@ impl AGameplayCameraSystemActor {
             .get("AGameplayCameraSystemActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayCameraSystemActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7627,6 +8151,13 @@ impl UGameplayCameraSystemComponent {
             .name_to_ptr
             .get("UGameplayCameraSystemComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCameraSystemComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7917,6 +8448,13 @@ impl UGameplayControlRotationComponent {
             .get("UGameplayControlRotationComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayControlRotationComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8036,6 +8574,13 @@ impl UGameplayCameraSystemHost {
             .get("UGameplayCameraSystemHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCameraSystemHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8056,6 +8601,13 @@ impl USimpleBlendCameraNode {
             .name_to_ptr
             .get("USimpleBlendCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USimpleBlendCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8078,6 +8630,13 @@ impl UViewTargetTransitionParamsBlendCameraNode {
             .get("UViewTargetTransitionParamsBlendCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewTargetTransitionParamsBlendCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8098,6 +8657,13 @@ impl UGameplayCamerasSettings {
             .name_to_ptr
             .get("UGameplayCamerasSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayCamerasSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8120,6 +8686,13 @@ impl UMovieSceneCameraFramingZonePropertySystem {
             .get("UMovieSceneCameraFramingZonePropertySystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraFramingZonePropertySystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8140,6 +8713,13 @@ impl UMovieSceneCameraFramingZoneSection {
             .name_to_ptr
             .get("UMovieSceneCameraFramingZoneSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraFramingZoneSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8162,6 +8742,13 @@ impl UMovieSceneCameraFramingZoneTrack {
             .get("UMovieSceneCameraFramingZoneTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCameraFramingZoneTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8183,6 +8770,13 @@ impl UAttachToActorCameraNode {
             .get("UAttachToActorCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAttachToActorCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8203,6 +8797,13 @@ impl UAttachToActorGroupCameraNode {
             .name_to_ptr
             .get("UAttachToActorGroupCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAttachToActorGroupCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8228,6 +8829,13 @@ impl UAttachToPlayerPawnCameraNode {
             .get("UAttachToPlayerPawnCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAttachToPlayerPawnCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8248,6 +8856,13 @@ impl USimpleFixedTimeBlendCameraNode {
             .name_to_ptr
             .get("USimpleFixedTimeBlendCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USimpleFixedTimeBlendCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8270,6 +8885,13 @@ impl ULinearBlendCameraNode {
             .get("ULinearBlendCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULinearBlendCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8290,6 +8912,13 @@ impl ULocationRotationBlendCameraNode {
             .name_to_ptr
             .get("ULocationRotationBlendCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULocationRotationBlendCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8312,6 +8941,13 @@ impl UOrbitBlendCameraNode {
             .get("UOrbitBlendCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOrbitBlendCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8332,6 +8968,13 @@ impl UPopBlendCameraNode {
             .name_to_ptr
             .get("UPopBlendCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPopBlendCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8354,6 +8997,13 @@ impl USmoothBlendCameraNode {
             .get("USmoothBlendCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothBlendCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8374,6 +9024,13 @@ impl UCollisionPushCameraNode {
             .name_to_ptr
             .get("UCollisionPushCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCollisionPushCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8396,6 +9053,13 @@ impl UOcclusionMaterialCameraNode {
             .get("UOcclusionMaterialCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOcclusionMaterialCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8416,6 +9080,13 @@ impl UArrayCameraNode {
             .name_to_ptr
             .get("UArrayCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UArrayCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8438,6 +9109,13 @@ impl UAutoFocusCameraNode {
             .get("UAutoFocusCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutoFocusCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8458,6 +9136,13 @@ impl UBodyParametersCameraNode {
             .name_to_ptr
             .get("UBodyParametersCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBodyParametersCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8480,6 +9165,13 @@ impl UBoomArmCameraNode {
             .get("UBoomArmCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoomArmCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8500,6 +9192,13 @@ impl UCameraRigCameraNode {
             .name_to_ptr
             .get("UCameraRigCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8522,6 +9221,13 @@ impl UClippingPlanesCameraNode {
             .get("UClippingPlanesCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClippingPlanesCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8542,6 +9248,13 @@ impl UDampenPositionCameraNode {
             .name_to_ptr
             .get("UDampenPositionCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDampenPositionCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8564,6 +9277,13 @@ impl UDampenRotationCameraNode {
             .get("UDampenRotationCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDampenRotationCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8584,6 +9304,13 @@ impl UFieldOfViewCameraNode {
             .name_to_ptr
             .get("UFieldOfViewCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldOfViewCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8606,6 +9333,13 @@ impl UFilmbackCameraNode {
             .get("UFilmbackCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFilmbackCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8626,6 +9360,13 @@ impl ULensParametersCameraNode {
             .name_to_ptr
             .get("ULensParametersCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULensParametersCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8648,6 +9389,13 @@ impl UOffsetCameraNode {
             .get("UOffsetCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOffsetCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8668,6 +9416,13 @@ impl UOrthographicCameraNode {
             .name_to_ptr
             .get("UOrthographicCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOrthographicCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8690,6 +9445,13 @@ impl UPostProcessCameraNode {
             .get("UPostProcessCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPostProcessCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8710,6 +9472,13 @@ impl USetLocationCameraNode {
             .name_to_ptr
             .get("USetLocationCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USetLocationCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8732,6 +9501,13 @@ impl USetRotationCameraNode {
             .get("USetRotationCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USetRotationCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8752,6 +9528,13 @@ impl USplineFieldOfViewCameraNode {
             .name_to_ptr
             .get("USplineFieldOfViewCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USplineFieldOfViewCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8774,6 +9557,13 @@ impl USplineOffsetCameraNode {
             .get("USplineOffsetCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USplineOffsetCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8794,6 +9584,13 @@ impl USplineOrbitCameraNode {
             .name_to_ptr
             .get("USplineOrbitCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USplineOrbitCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8816,6 +9613,13 @@ impl UTargetRayCastCameraNode {
             .get("UTargetRayCastCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTargetRayCastCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8836,6 +9640,13 @@ impl UBaseFramingCameraNode {
             .name_to_ptr
             .get("UBaseFramingCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseFramingCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8858,6 +9669,13 @@ impl UDollyFramingCameraNode {
             .get("UDollyFramingCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDollyFramingCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8878,6 +9696,13 @@ impl UPanningFramingCameraNode {
             .name_to_ptr
             .get("UPanningFramingCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPanningFramingCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8900,6 +9725,13 @@ impl UInput2DCameraNode {
             .get("UInput2DCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInput2DCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8920,6 +9752,13 @@ impl UAutoRotateInput2DCameraNode {
             .name_to_ptr
             .get("UAutoRotateInput2DCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutoRotateInput2DCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8942,6 +9781,13 @@ impl UInput1DCameraNode {
             .get("UInput1DCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInput1DCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8962,6 +9808,13 @@ impl UCameraRigInput1DSlot {
             .name_to_ptr
             .get("UCameraRigInput1DSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigInput1DSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8984,6 +9837,13 @@ impl UCameraRigInput2DSlot {
             .get("UCameraRigInput2DSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraRigInput2DSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9004,6 +9864,13 @@ impl UDrivenControlRotationCameraNode {
             .name_to_ptr
             .get("UDrivenControlRotationCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrivenControlRotationCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9026,6 +9893,13 @@ impl UInputAccumulator2DCameraNode {
             .get("UInputAccumulator2DCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputAccumulator2DCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9046,6 +9920,13 @@ impl UInputAxisBinding2DCameraNode {
             .name_to_ptr
             .get("UInputAxisBinding2DCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputAxisBinding2DCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9068,6 +9949,13 @@ impl URawInputAxisBinding2DCameraNode {
             .get("URawInputAxisBinding2DCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URawInputAxisBinding2DCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9088,6 +9976,13 @@ impl UCameraShakeCameraNode {
             .name_to_ptr
             .get("UCameraShakeCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraShakeCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9110,6 +10005,13 @@ impl UCompositeShakeCameraNode {
             .get("UCompositeShakeCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCompositeShakeCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9130,6 +10032,13 @@ impl UEnvelopeShakeCameraNode {
             .name_to_ptr
             .get("UEnvelopeShakeCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnvelopeShakeCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9152,6 +10061,13 @@ impl UPerlinNoiseLocationShakeCameraNode {
             .get("UPerlinNoiseLocationShakeCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPerlinNoiseLocationShakeCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9172,6 +10088,13 @@ impl UPerlinNoiseRotationShakeCameraNode {
             .name_to_ptr
             .get("UPerlinNoiseRotationShakeCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPerlinNoiseRotationShakeCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9201,6 +10124,13 @@ impl UBlueprintCameraNodeEvaluator {
             .name_to_ptr
             .get("UBlueprintCameraNodeEvaluator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraNodeEvaluator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9496,6 +10426,13 @@ impl UBlueprintCameraNode {
             .get("UBlueprintCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9516,6 +10453,13 @@ impl UCameraShakeServiceCameraNode {
             .name_to_ptr
             .get("UCameraShakeServiceCameraNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraShakeServiceCameraNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9538,6 +10482,13 @@ impl UUpdateTrackerCameraNode {
             .get("UUpdateTrackerCameraNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUpdateTrackerCameraNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9558,6 +10509,13 @@ impl UFixedTestCameraDirector {
             .name_to_ptr
             .get("UFixedTestCameraDirector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFixedTestCameraDirector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9580,6 +10538,13 @@ impl UIsCameraRigTransitionCondition {
             .get("UIsCameraRigTransitionCondition")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIsCameraRigTransitionCondition")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9600,6 +10565,13 @@ impl UGameplayTagTransitionCondition {
             .name_to_ptr
             .get("UGameplayTagTransitionCondition")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagTransitionCondition")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9622,6 +10594,13 @@ impl UAccelerationDecelerationValueInterpolator {
             .get("UAccelerationDecelerationValueInterpolator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAccelerationDecelerationValueInterpolator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9642,6 +10621,13 @@ impl UCriticalDamperValueInterpolator {
             .name_to_ptr
             .get("UCriticalDamperValueInterpolator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCriticalDamperValueInterpolator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9664,6 +10650,13 @@ impl UDoubleIIRValueInterpolator {
             .get("UDoubleIIRValueInterpolator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDoubleIIRValueInterpolator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9684,6 +10677,13 @@ impl UIIRValueInterpolator {
             .name_to_ptr
             .get("UIIRValueInterpolator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIIRValueInterpolator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

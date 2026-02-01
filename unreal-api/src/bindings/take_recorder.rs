@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -176,584 +177,597 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTakeRecorder::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCountdown"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_set_countdown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_get_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_get_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCountdownSeconds"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_get_countdown_seconds,
-        );
+        if let Some(class_ptr) = UTakeRecorder::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCountdown"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_set_countdown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetState"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_get_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_get_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCountdownSeconds"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_get_countdown_seconds,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTakeRecorderBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_stop_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_start_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderStopped"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_stopped,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderStarted"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderPreInitialize"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderPanelChanged"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderMarkedFrameAdded"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderFinished"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOnTakeRecorderCancelled"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_on_take_recorder_cancelled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultParameters"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_set_default_parameters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenTakeRecorderPanel"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_open_take_recorder_panel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTakeRecorderEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_is_take_recorder_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_is_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTakeRecorderPanel"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_get_take_recorder_panel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultParameters"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_get_default_parameters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveRecorder"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_blueprint_library_get_active_recorder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_cancel_recording,
-        );
+        if let Some(class_ptr) = UTakeRecorderBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_stop_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartRecording"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_start_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderStopped"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_stopped,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderStarted"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderPreInitialize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderPanelChanged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderMarkedFrameAdded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderFinished"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOnTakeRecorderCancelled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_cancelled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultParameters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_default_parameters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenTakeRecorderPanel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_open_take_recorder_panel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTakeRecorderEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_is_take_recorder_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_is_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTakeRecorderPanel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_take_recorder_panel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultParameters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_default_parameters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveRecorder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_active_recorder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelRecording"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_cancel_recording,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTakeRecorderPanel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_stop_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_start_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupForViewing"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_setup_for_viewing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupForRecordingInto_LevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_panel_setup_for_recording_into_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupForRecording_TakePreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_panel_setup_for_recording_take_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupForRecording_LevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_panel_setup_for_recording_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetupForEditing"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_setup_for_editing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_set_frame_rate_from_timecode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_set_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTakeMetaData"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_take_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSources"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMode"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLevelSequence"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastRecordedLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_panel_get_last_recorded_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearPendingTake"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_clear_pending_take,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanStartRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_can_start_recording,
-        );
+        if let Some(class_ptr) = UTakeRecorderPanel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_stop_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_start_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupForViewing"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_setup_for_viewing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupForRecordingInto_LevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_into_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupForRecording_TakePreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_take_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupForRecording_LevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetupForEditing"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_setup_for_editing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_panel_set_frame_rate_from_timecode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_set_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTakeMetaData"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_take_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSources"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMode"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLevelSequence"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastRecordedLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_panel_get_last_recorded_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearPendingTake"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_clear_pending_take,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanStartRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_panel_can_start_recording,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTakeRecorderSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TryGetSequenceCountdown"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_try_get_sequence_countdown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_stop_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_start_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetSequence"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_target_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTakeNumber"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_take_number,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSlateName"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_slate_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSequenceCountdown"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_sequence_countdown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGlobalRecordSettings"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_global_record_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_subsystem_set_frame_rate_from_timecode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReviewLastRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_review_last_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RevertChanges"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_revert_changes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToPendingTake"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_reset_to_pending_take,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSource"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_remove_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorFromSources"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_remove_actor_from_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkFrame"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_mark_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReviewing"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_is_reviewing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_is_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTakeRecorderMode"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_take_recorder_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTakeMetaData"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_take_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSources"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceRecordSettings"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_record_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceByClass"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceActor"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlates"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_slates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPendingTake"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_pending_take,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberOfTakes"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_number_of_takes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNextTakeNumber"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_next_take_number,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLevelSequence"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastRecordedLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_subsystem_get_last_recorded_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGlobalRecordSettings"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_global_record_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllSourcesCopy"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_all_sources_copy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSources"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_clear_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearPendingTake"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_clear_pending_take,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanReviewLastRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_can_review_last_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelRecording"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_cancel_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSourceForActor"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_add_source_for_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSource"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_add_source,
-        );
+        if let Some(class_ptr) = UTakeRecorderSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TryGetSequenceCountdown"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_try_get_sequence_countdown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_stop_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_start_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetSequence"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_target_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTakeNumber"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_take_number,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSlateName"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_slate_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSequenceCountdown"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_sequence_countdown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGlobalRecordSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_global_record_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_frame_rate_from_timecode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReviewLastRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_review_last_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RevertChanges"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_revert_changes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToPendingTake"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_reset_to_pending_take,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSource"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_remove_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorFromSources"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_remove_actor_from_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkFrame"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_mark_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReviewing"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_is_reviewing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_is_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTakeRecorderMode"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_take_recorder_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTakeMetaData"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_take_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetState"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSources"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceRecordSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_record_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceByClass"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceActor"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlates"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_slates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPendingTake"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_pending_take,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberOfTakes"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_number_of_takes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNextTakeNumber"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_next_take_number,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLevelSequence"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastRecordedLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_last_recorded_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGlobalRecordSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_global_record_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllSourcesCopy"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_all_sources_copy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSources"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_clear_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearPendingTake"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_clear_pending_take,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanReviewLastRecording"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_subsystem_can_review_last_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelRecording"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_cancel_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSourceForActor"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_add_source_for_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSource"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_add_source,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -819,6 +833,13 @@ impl UTakeRecorderSubsystemInterface {
             .get("UTakeRecorderSubsystemInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderSubsystemInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -839,6 +860,13 @@ impl UTakeRecorderHitchVisualizationSettings {
             .name_to_ptr
             .get("UTakeRecorderHitchVisualizationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderHitchVisualizationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -861,6 +889,13 @@ impl UAssetDefinition_TakePreset {
             .get("UAssetDefinition_TakePreset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_TakePreset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -881,6 +916,13 @@ impl UTakeRecorder {
             .name_to_ptr
             .get("UTakeRecorder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1013,6 +1055,13 @@ impl UTakeRecorderBlueprintLibrary {
             .name_to_ptr
             .get("UTakeRecorderBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1594,6 +1643,13 @@ impl UTakeRecorderPanel {
             .get("UTakeRecorderPanel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderPanel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2159,6 +2215,13 @@ impl UTakeRecorderSubsystem {
             .name_to_ptr
             .get("UTakeRecorderSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3504,6 +3567,13 @@ impl UTakeRecorderSubsystemImplementation {
             .get("UTakeRecorderSubsystemImplementation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderSubsystemImplementation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3526,6 +3596,13 @@ impl UTakeRecorderOverlayWidget {
             .name_to_ptr
             .get("UTakeRecorderOverlayWidget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderOverlayWidget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3551,6 +3628,13 @@ impl UTakeRecorderUserSettings {
             .get("UTakeRecorderUserSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderUserSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3575,6 +3659,13 @@ impl UTakeRecorderProjectSettings {
             .get("UTakeRecorderProjectSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderProjectSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3595,6 +3686,13 @@ impl UTakeRecorderNamingTokensData {
             .name_to_ptr
             .get("UTakeRecorderNamingTokensData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderNamingTokensData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

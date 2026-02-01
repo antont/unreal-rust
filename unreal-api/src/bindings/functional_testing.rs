@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -268,957 +269,976 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAutomationEditorTask::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidTask"),
-            &raw mut __FUNCTION_PTRS.u_automation_editor_task_is_valid_task,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTaskDone"),
-            &raw mut __FUNCTION_PTRS.u_automation_editor_task_is_task_done,
-        );
+        if let Some(class_ptr) = UAutomationEditorTask::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidTask"),
+                &raw mut __FUNCTION_PTRS.u_automation_editor_task_is_valid_task,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTaskDone"),
+                &raw mut __FUNCTION_PTRS.u_automation_editor_task_is_task_done,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAutomationBlueprintFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TakeHighResScreenshot"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_take_high_res_screenshot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TakeAutomationScreenshotOfUI"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_take_automation_screenshot_of_ui,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TakeAutomationScreenshotAtCamera"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_take_automation_screenshot_at_camera,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TakeAutomationScreenshot"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_take_automation_screenshot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTestTelemetryStorage"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_test_telemetry_storage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScalabilityQualityToLow"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_scalability_quality_to_low,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScalabilityQualityToEpic"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_scalability_quality_to_epic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScalabilityQualityLevelRelativeToMax"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEditorViewportVisualizeBuffer"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEditorViewportViewMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_editor_viewport_view_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEditorActiveViewportWireframeOpacity"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEditorActiveViewportViewMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_set_editor_active_viewport_view_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatIncMax"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_stat_inc_max,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatIncAverage"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_stat_inc_average,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatExcMax"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_stat_exc_max,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatExcAverage"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_stat_exc_average,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatCallCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_stat_call_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEditorActiveViewportWireframeOpacity"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEditorActiveViewportViewMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_editor_active_viewport_view_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForRendering"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForGameplay"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishLoadingBeforeScreenshot"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_finish_loading_before_screenshot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableStatGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_enable_stat_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisableStatGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_disable_stat_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CompareImageAgainstReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_compare_image_against_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AutomationWaitForLoading"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_automation_wait_for_loading,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AreAutomatedTestsRunning"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_are_automated_tests_running,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTestWarning"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_test_warning,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTestTelemetryData"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_test_telemetry_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTestInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_test_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTestError"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_test_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExpectedPlainLogMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_expected_plain_log_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExpectedPlainLogError"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_expected_plain_log_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExpectedLogMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_expected_log_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExpectedLogError"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_blueprint_function_library_add_expected_log_error,
-        );
+        if let Some(class_ptr) = UAutomationBlueprintFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TakeHighResScreenshot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_high_res_screenshot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TakeAutomationScreenshotOfUI"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot_of_ui,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TakeAutomationScreenshotAtCamera"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot_at_camera,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TakeAutomationScreenshot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTestTelemetryStorage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_test_telemetry_storage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScalabilityQualityToLow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_to_low,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScalabilityQualityToEpic"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_to_epic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScalabilityQualityLevelRelativeToMax"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEditorViewportVisualizeBuffer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEditorViewportViewMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_viewport_view_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEditorActiveViewportWireframeOpacity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEditorActiveViewportViewMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_active_viewport_view_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatIncMax"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_inc_max,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatIncAverage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_inc_average,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatExcMax"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_exc_max,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatExcAverage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_exc_average,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatCallCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_call_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEditorActiveViewportWireframeOpacity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEditorActiveViewportViewMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_editor_active_viewport_view_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForRendering"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForGameplay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishLoadingBeforeScreenshot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_finish_loading_before_screenshot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableStatGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_enable_stat_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisableStatGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_disable_stat_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CompareImageAgainstReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_compare_image_against_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AutomationWaitForLoading"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_automation_wait_for_loading,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AreAutomatedTestsRunning"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_are_automated_tests_running,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTestWarning"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_warning,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTestTelemetryData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_telemetry_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTestInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTestError"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExpectedPlainLogMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_plain_log_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExpectedPlainLogError"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_plain_log_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExpectedLogMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_log_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExpectedLogError"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_log_error,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AFunctionalTest::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTimeLimit"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_set_time_limit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConsoleVariableFromInteger"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable_from_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConsoleVariableFromFloat"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable_from_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConsoleVariableFromBoolean"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable_from_boolean,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConsoleVariable"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterAutoDestroyActor"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_register_auto_destroy_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTestFinished"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_receive_test_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveStartTest"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_receive_start_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceivePrepareTest"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_receive_prepare_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnWantsReRunCheck"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_on_wants_re_run_check,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAdditionalTestFinishedMessageRequest"),
-            &raw mut __FUNCTION_PTRS
-                .a_functional_test_on_additional_test_finished_message_request,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LogMessage"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_log_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRunning"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_is_running,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReady"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_is_ready,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEnabledInWorld"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_is_enabled_in_world,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_is_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentRerunReason"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_get_current_rerun_reason,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishTest"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_finish_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EditTags"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_edit_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DebugGatherRelevantActors"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_debug_gather_relevant_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertValue_Int"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertValue_Float"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertValue_Double"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_double,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertValue_DateTime"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_date_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertTrue"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_true,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Vector4"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Vector2D"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Vector"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Transform"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_String"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Rotator"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Quat"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Plane"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Matrix"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertNotEqual_Box2D"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_box2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertIsValid"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertFalse"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_false,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Vector4"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Vector2D"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Vector"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Transform"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_TraceQueryResults"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_trace_query_results,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_String"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_RotatorOrientation"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_rotator_orientation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Rotator"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Quat"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Plane"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Object"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Name"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Matrix"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Int"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Float"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Double"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_double,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Box2D"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_box2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssertEqual_Bool"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddWarning"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_add_warning,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddRerun"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_add_rerun,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInfo"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_add_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddError"),
-            &raw mut __FUNCTION_PTRS.a_functional_test_add_error,
-        );
+        if let Some(class_ptr) = AFunctionalTest::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTimeLimit"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_set_time_limit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConsoleVariableFromInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConsoleVariableFromFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConsoleVariableFromBoolean"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_boolean,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConsoleVariable"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterAutoDestroyActor"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_register_auto_destroy_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTestFinished"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_receive_test_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveStartTest"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_receive_start_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceivePrepareTest"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_receive_prepare_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnWantsReRunCheck"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_on_wants_re_run_check,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAdditionalTestFinishedMessageRequest"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_test_on_additional_test_finished_message_request,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LogMessage"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_log_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRunning"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_is_running,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReady"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_is_ready,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEnabledInWorld"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_is_enabled_in_world,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEnabled"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_is_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentRerunReason"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_get_current_rerun_reason,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishTest"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_finish_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EditTags"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_edit_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DebugGatherRelevantActors"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_debug_gather_relevant_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertValue_Int"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertValue_Float"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertValue_Double"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_double,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertValue_DateTime"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_date_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertTrue"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_true,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Vector4"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Vector2D"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Vector"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Transform"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_String"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Rotator"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Quat"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Plane"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Matrix"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertNotEqual_Box2D"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_box2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertIsValid"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertFalse"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_false,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Vector4"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Vector2D"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Vector"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Transform"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_TraceQueryResults"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_test_assert_equal_trace_query_results,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_String"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_RotatorOrientation"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_test_assert_equal_rotator_orientation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Rotator"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Quat"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Plane"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Object"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Name"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Matrix"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Int"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Float"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Double"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_double,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Box2D"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_box2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssertEqual_Bool"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddWarning"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_add_warning,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddRerun"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_add_rerun,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInfo"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_add_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddError"),
+                &raw mut __FUNCTION_PTRS.a_functional_test_add_error,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AFunctionalAITestBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOneOfSpawnedPawns"),
-            &raw mut __FUNCTION_PTRS.a_functional_ai_test_base_is_one_of_spawned_pawns,
-        );
+        if let Some(class_ptr) = AFunctionalAITestBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOneOfSpawnedPawns"),
+                &raw mut __FUNCTION_PTRS
+                    .a_functional_ai_test_base_is_one_of_spawned_pawns,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAutomationPerformaceHelper::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteLogFile"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_write_log_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TriggerGPUTraceIfRecordFallsBelowBudget"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Tick"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopCPUProfiling"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_stop_cpu_profiling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartCPUProfiling"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_start_cpu_profiling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Sample"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_sample,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnBeginTests"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_on_begin_tests,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAllTestsComplete"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_on_all_tests_complete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_is_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCurrentRecordWithinRenderThreadBudget"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_performace_helper_is_current_record_within_render_thread_budget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGPUBudget"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_performace_helper_is_current_record_within_gpu_budget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGameThreadBudget"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_performace_helper_is_current_record_within_game_thread_budget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndStatsFile"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_end_stats_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndRecordingBaseline"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_performace_helper_end_recording_baseline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndRecording"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_end_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BeginStatsFile"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_begin_stats_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BeginRecordingBaseline"),
-            &raw mut __FUNCTION_PTRS
-                .u_automation_performace_helper_begin_recording_baseline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BeginRecording"),
-            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_begin_recording,
-        );
+        if let Some(class_ptr) = UAutomationPerformaceHelper::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteLogFile"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_write_log_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TriggerGPUTraceIfRecordFallsBelowBudget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Tick"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopCPUProfiling"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_stop_cpu_profiling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartCPUProfiling"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_start_cpu_profiling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Sample"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_sample,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnBeginTests"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_on_begin_tests,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAllTestsComplete"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_on_all_tests_complete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRecording"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_is_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCurrentRecordWithinRenderThreadBudget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_render_thread_budget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGPUBudget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_gpu_budget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGameThreadBudget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_game_thread_budget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndStatsFile"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_end_stats_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndRecordingBaseline"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_end_recording_baseline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndRecording"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_end_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BeginStatsFile"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_begin_stats_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BeginRecordingBaseline"),
+                &raw mut __FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_recording_baseline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BeginRecording"),
+                &raw mut __FUNCTION_PTRS.u_automation_performace_helper_begin_recording,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFunctionalTestingManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunAllFunctionalTests"),
-            &raw mut __FUNCTION_PTRS
-                .u_functional_testing_manager_run_all_functional_tests,
-        );
+        if let Some(class_ptr) = UFunctionalTestingManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunAllFunctionalTests"),
+                &raw mut __FUNCTION_PTRS
+                    .u_functional_testing_manager_run_all_functional_tests,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = APhasedAutomationActorBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnFunctionalTestingComplete"),
-            &raw mut __FUNCTION_PTRS
-                .a_phased_automation_actor_base_on_functional_testing_complete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnFunctionalTestingBegin"),
-            &raw mut __FUNCTION_PTRS
-                .a_phased_automation_actor_base_on_functional_testing_begin,
-        );
+        if let Some(class_ptr) = APhasedAutomationActorBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnFunctionalTestingComplete"),
+                &raw mut __FUNCTION_PTRS
+                    .a_phased_automation_actor_base_on_functional_testing_complete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnFunctionalTestingBegin"),
+                &raw mut __FUNCTION_PTRS
+                    .a_phased_automation_actor_base_on_functional_testing_begin,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFunctionalTestUtilityLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TraceChannelTestUtil"),
-            &raw mut __FUNCTION_PTRS
-                .u_functional_test_utility_library_trace_channel_test_util,
-        );
+        if let Some(class_ptr) = UFunctionalTestUtilityLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TraceChannelTestUtil"),
+                &raw mut __FUNCTION_PTRS
+                    .u_functional_test_utility_library_trace_channel_test_util,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGroundTruthData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveObject"),
-            &raw mut __FUNCTION_PTRS.u_ground_truth_data_save_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetObject"),
-            &raw mut __FUNCTION_PTRS.u_ground_truth_data_reset_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadObject"),
-            &raw mut __FUNCTION_PTRS.u_ground_truth_data_load_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanModify"),
-            &raw mut __FUNCTION_PTRS.u_ground_truth_data_can_modify,
-        );
+        if let Some(class_ptr) = UGroundTruthData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveObject"),
+                &raw mut __FUNCTION_PTRS.u_ground_truth_data_save_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetObject"),
+                &raw mut __FUNCTION_PTRS.u_ground_truth_data_reset_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadObject"),
+                &raw mut __FUNCTION_PTRS.u_ground_truth_data_load_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanModify"),
+                &raw mut __FUNCTION_PTRS.u_ground_truth_data_can_modify,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTraceQueryTestResults::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToString"),
-            &raw mut __FUNCTION_PTRS.u_trace_query_test_results_to_string,
-        );
+        if let Some(class_ptr) = UTraceQueryTestResults::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToString"),
+                &raw mut __FUNCTION_PTRS.u_trace_query_test_results_to_string,
+            );
+        }
     }
 }
 #[repr(C, align(1))]
@@ -1341,6 +1361,13 @@ impl UAutomationViewSettings {
             .get("UAutomationViewSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationViewSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1361,6 +1388,13 @@ impl UAutomationEditorTask {
             .name_to_ptr
             .get("UAutomationEditorTask")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationEditorTask")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1434,6 +1468,13 @@ impl UAutomationBlueprintFunctionLibrary {
             .name_to_ptr
             .get("UAutomationBlueprintFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationBlueprintFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2902,6 +2943,13 @@ impl UFuncTestRenderingComponent {
             .get("UFuncTestRenderingComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFuncTestRenderingComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2945,6 +2993,13 @@ impl AFunctionalTest {
             .name_to_ptr
             .get("AFunctionalTest")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalTest")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5658,6 +5713,13 @@ impl AFunctionalAITestBase {
             .get("AFunctionalAITestBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalAITestBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5717,6 +5779,13 @@ impl AFunctionalAITest {
             .get("AFunctionalAITest")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalAITest")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5737,6 +5806,13 @@ impl UAutomationPerformaceHelper {
             .name_to_ptr
             .get("UAutomationPerformaceHelper")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAutomationPerformaceHelper")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6289,6 +6365,13 @@ impl AFunctionalTestGameMode {
             .get("AFunctionalTestGameMode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalTestGameMode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6309,6 +6392,13 @@ impl UFunctionalTestingManager {
             .name_to_ptr
             .get("UFunctionalTestingManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFunctionalTestingManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6386,6 +6476,13 @@ impl APhasedAutomationActorBase {
             .get("APhasedAutomationActorBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("APhasedAutomationActorBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6457,6 +6554,13 @@ impl AFunctionalTestLevelScript {
             .get("AFunctionalTestLevelScript")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalTestLevelScript")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6477,6 +6581,13 @@ impl UFunctionalTestUtilityLibrary {
             .name_to_ptr
             .get("UFunctionalTestUtilityLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFunctionalTestUtilityLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6679,6 +6790,13 @@ impl AScreenshotFunctionalTestBase {
             .get("AScreenshotFunctionalTestBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AScreenshotFunctionalTestBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6700,6 +6818,13 @@ impl AFunctionalUIScreenshotTest {
             .get("AFunctionalUIScreenshotTest")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFunctionalUIScreenshotTest")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6720,6 +6845,13 @@ impl UGroundTruthData {
             .name_to_ptr
             .get("UGroundTruthData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroundTruthData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6862,6 +6994,13 @@ impl AScreenshotFunctionalTest {
             .get("AScreenshotFunctionalTest")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AScreenshotFunctionalTest")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6882,6 +7021,13 @@ impl UTestPhaseComponent {
             .name_to_ptr
             .get("UTestPhaseComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestPhaseComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6908,6 +7054,13 @@ impl UTraceQueryTestResults {
             .name_to_ptr
             .get("UTraceQueryTestResults")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTraceQueryTestResults")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

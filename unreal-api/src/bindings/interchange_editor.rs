@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -36,68 +37,71 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeEditorScriptLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetSceneImportAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_editor_script_library_reset_scene_import_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetLevelAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_editor_script_library_reset_level_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetActors"),
-            &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_reset_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LevelInstanceGetEditableActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_editor_script_library_level_instance_get_editable_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LevelInstanceEnterEditMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_editor_script_library_level_instance_enter_edit_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LevelInstanceCommit"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_editor_script_library_level_instance_commit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanResetWorld"),
-            &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_can_reset_world,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanResetActor"),
-            &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_can_reset_actor,
-        );
+        if let Some(class_ptr) = UInterchangeEditorScriptLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetSceneImportAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_scene_import_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetLevelAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_level_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetActors"),
+                &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_reset_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LevelInstanceGetEditableActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_get_editable_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LevelInstanceEnterEditMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_enter_edit_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LevelInstanceCommit"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_commit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanResetWorld"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_can_reset_world,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanResetActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_script_library_can_reset_actor,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -111,6 +115,13 @@ impl UAssetDefinition_InterchangeSceneImportAsset {
             .name_to_ptr
             .get("UAssetDefinition_InterchangeSceneImportAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_InterchangeSceneImportAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -132,6 +143,13 @@ impl UInterchangeEditorScriptLibrary {
             .name_to_ptr
             .get("UInterchangeEditorScriptLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeEditorScriptLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -443,6 +461,13 @@ impl UInterchangeFbxAssetImportDataConverter {
             .name_to_ptr
             .get("UInterchangeFbxAssetImportDataConverter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeFbxAssetImportDataConverter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

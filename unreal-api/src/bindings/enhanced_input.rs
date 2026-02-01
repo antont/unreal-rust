@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -232,881 +233,913 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundActionValue"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_component_get_bound_action_value,
-        );
+        if let Some(class_ptr) = UEnhancedInputComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundActionValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_component_get_bound_action_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRebuildControlMappingsUsingContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_request_rebuild_control_mappings_using_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeInputActionValueOfType"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_make_input_action_value_of_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActionKeyMappingPlayerMappable"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_is_action_key_mapping_player_mappable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerMappableKeySettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_get_player_mappable_key_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMappingName"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_get_mapping_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundActionValue"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_get_bound_action_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FlushPlayerInput"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_flush_player_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_TriggerEventValueToString"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_conv_trigger_event_value_to_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_InputActionValueToString"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_conv_input_action_value_to_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_InputActionValueToBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_conv_input_action_value_to_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis3D"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_conv_input_action_value_to_axis3_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_conv_input_action_value_to_axis2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis1D"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_library_conv_input_action_value_to_axis1_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakInputActionValue"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_break_input_action_value,
-        );
+        if let Some(class_ptr) = UEnhancedInputLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRebuildControlMappingsUsingContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_request_rebuild_control_mappings_using_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeInputActionValueOfType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_make_input_action_value_of_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActionKeyMappingPlayerMappable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_is_action_key_mapping_player_mappable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerMappableKeySettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_get_player_mappable_key_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMappingName"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_library_get_mapping_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundActionValue"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_library_get_bound_action_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FlushPlayerInput"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_library_flush_player_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_TriggerEventValueToString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_trigger_event_value_to_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_InputActionValueToString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_InputActionValueToBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis3D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis3_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis1D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis1_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakInputActionValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_library_break_input_action_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputPlatformData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetContextRedirect"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_platform_data_get_context_redirect,
-        );
+        if let Some(class_ptr) = UEnhancedInputPlatformData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetContextRedirect"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_platform_data_get_context_redirect,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputSubsystemInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "UpdateValueOfContinuousInputInjectionForPlayerMapping",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateValueOfContinuousInputInjectionForAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopContinuousInputInjectionForPlayerMapping"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopContinuousInputInjectionForAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartContinuousInputInjectionForPlayerMapping"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartContinuousInputInjectionForAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInputMode"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_subsystem_interface_set_input_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRebuildControlMappings"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_request_rebuild_control_mappings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTagsFromInputMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_remove_tags_from_input_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTagFromInputMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_remove_tag_from_input_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMappingContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_remove_mapping_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryMapKeyInContextSet"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_query_map_key_in_context_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryMapKeyInActiveContextSet"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryKeysMappedToAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_query_keys_mapped_to_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnUserSettingsChanged"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_on_user_settings_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnUserKeyProfileChanged"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_on_user_key_profile_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InjectInputVectorForPlayerMapping"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InjectInputVectorForAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_inject_input_vector_for_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InjectInputForPlayerMapping"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_inject_input_for_player_mapping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InjectInputForAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_inject_input_for_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMappingContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_has_mapping_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUserSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_get_user_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputMode"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_subsystem_interface_get_input_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllPlayerMappableActionKeyMappings"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAllMappings"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_clear_all_mappings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AppendTagsToInputMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_append_tags_to_input_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTagToInputMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_add_tag_to_input_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMappingContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_subsystem_interface_add_mapping_context,
-        );
+        if let Some(class_ptr) = UEnhancedInputSubsystemInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "UpdateValueOfContinuousInputInjectionForPlayerMapping",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "UpdateValueOfContinuousInputInjectionForAction",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "StopContinuousInputInjectionForPlayerMapping",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopContinuousInputInjectionForAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "StartContinuousInputInjectionForPlayerMapping",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartContinuousInputInjectionForAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInputMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_set_input_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRebuildControlMappings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_request_rebuild_control_mappings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTagsFromInputMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_tags_from_input_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTagFromInputMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_tag_from_input_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMappingContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_mapping_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryMapKeyInContextSet"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_map_key_in_context_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryMapKeyInActiveContextSet"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryKeysMappedToAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_keys_mapped_to_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnUserSettingsChanged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_on_user_settings_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnUserKeyProfileChanged"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_on_user_key_profile_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InjectInputVectorForPlayerMapping"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InjectInputVectorForAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_vector_for_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InjectInputForPlayerMapping"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_for_player_mapping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InjectInputForAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_for_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMappingContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_has_mapping_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUserSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_user_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_input_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllPlayerMappableActionKeyMappings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAllMappings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_clear_all_mappings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AppendTagsToInputMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_append_tags_to_input_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTagToInputMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_add_tag_to_input_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMappingContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_add_mapping_context,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputLocalPlayerSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnUserSettingsPostInitialized__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_local_player_subsystem_on_user_settings_post_initialized_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMappingContextRemoved__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_local_player_subsystem_on_mapping_context_removed_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMappingContextAdded__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_local_player_subsystem_on_mapping_context_added_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnControlMappingsRebuilt__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_local_player_subsystem_on_control_mappings_rebuilt_delegate_signature,
-        );
+        if let Some(class_ptr) = UEnhancedInputLocalPlayerSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnUserSettingsPostInitialized__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_local_player_subsystem_on_user_settings_post_initialized_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMappingContextRemoved__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_local_player_subsystem_on_mapping_context_removed_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMappingContextAdded__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_local_player_subsystem_on_mapping_context_added_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnControlMappingsRebuilt__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_local_player_subsystem_on_control_mappings_rebuilt_delegate_signature,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputWorldSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorInputComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_world_subsystem_remove_actor_input_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorInputComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_world_subsystem_add_actor_input_component,
-        );
+        if let Some(class_ptr) = UEnhancedInputWorldSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorInputComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_world_subsystem_remove_actor_input_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorInputComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_world_subsystem_add_actor_input_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInputMappingContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnmapKey"),
-            &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnmapAllKeysFromAction"),
-            &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_all_keys_from_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnmapAll"),
-            &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldShowInputModeQuery"),
-            &raw mut __FUNCTION_PTRS.u_input_mapping_context_should_show_input_mode_query,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MapKey"),
-            &raw mut __FUNCTION_PTRS.u_input_mapping_context_map_key,
-        );
+        if let Some(class_ptr) = UInputMappingContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnmapKey"),
+                &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnmapAllKeysFromAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_all_keys_from_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnmapAll"),
+                &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldShowInputModeQuery"),
+                &raw mut __FUNCTION_PTRS
+                    .u_input_mapping_context_should_show_input_mode_query,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MapKey"),
+                &raw mut __FUNCTION_PTRS.u_input_mapping_context_map_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInputModifier::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ModifyRaw"),
-            &raw mut __FUNCTION_PTRS.u_input_modifier_modify_raw,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVisualizationColor"),
-            &raw mut __FUNCTION_PTRS.u_input_modifier_get_visualization_color,
-        );
+        if let Some(class_ptr) = UInputModifier::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ModifyRaw"),
+                &raw mut __FUNCTION_PTRS.u_input_modifier_modify_raw,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVisualizationColor"),
+                &raw mut __FUNCTION_PTRS.u_input_modifier_get_visualization_color,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInputTrigger::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateState"),
-            &raw mut __FUNCTION_PTRS.u_input_trigger_update_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActuated"),
-            &raw mut __FUNCTION_PTRS.u_input_trigger_is_actuated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTriggerType"),
-            &raw mut __FUNCTION_PTRS.u_input_trigger_get_trigger_type,
-        );
+        if let Some(class_ptr) = UInputTrigger::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateState"),
+                &raw mut __FUNCTION_PTRS.u_input_trigger_update_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActuated"),
+                &raw mut __FUNCTION_PTRS.u_input_trigger_is_actuated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTriggerType"),
+                &raw mut __FUNCTION_PTRS.u_input_trigger_get_trigger_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPlayerMappableInputConfig::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_reset_to_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDeprecated"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_is_deprecated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerMappableKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_player_mappable_input_config_get_player_mappable_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetadata"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_metadata,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMappingContexts"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_mapping_contexts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMappingByName"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_mapping_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysBoundToAction"),
-            &raw mut __FUNCTION_PTRS
-                .u_player_mappable_input_config_get_keys_bound_to_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConfigName"),
-            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_config_name,
-        );
+        if let Some(class_ptr) = UPlayerMappableInputConfig::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToDefault"),
+                &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_reset_to_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDeprecated"),
+                &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_is_deprecated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerMappableKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_player_mappable_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetadata"),
+                &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_metadata,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMappingContexts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_mapping_contexts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMappingByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_mapping_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysBoundToAction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_keys_bound_to_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigName"),
+                &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_config_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPlayerMappableKeySettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKnownMappingNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_player_mappable_key_settings_get_known_mapping_names,
-        );
+        if let Some(class_ptr) = UPlayerMappableKeySettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKnownMappingNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_player_mappable_key_settings_get_known_mapping_names,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedPlayerMappableKeyProfile::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToString"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_player_mappable_key_profile_to_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_set_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_reset_to_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetMappingToDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_reset_mapping_to_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueryPlayerMappedKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_query_player_mapped_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_FindKeyMapping"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_k2_find_key_mapping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetProfileIdString"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_get_profile_id_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetProfileDisplayName"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_get_profile_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerMappingRows"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_get_player_mapping_rows,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMappingNamesForKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_get_mapping_names_for_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMappedKeysInRow"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DumpProfileToLog"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_dump_profile_to_log,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesMappingPassQueryOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options,
-        );
+        if let Some(class_ptr) = UEnhancedPlayerMappableKeyProfile::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToString"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_player_mappable_key_profile_to_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_set_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_reset_to_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetMappingToDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_reset_mapping_to_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueryPlayerMappedKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_query_player_mapped_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_FindKeyMapping"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_k2_find_key_mapping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetProfileIdString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_profile_id_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetProfileDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_profile_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerMappingRows"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_player_mapping_rows,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMappingNamesForKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_mapping_names_for_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMappedKeysInRow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DumpProfileToLog"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_dump_profile_to_log,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesMappingPassQueryOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputUserSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterInputMappingContexts"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_unregister_input_mapping_contexts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterInputMappingContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_unregister_input_mapping_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnMapPlayerKey"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_un_map_player_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActiveKeyProfile"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_set_active_key_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SaveSettings"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_save_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetKeyProfileToDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_reset_key_profile_to_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetKeyProfileIdToDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_reset_key_profile_id_to_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetAllPlayerKeysInRow"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_reset_all_player_keys_in_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterInputMappingContexts"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_register_input_mapping_contexts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterInputMappingContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_register_input_mapping_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MapPlayerKey"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_map_player_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "MappingContextRegisteredWithSettings__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_mapping_context_registered_with_settings_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MappableKeyProfileChanged__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_mappable_key_profile_changed_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsMappingContextRegistered"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_is_mapping_context_registered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeyProfileWithId"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_get_key_profile_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveKeyProfileId"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_get_active_key_profile_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveKeyProfile"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_get_active_key_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindMappingsInRow"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_find_mappings_in_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "EnhancedInputUserSettingsChanged__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_enhanced_input_user_settings_changed_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "EnhancedInputUserSettingsApplied__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_enhanced_input_user_settings_applied_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewKeyProfile"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_user_settings_create_new_key_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AsyncSaveSettings"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_async_save_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplySettings"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_apply_settings,
-        );
+        if let Some(class_ptr) = UEnhancedInputUserSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterInputMappingContexts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_unregister_input_mapping_contexts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterInputMappingContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_unregister_input_mapping_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnMapPlayerKey"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_un_map_player_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActiveKeyProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_set_active_key_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SaveSettings"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_save_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetKeyProfileToDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_key_profile_to_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetKeyProfileIdToDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_key_profile_id_to_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetAllPlayerKeysInRow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_all_player_keys_in_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterInputMappingContexts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_register_input_mapping_contexts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterInputMappingContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_register_input_mapping_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MapPlayerKey"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_map_player_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "MappingContextRegisteredWithSettings__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_mapping_context_registered_with_settings_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "MappableKeyProfileChanged__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_mappable_key_profile_changed_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsMappingContextRegistered"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_is_mapping_context_registered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeyProfileWithId"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_key_profile_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveKeyProfileId"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_active_key_profile_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveKeyProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_active_key_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindMappingsInRow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_find_mappings_in_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "EnhancedInputUserSettingsChanged__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_enhanced_input_user_settings_changed_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "EnhancedInputUserSettingsApplied__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_enhanced_input_user_settings_applied_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewKeyProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_create_new_key_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AsyncSaveSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_async_save_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplySettings"),
+                &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_apply_settings,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1232,6 +1265,13 @@ impl UEnhancedInputActionDelegateBinding {
             .get("UEnhancedInputActionDelegateBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputActionDelegateBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1253,6 +1293,13 @@ impl UEnhancedInputActionValueBinding {
             .get("UEnhancedInputActionValueBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputActionValueBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1273,6 +1320,13 @@ impl UEnhancedInputComponent {
             .name_to_ptr
             .get("UEnhancedInputComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1331,6 +1385,13 @@ impl UEnhancedInputDeveloperSettings {
             .get("UEnhancedInputDeveloperSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputDeveloperSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1351,6 +1412,13 @@ impl UEnhancedInputLibrary {
             .name_to_ptr
             .get("UEnhancedInputLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1923,6 +1991,13 @@ impl UEnhancedInputPlatformData {
             .get("UEnhancedInputPlatformData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputPlatformData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1980,6 +2055,13 @@ impl UEnhancedInputPlatformSettings {
             .get("UEnhancedInputPlatformSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputPlatformSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2001,6 +2083,13 @@ impl UEnhancedInputSubsystemInterface {
             .name_to_ptr
             .get("UEnhancedInputSubsystemInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputSubsystemInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3234,6 +3323,13 @@ impl UEnhancedInputLocalPlayerSubsystem {
             .get("UEnhancedInputLocalPlayerSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputLocalPlayerSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3254,6 +3350,13 @@ impl UEnhancedInputWorldSubsystem {
             .name_to_ptr
             .get("UEnhancedInputWorldSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputWorldSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3347,6 +3450,13 @@ impl UEnhancedPlayerInput {
             .get("UEnhancedPlayerInput")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedPlayerInput")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3380,6 +3490,13 @@ impl UInputAction {
             .get("UInputAction")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputAction")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3400,6 +3517,13 @@ impl UInputDebugKeyDelegateBinding {
             .name_to_ptr
             .get("UInputDebugKeyDelegateBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputDebugKeyDelegateBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3429,6 +3553,13 @@ impl UInputMappingContext {
             .name_to_ptr
             .get("UInputMappingContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputMappingContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3595,6 +3726,13 @@ impl UInputModifier {
             .get("UInputModifier")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifier")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3722,6 +3860,13 @@ impl UInputModifierSmoothDelta {
             .get("UInputModifierSmoothDelta")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierSmoothDelta")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3747,6 +3892,13 @@ impl UInputModifierDeadZone {
             .get("UInputModifierDeadZone")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierDeadZone")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3770,6 +3922,13 @@ impl UInputModifierScalar {
             .get("UInputModifierScalar")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierScalar")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3790,6 +3949,13 @@ impl UInputModifierScaleByDeltaTime {
             .name_to_ptr
             .get("UInputModifierScaleByDeltaTime")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierScaleByDeltaTime")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3816,6 +3982,13 @@ impl UInputModifierNegate {
             .get("UInputModifierNegate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierNegate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3836,6 +4009,13 @@ impl UInputModifierSmooth {
             .name_to_ptr
             .get("UInputModifierSmooth")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierSmooth")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3859,6 +4039,13 @@ impl UInputModifierResponseCurveExponential {
             .name_to_ptr
             .get("UInputModifierResponseCurveExponential")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierResponseCurveExponential")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3885,6 +4072,13 @@ impl UInputModifierResponseCurveUser {
             .get("UInputModifierResponseCurveUser")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierResponseCurveUser")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3909,6 +4103,13 @@ impl UInputModifierFOVScaling {
             .get("UInputModifierFOVScaling")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierFOVScaling")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3929,6 +4130,13 @@ impl UInputModifierToWorldSpace {
             .name_to_ptr
             .get("UInputModifierToWorldSpace")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierToWorldSpace")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3952,6 +4160,13 @@ impl UInputModifierSwizzleAxis {
             .name_to_ptr
             .get("UInputModifierSwizzleAxis")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputModifierSwizzleAxis")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3977,6 +4192,13 @@ impl UInputTrigger {
             .name_to_ptr
             .get("UInputTrigger")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTrigger")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4113,6 +4335,13 @@ impl UInputTriggerTimedBase {
             .get("UInputTriggerTimedBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerTimedBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4133,6 +4362,13 @@ impl UInputTriggerDown {
             .name_to_ptr
             .get("UInputTriggerDown")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerDown")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4155,6 +4391,13 @@ impl UInputTriggerPressed {
             .get("UInputTriggerPressed")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerPressed")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4175,6 +4418,13 @@ impl UInputTriggerReleased {
             .name_to_ptr
             .get("UInputTriggerReleased")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerReleased")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4200,6 +4450,13 @@ impl UInputTriggerHold {
             .get("UInputTriggerHold")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerHold")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4223,6 +4480,13 @@ impl UInputTriggerHoldAndRelease {
             .get("UInputTriggerHoldAndRelease")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerHoldAndRelease")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4245,6 +4509,13 @@ impl UInputTriggerTap {
             .name_to_ptr
             .get("UInputTriggerTap")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerTap")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4274,6 +4545,13 @@ impl UInputTriggerRepeatedTap {
             .get("UInputTriggerRepeatedTap")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerRepeatedTap")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4299,6 +4577,13 @@ impl UInputTriggerPulse {
             .get("UInputTriggerPulse")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerPulse")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4322,6 +4607,13 @@ impl UInputTriggerChordAction {
             .get("UInputTriggerChordAction")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerChordAction")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4342,6 +4634,13 @@ impl UInputTriggerChordBlocker {
             .name_to_ptr
             .get("UInputTriggerChordBlocker")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerChordBlocker")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4369,6 +4668,13 @@ impl UInputTriggerCombo {
             .get("UInputTriggerCombo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputTriggerCombo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4395,6 +4701,13 @@ impl UPlayerMappableInputConfig {
             .name_to_ptr
             .get("UPlayerMappableInputConfig")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlayerMappableInputConfig")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4680,6 +4993,13 @@ impl UPlayerMappableKeySettings {
             .get("UPlayerMappableKeySettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlayerMappableKeySettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4705,6 +5025,13 @@ impl UEnhancedPlayerMappableKeyProfile {
             .name_to_ptr
             .get("UEnhancedPlayerMappableKeyProfile")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedPlayerMappableKeyProfile")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5181,6 +5508,13 @@ impl UEnhancedInputUserSettings {
             .name_to_ptr
             .get("UEnhancedInputUserSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputUserSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

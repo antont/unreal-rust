@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -90,292 +91,306 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNavigationPath::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsStringPulled"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_is_string_pulled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPartial"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_is_partial,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathLength"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_get_path_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathCost"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_get_path_cost,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDebugString"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_get_debug_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableRecalculationOnInvalidation"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_path_enable_recalculation_on_invalidation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableDebugDrawing"),
-            &raw mut __FUNCTION_PTRS.u_navigation_path_enable_debug_drawing,
-        );
+        if let Some(class_ptr) = UNavigationPath::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsStringPulled"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_is_string_pulled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPartial"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_is_partial,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathLength"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_get_path_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathCost"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_get_path_cost,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDebugString"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_get_debug_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableRecalculationOnInvalidation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_path_enable_recalculation_on_invalidation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableDebugDrawing"),
+                &raw mut __FUNCTION_PTRS.u_navigation_path_enable_debug_drawing,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNavigationSystemV1::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterNavigationInvoker"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_unregister_navigation_invoker,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxSimultaneousTileGenerationJobsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGeometryGatheringMode"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_set_geometry_gathering_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetMaxSimultaneousTileGenerationJobsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterNavigationInvoker"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_register_navigation_invoker,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnNavigationBoundsUpdated"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_on_navigation_bounds_updated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NavigationRaycast"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_navigation_raycast,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_ReplaceAreaInOctreeData"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_k2_replace_area_in_octree_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_ProjectPointToNavigation"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_k2_project_point_to_navigation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetRandomReachablePointInRadius"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_k2_get_random_reachable_point_in_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetRandomPointInNavigableRadius"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_k2_get_random_point_in_navigable_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetRandomLocationInNavigableRadius"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_k2_get_random_location_in_navigable_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsNavigationBeingBuiltOrLocked"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_is_navigation_being_built_or_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsNavigationBeingBuilt"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_is_navigation_being_built,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathLength"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_path_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPathCost"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_path_cost,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNavigationSystem"),
-            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_navigation_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindPathToLocationSynchronously"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_find_path_to_location_synchronously,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindPathToActorSynchronously"),
-            &raw mut __FUNCTION_PTRS
-                .u_navigation_system_v1_find_path_to_actor_synchronously,
-        );
+        if let Some(class_ptr) = UNavigationSystemV1::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterNavigationInvoker"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_unregister_navigation_invoker,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxSimultaneousTileGenerationJobsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGeometryGatheringMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_set_geometry_gathering_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetMaxSimultaneousTileGenerationJobsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterNavigationInvoker"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_register_navigation_invoker,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnNavigationBoundsUpdated"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_on_navigation_bounds_updated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NavigationRaycast"),
+                &raw mut __FUNCTION_PTRS.u_navigation_system_v1_navigation_raycast,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_ReplaceAreaInOctreeData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_replace_area_in_octree_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_ProjectPointToNavigation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_project_point_to_navigation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetRandomReachablePointInRadius"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_reachable_point_in_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetRandomPointInNavigableRadius"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_point_in_navigable_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetRandomLocationInNavigableRadius"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_location_in_navigable_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsNavigationBeingBuiltOrLocked"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_is_navigation_being_built_or_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsNavigationBeingBuilt"),
+                &raw mut __FUNCTION_PTRS.u_navigation_system_v1_is_navigation_being_built,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathLength"),
+                &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_path_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPathCost"),
+                &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_path_cost,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNavigationSystem"),
+                &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_navigation_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindPathToLocationSynchronously"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_find_path_to_location_synchronously,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindPathToActorSynchronously"),
+                &raw mut __FUNCTION_PTRS
+                    .u_navigation_system_v1_find_path_to_actor_synchronously,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNavRelevantComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationRelevancy"),
-            &raw mut __FUNCTION_PTRS.u_nav_relevant_component_set_navigation_relevancy,
-        );
+        if let Some(class_ptr) = UNavRelevantComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationRelevancy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_relevant_component_set_navigation_relevancy,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ARecastNavMesh::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_ReplaceAreaInTileBounds"),
-            &raw mut __FUNCTION_PTRS.a_recast_nav_mesh_k2_replace_area_in_tile_bounds,
-        );
+        if let Some(class_ptr) = ARecastNavMesh::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_ReplaceAreaInTileBounds"),
+                &raw mut __FUNCTION_PTRS.a_recast_nav_mesh_k2_replace_area_in_tile_bounds,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNavModifierComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAreaClassToReplace"),
-            &raw mut __FUNCTION_PTRS.u_nav_modifier_component_set_area_class_to_replace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAreaClass"),
-            &raw mut __FUNCTION_PTRS.u_nav_modifier_component_set_area_class,
-        );
+        if let Some(class_ptr) = UNavModifierComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAreaClassToReplace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_nav_modifier_component_set_area_class_to_replace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAreaClass"),
+                &raw mut __FUNCTION_PTRS.u_nav_modifier_component_set_area_class,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANavModifierVolume::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAreaClassToReplace"),
-            &raw mut __FUNCTION_PTRS.a_nav_modifier_volume_set_area_class_to_replace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAreaClass"),
-            &raw mut __FUNCTION_PTRS.a_nav_modifier_volume_set_area_class,
-        );
+        if let Some(class_ptr) = ANavModifierVolume::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAreaClassToReplace"),
+                &raw mut __FUNCTION_PTRS.a_nav_modifier_volume_set_area_class_to_replace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAreaClass"),
+                &raw mut __FUNCTION_PTRS.a_nav_modifier_volume_set_area_class,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANavSystemConfigOverride::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyChanges"),
-            &raw mut __FUNCTION_PTRS.a_nav_system_config_override_apply_changes,
-        );
+        if let Some(class_ptr) = ANavSystemConfigOverride::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyChanges"),
+                &raw mut __FUNCTION_PTRS.a_nav_system_config_override_apply_changes,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USplineNavModifierComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateNavigationWithComponentData"),
-            &raw mut __FUNCTION_PTRS
-                .u_spline_nav_modifier_component_update_navigation_with_component_data,
-        );
+        if let Some(class_ptr) = USplineNavModifierComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateNavigationWithComponentData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_spline_nav_modifier_component_update_navigation_with_component_data,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -389,6 +404,13 @@ impl UCrowdManagerBase {
             .name_to_ptr
             .get("UCrowdManagerBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCrowdManagerBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -411,6 +433,13 @@ impl UBaseGeneratedNavLinksProxy {
             .get("UBaseGeneratedNavLinksProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseGeneratedNavLinksProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -431,6 +460,13 @@ impl UNavigationQueryFilter {
             .name_to_ptr
             .get("UNavigationQueryFilter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationQueryFilter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -453,6 +489,13 @@ impl ANavigationGraphNode {
             .get("ANavigationGraphNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavigationGraphNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -473,6 +516,13 @@ impl UNavigationGraphNodeComponent {
             .name_to_ptr
             .get("UNavigationGraphNodeComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationGraphNodeComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -496,6 +546,13 @@ impl UNavigationPathGenerator {
             .get("UNavigationPathGenerator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationPathGenerator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -517,6 +574,13 @@ impl UNavLinkCustomInterface {
             .name_to_ptr
             .get("UNavLinkCustomInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLinkCustomInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -540,6 +604,13 @@ impl UNavLinkHostInterface {
             .get("UNavLinkHostInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLinkHostInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -560,6 +631,13 @@ impl UNavLinkTrivial {
             .name_to_ptr
             .get("UNavLinkTrivial")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLinkTrivial")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -583,6 +661,13 @@ impl UNavNodeInterface {
             .get("UNavNodeInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavNodeInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -603,6 +688,13 @@ impl ANavigationData {
             .name_to_ptr
             .get("ANavigationData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavigationData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -625,6 +717,13 @@ impl AAbstractNavData {
             .get("AAbstractNavData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AAbstractNavData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -641,6 +740,9 @@ pub struct UNavArea {
 impl UNavArea {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UNavArea").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UNavArea").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -663,6 +765,13 @@ impl UNavAreaMeta {
             .get("UNavAreaMeta")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavAreaMeta")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -683,6 +792,13 @@ impl UNavAreaMeta_SwitchByAgent {
             .name_to_ptr
             .get("UNavAreaMeta_SwitchByAgent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavAreaMeta_SwitchByAgent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -705,6 +821,13 @@ impl UNavArea_Default {
             .get("UNavArea_Default")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavArea_Default")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -725,6 +848,13 @@ impl UNavArea_LowHeight {
             .name_to_ptr
             .get("UNavArea_LowHeight")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavArea_LowHeight")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -747,6 +877,13 @@ impl UNavArea_Null {
             .get("UNavArea_Null")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavArea_Null")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -767,6 +904,13 @@ impl UNavArea_Obstacle {
             .name_to_ptr
             .get("UNavArea_Obstacle")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavArea_Obstacle")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -789,6 +933,13 @@ impl UNavCollision {
             .get("UNavCollision")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavCollision")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -810,6 +961,13 @@ impl URecastFilter_UseDefaultArea {
             .get("URecastFilter_UseDefaultArea")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URecastFilter_UseDefaultArea")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -830,6 +988,13 @@ impl ANavigationGraph {
             .name_to_ptr
             .get("ANavigationGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavigationGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -856,6 +1021,13 @@ impl UNavigationInvokerComponent {
             .get("UNavigationInvokerComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationInvokerComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -876,6 +1048,13 @@ impl UNavigationObjectRepository {
             .name_to_ptr
             .get("UNavigationObjectRepository")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationObjectRepository")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -901,6 +1080,13 @@ impl UNavigationPath {
             .name_to_ptr
             .get("UNavigationPath")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationPath")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1160,6 +1346,13 @@ impl UNavigationSystemV1 {
             .name_to_ptr
             .get("UNavigationSystemV1")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationSystemV1")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2254,6 +2447,13 @@ impl UNavigationSystemModuleConfig {
             .get("UNavigationSystemModuleConfig")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationSystemModuleConfig")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2285,6 +2485,13 @@ impl ANavigationTestingActor {
             .get("ANavigationTestingActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavigationTestingActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2308,6 +2515,13 @@ impl UNavLinkComponent {
             .get("UNavLinkComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLinkComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2328,6 +2542,13 @@ impl UNavRelevantComponent {
             .name_to_ptr
             .get("UNavRelevantComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavRelevantComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2382,6 +2603,13 @@ impl UNavLinkCustomComponent {
             .get("UNavLinkCustomComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLinkCustomComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2402,6 +2630,13 @@ impl UNavLinkRenderingComponent {
             .name_to_ptr
             .get("UNavLinkRenderingComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavLinkRenderingComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2424,6 +2659,13 @@ impl ANavMeshBoundsVolume {
             .get("ANavMeshBoundsVolume")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavMeshBoundsVolume")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2444,6 +2686,13 @@ impl UNavMeshRenderingComponent {
             .name_to_ptr
             .get("UNavMeshRenderingComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavMeshRenderingComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2466,6 +2715,13 @@ impl UNavTestRenderingComponent {
             .get("UNavTestRenderingComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavTestRenderingComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2486,6 +2742,13 @@ impl ARecastNavMesh {
             .name_to_ptr
             .get("ARecastNavMesh")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ARecastNavMesh")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2568,6 +2831,13 @@ impl URecastNavMeshDataChunk {
             .get("URecastNavMeshDataChunk")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URecastNavMeshDataChunk")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2592,6 +2862,13 @@ impl UNavModifierComponent {
             .name_to_ptr
             .get("UNavModifierComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavModifierComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2685,6 +2962,13 @@ impl ANavModifierVolume {
             .get("ANavModifierVolume")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavModifierVolume")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2777,6 +3061,13 @@ impl ANavSystemConfigOverride {
             .get("ANavSystemConfigOverride")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANavSystemConfigOverride")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2797,6 +3088,13 @@ impl USplineNavModifierComponent {
             .name_to_ptr
             .get("USplineNavModifierComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USplineNavModifierComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

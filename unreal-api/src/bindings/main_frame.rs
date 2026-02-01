@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,28 +27,29 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UHomeScreenWeb::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenWebPage"),
-            &raw mut __FUNCTION_PTRS.u_home_screen_web_open_web_page,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenGettingStartedProject"),
-            &raw mut __FUNCTION_PTRS.u_home_screen_web_open_getting_started_project,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NavigateTo"),
-            &raw mut __FUNCTION_PTRS.u_home_screen_web_navigate_to,
-        );
+        if let Some(class_ptr) = UHomeScreenWeb::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenWebPage"),
+                &raw mut __FUNCTION_PTRS.u_home_screen_web_open_web_page,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenGettingStartedProject"),
+                &raw mut __FUNCTION_PTRS.u_home_screen_web_open_getting_started_project,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NavigateTo"),
+                &raw mut __FUNCTION_PTRS.u_home_screen_web_navigate_to,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -61,6 +63,13 @@ impl UHomeScreenContext {
             .name_to_ptr
             .get("UHomeScreenContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHomeScreenContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -83,6 +92,13 @@ impl UHomeScreenSettings {
             .get("UHomeScreenSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHomeScreenSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -103,6 +119,13 @@ impl UHomeScreenWeb {
             .name_to_ptr
             .get("UHomeScreenWeb")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHomeScreenWeb")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -46,119 +47,122 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UResonanceAudioBlueprintFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGlobalReverbPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_blueprint_function_library_set_global_reverb_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGlobalReverbPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_blueprint_function_library_get_global_reverb_preset,
-        );
+        if let Some(class_ptr) = UResonanceAudioBlueprintFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGlobalReverbPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_blueprint_function_library_set_global_reverb_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGlobalReverbPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_blueprint_function_library_get_global_reverb_preset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UResonanceAudioReverbPluginPreset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRoomRotation"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_room_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRoomPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_room_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRoomMaterials"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_room_materials,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRoomDimensions"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_room_dimensions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReverbTimeModifier"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReverbGain"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_reverb_gain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReverbBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_reverb_brightness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReflectionScalar"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_reflection_scalar,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableRoomEffects"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_reverb_plugin_preset_set_enable_room_effects,
-        );
+        if let Some(class_ptr) = UResonanceAudioReverbPluginPreset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRoomRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRoomPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRoomMaterials"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_materials,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRoomDimensions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_dimensions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReverbTimeModifier"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReverbGain"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_gain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReverbBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_brightness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReflectionScalar"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reflection_scalar,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableRoomEffects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_enable_room_effects,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UResonanceAudioSpatializationSourceSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSoundSourceSpread"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_spatialization_source_settings_set_sound_source_spread,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSoundSourceDirectivity"),
-            &raw mut __FUNCTION_PTRS
-                .u_resonance_audio_spatialization_source_settings_set_sound_source_directivity,
-        );
+        if let Some(class_ptr) = UResonanceAudioSpatializationSourceSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSoundSourceSpread"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_spatialization_source_settings_set_sound_source_spread,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSoundSourceDirectivity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_resonance_audio_spatialization_source_settings_set_sound_source_directivity,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -193,6 +197,13 @@ impl UResonanceAudioSoundfieldSettings {
             .get("UResonanceAudioSoundfieldSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UResonanceAudioSoundfieldSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -213,6 +224,13 @@ impl UResonanceAudioBlueprintFunctionLibrary {
             .name_to_ptr
             .get("UResonanceAudioBlueprintFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UResonanceAudioBlueprintFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -295,6 +313,13 @@ impl AResonanceAudioDirectivityVisualizer {
             .get("AResonanceAudioDirectivityVisualizer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AResonanceAudioDirectivityVisualizer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -315,6 +340,13 @@ impl UResonanceAudioReverbPluginPreset {
             .name_to_ptr
             .get("UResonanceAudioReverbPluginPreset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UResonanceAudioReverbPluginPreset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -634,6 +666,13 @@ impl UResonanceAudioSettings {
             .get("UResonanceAudioSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UResonanceAudioSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -654,6 +693,13 @@ impl UResonanceAudioSpatializationSourceSettings {
             .name_to_ptr
             .get("UResonanceAudioSpatializationSourceSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UResonanceAudioSpatializationSourceSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

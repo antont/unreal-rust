@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -72,226 +73,239 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTreeNodeBlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SendEvent"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_node_blueprint_base_send_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestTransition"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_node_blueprint_base_request_transition,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveGetDescription"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_node_blueprint_base_receive_get_description,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPropertyRefValid"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_node_blueprint_base_is_property_ref_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_node_blueprint_base_get_property_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyDescriptionByPropertyName"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_node_blueprint_base_get_property_description_by_property_name,
-        );
+        if let Some(class_ptr) = UStateTreeNodeBlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SendEvent"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_node_blueprint_base_send_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestTransition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_request_transition,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveGetDescription"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_receive_get_description,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPropertyRefValid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_is_property_ref_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_get_property_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyDescriptionByPropertyName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_get_property_description_by_property_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTreeConditionBlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTestCondition"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_condition_blueprint_base_receive_test_condition,
-        );
+        if let Some(class_ptr) = UStateTreeConditionBlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTestCondition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_condition_blueprint_base_receive_test_condition,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTreeConsiderationBlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveGetScore"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_consideration_blueprint_base_receive_get_score,
-        );
+        if let Some(class_ptr) = UStateTreeConsiderationBlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveGetScore"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_consideration_blueprint_base_receive_get_score,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTreeEvaluatorBlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTreeStop"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_evaluator_blueprint_base_receive_tree_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTreeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_evaluator_blueprint_base_receive_tree_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_evaluator_blueprint_base_receive_tick,
-        );
+        if let Some(class_ptr) = UStateTreeEvaluatorBlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTreeStop"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tree_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTreeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tree_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTick"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tick,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTreeTaskBlueprintBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindDelegate"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_unbind_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveStateCompleted"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_task_blueprint_base_receive_state_completed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveLatentTick"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_latent_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveLatentEnterState"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_task_blueprint_base_receive_latent_enter_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveExitState"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_exit_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveEnterState"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_enter_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishTask"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_finish_task,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BroadcastDelegate"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_broadcast_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindDelegate"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_bind_delegate,
-        );
+        if let Some(class_ptr) = UStateTreeTaskBlueprintBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindDelegate"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_unbind_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveTick"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveStateCompleted"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_state_completed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveLatentTick"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_latent_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveLatentEnterState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_latent_enter_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveExitState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_exit_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveEnterState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_enter_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishTask"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_finish_task,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BroadcastDelegate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_broadcast_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindDelegate"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_bind_delegate,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTree::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetExtension"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_k2_get_extension,
-        );
+        if let Some(class_ptr) = UStateTree::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetExtension"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_k2_get_extension,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UStateTreeFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStateTree"),
-            &raw mut __FUNCTION_PTRS.u_state_tree_function_library_set_state_tree,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeStateTreeReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_function_library_make_state_tree_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_SetParametersProperty"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_function_library_k2_set_parameters_property,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetParametersProperty"),
-            &raw mut __FUNCTION_PTRS
-                .u_state_tree_function_library_k2_get_parameters_property,
-        );
+        if let Some(class_ptr) = UStateTreeFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStateTree"),
+                &raw mut __FUNCTION_PTRS.u_state_tree_function_library_set_state_tree,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeStateTreeReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_function_library_make_state_tree_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_SetParametersProperty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_function_library_k2_set_parameters_property,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetParametersProperty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_state_tree_function_library_k2_get_parameters_property,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -396,6 +410,13 @@ impl UStateTreeSchemaProvider {
             .get("UStateTreeSchemaProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeSchemaProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -417,6 +438,13 @@ impl UStateTreeSettings {
             .get("UStateTreeSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -437,6 +465,13 @@ impl UStateTreeNodeBlueprintBase {
             .name_to_ptr
             .get("UStateTreeNodeBlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeNodeBlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -606,6 +641,13 @@ impl UStateTreeConditionBlueprintBase {
             .get("UStateTreeConditionBlueprintBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeConditionBlueprintBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -653,6 +695,13 @@ impl UStateTreeConsiderationBlueprintBase {
             .get("UStateTreeConsiderationBlueprintBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeConsiderationBlueprintBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -699,6 +748,13 @@ impl UStateTreeEvaluatorBlueprintBase {
             .name_to_ptr
             .get("UStateTreeEvaluatorBlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeEvaluatorBlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -798,6 +854,13 @@ impl UStateTreeTaskBlueprintBase {
             .name_to_ptr
             .get("UStateTreeTaskBlueprintBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeTaskBlueprintBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1162,6 +1225,13 @@ impl UStateTree {
             .get("UStateTree")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTree")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1219,6 +1289,13 @@ impl UStateTreeExtension {
             .get("UStateTreeExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1239,6 +1316,13 @@ impl UStateTreeFunctionLibrary {
             .name_to_ptr
             .get("UStateTreeFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1440,6 +1524,13 @@ impl UStateTreeSchema {
             .name_to_ptr
             .get("UStateTreeSchema")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStateTreeSchema")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

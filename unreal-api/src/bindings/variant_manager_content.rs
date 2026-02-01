@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -104,322 +105,331 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULevelVariantSets::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariantSetByName"),
-            &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_variant_set_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariantSet"),
-            &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_variant_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVariantSets"),
-            &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_num_variant_sets,
-        );
+        if let Some(class_ptr) = ULevelVariantSets::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariantSetByName"),
+                &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_variant_set_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariantSet"),
+                &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_variant_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVariantSets"),
+                &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_num_variant_sets,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ALevelVariantSetsActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SwitchOnVariantByName"),
-            &raw mut __FUNCTION_PTRS.a_level_variant_sets_actor_switch_on_variant_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SwitchOnVariantByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .a_level_variant_sets_actor_switch_on_variant_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLevelVariantSets"),
-            &raw mut __FUNCTION_PTRS.a_level_variant_sets_actor_set_level_variant_sets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLevelVariantSets"),
-            &raw mut __FUNCTION_PTRS.a_level_variant_sets_actor_get_level_variant_sets,
-        );
+        if let Some(class_ptr) = ALevelVariantSetsActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SwitchOnVariantByName"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_variant_sets_actor_switch_on_variant_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SwitchOnVariantByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_variant_sets_actor_switch_on_variant_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLevelVariantSets"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_variant_sets_actor_set_level_variant_sets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLevelVariantSets"),
+                &raw mut __FUNCTION_PTRS
+                    .a_level_variant_sets_actor_get_level_variant_sets,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPropertyValue::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasRecordedData"),
-            &raw mut __FUNCTION_PTRS.u_property_value_has_recorded_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyTooltip"),
-            &raw mut __FUNCTION_PTRS.u_property_value_get_property_tooltip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFullDisplayString"),
-            &raw mut __FUNCTION_PTRS.u_property_value_get_full_display_string,
-        );
+        if let Some(class_ptr) = UPropertyValue::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasRecordedData"),
+                &raw mut __FUNCTION_PTRS.u_property_value_has_recorded_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyTooltip"),
+                &raw mut __FUNCTION_PTRS.u_property_value_get_property_tooltip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFullDisplayString"),
+                &raw mut __FUNCTION_PTRS.u_property_value_get_full_display_string,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ASwitchActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectOption"),
-            &raw mut __FUNCTION_PTRS.a_switch_actor_select_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedOption"),
-            &raw mut __FUNCTION_PTRS.a_switch_actor_get_selected_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOptions"),
-            &raw mut __FUNCTION_PTRS.a_switch_actor_get_options,
-        );
+        if let Some(class_ptr) = ASwitchActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectOption"),
+                &raw mut __FUNCTION_PTRS.a_switch_actor_select_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedOption"),
+                &raw mut __FUNCTION_PTRS.a_switch_actor_get_selected_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOptions"),
+                &raw mut __FUNCTION_PTRS.a_switch_actor_get_options,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVariant::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SwitchOn"),
-            &raw mut __FUNCTION_PTRS.u_variant_switch_on,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromTexture"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromFile"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromEditorViewport"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_editor_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromCamera"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_camera,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayText"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_display_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDependency"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActive"),
-            &raw mut __FUNCTION_PTRS.u_variant_is_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetThumbnail"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_thumbnail,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumDependencies"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_num_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumActors"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_num_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayText"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_display_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDependents"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_dependents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDependency"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActor"),
-            &raw mut __FUNCTION_PTRS.u_variant_get_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteDependency"),
-            &raw mut __FUNCTION_PTRS.u_variant_delete_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDependency"),
-            &raw mut __FUNCTION_PTRS.u_variant_add_dependency,
-        );
+        if let Some(class_ptr) = UVariant::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SwitchOn"),
+                &raw mut __FUNCTION_PTRS.u_variant_switch_on,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromTexture"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromFile"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromEditorViewport"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_editor_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromCamera"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_camera,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayText"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_display_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDependency"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActive"),
+                &raw mut __FUNCTION_PTRS.u_variant_is_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetThumbnail"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_thumbnail,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParent"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumDependencies"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_num_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumActors"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_num_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayText"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_display_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDependents"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_dependents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDependency"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActor"),
+                &raw mut __FUNCTION_PTRS.u_variant_get_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteDependency"),
+                &raw mut __FUNCTION_PTRS.u_variant_delete_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDependency"),
+                &raw mut __FUNCTION_PTRS.u_variant_add_dependency,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVariantSet::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromTexture"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromFile"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromEditorViewport"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_editor_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetThumbnailFromCamera"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_camera,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayText"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_set_display_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariantByName"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_get_variant_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariant"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_get_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetThumbnail"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_get_thumbnail,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_get_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVariants"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_get_num_variants,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayText"),
-            &raw mut __FUNCTION_PTRS.u_variant_set_get_display_text,
-        );
+        if let Some(class_ptr) = UVariantSet::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromTexture"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromFile"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromEditorViewport"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_editor_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetThumbnailFromCamera"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_camera,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayText"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_set_display_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariantByName"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_get_variant_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariant"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_get_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetThumbnail"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_get_thumbnail,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParent"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_get_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVariants"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_get_num_variants,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayText"),
+                &raw mut __FUNCTION_PTRS.u_variant_set_get_display_text,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -440,6 +450,13 @@ impl ULevelVariantSets {
             .name_to_ptr
             .get("ULevelVariantSets")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelVariantSets")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -559,6 +576,13 @@ impl ALevelVariantSetsActor {
             .name_to_ptr
             .get("ALevelVariantSetsActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ALevelVariantSetsActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -730,6 +754,13 @@ impl ULevelVariantSetsFunctionDirector {
             .get("ULevelVariantSetsFunctionDirector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULevelVariantSetsFunctionDirector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -750,6 +781,13 @@ impl UPropertyValue {
             .name_to_ptr
             .get("UPropertyValue")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValue")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -850,6 +888,13 @@ impl UPropertyValueTransform {
             .get("UPropertyValueTransform")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValueTransform")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -870,6 +915,13 @@ impl UPropertyValueVisibility {
             .name_to_ptr
             .get("UPropertyValueVisibility")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValueVisibility")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -892,6 +944,13 @@ impl UPropertyValueColor {
             .get("UPropertyValueColor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValueColor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -912,6 +971,13 @@ impl UPropertyValueMaterial {
             .name_to_ptr
             .get("UPropertyValueMaterial")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValueMaterial")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -934,6 +1000,13 @@ impl UPropertyValueOption {
             .get("UPropertyValueOption")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValueOption")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -955,6 +1028,13 @@ impl UPropertyValueSoftObject {
             .get("UPropertyValueSoftObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyValueSoftObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -975,6 +1055,13 @@ impl ASwitchActor {
             .name_to_ptr
             .get("ASwitchActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ASwitchActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1081,6 +1168,9 @@ pub struct UVariant {
 impl UVariant {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UVariant").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UVariant").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1578,6 +1668,13 @@ impl UVariantObjectBinding {
             .get("UVariantObjectBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVariantObjectBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1598,6 +1695,13 @@ impl UVariantSet {
             .name_to_ptr
             .get("UVariantSet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVariantSet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

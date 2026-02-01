@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,39 +29,41 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCompositeCoreSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterPrimitive"),
-            &raw mut __FUNCTION_PTRS.u_composite_core_subsystem_unregister_primitive,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterPrimitive"),
-            &raw mut __FUNCTION_PTRS.u_composite_core_subsystem_register_primitive,
-        );
+        if let Some(class_ptr) = UCompositeCoreSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterPrimitive"),
+                &raw mut __FUNCTION_PTRS.u_composite_core_subsystem_unregister_primitive,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterPrimitive"),
+                &raw mut __FUNCTION_PTRS.u_composite_core_subsystem_register_primitive,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UHoldoutCompositeComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnabled"),
-            &raw mut __FUNCTION_PTRS.u_holdout_composite_component_set_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut __FUNCTION_PTRS.u_holdout_composite_component_is_enabled,
-        );
+        if let Some(class_ptr) = UHoldoutCompositeComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnabled"),
+                &raw mut __FUNCTION_PTRS.u_holdout_composite_component_set_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEnabled"),
+                &raw mut __FUNCTION_PTRS.u_holdout_composite_component_is_enabled,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -74,6 +77,13 @@ impl UCompositeCorePluginSettings {
             .name_to_ptr
             .get("UCompositeCorePluginSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCompositeCorePluginSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -95,6 +105,13 @@ impl UCompositeCoreSubsystem {
             .name_to_ptr
             .get("UCompositeCoreSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCompositeCoreSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -192,6 +209,13 @@ impl UHoldoutCompositeComponent {
             .name_to_ptr
             .get("UHoldoutCompositeComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoldoutCompositeComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

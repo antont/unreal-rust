@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -52,129 +53,141 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerOutlinerScriptingObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSoloNodes"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_set_solo_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelection"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_set_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinnedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_outliner_scripting_object_set_pinned_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMuteNodes"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_set_mute_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLockedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_outliner_scripting_object_set_locked_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDeactivatedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_outliner_scripting_object_set_deactivated_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSoloNodes"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_solo_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelection"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootNode"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_root_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinnedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_outliner_scripting_object_get_pinned_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMuteNodes"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_mute_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLockedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_outliner_scripting_object_get_locked_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDeactivatedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_outliner_scripting_object_get_deactivated_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildren"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_children,
-        );
+        if let Some(class_ptr) = USequencerOutlinerScriptingObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSoloNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_solo_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinnedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_pinned_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMuteNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_mute_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLockedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_locked_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDeactivatedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_deactivated_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSoloNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_solo_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_root_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinnedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_pinned_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMuteNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_mute_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLockedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_locked_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDeactivatedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_deactivated_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildren"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_children,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerViewModelStructExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPath"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_view_model_struct_extensions_get_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_view_model_struct_extensions_get_label,
-        );
+        if let Some(class_ptr) = USequencerViewModelStructExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_view_model_struct_extensions_get_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLabel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_view_model_struct_extensions_get_label,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -194,6 +207,13 @@ impl USequencerOutlinerScriptingObject {
             .name_to_ptr
             .get("USequencerOutlinerScriptingObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerOutlinerScriptingObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -710,6 +730,13 @@ impl USequencerScriptingLayer {
             .get("USequencerScriptingLayer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerScriptingLayer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -730,6 +757,13 @@ impl USequencerViewModelStructExtensions {
             .name_to_ptr
             .get("USequencerViewModelStructExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerViewModelStructExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

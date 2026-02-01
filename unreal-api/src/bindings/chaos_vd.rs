@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,22 +25,23 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UChaosVDSkySphereInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDirectionalLightSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_vd_sky_sphere_interface_set_directional_light_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Refresh"),
-            &raw mut __FUNCTION_PTRS.u_chaos_vd_sky_sphere_interface_refresh,
-        );
+        if let Some(class_ptr) = UChaosVDSkySphereInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDirectionalLightSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_vd_sky_sphere_interface_set_directional_light_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Refresh"),
+                &raw mut __FUNCTION_PTRS.u_chaos_vd_sky_sphere_interface_refresh,
+            );
+        }
     }
 }
 pub struct IChaosVDCharacterGroundConstraintDataProviderInterface {}
@@ -54,6 +56,13 @@ impl UChaosVDCharacterGroundConstraintDataProviderInterface {
             .name_to_ptr
             .get("UChaosVDCharacterGroundConstraintDataProviderInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDCharacterGroundConstraintDataProviderInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -76,6 +85,13 @@ impl UChaosVDSettingsObjectBase {
             .get("UChaosVDSettingsObjectBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSettingsObjectBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -96,6 +112,13 @@ impl UChaosVDMiscSettings {
             .name_to_ptr
             .get("UChaosVDMiscSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDMiscSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -119,6 +142,13 @@ impl UChaosVDPooledObject {
             .get("UChaosVDPooledObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDPooledObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -141,6 +171,13 @@ impl UChaosVDSelectableObject {
             .get("UChaosVDSelectableObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSelectableObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -162,6 +199,13 @@ impl UChaosVDSkySphereInterface {
             .name_to_ptr
             .get("UChaosVDSkySphereInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSkySphereInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -246,6 +290,13 @@ impl UChaosVDSolverTrackSettings {
             .get("UChaosVDSolverTrackSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSolverTrackSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -266,6 +317,13 @@ impl AChaosVDDataContainerBaseActor {
             .name_to_ptr
             .get("AChaosVDDataContainerBaseActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosVDDataContainerBaseActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -288,6 +346,13 @@ impl AChaosVDGameFrameInfoActor {
             .get("AChaosVDGameFrameInfoActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosVDGameFrameInfoActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -308,6 +373,13 @@ impl AChaosVDGeometryContainer {
             .name_to_ptr
             .get("AChaosVDGeometryContainer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosVDGeometryContainer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -330,6 +402,13 @@ impl AChaosVDSolverInfoActor {
             .get("AChaosVDSolverInfoActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosVDSolverInfoActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -350,6 +429,13 @@ impl UChaosVDEditorMode {
             .name_to_ptr
             .get("UChaosVDEditorMode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDEditorMode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -373,6 +459,13 @@ impl UChaosVDGeometryComponent {
             .get("UChaosVDGeometryComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDGeometryComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -393,6 +486,13 @@ impl UChaosVDSolverDataComponent {
             .name_to_ptr
             .get("UChaosVDSolverDataComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSolverDataComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -415,6 +515,13 @@ impl UChaosVDAdditionalGTDataRouterComponent {
             .get("UChaosVDAdditionalGTDataRouterComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDAdditionalGTDataRouterComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -435,6 +542,13 @@ impl UChaosVDConstraintDataComponent {
             .name_to_ptr
             .get("UChaosVDConstraintDataComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDConstraintDataComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -457,6 +571,13 @@ impl UChaosVDInstancedStaticMeshComponent {
             .get("UChaosVDInstancedStaticMeshComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDInstancedStaticMeshComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -477,6 +598,13 @@ impl UChaosVDParticleDataComponent {
             .name_to_ptr
             .get("UChaosVDParticleDataComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDParticleDataComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -499,6 +627,13 @@ impl UChaosVDSceneQueryDataComponent {
             .get("UChaosVDSceneQueryDataComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSceneQueryDataComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -519,6 +654,13 @@ impl UChaosVDSolverCharacterGroundConstraintDataComponent {
             .name_to_ptr
             .get("UChaosVDSolverCharacterGroundConstraintDataComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSolverCharacterGroundConstraintDataComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -541,6 +683,13 @@ impl UChaosVDSolverCollisionDataComponent {
             .get("UChaosVDSolverCollisionDataComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSolverCollisionDataComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -561,6 +710,13 @@ impl UChaosVDSolverJointConstraintDataComponent {
             .name_to_ptr
             .get("UChaosVDSolverJointConstraintDataComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSolverJointConstraintDataComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -583,6 +739,13 @@ impl UChaosVDStaticMeshComponent {
             .get("UChaosVDStaticMeshComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDStaticMeshComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -603,6 +766,13 @@ impl UChaosVDVisualizationSettingsObjectBase {
             .name_to_ptr
             .get("UChaosVDVisualizationSettingsObjectBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDVisualizationSettingsObjectBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -625,6 +795,13 @@ impl UChaosVDCharacterConstraintsVisualizationSettings {
             .get("UChaosVDCharacterConstraintsVisualizationSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDCharacterConstraintsVisualizationSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -645,6 +822,13 @@ impl UChaosVDCollisionDataVisualizationSettings {
             .name_to_ptr
             .get("UChaosVDCollisionDataVisualizationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDCollisionDataVisualizationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -667,6 +851,13 @@ impl UChaosVDSettingsObjectsOuter {
             .get("UChaosVDSettingsObjectsOuter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSettingsObjectsOuter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -687,6 +878,13 @@ impl UChaosVDCoreSettings {
             .name_to_ptr
             .get("UChaosVDCoreSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDCoreSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -709,6 +907,13 @@ impl UChaosVDGeneralSettings {
             .get("UChaosVDGeneralSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDGeneralSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -729,6 +934,13 @@ impl UChaosVDJointConstraintsVisualizationSettings {
             .name_to_ptr
             .get("UChaosVDJointConstraintsVisualizationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDJointConstraintsVisualizationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -751,6 +963,13 @@ impl UChaosVDParticleVisualizationColorSettings {
             .get("UChaosVDParticleVisualizationColorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDParticleVisualizationColorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -771,6 +990,13 @@ impl UChaosVDParticleVisualizationDebugDrawSettings {
             .name_to_ptr
             .get("UChaosVDParticleVisualizationDebugDrawSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDParticleVisualizationDebugDrawSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -793,6 +1019,13 @@ impl UChaosVDParticleVisualizationSettings {
             .get("UChaosVDParticleVisualizationSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDParticleVisualizationSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -813,6 +1046,13 @@ impl UChaosVDSceneQueriesVisualizationSettings {
             .name_to_ptr
             .get("UChaosVDSceneQueriesVisualizationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSceneQueriesVisualizationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -835,6 +1075,13 @@ impl UChaosVDCustomIconDataStorageFactory {
             .get("UChaosVDCustomIconDataStorageFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDCustomIconDataStorageFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -855,6 +1102,13 @@ impl UChaosVDDataStorageVisibilityQueries {
             .name_to_ptr
             .get("UChaosVDDataStorageVisibilityQueries")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDDataStorageVisibilityQueries")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -877,6 +1131,13 @@ impl UChaosVDParentDataStorageFactory {
             .get("UChaosVDParentDataStorageFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDParentDataStorageFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -897,6 +1158,13 @@ impl UChaosVDParticleEditorDataFactory {
             .name_to_ptr
             .get("UChaosVDParticleEditorDataFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDParticleEditorDataFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -919,6 +1187,13 @@ impl UChaosVDSelectionInterface {
             .get("UChaosVDSelectionInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSelectionInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -939,6 +1214,13 @@ impl UChaosVDLogBrowserToolbarMenuContext {
             .name_to_ptr
             .get("UChaosVDLogBrowserToolbarMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDLogBrowserToolbarMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -961,6 +1243,13 @@ impl UChaosVDMainToolbarMenuContext {
             .get("UChaosVDMainToolbarMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDMainToolbarMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -981,6 +1270,13 @@ impl UChaosVDRecordingToolbarMenuContext {
             .name_to_ptr
             .get("UChaosVDRecordingToolbarMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDRecordingToolbarMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1003,6 +1299,13 @@ impl UChaosVDSceneQueryBrowserToolbarMenuContext {
             .get("UChaosVDSceneQueryBrowserToolbarMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSceneQueryBrowserToolbarMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1023,6 +1326,13 @@ impl UChaosVDSolverTracksToolbarMenuContext {
             .name_to_ptr
             .get("UChaosVDSolverTracksToolbarMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDSolverTracksToolbarMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

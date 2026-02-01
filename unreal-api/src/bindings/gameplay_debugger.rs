@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -38,79 +39,80 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGameplayDebuggerCategoryReplicator::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerSetViewPoint"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_set_view_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerSetEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_set_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerSetDebugActor"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_set_debug_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerSetCategoryEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_set_category_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerSendExtensionInputEvent"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_send_extension_input_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerSendCategoryInputEvent"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_send_category_input_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ServerResetViewPoint"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_server_reset_view_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRep_ReplicatedData"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_on_rep_replicated_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClientDataPackPacket"),
-            &raw mut __FUNCTION_PTRS
-                .a_gameplay_debugger_category_replicator_client_data_pack_packet,
-        );
+        if let Some(class_ptr) = AGameplayDebuggerCategoryReplicator::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerSetViewPoint"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_set_view_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerSetEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_set_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerSetDebugActor"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_set_debug_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerSetCategoryEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_set_category_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerSendExtensionInputEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_send_extension_input_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerSendCategoryInputEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_send_category_input_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ServerResetViewPoint"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_server_reset_view_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRep_ReplicatedData"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_on_rep_replicated_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClientDataPackPacket"),
+                &raw mut __FUNCTION_PTRS
+                    .a_gameplay_debugger_category_replicator_client_data_pack_packet,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -124,6 +126,13 @@ impl AGameplayDebuggerCategoryReplicator {
             .name_to_ptr
             .get("AGameplayDebuggerCategoryReplicator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayDebuggerCategoryReplicator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -146,6 +155,13 @@ impl UGameplayDebuggerConfig {
             .get("UGameplayDebuggerConfig")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayDebuggerConfig")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -166,6 +182,13 @@ impl UGameplayDebuggerUserSettings {
             .name_to_ptr
             .get("UGameplayDebuggerUserSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayDebuggerUserSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -188,6 +211,13 @@ impl UGameplayDebuggerLocalController {
             .get("UGameplayDebuggerLocalController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayDebuggerLocalController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -209,6 +239,13 @@ impl AGameplayDebuggerPlayerManager {
             .get("AGameplayDebuggerPlayerManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGameplayDebuggerPlayerManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -229,6 +266,13 @@ impl UGameplayDebuggerRenderingComponent {
             .name_to_ptr
             .get("UGameplayDebuggerRenderingComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayDebuggerRenderingComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

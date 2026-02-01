@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,36 +29,38 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTakeRecorderActorSource::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceActor"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_set_source_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorFromSources"),
-            &raw mut __FUNCTION_PTRS
-                .u_take_recorder_actor_source_remove_actor_from_sources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceActor"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_get_source_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSourceForActor"),
-            &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_add_source_for_actor,
-        );
+        if let Some(class_ptr) = UTakeRecorderActorSource::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceActor"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_set_source_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorFromSources"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_actor_source_remove_actor_from_sources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceActor"),
+                &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_get_source_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSourceForActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_take_recorder_actor_source_add_source_for_actor,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -82,6 +85,13 @@ impl UTakeRecorderActorSource {
             .name_to_ptr
             .get("UTakeRecorderActorSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderActorSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -266,6 +276,13 @@ impl UTakeRecorderCameraCutSource {
             .get("UTakeRecorderCameraCutSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderCameraCutSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -292,6 +309,13 @@ impl UTakeRecorderLevelSequenceSource {
             .get("UTakeRecorderLevelSequenceSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderLevelSequenceSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -315,6 +339,13 @@ impl UTakeRecorderLevelVisibilitySourceSettings {
             .get("UTakeRecorderLevelVisibilitySourceSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderLevelVisibilitySourceSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -335,6 +366,13 @@ impl UTakeRecorderLevelVisibilitySource {
             .name_to_ptr
             .get("UTakeRecorderLevelVisibilitySource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderLevelVisibilitySource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -359,6 +397,13 @@ impl UTakeRecorderMicrophoneAudioManager {
             .name_to_ptr
             .get("UTakeRecorderMicrophoneAudioManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderMicrophoneAudioManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -385,6 +430,13 @@ impl UTakeRecorderMicrophoneAudioSourceSettings {
             .name_to_ptr
             .get("UTakeRecorderMicrophoneAudioSourceSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderMicrophoneAudioSourceSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -414,6 +466,13 @@ impl UTakeRecorderMicrophoneAudioSource {
             .get("UTakeRecorderMicrophoneAudioSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderMicrophoneAudioSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -440,6 +499,13 @@ impl UTakeRecorderNearbySpawnedActorSource {
             .get("UTakeRecorderNearbySpawnedActorSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderNearbySpawnedActorSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -460,6 +526,13 @@ impl UTakeRecorderPlayerSource {
             .name_to_ptr
             .get("UTakeRecorderPlayerSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderPlayerSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -485,6 +558,13 @@ impl UTakeRecorderWorldSourceSettings {
             .get("UTakeRecorderWorldSourceSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderWorldSourceSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -505,6 +585,13 @@ impl UTakeRecorderWorldSource {
             .name_to_ptr
             .get("UTakeRecorderWorldSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTakeRecorderWorldSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

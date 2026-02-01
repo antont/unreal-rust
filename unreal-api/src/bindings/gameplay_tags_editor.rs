@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,6 +29,13 @@ impl UAssetDefinition_GameplayTagAssetBase {
             .get("UAssetDefinition_GameplayTagAssetBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_GameplayTagAssetBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -48,6 +56,13 @@ impl UGameplayTagSearchFilter {
             .name_to_ptr
             .get("UGameplayTagSearchFilter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagSearchFilter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -70,6 +85,13 @@ impl UGameplayTagsK2Node_LiteralGameplayTag {
             .get("UGameplayTagsK2Node_LiteralGameplayTag")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_LiteralGameplayTag")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -90,6 +112,13 @@ impl UGameplayTagsK2Node_MultiCompareBase {
             .name_to_ptr
             .get("UGameplayTagsK2Node_MultiCompareBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_MultiCompareBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -112,6 +141,13 @@ impl UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterface {
             .get("UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -132,6 +168,13 @@ impl UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags {
             .name_to_ptr
             .get("UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_MultiCompareGameplayTagAssetInterfaceSingleTags")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -154,6 +197,13 @@ impl UGameplayTagsK2Node_MultiCompareGameplayTagContainer {
             .get("UGameplayTagsK2Node_MultiCompareGameplayTagContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_MultiCompareGameplayTagContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -174,6 +224,13 @@ impl UGameplayTagsK2Node_MultiCompareGameplayTagContainerSingleTags {
             .name_to_ptr
             .get("UGameplayTagsK2Node_MultiCompareGameplayTagContainerSingleTags")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_MultiCompareGameplayTagContainerSingleTags")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -196,6 +253,13 @@ impl UGameplayTagsK2Node_SwitchGameplayTag {
             .get("UGameplayTagsK2Node_SwitchGameplayTag")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_SwitchGameplayTag")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -216,6 +280,13 @@ impl UGameplayTagsK2Node_SwitchGameplayTagContainer {
             .name_to_ptr
             .get("UGameplayTagsK2Node_SwitchGameplayTagContainer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsK2Node_SwitchGameplayTagContainer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

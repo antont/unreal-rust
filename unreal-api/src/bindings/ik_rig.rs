@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -210,811 +211,863 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKGoalCreatorInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddIKGoals"),
-            &raw mut __FUNCTION_PTRS.uik_goal_creator_interface_add_ik_goals,
-        );
+        if let Some(class_ptr) = UIKGoalCreatorInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddIKGoals"),
+                &raw mut __FUNCTION_PTRS.uik_goal_creator_interface_add_ik_goals,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIKRigGoalTransform"),
-            &raw mut __FUNCTION_PTRS.uik_rig_component_set_ik_rig_goal_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIKRigGoalPositionAndRotation"),
-            &raw mut __FUNCTION_PTRS
-                .uik_rig_component_set_ik_rig_goal_position_and_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIKRigGoal"),
-            &raw mut __FUNCTION_PTRS.uik_rig_component_set_ik_rig_goal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAllGoals"),
-            &raw mut __FUNCTION_PTRS.uik_rig_component_clear_all_goals,
-        );
+        if let Some(class_ptr) = UIKRigComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIKRigGoalTransform"),
+                &raw mut __FUNCTION_PTRS.uik_rig_component_set_ik_rig_goal_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIKRigGoalPositionAndRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal_position_and_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIKRigGoal"),
+                &raw mut __FUNCTION_PTRS.uik_rig_component_set_ik_rig_goal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAllGoals"),
+                &raw mut __FUNCTION_PTRS.uik_rig_component_clear_all_goals,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargeter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRootSettingsInRetargetProfile"),
-            &raw mut __FUNCTION_PTRS.uik_retargeter_set_root_settings_in_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGlobalSettingsInRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_set_global_settings_in_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChainSpeedPlantSettingsInRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChainSettingsInRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_set_chain_settings_in_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChainIKSettingsInRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_set_chain_ik_settings_in_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetChainFKSettingsInRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_set_chain_fk_settings_in_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasTargetIKRig"),
-            &raw mut __FUNCTION_PTRS.uik_retargeter_has_target_ik_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasSourceIKRig"),
-            &raw mut __FUNCTION_PTRS.uik_retargeter_has_source_ik_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootSettingsFromRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_get_root_settings_from_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootSettingsFromRetargetAsset"),
-            &raw mut __FUNCTION_PTRS.uik_retargeter_get_root_settings_from_retarget_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGlobalSettingsFromRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_get_global_settings_from_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGlobalSettingsFromRetargetAsset"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_get_global_settings_from_retarget_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChainUsingGoalFromRetargetAsset"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_get_chain_using_goal_from_retarget_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChainSettingsFromRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_get_chain_settings_from_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChainSettingsFromRetargetAsset"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retargeter_get_chain_settings_from_retarget_asset,
-        );
+        if let Some(class_ptr) = UIKRetargeter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRootSettingsInRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_set_root_settings_in_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGlobalSettingsInRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_set_global_settings_in_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChainSpeedPlantSettingsInRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChainSettingsInRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_set_chain_settings_in_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChainIKSettingsInRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_set_chain_ik_settings_in_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetChainFKSettingsInRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_set_chain_fk_settings_in_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasTargetIKRig"),
+                &raw mut __FUNCTION_PTRS.uik_retargeter_has_target_ik_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasSourceIKRig"),
+                &raw mut __FUNCTION_PTRS.uik_retargeter_has_source_ik_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootSettingsFromRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_root_settings_from_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootSettingsFromRetargetAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_root_settings_from_retarget_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGlobalSettingsFromRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_global_settings_from_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGlobalSettingsFromRetargetAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_global_settings_from_retarget_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChainUsingGoalFromRetargetAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_chain_using_goal_from_retarget_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChainSettingsFromRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_chain_settings_from_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChainSettingsFromRetargetAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retargeter_get_chain_settings_from_retarget_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URetargetProfileLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOpControllerFromRetargetProfile"),
-            &raw mut __FUNCTION_PTRS
-                .u_retarget_profile_library_get_op_controller_from_retarget_profile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyRetargetProfileFromRetargetAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_retarget_profile_library_copy_retarget_profile_from_retarget_asset,
-        );
+        if let Some(class_ptr) = URetargetProfileLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOpControllerFromRetargetProfile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_retarget_profile_library_get_op_controller_from_retarget_profile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyRetargetProfileFromRetargetAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_retarget_profile_library_copy_retarget_profile_from_retarget_asset,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetAlignPoleVectorController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_align_pole_vector_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_align_pole_vector_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetAlignPoleVectorController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_align_pole_vector_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_align_pole_vector_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetCopyBasePoseController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_copy_base_pose_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCopyFromStart"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_copy_base_pose_controller_set_copy_from_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetBonesToExclude"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_copy_base_pose_controller_reset_bones_to_exclude,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_copy_base_pose_controller_get_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCopyFromStart"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_copy_base_pose_controller_get_copy_from_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBonesToExclude"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_copy_base_pose_controller_get_bones_to_exclude,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBoneToExclude"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_copy_base_pose_controller_add_bone_to_exclude,
-        );
+        if let Some(class_ptr) = UIKRetargetCopyBasePoseController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCopyFromStart"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_set_copy_from_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetBonesToExclude"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_reset_bones_to_exclude,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCopyFromStart"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_copy_from_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBonesToExclude"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_bones_to_exclude,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBoneToExclude"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_add_bone_to_exclude,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetCurveRemapController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_curve_remap_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_curve_remap_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetCurveRemapController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_curve_remap_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_curve_remap_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetFilterBoneController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_filter_bone_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_filter_bone_controller_get_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllBonesToFilter"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_filter_bone_controller_get_all_bones_to_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearBonesToFilter"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_filter_bone_controller_clear_bones_to_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBoneToFilter"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_filter_bone_controller_add_bone_to_filter,
-        );
+        if let Some(class_ptr) = UIKRetargetFilterBoneController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_filter_bone_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_filter_bone_controller_get_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllBonesToFilter"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_get_all_bones_to_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearBonesToFilter"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_clear_bones_to_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBoneToFilter"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_add_bone_to_filter,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetFKChainsController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_fk_chains_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_fk_chains_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetFKChainsController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_fk_chains_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_fk_chains_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetFloorGoalsController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_floor_goals_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_floor_goals_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetFloorGoalsController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_floor_goals_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_floor_goals_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetIKChainsController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_ik_chains_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_ik_chains_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetIKChainsController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_ik_chains_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_ik_chains_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetPelvisMotionController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetPelvisBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_pelvis_motion_controller_set_target_pelvis_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourcePelvisBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_pelvis_motion_controller_set_source_pelvis_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_pelvis_motion_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetPelvisBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_pelvis_motion_controller_get_target_pelvis_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourcePelvisBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_pelvis_motion_controller_get_source_pelvis_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_pelvis_motion_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetPelvisMotionController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetPelvisBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_target_pelvis_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourcePelvisBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_source_pelvis_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetPelvisBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_target_pelvis_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourcePelvisBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_source_pelvis_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetPinBoneController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBonePair"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_set_bone_pair,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_get_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllBonePairs"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_get_all_bone_pairs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAllBonePairs"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_pin_bone_controller_clear_all_bone_pairs,
-        );
+        if let Some(class_ptr) = UIKRetargetPinBoneController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBonePair"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_set_bone_pair,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_get_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllBonePairs"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_get_all_bone_pairs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAllBonePairs"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_clear_all_bone_pairs,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetAdditivePoseController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_additive_pose_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_additive_pose_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetAdditivePoseController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_additive_pose_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_additive_pose_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetRootMotionController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetRootBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_root_motion_controller_set_target_root_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetPelvisBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_root_motion_controller_set_target_pelvis_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceRootBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_root_motion_controller_set_source_root_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_root_motion_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetRootBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_root_motion_controller_get_target_root_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetPelvisBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_root_motion_controller_get_target_pelvis_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceRootBone"),
-            &raw mut __FUNCTION_PTRS
-                .uik_retarget_root_motion_controller_get_source_root_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_root_motion_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetRootMotionController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetRootBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_target_root_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetPelvisBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_target_pelvis_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceRootBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_source_root_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_root_motion_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetRootBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_target_root_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetPelvisBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_target_pelvis_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceRootBone"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_source_root_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_root_motion_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetRunIKRigController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_run_ik_rig_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_run_ik_rig_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetRunIKRigController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_run_ik_rig_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS.uik_retarget_run_ik_rig_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetScaleSourceController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_scale_source_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_scale_source_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetScaleSourceController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_scale_source_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_scale_source_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetSpeedPlantingController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_speed_planting_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_speed_planting_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetSpeedPlantingController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_speed_planting_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_speed_planting_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetStretchChainController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_stretch_chain_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_stretch_chain_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetStretchChainController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_stretch_chain_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_stretch_chain_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRetargetStrideWarpingController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_stride_warping_controller_set_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut __FUNCTION_PTRS.uik_retarget_stride_warping_controller_get_settings,
-        );
+        if let Some(class_ptr) = UIKRetargetStrideWarpingController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_stride_warping_controller_set_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_retarget_stride_warping_controller_get_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigSolverControllerBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnabled"),
-            &raw mut __FUNCTION_PTRS.uik_rig_solver_controller_base_set_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnabled"),
-            &raw mut __FUNCTION_PTRS.uik_rig_solver_controller_base_get_enabled,
-        );
+        if let Some(class_ptr) = UIKRigSolverControllerBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnabled"),
+                &raw mut __FUNCTION_PTRS.uik_rig_solver_controller_base_set_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnabled"),
+                &raw mut __FUNCTION_PTRS.uik_rig_solver_controller_base_get_enabled,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigBodyMoverController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_set_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGoalSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_set_goal_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_get_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGoalSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_get_goal_settings,
-        );
+        if let Some(class_ptr) = UIKRigBodyMoverController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_set_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGoalSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_set_goal_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_get_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGoalSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_get_goal_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigFBIKController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGoalSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_goal_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoneSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_bone_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGoalSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_goal_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoneSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_bone_settings,
-        );
+        if let Some(class_ptr) = UIKRigFBIKController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGoalSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_goal_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoneSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_bone_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSolverSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGoalSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_goal_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoneSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_bone_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigFBIKSolver::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEffectors"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_solver_get_effectors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoneSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_fbik_solver_get_bone_settings,
-        );
+        if let Some(class_ptr) = UIKRigFBIKSolver::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEffectors"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_solver_get_effectors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoneSettings"),
+                &raw mut __FUNCTION_PTRS.uik_rig_fbik_solver_get_bone_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigLimbSolverController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_limb_solver_controller_set_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_limb_solver_controller_get_solver_settings,
-        );
+        if let Some(class_ptr) = UIKRigLimbSolverController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_limb_solver_controller_set_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_limb_solver_controller_get_solver_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigPoleSolverController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_pole_solver_controller_set_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_pole_solver_controller_get_solver_settings,
-        );
+        if let Some(class_ptr) = UIKRigPoleSolverController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_pole_solver_controller_set_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_pole_solver_controller_get_solver_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UIKRigSetTransformController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_set_transform_controller_set_solver_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut __FUNCTION_PTRS.uik_rig_set_transform_controller_get_solver_settings,
-        );
+        if let Some(class_ptr) = UIKRigSetTransformController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_set_transform_controller_set_solver_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSolverSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .uik_rig_set_transform_controller_get_solver_settings,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1748,6 +1801,13 @@ impl UIKGoalCreatorInterface {
             .get("UIKGoalCreatorInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKGoalCreatorInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1803,6 +1863,13 @@ impl UIKRigComponent {
             .name_to_ptr
             .get("UIKRigComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2009,6 +2076,13 @@ impl URetargetChainSettings {
             .get("URetargetChainSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetargetChainSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2033,6 +2107,13 @@ impl URetargetRootSettings {
             .get("URetargetRootSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetargetRootSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2056,6 +2137,13 @@ impl UIKRetargetGlobalSettings {
             .get("UIKRetargetGlobalSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetGlobalSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2076,6 +2164,13 @@ impl UIKRetargeter {
             .name_to_ptr
             .get("UIKRetargeter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargeter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2774,6 +2869,13 @@ impl UIKRetargetOpControllerBase {
             .get("UIKRetargetOpControllerBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetOpControllerBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2794,6 +2896,13 @@ impl URetargetOpBase {
             .name_to_ptr
             .get("URetargetOpBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetargetOpBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2816,6 +2925,13 @@ impl URetargetOpStack {
             .get("URetargetOpStack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetargetOpStack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2837,6 +2953,13 @@ impl UIKRetargetProcessor {
             .get("UIKRetargetProcessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetProcessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2857,6 +2980,13 @@ impl URetargetProfileLibrary {
             .name_to_ptr
             .get("URetargetProfileLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetargetProfileLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2960,6 +3090,13 @@ impl UIKRetargetAlignPoleVectorController {
             .get("UIKRetargetAlignPoleVectorController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetAlignPoleVectorController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3038,6 +3175,13 @@ impl UIKRetargetCopyBasePoseController {
             .name_to_ptr
             .get("UIKRetargetCopyBasePoseController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetCopyBasePoseController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3259,6 +3403,13 @@ impl UIKRetargetCurveRemapController {
             .get("UIKRetargetCurveRemapController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetCurveRemapController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3338,6 +3489,13 @@ impl UCurveRemapOp {
             .get("UCurveRemapOp")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCurveRemapOp")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3358,6 +3516,13 @@ impl UIKRetargetFilterBoneController {
             .name_to_ptr
             .get("UIKRetargetFilterBoneController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetFilterBoneController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3521,6 +3686,13 @@ impl UIKRetargetFKChainsController {
             .get("UIKRetargetFKChainsController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetFKChainsController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3599,6 +3771,13 @@ impl UIKRetargetFloorGoalsController {
             .name_to_ptr
             .get("UIKRetargetFloorGoalsController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetFloorGoalsController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3679,6 +3858,13 @@ impl UIKRetargetIKChainsController {
             .get("UIKRetargetIKChainsController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetIKChainsController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3757,6 +3943,13 @@ impl UIKRetargetPelvisMotionController {
             .name_to_ptr
             .get("UIKRetargetPelvisMotionController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetPelvisMotionController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3953,6 +4146,13 @@ impl UIKRetargetPinBoneController {
             .get("UIKRetargetPinBoneController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetPinBoneController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4126,6 +4326,13 @@ impl UPinBoneOp {
             .get("UPinBoneOp")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPinBoneOp")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4146,6 +4353,13 @@ impl UIKRetargetAdditivePoseController {
             .name_to_ptr
             .get("UIKRetargetAdditivePoseController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetAdditivePoseController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4225,6 +4439,13 @@ impl UIKRetargetRootMotionController {
             .name_to_ptr
             .get("UIKRetargetRootMotionController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetRootMotionController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4479,6 +4700,13 @@ impl URootMotionGeneratorOp {
             .get("URootMotionGeneratorOp")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URootMotionGeneratorOp")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4499,6 +4727,13 @@ impl UIKRetargetRunIKRigController {
             .name_to_ptr
             .get("UIKRetargetRunIKRigController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetRunIKRigController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4579,6 +4814,13 @@ impl UIKRetargetScaleSourceController {
             .get("UIKRetargetScaleSourceController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetScaleSourceController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4657,6 +4899,13 @@ impl UIKRetargetSpeedPlantingController {
             .name_to_ptr
             .get("UIKRetargetSpeedPlantingController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetSpeedPlantingController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4737,6 +4986,13 @@ impl UIKRetargetStretchChainController {
             .get("UIKRetargetStretchChainController")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetStretchChainController")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4815,6 +5071,13 @@ impl UIKRetargetStrideWarpingController {
             .name_to_ptr
             .get("UIKRetargetStrideWarpingController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRetargetStrideWarpingController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4907,6 +5170,13 @@ impl UIKRigEffectorGoal {
             .get("UIKRigEffectorGoal")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigEffectorGoal")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4927,6 +5197,13 @@ impl UIKRigDefinition {
             .name_to_ptr
             .get("UIKRigDefinition")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigDefinition")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4949,6 +5226,13 @@ impl UIKRigProcessor {
             .get("UIKRigProcessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigProcessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4969,6 +5253,13 @@ impl UIKRigSolverControllerBase {
             .name_to_ptr
             .get("UIKRigSolverControllerBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigSolverControllerBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5048,6 +5339,13 @@ impl UIKRigBodyMoverController {
             .name_to_ptr
             .get("UIKRigBodyMoverController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigBodyMoverController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5207,6 +5505,13 @@ impl UIKRig_BodyMoverEffector {
             .get("UIKRig_BodyMoverEffector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_BodyMoverEffector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5227,6 +5532,13 @@ impl UIKRigSolver {
             .name_to_ptr
             .get("UIKRigSolver")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigSolver")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5249,6 +5561,13 @@ impl UIKRig_BodyMover {
             .get("UIKRig_BodyMover")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_BodyMover")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5269,6 +5588,13 @@ impl UIKRigFBIKController {
             .name_to_ptr
             .get("UIKRigFBIKController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigFBIKController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5501,6 +5827,13 @@ impl UIKRig_FBIKEffector {
             .get("UIKRig_FBIKEffector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_FBIKEffector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5521,6 +5854,13 @@ impl UIKRig_FBIKBoneSettings {
             .name_to_ptr
             .get("UIKRig_FBIKBoneSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_FBIKBoneSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5543,6 +5883,13 @@ impl UIKRigFBIKSolver {
             .get("UIKRigFBIKSolver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigFBIKSolver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5563,6 +5910,13 @@ impl UIKRigLimbSolverController {
             .name_to_ptr
             .get("UIKRigLimbSolverController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigLimbSolverController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5643,6 +5997,13 @@ impl UIKRig_LimbEffector {
             .get("UIKRig_LimbEffector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_LimbEffector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5664,6 +6025,13 @@ impl UIKRig_LimbSolver {
             .get("UIKRig_LimbSolver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_LimbSolver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5684,6 +6052,13 @@ impl UIKRigPoleSolverController {
             .name_to_ptr
             .get("UIKRigPoleSolverController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigPoleSolverController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5764,6 +6139,13 @@ impl UIKRig_PoleSolverEffector {
             .get("UIKRig_PoleSolverEffector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_PoleSolverEffector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5785,6 +6167,13 @@ impl UIKRig_PoleSolver {
             .get("UIKRig_PoleSolver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_PoleSolver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5805,6 +6194,13 @@ impl UIKRigSetTransformController {
             .name_to_ptr
             .get("UIKRigSetTransformController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRigSetTransformController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5885,6 +6281,13 @@ impl UIKRig_SetTransformEffector {
             .get("UIKRig_SetTransformEffector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_SetTransformEffector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5905,6 +6308,13 @@ impl UIKRig_SetTransform {
             .name_to_ptr
             .get("UIKRig_SetTransform")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIKRig_SetTransform")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

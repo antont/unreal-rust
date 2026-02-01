@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -48,113 +49,119 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNamingTokensEditableText::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetArgumentStyle"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_set_widget_argument_style,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayTokenIcon"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_display_token_icon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayErrorMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_set_display_error_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayBorderImage"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_set_display_border_image,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetContexts"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_contexts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCanDisplayResolvedText"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_set_can_display_resolved_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPreEvaluateNamingTokens__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_on_pre_evaluate_naming_tokens_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTokenizedText"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_tokenized_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetResolvedText"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_resolved_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayTokenIcon"),
-            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_display_token_icon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayErrorMessage"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_get_display_error_message,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayBorderImage"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_get_display_border_image,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCanDisplayResolvedText"),
-            &raw mut __FUNCTION_PTRS
-                .u_naming_tokens_editable_text_get_can_display_resolved_text,
-        );
+        if let Some(class_ptr) = UNamingTokensEditableText::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetArgumentStyle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_widget_argument_style,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayTokenIcon"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_token_icon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayErrorMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_error_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayBorderImage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_border_image,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetContexts"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_contexts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCanDisplayResolvedText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_can_display_resolved_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBackgroundColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnPreEvaluateNamingTokens__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_on_pre_evaluate_naming_tokens_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTokenizedText"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_tokenized_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetResolvedText"),
+                &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_resolved_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayTokenIcon"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_token_icon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayErrorMessage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_error_message,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayBorderImage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_border_image,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCanDisplayResolvedText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_can_display_resolved_text,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -182,6 +189,13 @@ impl UNamingTokensEditableText {
             .name_to_ptr
             .get("UNamingTokensEditableText")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamingTokensEditableText")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

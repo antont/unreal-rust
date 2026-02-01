@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,33 +27,35 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UChaosSolverEngineBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertPhysicsCollisionToHitResult"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result,
-        );
+        if let Some(class_ptr) = UChaosSolverEngineBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertPhysicsCollisionToHitResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AChaosSolverActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSolverActive"),
-            &raw mut __FUNCTION_PTRS.a_chaos_solver_actor_set_solver_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAsCurrentWorldSolver"),
-            &raw mut __FUNCTION_PTRS.a_chaos_solver_actor_set_as_current_world_solver,
-        );
+        if let Some(class_ptr) = AChaosSolverActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSolverActive"),
+                &raw mut __FUNCTION_PTRS.a_chaos_solver_actor_set_solver_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAsCurrentWorldSolver"),
+                &raw mut __FUNCTION_PTRS.a_chaos_solver_actor_set_as_current_world_solver,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -87,6 +90,13 @@ impl UChaosDebugDrawComponent {
             .get("UChaosDebugDrawComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosDebugDrawComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -107,6 +117,13 @@ impl UChaosDebugDrawSubsystem {
             .name_to_ptr
             .get("UChaosDebugDrawSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosDebugDrawSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -129,6 +146,13 @@ impl UChaosEventListenerComponent {
             .get("UChaosEventListenerComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosEventListenerComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -149,6 +173,13 @@ impl UChaosGameplayEventDispatcher {
             .name_to_ptr
             .get("UChaosGameplayEventDispatcher")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosGameplayEventDispatcher")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -172,6 +203,13 @@ impl UChaosNotifyHandlerInterface {
             .get("UChaosNotifyHandlerInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosNotifyHandlerInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -192,6 +230,13 @@ impl UChaosSolverEngineBlueprintLibrary {
             .name_to_ptr
             .get("UChaosSolverEngineBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosSolverEngineBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -249,6 +294,13 @@ impl UChaosSolver {
             .get("UChaosSolver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosSolver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -269,6 +321,13 @@ impl AChaosSolverActor {
             .name_to_ptr
             .get("AChaosSolverActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosSolverActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -343,6 +402,13 @@ impl UChaosSolverSettings {
             .name_to_ptr
             .get("UChaosSolverSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosSolverSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -60,148 +61,149 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URadialSlider::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueTags"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_value_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUseVerticalDrag"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_use_vertical_drag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderRange"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_progress_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderHandleStartAngle"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_start_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderHandleEndAngle"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_end_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_bar_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowSliderHandle"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_show_slider_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowSliderHand"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_show_slider_hand,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_hand_start_end_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_custom_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_center_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAngularOffset"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_set_angular_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedSliderHandlePosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_radial_slider_get_normalized_slider_handle_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_radial_slider_get_custom_default_value,
-        );
+        if let Some(class_ptr) = URadialSlider::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueTags"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_value_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUseVerticalDrag"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_use_vertical_drag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderRange"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_progress_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderHandleStartAngle"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_start_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderHandleEndAngle"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_end_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderBarColor"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_bar_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowSliderHandle"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_show_slider_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowSliderHand"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_show_slider_hand,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocked"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_hand_start_end_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_custom_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_center_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAngularOffset"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_set_angular_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedSliderHandlePosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_radial_slider_get_normalized_slider_handle_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_radial_slider_get_custom_default_value,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -250,6 +252,13 @@ impl URadialSlider {
             .name_to_ptr
             .get("URadialSlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URadialSlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

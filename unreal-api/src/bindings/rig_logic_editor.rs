@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,25 +25,27 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDNAAssetImportUI::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut __FUNCTION_PTRS.udna_asset_import_ui_reset_to_default,
-        );
+        if let Some(class_ptr) = UDNAAssetImportUI::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToDefault"),
+                &raw mut __FUNCTION_PTRS.udna_asset_import_ui_reset_to_default,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDNAImporterLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportSkeletalMeshDNA"),
-            &raw mut __FUNCTION_PTRS.udna_importer_library_import_skeletal_mesh_dna,
-        );
+        if let Some(class_ptr) = UDNAImporterLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportSkeletalMeshDNA"),
+                &raw mut __FUNCTION_PTRS.udna_importer_library_import_skeletal_mesh_dna,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -59,6 +62,13 @@ impl UDNAAssetImportUI {
             .name_to_ptr
             .get("UDNAAssetImportUI")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDNAAssetImportUI")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -106,6 +116,13 @@ impl UDNAAssetImportFactory {
             .get("UDNAAssetImportFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDNAAssetImportFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -126,6 +143,13 @@ impl UDNAImporterLibrary {
             .name_to_ptr
             .get("UDNAImporterLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDNAImporterLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

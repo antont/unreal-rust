@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -30,47 +31,48 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UChaosVDRuntimeBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTraceRelevancyVolume"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecordDebugDrawVector"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecordDebugDrawSphere"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecordDebugDrawLine"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_line,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecordDebugDrawBox"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_box,
-        );
+        if let Some(class_ptr) = UChaosVDRuntimeBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTraceRelevancyVolume"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecordDebugDrawVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecordDebugDrawSphere"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecordDebugDrawLine"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_line,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecordDebugDrawBox"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_box,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -84,6 +86,13 @@ impl UChaosVDRuntimeBlueprintLibrary {
             .name_to_ptr
             .get("UChaosVDRuntimeBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosVDRuntimeBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

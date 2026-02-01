@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -196,737 +197,777 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshConstraintProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPreventTinyTrianglesEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_constraint_properties_is_prevent_tiny_triangles_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPreventNormalFlipsEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_constraint_properties_is_prevent_normal_flips_enabled,
-        );
+        if let Some(class_ptr) = UMeshConstraintProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPreventTinyTrianglesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_constraint_properties_is_prevent_tiny_triangles_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPreventNormalFlipsEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_constraint_properties_is_prevent_normal_flips_enabled,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConvertToPolygonsToolProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGroupOptionsList"),
-            &raw mut __FUNCTION_PTRS
-                .u_convert_to_polygons_tool_properties_get_group_options_list,
-        );
+        if let Some(class_ptr) = UConvertToPolygonsToolProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGroupOptionsList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_convert_to_polygons_tool_properties_get_group_options_list,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDisplaceMeshCommonProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_displace_mesh_common_properties_get_weight_maps_func,
-        );
+        if let Some(class_ptr) = UDisplaceMeshCommonProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_displace_mesh_common_properties_get_weight_maps_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USelectiveTessellationProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialIDsFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_selective_tessellation_properties_get_material_i_ds_func,
-        );
+        if let Some(class_ptr) = USelectiveTessellationProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialIDsFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_selective_tessellation_properties_get_material_i_ds_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDynamicSculptToolActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DiscardAttributes"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_sculpt_tool_actions_discard_attributes,
-        );
+        if let Some(class_ptr) = UDynamicSculptToolActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DiscardAttributes"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_sculpt_tool_actions_discard_attributes,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPolyEditTopologyProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegenerateExtraCorners"),
-            &raw mut __FUNCTION_PTRS
-                .u_poly_edit_topology_properties_regenerate_extra_corners,
-        );
+        if let Some(class_ptr) = UPolyEditTopologyProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegenerateExtraCorners"),
+                &raw mut __FUNCTION_PTRS
+                    .u_poly_edit_topology_properties_regenerate_extra_corners,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditMeshPolygonsToolActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SimplifyByGroups"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_simplify_by_groups,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Retriangulate"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_retriangulate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecalcNormals"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_recalc_normals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PushPull"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_push_pull,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Outset"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_outset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Offset"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Merge"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_merge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Inset"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_inset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InsertEdgeLoop"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_insert_edge_loop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InsertEdge"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_insert_edge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_flip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_extrude,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_duplicate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Disconnect"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_disconnect,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_delete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Decompose"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_decompose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CutFaces"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_cut_faces,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Bevel"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_bevel,
-        );
+        if let Some(class_ptr) = UEditMeshPolygonsToolActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SimplifyByGroups"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_simplify_by_groups,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Retriangulate"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_retriangulate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecalcNormals"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_recalc_normals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PushPull"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_push_pull,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Outset"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_outset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Offset"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Merge"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_merge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Inset"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_inset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InsertEdgeLoop"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_insert_edge_loop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InsertEdge"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_insert_edge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Flip"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_flip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Extrude"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_extrude,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Duplicate"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_duplicate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Disconnect"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_disconnect,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Delete"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_delete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Decompose"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_decompose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CutFaces"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_cut_faces,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Bevel"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_bevel,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditMeshPolygonsToolActions_Triangles::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecalcNormals"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_actions_triangles_recalc_normals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PushPull"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_actions_triangles_push_pull,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Poke"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_poke,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Outset"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_outset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Offset"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Inset"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_inset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_flip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_extrude,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_actions_triangles_duplicate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Disconnect"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_actions_triangles_disconnect,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_delete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CutFaces"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_actions_triangles_cut_faces,
-        );
+        if let Some(class_ptr) = UEditMeshPolygonsToolActions_Triangles::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecalcNormals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_recalc_normals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PushPull"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_push_pull,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Poke"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_poke,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Outset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_outset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Offset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Inset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_inset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Flip"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_flip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Extrude"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_extrude,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Duplicate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_duplicate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Disconnect"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_disconnect,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Delete"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_delete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CutFaces"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_actions_triangles_cut_faces,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditMeshPolygonsToolUVActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlanarProjection"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_uv_actions_planar_projection,
-        );
+        if let Some(class_ptr) = UEditMeshPolygonsToolUVActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlanarProjection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_uv_actions_planar_projection,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditMeshPolygonsToolEdgeActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WeldCentered"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_weld_centered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Weld"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_weld,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Straighten"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_straighten,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Simplify"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_simplify,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillHole"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_fill_hole,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_extrude,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteEdge"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_delete_edge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Collapse"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_collapse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Bridge"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_bridge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Bevel"),
-            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_bevel,
-        );
+        if let Some(class_ptr) = UEditMeshPolygonsToolEdgeActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WeldCentered"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_weld_centered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Weld"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_weld,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Straighten"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_straighten,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Simplify"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_simplify,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillHole"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_fill_hole,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Extrude"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_extrude,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteEdge"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_delete_edge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Collapse"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_collapse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Bridge"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_bridge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Bevel"),
+                &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_bevel,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditMeshPolygonsToolEdgeActions_Triangles::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WeldCentered"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_weld_centered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Weld"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_weld,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Split"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_split,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_flip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillHole"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_fill_hole,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_extrude,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Collapse"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_collapse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Bridge"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_mesh_polygons_tool_edge_actions_triangles_bridge,
-        );
+        if let Some(class_ptr) = UEditMeshPolygonsToolEdgeActions_Triangles::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WeldCentered"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_weld_centered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Weld"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_weld,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Split"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_split,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Flip"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_flip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillHole"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_fill_hole,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Extrude"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_extrude,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Collapse"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_collapse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Bridge"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_mesh_polygons_tool_edge_actions_triangles_bridge,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UHoleFillToolActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectAll"),
-            &raw mut __FUNCTION_PTRS.u_hole_fill_tool_actions_select_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut __FUNCTION_PTRS.u_hole_fill_tool_actions_clear,
-        );
+        if let Some(class_ptr) = UHoleFillToolActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectAll"),
+                &raw mut __FUNCTION_PTRS.u_hole_fill_tool_actions_select_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Clear"),
+                &raw mut __FUNCTION_PTRS.u_hole_fill_tool_actions_clear,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULatticeDeformerToolProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Constrain"),
-            &raw mut __FUNCTION_PTRS.u_lattice_deformer_tool_properties_constrain,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearConstraints"),
-            &raw mut __FUNCTION_PTRS.u_lattice_deformer_tool_properties_clear_constraints,
-        );
+        if let Some(class_ptr) = ULatticeDeformerToolProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Constrain"),
+                &raw mut __FUNCTION_PTRS.u_lattice_deformer_tool_properties_constrain,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearConstraints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_lattice_deformer_tool_properties_clear_constraints,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshAttributePaintToolProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAttributeNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_attribute_paint_tool_properties_get_attribute_names,
-        );
+        if let Some(class_ptr) = UMeshAttributePaintToolProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAttributeNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_attribute_paint_tool_properties_get_attribute_names,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshGroupPaintToolFreezeActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnfreezeAll"),
-            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_unfreeze_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShrinkCurrent"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_group_paint_tool_freeze_actions_shrink_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GrowCurrent"),
-            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_grow_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FreezeOthers"),
-            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_freeze_others,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FreezeCurrent"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_group_paint_tool_freeze_actions_freeze_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FloodFillCurrent"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_group_paint_tool_freeze_actions_flood_fill_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearCurrent"),
-            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_clear_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAll"),
-            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_clear_all,
-        );
+        if let Some(class_ptr) = UMeshGroupPaintToolFreezeActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnfreezeAll"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_unfreeze_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShrinkCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_shrink_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GrowCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_grow_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FreezeOthers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_freeze_others,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FreezeCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_freeze_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FloodFillCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_flood_fill_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_group_paint_tool_freeze_actions_clear_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAll"),
+                &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_clear_all,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshSpaceDeformerToolActionPropertySet::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShiftToCenter"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_space_deformer_tool_action_property_set_shift_to_center,
-        );
+        if let Some(class_ptr) = UMeshSpaceDeformerToolActionPropertySet::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShiftToCenter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_space_deformer_tool_action_property_set_shift_to_center,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshVertexPaintToolQuickActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PaintAll"),
-            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_paint_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillWhite"),
-            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_fill_white,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillBlack"),
-            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_fill_black,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EraseAll"),
-            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_erase_all,
-        );
+        if let Some(class_ptr) = UMeshVertexPaintToolQuickActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PaintAll"),
+                &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_paint_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillWhite"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_vertex_paint_tool_quick_actions_fill_white,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillBlack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_vertex_paint_tool_quick_actions_fill_black,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EraseAll"),
+                &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_erase_all,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshVertexPaintToolUtilityActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_vertex_paint_tool_utility_actions_get_weight_maps_func,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_vertex_paint_tool_utility_actions_get_lod_names_func,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplySelectedOperation"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_vertex_paint_tool_utility_actions_apply_selected_operation,
-        );
+        if let Some(class_ptr) = UMeshVertexPaintToolUtilityActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_vertex_paint_tool_utility_actions_get_weight_maps_func,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_vertex_paint_tool_utility_actions_get_lod_names_func,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplySelectedOperation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_vertex_paint_tool_utility_actions_apply_selected_operation,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UExistingMeshMaterialProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_existing_mesh_material_properties_get_uv_channel_names_func,
-        );
+        if let Some(class_ptr) = UExistingMeshMaterialProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_existing_mesh_material_properties_get_uv_channel_names_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshSculptLayerProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLayerWeight"),
-            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_layer_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLayerName"),
-            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_layer_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActiveLayer"),
-            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_active_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLayerAtIndex"),
-            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_remove_layer_at_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveLayer"),
-            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_move_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLayerName"),
-            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_get_layer_name,
-        );
+        if let Some(class_ptr) = UMeshSculptLayerProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLayerWeight"),
+                &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_layer_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLayerName"),
+                &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_layer_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActiveLayer"),
+                &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_active_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLayerAtIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_sculpt_layer_properties_remove_layer_at_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveLayer"),
+                &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_move_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLayerName"),
+                &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_get_layer_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshUVChannelProperties::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut __FUNCTION_PTRS
-                .u_mesh_uv_channel_properties_get_uv_channel_names_func,
-        );
+        if let Some(class_ptr) = UMeshUVChannelProperties::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_uv_channel_properties_get_uv_channel_names_func,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UUVProjectionToolEditActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_reset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AutoFitAlign"),
-            &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_auto_fit_align,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AutoFit"),
-            &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_auto_fit,
-        );
+        if let Some(class_ptr) = UUVProjectionToolEditActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reset"),
+                &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_reset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AutoFitAlign"),
+                &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_auto_fit_align,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AutoFit"),
+                &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_auto_fit,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -940,6 +981,13 @@ impl UMeshSculptBrushOpProps {
             .name_to_ptr
             .get("UMeshSculptBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSculptBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -962,6 +1010,13 @@ impl UBaseKelvinletBrushOpProps {
             .get("UBaseKelvinletBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseKelvinletBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -982,6 +1037,13 @@ impl UScaleKelvinletBrushOpProps {
             .name_to_ptr
             .get("UScaleKelvinletBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScaleKelvinletBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1004,6 +1066,13 @@ impl UPullKelvinletBrushOpProps {
             .get("UPullKelvinletBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPullKelvinletBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1024,6 +1093,13 @@ impl USharpPullKelvinletBrushOpProps {
             .name_to_ptr
             .get("USharpPullKelvinletBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USharpPullKelvinletBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1046,6 +1122,13 @@ impl UTwistKelvinletBrushOpProps {
             .get("UTwistKelvinletBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTwistKelvinletBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1066,6 +1149,13 @@ impl UEraseSculptLayerBrushOpProps {
             .name_to_ptr
             .get("UEraseSculptLayerBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEraseSculptLayerBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1088,6 +1178,13 @@ impl UGroupEraseBrushOpProps {
             .get("UGroupEraseBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroupEraseBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1108,6 +1205,13 @@ impl UGroupPaintBrushOpProps {
             .name_to_ptr
             .get("UGroupPaintBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroupPaintBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1130,6 +1234,13 @@ impl UInflateBrushOpProps {
             .get("UInflateBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInflateBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1150,6 +1261,13 @@ impl UMoveBrushOpProps {
             .name_to_ptr
             .get("UMoveBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMoveBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1172,6 +1290,13 @@ impl UPinchBrushOpProps {
             .get("UPinchBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPinchBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1192,6 +1317,13 @@ impl UBasePlaneBrushOpProps {
             .name_to_ptr
             .get("UBasePlaneBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBasePlaneBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1214,6 +1346,13 @@ impl UPlaneBrushOpProps {
             .get("UPlaneBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlaneBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1234,6 +1373,13 @@ impl UViewAlignedPlaneBrushOpProps {
             .name_to_ptr
             .get("UViewAlignedPlaneBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewAlignedPlaneBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1256,6 +1402,13 @@ impl UFixedPlaneBrushOpProps {
             .get("UFixedPlaneBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFixedPlaneBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1276,6 +1429,13 @@ impl UStandardSculptBrushOpProps {
             .name_to_ptr
             .get("UStandardSculptBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStandardSculptBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1298,6 +1458,13 @@ impl UViewAlignedSculptBrushOpProps {
             .get("UViewAlignedSculptBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UViewAlignedSculptBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1318,6 +1485,13 @@ impl USculptMaxBrushOpProps {
             .name_to_ptr
             .get("USculptMaxBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USculptMaxBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1340,6 +1514,13 @@ impl UBaseSmoothBrushOpProps {
             .get("UBaseSmoothBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseSmoothBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1360,6 +1541,13 @@ impl USmoothBrushOpProps {
             .name_to_ptr
             .get("USmoothBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1382,6 +1570,13 @@ impl USecondarySmoothBrushOpProps {
             .get("USecondarySmoothBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USecondarySmoothBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1402,6 +1597,13 @@ impl USmoothFillBrushOpProps {
             .name_to_ptr
             .get("USmoothFillBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothFillBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1424,6 +1626,13 @@ impl UFlattenBrushOpProps {
             .get("UFlattenBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFlattenBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1444,6 +1653,13 @@ impl UEraseBrushOpProps {
             .name_to_ptr
             .get("UEraseBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEraseBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1466,6 +1682,13 @@ impl UVertexColorBaseBrushOpProps {
             .get("UVertexColorBaseBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexColorBaseBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1486,6 +1709,13 @@ impl UVertexColorPaintBrushOpProps {
             .name_to_ptr
             .get("UVertexColorPaintBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexColorPaintBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1508,6 +1738,13 @@ impl UVertexColorSoftenBrushOpProps {
             .get("UVertexColorSoftenBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexColorSoftenBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1528,6 +1765,13 @@ impl UVertexColorSmoothBrushOpProps {
             .name_to_ptr
             .get("UVertexColorSmoothBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexColorSmoothBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1550,6 +1794,13 @@ impl UPolyEditActivityContext {
             .get("UPolyEditActivityContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditActivityContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1570,6 +1821,13 @@ impl UMeshConstraintProperties {
             .name_to_ptr
             .get("UMeshConstraintProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshConstraintProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1592,6 +1850,13 @@ impl URemeshProperties {
             .get("URemeshProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemeshProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1612,6 +1877,13 @@ impl UAddPrimitiveToolBuilder {
             .name_to_ptr
             .get("UAddPrimitiveToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddPrimitiveToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1634,6 +1906,13 @@ impl UProceduralShapeToolProperties {
             .get("UProceduralShapeToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralShapeToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1654,6 +1933,13 @@ impl UProceduralBoxToolProperties {
             .name_to_ptr
             .get("UProceduralBoxToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralBoxToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1676,6 +1962,13 @@ impl UProceduralRectangleToolProperties {
             .get("UProceduralRectangleToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralRectangleToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1696,6 +1989,13 @@ impl UProceduralDiscToolProperties {
             .name_to_ptr
             .get("UProceduralDiscToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralDiscToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1718,6 +2018,13 @@ impl UProceduralTorusToolProperties {
             .get("UProceduralTorusToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralTorusToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1738,6 +2045,13 @@ impl UProceduralCylinderToolProperties {
             .name_to_ptr
             .get("UProceduralCylinderToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralCylinderToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1760,6 +2074,13 @@ impl UProceduralConeToolProperties {
             .get("UProceduralConeToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralConeToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1780,6 +2101,13 @@ impl UProceduralArrowToolProperties {
             .name_to_ptr
             .get("UProceduralArrowToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralArrowToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1802,6 +2130,13 @@ impl UProceduralSphereToolProperties {
             .get("UProceduralSphereToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralSphereToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1822,6 +2157,13 @@ impl UProceduralCapsuleToolProperties {
             .name_to_ptr
             .get("UProceduralCapsuleToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralCapsuleToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1844,6 +2186,13 @@ impl UProceduralStairsToolProperties {
             .get("UProceduralStairsToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProceduralStairsToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1864,6 +2213,13 @@ impl UAddPrimitiveTool {
             .name_to_ptr
             .get("UAddPrimitiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddPrimitiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1886,6 +2242,13 @@ impl UAddBoxPrimitiveTool {
             .get("UAddBoxPrimitiveTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddBoxPrimitiveTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1906,6 +2269,13 @@ impl UAddCylinderPrimitiveTool {
             .name_to_ptr
             .get("UAddCylinderPrimitiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddCylinderPrimitiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1928,6 +2298,13 @@ impl UAddCapsulePrimitiveTool {
             .get("UAddCapsulePrimitiveTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddCapsulePrimitiveTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1948,6 +2325,13 @@ impl UAddConePrimitiveTool {
             .name_to_ptr
             .get("UAddConePrimitiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddConePrimitiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1970,6 +2354,13 @@ impl UAddRectanglePrimitiveTool {
             .get("UAddRectanglePrimitiveTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddRectanglePrimitiveTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1990,6 +2381,13 @@ impl UAddDiscPrimitiveTool {
             .name_to_ptr
             .get("UAddDiscPrimitiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddDiscPrimitiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2012,6 +2410,13 @@ impl UAddTorusPrimitiveTool {
             .get("UAddTorusPrimitiveTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddTorusPrimitiveTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2032,6 +2437,13 @@ impl UAddArrowPrimitiveTool {
             .name_to_ptr
             .get("UAddArrowPrimitiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddArrowPrimitiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2054,6 +2466,13 @@ impl UAddSpherePrimitiveTool {
             .get("UAddSpherePrimitiveTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddSpherePrimitiveTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2074,6 +2493,13 @@ impl UAddStairsPrimitiveTool {
             .name_to_ptr
             .get("UAddStairsPrimitiveTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAddStairsPrimitiveTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2096,6 +2522,13 @@ impl UCombineMeshesToolBuilder {
             .get("UCombineMeshesToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCombineMeshesToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2116,6 +2549,13 @@ impl UCombineMeshesToolProperties {
             .name_to_ptr
             .get("UCombineMeshesToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCombineMeshesToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2138,6 +2578,13 @@ impl UCombineMeshesTool {
             .get("UCombineMeshesTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCombineMeshesTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2158,6 +2605,13 @@ impl UDeleteGeometrySelectionCommand {
             .name_to_ptr
             .get("UDeleteGeometrySelectionCommand")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDeleteGeometrySelectionCommand")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2180,6 +2634,13 @@ impl UDisconnectGeometrySelectionCommand {
             .get("UDisconnectGeometrySelectionCommand")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisconnectGeometrySelectionCommand")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2200,6 +2661,13 @@ impl UModifyGeometrySelectionCommand {
             .name_to_ptr
             .get("UModifyGeometrySelectionCommand")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyGeometrySelectionCommand")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2222,6 +2690,13 @@ impl UModifyGeometrySelectionCommand_Invert {
             .get("UModifyGeometrySelectionCommand_Invert")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyGeometrySelectionCommand_Invert")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2242,6 +2717,13 @@ impl UModifyGeometrySelectionCommand_ExpandToConnected {
             .name_to_ptr
             .get("UModifyGeometrySelectionCommand_ExpandToConnected")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyGeometrySelectionCommand_ExpandToConnected")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2264,6 +2746,13 @@ impl UModifyGeometrySelectionCommand_InvertConnected {
             .get("UModifyGeometrySelectionCommand_InvertConnected")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyGeometrySelectionCommand_InvertConnected")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2284,6 +2773,13 @@ impl UModifyGeometrySelectionCommand_Expand {
             .name_to_ptr
             .get("UModifyGeometrySelectionCommand_Expand")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyGeometrySelectionCommand_Expand")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2306,6 +2802,13 @@ impl UModifyGeometrySelectionCommand_Contract {
             .get("UModifyGeometrySelectionCommand_Contract")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UModifyGeometrySelectionCommand_Contract")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2326,6 +2829,13 @@ impl URetriangulateGeometrySelectionCommand {
             .name_to_ptr
             .get("URetriangulateGeometrySelectionCommand")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetriangulateGeometrySelectionCommand")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2348,6 +2858,13 @@ impl UConvertToPolygonsToolBuilder {
             .get("UConvertToPolygonsToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConvertToPolygonsToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2368,6 +2885,13 @@ impl UConvertToPolygonsToolProperties {
             .name_to_ptr
             .get("UConvertToPolygonsToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConvertToPolygonsToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2390,6 +2914,13 @@ impl UConvertToPolygonsOperatorFactory {
             .get("UConvertToPolygonsOperatorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConvertToPolygonsOperatorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2410,6 +2941,13 @@ impl UConvertToPolygonsTool {
             .name_to_ptr
             .get("UConvertToPolygonsTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConvertToPolygonsTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2432,6 +2970,13 @@ impl UCSGMeshesToolProperties {
             .get("UCSGMeshesToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCSGMeshesToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2452,6 +2997,13 @@ impl UTrimMeshesToolProperties {
             .name_to_ptr
             .get("UTrimMeshesToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTrimMeshesToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2474,6 +3026,13 @@ impl UCSGMeshesTool {
             .get("UCSGMeshesTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCSGMeshesTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2494,6 +3053,13 @@ impl UCSGMeshesToolBuilder {
             .name_to_ptr
             .get("UCSGMeshesToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCSGMeshesToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2516,6 +3082,13 @@ impl UCutMeshWithMeshToolProperties {
             .get("UCutMeshWithMeshToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCutMeshWithMeshToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2536,6 +3109,13 @@ impl UCutMeshWithMeshTool {
             .name_to_ptr
             .get("UCutMeshWithMeshTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCutMeshWithMeshTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2558,6 +3138,13 @@ impl UCutMeshWithMeshToolBuilder {
             .get("UCutMeshWithMeshToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCutMeshWithMeshToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2578,6 +3165,13 @@ impl UDeformMeshPolygonsToolBuilder {
             .name_to_ptr
             .get("UDeformMeshPolygonsToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDeformMeshPolygonsToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2600,6 +3194,13 @@ impl UDeformMeshPolygonsTransformProperties {
             .get("UDeformMeshPolygonsTransformProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDeformMeshPolygonsTransformProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2620,6 +3221,13 @@ impl UDeformMeshPolygonsTool {
             .name_to_ptr
             .get("UDeformMeshPolygonsTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDeformMeshPolygonsTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2642,6 +3250,13 @@ impl UDisplaceMeshCommonProperties {
             .get("UDisplaceMeshCommonProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshCommonProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2662,6 +3277,13 @@ impl USelectiveTessellationProperties {
             .name_to_ptr
             .get("USelectiveTessellationProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USelectiveTessellationProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2684,6 +3306,13 @@ impl UDisplaceMeshTextureMapProperties {
             .get("UDisplaceMeshTextureMapProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshTextureMapProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2704,6 +3333,13 @@ impl UDisplaceMeshDirectionalFilterProperties {
             .name_to_ptr
             .get("UDisplaceMeshDirectionalFilterProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshDirectionalFilterProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2726,6 +3362,13 @@ impl UDisplaceMeshPerlinNoiseProperties {
             .get("UDisplaceMeshPerlinNoiseProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshPerlinNoiseProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2746,6 +3389,13 @@ impl UDisplaceMeshSineWaveProperties {
             .name_to_ptr
             .get("UDisplaceMeshSineWaveProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshSineWaveProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2768,6 +3418,13 @@ impl UDisplaceMeshToolBuilder {
             .get("UDisplaceMeshToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2788,6 +3445,13 @@ impl UDisplaceMeshTool {
             .name_to_ptr
             .get("UDisplaceMeshTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDisplaceMeshTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2810,6 +3474,13 @@ impl UDrawAndRevolveToolBuilder {
             .get("UDrawAndRevolveToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrawAndRevolveToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2830,6 +3501,13 @@ impl URevolveProperties {
             .name_to_ptr
             .get("URevolveProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URevolveProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2852,6 +3530,13 @@ impl URevolveToolProperties {
             .get("URevolveToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URevolveToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2872,6 +3557,13 @@ impl URevolveOperatorFactory {
             .name_to_ptr
             .get("URevolveOperatorFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URevolveOperatorFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2894,6 +3586,13 @@ impl UDrawAndRevolveTool {
             .get("UDrawAndRevolveTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrawAndRevolveTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2914,6 +3613,13 @@ impl UDrawPolygonToolBuilder {
             .name_to_ptr
             .get("UDrawPolygonToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrawPolygonToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2936,6 +3642,13 @@ impl UDrawPolygonToolStandardProperties {
             .get("UDrawPolygonToolStandardProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrawPolygonToolStandardProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2956,6 +3669,13 @@ impl UDrawPolygonToolSnapProperties {
             .name_to_ptr
             .get("UDrawPolygonToolSnapProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrawPolygonToolSnapProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2978,6 +3698,13 @@ impl UDrawPolygonTool {
             .get("UDrawPolygonTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDrawPolygonTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2998,6 +3725,13 @@ impl UDynamicMeshBrushTool {
             .name_to_ptr
             .get("UDynamicMeshBrushTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshBrushTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3020,6 +3754,13 @@ impl UDynamicMeshSculptToolBuilder {
             .get("UDynamicMeshSculptToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshSculptToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3040,6 +3781,13 @@ impl UDynamicMeshBrushProperties {
             .name_to_ptr
             .get("UDynamicMeshBrushProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshBrushProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3062,6 +3810,13 @@ impl UDynamicMeshBrushSculptProperties {
             .get("UDynamicMeshBrushSculptProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshBrushSculptProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3082,6 +3837,13 @@ impl UDynamicSculptToolActions {
             .name_to_ptr
             .get("UDynamicSculptToolActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicSculptToolActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3104,6 +3866,13 @@ impl UBrushRemeshProperties {
             .get("UBrushRemeshProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBrushRemeshProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3124,6 +3893,13 @@ impl UFixedPlaneBrushProperties {
             .name_to_ptr
             .get("UFixedPlaneBrushProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFixedPlaneBrushProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3146,6 +3922,13 @@ impl UDynamicMeshSculptTool {
             .get("UDynamicMeshSculptTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicMeshSculptTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3166,6 +3949,13 @@ impl UEditMeshPolygonsToolBuilder {
             .name_to_ptr
             .get("UEditMeshPolygonsToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3188,6 +3978,13 @@ impl UPolyEditCommonProperties {
             .get("UPolyEditCommonProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditCommonProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3208,6 +4005,13 @@ impl UEditMeshPolygonsActionModeToolBuilder {
             .name_to_ptr
             .get("UEditMeshPolygonsActionModeToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsActionModeToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3230,6 +4034,13 @@ impl UEditMeshPolygonsSelectionModeToolBuilder {
             .get("UEditMeshPolygonsSelectionModeToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsSelectionModeToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3250,6 +4061,13 @@ impl UEditMeshPolygonsToolActionPropertySet {
             .name_to_ptr
             .get("UEditMeshPolygonsToolActionPropertySet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolActionPropertySet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3272,6 +4090,13 @@ impl UPolyEditTopologyProperties {
             .get("UPolyEditTopologyProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditTopologyProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3292,6 +4117,13 @@ impl UEditMeshPolygonsToolActions {
             .name_to_ptr
             .get("UEditMeshPolygonsToolActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3314,6 +4146,13 @@ impl UEditMeshPolygonsToolActions_Triangles {
             .get("UEditMeshPolygonsToolActions_Triangles")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolActions_Triangles")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3334,6 +4173,13 @@ impl UEditMeshPolygonsToolUVActions {
             .name_to_ptr
             .get("UEditMeshPolygonsToolUVActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolUVActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3356,6 +4202,13 @@ impl UEditMeshPolygonsToolEdgeActions {
             .get("UEditMeshPolygonsToolEdgeActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolEdgeActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3376,6 +4229,13 @@ impl UEditMeshPolygonsToolEdgeActions_Triangles {
             .name_to_ptr
             .get("UEditMeshPolygonsToolEdgeActions_Triangles")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsToolEdgeActions_Triangles")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3398,6 +4258,13 @@ impl UEditMeshPolygonsTool {
             .get("UEditMeshPolygonsTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditMeshPolygonsTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3418,6 +4285,13 @@ impl UHoleFillToolBuilder {
             .name_to_ptr
             .get("UHoleFillToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoleFillToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3440,6 +4314,13 @@ impl USmoothHoleFillProperties {
             .get("USmoothHoleFillProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothHoleFillProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3460,6 +4341,13 @@ impl UHoleFillToolProperties {
             .name_to_ptr
             .get("UHoleFillToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoleFillToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3482,6 +4370,13 @@ impl UHoleFillToolActions {
             .get("UHoleFillToolActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoleFillToolActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3502,6 +4397,13 @@ impl UHoleFillStatisticsProperties {
             .name_to_ptr
             .get("UHoleFillStatisticsProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoleFillStatisticsProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3524,6 +4426,13 @@ impl UHoleFillOperatorFactory {
             .get("UHoleFillOperatorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoleFillOperatorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3544,6 +4453,13 @@ impl UHoleFillTool {
             .name_to_ptr
             .get("UHoleFillTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHoleFillTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3566,6 +4482,13 @@ impl ULatticeDeformerToolBuilder {
             .get("ULatticeDeformerToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULatticeDeformerToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3586,6 +4509,13 @@ impl ULatticeDeformerToolProperties {
             .name_to_ptr
             .get("ULatticeDeformerToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULatticeDeformerToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3608,6 +4538,13 @@ impl ULatticeDeformerOperatorFactory {
             .get("ULatticeDeformerOperatorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULatticeDeformerOperatorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3628,6 +4565,13 @@ impl ULatticeDeformerTool {
             .name_to_ptr
             .get("ULatticeDeformerTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULatticeDeformerTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3650,6 +4594,13 @@ impl UMeshAttributePaintToolBuilder {
             .get("UMeshAttributePaintToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshAttributePaintToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3670,6 +4621,13 @@ impl UMeshAttributePaintBrushOperationProperties {
             .name_to_ptr
             .get("UMeshAttributePaintBrushOperationProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshAttributePaintBrushOperationProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3692,6 +4650,13 @@ impl UMeshAttributePaintToolVisualizationProperties {
             .get("UMeshAttributePaintToolVisualizationProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshAttributePaintToolVisualizationProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3712,6 +4677,13 @@ impl UMeshAttributePaintToolProperties {
             .name_to_ptr
             .get("UMeshAttributePaintToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshAttributePaintToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3734,6 +4706,13 @@ impl UMeshAttributePaintEditActions {
             .get("UMeshAttributePaintEditActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshAttributePaintEditActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3754,6 +4733,13 @@ impl UMeshAttributePaintTool {
             .name_to_ptr
             .get("UMeshAttributePaintTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshAttributePaintTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3776,6 +4762,13 @@ impl UMeshGroupPaintToolBuilder {
             .get("UMeshGroupPaintToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshGroupPaintToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3796,6 +4789,13 @@ impl UGroupPaintBrushFilterProperties {
             .name_to_ptr
             .get("UGroupPaintBrushFilterProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroupPaintBrushFilterProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3818,6 +4818,13 @@ impl UMeshGroupPaintToolActionPropertySet {
             .get("UMeshGroupPaintToolActionPropertySet")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshGroupPaintToolActionPropertySet")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3838,6 +4845,13 @@ impl UMeshGroupPaintToolFreezeActions {
             .name_to_ptr
             .get("UMeshGroupPaintToolFreezeActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshGroupPaintToolFreezeActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3860,6 +4874,13 @@ impl UMeshSculptToolBase {
             .get("UMeshSculptToolBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSculptToolBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3880,6 +4901,13 @@ impl UMeshGroupPaintTool {
             .name_to_ptr
             .get("UMeshGroupPaintTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshGroupPaintTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3902,6 +4930,13 @@ impl UMeshSpaceDeformerToolBuilder {
             .get("UMeshSpaceDeformerToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSpaceDeformerToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3922,6 +4957,13 @@ impl UMeshSpaceDeformerToolProperties {
             .name_to_ptr
             .get("UMeshSpaceDeformerToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSpaceDeformerToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3944,6 +4986,13 @@ impl UMeshSpaceDeformerToolActionPropertySet {
             .get("UMeshSpaceDeformerToolActionPropertySet")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSpaceDeformerToolActionPropertySet")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3964,6 +5013,13 @@ impl USpaceDeformerOperatorFactory {
             .name_to_ptr
             .get("USpaceDeformerOperatorFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USpaceDeformerOperatorFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3986,6 +5042,13 @@ impl UMeshSpaceDeformerTool {
             .get("UMeshSpaceDeformerTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSpaceDeformerTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4006,6 +5069,13 @@ impl UMeshVertexPaintToolBuilder {
             .name_to_ptr
             .get("UMeshVertexPaintToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexPaintToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4028,6 +5098,13 @@ impl UVertexPaintBasicProperties {
             .get("UVertexPaintBasicProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexPaintBasicProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4048,6 +5125,13 @@ impl UVertexPaintBrushFilterProperties {
             .name_to_ptr
             .get("UVertexPaintBrushFilterProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexPaintBrushFilterProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4070,6 +5154,13 @@ impl UMeshVertexPaintToolActionPropertySet {
             .get("UMeshVertexPaintToolActionPropertySet")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexPaintToolActionPropertySet")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4090,6 +5181,13 @@ impl UMeshVertexPaintToolQuickActions {
             .name_to_ptr
             .get("UMeshVertexPaintToolQuickActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexPaintToolQuickActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4112,6 +5210,13 @@ impl UMeshVertexPaintToolUtilityActions {
             .get("UMeshVertexPaintToolUtilityActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexPaintToolUtilityActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4132,6 +5237,13 @@ impl UMeshVertexPaintTool {
             .name_to_ptr
             .get("UMeshVertexPaintTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexPaintTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4154,6 +5266,13 @@ impl UMeshVertexSculptToolBuilder {
             .get("UMeshVertexSculptToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexSculptToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4174,6 +5293,13 @@ impl UVertexBrushSculptProperties {
             .name_to_ptr
             .get("UVertexBrushSculptProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexBrushSculptProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4196,6 +5322,13 @@ impl UVertexBrushAlphaProperties {
             .get("UVertexBrushAlphaProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVertexBrushAlphaProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4216,6 +5349,13 @@ impl UMeshSymmetryProperties {
             .name_to_ptr
             .get("UMeshSymmetryProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSymmetryProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4238,6 +5378,13 @@ impl UMeshVertexSculptTool {
             .get("UMeshVertexSculptTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshVertexSculptTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4258,6 +5405,13 @@ impl UOffsetMeshToolProperties {
             .name_to_ptr
             .get("UOffsetMeshToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOffsetMeshToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4280,6 +5434,13 @@ impl UOffsetWeightMapSetProperties {
             .get("UOffsetWeightMapSetProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOffsetWeightMapSetProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4300,6 +5461,13 @@ impl UIterativeOffsetProperties {
             .name_to_ptr
             .get("UIterativeOffsetProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIterativeOffsetProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4322,6 +5490,13 @@ impl UImplicitOffsetProperties {
             .get("UImplicitOffsetProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImplicitOffsetProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4342,6 +5517,13 @@ impl UOffsetMeshTool {
             .name_to_ptr
             .get("UOffsetMeshTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOffsetMeshTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4364,6 +5546,13 @@ impl UOffsetMeshToolBuilder {
             .get("UOffsetMeshToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOffsetMeshToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4384,6 +5573,13 @@ impl UProjectToTargetToolBuilder {
             .name_to_ptr
             .get("UProjectToTargetToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProjectToTargetToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4406,6 +5602,13 @@ impl URemeshMeshToolProperties {
             .get("URemeshMeshToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemeshMeshToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4426,6 +5629,13 @@ impl UProjectToTargetToolProperties {
             .name_to_ptr
             .get("UProjectToTargetToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProjectToTargetToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4448,6 +5658,13 @@ impl URemeshMeshTool {
             .get("URemeshMeshTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemeshMeshTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4468,6 +5685,13 @@ impl UProjectToTargetTool {
             .name_to_ptr
             .get("UProjectToTargetTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProjectToTargetTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4490,6 +5714,13 @@ impl UNewMeshMaterialProperties {
             .get("UNewMeshMaterialProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNewMeshMaterialProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4510,6 +5741,13 @@ impl UExistingMeshMaterialProperties {
             .name_to_ptr
             .get("UExistingMeshMaterialProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UExistingMeshMaterialProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4532,6 +5770,13 @@ impl UMeshEditingViewProperties {
             .get("UMeshEditingViewProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshEditingViewProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4552,6 +5797,13 @@ impl UMeshSculptLayerProperties {
             .name_to_ptr
             .get("UMeshSculptLayerProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshSculptLayerProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4574,6 +5826,13 @@ impl UMeshStatisticsProperties {
             .get("UMeshStatisticsProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshStatisticsProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4594,6 +5853,13 @@ impl UMeshUVChannelProperties {
             .name_to_ptr
             .get("UMeshUVChannelProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshUVChannelProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4616,6 +5882,13 @@ impl URecomputeUVsToolBuilder {
             .get("URecomputeUVsToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URecomputeUVsToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4636,6 +5909,13 @@ impl URecomputeUVsTool {
             .name_to_ptr
             .get("URecomputeUVsTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URecomputeUVsTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4658,6 +5938,13 @@ impl URemeshMeshToolBuilder {
             .get("URemeshMeshToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemeshMeshToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4678,6 +5965,13 @@ impl URemoveOccludedTrianglesToolBuilder {
             .name_to_ptr
             .get("URemoveOccludedTrianglesToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemoveOccludedTrianglesToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4700,6 +5994,13 @@ impl URemoveOccludedTrianglesToolProperties {
             .get("URemoveOccludedTrianglesToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemoveOccludedTrianglesToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4720,6 +6021,13 @@ impl URemoveOccludedTrianglesAdvancedProperties {
             .name_to_ptr
             .get("URemoveOccludedTrianglesAdvancedProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemoveOccludedTrianglesAdvancedProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4742,6 +6050,13 @@ impl URemoveOccludedTrianglesOperatorFactory {
             .get("URemoveOccludedTrianglesOperatorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemoveOccludedTrianglesOperatorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4762,6 +6077,13 @@ impl URemoveOccludedTrianglesTool {
             .name_to_ptr
             .get("URemoveOccludedTrianglesTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URemoveOccludedTrianglesTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4784,6 +6106,13 @@ impl USculptBrushProperties {
             .get("USculptBrushProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USculptBrushProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4804,6 +6133,13 @@ impl UKelvinBrushProperties {
             .name_to_ptr
             .get("UKelvinBrushProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UKelvinBrushProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4826,6 +6162,13 @@ impl UWorkPlaneProperties {
             .get("UWorkPlaneProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWorkPlaneProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4846,6 +6189,13 @@ impl USculptMaxBrushProperties {
             .name_to_ptr
             .get("USculptMaxBrushProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USculptMaxBrushProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4868,6 +6218,13 @@ impl USmoothMeshToolProperties {
             .get("USmoothMeshToolProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothMeshToolProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4888,6 +6245,13 @@ impl UIterativeSmoothProperties {
             .name_to_ptr
             .get("UIterativeSmoothProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UIterativeSmoothProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4910,6 +6274,13 @@ impl UDiffusionSmoothProperties {
             .get("UDiffusionSmoothProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDiffusionSmoothProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4930,6 +6301,13 @@ impl UImplicitSmoothProperties {
             .name_to_ptr
             .get("UImplicitSmoothProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UImplicitSmoothProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4952,6 +6330,13 @@ impl USmoothWeightMapSetProperties {
             .get("USmoothWeightMapSetProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothWeightMapSetProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4972,6 +6357,13 @@ impl USmoothMeshTool {
             .name_to_ptr
             .get("USmoothMeshTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothMeshTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4994,6 +6386,13 @@ impl USmoothMeshToolBuilder {
             .get("USmoothMeshToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USmoothMeshToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5014,6 +6413,13 @@ impl UPolyEditBevelEdgeProperties {
             .name_to_ptr
             .get("UPolyEditBevelEdgeProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditBevelEdgeProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5036,6 +6442,13 @@ impl UPolyEditBevelEdgeActivity {
             .get("UPolyEditBevelEdgeActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditBevelEdgeActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5056,6 +6469,13 @@ impl UPolyEditCutProperties {
             .name_to_ptr
             .get("UPolyEditCutProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditCutProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5078,6 +6498,13 @@ impl UPolyEditCutFacesActivity {
             .get("UPolyEditCutFacesActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditCutFacesActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5098,6 +6525,13 @@ impl UPolyEditExtrudeProperties {
             .name_to_ptr
             .get("UPolyEditExtrudeProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditExtrudeProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5120,6 +6554,13 @@ impl UPolyEditOffsetProperties {
             .get("UPolyEditOffsetProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditOffsetProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5140,6 +6581,13 @@ impl UPolyEditPushPullProperties {
             .name_to_ptr
             .get("UPolyEditPushPullProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditPushPullProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5162,6 +6610,13 @@ impl UPolyEditExtrudeActivity {
             .get("UPolyEditExtrudeActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditExtrudeActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5182,6 +6637,13 @@ impl UPolyEditExtrudeEdgeActivityProperties {
             .name_to_ptr
             .get("UPolyEditExtrudeEdgeActivityProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditExtrudeEdgeActivityProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5204,6 +6666,13 @@ impl UPolyEditExtrudeEdgeActivity {
             .get("UPolyEditExtrudeEdgeActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditExtrudeEdgeActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5224,6 +6693,13 @@ impl UGroupEdgeInsertionProperties {
             .name_to_ptr
             .get("UGroupEdgeInsertionProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGroupEdgeInsertionProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5246,6 +6722,13 @@ impl UPolyEditInsertEdgeActivity {
             .get("UPolyEditInsertEdgeActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditInsertEdgeActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5266,6 +6749,13 @@ impl UEdgeLoopInsertionProperties {
             .name_to_ptr
             .get("UEdgeLoopInsertionProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEdgeLoopInsertionProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5288,6 +6778,13 @@ impl UPolyEditInsertEdgeLoopActivity {
             .get("UPolyEditInsertEdgeLoopActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditInsertEdgeLoopActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5308,6 +6805,13 @@ impl UPolyEditInsetOutsetProperties {
             .name_to_ptr
             .get("UPolyEditInsetOutsetProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditInsetOutsetProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5330,6 +6834,13 @@ impl UPolyEditInsetOutsetActivity {
             .get("UPolyEditInsetOutsetActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditInsetOutsetActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5350,6 +6861,13 @@ impl UPolyEditSetUVProperties {
             .name_to_ptr
             .get("UPolyEditSetUVProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditSetUVProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5372,6 +6890,13 @@ impl UPolyEditPlanarProjectionUVActivity {
             .get("UPolyEditPlanarProjectionUVActivity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPolyEditPlanarProjectionUVActivity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5392,6 +6917,13 @@ impl UUVLayoutToolBuilder {
             .name_to_ptr
             .get("UUVLayoutToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVLayoutToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5414,6 +6946,13 @@ impl UUVLayoutTool {
             .get("UUVLayoutTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVLayoutTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5434,6 +6973,13 @@ impl UUVProjectionToolBuilder {
             .name_to_ptr
             .get("UUVProjectionToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVProjectionToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5456,6 +7002,13 @@ impl UUVProjectionToolEditActions {
             .get("UUVProjectionToolEditActions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVProjectionToolEditActions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5476,6 +7029,13 @@ impl UUVProjectionToolProperties {
             .name_to_ptr
             .get("UUVProjectionToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVProjectionToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5498,6 +7058,13 @@ impl UUVProjectionOperatorFactory {
             .get("UUVProjectionOperatorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVProjectionOperatorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5518,6 +7085,13 @@ impl UUVProjectionTool {
             .name_to_ptr
             .get("UUVProjectionTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUVProjectionTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5540,6 +7114,13 @@ impl UWeldMeshEdgesToolBuilder {
             .get("UWeldMeshEdgesToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWeldMeshEdgesToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5560,6 +7141,13 @@ impl UWeldMeshEdgesToolProperties {
             .name_to_ptr
             .get("UWeldMeshEdgesToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWeldMeshEdgesToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5582,6 +7170,13 @@ impl UWeldMeshEdgesOperatorFactory {
             .get("UWeldMeshEdgesOperatorFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWeldMeshEdgesOperatorFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5602,6 +7197,13 @@ impl UWeldMeshEdgesTool {
             .name_to_ptr
             .get("UWeldMeshEdgesTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWeldMeshEdgesTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

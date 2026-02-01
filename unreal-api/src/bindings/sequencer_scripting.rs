@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -770,2930 +771,3057 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingActorReferenceKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_actor_reference_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_actor_reference_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingActorReferenceKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingActorReferenceChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_actor_reference_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingActorReferenceChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingBoolKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingBoolKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingBoolChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_num_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_bool_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_evaluate_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_bool_channel_compute_effective_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingBoolChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_num_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_evaluate_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_compute_effective_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingByteKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingByteKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingByteChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_byte_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingByteChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingDoubleKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTangentWeightMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_set_tangent_weight_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTangentMode"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_tangent_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLeaveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_set_leave_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLeaveTangent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_leave_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInterpolationMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_set_interpolation_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetArriveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_set_arrive_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetArriveTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_set_arrive_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentWeightMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_get_tangent_weight_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentMode"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_tangent_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLeaveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_get_leave_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLeaveTangent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_leave_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInterpolationMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_get_interpolation_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArriveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_get_arrive_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArriveTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_key_get_arrive_tangent,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingDoubleKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTangentWeightMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_tangent_weight_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTangentMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_tangent_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLeaveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_leave_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLeaveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_leave_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInterpolationMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_interpolation_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetArriveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_arrive_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetArriveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_arrive_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentWeightMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_tangent_weight_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_tangent_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLeaveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_leave_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLeaveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_leave_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInterpolationMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_interpolation_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArriveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_arrive_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArriveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_arrive_tangent,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingDoubleChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPostInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPostInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_num_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_evaluate_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_double_channel_compute_effective_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingDoubleChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPostInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPostInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_num_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_evaluate_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_compute_effective_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingEventKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingEventKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingEventChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_event_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingEventChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingFloatKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTangentWeightMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_set_tangent_weight_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTangentMode"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_tangent_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLeaveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_set_leave_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLeaveTangent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_leave_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInterpolationMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_set_interpolation_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetArriveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_set_arrive_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetArriveTangent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_arrive_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentWeightMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_get_tangent_weight_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentMode"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_tangent_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLeaveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_get_leave_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLeaveTangent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_leave_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInterpolationMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_get_interpolation_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArriveTangentWeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_key_get_arrive_tangent_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArriveTangent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_arrive_tangent,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingFloatKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTangentWeightMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_tangent_weight_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTangentMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_tangent_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLeaveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_leave_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLeaveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_leave_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInterpolationMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_interpolation_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetArriveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_arrive_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetArriveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_arrive_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentWeightMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_tangent_weight_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_tangent_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLeaveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_leave_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLeaveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_leave_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInterpolationMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_interpolation_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArriveTangentWeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_arrive_tangent_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArriveTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_arrive_tangent,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingFloatChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPostInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPostInfinityExtrapolation"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_num_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_evaluate_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_float_channel_compute_effective_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingFloatChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPostInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPostInfinityExtrapolation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_num_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_evaluate_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_compute_effective_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingIntegerKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingIntegerKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingIntegerChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInterpolateLinearKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_integer_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_num_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_integer_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInterpolateLinearKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_integer_channel_evaluate_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingIntegerChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInterpolateLinearKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_num_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInterpolateLinearKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_evaluate_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingObjectPathKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingObjectPathKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingObjectPathChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_object_path_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingObjectPathChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingParticleKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingParticleKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingParticleChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_particle_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_particle_channel_get_num_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_particle_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_particle_channel_evaluate_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_particle_channel_compute_effective_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingParticleChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_num_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_evaluate_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_compute_effective_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingStringKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingStringKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingStringChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_string_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_string_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingStringChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingTextKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_set_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_get_time,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingTextKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_set_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_get_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneScriptingTextChannel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_set_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_remove_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_remove_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_has_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_scripting_text_channel_get_keys_by_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_get_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_get_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_add_key,
-        );
+        if let Some(class_ptr) = UMovieSceneScriptingTextChannel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Transform"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_set_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_remove_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_remove_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_has_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeysByIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_keys_by_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeys"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_get_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefault"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_get_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddKey"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_add_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneBindingExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSpawnableBindingID"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_set_spawnable_binding_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSortingOrder"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_sorting_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTrack"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_remove_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Remove"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_remove,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotEqual_MovieSceneBindingProxy"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveBindingContents"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_move_binding_contents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTracks"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSortingOrder"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_sorting_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPossessedObjectClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_get_possessed_object_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectTemplate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_object_template,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetId"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildPossessables"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_get_child_possessables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindTracksByType"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_find_tracks_by_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindTracksByExactType"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_find_tracks_by_exact_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EqualEqual_MovieSceneBindingProxy"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTrack"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_add_track,
-        );
+        if let Some(class_ptr) = UMovieSceneBindingExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSpawnableBindingID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_spawnable_binding_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSortingOrder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_sorting_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParent"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTrack"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_remove_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Remove"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_remove,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotEqual_MovieSceneBindingProxy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveBindingContents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_move_binding_contents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTracks"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSortingOrder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_sorting_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPossessedObjectClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_possessed_object_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParent"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectTemplate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_object_template,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetId"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildPossessables"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_child_possessables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindTracksByType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_find_tracks_by_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindTracksByExactType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_find_tracks_by_exact_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EqualEqual_MovieSceneBindingProxy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTrack"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_add_track,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneEventTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundObjectPropertyClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_event_track_extensions_get_bound_object_property_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddEventTriggerSection"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_event_track_extensions_add_event_trigger_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddEventRepeaterSection"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_event_track_extensions_add_event_repeater_section,
-        );
+        if let Some(class_ptr) = UMovieSceneEventTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundObjectPropertyClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_get_bound_object_property_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddEventTriggerSection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_add_event_trigger_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddEventRepeaterSection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_add_event_repeater_section,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneFolderExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFolderName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_set_folder_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFolderColor"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_set_folder_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChildTrack"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_remove_child_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChildObjectBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_folder_extensions_remove_child_object_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChildFolder"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_remove_child_folder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFolderName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_folder_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFolderColor"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_folder_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildTracks"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_child_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildObjectBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_folder_extensions_get_child_object_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildFolders"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_child_folders,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildTrack"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_add_child_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildObjectBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_folder_extensions_add_child_object_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildFolder"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_add_child_folder,
-        );
+        if let Some(class_ptr) = UMovieSceneFolderExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFolderName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_set_folder_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFolderColor"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_set_folder_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChildTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChildObjectBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_object_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChildFolder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_folder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFolderName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_folder_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFolderColor"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_folder_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildTracks"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_child_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildObjectBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_object_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildFolders"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_folders,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildTrack"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_add_child_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildObjectBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_object_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildFolder"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_add_child_folder,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneMaterialTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_material_track_extensions_set_material_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_material_track_extensions_set_material_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_material_track_extensions_get_material_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_material_track_extensions_get_material_index,
-        );
+        if let Some(class_ptr) = UMovieSceneMaterialTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_set_material_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_set_material_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_get_material_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_get_material_index,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieScenePrimitiveMaterialTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_primitive_material_track_extensions_set_material_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_primitive_material_track_extensions_set_material_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_primitive_material_track_extensions_get_material_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_primitive_material_track_extensions_get_material_index,
-        );
+        if let Some(class_ptr) = UMovieScenePrimitiveMaterialTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_set_material_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_set_material_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_get_material_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_get_material_index,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieScenePropertyTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPropertyNameAndPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_set_property_name_and_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetObjectPropertyClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_set_object_property_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetByteTrackEnum"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_set_byte_track_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUniqueTrackName"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_get_unique_track_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_get_property_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyName"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_get_property_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectPropertyClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_get_object_property_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetByteTrackEnum"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_property_track_extensions_get_byte_track_enum,
-        );
+        if let Some(class_ptr) = UMovieScenePropertyTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPropertyNameAndPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_property_name_and_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetObjectPropertyClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_object_property_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetByteTrackEnum"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_byte_track_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUniqueTrackName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_unique_track_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_property_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_property_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectPropertyClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_object_property_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetByteTrackEnum"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_byte_track_enum,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneSectionExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartFrameSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_set_start_frame_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartFrameBounded"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_set_start_frame_bounded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRangeSeconds"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_range_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRange"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEndFrameSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_set_end_frame_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEndFrameBounded"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_set_end_frame_bounded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEndFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasStartFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_has_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasEndFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_has_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartFrameSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_start_frame_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentSequenceFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_parent_sequence_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEndFrameSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_end_frame_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEndFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelsByType"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_channels_by_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannel"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSizeStartFrameSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_auto_size_start_frame_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSizeStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_auto_size_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSizeHasStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_auto_size_has_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSizeHasEndFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_auto_size_has_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSizeEndFrameSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_auto_size_end_frame_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSizeEndFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_section_extensions_get_auto_size_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllChannels"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_all_channels,
-        );
+        if let Some(class_ptr) = UMovieSceneSectionExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartFrameSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartFrameBounded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame_bounded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartFrame"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRangeSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_range_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRange"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEndFrameSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEndFrameBounded"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame_bounded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEndFrame"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasStartFrame"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_has_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasEndFrame"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_has_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartFrameSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_start_frame_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartFrame"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentSequenceFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_parent_sequence_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEndFrameSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_end_frame_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEndFrame"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelsByType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_channels_by_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannel"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSizeStartFrameSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_start_frame_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSizeStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSizeHasStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_has_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSizeHasEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_has_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSizeEndFrameSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_end_frame_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSizeEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_all_channels,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneSequenceExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortMarkedFrames"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_sort_marked_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWorkRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_work_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWorkRangeEnd"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_work_range_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_view_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewRangeEnd"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_view_range_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTickResolutionDirectly"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_tick_resolution_directly,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTickResolution"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_tick_resolution,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackStartSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_playback_start_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackStart"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_playback_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackRangeLocked"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_playback_range_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackEndSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_playback_end_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackEnd"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_playback_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMarkedFramesLocked"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_marked_frames_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMarkedFrameInSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_marked_frame_in_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMarkedFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_marked_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEvaluationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_set_evaluation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayRate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_display_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetClockSource"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_clock_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResolveBindingID"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_resolve_binding_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTrack"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_remove_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveRootFolderFromSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_remove_root_folder_from_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeRangeSeconds"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_make_range_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeRange"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_make_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LocateBoundObjects"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_locate_bound_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_is_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlaybackRangeLocked"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_is_playback_range_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorkRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_work_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorkRangeEnd"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_work_range_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_view_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewRangeEnd"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_view_range_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTracks"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTickResolution"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_tick_resolution,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSpawnables"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_spawnables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootFoldersInSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_root_folders_in_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPossessables"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_possessables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPortableBindingID"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_portable_binding_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackStartSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_playback_start_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackStart"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_playback_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackRange"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_playback_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackEndSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_playback_end_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackEnd"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_playback_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMovieScene"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_movie_scene,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMarkedFramesFromSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_marked_frames_from_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMarkedFrames"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_marked_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEvaluationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_get_evaluation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayRate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_display_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomClock"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_custom_clock,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClockSource"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_clock_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBindings"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBindingID"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_binding_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindTracksByType"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_tracks_by_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindTracksByExactType"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_tracks_by_exact_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNextMarkedFrameInSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNextMarkedFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_next_marked_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindMarkedFrameByLabel"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_marked_frame_by_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindMarkedFrameByFrameNumberInSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindMarkedFrameByFrameNumber"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBindingByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_find_binding_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBindingById"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_find_binding_by_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteMarkedFrames"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_delete_marked_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteMarkedFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_delete_marked_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AreMarkedFramesLocked"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_are_marked_frames_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTrack"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSpawnableFromInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_add_spawnable_from_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSpawnableFromClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_add_spawnable_from_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddRootFolderToSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_add_root_folder_to_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPossessable"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_possessable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMarkedFrameToSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_extensions_add_marked_frame_to_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMarkedFrame"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_marked_frame,
-        );
+        if let Some(class_ptr) = UMovieSceneSequenceExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortMarkedFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_sort_marked_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWorkRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_work_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWorkRangeEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_work_range_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_view_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewRangeEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_view_range_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTickResolutionDirectly"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_tick_resolution_directly,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTickResolution"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_tick_resolution,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackStartSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_start_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackRangeLocked"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_range_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackEndSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_end_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMarkedFramesLocked"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frames_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMarkedFrameInSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frame_in_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMarkedFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEvaluationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_evaluation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_display_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetClockSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_clock_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResolveBindingID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_resolve_binding_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTrack"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_remove_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveRootFolderFromSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_remove_root_folder_from_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeRangeSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_make_range_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeRange"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_make_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LocateBoundObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_locate_bound_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_is_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlaybackRangeLocked"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_is_playback_range_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorkRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_work_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorkRangeEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_work_range_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_view_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewRangeEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_view_range_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTracks"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTickResolution"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_tick_resolution,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSpawnables"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_spawnables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootFoldersInSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_root_folders_in_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPossessables"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_possessables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPortableBindingID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_portable_binding_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackStartSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_start_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackEndSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_end_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMovieScene"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_movie_scene,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMarkedFramesFromSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_marked_frames_from_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMarkedFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_marked_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEvaluationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_evaluation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_display_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomClock"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_custom_clock,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClockSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_clock_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBindings"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBindingID"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_binding_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindTracksByType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_tracks_by_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindTracksByExactType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_tracks_by_exact_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNextMarkedFrameInSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNextMarkedFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_next_marked_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindMarkedFrameByLabel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindMarkedFrameByFrameNumberInSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindMarkedFrameByFrameNumber"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBindingByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_binding_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBindingById"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_binding_by_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteMarkedFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_delete_marked_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteMarkedFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_delete_marked_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AreMarkedFramesLocked"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_are_marked_frames_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTrack"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSpawnableFromInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_spawnable_from_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSpawnableFromClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_spawnable_from_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddRootFolderToSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_root_folder_to_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPossessable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_possessable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMarkedFrameToSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_marked_frame_to_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMarkedFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_marked_frame,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneTimeWarpExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToFixedPlayRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_time_warp_extensions_to_fixed_play_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFixedPlayRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_time_warp_extensions_set_fixed_play_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeTimeWarp"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_time_warp_extensions_make_time_warp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_TimeWarpVariantToPlayRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_PlayRateToTimeWarpVariant"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakTimeWarp"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_time_warp_extensions_break_time_warp,
-        );
+        if let Some(class_ptr) = UMovieSceneTimeWarpExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToFixedPlayRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_to_fixed_play_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFixedPlayRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_set_fixed_play_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeTimeWarp"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_make_time_warp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_TimeWarpVariantToPlayRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_PlayRateToTimeWarpVariant"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakTimeWarp"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_break_time_warp,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrackRowDisplayName"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_track_extensions_set_track_row_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSortingOrder"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_sorting_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionToKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_section_to_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorTint"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_color_tint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSection"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_remove_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackRowDisplayName"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_track_extensions_get_track_row_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSortingOrder"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_sorting_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionToKey"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_section_to_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSections"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetColorTint"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_color_tint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSection"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_add_section,
-        );
+        if let Some(class_ptr) = UMovieSceneTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrackRowDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_track_row_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSortingOrder"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_sorting_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionToKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_section_to_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorTint"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_color_tint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSection"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_remove_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackRowDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_track_row_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSortingOrder"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_sorting_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionToKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_section_to_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSections"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetColorTint"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_color_tint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSection"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_add_section,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneFloatVectorTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumChannelsUsed"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_float_vector_track_extensions_set_num_channels_used,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumChannelsUsed"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_float_vector_track_extensions_get_num_channels_used,
-        );
+        if let Some(class_ptr) = UMovieSceneFloatVectorTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumChannelsUsed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_float_vector_track_extensions_set_num_channels_used,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumChannelsUsed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_float_vector_track_extensions_get_num_channels_used,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneDoubleVectorTrackExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumChannelsUsed"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_double_vector_track_extensions_set_num_channels_used,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumChannelsUsed"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_double_vector_track_extensions_get_num_channels_used,
-        );
+        if let Some(class_ptr) = UMovieSceneDoubleVectorTrackExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumChannelsUsed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_double_vector_track_extensions_set_num_channels_used,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumChannelsUsed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_double_vector_track_extensions_get_num_channels_used,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerScriptingRangeExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_scripting_range_extensions_set_start_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_scripting_range_extensions_set_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEndSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_scripting_range_extensions_set_end_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEndFrame"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_set_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveStart"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_remove_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveEnd"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_remove_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasStart"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_has_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasEnd"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_has_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_scripting_range_extensions_get_start_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_scripting_range_extensions_get_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEndSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_scripting_range_extensions_get_end_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEndFrame"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_get_end_frame,
-        );
+        if let Some(class_ptr) = USequencerScriptingRangeExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_start_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEndSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_end_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_remove_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_remove_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasStart"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_has_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasEnd"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_has_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_start_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEndSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_end_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_end_frame,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -3716,6 +3844,13 @@ impl UMovieSceneScriptingKey {
             .get("UMovieSceneScriptingKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3736,6 +3871,13 @@ impl UMovieSceneScriptingActorReferenceKey {
             .name_to_ptr
             .get("UMovieSceneScriptingActorReferenceKey")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingActorReferenceKey")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3917,6 +4059,13 @@ impl UMovieSceneScriptingChannel {
             .get("UMovieSceneScriptingChannel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingChannel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3937,6 +4086,13 @@ impl UMovieSceneScriptingActorReferenceChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingActorReferenceChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingActorReferenceChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4303,6 +4459,13 @@ impl UMovieSceneScriptingBoolKey {
             .get("UMovieSceneScriptingBoolKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingBoolKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4470,6 +4633,13 @@ impl UMovieSceneScriptingBoolChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingBoolChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingBoolChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4912,6 +5082,13 @@ impl UMovieSceneScriptingByteKey {
             .get("UMovieSceneScriptingByteKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingByteKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5079,6 +5256,13 @@ impl UMovieSceneScriptingByteChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingByteChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingByteChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5434,6 +5618,13 @@ impl UMovieSceneScriptingDoubleKey {
             .name_to_ptr
             .get("UMovieSceneScriptingDoubleKey")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingDoubleKey")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6039,6 +6230,13 @@ impl UMovieSceneScriptingDoubleChannel {
             .get("UMovieSceneScriptingDoubleChannel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingDoubleChannel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6630,6 +6828,13 @@ impl UMovieSceneScriptingEventKey {
             .get("UMovieSceneScriptingEventKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingEventKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6807,6 +7012,13 @@ impl UMovieSceneScriptingEventChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingEventChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingEventChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7053,6 +7265,13 @@ impl UMovieSceneScriptingFloatKey {
             .name_to_ptr
             .get("UMovieSceneScriptingFloatKey")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingFloatKey")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7658,6 +7877,13 @@ impl UMovieSceneScriptingActualFloatKey {
             .get("UMovieSceneScriptingActualFloatKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingActualFloatKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7679,6 +7905,13 @@ impl UMovieSceneScriptingDoubleAsFloatKey {
             .get("UMovieSceneScriptingDoubleAsFloatKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingDoubleAsFloatKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7699,6 +7932,13 @@ impl UMovieSceneScriptingFloatChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingFloatChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingFloatChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8291,6 +8531,13 @@ impl UMovieSceneScriptingIntegerKey {
             .get("UMovieSceneScriptingIntegerKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingIntegerKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8458,6 +8705,13 @@ impl UMovieSceneScriptingIntegerChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingIntegerChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingIntegerChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8932,6 +9186,13 @@ impl UMovieSceneScriptingObjectPathKey {
             .get("UMovieSceneScriptingObjectPathKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingObjectPathKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9107,6 +9368,13 @@ impl UMovieSceneScriptingObjectPathChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingObjectPathChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingObjectPathChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9467,6 +9735,13 @@ impl UMovieSceneScriptingParticleKey {
             .get("UMovieSceneScriptingParticleKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingParticleKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9644,6 +9919,13 @@ impl UMovieSceneScriptingParticleChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingParticleChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingParticleChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10109,6 +10391,13 @@ impl UMovieSceneScriptingStringKey {
             .get("UMovieSceneScriptingStringKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingStringKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10276,6 +10565,13 @@ impl UMovieSceneScriptingStringChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingStringChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingStringChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10626,6 +10922,13 @@ impl UMovieSceneScriptingTextKey {
             .get("UMovieSceneScriptingTextKey")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingTextKey")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10793,6 +11096,13 @@ impl UMovieSceneScriptingTextChannel {
             .name_to_ptr
             .get("UMovieSceneScriptingTextChannel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScriptingTextChannel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11142,6 +11452,13 @@ impl UMovieSceneBindingExtensions {
             .name_to_ptr
             .get("UMovieSceneBindingExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12167,6 +12484,13 @@ impl UMovieSceneEventTrackExtensions {
             .get("UMovieSceneEventTrackExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEventTrackExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12325,6 +12649,13 @@ impl UMovieSceneFolderExtensions {
             .name_to_ptr
             .get("UMovieSceneFolderExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFolderExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12921,6 +13252,13 @@ impl UMovieSceneMaterialTrackExtensions {
             .get("UMovieSceneMaterialTrackExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMaterialTrackExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13137,6 +13475,13 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
             .get("UMovieScenePrimitiveMaterialTrackExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePrimitiveMaterialTrackExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13352,6 +13697,13 @@ impl UMovieScenePropertyTrackExtensions {
             .name_to_ptr
             .get("UMovieScenePropertyTrackExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePropertyTrackExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13743,6 +14095,13 @@ impl UMovieSceneSectionExtensions {
             .name_to_ptr
             .get("UMovieSceneSectionExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSectionExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14734,6 +15093,13 @@ impl UMovieSceneSequenceExtensions {
             .name_to_ptr
             .get("UMovieSceneSequenceExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSequenceExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17914,6 +18280,13 @@ impl UMovieSceneTimeWarpExtensions {
             .get("UMovieSceneTimeWarpExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18185,6 +18558,13 @@ impl UMovieSceneTrackExtensions {
             .name_to_ptr
             .get("UMovieSceneTrackExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -18751,6 +19131,13 @@ impl UMovieSceneFloatVectorTrackExtensions {
             .get("UMovieSceneFloatVectorTrackExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFloatVectorTrackExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18861,6 +19248,13 @@ impl UMovieSceneDoubleVectorTrackExtensions {
             .get("UMovieSceneDoubleVectorTrackExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDoubleVectorTrackExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18970,6 +19364,13 @@ impl USequencerScriptingRangeExtensions {
             .name_to_ptr
             .get("USequencerScriptingRangeExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerScriptingRangeExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

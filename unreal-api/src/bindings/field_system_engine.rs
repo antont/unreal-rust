@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -80,299 +81,321 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFieldSystemComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetFieldSystem"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_reset_field_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemovePersistentFields"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_remove_persistent_fields,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyUniformVectorFalloffForce"),
-            &raw mut __FUNCTION_PTRS
-                .u_field_system_component_apply_uniform_vector_falloff_force,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyStrainField"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_strain_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyStayDynamicField"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_stay_dynamic_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyRadialVectorFalloffForce"),
-            &raw mut __FUNCTION_PTRS
-                .u_field_system_component_apply_radial_vector_falloff_force,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyRadialForce"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_radial_force,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_physics_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyLinearForce"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_linear_force,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPersistentField"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_add_persistent_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFieldCommand"),
-            &raw mut __FUNCTION_PTRS.u_field_system_component_add_field_command,
-        );
+        if let Some(class_ptr) = UFieldSystemComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetFieldSystem"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_reset_field_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemovePersistentFields"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_component_remove_persistent_fields,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyUniformVectorFalloffForce"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_component_apply_uniform_vector_falloff_force,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyStrainField"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_apply_strain_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyStayDynamicField"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_component_apply_stay_dynamic_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyRadialVectorFalloffForce"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_component_apply_radial_vector_falloff_force,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyRadialForce"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_apply_radial_force,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_apply_physics_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyLinearForce"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_apply_linear_force,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPersistentField"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_add_persistent_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFieldCommand"),
+                &raw mut __FUNCTION_PTRS.u_field_system_component_add_field_command,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFieldSystemMetaDataIteration::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMetaDataIteration"),
-            &raw mut __FUNCTION_PTRS
-                .u_field_system_meta_data_iteration_set_meta_data_iteration,
-        );
+        if let Some(class_ptr) = UFieldSystemMetaDataIteration::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMetaDataIteration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_meta_data_iteration_set_meta_data_iteration,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFieldSystemMetaDataProcessingResolution::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMetaDataaProcessingResolutionType"),
-            &raw mut __FUNCTION_PTRS
-                .u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type,
-        );
+        if let Some(class_ptr) = UFieldSystemMetaDataProcessingResolution::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMetaDataaProcessingResolutionType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFieldSystemMetaDataFilter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMetaDataFilterType"),
-            &raw mut __FUNCTION_PTRS
-                .u_field_system_meta_data_filter_set_meta_data_filter_type,
-        );
+        if let Some(class_ptr) = UFieldSystemMetaDataFilter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMetaDataFilterType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_field_system_meta_data_filter_set_meta_data_filter_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UUniformInteger::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUniformInteger"),
-            &raw mut __FUNCTION_PTRS.u_uniform_integer_set_uniform_integer,
-        );
+        if let Some(class_ptr) = UUniformInteger::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUniformInteger"),
+                &raw mut __FUNCTION_PTRS.u_uniform_integer_set_uniform_integer,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URadialIntMask::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRadialIntMask"),
-            &raw mut __FUNCTION_PTRS.u_radial_int_mask_set_radial_int_mask,
-        );
+        if let Some(class_ptr) = URadialIntMask::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRadialIntMask"),
+                &raw mut __FUNCTION_PTRS.u_radial_int_mask_set_radial_int_mask,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UUniformScalar::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUniformScalar"),
-            &raw mut __FUNCTION_PTRS.u_uniform_scalar_set_uniform_scalar,
-        );
+        if let Some(class_ptr) = UUniformScalar::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUniformScalar"),
+                &raw mut __FUNCTION_PTRS.u_uniform_scalar_set_uniform_scalar,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UWaveScalar::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWaveScalar"),
-            &raw mut __FUNCTION_PTRS.u_wave_scalar_set_wave_scalar,
-        );
+        if let Some(class_ptr) = UWaveScalar::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWaveScalar"),
+                &raw mut __FUNCTION_PTRS.u_wave_scalar_set_wave_scalar,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URadialFalloff::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRadialFalloff"),
-            &raw mut __FUNCTION_PTRS.u_radial_falloff_set_radial_falloff,
-        );
+        if let Some(class_ptr) = URadialFalloff::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRadialFalloff"),
+                &raw mut __FUNCTION_PTRS.u_radial_falloff_set_radial_falloff,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPlaneFalloff::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaneFalloff"),
-            &raw mut __FUNCTION_PTRS.u_plane_falloff_set_plane_falloff,
-        );
+        if let Some(class_ptr) = UPlaneFalloff::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaneFalloff"),
+                &raw mut __FUNCTION_PTRS.u_plane_falloff_set_plane_falloff,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBoxFalloff::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoxFalloff"),
-            &raw mut __FUNCTION_PTRS.u_box_falloff_set_box_falloff,
-        );
+        if let Some(class_ptr) = UBoxFalloff::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoxFalloff"),
+                &raw mut __FUNCTION_PTRS.u_box_falloff_set_box_falloff,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNoiseField::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNoiseField"),
-            &raw mut __FUNCTION_PTRS.u_noise_field_set_noise_field,
-        );
+        if let Some(class_ptr) = UNoiseField::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNoiseField"),
+                &raw mut __FUNCTION_PTRS.u_noise_field_set_noise_field,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UUniformVector::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUniformVector"),
-            &raw mut __FUNCTION_PTRS.u_uniform_vector_set_uniform_vector,
-        );
+        if let Some(class_ptr) = UUniformVector::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUniformVector"),
+                &raw mut __FUNCTION_PTRS.u_uniform_vector_set_uniform_vector,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URadialVector::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRadialVector"),
-            &raw mut __FUNCTION_PTRS.u_radial_vector_set_radial_vector,
-        );
+        if let Some(class_ptr) = URadialVector::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRadialVector"),
+                &raw mut __FUNCTION_PTRS.u_radial_vector_set_radial_vector,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URandomVector::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRandomVector"),
-            &raw mut __FUNCTION_PTRS.u_random_vector_set_random_vector,
-        );
+        if let Some(class_ptr) = URandomVector::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRandomVector"),
+                &raw mut __FUNCTION_PTRS.u_random_vector_set_random_vector,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOperatorField::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOperatorField"),
-            &raw mut __FUNCTION_PTRS.u_operator_field_set_operator_field,
-        );
+        if let Some(class_ptr) = UOperatorField::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOperatorField"),
+                &raw mut __FUNCTION_PTRS.u_operator_field_set_operator_field,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToIntegerField::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetToIntegerField"),
-            &raw mut __FUNCTION_PTRS.u_to_integer_field_set_to_integer_field,
-        );
+        if let Some(class_ptr) = UToIntegerField::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetToIntegerField"),
+                &raw mut __FUNCTION_PTRS.u_to_integer_field_set_to_integer_field,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToFloatField::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetToFloatField"),
-            &raw mut __FUNCTION_PTRS.u_to_float_field_set_to_float_field,
-        );
+        if let Some(class_ptr) = UToFloatField::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetToFloatField"),
+                &raw mut __FUNCTION_PTRS.u_to_float_field_set_to_float_field,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UCullingField::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCullingField"),
-            &raw mut __FUNCTION_PTRS.u_culling_field_set_culling_field,
-        );
+        if let Some(class_ptr) = UCullingField::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCullingField"),
+                &raw mut __FUNCTION_PTRS.u_culling_field_set_culling_field,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UReturnResultsTerminal::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReturnResultsTerminal"),
-            &raw mut __FUNCTION_PTRS
-                .u_return_results_terminal_set_return_results_terminal,
-        );
+        if let Some(class_ptr) = UReturnResultsTerminal::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReturnResultsTerminal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_return_results_terminal_set_return_results_terminal,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -396,6 +419,13 @@ impl AFieldSystemActor {
             .get("AFieldSystemActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AFieldSystemActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -416,6 +446,13 @@ impl UFieldSystem {
             .name_to_ptr
             .get("UFieldSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -440,6 +477,13 @@ impl UFieldSystemComponent {
             .name_to_ptr
             .get("UFieldSystemComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldSystemComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -963,6 +1007,13 @@ impl UFieldSystemMetaData {
             .get("UFieldSystemMetaData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldSystemMetaData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -985,6 +1036,13 @@ impl UFieldSystemMetaDataIteration {
             .name_to_ptr
             .get("UFieldSystemMetaDataIteration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldSystemMetaDataIteration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1040,6 +1098,13 @@ impl UFieldSystemMetaDataProcessingResolution {
             .name_to_ptr
             .get("UFieldSystemMetaDataProcessingResolution")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldSystemMetaDataProcessingResolution")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1106,6 +1171,13 @@ impl UFieldSystemMetaDataFilter {
             .name_to_ptr
             .get("UFieldSystemMetaDataFilter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldSystemMetaDataFilter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1180,6 +1252,13 @@ impl UFieldNodeBase {
             .get("UFieldNodeBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldNodeBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1200,6 +1279,13 @@ impl UFieldNodeInt {
             .name_to_ptr
             .get("UFieldNodeInt")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldNodeInt")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1222,6 +1308,13 @@ impl UFieldNodeFloat {
             .get("UFieldNodeFloat")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldNodeFloat")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1242,6 +1335,13 @@ impl UFieldNodeVector {
             .name_to_ptr
             .get("UFieldNodeVector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFieldNodeVector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1265,6 +1365,13 @@ impl UUniformInteger {
             .name_to_ptr
             .get("UUniformInteger")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformInteger")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1321,6 +1428,13 @@ impl URadialIntMask {
             .name_to_ptr
             .get("URadialIntMask")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URadialIntMask")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1409,6 +1523,13 @@ impl UUniformScalar {
             .get("UUniformScalar")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformScalar")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1465,6 +1586,13 @@ impl UWaveScalar {
             .name_to_ptr
             .get("UWaveScalar")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWaveScalar")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1567,6 +1695,13 @@ impl URadialFalloff {
             .get("URadialFalloff")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URadialFalloff")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1660,6 +1795,13 @@ impl UPlaneFalloff {
             .name_to_ptr
             .get("UPlaneFalloff")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlaneFalloff")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1761,6 +1903,13 @@ impl UBoxFalloff {
             .get("UBoxFalloff")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoxFalloff")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1846,6 +1995,13 @@ impl UNoiseField {
             .get("UNoiseField")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNoiseField")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1914,6 +2070,13 @@ impl UUniformVector {
             .get("UUniformVector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformVector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1978,6 +2141,13 @@ impl URadialVector {
             .get("URadialVector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URadialVector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2041,6 +2211,13 @@ impl URandomVector {
             .get("URandomVector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URandomVector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2095,6 +2272,13 @@ impl UOperatorField {
             .name_to_ptr
             .get("UOperatorField")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOperatorField")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2175,6 +2359,13 @@ impl UToIntegerField {
             .get("UToIntegerField")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToIntegerField")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2233,6 +2424,13 @@ impl UToFloatField {
             .name_to_ptr
             .get("UToFloatField")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToFloatField")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2294,6 +2492,13 @@ impl UCullingField {
             .name_to_ptr
             .get("UCullingField")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCullingField")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2369,6 +2574,13 @@ impl UReturnResultsTerminal {
             .name_to_ptr
             .get("UReturnResultsTerminal")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UReturnResultsTerminal")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

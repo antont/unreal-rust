@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -88,257 +89,264 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintEditorLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpgradeOperatorNodes"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_upgrade_operator_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlueprintVariableInstanceEditable"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_set_blueprint_variable_instance_editable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlueprintVariableExposeToCinematics"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlueprintVariableExposeOnSpawn"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceVariableReferences"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_replace_variable_references,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReparentBlueprint"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_reparent_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameGraph"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_rename_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveUnusedVariables"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_unused_variables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveUnusedNodes"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_unused_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGraph"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveFunctionGraph"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_function_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshOpenEditorsForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_refresh_open_editors_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshAllOpenBlueprintEditors"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_refresh_all_open_blueprint_editors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStructType"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_struct_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSetType"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_set_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSavedByEngineVersion"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_get_saved_by_engine_version,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectReferenceType"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_object_reference_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMapType"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_map_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentEngineVersion"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_get_current_engine_version,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClassReferenceType"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_class_reference_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlueprintForClass"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_blueprint_for_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlueprintAsset"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_blueprint_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBasicTypeByName"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_basic_type_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArrayType"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_array_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GeneratedClass"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_generated_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindGraph"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_find_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindEventGraph"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_find_event_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateBlueprintAssetWithParent"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_create_blueprint_asset_with_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CompileBlueprint"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_compile_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CompareSoftObjectSaveVersionTo"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_compare_soft_object_save_version_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CompareAssetSaveVersionTo"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_compare_asset_save_version_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMemberVariableWithValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_editor_library_add_member_variable_with_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMemberVariable"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_add_member_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFunctionGraph"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_add_function_graph,
-        );
+        if let Some(class_ptr) = UBlueprintEditorLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpgradeOperatorNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_upgrade_operator_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlueprintVariableInstanceEditable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_instance_editable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlueprintVariableExposeToCinematics"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlueprintVariableExposeOnSpawn"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceVariableReferences"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_replace_variable_references,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReparentBlueprint"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_reparent_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameGraph"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_rename_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveUnusedVariables"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_unused_variables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveUnusedNodes"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_unused_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGraph"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveFunctionGraph"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_function_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshOpenEditorsForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_refresh_open_editors_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshAllOpenBlueprintEditors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_refresh_all_open_blueprint_editors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStructType"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_struct_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSetType"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_set_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSavedByEngineVersion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_saved_by_engine_version,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectReferenceType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_object_reference_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMapType"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_map_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentEngineVersion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_current_engine_version,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClassReferenceType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_class_reference_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlueprintForClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_blueprint_for_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlueprintAsset"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_blueprint_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBasicTypeByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_basic_type_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArrayType"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_array_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GeneratedClass"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_generated_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindGraph"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_find_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindEventGraph"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_find_event_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateBlueprintAssetWithParent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_create_blueprint_asset_with_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CompileBlueprint"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_compile_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CompareSoftObjectSaveVersionTo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_compare_soft_object_save_version_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CompareAssetSaveVersionTo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_compare_asset_save_version_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMemberVariableWithValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_member_variable_with_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMemberVariable"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_add_member_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFunctionGraph"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_add_function_graph,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -352,6 +360,13 @@ impl UBlueprintEditorLibrary {
             .name_to_ptr
             .get("UBlueprintEditorLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintEditorLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

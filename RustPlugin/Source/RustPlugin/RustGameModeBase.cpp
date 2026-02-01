@@ -55,11 +55,12 @@ void ARustGameModeBase::Tick(float Dt)
 		Module.Exit();
 		return;
 	}
-
+	
 	if (Module.Plugin.NeedsInit)
 	{
 		StartPlay();
 	}
+	
 	if (Module.Plugin.Rust.tick(Dt) == ResultCode::Panic)
 	{
 		Module.Exit();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,31 +27,32 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequenceRecorderBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopRecordingSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequence_recorder_blueprint_library_stop_recording_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartRecordingSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequence_recorder_blueprint_library_start_recording_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRecordingSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequence_recorder_blueprint_library_is_recording_sequence,
-        );
+        if let Some(class_ptr) = USequenceRecorderBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopRecordingSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequence_recorder_blueprint_library_stop_recording_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartRecordingSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequence_recorder_blueprint_library_start_recording_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRecordingSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequence_recorder_blueprint_library_is_recording_sequence,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -70,6 +72,13 @@ impl UMovieScene3DTransformSectionRecorderSettings {
             .name_to_ptr
             .get("UMovieScene3DTransformSectionRecorderSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene3DTransformSectionRecorderSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -92,6 +101,13 @@ impl USequenceRecordingBase {
             .get("USequenceRecordingBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceRecordingBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -112,6 +128,13 @@ impl UActorRecording {
             .name_to_ptr
             .get("UActorRecording")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorRecording")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -134,6 +157,13 @@ impl UAnimationRecordingParameters {
             .get("UAnimationRecordingParameters")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationRecordingParameters")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -154,6 +184,13 @@ impl USequenceRecorderActorGroup {
             .name_to_ptr
             .get("USequenceRecorderActorGroup")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceRecorderActorGroup")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -176,6 +213,13 @@ impl ASequenceRecorderGroup {
             .get("ASequenceRecorderGroup")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ASequenceRecorderGroup")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -196,6 +240,13 @@ impl USequenceRecorderBlueprintLibrary {
             .name_to_ptr
             .get("USequenceRecorderBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceRecorderBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -302,6 +353,13 @@ impl USequenceRecorderSettings {
             .name_to_ptr
             .get("USequenceRecorderSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceRecorderSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

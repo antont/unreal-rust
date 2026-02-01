@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -64,182 +65,185 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMusicalTimeFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_musical_time_function_library_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FractionalBeatsInBar"),
-            &raw mut __FUNCTION_PTRS
-                .u_musical_time_function_library_fractional_beats_in_bar,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FractionalBars"),
-            &raw mut __FUNCTION_PTRS.u_musical_time_function_library_fractional_bars,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BarAndBeat"),
-            &raw mut __FUNCTION_PTRS.u_musical_time_function_library_bar_and_beat,
-        );
+        if let Some(class_ptr) = UMusicalTimeFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_musical_time_function_library_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FractionalBeatsInBar"),
+                &raw mut __FUNCTION_PTRS
+                    .u_musical_time_function_library_fractional_beats_in_bar,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FractionalBars"),
+                &raw mut __FUNCTION_PTRS.u_musical_time_function_library_fractional_bars,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BarAndBeat"),
+                &raw mut __FUNCTION_PTRS.u_musical_time_function_library_bar_and_beat,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTimeManagementBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TransformTime"),
-            &raw mut __FUNCTION_PTRS.u_time_management_blueprint_library_transform_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Subtract_FrameNumberInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_subtract_frame_number_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Subtract_FrameNumberFrameNumber"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_subtract_frame_number_frame_number,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SnapFrameTimeToRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_snap_frame_time_to_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Multiply_SecondsFrameRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_multiply_seconds_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Multiply_FrameNumberInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_multiply_frame_number_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid_MultipleOf"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_is_valid_multiple_of,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid_Framerate"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_is_valid_framerate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTimecodeFrameRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_get_timecode_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTimecode"),
-            &raw mut __FUNCTION_PTRS.u_time_management_blueprint_library_get_timecode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Divide_FrameNumberInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_divide_frame_number_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_TimecodeToString"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_conv_timecode_to_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_QualifiedFrameTimeToSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_FrameRateToSeconds"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_conv_frame_rate_to_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_FrameRateToInterval"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_conv_frame_rate_to_interval,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_FrameNumberToInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_conv_frame_number_to_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Add_FrameNumberInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_add_frame_number_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Add_FrameNumberFrameNumber"),
-            &raw mut __FUNCTION_PTRS
-                .u_time_management_blueprint_library_add_frame_number_frame_number,
-        );
+        if let Some(class_ptr) = UTimeManagementBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TransformTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_transform_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Subtract_FrameNumberInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_subtract_frame_number_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Subtract_FrameNumberFrameNumber"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_subtract_frame_number_frame_number,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SnapFrameTimeToRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_snap_frame_time_to_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Multiply_SecondsFrameRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_multiply_seconds_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Multiply_FrameNumberInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_multiply_frame_number_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid_MultipleOf"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_is_valid_multiple_of,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid_Framerate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_is_valid_framerate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTimecodeFrameRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_get_timecode_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTimecode"),
+                &raw mut __FUNCTION_PTRS.u_time_management_blueprint_library_get_timecode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Divide_FrameNumberInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_divide_frame_number_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_TimecodeToString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_timecode_to_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_QualifiedFrameTimeToSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_FrameRateToSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_rate_to_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_FrameRateToInterval"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_rate_to_interval,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_FrameNumberToInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_number_to_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Add_FrameNumberInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_add_frame_number_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Add_FrameNumberFrameNumber"),
+                &raw mut __FUNCTION_PTRS
+                    .u_time_management_blueprint_library_add_frame_number_frame_number,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -266,6 +270,13 @@ impl UClockedTimeStep {
             .get("UClockedTimeStep")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UClockedTimeStep")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -287,6 +298,13 @@ impl UFixedFrameRateCustomTimeStep {
             .get("UFixedFrameRateCustomTimeStep")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFixedFrameRateCustomTimeStep")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -307,6 +325,13 @@ impl UCatchupFixedRateCustomTimeStep {
             .name_to_ptr
             .get("UCatchupFixedRateCustomTimeStep")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCatchupFixedRateCustomTimeStep")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -332,6 +357,13 @@ impl UTimecodeRegressionProvider {
             .get("UTimecodeRegressionProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTimecodeRegressionProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -352,6 +384,13 @@ impl UGenlockedCustomTimeStep {
             .name_to_ptr
             .get("UGenlockedCustomTimeStep")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenlockedCustomTimeStep")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -374,6 +413,13 @@ impl UGenlockedFixedRateCustomTimeStep {
             .get("UGenlockedFixedRateCustomTimeStep")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenlockedFixedRateCustomTimeStep")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -395,6 +441,13 @@ impl UGenlockedTimecodeProvider {
             .get("UGenlockedTimecodeProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGenlockedTimecodeProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -415,6 +468,13 @@ impl UMusicalTimeFunctionLibrary {
             .name_to_ptr
             .get("UMusicalTimeFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMusicalTimeFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -589,6 +649,13 @@ impl UTimeManagementBlueprintLibrary {
             .name_to_ptr
             .get("UTimeManagementBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTimeManagementBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1334,6 +1401,13 @@ impl UTimeSynchronizationSource {
             .name_to_ptr
             .get("UTimeSynchronizationSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTimeSynchronizationSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

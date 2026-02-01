@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -38,82 +39,85 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ATemplateSequenceActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_set_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBinding"),
-            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_set_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadSequence"),
-            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_load_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequencePlayer"),
-            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_get_sequence_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_get_sequence,
-        );
+        if let Some(class_ptr) = ATemplateSequenceActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSequence"),
+                &raw mut __FUNCTION_PTRS.a_template_sequence_actor_set_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBinding"),
+                &raw mut __FUNCTION_PTRS.a_template_sequence_actor_set_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadSequence"),
+                &raw mut __FUNCTION_PTRS.a_template_sequence_actor_load_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequencePlayer"),
+                &raw mut __FUNCTION_PTRS.a_template_sequence_actor_get_sequence_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.a_template_sequence_actor_get_sequence,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTemplateSequencePlayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateTemplateSequencePlayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_template_sequence_player_create_template_sequence_player,
-        );
+        if let Some(class_ptr) = UTemplateSequencePlayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateTemplateSequencePlayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_template_sequence_player_create_template_sequence_player,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequenceCameraShakeTestUtil::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPostProcessBlendCache"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequence_camera_shake_test_util_get_post_process_blend_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastFrameCameraCachePOV"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCameraCachePOV"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequence_camera_shake_test_util_get_camera_cache_pov,
-        );
+        if let Some(class_ptr) = USequenceCameraShakeTestUtil::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPostProcessBlendCache"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_post_process_blend_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastFrameCameraCachePOV"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCameraCachePOV"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_camera_cache_pov,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -132,6 +136,13 @@ impl UTemplateSequence {
             .name_to_ptr
             .get("UTemplateSequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -154,6 +165,13 @@ impl UCameraAnimationSequence {
             .get("UCameraAnimationSequence")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationSequence")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -174,6 +192,13 @@ impl UCameraAnimationSequenceCameraStandIn {
             .name_to_ptr
             .get("UCameraAnimationSequenceCameraStandIn")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationSequenceCameraStandIn")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -196,6 +221,13 @@ impl UCameraAnimationSequencePlayer {
             .get("UCameraAnimationSequencePlayer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationSequencePlayer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -216,6 +248,13 @@ impl UCameraAnimationSpawnableSystem {
             .name_to_ptr
             .get("UCameraAnimationSpawnableSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationSpawnableSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -238,6 +277,13 @@ impl UCameraAnimationBoundObjectInstantiator {
             .get("UCameraAnimationBoundObjectInstantiator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationBoundObjectInstantiator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -258,6 +304,13 @@ impl UCameraAnimationEntitySystemLinker {
             .name_to_ptr
             .get("UCameraAnimationEntitySystemLinker")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationEntitySystemLinker")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -280,6 +333,13 @@ impl UCameraAnimationSequenceSubsystem {
             .get("UCameraAnimationSequenceSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCameraAnimationSequenceSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -300,6 +360,13 @@ impl UTemplateSequenceSection {
             .name_to_ptr
             .get("UTemplateSequenceSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequenceSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -322,6 +389,13 @@ impl USequenceCameraShakePattern {
             .get("USequenceCameraShakePattern")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceCameraShakePattern")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -342,6 +416,13 @@ impl UTemplateSequenceSystem {
             .name_to_ptr
             .get("UTemplateSequenceSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequenceSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -364,6 +445,13 @@ impl UTemplateSequencePropertyScalingInstantiatorSystem {
             .get("UTemplateSequencePropertyScalingInstantiatorSystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequencePropertyScalingInstantiatorSystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -384,6 +472,13 @@ impl UTemplateSequencePropertyScalingEvaluatorSystem {
             .name_to_ptr
             .get("UTemplateSequencePropertyScalingEvaluatorSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequencePropertyScalingEvaluatorSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -410,6 +505,13 @@ impl ATemplateSequenceActor {
             .name_to_ptr
             .get("ATemplateSequenceActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ATemplateSequenceActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -585,6 +687,13 @@ impl UTemplateSequencePlayer {
             .get("UTemplateSequencePlayer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequencePlayer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -671,6 +780,13 @@ impl USequenceCameraShakeTestUtil {
             .name_to_ptr
             .get("USequenceCameraShakeTestUtil")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequenceCameraShakeTestUtil")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -836,6 +952,13 @@ impl UTemplateSequenceTrack {
             .name_to_ptr
             .get("UTemplateSequenceTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTemplateSequenceTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

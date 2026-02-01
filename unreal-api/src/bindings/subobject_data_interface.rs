@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -128,419 +129,430 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubobjectDataBlueprintFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSceneComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_scene_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_root_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_root_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsNativeComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_native_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInstancedComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_instanced_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInstancedActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_instanced_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInheritedComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_inherited_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHandleValid"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_handle_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDefaultSceneRoot"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_default_scene_root,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsChildActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_child_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAttachedTo"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_is_attached_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActor"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_is_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableName"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_variable_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_parent_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_object_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetData"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_get_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssociatedObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_get_associated_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanReparent"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_can_reparent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanRename"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_can_rename,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanEdit"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_can_edit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanDuplicate"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_can_duplicate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanDelete"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_blueprint_function_library_can_delete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanCopy"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_can_copy,
-        );
+        if let Some(class_ptr) = USubobjectDataBlueprintFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSceneComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_scene_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_root_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_root_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsNativeComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_native_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInstancedComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_instanced_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInstancedActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_instanced_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInheritedComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_inherited_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHandleValid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_handle_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDefaultSceneRoot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_default_scene_root,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsChildActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_child_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAttachedTo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_attached_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_variable_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_parent_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_object_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssociatedObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_associated_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanReparent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_reparent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanRename"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_rename,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanEdit"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_edit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanDuplicate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_duplicate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanDelete"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_delete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanCopy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_copy,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubobjectDataSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReparentSubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_reparent_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReparentSubobject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_reparent_subobject,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameSubobjectMemberVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_subsystem_rename_subobject_member_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameSubobject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_rename_subobject,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PasteSubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_paste_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeNewSceneRoot"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_make_new_scene_root,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GatherSubobjectDataForInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_subsystem_k2_gather_subobject_data_for_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GatherSubobjectDataForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_FindSubobjectDataFromHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_subsystem_k2_find_subobject_data_from_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_DeleteSubobjectsFromInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_subsystem_k2_delete_subobjects_from_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_DeleteSubobjectFromInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_subobject_data_subsystem_k2_delete_subobject_from_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidRename"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_is_valid_rename,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindHandleForObject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_find_handle_for_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateSubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_duplicate_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DetachSubobject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_detach_subobject,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteSubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_delete_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteSubobject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_delete_subobject,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewCPPComponent"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_create_new_cpp_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNewBPComponent"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_create_new_bp_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopySubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_copy_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangeSubobjectClass"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_change_subobject_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanPasteSubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_can_paste_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanCopySubobjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_can_copy_subobjects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AttachSubobject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_attach_subobject,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddNewSubobject"),
-            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_add_new_subobject,
-        );
+        if let Some(class_ptr) = USubobjectDataSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReparentSubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_reparent_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReparentSubobject"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_reparent_subobject,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameSubobjectMemberVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_rename_subobject_member_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameSubobject"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_rename_subobject,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PasteSubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_paste_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeNewSceneRoot"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_make_new_scene_root,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GatherSubobjectDataForInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_gather_subobject_data_for_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GatherSubobjectDataForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_FindSubobjectDataFromHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_find_subobject_data_from_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_DeleteSubobjectsFromInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_delete_subobjects_from_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_DeleteSubobjectFromInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_delete_subobject_from_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidRename"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_is_valid_rename,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindHandleForObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_find_handle_for_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateSubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_duplicate_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DetachSubobject"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_detach_subobject,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteSubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_delete_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteSubobject"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_delete_subobject,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewCPPComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_create_new_cpp_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNewBPComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_create_new_bp_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopySubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_copy_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangeSubobjectClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_data_subsystem_change_subobject_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanPasteSubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_can_paste_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanCopySubobjects"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_can_copy_subobjects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AttachSubobject"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_attach_subobject,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddNewSubobject"),
+                &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_add_new_subobject,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -581,6 +593,13 @@ impl USubobjectDataBlueprintFunctionLibrary {
             .name_to_ptr
             .get("USubobjectDataBlueprintFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectDataBlueprintFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1640,6 +1659,13 @@ impl USubobjectDataSubsystem {
             .name_to_ptr
             .get("USubobjectDataSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectDataSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

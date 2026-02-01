@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -40,95 +41,98 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataflowEditorMeshWeightMapPaintToolActions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InvertCurrentSurface"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current_surface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InvertCurrent"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FloodFillCurrent"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_flood_fill_current,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAll"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_clear_all,
-        );
+        if let Some(class_ptr) = UDataflowEditorMeshWeightMapPaintToolActions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InvertCurrentSurface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current_surface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InvertCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FloodFillCurrent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_mesh_weight_map_paint_tool_actions_flood_fill_current,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAll"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_mesh_weight_map_paint_tool_actions_clear_all,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataflowEditorBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataflowNodeProperty"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_blueprint_library_set_dataflow_node_property,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectDataflowNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_blueprint_library_connect_dataflow_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDataflowNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_blueprint_library_add_dataflow_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDataflowFromClipboardContent"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content,
-        );
+        if let Some(class_ptr) = UDataflowEditorBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataflowNodeProperty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_set_dataflow_node_property,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectDataflowNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_connect_dataflow_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDataflowNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_add_dataflow_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDataflowFromClipboardContent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataflowSimulationSceneDescription::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewGeometryCache"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_simulation_scene_description_new_geometry_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateGeometryCache"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_simulation_scene_description_generate_geometry_cache,
-        );
+        if let Some(class_ptr) = UDataflowSimulationSceneDescription::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewGeometryCache"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_simulation_scene_description_new_geometry_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateGeometryCache"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_simulation_scene_description_generate_geometry_cache,
+            );
+        }
     }
 }
 pub struct IDataflowEditorToolBuilder {}
@@ -143,6 +147,13 @@ impl UDataflowEditorToolBuilder {
             .name_to_ptr
             .get("UDataflowEditorToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -165,6 +176,13 @@ impl UDataflowEditorSettings {
             .get("UDataflowEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -185,6 +203,13 @@ impl UDataflowEvaluationSettings {
             .name_to_ptr
             .get("UDataflowEvaluationSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEvaluationSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -207,6 +232,13 @@ impl UDataflowBoneManipulator {
             .get("UDataflowBoneManipulator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowBoneManipulator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -227,6 +259,13 @@ impl UDataflowEditorEditSkeletonBonesToolBuilder {
             .name_to_ptr
             .get("UDataflowEditorEditSkeletonBonesToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorEditSkeletonBonesToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -249,6 +288,13 @@ impl UDataflowEditorEditSkeletonBonesTool {
             .get("UDataflowEditorEditSkeletonBonesTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorEditSkeletonBonesTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -269,6 +315,13 @@ impl UDataflowTransformGizmoSource {
             .name_to_ptr
             .get("UDataflowTransformGizmoSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowTransformGizmoSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -291,6 +344,13 @@ impl UDataflowEditorSkinWeightsPaintToolBuilder {
             .get("UDataflowEditorSkinWeightsPaintToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorSkinWeightsPaintToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -311,6 +371,13 @@ impl UDataflowEditorSkinWeightsPaintTool {
             .name_to_ptr
             .get("UDataflowEditorSkinWeightsPaintTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorSkinWeightsPaintTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -333,6 +400,13 @@ impl UDataflowEditorVertexAttributePaintToolBuilder {
             .get("UDataflowEditorVertexAttributePaintToolBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorVertexAttributePaintToolBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -353,6 +427,13 @@ impl UDataflowEditorVertexAttributePaintToolProperties {
             .name_to_ptr
             .get("UDataflowEditorVertexAttributePaintToolProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorVertexAttributePaintToolProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -375,6 +456,13 @@ impl UDataflowEditorVertexAttributePaintTool {
             .get("UDataflowEditorVertexAttributePaintTool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorVertexAttributePaintTool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -395,6 +483,13 @@ impl UDataflowWeightMapEraseBrushOpProps {
             .name_to_ptr
             .get("UDataflowWeightMapEraseBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowWeightMapEraseBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -417,6 +512,13 @@ impl UDataflowWeightMapPaintBrushOpProps {
             .get("UDataflowWeightMapPaintBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowWeightMapPaintBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -437,6 +539,13 @@ impl UDataflowWeightMapSmoothBrushOpProps {
             .name_to_ptr
             .get("UDataflowWeightMapSmoothBrushOpProps")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowWeightMapSmoothBrushOpProps")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -459,6 +568,13 @@ impl UDataflowVertexAttributePaintBrushOpProps {
             .get("UDataflowVertexAttributePaintBrushOpProps")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowVertexAttributePaintBrushOpProps")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -479,6 +595,13 @@ impl UDataflowEditorWeightMapPaintToolBuilder {
             .name_to_ptr
             .get("UDataflowEditorWeightMapPaintToolBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorWeightMapPaintToolBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -501,6 +624,13 @@ impl UDataflowEditorWeightMapPaintBrushFilterProperties {
             .get("UDataflowEditorWeightMapPaintBrushFilterProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorWeightMapPaintBrushFilterProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -521,6 +651,13 @@ impl UDataflowEditorMeshWeightMapPaintToolActions {
             .name_to_ptr
             .get("UDataflowEditorMeshWeightMapPaintToolActions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorMeshWeightMapPaintToolActions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -543,6 +680,13 @@ impl UDataflowEditorUpdateWeightMapProperties {
             .get("UDataflowEditorUpdateWeightMapProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorUpdateWeightMapProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -563,6 +707,13 @@ impl UDataflowEditorWeightMapPaintTool {
             .name_to_ptr
             .get("UDataflowEditorWeightMapPaintTool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorWeightMapPaintTool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -585,6 +736,13 @@ impl UAssetDefinition_DataflowAsset {
             .get("UAssetDefinition_DataflowAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_DataflowAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -605,6 +763,13 @@ impl UAssetDefinition_DataflowContext {
             .name_to_ptr
             .get("UAssetDefinition_DataflowContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_DataflowContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -627,6 +792,13 @@ impl UDataflowAssetFactory {
             .get("UDataflowAssetFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowAssetFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -647,6 +819,13 @@ impl UDataflowComponentReadOnlyToolTarget {
             .name_to_ptr
             .get("UDataflowComponentReadOnlyToolTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowComponentReadOnlyToolTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -669,6 +848,13 @@ impl UDataflowComponentToolTarget {
             .get("UDataflowComponentToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowComponentToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -689,6 +875,13 @@ impl UDataflowComponentReadOnlyToolTargetFactory {
             .name_to_ptr
             .get("UDataflowComponentReadOnlyToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowComponentReadOnlyToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -711,6 +904,13 @@ impl UDataflowComponentToolTargetFactory {
             .get("UDataflowComponentToolTargetFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowComponentToolTargetFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -732,6 +932,13 @@ impl UDataflowEditor {
             .get("UDataflowEditor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -752,6 +959,13 @@ impl UDataflowEditorBlueprintLibrary {
             .name_to_ptr
             .get("UDataflowEditorBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1018,6 +1232,13 @@ impl UDataflowEditorCollectionComponent {
             .get("UDataflowEditorCollectionComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorCollectionComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1038,6 +1259,13 @@ impl UDataflowEditorMode {
             .name_to_ptr
             .get("UDataflowEditorMode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorMode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1060,6 +1288,13 @@ impl UDataflowEditorUISubsystem {
             .get("UDataflowEditorUISubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorUISubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1080,6 +1315,13 @@ impl UDataflowEditorOptions {
             .name_to_ptr
             .get("UDataflowEditorOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEditorOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1102,6 +1344,13 @@ impl UDataflowObjectFactory {
             .get("UDataflowObjectFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowObjectFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1122,6 +1371,13 @@ impl UDataflowSchema {
             .name_to_ptr
             .get("UDataflowSchema")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSchema")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1144,6 +1400,13 @@ impl UDataflowSimulationSettings {
             .get("UDataflowSimulationSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSimulationSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1164,6 +1427,13 @@ impl UDataflowSimulationSceneDescription {
             .name_to_ptr
             .get("UDataflowSimulationSceneDescription")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSimulationSceneDescription")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1186,6 +1456,13 @@ impl UDataflowReadOnlyToolTarget {
             .get("UDataflowReadOnlyToolTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowReadOnlyToolTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1206,6 +1483,13 @@ impl UDataflowToolTarget {
             .name_to_ptr
             .get("UDataflowToolTarget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowToolTarget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1228,6 +1512,13 @@ impl UDataflowReadOnlyToolTargetFactory {
             .get("UDataflowReadOnlyToolTargetFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowReadOnlyToolTargetFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1248,6 +1539,13 @@ impl UDataflowToolTargetFactory {
             .name_to_ptr
             .get("UDataflowToolTargetFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowToolTargetFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

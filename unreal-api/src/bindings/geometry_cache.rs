@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -88,268 +89,280 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AGeometryCacheActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGeometryCacheComponent"),
-            &raw mut __FUNCTION_PTRS.a_geometry_cache_actor_get_geometry_cache_component,
-        );
+        if let Some(class_ptr) = AGeometryCacheActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGeometryCacheComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_geometry_cache_actor_get_geometry_cache_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGeometryCacheComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TickAtThisTime"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_tick_at_this_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWireframeOverrideColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_cache_component_set_wireframe_override_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartTimeOffset"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_start_time_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_playback_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOverrideWireframeColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_cache_component_set_override_wireframe_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMotionVectorScale"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_motion_vector_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLooping"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_looping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGeometryCache"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_geometry_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetExtrapolateFrames"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_extrapolate_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayReversedFromEnd"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_reversed_from_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayReversed"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_reversed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayFromStart"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_from_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Play"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_pause,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlayingReversed"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_playing_reversed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLooping"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_looping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsExtrapolatingFrames"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_extrapolating_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWireframeOverrideColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_cache_component_get_wireframe_override_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartTimeOffset"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_start_time_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackSpeed"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_playback_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackDirection"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_playback_direction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverrideWireframeColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_geometry_cache_component_get_override_wireframe_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberOfTracks"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_number_of_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberOfFrames"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_number_of_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMotionVectorScale"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_motion_vector_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetElapsedTime"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_elapsed_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationTime"),
-            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_animation_time,
-        );
+        if let Some(class_ptr) = UGeometryCacheComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TickAtThisTime"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_tick_at_this_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Stop"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWireframeOverrideColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_set_wireframe_override_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartTimeOffset"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_start_time_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_playback_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOverrideWireframeColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_set_override_wireframe_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMotionVectorScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_set_motion_vector_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLooping"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_looping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGeometryCache"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_geometry_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetExtrapolateFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_set_extrapolate_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayReversedFromEnd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_play_reversed_from_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayReversed"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_reversed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayFromStart"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_from_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Play"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Pause"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_pause,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlayingReversed"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_playing_reversed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlaying"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLooping"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_looping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsExtrapolatingFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_is_extrapolating_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWireframeOverrideColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_get_wireframe_override_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartTimeOffset"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_start_time_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackSpeed"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_playback_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackDirection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_get_playback_direction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverrideWireframeColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_get_override_wireframe_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberOfTracks"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_number_of_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberOfFrames"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_number_of_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMotionVectorScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_geometry_cache_component_get_motion_vector_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetElapsedTime"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_elapsed_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDuration"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationTime"),
+                &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_animation_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_GeometryCacheTrack_FlipbookAnimation::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMeshSample"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_geometry_cache_track_flipbook_animation_add_mesh_sample,
-        );
+        if let Some(class_ptr) = UDEPRECATED_GeometryCacheTrack_FlipbookAnimation::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMeshSample"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_geometry_cache_track_flipbook_animation_add_mesh_sample,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_GeometryCacheTrack_TransformAnimation::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMesh"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_geometry_cache_track_transform_animation_set_mesh,
-        );
+        if let Some(class_ptr) = UDEPRECATED_GeometryCacheTrack_TransformAnimation::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_geometry_cache_track_transform_animation_set_mesh,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMesh"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_geometry_cache_track_transform_group_animation_set_mesh,
-        );
+        if let Some(class_ptr) = UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_geometry_cache_track_transform_group_animation_set_mesh,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -371,6 +384,13 @@ impl UGeometryCache {
             .name_to_ptr
             .get("UGeometryCache")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCache")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -394,6 +414,13 @@ impl AGeometryCacheActor {
             .name_to_ptr
             .get("AGeometryCacheActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AGeometryCacheActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -442,6 +469,13 @@ impl UGeometryCacheCodecBase {
             .get("UGeometryCacheCodecBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCacheCodecBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -463,6 +497,13 @@ impl UGeometryCacheCodecRaw {
             .get("UGeometryCacheCodecRaw")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCacheCodecRaw")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -483,6 +524,13 @@ impl UGeometryCacheCodecV1 {
             .name_to_ptr
             .get("UGeometryCacheCodecV1")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCacheCodecV1")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -515,6 +563,13 @@ impl UGeometryCacheComponent {
             .name_to_ptr
             .get("UGeometryCacheComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCacheComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1396,6 +1451,13 @@ impl UGeometryCacheTrack {
             .get("UGeometryCacheTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCacheTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1416,6 +1478,13 @@ impl UDEPRECATED_GeometryCacheTrack_FlipbookAnimation {
             .name_to_ptr
             .get("UDEPRECATED_GeometryCacheTrack_FlipbookAnimation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_GeometryCacheTrack_FlipbookAnimation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1438,6 +1507,13 @@ impl UGeometryCacheTrackStreamable {
             .get("UGeometryCacheTrackStreamable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGeometryCacheTrackStreamable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1458,6 +1534,13 @@ impl UDEPRECATED_GeometryCacheTrack_TransformAnimation {
             .name_to_ptr
             .get("UDEPRECATED_GeometryCacheTrack_TransformAnimation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_GeometryCacheTrack_TransformAnimation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1480,6 +1563,13 @@ impl UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation {
             .get("UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_GeometryCacheTrack_TransformGroupAnimation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1500,6 +1590,13 @@ impl UNiagaraGeometryCacheRendererProperties {
             .name_to_ptr
             .get("UNiagaraGeometryCacheRendererProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraGeometryCacheRendererProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

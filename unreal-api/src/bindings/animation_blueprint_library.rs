@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -290,1042 +291,1071 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationAttributeBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAttributeKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_attribute_blueprint_library_set_attribute_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAttributeKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_attribute_blueprint_library_set_attribute_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAttributeKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_attribute_blueprint_library_get_attribute_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAttributeKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_attribute_blueprint_library_get_attribute_key,
-        );
+        if let Some(class_ptr) = UAnimationAttributeBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAttributeKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_set_attribute_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAttributeKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_set_attribute_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAttributeKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_get_attribute_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAttributeKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_get_attribute_key,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableFrameStrippingSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_variable_frame_stripping_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRootMotionLockType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_root_motion_lock_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRootMotionEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_root_motion_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRateScale"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_set_rate_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsRootMotionLockForced"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_is_root_motion_lock_forced,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurveMetaDataMorphTarget"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_curve_meta_data_morph_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurveMetaDataMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_curve_meta_data_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurveCompressionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_curve_compression_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoneCompressionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_bone_compression_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimationInterpolationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_animation_interpolation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAdditiveBasePoseType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_additive_base_pose_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAdditiveAnimationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_set_additive_animation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceAnimNotifyStates"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_replace_anim_notify_states,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceAnimNotifies"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_replace_anim_notifies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameCurveMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_rename_curve_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveVirtualBones"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_virtual_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveVirtualBone"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_virtual_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMetaDataOfClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_meta_data_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCurveMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_curve_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCurve"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBoneSelectiveAnimation"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_bone_selective_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBoneAnimation"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_bone_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimationSyncMarkersByTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_animation_sync_markers_by_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimationSyncMarkersByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_animation_sync_markers_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimationNotifyTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_animation_notify_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimationNotifyEventsByTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_animation_notify_events_by_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimationNotifyEventsByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_animation_notify_events_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllVirtualBones"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_all_virtual_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_all_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllCurveData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_all_curve_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllBoneAnimation"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_all_bone_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllAnimationSyncMarkers"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_all_animation_sync_markers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllAnimationNotifyTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_remove_all_animation_notify_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidTime"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_is_valid_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidRawAnimationTrackName"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_is_valid_raw_animation_track_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidAnimNotifyTrackName"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_is_valid_anim_notify_track_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidAnimationSyncMarkerName"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_is_valid_animation_sync_marker_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootMotionLockForced"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_is_root_motion_lock_forced,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootMotionEnabled"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_is_root_motion_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVectorKeys"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_vector_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableFrameStrippingSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_variable_frame_stripping_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUniqueMarkerNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_unique_marker_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransformationKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_transformation_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTimeAtFrame"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_time_at_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequenceLength"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_sequence_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootMotionLockType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_root_motion_lock_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRawTrackScaleData"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_raw_track_scale_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRawTrackRotationData"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_raw_track_rotation_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRawTrackPositionData"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_raw_track_position_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRawTrackData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_raw_track_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRateScale"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_rate_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_num_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumFrames"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_num_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumCurveMetaData"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_num_curve_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodesOfClass"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_nodes_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMontageSlotNames"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_montage_slot_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaDataOfClass"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_meta_data_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFrameAtTime"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_frame_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloatValueAtTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_float_value_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloatKeys"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_float_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveMetaDataNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_curve_meta_data_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveMetaDataMorphTarget"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_curve_meta_data_morph_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveMetaDataMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_curve_meta_data_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveCompressionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_curve_compression_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBonePosesForTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_bone_poses_for_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBonePosesForFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_bone_poses_for_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBonePoseForTime"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_bone_pose_for_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBonePoseForFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_bone_pose_for_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoneCompressionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_bone_compression_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimNotifyEventTriggerTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_anim_notify_event_trigger_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimNotifyEventDuration"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_anim_notify_event_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationTrackNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_track_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationSyncMarkersForTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_sync_markers_for_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationSyncMarkers"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_sync_markers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationNotifyTrackNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_notify_track_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationNotifyEventsForTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_notify_events_for_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationNotifyEvents"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_notify_events,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationNotifyEventNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_notify_event_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationInterpolationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_interpolation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationGraphs"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_animation_graphs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationCurveNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_animation_curve_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAdditiveBasePoseType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_additive_base_pose_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAdditiveAnimationType"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_get_additive_animation_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBonePathToRoot"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_find_bone_path_to_root,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinalizeBoneAnimation"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_finalize_bone_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExtractRootTrackTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_extract_root_track_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateRootBoneTimecodeSubframeAttributeAtTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateRootBoneTimecodeAttributesAtTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateBoneTimecodeAndSlateAttributesAtTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesCurveExist"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_does_curve_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesBoneNameExist"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_does_bone_name_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyAnimNotifiesFromSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_copy_anim_notifies_from_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyAnimationCurveNamesToSkeleton"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_copy_animation_curve_names_to_skeleton,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ContainsMetaDataOfClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_contains_meta_data_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVirtualBone"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_virtual_bone,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVectorCurveKeys"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_vector_curve_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVectorCurveKey"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_vector_curve_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTransformationCurveKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_transformation_curve_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTransformationCurveKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_transformation_curve_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddNodeAssetOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_node_asset_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMetaDataObject"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_meta_data_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFloatCurveKeys"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_float_curve_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFloatCurveKey"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_float_curve_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCurveMetaData"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_curve_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCurve"),
-            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationSyncMarker"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_sync_marker,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationNotifyTrack"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_notify_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationNotifyStateEventObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_notify_state_event_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationNotifyStateEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_notify_state_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationNotifyEventObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_notify_event_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationNotifyEventFromSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_notify_event_from_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationNotifyEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_blueprint_library_add_animation_notify_event,
-        );
+        if let Some(class_ptr) = UAnimationBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableFrameStrippingSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_variable_frame_stripping_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRootMotionLockType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_root_motion_lock_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRootMotionEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_root_motion_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRateScale"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_set_rate_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsRootMotionLockForced"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_is_root_motion_lock_forced,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurveMetaDataMorphTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_meta_data_morph_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurveMetaDataMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_meta_data_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurveCompressionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_compression_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoneCompressionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_bone_compression_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimationInterpolationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_animation_interpolation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAdditiveBasePoseType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_additive_base_pose_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAdditiveAnimationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_additive_animation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceAnimNotifyStates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_replace_anim_notify_states,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceAnimNotifies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_replace_anim_notifies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameCurveMetaData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_rename_curve_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveVirtualBones"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_virtual_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveVirtualBone"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_virtual_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMetaDataOfClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_meta_data_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMetaData"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCurveMetaData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_curve_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCurve"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBoneSelectiveAnimation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_bone_selective_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBoneAnimation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_bone_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimationSyncMarkersByTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_sync_markers_by_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimationSyncMarkersByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_sync_markers_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimationNotifyTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimationNotifyEventsByTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_events_by_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimationNotifyEventsByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_events_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllVirtualBones"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_virtual_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllMetaData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllCurveData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_curve_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllBoneAnimation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_bone_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllAnimationSyncMarkers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_animation_sync_markers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllAnimationNotifyTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_animation_notify_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidTime"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_is_valid_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidRawAnimationTrackName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_raw_animation_track_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidAnimNotifyTrackName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_anim_notify_track_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidAnimationSyncMarkerName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_animation_sync_marker_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootMotionLockForced"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_root_motion_lock_forced,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootMotionEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_root_motion_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVectorKeys"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_vector_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableFrameStrippingSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_variable_frame_stripping_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUniqueMarkerNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_unique_marker_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransformationKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_transformation_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTimeAtFrame"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_time_at_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequenceLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_sequence_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootMotionLockType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_root_motion_lock_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRawTrackScaleData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_scale_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRawTrackRotationData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_rotation_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRawTrackPositionData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_position_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRawTrackData"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_raw_track_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRateScale"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_rate_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumKeys"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_num_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumFrames"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_num_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumCurveMetaData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_curve_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodesOfClass"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_nodes_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMontageSlotNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_montage_slot_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaDataOfClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_meta_data_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaData"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFrameAtTime"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_frame_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloatValueAtTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_float_value_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloatKeys"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_float_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveMetaDataNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveMetaDataMorphTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_morph_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveMetaDataMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveCompressionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_compression_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBonePosesForTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_poses_for_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBonePosesForFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_poses_for_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBonePoseForTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_pose_for_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBonePoseForFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_pose_for_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoneCompressionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_compression_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimNotifyEventTriggerTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_anim_notify_event_trigger_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimNotifyEventDuration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_anim_notify_event_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationTrackNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_track_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationSyncMarkersForTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_sync_markers_for_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationSyncMarkers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_sync_markers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationNotifyTrackNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_track_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationNotifyEventsForTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_events_for_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationNotifyEvents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_events,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationNotifyEventNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_event_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationInterpolationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_interpolation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationGraphs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_graphs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationCurveNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_curve_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAdditiveBasePoseType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_additive_base_pose_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAdditiveAnimationType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_additive_animation_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBonePathToRoot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_find_bone_path_to_root,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinalizeBoneAnimation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_finalize_bone_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExtractRootTrackTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_extract_root_track_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "EvaluateRootBoneTimecodeSubframeAttributeAtTime",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateRootBoneTimecodeAttributesAtTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "EvaluateBoneTimecodeAndSlateAttributesAtTime",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesCurveExist"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_does_curve_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesBoneNameExist"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_does_bone_name_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyAnimNotifiesFromSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_copy_anim_notifies_from_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyAnimationCurveNamesToSkeleton"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_copy_animation_curve_names_to_skeleton,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ContainsMetaDataOfClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_contains_meta_data_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVirtualBone"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_virtual_bone,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVectorCurveKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_vector_curve_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVectorCurveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_vector_curve_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTransformationCurveKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_transformation_curve_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTransformationCurveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_transformation_curve_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddNodeAssetOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_node_asset_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMetaDataObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_meta_data_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMetaData"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFloatCurveKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_float_curve_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFloatCurveKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_float_curve_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCurveMetaData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_curve_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCurve"),
+                &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationSyncMarker"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_sync_marker,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationNotifyTrack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationNotifyStateEventObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_state_event_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationNotifyStateEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_state_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationNotifyEventObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationNotifyEventFromSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event_from_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationNotifyEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimPoseExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBonePose"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_set_bone_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSocketPose"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_socket_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSocketNames"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_socket_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRelativeTransform"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_relative_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRelativeToRefPoseTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_anim_pose_extensions_get_relative_to_ref_pose_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRefPoseRelativeTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_anim_pose_extensions_get_ref_pose_relative_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReferencePose"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_reference_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRefBonePose"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_ref_bone_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveWeight"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_curve_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurveNames"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_curve_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBonePose"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_bone_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoneNames"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_bone_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimPoseAtTime"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_anim_pose_at_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimPoseAtFrame"),
-            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_anim_pose_at_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateAnimationBlueprintWithInputPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose,
-        );
+        if let Some(class_ptr) = UAnimPoseExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBonePose"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_set_bone_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSocketPose"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_socket_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSocketNames"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_socket_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRelativeTransform"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_relative_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRelativeToRefPoseTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_relative_to_ref_pose_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRefPoseRelativeTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_ref_pose_relative_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReferencePose"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_reference_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRefBonePose"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_ref_bone_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveWeight"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_curve_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurveNames"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_curve_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBonePose"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_bone_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoneNames"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_bone_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimPoseAtTime"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_anim_pose_at_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimPoseAtFrame"),
+                &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_anim_pose_at_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateAnimationBlueprintWithInputPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1355,6 +1385,13 @@ impl UAnimationAttributeBlueprintLibrary {
             .name_to_ptr
             .get("UAnimationAttributeBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationAttributeBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1641,6 +1678,13 @@ impl UAnimationBlueprintLibrary {
             .name_to_ptr
             .get("UAnimationBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7546,6 +7590,13 @@ impl UAnimPoseExtensions {
             .get("UAnimPoseExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimPoseExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8335,6 +8386,13 @@ impl UK2Node_BaseAttributeActionNode {
             .get("UK2Node_BaseAttributeActionNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_BaseAttributeActionNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8355,6 +8413,13 @@ impl UK2Node_SetAttributeKeyGeneric {
             .name_to_ptr
             .get("UK2Node_SetAttributeKeyGeneric")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_SetAttributeKeyGeneric")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8377,6 +8442,13 @@ impl UK2Node_SetAttributeKeysGeneric {
             .get("UK2Node_SetAttributeKeysGeneric")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_SetAttributeKeysGeneric")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8398,6 +8470,13 @@ impl UK2Node_GetAttributeKeyGeneric {
             .get("UK2Node_GetAttributeKeyGeneric")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_GetAttributeKeyGeneric")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8418,6 +8497,13 @@ impl UK2Node_GetAttributeKeysGeneric {
             .name_to_ptr
             .get("UK2Node_GetAttributeKeysGeneric")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_GetAttributeKeysGeneric")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

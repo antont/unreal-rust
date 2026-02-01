@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -48,123 +49,125 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioPropertiesSheetAssetBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CopyToObjectProperties"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_properties_sheet_asset_base_copy_to_object_properties,
-        );
+        if let Some(class_ptr) = UAudioPropertiesSheetAssetBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CopyToObjectProperties"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_properties_sheet_asset_base_copy_to_object_properties,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioParameterControllerInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTriggerParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_trigger_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStringParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_string_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStringArrayParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_string_array_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParameters_Blueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_parameters_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetObjectParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_object_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetObjectArrayParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_object_array_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIntParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_int_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIntArrayParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_int_array_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloatParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_float_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloatArrayParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_float_array_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_bool_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolArrayParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_set_bool_array_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetParameters"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_parameter_controller_interface_reset_parameters,
-        );
+        if let Some(class_ptr) = UAudioParameterControllerInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTriggerParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_trigger_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStringParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_string_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStringArrayParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_string_array_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParameters_Blueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_parameters_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetObjectParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_object_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetObjectArrayParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_object_array_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIntParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_int_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIntArrayParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_int_array_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloatParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_float_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloatArrayParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_float_array_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_bool_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolArrayParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_bool_array_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetParameters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_reset_parameters,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -211,6 +214,13 @@ impl UAudioPropertiesSheetAssetUserInterface {
             .get("UAudioPropertiesSheetAssetUserInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioPropertiesSheetAssetUserInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -231,6 +241,13 @@ impl UAudioPropertiesSheetAssetBase {
             .name_to_ptr
             .get("UAudioPropertiesSheetAssetBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioPropertiesSheetAssetBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -289,6 +306,13 @@ impl USpatializationPluginSourceSettingsBase {
             .get("USpatializationPluginSourceSettingsBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USpatializationPluginSourceSettingsBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -309,6 +333,13 @@ impl USourceDataOverridePluginSourceSettingsBase {
             .name_to_ptr
             .get("USourceDataOverridePluginSourceSettingsBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USourceDataOverridePluginSourceSettingsBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -331,6 +362,13 @@ impl UOcclusionPluginSourceSettingsBase {
             .get("UOcclusionPluginSourceSettingsBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOcclusionPluginSourceSettingsBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -351,6 +389,13 @@ impl UReverbPluginSourceSettingsBase {
             .name_to_ptr
             .get("UReverbPluginSourceSettingsBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UReverbPluginSourceSettingsBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -373,6 +418,13 @@ impl UAudioParameterControllerInterface {
             .name_to_ptr
             .get("UAudioParameterControllerInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioParameterControllerInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -832,6 +884,13 @@ impl UAudioEndpointSettingsBase {
             .get("UAudioEndpointSettingsBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioEndpointSettingsBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -852,6 +911,13 @@ impl UDummyEndpointSettings {
             .name_to_ptr
             .get("UDummyEndpointSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDummyEndpointSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -874,6 +940,13 @@ impl USoundModulatorBase {
             .get("USoundModulatorBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoundModulatorBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -894,6 +967,13 @@ impl USoundfieldEndpointSettingsBase {
             .name_to_ptr
             .get("USoundfieldEndpointSettingsBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoundfieldEndpointSettingsBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -916,6 +996,13 @@ impl USoundfieldEncodingSettingsBase {
             .get("USoundfieldEncodingSettingsBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoundfieldEncodingSettingsBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -936,6 +1023,13 @@ impl USoundfieldEffectSettingsBase {
             .name_to_ptr
             .get("USoundfieldEffectSettingsBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoundfieldEffectSettingsBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -958,6 +1052,13 @@ impl USoundfieldEffectBase {
             .get("USoundfieldEffectBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USoundfieldEffectBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -979,6 +1080,13 @@ impl UWaveformTransformationBase {
             .get("UWaveformTransformationBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWaveformTransformationBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -999,6 +1107,13 @@ impl UWaveformTransformationChain {
             .name_to_ptr
             .get("UWaveformTransformationChain")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWaveformTransformationChain")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

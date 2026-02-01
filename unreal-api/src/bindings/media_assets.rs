@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -260,882 +261,892 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaSource::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Validate"),
-            &raw mut __FUNCTION_PTRS.u_media_source_validate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaOptionString"),
-            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaOptionInt64"),
-            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_int64,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaOptionFloat"),
-            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaOptionBool"),
-            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUrl"),
-            &raw mut __FUNCTION_PTRS.u_media_source_get_url,
-        );
+        if let Some(class_ptr) = UMediaSource::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Validate"),
+                &raw mut __FUNCTION_PTRS.u_media_source_validate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaOptionString"),
+                &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaOptionInt64"),
+                &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_int64,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaOptionFloat"),
+                &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaOptionBool"),
+                &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUrl"),
+                &raw mut __FUNCTION_PTRS.u_media_source_get_url,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UFileMediaSource::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilePath"),
-            &raw mut __FUNCTION_PTRS.u_file_media_source_set_file_path,
-        );
+        if let Some(class_ptr) = UFileMediaSource::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilePath"),
+                &raw mut __FUNCTION_PTRS.u_file_media_source_set_file_path,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaTexture"),
-            &raw mut __FUNCTION_PTRS.u_media_component_get_media_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut __FUNCTION_PTRS.u_media_component_get_media_player,
-        );
+        if let Some(class_ptr) = UMediaComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaTexture"),
+                &raw mut __FUNCTION_PTRS.u_media_component_get_media_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaPlayer"),
+                &raw mut __FUNCTION_PTRS.u_media_component_get_media_player,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaPlayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SupportsSeeking"),
-            &raw mut __FUNCTION_PTRS.u_media_player_supports_seeking,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SupportsScrubbing"),
-            &raw mut __FUNCTION_PTRS.u_media_player_supports_scrubbing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SupportsRate"),
-            &raw mut __FUNCTION_PTRS.u_media_player_supports_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SupportsPlaybackTimeRange"),
-            &raw mut __FUNCTION_PTRS.u_media_player_supports_playback_time_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewRotation"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_view_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewField"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_view_field,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVideoTrackFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_video_track_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrackFormat"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_track_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTimeDelay"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_time_delay,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRate"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackTimeRange"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_playback_time_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNativeVolume"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_native_volume,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaOptions"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_media_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLooping"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_looping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDesiredPlayerName"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_desired_player_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlockOnTime"),
-            &raw mut __FUNCTION_PTRS.u_media_player_set_block_on_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectTrack"),
-            &raw mut __FUNCTION_PTRS.u_media_player_select_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Seek"),
-            &raw mut __FUNCTION_PTRS.u_media_player_seek,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Scrub"),
-            &raw mut __FUNCTION_PTRS.u_media_player_scrub,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Rewind"),
-            &raw mut __FUNCTION_PTRS.u_media_player_rewind,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reopen"),
-            &raw mut __FUNCTION_PTRS.u_media_player_reopen,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Previous"),
-            &raw mut __FUNCTION_PTRS.u_media_player_previous,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayAndSeek"),
-            &raw mut __FUNCTION_PTRS.u_media_player_play_and_seek,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Play"),
-            &raw mut __FUNCTION_PTRS.u_media_player_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut __FUNCTION_PTRS.u_media_player_pause,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenUrl"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_url,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenSourceWithOptions"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_source_with_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenSourceLatent"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_source_latent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenSource"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenPlaylistIndex"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_playlist_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenPlaylist"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_playlist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenFile"),
-            &raw mut __FUNCTION_PTRS.u_media_player_open_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Next"),
-            &raw mut __FUNCTION_PTRS.u_media_player_next,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReady"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_ready,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPreparing"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_preparing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_paused,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLooping"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_looping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsConnecting"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_connecting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsClosed"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_closed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsBuffering"),
-            &raw mut __FUNCTION_PTRS.u_media_player_is_buffering,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasError"),
-            &raw mut __FUNCTION_PTRS.u_media_player_has_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewRotation"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_view_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVideoTrackType"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVideoTrackFrameRates"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_frame_rates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVideoTrackFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVideoTrackDimensions"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_dimensions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVideoTrackAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVerticalFieldOfView"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_vertical_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUrl"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_url,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackLanguage"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_track_language,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackFormat"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_track_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_track_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTimeStamp"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_time_stamp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTimeDelay"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_time_delay,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedRates"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_supported_rates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedTrack"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_selected_track,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRate"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaylistIndex"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_playlist_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaylist"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_playlist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerName"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_player_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlaybackTimeRange"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_playback_time_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumTracks"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_num_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumTrackFormats"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_num_track_formats,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaName"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_media_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaMetadataItems"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_media_metadata_items,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHorizontalFieldOfView"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_horizontal_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayTimeStamp"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_display_time_stamp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayTime"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_display_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDesiredPlayerName"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_desired_player_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAudioTrackType"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAudioTrackSampleRate"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_sample_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAudioTrackChannels"),
-            &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Close"),
-            &raw mut __FUNCTION_PTRS.u_media_player_close,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanPlayUrl"),
-            &raw mut __FUNCTION_PTRS.u_media_player_can_play_url,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanPlaySource"),
-            &raw mut __FUNCTION_PTRS.u_media_player_can_play_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanPause"),
-            &raw mut __FUNCTION_PTRS.u_media_player_can_pause,
-        );
+        if let Some(class_ptr) = UMediaPlayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SupportsSeeking"),
+                &raw mut __FUNCTION_PTRS.u_media_player_supports_seeking,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SupportsScrubbing"),
+                &raw mut __FUNCTION_PTRS.u_media_player_supports_scrubbing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SupportsRate"),
+                &raw mut __FUNCTION_PTRS.u_media_player_supports_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SupportsPlaybackTimeRange"),
+                &raw mut __FUNCTION_PTRS.u_media_player_supports_playback_time_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewRotation"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_view_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewField"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_view_field,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVideoTrackFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_video_track_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrackFormat"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_track_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTimeDelay"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_time_delay,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRate"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackTimeRange"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_playback_time_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNativeVolume"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_native_volume,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaOptions"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_media_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLooping"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_looping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDesiredPlayerName"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_desired_player_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlockOnTime"),
+                &raw mut __FUNCTION_PTRS.u_media_player_set_block_on_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectTrack"),
+                &raw mut __FUNCTION_PTRS.u_media_player_select_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Seek"),
+                &raw mut __FUNCTION_PTRS.u_media_player_seek,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Scrub"),
+                &raw mut __FUNCTION_PTRS.u_media_player_scrub,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Rewind"),
+                &raw mut __FUNCTION_PTRS.u_media_player_rewind,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reopen"),
+                &raw mut __FUNCTION_PTRS.u_media_player_reopen,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Previous"),
+                &raw mut __FUNCTION_PTRS.u_media_player_previous,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayAndSeek"),
+                &raw mut __FUNCTION_PTRS.u_media_player_play_and_seek,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Play"),
+                &raw mut __FUNCTION_PTRS.u_media_player_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Pause"),
+                &raw mut __FUNCTION_PTRS.u_media_player_pause,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenUrl"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_url,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenSourceWithOptions"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_source_with_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenSourceLatent"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_source_latent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenSource"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenPlaylistIndex"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_playlist_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenPlaylist"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_playlist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenFile"),
+                &raw mut __FUNCTION_PTRS.u_media_player_open_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Next"),
+                &raw mut __FUNCTION_PTRS.u_media_player_next,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReady"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_ready,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPreparing"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_preparing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlaying"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPaused"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_paused,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLooping"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_looping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsConnecting"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_connecting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsClosed"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_closed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsBuffering"),
+                &raw mut __FUNCTION_PTRS.u_media_player_is_buffering,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasError"),
+                &raw mut __FUNCTION_PTRS.u_media_player_has_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewRotation"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_view_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVideoTrackType"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVideoTrackFrameRates"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_frame_rates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVideoTrackFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVideoTrackDimensions"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_dimensions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVideoTrackAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVerticalFieldOfView"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_vertical_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUrl"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_url,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackLanguage"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_track_language,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackFormat"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_track_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_track_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTimeStamp"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_time_stamp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTimeDelay"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_time_delay,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTime"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedRates"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_supported_rates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedTrack"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_selected_track,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRate"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaylistIndex"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_playlist_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaylist"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_playlist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerName"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_player_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlaybackTimeRange"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_playback_time_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumTracks"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_num_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumTrackFormats"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_num_track_formats,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaName"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_media_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaMetadataItems"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_media_metadata_items,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHorizontalFieldOfView"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_horizontal_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDuration"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayTimeStamp"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_display_time_stamp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayTime"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_display_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDesiredPlayerName"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_desired_player_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAudioTrackType"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAudioTrackSampleRate"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_sample_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAudioTrackChannels"),
+                &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Close"),
+                &raw mut __FUNCTION_PTRS.u_media_player_close,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanPlayUrl"),
+                &raw mut __FUNCTION_PTRS.u_media_player_can_play_url,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanPlaySource"),
+                &raw mut __FUNCTION_PTRS.u_media_player_can_play_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanPause"),
+                &raw mut __FUNCTION_PTRS.u_media_player_can_pause,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaPlaylist::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Replace"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_replace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAt"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_remove_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Remove"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_remove,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Num"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_num,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Insert"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_insert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRandom"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_get_random,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPrevious"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_get_previous,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNext"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_get_next,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Get"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_get,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUrl"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_add_url,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFile"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_add_file,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Add"),
-            &raw mut __FUNCTION_PTRS.u_media_playlist_add,
-        );
+        if let Some(class_ptr) = UMediaPlaylist::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Replace"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_replace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAt"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_remove_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Remove"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_remove,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Num"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_num,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Insert"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_insert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRandom"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_get_random,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPrevious"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_get_previous,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNext"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_get_next,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Get"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_get,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUrl"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_add_url,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFile"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_add_file,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Add"),
+                &raw mut __FUNCTION_PTRS.u_media_playlist_add,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaSoundComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSpectralAnalysisSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_sound_component_set_spectral_analysis_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaPlayer"),
-            &raw mut __FUNCTION_PTRS.u_media_sound_component_set_media_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnvelopeFollowingsettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_sound_component_set_envelope_followingsettings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableSpectralAnalysis"),
-            &raw mut __FUNCTION_PTRS.u_media_sound_component_set_enable_spectral_analysis,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableEnvelopeFollowing"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_sound_component_set_enable_envelope_following,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSpectralData"),
-            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_spectral_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedSpectralData"),
-            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_normalized_spectral_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_media_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnvelopeValue"),
-            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_envelope_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetAttenuationSettingsToApply"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_sound_component_bp_get_attenuation_settings_to_apply,
-        );
+        if let Some(class_ptr) = UMediaSoundComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSpectralAnalysisSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_sound_component_set_spectral_analysis_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaPlayer"),
+                &raw mut __FUNCTION_PTRS.u_media_sound_component_set_media_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnvelopeFollowingsettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_sound_component_set_envelope_followingsettings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableSpectralAnalysis"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_sound_component_set_enable_spectral_analysis,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableEnvelopeFollowing"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_sound_component_set_enable_envelope_following,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSpectralData"),
+                &raw mut __FUNCTION_PTRS.u_media_sound_component_get_spectral_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedSpectralData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_sound_component_get_normalized_spectral_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaPlayer"),
+                &raw mut __FUNCTION_PTRS.u_media_sound_component_get_media_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnvelopeValue"),
+                &raw mut __FUNCTION_PTRS.u_media_sound_component_get_envelope_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetAttenuationSettingsToApply"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_sound_component_bp_get_attenuation_settings_to_apply,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaTexture::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateResource"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_update_resource,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMediaPlayer"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_set_media_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidth"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_get_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextureNumMips"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_get_texture_num_mips,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_get_media_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHeight"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_get_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_media_texture_get_aspect_ratio,
-        );
+        if let Some(class_ptr) = UMediaTexture::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateResource"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_update_resource,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMediaPlayer"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_set_media_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidth"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_get_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextureNumMips"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_get_texture_num_mips,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMediaPlayer"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_get_media_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHeight"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_get_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_media_texture_get_aspect_ratio,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMediaBlueprintFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnumerateWebcamCaptureDevices"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_blueprint_function_library_enumerate_webcam_capture_devices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnumerateVideoCaptureDevices"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_blueprint_function_library_enumerate_video_capture_devices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnumerateAudioCaptureDevices"),
-            &raw mut __FUNCTION_PTRS
-                .u_media_blueprint_function_library_enumerate_audio_capture_devices,
-        );
+        if let Some(class_ptr) = UMediaBlueprintFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnumerateWebcamCaptureDevices"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_webcam_capture_devices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnumerateVideoCaptureDevices"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_video_capture_devices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnumerateAudioCaptureDevices"),
+                &raw mut __FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_audio_capture_devices,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1181,6 +1192,13 @@ impl UMediaSourceRendererInterface {
             .get("UMediaSourceRendererInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaSourceRendererInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1201,6 +1219,13 @@ impl UMediaSource {
             .name_to_ptr
             .get("UMediaSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1398,6 +1423,13 @@ impl UBaseMediaSource {
             .get("UBaseMediaSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBaseMediaSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1422,6 +1454,13 @@ impl UFileMediaSource {
             .name_to_ptr
             .get("UFileMediaSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFileMediaSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1474,6 +1513,13 @@ impl UMediaComponent {
             .name_to_ptr
             .get("UMediaComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1551,6 +1597,13 @@ impl UMediaTimeStampInfo {
             .get("UMediaTimeStampInfo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaTimeStampInfo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1586,6 +1639,13 @@ impl UMediaPlayer {
             .name_to_ptr
             .get("UMediaPlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4166,6 +4226,13 @@ impl UMediaPlayerProxyInterface {
             .get("UMediaPlayerProxyInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlayerProxyInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4186,6 +4253,13 @@ impl UMediaPlaylist {
             .name_to_ptr
             .get("UMediaPlaylist")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaPlaylist")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4577,6 +4651,13 @@ impl UMediaSoundComponent {
             .get("UMediaSoundComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaSoundComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4949,6 +5030,13 @@ impl UMediaTexture {
             .get("UMediaTexture")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaTexture")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5155,6 +5243,13 @@ impl UPlatformMediaSource {
             .get("UPlatformMediaSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPlatformMediaSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5177,6 +5272,13 @@ impl UStreamMediaSource {
             .name_to_ptr
             .get("UStreamMediaSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStreamMediaSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5202,6 +5304,13 @@ impl UTimeSynchronizableMediaSource {
             .get("UTimeSynchronizableMediaSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTimeSynchronizableMediaSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5222,6 +5331,13 @@ impl UMediaBlueprintFunctionLibrary {
             .name_to_ptr
             .get("UMediaBlueprintFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMediaBlueprintFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

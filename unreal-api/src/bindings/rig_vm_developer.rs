@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -944,3348 +945,3390 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMBlueprint::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SuspendNotifications"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_suspend_notifications,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SplitAssetVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_split_asset_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAutoVMRecompile"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_set_auto_vm_recompile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRigVMInit"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_request_rig_vm_init,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestAutoVMRecompilation"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_request_auto_vm_recompilation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameMemberVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_rename_member_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveModel"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_remove_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMemberVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_remove_member_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecompileVMIfRequired"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_recompile_vm_if_required,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecompileVM"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_recompile_vm,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("JoinAssetVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_join_asset_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigVMHostClass"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_rig_vm_host_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOrCreateLocalFunctionLibrary"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_blueprint_get_or_create_local_function_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOrCreateController"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_or_create_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetModel"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMemberVariables"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_member_variables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMatchingVariants"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_matching_variants,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalFunctionLibrary"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_local_function_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFocusedModel"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_focused_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultModel"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_default_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDebuggedRigVMHost"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_debugged_rig_vm_host,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControllerByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_controller_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetController"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailableRigVMStructs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_available_rig_vm_structs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoVMRecompile"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_auto_vm_recompile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetVariantRef"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_asset_variant_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetVariantBP"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_asset_variant_bp,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllModels"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_all_models,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_generate_python_commands,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateRigVMHost"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_create_rig_vm_host,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangeMemberVariableType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_change_member_variable_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BulkRemoveMemberVariables"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_bulk_remove_member_variables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddModel"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_add_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMemberVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_add_member_variable,
-        );
+        if let Some(class_ptr) = URigVMBlueprint::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SuspendNotifications"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_suspend_notifications,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SplitAssetVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_split_asset_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAutoVMRecompile"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_set_auto_vm_recompile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRigVMInit"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_request_rig_vm_init,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestAutoVMRecompilation"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_request_auto_vm_recompilation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameMemberVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_rename_member_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveModel"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_remove_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMemberVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_remove_member_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecompileVMIfRequired"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_recompile_vm_if_required,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecompileVM"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_recompile_vm,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("JoinAssetVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_join_asset_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigVMHostClass"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_rig_vm_host_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOrCreateLocalFunctionLibrary"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_or_create_local_function_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOrCreateController"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_or_create_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetModel"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMemberVariables"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_member_variables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMatchingVariants"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_matching_variants,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalFunctionLibrary"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_local_function_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFocusedModel"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_focused_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultModel"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_default_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDebuggedRigVMHost"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_debugged_rig_vm_host,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControllerByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_controller_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetController"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailableRigVMStructs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_available_rig_vm_structs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoVMRecompile"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_auto_vm_recompile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetVariantRef"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_asset_variant_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetVariantBP"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_asset_variant_bp,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllModels"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_all_models,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_generate_python_commands,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateRigVMHost"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_create_rig_vm_host,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangeMemberVariableType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_change_member_variable_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BulkRemoveMemberVariables"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_bulk_remove_member_variables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddModel"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_add_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMemberVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_add_member_variable,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMCompiler::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CompileVM"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_compiler_compile_vm,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Compile"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_compiler_compile,
-        );
+        if let Some(class_ptr) = URigVMCompiler::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CompileVM"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_compiler_compile_vm,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Compile"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_compiler_compile,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsExcludedByEarlyExit"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_is_excluded_by_early_exit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHasEarlyExitMarker"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_has_early_exit_marker,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHasBreakpoint"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_has_breakpoint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetExecutionIsHaltedAtThisNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_execution_is_halted_at_this_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVisibleInUI"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_visible_in_ui,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTraitPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_trait_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSelected"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPure"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_pure,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPinCategoryExpanded"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_pin_category_expanded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsMutable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_mutable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLoopNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_loop_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLinkedTo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_linked_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInputAggregate"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_input_aggregate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInjected"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_injected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHighlighted"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_highlighted,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsExcludedByEarlyExit"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_excluded_by_early_exit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEvent"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDefinedAsVarying"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_defined_as_varying,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDefinedAsConstant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_defined_as_constant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsControlFlowNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_control_flow_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAggregate"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_aggregate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasPinOfDirection"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_pin_of_direction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasOutputPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_output_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasOrphanedPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_orphaned_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasLazyPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_lazy_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasIOPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_io_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasInputPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_input_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasEarlyExitMarker"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_early_exit_marker,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasBreakpoint"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_breakpoint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTraitPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_trait_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetToolTipText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_tool_tip_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedWorkflows"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_supported_workflows,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSubPinCategories"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_sub_pin_categories,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSize"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSecondAggregatePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_second_aggregate_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_root_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviousFName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_previous_f_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPosition"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinsForCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pins_for_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinCategoryName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pin_category_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinCategories"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pin_categories,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentPinCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_parent_pin_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentPinCategories"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_parent_pin_categories,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOrphanedPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_orphaned_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOppositeAggregatePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_opposite_aggregate_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeTitle"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_title,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeSubTitle"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_sub_title,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodePath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeLayout"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeIndex"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeColor"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNextAggregateName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_next_aggregate_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinks"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinkedTargetNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_linked_target_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinkedSourceNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_linked_source_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInjectionInfo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_injection_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphDepth"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_graph_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFirstAggregatePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_first_aggregate_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEventName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_event_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllPinsRecursively"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_all_pins_recursively,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAggregateOutputs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_aggregate_outputs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAggregateInputs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_aggregate_inputs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindRootPinByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_root_pin_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindFunctionForNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_function_for_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindExecutePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_execute_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExecutionIsHaltedAtThisNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_execution_is_halted_at_this_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanOnlyExistOnce"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_can_only_exist_once,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanBeUpgraded"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_node_can_be_upgraded,
-        );
+        if let Some(class_ptr) = URigVMNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsExcludedByEarlyExit"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_is_excluded_by_early_exit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHasEarlyExitMarker"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_has_early_exit_marker,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHasBreakpoint"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_has_breakpoint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetExecutionIsHaltedAtThisNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_node_set_execution_is_halted_at_this_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVisibleInUI"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_visible_in_ui,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTraitPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_trait_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSelected"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPure"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_pure,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPinCategoryExpanded"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_pin_category_expanded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsMutable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_mutable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLoopNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_loop_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLinkedTo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_linked_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInputAggregate"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_input_aggregate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInjected"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_injected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHighlighted"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_highlighted,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsExcludedByEarlyExit"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_excluded_by_early_exit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEvent"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDefinedAsVarying"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_defined_as_varying,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDefinedAsConstant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_defined_as_constant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsControlFlowNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_control_flow_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAggregate"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_aggregate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasPinOfDirection"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_pin_of_direction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasOutputPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_output_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasOrphanedPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_orphaned_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasLazyPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_lazy_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasIOPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_io_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasInputPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_input_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasEarlyExitMarker"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_early_exit_marker,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasBreakpoint"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_breakpoint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTraitPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_trait_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetToolTipText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_tool_tip_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedWorkflows"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_supported_workflows,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSubPinCategories"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_sub_pin_categories,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSize"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSecondAggregatePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_second_aggregate_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_root_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviousFName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_previous_f_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPosition"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinsForCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pins_for_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinCategoryName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pin_category_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinCategories"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pin_categories,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentPinCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_parent_pin_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentPinCategories"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_parent_pin_categories,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOrphanedPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_orphaned_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOppositeAggregatePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_opposite_aggregate_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeTitle"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_title,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeSubTitle"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_sub_title,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodePath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeLayout"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeIndex"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeColor"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNextAggregateName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_next_aggregate_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinks"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinkedTargetNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_linked_target_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinkedSourceNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_linked_source_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInjectionInfo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_injection_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphDepth"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_graph_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFirstAggregatePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_first_aggregate_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEventName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_event_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllPinsRecursively"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_all_pins_recursively,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAggregateOutputs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_aggregate_outputs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAggregateInputs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_aggregate_inputs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindRootPinByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_root_pin_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindFunctionForNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_function_for_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindExecutePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_execute_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExecutionIsHaltedAtThisNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_execution_is_halted_at_this_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanOnlyExistOnce"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_can_only_exist_once,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanBeUpgraded"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_node_can_be_upgraded,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMTemplateNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSingleton"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_singleton,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsResolved"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_resolved,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFullyUnresolved"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_fully_unresolved,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScriptStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_get_script_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNotation"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_get_notation,
-        );
+        if let Some(class_ptr) = URigVMTemplateNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSingleton"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_singleton,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsResolved"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_resolved,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFullyUnresolved"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_fully_unresolved,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScriptStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_get_script_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNotation"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_get_notation,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMLibraryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMatchingVariants"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_matching_variants,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLibrary"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFunctionVariantRef"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_function_variant_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetContainedGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_contained_graph,
-        );
+        if let Some(class_ptr) = URigVMLibraryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMatchingVariants"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_matching_variants,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLibrary"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFunctionVariantRef"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_function_variant_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFunctionVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetContainedGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_contained_graph,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_RigVMArrayNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOpCode"),
-            &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_op_code,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_cpp_type_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_cpp_type,
-        );
+        if let Some(class_ptr) = UDEPRECATED_RigVMArrayNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOpCode"),
+                &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_op_code,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_cpp_type_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPType"),
+                &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_cpp_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMCommentNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCommentText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCommentFontSize"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_font_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCommentColorBubble"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_color_bubble,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCommentBubbleVisible"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_bubble_visible,
-        );
+        if let Some(class_ptr) = URigVMCommentNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCommentText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCommentFontSize"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_font_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCommentColorBubble"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_color_bubble,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCommentBubbleVisible"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_bubble_visible,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMEnumNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnum"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_cpp_type_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_cpp_type,
-        );
+        if let Some(class_ptr) = URigVMEnumNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnum"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_cpp_type_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_cpp_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMFunctionReferenceNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReferencedFunctionHeader_ForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint,
-        );
+        if let Some(class_ptr) = URigVMFunctionReferenceNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReferencedFunctionHeader_ForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMInvokeEntryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEntryName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_invoke_entry_node_get_entry_name,
-        );
+        if let Some(class_ptr) = URigVMInvokeEntryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEntryName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_invoke_entry_node_get_entry_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMParameterNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInput"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_is_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_parameter_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterDescription"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_parameter_description,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_cpp_type_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_cpp_type,
-        );
+        if let Some(class_ptr) = URigVMParameterNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInput"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_is_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_parameter_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterDescription"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_parameter_description,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_cpp_type_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_cpp_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMUnitNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStructDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_unit_node_get_struct_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMethodName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_unit_node_get_method_name,
-        );
+        if let Some(class_ptr) = URigVMUnitNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStructDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_unit_node_get_struct_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMethodName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_unit_node_get_method_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMVariableNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLocalVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_local_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInputArgument"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_input_argument,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsGetter"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_getter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsExternalVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_external_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_variable_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableDescription"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_variable_description,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_cpp_type_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_cpp_type,
-        );
+        if let Some(class_ptr) = URigVMVariableNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLocalVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_local_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInputArgument"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_input_argument,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsGetter"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_getter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsExternalVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_external_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_variable_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableDescription"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_variable_description,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_cpp_type_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_cpp_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMBuildData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SplitVariantFromSet"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_split_variant_from_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("JoinVariantSet"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_join_variant_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariantRefForAsset"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_variant_ref_for_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUsedFunctionIdentifiers"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_used_function_identifiers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFunctionIdentifierForVariant"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_build_data_get_function_identifier_for_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetDataForVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_asset_data_for_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetDataForPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_asset_data_for_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllFunctionIdentifiers"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_all_function_identifiers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Get"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GatherFunctionVariantRefsForAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_build_data_gather_function_variant_refs_for_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GatherAllFunctionVariantRefs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_gather_all_function_variant_refs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GatherAllAssetVariantRefs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_gather_all_asset_variant_refs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindFunctionVariantRefs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_find_function_variant_refs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindAssetVariantRefs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_find_asset_variant_refs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_create_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAssetVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_create_asset_variant,
-        );
+        if let Some(class_ptr) = URigVMBuildData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SplitVariantFromSet"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_split_variant_from_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("JoinVariantSet"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_join_variant_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariantRefForAsset"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_variant_ref_for_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUsedFunctionIdentifiers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_used_function_identifiers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFunctionIdentifierForVariant"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_function_identifier_for_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetDataForVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_asset_data_for_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetDataForPath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_asset_data_for_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllFunctionIdentifiers"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_all_function_identifiers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Get"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GatherFunctionVariantRefsForAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_function_variant_refs_for_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GatherAllFunctionVariantRefs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_all_function_variant_refs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GatherAllAssetVariantRefs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_all_asset_variant_refs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindFunctionVariantRefs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_find_function_variant_refs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindAssetVariantRefs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_find_asset_variant_refs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFunctionVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_create_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAssetVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_create_asset_variant,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMActionStack::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Undo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_undo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Redo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_redo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenUndoBracket"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_open_undo_bracket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CloseUndoBracket"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_close_undo_bracket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelUndoBracket"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_cancel_undo_bracket,
-        );
+        if let Some(class_ptr) = URigVMActionStack::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Undo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_undo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Redo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_redo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenUndoBracket"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_open_undo_bracket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CloseUndoBracket"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_close_undo_bracket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelUndoBracket"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_cancel_undo_bracket,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMGraph::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSchemaClass"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_set_schema_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultFunctionLibrary"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_set_default_function_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTopLevelGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_top_level_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_root_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsNodeSelected"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_node_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsNodeHighlighted"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_node_highlighted,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableDescriptions"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_variable_descriptions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_select_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSchemaClass"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_schema_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSchema"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_schema,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_root_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReturnNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_return_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_parent_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOutputArguments"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_output_arguments,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodePath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_node_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalVariables"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_local_variables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinks"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputArguments"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_input_arguments,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_graph_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphDepth"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_graph_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEventNames"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_event_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEntryNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_entry_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultFunctionLibrary"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_default_function_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetContainedGraphs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_contained_graphs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_node_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindLink"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ContainsLink"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_contains_link,
-        );
+        if let Some(class_ptr) = URigVMGraph::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSchemaClass"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_set_schema_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultFunctionLibrary"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_set_default_function_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTopLevelGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_top_level_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_root_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsNodeSelected"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_node_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsNodeHighlighted"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_node_highlighted,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableDescriptions"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_variable_descriptions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_select_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSchemaClass"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_schema_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSchema"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_schema,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_root_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReturnNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_return_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_parent_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOutputArguments"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_output_arguments,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodePath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_node_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalVariables"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_local_variables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinks"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputArguments"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_input_arguments,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_graph_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphDepth"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_graph_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEventNames"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_event_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEntryNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_entry_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultFunctionLibrary"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_default_function_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetContainedGraphs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_contained_graphs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_node_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindLink"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ContainsLink"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_graph_contains_link,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReferencesForFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_function_library_get_references_for_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReferencePathsForFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_function_library_get_reference_paths_for_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFunctions"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_get_functions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindFunctionForNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_find_function_for_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindFunction"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_find_function,
-        );
+        if let Some(class_ptr) = URigVMFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReferencesForFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_references_for_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReferencePathsForFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_reference_paths_for_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFunctions"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_get_functions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindFunctionForNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_find_function_for_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindFunction"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_find_function,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMLink::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_target_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_target_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourcePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_source_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_source_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinPathRepresentation"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_pin_path_representation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOppositePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_opposite_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinkIndex"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_link_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphDepth"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_graph_depth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_graph,
-        );
+        if let Some(class_ptr) = URigVMLink::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_target_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_target_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourcePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_source_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_source_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinPathRepresentation"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_pin_path_representation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOppositePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_opposite_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinkIndex"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_link_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphDepth"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_graph_depth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_graph,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMInjectionInfo::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_injection_info_get_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_injection_info_get_graph,
-        );
+        if let Some(class_ptr) = URigVMInjectionInfo::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_injection_info_get_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_injection_info_get_graph,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMPin::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldOnlyShowSubPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_should_only_show_sub_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldHideSubPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_should_hide_sub_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequiresWatch"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_requires_watch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsWildCard"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_wild_card,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValidDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_valid_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsUObject"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_u_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTraitPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_trait_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsStructMember"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_struct_member,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsStringType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_string_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRootPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_root_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReferenceCountedContainer"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_reference_counted_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLinkedTo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_linked_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLazy"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_lazy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInterface"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFixedSizeArray"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_fixed_size_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsExpanded"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_expanded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsExecuteContext"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_execute_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEnum"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDynamicArray"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_dynamic_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDefinedAsConstant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_defined_as_constant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsArrayElement"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_array_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsArray"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasUserProvidedDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_user_provided_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasOriginalDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_original_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMetaData"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasDefaultValueOverride"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_default_value_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetToolTipText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_tool_tip_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTargetLinks"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_target_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSubPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_sub_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSubPinPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_sub_pin_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceLinks"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_source_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSegmentPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_segment_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScriptStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_script_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_root_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinIndex"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinForLink"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_for_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentScriptStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_parent_script_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_parent_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOriginalPinFromInjectedNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_original_pin_from_injected_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOriginalDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_original_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaData"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_meta_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinks"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinkedTargetPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_linked_target_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinkedSourcePins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_linked_source_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIndexInCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_index_in_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnum"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDirection"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_direction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultValueType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_default_value_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomWidgetName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_custom_widget_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_cpp_type_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_cpp_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArraySize"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_array_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetArrayElementCppType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_array_element_cpp_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllSubPinsRecursively"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_all_sub_pins_recursively,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAbsolutePinIndex"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_absolute_pin_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindSubPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_find_sub_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindLinkForPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_find_link_for_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ContainsWildCardSubPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_contains_wild_card_sub_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanProvideDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_can_provide_default_value,
-        );
+        if let Some(class_ptr) = URigVMPin::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldOnlyShowSubPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_should_only_show_sub_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldHideSubPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_should_hide_sub_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequiresWatch"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_requires_watch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsWildCard"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_wild_card,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValidDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_valid_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsUObject"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_u_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTraitPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_trait_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsStructMember"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_struct_member,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsStringType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_string_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRootPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_root_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReferenceCountedContainer"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_reference_counted_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLinkedTo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_linked_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLazy"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_lazy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInterface"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFixedSizeArray"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_fixed_size_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsExpanded"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_expanded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsExecuteContext"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_execute_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEnum"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDynamicArray"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_dynamic_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDefinedAsConstant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_defined_as_constant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsArrayElement"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_array_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsArray"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasUserProvidedDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_user_provided_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasOriginalDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_original_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMetaData"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasDefaultValueOverride"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_default_value_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetToolTipText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_tool_tip_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTargetLinks"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_target_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSubPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_sub_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSubPinPath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_sub_pin_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceLinks"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_source_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSegmentPath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_segment_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScriptStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_script_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_root_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinPath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinIndex"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinForLink"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_for_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentScriptStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_parent_script_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_parent_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOriginalPinFromInjectedNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_original_pin_from_injected_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOriginalDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_original_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaData"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_meta_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinks"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinkedTargetPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_linked_target_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinkedSourcePins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_linked_source_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIndexInCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_index_in_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnum"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDirection"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_direction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultValueType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_default_value_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomWidgetName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_custom_widget_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_cpp_type_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPPType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_cpp_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArraySize"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_array_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetArrayElementCppType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_array_element_cpp_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllSubPinsRecursively"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_all_sub_pins_recursively,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAbsolutePinIndex"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_absolute_pin_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindSubPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_find_sub_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindLinkForPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_find_link_for_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ContainsWildCardSubPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_contains_wild_card_sub_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanProvideDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_pin_can_provide_default_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMUserWorkflowRegistry::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterProvider"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_unregister_provider,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterProvider"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_register_provider,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWorkflows"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_get_workflows,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Get"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_get,
-        );
+        if let Some(class_ptr) = URigVMUserWorkflowRegistry::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterProvider"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_unregister_provider,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterProvider"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_register_provider,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWorkflows"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_get_workflows,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Get"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_get,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpgradeNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_upgrade_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnresolveTemplateNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_unresolve_template_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Undo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_undo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindPinFromVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_unbind_pin_from_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SwapFunctionReferenceByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_function_reference_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SwapFunctionReference"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_function_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SwapAllFunctionReferences"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_all_function_references,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SplitFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_split_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUnitNodeDefaults"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_unit_node_defaults,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSchemaClass"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_schema_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSchema"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_schema,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRemappedVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_remapped_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinIsWatched"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_is_watched,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinIndexInCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_index_in_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinExpansion"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_expansion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_display_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinCategoryIndex"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinCategoryExpansion"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category_expansion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPinCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeTitleByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_title_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeTitle"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_title,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeSizeByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_size_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeSize"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeSelection"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodePositionByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_position_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodePosition"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeLayout"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeKeywordsByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_keywords_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeKeywords"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_keywords,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeDescriptionByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_description_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeDescription"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_description,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeColorByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_color_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeColor"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeCategoryByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_category_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalVariableTypeFromObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_set_local_variable_type_from_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalVariableType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_local_variable_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocalVariableDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_local_variable_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsRunningUnitTest"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_is_running_unit_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetExposedPinIndex"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_exposed_pin_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCommentTextByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_comment_text_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCommentText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_comment_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetArrayPinSize"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_array_pin_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActionStack"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_action_stack,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectNodeIslands"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node_islands,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectNodeByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectLinkedNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_linked_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResolveWildCardPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_resolve_wild_card_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetPinDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_reset_pin_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetDefaultValueForPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_reset_default_value_for_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetDefaultValueForAllPinsOnNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetDefaultValueForAllPinsOnNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_reset_default_value_for_all_pins_on_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceParameterNodeWithVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_replace_parameter_node_with_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenamePinCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_pin_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameParameter"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameLocalVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_local_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameFunction"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameExposedPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_exposed_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTrait"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_trait,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveTagFromFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_tag_from_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemovePinCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_pin_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNodesByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_nodes_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNodeByName"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_node_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLocalVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_local_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveInjectedNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_injected_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveFunctionFromLibrary"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_function_from_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveExposedPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_exposed_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveArrayPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_array_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAggregatePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_aggregate_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshVariableNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_refresh_variable_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Redo"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_redo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PushGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_push_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PromotePinToVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_promote_pin_to_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PromoteFunctionReferenceNodeToCollapseNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_promote_function_reference_node_to_collapse_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PromoteCollapseNodeToFunctionReferenceNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_promote_collapse_node_to_function_reference_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PopGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_pop_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PerformUserWorkflow"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_perform_user_workflow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenUndoBracket"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_open_undo_bracket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MarkFunctionAsPublic"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_mark_function_as_public,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeVariableNodeFromBinding"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_variable_node_from_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeOptionsForWorkflow"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_options_for_workflow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeBindingsFromVariableNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_bindings_from_variable_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LocalizeFunctions"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_functions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LocalizeFunctionFromPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_function_from_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LocalizeFunction"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("JoinFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_join_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTransacting"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_transacting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReportingEnabled"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_reporting_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFunctionPublic"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_function_public,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InsertArrayPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_insert_array_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportNodesFromText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_import_nodes_from_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUnitStructsForTemplate"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_unit_structs_for_template,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTopLevelGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_top_level_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTemplateForUnitStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_template_for_unit_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSchema"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_schema,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRegisteredUnitStructs"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_registered_unit_structs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRegisteredTemplates"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_registered_templates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPinDefaultValue"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_pin_default_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControllerForGraph"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_controller_for_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActionStack"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_action_stack,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_generate_python_commands,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindVariantsOfFunction"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_variants_of_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindGraphFunctionIdentifier"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_graph_function_identifier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindGraphFunctionHeaderByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_find_graph_function_header_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindGraphFunctionHeader"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_graph_function_header,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportSelectedNodesToText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_selected_nodes_to_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportNodeToText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_node_to_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportNodesToText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_nodes_to_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExpandLibraryNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_expand_library_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableReporting"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_enable_reporting,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EjectNodeFromPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_eject_node_from_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateArrayPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_duplicate_array_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_create_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollapseNodes"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_collapse_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CloseUndoBracket"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_close_undo_bracket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearPinCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_pin_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideOnPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_override_on_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideOnPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_override_on_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideOnAllPinsOnNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_clear_override_on_all_pins_on_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOverrideOnAllPinsOnNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_clear_override_on_all_pins_on_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearNodeSelection"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_node_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearNodeLayout"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_node_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearArrayPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_array_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangeExposedPinType"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_change_exposed_pin_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanImportNodesFromText"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_can_import_nodes_from_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelUndoBracket"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_cancel_undo_bracket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakLink"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_break_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakAllLinks"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_break_all_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindPinToVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_bind_pin_to_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVariableNodeFromObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_variable_node_from_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVariableNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_variable_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUnitNodeWithDefaults"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node_with_defaults,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUnitNodeFromStructPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node_from_struct_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddUnitNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTrait"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_trait,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTemplateNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_template_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddTagToFunctionVariant"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_tag_to_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSelectNodeFromStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_select_node_from_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSelectNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_select_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddRerouteNodeOnPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddRerouteNodeOnLinkPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_link_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddRerouteNodeOnLink"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddParameterNodeFromObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_parameter_node_from_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddParameterNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_parameter_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddOverrideToPins"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_pins,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddOverrideToPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddOverrideToAllPinsOnNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_override_to_all_pins_on_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddOverrideToAllPinsOnNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_all_pins_on_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLocalVariableFromObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_local_variable_from_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLocalVariable"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_local_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLink"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInvokeEntryNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_invoke_entry_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInjectedNodeFromStructPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_injected_node_from_struct_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInjectedNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_injected_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddIfNodeFromStruct"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_if_node_from_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddIfNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_if_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFunctionToLibrary"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_function_to_library,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFunctionReferenceNodeFromDescription"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_function_reference_node_from_description,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFunctionReferenceNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_function_reference_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFreeRerouteNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_free_reroute_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExternalFunctionReferenceNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_external_function_reference_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExposedPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_exposed_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddEnumNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_enum_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddEmptyPinCategory"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_empty_pin_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDefaultTagToFunctionVariant"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_controller_add_default_tag_to_function_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCommentNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_comment_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBranchNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_branch_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddArrayPin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddArrayNodeFromObjectPath"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_node_from_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddArrayNode"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAggregatePin"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_aggregate_pin,
-        );
+        if let Some(class_ptr) = URigVMController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpgradeNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_upgrade_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnresolveTemplateNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_unresolve_template_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Undo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_undo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindPinFromVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_unbind_pin_from_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SwapFunctionReferenceByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_function_reference_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SwapFunctionReference"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_function_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SwapAllFunctionReferences"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_all_function_references,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SplitFunctionVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_split_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUnitNodeDefaults"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_unit_node_defaults,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSchemaClass"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_schema_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSchema"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_schema,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRemappedVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_remapped_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinIsWatched"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_is_watched,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinIndexInCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_index_in_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinExpansion"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_expansion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_display_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinCategoryIndex"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinCategoryExpansion"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category_expansion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPinCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeTitleByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_title_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeTitle"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_title,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeSizeByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_size_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeSize"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeSelection"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodePositionByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_position_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodePosition"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeLayout"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeKeywordsByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_keywords_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeKeywords"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_keywords,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeDescriptionByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_description_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeDescription"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_description,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeColorByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_color_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeColor"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeCategoryByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_category_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalVariableTypeFromObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_type_from_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalVariableType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_local_variable_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocalVariableDefaultValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsRunningUnitTest"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_is_running_unit_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetExposedPinIndex"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_exposed_pin_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCommentTextByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_comment_text_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCommentText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_comment_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetArrayPinSize"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_array_pin_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActionStack"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_action_stack,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectNodeIslands"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node_islands,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectNodeByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectLinkedNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_linked_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResolveWildCardPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_resolve_wild_card_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetPinDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_reset_pin_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetDefaultValueForPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_reset_default_value_for_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetDefaultValueForAllPinsOnNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetDefaultValueForAllPinsOnNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_all_pins_on_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceParameterNodeWithVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_replace_parameter_node_with_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenamePinCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_pin_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameParameter"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameLocalVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_local_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameFunction"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameExposedPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_exposed_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTrait"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_trait,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveTagFromFunctionVariant"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_tag_from_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemovePinCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_pin_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNodesByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_nodes_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNodeByName"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_node_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLocalVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_local_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveInjectedNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_injected_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveFunctionFromLibrary"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_function_from_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveExposedPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_exposed_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveArrayPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_array_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAggregatePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_aggregate_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshVariableNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_refresh_variable_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Redo"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_redo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PushGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_push_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PromotePinToVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_promote_pin_to_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PromoteFunctionReferenceNodeToCollapseNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_function_reference_node_to_collapse_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PromoteCollapseNodeToFunctionReferenceNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_collapse_node_to_function_reference_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PopGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_pop_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PerformUserWorkflow"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_perform_user_workflow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenUndoBracket"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_open_undo_bracket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MarkFunctionAsPublic"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_mark_function_as_public,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeVariableNodeFromBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_make_variable_node_from_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeOptionsForWorkflow"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_options_for_workflow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeBindingsFromVariableNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_make_bindings_from_variable_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LocalizeFunctions"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_functions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LocalizeFunctionFromPath"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_function_from_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LocalizeFunction"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("JoinFunctionVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_join_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTransacting"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_transacting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReportingEnabled"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_reporting_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFunctionPublic"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_function_public,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InsertArrayPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_insert_array_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportNodesFromText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_import_nodes_from_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUnitStructsForTemplate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_get_unit_structs_for_template,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTopLevelGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_top_level_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTemplateForUnitStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_template_for_unit_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSchema"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_schema,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRegisteredUnitStructs"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_registered_unit_structs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRegisteredTemplates"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_registered_templates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPinDefaultValue"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_pin_default_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControllerForGraph"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_controller_for_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActionStack"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_action_stack,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_generate_python_commands,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindVariantsOfFunction"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_variants_of_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindGraphFunctionIdentifier"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_identifier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindGraphFunctionHeaderByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_header_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindGraphFunctionHeader"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_graph_function_header,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportSelectedNodesToText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_export_selected_nodes_to_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportNodeToText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_node_to_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportNodesToText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_nodes_to_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExpandLibraryNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_expand_library_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableReporting"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_enable_reporting,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EjectNodeFromPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_eject_node_from_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateArrayPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_duplicate_array_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFunctionVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_create_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollapseNodes"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_collapse_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CloseUndoBracket"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_close_undo_bracket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearPinCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_pin_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOverrideOnPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_override_on_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOverrideOnPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_override_on_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOverrideOnAllPinsOnNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_all_pins_on_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOverrideOnAllPinsOnNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_all_pins_on_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearNodeSelection"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_node_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearNodeLayout"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_node_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearArrayPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_array_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangeExposedPinType"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_change_exposed_pin_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanImportNodesFromText"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_can_import_nodes_from_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelUndoBracket"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_cancel_undo_bracket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakLink"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_break_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakAllLinks"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_break_all_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindPinToVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_bind_pin_to_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVariableNodeFromObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_variable_node_from_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVariableNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_variable_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUnitNodeWithDefaults"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node_with_defaults,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUnitNodeFromStructPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node_from_struct_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddUnitNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTrait"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_trait,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTemplateNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_template_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddTagToFunctionVariant"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_tag_to_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSelectNodeFromStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_select_node_from_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSelectNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_select_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddRerouteNodeOnPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddRerouteNodeOnLinkPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_link_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddRerouteNodeOnLink"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddParameterNodeFromObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_parameter_node_from_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddParameterNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_parameter_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddOverrideToPins"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_pins,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddOverrideToPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddOverrideToAllPinsOnNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_all_pins_on_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddOverrideToAllPinsOnNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_all_pins_on_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLocalVariableFromObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_local_variable_from_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLocalVariable"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_local_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLink"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInvokeEntryNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_invoke_entry_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInjectedNodeFromStructPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_injected_node_from_struct_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInjectedNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_injected_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddIfNodeFromStruct"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_if_node_from_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddIfNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_if_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFunctionToLibrary"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_function_to_library,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFunctionReferenceNodeFromDescription"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_reference_node_from_description,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFunctionReferenceNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_function_reference_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFreeRerouteNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_free_reroute_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExternalFunctionReferenceNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_external_function_reference_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExposedPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_exposed_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddEnumNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_enum_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddEmptyPinCategory"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_empty_pin_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDefaultTagToFunctionVariant"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_default_tag_to_function_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCommentNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_comment_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBranchNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_branch_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddArrayPin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddArrayNodeFromObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_node_from_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddArrayNode"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAggregatePin"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_aggregate_pin,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -4356,6 +4399,13 @@ impl URigVMEdGraph {
             .get("URigVMEdGraph")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEdGraph")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4376,6 +4426,13 @@ impl URigVMEdGraphNode {
             .name_to_ptr
             .get("URigVMEdGraphNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEdGraphNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4398,6 +4455,13 @@ impl URigVMEdGraphSchema {
             .get("URigVMEdGraphSchema")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEdGraphSchema")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4419,6 +4483,13 @@ impl URigVMAssetInterface {
             .name_to_ptr
             .get("URigVMAssetInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMAssetInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4443,6 +4514,13 @@ impl URigVMBlueprint {
             .name_to_ptr
             .get("URigVMBlueprint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMBlueprint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5613,6 +5691,13 @@ impl URigVMCompiler {
             .get("URigVMCompiler")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMCompiler")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5753,6 +5838,13 @@ impl URigVMNode {
             .name_to_ptr
             .get("URigVMNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7837,6 +7929,13 @@ impl URigVMTemplateNode {
             .get("URigVMTemplateNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMTemplateNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7994,6 +8093,13 @@ impl URigVMLibraryNode {
             .name_to_ptr
             .get("URigVMLibraryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMLibraryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8157,6 +8263,13 @@ impl URigVMCollapseNode {
             .get("URigVMCollapseNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMCollapseNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8178,6 +8291,13 @@ impl URigVMAggregateNode {
             .get("URigVMAggregateNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMAggregateNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8198,6 +8318,13 @@ impl UDEPRECATED_RigVMArrayNode {
             .name_to_ptr
             .get("UDEPRECATED_RigVMArrayNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_RigVMArrayNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8303,6 +8430,13 @@ impl UDEPRECATED_RigVMBranchNode {
             .get("UDEPRECATED_RigVMBranchNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_RigVMBranchNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8323,6 +8457,13 @@ impl URigVMCommentNode {
             .name_to_ptr
             .get("URigVMCommentNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMCommentNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8449,6 +8590,13 @@ impl URigVMDispatchNode {
             .get("URigVMDispatchNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMDispatchNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8469,6 +8617,13 @@ impl URigVMEnumNode {
             .name_to_ptr
             .get("URigVMEnumNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEnumNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8576,6 +8731,13 @@ impl URigVMFunctionInterfaceNode {
             .get("URigVMFunctionInterfaceNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMFunctionInterfaceNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8597,6 +8759,13 @@ impl URigVMFunctionEntryNode {
             .get("URigVMFunctionEntryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMFunctionEntryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8617,6 +8786,13 @@ impl URigVMFunctionReferenceNode {
             .name_to_ptr
             .get("URigVMFunctionReferenceNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMFunctionReferenceNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8672,6 +8848,13 @@ impl URigVMFunctionReturnNode {
             .get("URigVMFunctionReturnNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMFunctionReturnNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8693,6 +8876,13 @@ impl UDEPRECATED_RigVMIfNode {
             .get("UDEPRECATED_RigVMIfNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_RigVMIfNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8713,6 +8903,13 @@ impl URigVMInvokeEntryNode {
             .name_to_ptr
             .get("URigVMInvokeEntryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMInvokeEntryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8760,6 +8957,13 @@ impl URigVMParameterNode {
             .name_to_ptr
             .get("URigVMParameterNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMParameterNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8943,6 +9147,13 @@ impl URigVMRerouteNode {
             .get("URigVMRerouteNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMRerouteNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8964,6 +9175,13 @@ impl UDEPRECATED_RigVMSelectNode {
             .get("UDEPRECATED_RigVMSelectNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_RigVMSelectNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8984,6 +9202,13 @@ impl URigVMUnitNode {
             .name_to_ptr
             .get("URigVMUnitNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMUnitNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9057,6 +9282,13 @@ impl URigVMVariableNode {
             .name_to_ptr
             .get("URigVMVariableNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMVariableNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9317,6 +9549,13 @@ impl URigVMBuildData {
             .name_to_ptr
             .get("URigVMBuildData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMBuildData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9968,6 +10207,13 @@ impl URigVMClientHost {
             .get("URigVMClientHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMClientHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9989,6 +10235,13 @@ impl URigVMEditorSideObject {
             .name_to_ptr
             .get("URigVMEditorSideObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEditorSideObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10012,6 +10265,13 @@ impl URigVMClientExternalModelHost {
             .get("URigVMClientExternalModelHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMClientExternalModelHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10032,6 +10292,13 @@ impl URigVMActionStack {
             .name_to_ptr
             .get("URigVMActionStack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMActionStack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10055,6 +10322,13 @@ impl URigVMExternalDependencyManager {
             .get("URigVMExternalDependencyManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMExternalDependencyManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10075,6 +10349,13 @@ impl URigVMGraph {
             .name_to_ptr
             .get("URigVMGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10969,6 +11250,13 @@ impl URigVMFunctionLibrary {
             .get("URigVMFunctionLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMFunctionLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11161,6 +11449,13 @@ impl URigVMLink {
             .name_to_ptr
             .get("URigVMLink")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMLink")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11424,6 +11719,13 @@ impl URigVMInjectionInfo {
             .get("URigVMInjectionInfo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMInjectionInfo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11496,6 +11798,9 @@ impl URigVMPin {
             .name_to_ptr
             .get("URigVMPin")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("URigVMPin").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13356,6 +13661,13 @@ impl URigVMSchema {
             .get("URigVMSchema")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMSchema")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13376,6 +13688,13 @@ impl URigVMUserWorkflowRegistry {
             .name_to_ptr
             .get("URigVMUserWorkflowRegistry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMUserWorkflowRegistry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13561,6 +13880,13 @@ impl URigVMController {
             .name_to_ptr
             .get("URigVMController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24025,6 +24351,13 @@ impl URigVMControllerSettings {
             .name_to_ptr
             .get("URigVMControllerSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMControllerSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -60,160 +61,164 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditConditionTestObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("VoidFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_void_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticVoidFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_static_void_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetWeakObjectPtrFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_weak_object_ptr_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetUObjectPtrFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_u_object_ptr_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetUintBitfieldFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_uint_bitfield_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetSoftClassPtrFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_soft_class_ptr_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetIntegerFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_integer_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetEnumFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_enum_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetDoubleFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_double_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetByteEnumFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_byte_enum_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StaticGetBoolFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_static_get_bool_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWeakObjectPtrFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_get_weak_object_ptr_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUObjectPtrFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_get_u_object_ptr_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUintBitfieldFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_get_uint_bitfield_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSoftClassPtrFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_edit_condition_test_object_get_soft_class_ptr_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntegerFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_integer_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnumFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_enum_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDoubleFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_double_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetByteEnumFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_byte_enum_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoolFunction"),
-            &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_bool_function,
-        );
+        if let Some(class_ptr) = UEditConditionTestObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("VoidFunction"),
+                &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_void_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticVoidFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_void_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetWeakObjectPtrFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_weak_object_ptr_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetUObjectPtrFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_u_object_ptr_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetUintBitfieldFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_uint_bitfield_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetSoftClassPtrFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_soft_class_ptr_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetIntegerFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_integer_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetEnumFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_enum_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetDoubleFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_double_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetByteEnumFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_byte_enum_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StaticGetBoolFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_static_get_bool_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWeakObjectPtrFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_get_weak_object_ptr_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUObjectPtrFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_get_u_object_ptr_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUintBitfieldFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_get_uint_bitfield_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSoftClassPtrFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_get_soft_class_ptr_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntegerFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_get_integer_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnumFunction"),
+                &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_enum_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDoubleFunction"),
+                &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_double_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetByteEnumFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_edit_condition_test_object_get_byte_enum_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoolFunction"),
+                &raw mut __FUNCTION_PTRS.u_edit_condition_test_object_get_bool_function,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -227,6 +232,13 @@ impl UDetailRowMenuContext {
             .name_to_ptr
             .get("UDetailRowMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDetailRowMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -249,6 +261,13 @@ impl UDetailRowMenuContextPrivate {
             .get("UDetailRowMenuContextPrivate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDetailRowMenuContextPrivate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -269,6 +288,13 @@ impl UDetailsViewPropertyHandleTestValueClass {
             .name_to_ptr
             .get("UDetailsViewPropertyHandleTestValueClass")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDetailsViewPropertyHandleTestValueClass")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -291,6 +317,13 @@ impl UDetailsViewPropertyHandleTestClass {
             .get("UDetailsViewPropertyHandleTestClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDetailsViewPropertyHandleTestClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -311,6 +344,13 @@ impl UDetailsConfig {
             .name_to_ptr
             .get("UDetailsConfig")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDetailsConfig")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -333,6 +373,13 @@ impl UEditConditionTestObject {
             .get("UEditConditionTestObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditConditionTestObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -353,6 +400,13 @@ impl UPropertyEditorSinglePropertyTestClass {
             .name_to_ptr
             .get("UPropertyEditorSinglePropertyTestClass")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyEditorSinglePropertyTestClass")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

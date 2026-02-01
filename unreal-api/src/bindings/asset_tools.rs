@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -68,179 +69,183 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetTools::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameReferencingSoftObjectPaths"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_rename_referencing_soft_object_paths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameAssetsWithDialog"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_rename_assets_with_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_rename_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenEditorForAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_open_editor_for_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MigratePackages"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_migrate_packages,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAssetReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_is_asset_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportAssetTasks"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_import_asset_tasks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportAssetsWithDialog"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_import_assets_with_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportAssetsAutomated"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_import_assets_automated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindSoftReferencesToObject"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_find_soft_references_to_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAssetsWithDialog"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_export_assets_with_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_export_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateAssetWithDialogAndTitle"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset_with_dialog_and_title,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateAssetWithDialog"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset_with_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateAsset"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DiffAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_diff_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DiffAgainstDepot"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_diff_against_depot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateUniqueAssetName"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_create_unique_asset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAssetWithDialogAsync"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_with_dialog_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAssetWithDialog"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_with_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAssetAsync"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAsset"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BeginAdvancedCopyPackages"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_begin_advanced_copy_packages,
-        );
+        if let Some(class_ptr) = UAssetTools::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameReferencingSoftObjectPaths"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tools_rename_referencing_soft_object_paths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameAssetsWithDialog"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_rename_assets_with_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_rename_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenEditorForAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_open_editor_for_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MigratePackages"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_migrate_packages,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAssetReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_is_asset_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportAssetTasks"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_import_asset_tasks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportAssetsWithDialog"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_import_assets_with_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportAssetsAutomated"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_import_assets_automated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindSoftReferencesToObject"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_find_soft_references_to_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAssetsWithDialog"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_export_assets_with_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_export_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateAssetWithDialogAndTitle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset_with_dialog_and_title,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateAssetWithDialog"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset_with_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateAsset"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DiffAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_diff_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DiffAgainstDepot"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_diff_against_depot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateUniqueAssetName"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_create_unique_asset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAssetWithDialogAsync"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_with_dialog_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAssetWithDialog"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_with_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAssetAsync"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAsset"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BeginAdvancedCopyPackages"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_begin_advanced_copy_packages,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetToolsHelpers::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetTools"),
-            &raw mut __FUNCTION_PTRS.u_asset_tools_helpers_get_asset_tools,
-        );
+        if let Some(class_ptr) = UAssetToolsHelpers::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetTools"),
+                &raw mut __FUNCTION_PTRS.u_asset_tools_helpers_get_asset_tools,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -271,6 +276,13 @@ impl UAssetToolsSettings {
             .get("UAssetToolsSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetToolsSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -292,6 +304,13 @@ impl UAssetTools {
             .name_to_ptr
             .get("UAssetTools")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetTools")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1572,6 +1591,13 @@ impl UAssetToolsHelpers {
             .get("UAssetToolsHelpers")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetToolsHelpers")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1619,6 +1645,13 @@ impl UAdvancedCopyCustomization {
             .get("UAdvancedCopyCustomization")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAdvancedCopyCustomization")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1640,6 +1673,13 @@ impl UAssetDefinition_AssetTypeActionsProxy {
             .get("UAssetDefinition_AssetTypeActionsProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetDefinition_AssetTypeActionsProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1660,6 +1700,13 @@ impl UAssetToolsImpl {
             .name_to_ptr
             .get("UAssetToolsImpl")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetToolsImpl")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

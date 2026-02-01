@@ -1199,7 +1199,8 @@ FRustReflection_Root FRustReflection_Root::Collect()
 
 	FJsonSerializer::Serialize(Json, Writer);
 
-	FFileHelper::SaveStringToFile(OutputString, TEXT("C:\\Users\\maikk\\Documents\\unreal-rust\\api.json"),
+	// TODO: FIX
+	FFileHelper::SaveStringToFile(OutputString, TEXT("D:\\projects\\unreal-rust\\api.json"),
 	                              FFileHelper::EEncodingOptions::ForceUTF8);
 
 	return Root;

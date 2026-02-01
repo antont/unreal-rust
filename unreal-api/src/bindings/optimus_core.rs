@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -172,565 +173,581 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOptimusNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphPosition"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_set_graph_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeName"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_get_node_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeCategory"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_get_node_category,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphPosition"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_get_graph_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_get_display_name,
-        );
+        if let Some(class_ptr) = UOptimusNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphPosition"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_set_graph_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeName"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_get_node_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeCategory"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_get_node_category,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphPosition"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_get_graph_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayName"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_get_display_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOptimusDeformer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariables"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_variables,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetResources"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_resources,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPrimaryComponentBinding"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_primary_component_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetComponentBindings"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_component_bindings,
-        );
+        if let Some(class_ptr) = UOptimusDeformer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariables"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_variables,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetResources"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_resources,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPrimaryComponentBinding"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_primary_component_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetComponentBindings"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_component_bindings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOptimusDeformerInstance::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVectorVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVectorArrayVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_vector_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector4Variable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector4_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector4ArrayVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_vector4_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector2Variable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector2_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector2ArrayVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_vector2_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTransformVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_transform_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTransformArrayVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_transform_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRotatorVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_rotator_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRotatorArrayVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_rotator_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetQuatVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_quat_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetQuatArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_quat_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNameVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_name_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNameArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_name_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLinearColorVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_linear_color_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLinearColorArrayVariable"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_deformer_instance_set_linear_color_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIntVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIntArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt4Variable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int4_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt4ArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int4_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt3Variable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int3_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt3ArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int3_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt2Variable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int2_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt2ArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int2_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloatVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_float_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloatArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_float_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_bool_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolArrayVariable"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_bool_array_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnqueueTriggerGraph"),
-            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_enqueue_trigger_graph,
-        );
+        if let Some(class_ptr) = UOptimusDeformerInstance::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVectorVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVectorArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector4Variable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector4_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector4ArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector4_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector2Variable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector2_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector2ArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector2_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTransformVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_transform_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTransformArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_transform_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRotatorVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_rotator_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRotatorArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_rotator_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetQuatVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_quat_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetQuatArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_quat_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNameVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_name_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNameArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_name_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLinearColorVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_linear_color_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLinearColorArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_linear_color_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIntVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIntArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt4Variable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int4_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt4ArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int4_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt3Variable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int3_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt3ArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int3_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt2Variable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int2_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt2ArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int2_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloatVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_float_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloatArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_float_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolVariable"),
+                &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_bool_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolArrayVariable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_bool_array_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnqueueTriggerGraph"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_deformer_instance_enqueue_trigger_graph,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOptimusNodeGraph::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameGraphDirect"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_rename_graph_direct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameGraph"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_rename_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNodes"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLink"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllLinks"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_all_links,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MoveGraphDirect"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_move_graph_direct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSubGraphReference"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_sub_graph_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsKernelFunction"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_kernel_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFunctionReference"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_function_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFunctionGraph"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_function_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsExecutionGraph"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_execution_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCustomKernel"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_custom_kernel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphType"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graph_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphs"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graphs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphIndex"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graph_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExpandCollapsedNodes"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_expand_collapsed_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateNodes"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_duplicate_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_duplicate_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToSubGraph"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_convert_to_sub_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToFunction"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_convert_to_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertFunctionToCustomKernel"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_node_graph_convert_function_to_custom_kernel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertCustomKernelToFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_node_graph_convert_custom_kernel_to_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollapseNodesToSubGraph"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_collapse_nodes_to_sub_graph,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollapseNodesToFunction"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_collapse_nodes_to_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVariableGetNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_variable_get_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddValueNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_value_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddResourceSetNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_set_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddResourceNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddResourceGetNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_get_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLoopTerminalNodes"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_loop_terminal_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLink"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFunctionReferenceNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_function_reference_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDataInterfaceNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_data_interface_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddComponentBindingGetNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_component_binding_get_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCommentNode"),
-            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_comment_node,
-        );
+        if let Some(class_ptr) = UOptimusNodeGraph::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameGraphDirect"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_rename_graph_direct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameGraph"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_rename_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNodes"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLink"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllLinks"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_all_links,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MoveGraphDirect"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_move_graph_direct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSubGraphReference"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_sub_graph_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsKernelFunction"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_kernel_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFunctionReference"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_function_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFunctionGraph"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_function_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsExecutionGraph"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_execution_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCustomKernel"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_custom_kernel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphType"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graph_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphs"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graphs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphIndex"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graph_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExpandCollapsedNodes"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_expand_collapsed_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateNodes"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_duplicate_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_duplicate_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToSubGraph"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_convert_to_sub_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToFunction"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_convert_to_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertFunctionToCustomKernel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_function_to_custom_kernel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertCustomKernelToFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_custom_kernel_to_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollapseNodesToSubGraph"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_collapse_nodes_to_sub_graph,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollapseNodesToFunction"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_collapse_nodes_to_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVariableGetNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_variable_get_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddValueNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_value_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddResourceSetNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_set_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddResourceNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddResourceGetNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_get_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLoopTerminalNodes"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_loop_terminal_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLink"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFunctionReferenceNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_function_reference_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDataInterfaceNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_data_interface_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddComponentBindingGetNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_node_graph_add_component_binding_get_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCommentNode"),
+                &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_comment_node,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UOptimusFunctionNodeGraph::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAccessSpecifierOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_optimus_function_node_graph_get_access_specifier_options,
-        );
+        if let Some(class_ptr) = UOptimusFunctionNodeGraph::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAccessSpecifierOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_optimus_function_node_graph_get_access_specifier_options,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -911,6 +928,13 @@ impl UOptimusAlternativeSelectedObjectProvider {
             .get("UOptimusAlternativeSelectedObjectProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusAlternativeSelectedObjectProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -932,6 +956,13 @@ impl UOptimusComponentBindingProvider {
             .name_to_ptr
             .get("UOptimusComponentBindingProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComponentBindingProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -955,6 +986,13 @@ impl UOptimusComponentBindingReceiver {
             .get("UOptimusComponentBindingReceiver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComponentBindingReceiver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -976,6 +1014,13 @@ impl UOptimusComputeKernelDataInterface {
             .name_to_ptr
             .get("UOptimusComputeKernelDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComputeKernelDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -999,6 +1044,13 @@ impl UOptimusComputeKernelProvider {
             .get("UOptimusComputeKernelProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComputeKernelProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1020,6 +1072,13 @@ impl UOptimusDataInterfaceProvider {
             .name_to_ptr
             .get("UOptimusDataInterfaceProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDataInterfaceProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1043,6 +1102,13 @@ impl UOptimusDeformerAssetPathAccessor {
             .get("UOptimusDeformerAssetPathAccessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformerAssetPathAccessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1064,6 +1130,13 @@ impl UOptimusDeformerGeometryReadbackProvider {
             .name_to_ptr
             .get("UOptimusDeformerGeometryReadbackProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformerGeometryReadbackProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1087,6 +1160,13 @@ impl UOptimusDeformerInstanceAccessor {
             .get("UOptimusDeformerInstanceAccessor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformerInstanceAccessor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1108,6 +1188,13 @@ impl UOptimusDeprecatedExecutionDataInterface {
             .name_to_ptr
             .get("UOptimusDeprecatedExecutionDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeprecatedExecutionDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1131,6 +1218,13 @@ impl UOptimusExecutionDomainProvider {
             .get("UOptimusExecutionDomainProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusExecutionDomainProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1152,6 +1246,13 @@ impl UOptimusGeneratedClassDefiner {
             .name_to_ptr
             .get("UOptimusGeneratedClassDefiner")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGeneratedClassDefiner")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1175,6 +1276,13 @@ impl UOptimusNodeAdderPinProvider {
             .get("UOptimusNodeAdderPinProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeAdderPinProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1196,6 +1304,13 @@ impl UOptimusNodeFunctionLibraryOwner {
             .name_to_ptr
             .get("UOptimusNodeFunctionLibraryOwner")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeFunctionLibraryOwner")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1219,6 +1334,13 @@ impl UOptimusNodeGraphCollectionOwner {
             .get("UOptimusNodeGraphCollectionOwner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeGraphCollectionOwner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1240,6 +1362,13 @@ impl UOptimusNodeGraphProvider {
             .name_to_ptr
             .get("UOptimusNodeGraphProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeGraphProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1263,6 +1392,13 @@ impl UOptimusNodePairProvider {
             .get("UOptimusNodePairProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodePairProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1284,6 +1420,13 @@ impl UOptimusNodePinRouter {
             .name_to_ptr
             .get("UOptimusNodePinRouter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodePinRouter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1307,6 +1450,13 @@ impl UOptimusNodeSubGraphReferencer {
             .get("UOptimusNodeSubGraphReferencer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeSubGraphReferencer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1328,6 +1478,13 @@ impl UOptimusNonCollapsibleNode {
             .name_to_ptr
             .get("UOptimusNonCollapsibleNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNonCollapsibleNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1351,6 +1508,13 @@ impl UOptimusNonCopyableNode {
             .get("UOptimusNonCopyableNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNonCopyableNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1372,6 +1536,13 @@ impl UOptimusOutputBufferWriter {
             .name_to_ptr
             .get("UOptimusOutputBufferWriter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusOutputBufferWriter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1395,6 +1566,13 @@ impl UOptimusParameterBindingProvider {
             .get("UOptimusParameterBindingProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusParameterBindingProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1416,6 +1594,13 @@ impl UOptimusPathResolver {
             .name_to_ptr
             .get("UOptimusPathResolver")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusPathResolver")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1439,6 +1624,13 @@ impl UOptimusPersistentBufferProvider {
             .get("UOptimusPersistentBufferProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusPersistentBufferProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1460,6 +1652,13 @@ impl UOptimusPinMutabilityDefiner {
             .name_to_ptr
             .get("UOptimusPinMutabilityDefiner")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusPinMutabilityDefiner")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1483,6 +1682,13 @@ impl UOptimusPropertyPinProvider {
             .get("UOptimusPropertyPinProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusPropertyPinProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1504,6 +1710,13 @@ impl UOptimusShaderTextProvider {
             .name_to_ptr
             .get("UOptimusShaderTextProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusShaderTextProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1527,6 +1740,13 @@ impl UOptimusUnnamedNodePinProvider {
             .get("UOptimusUnnamedNodePinProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusUnnamedNodePinProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1549,6 +1769,13 @@ impl UOptimusValueProvider {
             .get("UOptimusValueProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusValueProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1569,6 +1796,13 @@ impl UOptimusKernelSource {
             .name_to_ptr
             .get("UOptimusKernelSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusKernelSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1591,6 +1825,13 @@ impl UOptimusComponentSource {
             .get("UOptimusComponentSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComponentSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1611,6 +1852,13 @@ impl UOptimusSceneComponentSource {
             .name_to_ptr
             .get("UOptimusSceneComponentSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSceneComponentSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1633,6 +1881,13 @@ impl UOptimusSkinnedMeshComponentSource {
             .get("UOptimusSkinnedMeshComponentSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshComponentSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1653,6 +1908,13 @@ impl UOptimusSkeletalMeshComponentSource {
             .name_to_ptr
             .get("UOptimusSkeletalMeshComponentSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkeletalMeshComponentSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1675,6 +1937,13 @@ impl UOptimusComputeDataInterface {
             .get("UOptimusComputeDataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComputeDataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1695,6 +1964,13 @@ impl UOptimusAdvancedSkeletonDataInterface {
             .name_to_ptr
             .get("UOptimusAdvancedSkeletonDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusAdvancedSkeletonDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1717,6 +1993,13 @@ impl UOptimusAdvancedSkeletonDataProvider {
             .get("UOptimusAdvancedSkeletonDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusAdvancedSkeletonDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1737,6 +2020,13 @@ impl UOptimusAnimAttributeDataInterface {
             .name_to_ptr
             .get("UOptimusAnimAttributeDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusAnimAttributeDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1759,6 +2049,13 @@ impl UOptimusAnimAttributeDataProvider {
             .get("UOptimusAnimAttributeDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusAnimAttributeDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1779,6 +2076,13 @@ impl UOptimusClothDataInterface {
             .name_to_ptr
             .get("UOptimusClothDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusClothDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1801,6 +2105,13 @@ impl UOptimusClothDataProvider {
             .get("UOptimusClothDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusClothDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1821,6 +2132,13 @@ impl UOptimusConnectivityDataInterface {
             .name_to_ptr
             .get("UOptimusConnectivityDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusConnectivityDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1843,6 +2161,13 @@ impl UOptimusConnectivityDataProvider {
             .get("UOptimusConnectivityDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusConnectivityDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1863,6 +2188,13 @@ impl UOptimusCopyKernelDataInterface {
             .name_to_ptr
             .get("UOptimusCopyKernelDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusCopyKernelDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1885,6 +2217,13 @@ impl UOptimusCopyKernelDataProvider {
             .get("UOptimusCopyKernelDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusCopyKernelDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1905,6 +2244,13 @@ impl UOptimusCustomComputeKernelDataInterface {
             .name_to_ptr
             .get("UOptimusCustomComputeKernelDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusCustomComputeKernelDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1927,6 +2273,13 @@ impl UOptimusCustomComputeKernelDataProvider {
             .get("UOptimusCustomComputeKernelDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusCustomComputeKernelDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1947,6 +2300,13 @@ impl UOptimusDebugDrawDataInterface {
             .name_to_ptr
             .get("UOptimusDebugDrawDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDebugDrawDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1969,6 +2329,13 @@ impl UOptimusDebugDrawDataProvider {
             .get("UOptimusDebugDrawDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDebugDrawDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1989,6 +2356,13 @@ impl UOptimusDuplicateVerticesDataInterface {
             .name_to_ptr
             .get("UOptimusDuplicateVerticesDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDuplicateVerticesDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2011,6 +2385,13 @@ impl UOptimusDuplicateVerticesDataProvider {
             .get("UOptimusDuplicateVerticesDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDuplicateVerticesDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2031,6 +2412,13 @@ impl UOptimusGraphDataInterface {
             .name_to_ptr
             .get("UOptimusGraphDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGraphDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2053,6 +2441,13 @@ impl UOptimusGraphDataProvider {
             .get("UOptimusGraphDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusGraphDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2073,6 +2468,13 @@ impl UOptimusHalfEdgeDataInterface {
             .name_to_ptr
             .get("UOptimusHalfEdgeDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusHalfEdgeDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2095,6 +2497,13 @@ impl UOptimusHalfEdgeDataProvider {
             .get("UOptimusHalfEdgeDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusHalfEdgeDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2115,6 +2524,13 @@ impl UOptimusLoopTerminalDataInterface {
             .name_to_ptr
             .get("UOptimusLoopTerminalDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusLoopTerminalDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2137,6 +2553,13 @@ impl UOptimusLoopTerminalDataProvider {
             .get("UOptimusLoopTerminalDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusLoopTerminalDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2157,6 +2580,13 @@ impl UOptimusMorphTargetDataInterface {
             .name_to_ptr
             .get("UOptimusMorphTargetDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusMorphTargetDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2179,6 +2609,13 @@ impl UOptimusMorphTargetDataProvider {
             .get("UOptimusMorphTargetDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusMorphTargetDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2199,6 +2636,13 @@ impl UOptimusRawBufferDataInterface {
             .name_to_ptr
             .get("UOptimusRawBufferDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusRawBufferDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2221,6 +2665,13 @@ impl UOptimusTransientBufferDataInterface {
             .get("UOptimusTransientBufferDataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusTransientBufferDataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2241,6 +2692,13 @@ impl UOptimusImplicitPersistentBufferDataInterface {
             .name_to_ptr
             .get("UOptimusImplicitPersistentBufferDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusImplicitPersistentBufferDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2263,6 +2721,13 @@ impl UOptimusPersistentBufferDataInterface {
             .get("UOptimusPersistentBufferDataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusPersistentBufferDataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2283,6 +2748,13 @@ impl UOptimusRawBufferDataProvider {
             .name_to_ptr
             .get("UOptimusRawBufferDataProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusRawBufferDataProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2305,6 +2777,13 @@ impl UOptimusTransientBufferDataProvider {
             .get("UOptimusTransientBufferDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusTransientBufferDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2325,6 +2804,13 @@ impl UOptimusImplicitPersistentBufferDataProvider {
             .name_to_ptr
             .get("UOptimusImplicitPersistentBufferDataProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusImplicitPersistentBufferDataProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2347,6 +2833,13 @@ impl UOptimusPersistentBufferDataProvider {
             .get("UOptimusPersistentBufferDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusPersistentBufferDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2367,6 +2860,13 @@ impl UOptimusSceneDataInterface {
             .name_to_ptr
             .get("UOptimusSceneDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSceneDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2389,6 +2889,13 @@ impl UOptimusSceneDataProvider {
             .get("UOptimusSceneDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSceneDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2409,6 +2916,13 @@ impl UOptimusSkeletonDataInterface {
             .name_to_ptr
             .get("UOptimusSkeletonDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkeletonDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2431,6 +2945,13 @@ impl UOptimusSkeletonDataProvider {
             .get("UOptimusSkeletonDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkeletonDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2451,6 +2972,13 @@ impl UOptimusSkinnedMeshDataInterface {
             .name_to_ptr
             .get("UOptimusSkinnedMeshDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2473,6 +3001,13 @@ impl UOptimusSkinnedMeshDataProvider {
             .get("UOptimusSkinnedMeshDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2493,6 +3028,13 @@ impl UDEPRECATED_OptimusSkinnedMeshExecDataInterface {
             .name_to_ptr
             .get("UDEPRECATED_OptimusSkinnedMeshExecDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_OptimusSkinnedMeshExecDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2515,6 +3057,13 @@ impl UOptimusSkinnedMeshReadDataInterface {
             .get("UOptimusSkinnedMeshReadDataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshReadDataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2536,6 +3085,13 @@ impl UOptimusSkinnedMeshReadDataProvider {
             .get("UOptimusSkinnedMeshReadDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshReadDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2556,6 +3112,13 @@ impl UOptimusSkinnedMeshVertexAttributeDataInterface {
             .name_to_ptr
             .get("UOptimusSkinnedMeshVertexAttributeDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshVertexAttributeDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2582,6 +3145,13 @@ impl UOptimusSkinnedMeshVertexAttributeDataProvider {
             .get("UOptimusSkinnedMeshVertexAttributeDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshVertexAttributeDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2602,6 +3172,13 @@ impl UOptimusSkinnedMeshWriteDataInterface {
             .name_to_ptr
             .get("UOptimusSkinnedMeshWriteDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshWriteDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2624,6 +3201,13 @@ impl UOptimusSkinnedMeshWriteDataProvider {
             .get("UOptimusSkinnedMeshWriteDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinnedMeshWriteDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2644,6 +3228,13 @@ impl UOptimusSkinWeightsAsVertexMaskDataInterface {
             .name_to_ptr
             .get("UOptimusSkinWeightsAsVertexMaskDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinWeightsAsVertexMaskDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2666,6 +3257,13 @@ impl UOptimusSkinWeightsAsVertexMaskDataProvider {
             .get("UOptimusSkinWeightsAsVertexMaskDataProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSkinWeightsAsVertexMaskDataProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2686,6 +3284,13 @@ impl UOptimusNode {
             .name_to_ptr
             .get("UOptimusNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2850,6 +3455,13 @@ impl UOptimusNode_DataInterface {
             .get("UOptimusNode_DataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_DataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2870,6 +3482,13 @@ impl UOptimusNode_AnimAttributeDataInterface {
             .name_to_ptr
             .get("UOptimusNode_AnimAttributeDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_AnimAttributeDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2892,6 +3511,13 @@ impl UOptimusNode_ComponentSource {
             .get("UOptimusNode_ComponentSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ComponentSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2912,6 +3538,13 @@ impl UOptimusNode_ComputeKernelBase {
             .name_to_ptr
             .get("UOptimusNode_ComputeKernelBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ComputeKernelBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2934,6 +3567,13 @@ impl UOptimusNode_ComputeKernelFunctionGeneratorClass {
             .get("UOptimusNode_ComputeKernelFunctionGeneratorClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ComputeKernelFunctionGeneratorClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2954,6 +3594,13 @@ impl UOptimusNode_ComputeKernelFunction {
             .name_to_ptr
             .get("UOptimusNode_ComputeKernelFunction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ComputeKernelFunction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2976,6 +3623,13 @@ impl UOptimusNode_ConstantValueGeneratorClass {
             .get("UOptimusNode_ConstantValueGeneratorClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ConstantValueGeneratorClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2996,6 +3650,13 @@ impl UOptimusNode_ConstantValue {
             .name_to_ptr
             .get("UOptimusNode_ConstantValue")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ConstantValue")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3018,6 +3679,13 @@ impl UOptimusNode_CustomComputeKernel {
             .get("UOptimusNode_CustomComputeKernel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_CustomComputeKernel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3038,6 +3706,13 @@ impl UOptimusNode_FunctionReference {
             .name_to_ptr
             .get("UOptimusNode_FunctionReference")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_FunctionReference")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3060,6 +3735,13 @@ impl UOptimusNode_ResourceAccessorBase {
             .get("UOptimusNode_ResourceAccessorBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_ResourceAccessorBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3080,6 +3762,13 @@ impl UOptimusNode_GetResource {
             .name_to_ptr
             .get("UOptimusNode_GetResource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_GetResource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3102,6 +3791,13 @@ impl UOptimusNode_GetVariable {
             .get("UOptimusNode_GetVariable")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_GetVariable")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3122,6 +3818,13 @@ impl UOptimusNode_GraphTerminal {
             .name_to_ptr
             .get("UOptimusNode_GraphTerminal")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_GraphTerminal")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3144,6 +3847,13 @@ impl UOptimusNode_LoopTerminal {
             .get("UOptimusNode_LoopTerminal")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_LoopTerminal")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3164,6 +3874,13 @@ impl UOptimusNode_Resource {
             .name_to_ptr
             .get("UOptimusNode_Resource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_Resource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3186,6 +3903,13 @@ impl UOptimusNode_SetResource {
             .get("UOptimusNode_SetResource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_SetResource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3206,6 +3930,13 @@ impl UOptimusNode_SubGraphReference {
             .name_to_ptr
             .get("UOptimusNode_SubGraphReference")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_SubGraphReference")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3228,6 +3959,13 @@ impl UOptimusActionStack {
             .get("UOptimusActionStack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusActionStack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3248,6 +3986,13 @@ impl UOptimusComponentSourceBinding {
             .name_to_ptr
             .get("UOptimusComponentSourceBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComponentSourceBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3270,6 +4015,13 @@ impl UOptimusComputeGraph {
             .get("UOptimusComputeGraph")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComputeGraph")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3290,6 +4042,13 @@ impl UOptimusComponentSourceBindingContainer {
             .name_to_ptr
             .get("UOptimusComponentSourceBindingContainer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusComponentSourceBindingContainer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3312,6 +4071,13 @@ impl UOptimusVariableContainer {
             .get("UOptimusVariableContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusVariableContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3333,6 +4099,13 @@ impl UOptimusResourceContainer {
             .get("UOptimusResourceContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusResourceContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3353,6 +4126,13 @@ impl UOptimusDeformer {
             .name_to_ptr
             .get("UOptimusDeformer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3487,6 +4267,13 @@ impl UOptimusDeformerDynamicInstanceManager {
             .get("UOptimusDeformerDynamicInstanceManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformerDynamicInstanceManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3508,6 +4295,13 @@ impl UOptimusDeformerInstanceSettings {
             .get("UOptimusDeformerInstanceSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformerInstanceSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3528,6 +4322,13 @@ impl UOptimusDeformerInstance {
             .name_to_ptr
             .get("UOptimusDeformerInstance")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusDeformerInstance")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4815,6 +5616,13 @@ impl UOptimusNodeGraph {
             .name_to_ptr
             .get("UOptimusNodeGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6242,6 +7050,13 @@ impl UOptimusNodeSubGraph {
             .get("UOptimusNodeSubGraph")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeSubGraph")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6262,6 +7077,13 @@ impl UOptimusFunctionNodeGraph {
             .name_to_ptr
             .get("UOptimusFunctionNodeGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusFunctionNodeGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6284,6 +7106,13 @@ impl UOptimusNodeLink {
             .get("UOptimusNodeLink")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodeLink")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6304,6 +7133,13 @@ impl UOptimusNodePair {
             .name_to_ptr
             .get("UOptimusNodePair")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodePair")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6326,6 +7162,13 @@ impl UOptimusNodePin {
             .get("UOptimusNodePin")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNodePin")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6346,6 +7189,13 @@ impl UOptimusNode_Comment {
             .name_to_ptr
             .get("UOptimusNode_Comment")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusNode_Comment")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6371,6 +7221,13 @@ impl UOptimusResourceDescription {
             .get("UOptimusResourceDescription")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusResourceDescription")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6391,6 +7248,13 @@ impl UOptimusSource {
             .name_to_ptr
             .get("UOptimusSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6413,6 +7277,13 @@ impl UOptimusValueContainerGeneratorClass {
             .get("UOptimusValueContainerGeneratorClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusValueContainerGeneratorClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6434,6 +7305,13 @@ impl UOptimusValueContainer {
             .get("UOptimusValueContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusValueContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6454,6 +7332,13 @@ impl UOptimusVariableDescription {
             .name_to_ptr
             .get("UOptimusVariableDescription")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOptimusVariableDescription")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

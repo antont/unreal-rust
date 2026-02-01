@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,36 +27,39 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGLTFExporter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportToGLTF"),
-            &raw mut __FUNCTION_PTRS.ugltf_exporter_export_to_gltf,
-        );
+        if let Some(class_ptr) = UGLTFExporter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportToGLTF"),
+                &raw mut __FUNCTION_PTRS.ugltf_exporter_export_to_gltf,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGLTFExportOptions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut __FUNCTION_PTRS.ugltf_export_options_reset_to_default,
-        );
+        if let Some(class_ptr) = UGLTFExportOptions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToDefault"),
+                &raw mut __FUNCTION_PTRS.ugltf_export_options_reset_to_default,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGLTFProxyOptions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut __FUNCTION_PTRS.ugltf_proxy_options_reset_to_default,
-        );
+        if let Some(class_ptr) = UGLTFProxyOptions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetToDefault"),
+                &raw mut __FUNCTION_PTRS.ugltf_proxy_options_reset_to_default,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -93,6 +97,13 @@ impl UGLTFExporter {
             .name_to_ptr
             .get("UGLTFExporter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFExporter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -185,6 +196,13 @@ impl UGLTFAnimSequenceExporter {
             .get("UGLTFAnimSequenceExporter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFAnimSequenceExporter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -205,6 +223,13 @@ impl UGLTFLevelExporter {
             .name_to_ptr
             .get("UGLTFLevelExporter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFLevelExporter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -227,6 +252,13 @@ impl UGLTFLevelSequenceExporter {
             .get("UGLTFLevelSequenceExporter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFLevelSequenceExporter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -247,6 +279,13 @@ impl UGLTFLevelVariantSetsExporter {
             .name_to_ptr
             .get("UGLTFLevelVariantSetsExporter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFLevelVariantSetsExporter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -269,6 +308,13 @@ impl UGLTFMaterialExporter {
             .get("UGLTFMaterialExporter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFMaterialExporter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -290,6 +336,13 @@ impl UGLTFSkeletalMeshExporter {
             .get("UGLTFSkeletalMeshExporter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFSkeletalMeshExporter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -310,6 +363,13 @@ impl UGLTFStaticMeshExporter {
             .name_to_ptr
             .get("UGLTFStaticMeshExporter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFStaticMeshExporter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -371,6 +431,13 @@ impl UGLTFExportOptions {
             .get("UGLTFExportOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFExportOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -427,6 +494,13 @@ impl UGLTFProxyOptions {
             .get("UGLTFProxyOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFProxyOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -476,6 +550,13 @@ impl UGLTFMaterialExportOptions {
             .name_to_ptr
             .get("UGLTFMaterialExportOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGLTFMaterialExportOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -178,7 +178,9 @@ impl UserModule for UnrealEcs {
     }
 
     fn tick(&mut self, dt: f32) {
-        log::warn!("Hello Foo");
+        let s = String::from("FooBar");
+        let v = vec![1,2,3,4];
+        log::warn!("Hello Foo {} {v:?} ", s);
         // self.app
         //     .world_mut()
         //     .resource_scope::<Frame, _>(|_, mut frame| {

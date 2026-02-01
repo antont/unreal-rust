@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -116,367 +117,389 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UVariantManagerBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueVector4"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_set_value_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_set_value_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueVector"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueString"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueRotator"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_set_value_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueQuat"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueObject"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueLinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_set_value_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueIntPoint"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_set_value_int_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueInt"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueFloat"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueColor"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueBool"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDependency"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveVariantSetByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_variant_set_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveVariantSet"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_variant_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveVariantByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_variant_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveVariant"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_remove_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCapturedPropertyByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_captured_property_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCapturedProperty"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_captured_property,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorBindingByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_actor_binding_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_remove_actor_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Record"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_record,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueVector4"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_value_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_value_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueVector"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueString"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueRotator"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_value_rotator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueQuat"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueObject"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueLinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_value_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueIntPoint"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_value_int_point,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueInt"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueFloat"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueColor"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValueBool"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyTypeString"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_property_type_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCapturedProperties"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_captured_properties,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCapturableProperties"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_get_capturable_properties,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteDependency"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_delete_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateLevelVariantSetsAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_create_level_variant_sets_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateLevelVariantSetsActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_create_level_variant_sets_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureProperty"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_capture_property,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Apply"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_apply,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVariantSet"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_variant_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddVariant"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_variant,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDependency"),
-            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_variant_manager_blueprint_library_add_actor_binding,
-        );
+        if let Some(class_ptr) = UVariantManagerBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueVector4"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueQuat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueLinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueIntPoint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_int_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveVariantSetByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_set_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveVariantSet"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveVariantByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveVariant"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCapturedPropertyByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_captured_property_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCapturedProperty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_captured_property,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorBindingByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_actor_binding_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_actor_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Record"),
+                &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_record,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueVector4"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueRotator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_rotator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueQuat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueLinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueIntPoint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_int_point,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValueBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyTypeString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_property_type_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCapturedProperties"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_captured_properties,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCapturableProperties"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_capturable_properties,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_delete_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateLevelVariantSetsAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_create_level_variant_sets_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateLevelVariantSetsActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_create_level_variant_sets_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureProperty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_capture_property,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Apply"),
+                &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_apply,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVariantSet"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_variant_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddVariant"),
+                &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_variant,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_actor_binding,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -496,6 +519,13 @@ impl UPropertyTemplateObject {
             .name_to_ptr
             .get("UPropertyTemplateObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyTemplateObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -517,6 +547,13 @@ impl UVariantManagerBlueprintLibrary {
             .name_to_ptr
             .get("UVariantManagerBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVariantManagerBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

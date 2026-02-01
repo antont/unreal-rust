@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,15 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolSlateWidgetTypesFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActionButtonTypeNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_tool_slate_widget_types_function_library_get_action_button_type_names,
-        );
+        if let Some(class_ptr) = UToolSlateWidgetTypesFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActionButtonTypeNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_slate_widget_types_function_library_get_action_button_type_names,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -64,6 +66,13 @@ impl UFilterBarContext {
             .get("UFilterBarContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFilterBarContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -85,6 +94,13 @@ impl USidebarButtonMenuContext {
             .get("USidebarButtonMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USidebarButtonMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -105,6 +121,13 @@ impl UToolSlateWidgetTypesFunctionLibrary {
             .name_to_ptr
             .get("UToolSlateWidgetTypesFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolSlateWidgetTypesFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+use std::collections::btree_map::Entry;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::OnceLock;
@@ -11,11 +12,14 @@ use unreal_ffi::{PluginBindings, RegisterUnrealBindings, RustBindings, UnrealBin
 pub struct Plugin {
     library: Library,
     register_unreal_bindings: RegisterUnrealBindings,
-    rust_bindings: RustBindings,
     timestamp: SystemTime,
 }
 impl Plugin {
-    pub fn new(unreal_bindings: &UnrealBindings, path: &Path) -> Self {
+    pub fn new(
+        unreal_bindings: &UnrealBindings,
+        rust_bindings: &mut RustBindings,
+        path: &Path,
+    ) -> Self {
         let library = unsafe { Library::new(path).unwrap() };
 
         let metadata = std::fs::metadata(path).unwrap();
@@ -26,14 +30,11 @@ impl Plugin {
                 .unwrap()
         };
 
-        let mut rust_bindings = RustBindings::uninit();
-
-        (register_unreal_bindings)(unreal_bindings.clone(), &mut rust_bindings);
+        (register_unreal_bindings)(unreal_bindings.clone(), rust_bindings);
 
         Plugin {
             library,
             register_unreal_bindings,
-            rust_bindings,
             timestamp: metadata.modified().unwrap(),
         }
     }
@@ -75,10 +76,22 @@ impl Loader {
     /// Safety
     pub fn load(&mut self, rust_bindings: &mut RustBindings) {
         // TODO: Maybe add some unloading logic here
+        // unload the currently loaded plugin
         self.loaded_plugin = None;
 
         let root_dir =
             PathBuf::from("D:\\projects\\unreal-rust\\example\\RustExample\\Binaries\\rust");
+
+        for entry in root_dir.read_dir().unwrap().flatten() {
+            if entry.path().is_dir()
+                && let Some(file_name) = entry.file_name().to_str()
+                && file_name.starts_with("rust-plugin")
+            {
+                // try to delete every hot reload folder. Some we can't delete because the debugger
+                // might keep them open
+                let _ = fs::remove_dir_all(entry.path());
+            }
+        }
 
         let _ = fs::create_dir_all(&root_dir);
 
@@ -90,8 +103,14 @@ impl Loader {
         let _ = fs::create_dir_all(&hot_reload_dir);
         let _ = fs::copy(&self.path, &hotreload_dll_path);
 
-        let plugin = Plugin::new(&self.unreal_bindings, &hotreload_dll_path);
-        *rust_bindings = plugin.rust_bindings.clone();
+        if let Some(pdb_dir) = self.path.parent() {
+            let pdb_path = pdb_dir.join("unreal_rust_example.pdb");
+            if pdb_path.exists() {
+                let _ = fs::copy(&pdb_path, hot_reload_dir.join("unreal_rust_example.pdb"));
+            }
+        }
+
+        let plugin = Plugin::new(&self.unreal_bindings, rust_bindings, &hotreload_dll_path);
 
         self.loaded_plugin = Some(plugin);
 

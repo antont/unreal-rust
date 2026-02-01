@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -1770,6591 +1771,6735 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UWidget::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVisibility"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUserFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_user_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetToolTipText"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_tool_tip_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetToolTip"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_tool_tip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderTranslation"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_translation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderTransformPivot"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_transform_pivot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderTransformAngle"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_transform_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderTransform"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderShear"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_shear,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderScale"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderOpacity"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_render_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationRuleExplicit"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_explicit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationRuleCustomBoundary"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_custom_boundary,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationRuleCustom"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_custom,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationRuleBase"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_base,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationRule"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetKeyboardFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_keyboard_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsEnabled"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_is_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCursor"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_cursor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetClipping"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_clipping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllNavigationRules"),
-            &raw mut __FUNCTION_PTRS.u_widget_set_all_navigation_rules,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetCursor"),
-            &raw mut __FUNCTION_PTRS.u_widget_reset_cursor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveFromParent"),
-            &raw mut __FUNCTION_PTRS.u_widget_remove_from_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnReply__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_on_reply_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPointerEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_on_pointer_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_RemoveFieldValueChangedDelegate"),
-            &raw mut __FUNCTION_PTRS.u_widget_k2_remove_field_value_changed_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_BroadcastFieldValueChanged"),
-            &raw mut __FUNCTION_PTRS.u_widget_k2_broadcast_field_value_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_AddFieldValueChangedDelegate"),
-            &raw mut __FUNCTION_PTRS.u_widget_k2_add_field_value_changed_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVisible"),
-            &raw mut __FUNCTION_PTRS.u_widget_is_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRendered"),
-            &raw mut __FUNCTION_PTRS.u_widget_is_rendered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInViewport"),
-            &raw mut __FUNCTION_PTRS.u_widget_is_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsHovered"),
-            &raw mut __FUNCTION_PTRS.u_widget_is_hovered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InvalidateLayoutAndVolatility"),
-            &raw mut __FUNCTION_PTRS.u_widget_invalidate_layout_and_volatility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasUserFocusedDescendants"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_user_focused_descendants,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasUserFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_user_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMouseCaptureByUser"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_mouse_capture_by_user,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMouseCapture"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_mouse_capture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasKeyboardFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_keyboard_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasFocusedDescendants"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_focused_descendants,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAnyUserFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_has_any_user_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidget__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_widget_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVisibility"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTickSpaceGeometry"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_tick_space_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_text_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlateVisibility__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_slate_visibility_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlateColor__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_slate_color_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlateBrush__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_slate_brush_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRenderTransformAngle"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_render_transform_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRenderOpacity"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_render_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPaintSpaceGeometry"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_paint_space_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwningPlayer"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_owning_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwningLocalPlayer"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_owning_local_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMouseCursor__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_mouse_cursor_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinearColor__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_linear_color_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsEnabled"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_is_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInt32__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_int32_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGameInstance"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_game_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloat__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_float_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDesiredSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_desired_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClipping"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_clipping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCheckBoxState__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_check_box_state_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCachedGeometry"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_cached_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBool__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_bool_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAccessibleText"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_accessible_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAccessibleSummaryText"),
-            &raw mut __FUNCTION_PTRS.u_widget_get_accessible_summary_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateWidgetForString__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_generate_widget_for_string_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateWidgetForObject__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_generate_widget_for_object_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceVolatile"),
-            &raw mut __FUNCTION_PTRS.u_widget_force_volatile,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceLayoutPrepass"),
-            &raw mut __FUNCTION_PTRS.u_widget_force_layout_prepass,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUserWidget::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterInputComponent"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_unregister_input_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindFromAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_unbind_from_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindFromAnimationFinished"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_unbind_from_animation_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindAllFromAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_unbind_all_from_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindAllFromAnimationFinished"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_unbind_all_from_animation_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Tick"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopListeningForInputAction"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_stop_listening_for_input_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopListeningForAllInputActions"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_stop_listening_for_all_input_actions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopAnimationsAndLatentActions"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_stop_animations_and_latent_actions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_stop_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopAllAnimations"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_stop_all_animations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPositionInViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_position_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_playback_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOwningPlayer"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_owning_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumLoopsToPlay"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_num_loops_to_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInputActionPriority"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_input_action_priority,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInputActionBlocking"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_input_action_blocking,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForegroundColor"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_foreground_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDesiredSizeInViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_desired_size_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDesiredFocusWidget"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_desired_focus_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimationCurrentTime"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_animation_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnchorsInViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_anchors_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAlignmentInViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_set_alignment_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReverseAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_reverse_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveFromViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_remove_from_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveExtensions"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_remove_extensions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveExtension"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_remove_extension,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterInputComponent"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_register_input_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueueStopAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_stop_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueueStopAllAnimations"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_stop_all_animations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueuePlayAnimationTimeRange"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation_time_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueuePlayAnimationReverse"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation_reverse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueuePlayAnimationForward"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation_forward,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueuePlayAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("QueuePauseAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_queue_pause_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PreConstruct"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_pre_construct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlaySound"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_play_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayAnimationTimeRange"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_play_animation_time_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayAnimationReverse"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_play_animation_reverse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayAnimationForward"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_play_animation_forward,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_play_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PauseAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_pause_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTouchStarted"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTouchMoved"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_moved,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTouchGesture"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_gesture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTouchForceChanged"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_force_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTouchFirstMove"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_first_move,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTouchEnded"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_ended,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRemovedFromFocusPath"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_removed_from_focus_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPreviewMouseButtonDown"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_preview_mouse_button_down,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPreviewKeyDown"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_preview_key_down,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPaint"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_paint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseWheel"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_wheel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseMove"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_move,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseLeave"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_leave,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseEnter"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_enter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseCaptureLost"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_capture_lost,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseButtonUp"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_button_up,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseButtonDown"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_button_down,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMouseButtonDoubleClick"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_button_double_click,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMotionDetected"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_motion_detected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnKeyUp"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_key_up,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnKeyDown"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_key_down,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnKeyChar"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_key_char,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnInitialized"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_initialized,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnFocusReceived"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_focus_received,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnFocusLost"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_focus_lost,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDrop"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_drop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragOver"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_over,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragLeave"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_leave,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragEnter"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_enter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragDetected"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_detected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDragCancelled"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_cancelled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAnimationFinished"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_animation_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAnalogValueChanged"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_analog_value_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnAddedToFocusPath"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_on_added_to_focus_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ListenForInputAction"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_listen_for_input_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlayingAnimation"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_is_playing_animation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsListeningForInputAction"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_is_listening_for_input_action,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInteractable"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_is_interactable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAnyAnimationPlaying"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_is_any_animation_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAnimationPlayingForward"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_is_animation_playing_forward,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAnimationPlaying"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_is_animation_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwningPlayerPawn"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_owning_player_pawn,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwningPlayerCameraManager"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_owning_player_camera_manager,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsVisible"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_is_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetExtensions"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_extensions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetExtension"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_extension,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimationCurrentTime"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_animation_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnchorsInViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_anchors_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAlignmentInViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_get_alignment_in_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FlushAnimations"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_flush_animations,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Destruct"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_destruct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Construct"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_construct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelLatentActions"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_cancel_latent_actions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindToAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_bind_to_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindToAnimationFinished"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_bind_to_animation_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindToAnimationEvent"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_bind_to_animation_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddToViewport"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_add_to_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddToPlayerScreen"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_add_to_player_screen,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddExtension"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_add_extension,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWindowVisibility"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_window_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWindowFocusable"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_window_focusable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetSpace"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_widget_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidget"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTwoSided"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTintColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_tint_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTickWhenOffscreen"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_tick_when_offscreen,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTickMode"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_tick_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRedrawTime"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_redraw_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPivot"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_pivot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOwnerPlayer"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_owner_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetManuallyRedraw"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_manually_redraw,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGeometryMode"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_geometry_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDrawSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_draw_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDrawAtDesiredSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_draw_at_desired_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCylinderArcAngle"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_cylinder_arc_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_set_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRenderUpdate"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_request_render_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRedraw"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_request_redraw,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsWidgetVisible"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_is_widget_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWindowVisiblility"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_window_visiblility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWindowFocusable"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_window_focusable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidgetSpace"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_widget_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidget"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUserWidgetObject"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_user_widget_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTwoSided"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTickWhenOffscreen"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_tick_when_offscreen,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRenderTarget"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_render_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRedrawTime"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_redraw_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPivot"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_pivot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwnerPlayer"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_owner_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInstance"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_material_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetManuallyRedraw"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_manually_redraw,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGeometryMode"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_geometry_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDrawSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_draw_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDrawAtDesiredSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_draw_at_desired_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCylinderArcAngle"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_cylinder_arc_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentDrawSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_component_get_current_draw_size,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UPanelWidget::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChildAt"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_remove_child_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveChild"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_remove_child,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasChild"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_has_child,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAnyChildren"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_has_any_children,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildrenCount"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_get_children_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildIndex"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_get_child_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildAt"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_get_child_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllChildren"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_get_all_children,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearChildren"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_clear_children,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChild"),
-            &raw mut __FUNCTION_PTRS.u_panel_widget_add_child,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UContentWidget::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetContent"),
-            &raw mut __FUNCTION_PTRS.u_content_widget_set_content,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetContentSlot"),
-            &raw mut __FUNCTION_PTRS.u_content_widget_get_content_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetContent"),
-            &raw mut __FUNCTION_PTRS.u_content_widget_get_content,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UButton::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTouchMethod"),
-            &raw mut __FUNCTION_PTRS.u_button_set_touch_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStyle"),
-            &raw mut __FUNCTION_PTRS.u_button_set_style,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPressMethod"),
-            &raw mut __FUNCTION_PTRS.u_button_set_press_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_button_set_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetClickMethod"),
-            &raw mut __FUNCTION_PTRS.u_button_set_click_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_button_set_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowDragDrop"),
-            &raw mut __FUNCTION_PTRS.u_button_set_allow_drag_drop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPressed"),
-            &raw mut __FUNCTION_PTRS.u_button_is_pressed,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UCheckBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTouchMethod"),
-            &raw mut __FUNCTION_PTRS.u_check_box_set_touch_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPressMethod"),
-            &raw mut __FUNCTION_PTRS.u_check_box_set_press_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsChecked"),
-            &raw mut __FUNCTION_PTRS.u_check_box_set_is_checked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetClickMethod"),
-            &raw mut __FUNCTION_PTRS.u_check_box_set_click_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCheckedState"),
-            &raw mut __FUNCTION_PTRS.u_check_box_set_checked_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPressed"),
-            &raw mut __FUNCTION_PTRS.u_check_box_is_pressed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsChecked"),
-            &raw mut __FUNCTION_PTRS.u_check_box_is_checked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCheckedState"),
-            &raw mut __FUNCTION_PTRS.u_check_box_get_checked_state,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UCircularThrobber::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRadius"),
-            &raw mut __FUNCTION_PTRS.u_circular_throbber_set_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPeriod"),
-            &raw mut __FUNCTION_PTRS.u_circular_throbber_set_period,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumberOfPieces"),
-            &raw mut __FUNCTION_PTRS.u_circular_throbber_set_number_of_pieces,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UComboBoxKey::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectedOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_set_selected_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_remove_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSelectionChangedEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_combo_box_key_on_selection_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnOpeningEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_on_opening_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOpen"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_is_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_get_selected_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateWidgetEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_combo_box_key_generate_widget_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSelection"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_clear_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOptions"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_clear_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_key_add_option,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UComboBoxString::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectedOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_set_selected_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectedIndex"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_set_selected_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_remove_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshOptions"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_refresh_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSelectionChangedEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_combo_box_string_on_selection_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnOpeningEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_combo_box_string_on_opening_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOpen"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_is_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_get_selected_option,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedIndex"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_get_selected_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOptionCount"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_get_option_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOptionAtIndex"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_get_option_at_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOptionIndex"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_find_option_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSelection"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_clear_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearOptions"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_clear_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddOption"),
-            &raw mut __FUNCTION_PTRS.u_combo_box_string_add_option,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UEditableText::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleVirtualKeyboard"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_toggle_virtual_keyboard,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_text_overflow_policy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinimumDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_minimum_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetJustification"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_justification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_is_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsPassword"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_is_password,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHintText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_hint_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFontOutlineMaterial"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_font_outline_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFontMaterial"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_font_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFont"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_set_font,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnEditableTextCommittedEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_editable_text_on_editable_text_committed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnEditableTextChangedEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_editable_text_on_editable_text_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_get_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetJustification"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_get_justification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHintText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_get_hint_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFont"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_get_font,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UEditableTextBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_text_overflow_policy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetJustification"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_justification,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_is_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsPassword"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_is_password,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHintText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_hint_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForegroundColor"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_foreground_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetError"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_set_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnEditableTextBoxCommittedEvent__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_editable_text_box_on_editable_text_box_committed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnEditableTextBoxChangedEvent__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_editable_text_box_on_editable_text_box_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasError"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_has_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_get_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearError"),
-            &raw mut __FUNCTION_PTRS.u_editable_text_box_clear_error,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UExpandableArea::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsExpanded_Animated"),
-            &raw mut __FUNCTION_PTRS.u_expandable_area_set_is_expanded_animated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsExpanded"),
-            &raw mut __FUNCTION_PTRS.u_expandable_area_set_is_expanded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsExpanded"),
-            &raw mut __FUNCTION_PTRS.u_expandable_area_get_is_expanded,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UInputKeySelector::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextBlockVisibility"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_text_block_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectedKey"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_selected_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNoKeySpecifiedText"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_no_key_specified_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetKeySelectionText"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_key_selection_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEscapeKeys"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_escape_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowModifierKeys"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_allow_modifier_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowGamepadKeys"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_set_allow_gamepad_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnKeySelected__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_input_key_selector_on_key_selected_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnIsSelectingKeyChanged__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_input_key_selector_on_is_selecting_key_changed_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsSelectingKey"),
-            &raw mut __FUNCTION_PTRS.u_input_key_selector_get_is_selecting_key,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UListViewBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWheelScrollMultiplier"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_set_wheel_scroll_multiplier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollOffset"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_set_scroll_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollbarVisibility"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_set_scrollbar_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsPointerScrollingEnabled"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_set_is_pointer_scrolling_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsGamepadScrollingEnabled"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_set_is_gamepad_scrolling_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowOverScroll"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_set_allow_over_scroll,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollToTop"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_scroll_to_top,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollToBottom"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_scroll_to_bottom,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRefresh"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_request_refresh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegenerateAllEntries"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_regenerate_all_entries,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScrollOffset"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_get_scroll_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsDraggingListItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_get_is_dragging_list_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplayedEntryWidgets"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_get_displayed_entry_widgets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndInertialScrolling"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_end_inertial_scrolling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateDragDropOperation"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_create_drag_drop_operation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelListViewDragDrop"),
-            &raw mut __FUNCTION_PTRS.u_list_view_base_cancel_list_view_drag_drop,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UListView::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectionMode"),
-            &raw mut __FUNCTION_PTRS.u_list_view_set_selection_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectedIndex"),
-            &raw mut __FUNCTION_PTRS.u_list_view_set_selected_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollIntoViewAlignment"),
-            &raw mut __FUNCTION_PTRS.u_list_view_set_scroll_into_view_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollBarPadding"),
-            &raw mut __FUNCTION_PTRS.u_list_view_set_scroll_bar_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollIndexIntoView"),
-            &raw mut __FUNCTION_PTRS.u_list_view_scroll_index_into_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_remove_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnListItemOuterEndPlayed"),
-            &raw mut __FUNCTION_PTRS.u_list_view_on_list_item_outer_end_played,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnListItemEndPlayed"),
-            &raw mut __FUNCTION_PTRS.u_list_view_on_list_item_end_played,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NavigateToIndex"),
-            &raw mut __FUNCTION_PTRS.u_list_view_navigate_to_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRefreshPending"),
-            &raw mut __FUNCTION_PTRS.u_list_view_is_refresh_pending,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVerticalEntrySpacing"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_vertical_entry_spacing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScrollBarPadding"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_scroll_bar_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumItems"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_num_items,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetListItems"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_list_items,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetItemAt"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_item_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIndexForItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_index_for_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHorizontalEntrySpacing"),
-            &raw mut __FUNCTION_PTRS.u_list_view_get_horizontal_entry_spacing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearListItems"),
-            &raw mut __FUNCTION_PTRS.u_list_view_clear_list_items,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_SetSelectedItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_set_selected_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_SetListItems"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_set_list_items,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_SetItemSelection"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_set_item_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_ScrollItemIntoView"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_scroll_item_into_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_NavigateToItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_navigate_to_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_IsItemVisible"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_is_item_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetSelectedItems"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_get_selected_items,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetSelectedItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_get_selected_item,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetNumItemsSelected"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_get_num_items_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_ClearSelection"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_clear_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_CancelScrollIntoView"),
-            &raw mut __FUNCTION_PTRS.u_list_view_bp_cancel_scroll_into_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddItem"),
-            &raw mut __FUNCTION_PTRS.u_list_view_add_item,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UTextLayoutWidget::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetJustification"),
-            &raw mut __FUNCTION_PTRS.u_text_layout_widget_set_justification,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UMultiLineEditableText::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetStyle"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_widget_style,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_is_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHintText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_hint_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFontOutlineMaterial"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_font_outline_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFontMaterial"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_font_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFont"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_font,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnMultiLineEditableTextCommittedEvent__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_multi_line_editable_text_on_multi_line_editable_text_committed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnMultiLineEditableTextChangedEvent__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_multi_line_editable_text_on_multi_line_editable_text_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_get_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHintText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_get_hint_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFont"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_get_font,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UMultiLineEditableTextBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextStyle"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_text_style,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_is_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHintText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_hint_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForegroundColor"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_foreground_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetError"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_multi_line_editable_text_box_on_multi_line_editable_text_box_committed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnMultiLineEditableTextBoxChangedEvent__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_multi_line_editable_text_box_on_multi_line_editable_text_box_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_get_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHintText"),
-            &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_get_hint_text,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UProgressBar::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPercent"),
-            &raw mut __FUNCTION_PTRS.u_progress_bar_set_percent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsMarquee"),
-            &raw mut __FUNCTION_PTRS.u_progress_bar_set_is_marquee,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFillColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_progress_bar_set_fill_color_and_opacity,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UScrollBar::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetState"),
-            &raw mut __FUNCTION_PTRS.u_scroll_bar_set_state,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UScrollBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWheelScrollMultiplier"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_wheel_scroll_multiplier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollWhenFocusChanges"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_scroll_when_focus_changes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollOffset"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_scroll_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollBarVisibility"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_scroll_bar_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollbarThickness"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_scrollbar_thickness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollbarPadding"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_scrollbar_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetScrollAnimationInterpolationSpeed"),
-            &raw mut __FUNCTION_PTRS
-                .u_scroll_box_set_scroll_animation_interpolation_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOrientation"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_orientation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNavigationDestination"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_navigation_destination,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsTouchScrollingEnabled"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_is_touch_scrolling_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsFocusable"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_is_focusable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConsumePointerInput"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_consume_pointer_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetConsumeMouseWheel"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_consume_mouse_wheel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimateWheelScrolling"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_animate_wheel_scrolling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnalogMouseWheelKey"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_analog_mouse_wheel_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAlwaysShowScrollbar"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_always_show_scrollbar,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowOverscroll"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_set_allow_overscroll,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollWidgetIntoView"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_scroll_widget_into_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollToStart"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_scroll_to_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollToEnd"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_scroll_to_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewOffsetFraction"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_view_offset_fraction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewFraction"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_view_fraction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScrollOffsetOfEnd"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_scroll_offset_of_end,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScrollOffset"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_scroll_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverscrollPercentage"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_overscroll_percentage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverscrollOffset"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_overscroll_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsScrolling"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_is_scrolling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsFocusable"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_is_focusable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConsumePointerInput"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_consume_pointer_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnalogMouseWheelKey"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_get_analog_mouse_wheel_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndInertialScrolling"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_end_inertial_scrolling,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USlider::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_slider_handle_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_slider_bar_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinValue"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_min_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxValue"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_max_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIndentHandle"),
-            &raw mut __FUNCTION_PTRS.u_slider_set_indent_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_slider_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedValue"),
-            &raw mut __FUNCTION_PTRS.u_slider_get_normalized_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USpinBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_min_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_min_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinFractionalDigits"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_min_fractional_digits,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_max_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_max_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxFractionalDigits"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_max_fractional_digits,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForegroundColor"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_foreground_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDelta"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAlwaysUsesDeltaSnap"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_set_always_uses_delta_snap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSpinBoxValueCommittedEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_spin_box_on_spin_box_value_committed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSpinBoxValueChangedEvent__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_spin_box_on_spin_box_value_changed_event_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSpinBoxBeginSliderMovement__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_spin_box_on_spin_box_begin_slider_movement_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMinValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_min_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMinSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_min_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMinFractionalDigits"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_min_fractional_digits,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_max_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_max_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxFractionalDigits"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_max_fractional_digits,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDelta"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAlwaysUsesDeltaSnap"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_get_always_uses_delta_snap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_clear_min_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_clear_min_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_clear_max_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_spin_box_clear_max_slider_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UThrobber::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNumberOfPieces"),
-            &raw mut __FUNCTION_PTRS.u_throbber_set_number_of_pieces,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimateVertically"),
-            &raw mut __FUNCTION_PTRS.u_throbber_set_animate_vertically,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimateOpacity"),
-            &raw mut __FUNCTION_PTRS.u_throbber_set_animate_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimateHorizontally"),
-            &raw mut __FUNCTION_PTRS.u_throbber_set_animate_horizontally,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UTreeView::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetItemExpansion"),
-            &raw mut __FUNCTION_PTRS.u_tree_view_set_item_expansion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExpandAll"),
-            &raw mut __FUNCTION_PTRS.u_tree_view_expand_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollapseAll"),
-            &raw mut __FUNCTION_PTRS.u_tree_view_collapse_all,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USlateAccessibleWidgetData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_slate_accessible_widget_data_get_text_delegate_signature,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUMGSequencePlayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUserTag"),
-            &raw mut __FUNCTION_PTRS.uumg_sequence_player_set_user_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUserTag"),
-            &raw mut __FUNCTION_PTRS.uumg_sequence_player_get_user_tag,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetAnimation::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindFromAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_unbind_from_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindFromAnimationFinished"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_unbind_from_animation_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindAllFromAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_unbind_all_from_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnbindAllFromAnimationFinished"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_unbind_all_from_animation_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartTime"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_get_start_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEndTime"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_get_end_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindToAnimationStarted"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_bind_to_animation_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BindToAnimationFinished"),
-            &raw mut __FUNCTION_PTRS.u_widget_animation_bind_to_animation_finished,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetAnimationHandleFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUserTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_handle_function_library_set_user_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUserTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_handle_function_library_get_user_tag,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetAnimationPlayCallbackProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewPlayAnimationTimeRangeProxyObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_play_callback_proxy_new_play_animation_time_range_proxy_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NewPlayAnimationProxyObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_play_callback_proxy_new_play_animation_proxy_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePlayAnimationTimeRangeProxyObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_play_callback_proxy_create_play_animation_time_range_proxy_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePlayAnimationProxyObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_animation_play_callback_proxy_create_play_animation_proxy_object,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UBoolBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_bool_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UBrushBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_brush_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UCheckedStateBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_checked_state_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UColorBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlateValue"),
-            &raw mut __FUNCTION_PTRS.u_color_binding_get_slate_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinearValue"),
-            &raw mut __FUNCTION_PTRS.u_color_binding_get_linear_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UFloatBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_float_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UInt32Binding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_int32_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UMouseCursorBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_mouse_cursor_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UTextBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextValue"),
-            &raw mut __FUNCTION_PTRS.u_text_binding_get_text_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStringValue"),
-            &raw mut __FUNCTION_PTRS.u_text_binding_get_string_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UVisibilityBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_visibility_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_widget_binding_get_value,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UAsyncTaskDownloadImage::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DownloadImage"),
-            &raw mut __FUNCTION_PTRS.u_async_task_download_image_download_image,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UGameViewportSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetSlotPosition"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_set_widget_slot_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetSlotDesiredSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_game_viewport_subsystem_set_widget_slot_desired_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetSlot"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_set_widget_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveWidget"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_remove_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsWidgetAdded"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_is_widget_added,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidgetSlot"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_get_widget_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddWidgetForPlayer"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_add_widget_for_player,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddWidget"),
-            &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_add_widget,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUserListEntry::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnUpdateEntryDropIndicator"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_update_entry_drop_indicator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnItemSelectionChanged"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_item_selection_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnItemExpansionChanged"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_item_expansion_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnEntryReleased"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_released,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnEntryDropped"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_dropped,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnEntryDragOverChanged"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_drag_over_changed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnEntryDragged"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_dragged,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_OnEndEntryDropOperation"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_end_entry_drop_operation,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUserListEntryLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsListItemSelected"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_library_is_list_item_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsListItemExpanded"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_library_is_list_item_expanded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwningListView"),
-            &raw mut __FUNCTION_PTRS.u_user_list_entry_library_get_owning_list_view,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUserObjectListEntry::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnListItemObjectSet"),
-            &raw mut __FUNCTION_PTRS.u_user_object_list_entry_on_list_item_object_set,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUserObjectListEntryLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLastWidget"),
-            &raw mut __FUNCTION_PTRS.u_user_object_list_entry_library_is_last_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFirstWidget"),
-            &raw mut __FUNCTION_PTRS.u_user_object_list_entry_library_is_first_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetListItemObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_user_object_list_entry_library_get_list_item_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetListItemIndex"),
-            &raw mut __FUNCTION_PTRS.u_user_object_list_entry_library_get_list_item_index,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UBackgroundBlur::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLowQualityFallbackBrush"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_low_quality_fallback_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_horizontal_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCornerRadius"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_corner_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlurStrength"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_blur_strength,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlurRadius"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_blur_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetApplyAlphaToBlur"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_set_apply_alpha_to_blur,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UPanelSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetContent"),
-            &raw mut __FUNCTION_PTRS.u_panel_slot_get_content,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UBackgroundBlurSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_background_blur_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UBorder::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_border_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowEffectWhenDisabled"),
-            &raw mut __FUNCTION_PTRS.u_border_set_show_effect_when_disabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_border_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_border_set_horizontal_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDesiredSizeScale"),
-            &raw mut __FUNCTION_PTRS.u_border_set_desired_size_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetContentColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_border_set_content_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromTexture"),
-            &raw mut __FUNCTION_PTRS.u_border_set_brush_from_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromMaterial"),
-            &raw mut __FUNCTION_PTRS.u_border_set_brush_from_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromAsset"),
-            &raw mut __FUNCTION_PTRS.u_border_set_brush_from_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushColor"),
-            &raw mut __FUNCTION_PTRS.u_border_set_brush_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrush"),
-            &raw mut __FUNCTION_PTRS.u_border_set_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicMaterial"),
-            &raw mut __FUNCTION_PTRS.u_border_get_dynamic_material,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UBorderSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_border_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_border_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_border_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UButtonSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_button_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_button_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_button_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UCanvasPanel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToCanvas"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_add_child_to_canvas,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UCanvasPanelSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetZOrder"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_z_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSize"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPosition"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOffsets"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_offsets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinimum"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_minimum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaximum"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_maximum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLayout"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAutoSize"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_auto_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnchors"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_anchors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAlignment"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetZOrder"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_z_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSize"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPosition"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOffsets"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_offsets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLayout"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAutoSize"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_auto_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnchors"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_anchors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAlignment"),
-            &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UDynamicEntryBoxBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRadialSettings"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_set_radial_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEntrySpacing"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_set_entry_spacing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumEntries"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_get_num_entries,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllEntries"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_get_all_entries,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UDynamicEntryBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_reset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveEntry"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_remove_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_CreateEntryOfClass"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_bp_create_entry_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_CreateEntry"),
-            &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_bp_create_entry,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UGridPanel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRowFill"),
-            &raw mut __FUNCTION_PTRS.u_grid_panel_set_row_fill,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColumnFill"),
-            &raw mut __FUNCTION_PTRS.u_grid_panel_set_column_fill,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearFill"),
-            &raw mut __FUNCTION_PTRS.u_grid_panel_clear_fill,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToGrid"),
-            &raw mut __FUNCTION_PTRS.u_grid_panel_add_child_to_grid,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UGridSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRowSpan"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_row_span,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRow"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNudge"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_nudge,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLayer"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_horizontal_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColumnSpan"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_column_span,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColumn"),
-            &raw mut __FUNCTION_PTRS.u_grid_slot_set_column,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UHorizontalBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToHorizontalBox"),
-            &raw mut __FUNCTION_PTRS.u_horizontal_box_add_child_to_horizontal_box,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UHorizontalBoxSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSize"),
-            &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UImage::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOpacity"),
-            &raw mut __FUNCTION_PTRS.u_image_set_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDesiredSizeOverride"),
-            &raw mut __FUNCTION_PTRS.u_image_set_desired_size_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_image_set_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushTintColor"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_tint_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushResourceObject"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_resource_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromTextureDynamic"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_texture_dynamic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromTexture"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromSoftTexture"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_soft_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromSoftMaterial"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_soft_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromMaterial"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromAtlasInterface"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_atlas_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushFromAsset"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush_from_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrush"),
-            &raw mut __FUNCTION_PTRS.u_image_set_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicMaterial"),
-            &raw mut __FUNCTION_PTRS.u_image_get_dynamic_material,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UInvalidationBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCanCache"),
-            &raw mut __FUNCTION_PTRS.u_invalidation_box_set_can_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InvalidateCache"),
-            &raw mut __FUNCTION_PTRS.u_invalidation_box_invalidate_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCanCache"),
-            &raw mut __FUNCTION_PTRS.u_invalidation_box_get_can_cache,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UMenuAnchor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleOpen"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_toggle_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldOpenDueToClick"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_should_open_due_to_click,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlacement"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_set_placement,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Open"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOpen"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_is_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasOpenSubMenus"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_has_open_sub_menus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUserWidget__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_get_user_widget_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMenuPosition"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_get_menu_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FitInWindow"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_fit_in_window,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Close"),
-            &raw mut __FUNCTION_PTRS.u_menu_anchor_close,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UOverlay::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceOverlayChildAt"),
-            &raw mut __FUNCTION_PTRS.u_overlay_replace_overlay_child_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToOverlay"),
-            &raw mut __FUNCTION_PTRS.u_overlay_add_child_to_overlay,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UOverlaySlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_overlay_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_overlay_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_overlay_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = URetainerBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextureParameter"),
-            &raw mut __FUNCTION_PTRS.u_retainer_box_set_texture_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRetainRendering"),
-            &raw mut __FUNCTION_PTRS.u_retainer_box_set_retain_rendering,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderingPhase"),
-            &raw mut __FUNCTION_PTRS.u_retainer_box_set_rendering_phase,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEffectMaterial"),
-            &raw mut __FUNCTION_PTRS.u_retainer_box_set_effect_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestRender"),
-            &raw mut __FUNCTION_PTRS.u_retainer_box_request_render,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEffectMaterial"),
-            &raw mut __FUNCTION_PTRS.u_retainer_box_get_effect_material,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = URichTextBlock::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextTransformPolicy"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text_transform_policy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextStyleSet"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text_style_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text_overflow_policy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetText"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_min_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultTextStyle"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_text_style,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultStrikeBrush"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_strike_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultShadowOffset"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_shadow_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultShadowColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS
-                .u_rich_text_block_set_default_shadow_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultMaterial"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultFont"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_font,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDefaultColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDecorators"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_decorators,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAutoWrapText"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_set_auto_wrap_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshTextLayout"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_refresh_text_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextStyleSet"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_get_text_style_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_get_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDefaultDynamicMaterial"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_get_default_dynamic_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDecoratorByClass"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_get_decorator_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAllDefaultStyleOverrides"),
-            &raw mut __FUNCTION_PTRS.u_rich_text_block_clear_all_default_style_overrides,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USafeZone::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSidesToPad"),
-            &raw mut __FUNCTION_PTRS.u_safe_zone_set_sides_to_pad,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UScaleBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUserSpecifiedScale"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_set_user_specified_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStretchDirection"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_set_stretch_direction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStretch"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_set_stretch,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIgnoreInheritedScale"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_set_ignore_inherited_scale,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UScaleBoxSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_scale_box_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UScrollBoxSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_scroll_box_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USizeBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidthOverride"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_width_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_min_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinDesiredHeight"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_min_desired_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_min_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_max_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxDesiredHeight"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_max_desired_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_max_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHeightOverride"),
-            &raw mut __FUNCTION_PTRS.u_size_box_set_height_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearWidthOverride"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_width_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_min_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinDesiredHeight"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_min_desired_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_min_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_max_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxDesiredHeight"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_max_desired_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_max_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearHeightOverride"),
-            &raw mut __FUNCTION_PTRS.u_size_box_clear_height_override,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USizeBoxComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearWidthOverride"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_width_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_min_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinDesiredHeight"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_min_desired_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMinAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_min_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_max_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxDesiredHeight"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_max_desired_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearMaxAspectRatio"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_max_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearHeightOverride"),
-            &raw mut __FUNCTION_PTRS.u_size_box_component_clear_height_override,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USizeBoxSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_size_box_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_size_box_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_size_box_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USpacer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSize"),
-            &raw mut __FUNCTION_PTRS.u_spacer_set_size,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UStackBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceStackBoxChildAt"),
-            &raw mut __FUNCTION_PTRS.u_stack_box_replace_stack_box_child_at,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToStackBox"),
-            &raw mut __FUNCTION_PTRS.u_stack_box_add_child_to_stack_box,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UTextBlock::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextTransformPolicy"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_text_transform_policy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_text_overflow_policy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetText"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStrikeBrush"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_strike_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShadowOffset"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_shadow_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShadowColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_shadow_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOpacity"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinDesiredWidth"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_min_desired_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFontOutlineMaterial"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_font_outline_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFontMaterial"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_font_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFont"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_font,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_color_and_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAutoWrapText"),
-            &raw mut __FUNCTION_PTRS.u_text_block_set_auto_wrap_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetText"),
-            &raw mut __FUNCTION_PTRS.u_text_block_get_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicOutlineMaterial"),
-            &raw mut __FUNCTION_PTRS.u_text_block_get_dynamic_outline_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicFontMaterial"),
-            &raw mut __FUNCTION_PTRS.u_text_block_get_dynamic_font_material,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UTileView::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEntryWidth"),
-            &raw mut __FUNCTION_PTRS.u_tile_view_set_entry_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEntryHeight"),
-            &raw mut __FUNCTION_PTRS.u_tile_view_set_entry_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAligned"),
-            &raw mut __FUNCTION_PTRS.u_tile_view_is_aligned,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEntryWidth"),
-            &raw mut __FUNCTION_PTRS.u_tile_view_get_entry_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEntryHeight"),
-            &raw mut __FUNCTION_PTRS.u_tile_view_get_entry_height,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUniformGridPanel::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSlotPadding"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_set_slot_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinDesiredSlotWidth"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_set_min_desired_slot_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMinDesiredSlotHeight"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_set_min_desired_slot_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToUniformGrid"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_add_child_to_uniform_grid,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUniformGridSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRow"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_row,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_horizontal_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColumn"),
-            &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_column,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UVerticalBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToVerticalBox"),
-            &raw mut __FUNCTION_PTRS.u_vertical_box_add_child_to_vertical_box,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UVerticalBoxSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSize"),
-            &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UViewport::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Spawn"),
-            &raw mut __FUNCTION_PTRS.u_viewport_spawn,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewRotation"),
-            &raw mut __FUNCTION_PTRS.u_viewport_set_view_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetViewLocation"),
-            &raw mut __FUNCTION_PTRS.u_viewport_set_view_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkyIntensity"),
-            &raw mut __FUNCTION_PTRS.u_viewport_set_sky_intensity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowFlag"),
-            &raw mut __FUNCTION_PTRS.u_viewport_set_show_flag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLightIntensity"),
-            &raw mut __FUNCTION_PTRS.u_viewport_set_light_intensity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableAdvancedFeatures"),
-            &raw mut __FUNCTION_PTRS.u_viewport_set_enable_advanced_features,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewRotation"),
-            &raw mut __FUNCTION_PTRS.u_viewport_get_view_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewProjectionMatrix"),
-            &raw mut __FUNCTION_PTRS.u_viewport_get_view_projection_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewportWorld"),
-            &raw mut __FUNCTION_PTRS.u_viewport_get_viewport_world,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewLocation"),
-            &raw mut __FUNCTION_PTRS.u_viewport_get_view_location,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetInteractionComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_set_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomHitResult"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_set_custom_hit_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SendKeyChar"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_send_key_char,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScrollWheel"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_scroll_wheel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleasePointerKey"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_release_pointer_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseKey"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_release_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PressPointerKey"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_press_pointer_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PressKey"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_press_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PressAndReleaseKey"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_press_and_release_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOverInteractableWidget"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_interaction_component_is_over_interactable_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOverHitTestVisibleWidget"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_interaction_component_is_over_hit_test_visible_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOverFocusableWidget"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_interaction_component_is_over_focusable_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLastHitResult"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_get_last_hit_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHoveredWidgetComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_interaction_component_get_hovered_widget_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Get2DHitLocation"),
-            &raw mut __FUNCTION_PTRS.u_widget_interaction_component_get2_d_hit_location,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetSwitcher::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActiveWidgetIndex"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_set_active_widget_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActiveWidget"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_set_active_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWidgetAtIndex"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_get_widget_at_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumWidgets"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_get_num_widgets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveWidgetIndex"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_get_active_widget_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActiveWidget"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_get_active_widget,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetSwitcherSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_widget_switcher_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWindowTitleBarArea::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_window_title_bar_area_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_window_title_bar_area_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_window_title_bar_area_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWindowTitleBarAreaSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_window_title_bar_area_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_window_title_bar_area_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS
-                .u_window_title_bar_area_slot_set_horizontal_alignment,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWrapBox::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInnerSlotPadding"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_set_inner_slot_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_set_horizontal_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddChildToWrapBox"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_add_child_to_wrap_box,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWrapBoxSlot::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_vertical_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPadding"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNewLine"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_new_line,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_horizontal_alignment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFillSpanWhenLessThan"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_fill_span_when_less_than,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFillEmptySpace"),
-            &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_fill_empty_space,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UDragDropOperation::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Drop"),
-            &raw mut __FUNCTION_PTRS.u_drag_drop_operation_drop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Dragged"),
-            &raw mut __FUNCTION_PTRS.u_drag_drop_operation_dragged,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DragCancelled"),
-            &raw mut __FUNCTION_PTRS.u_drag_drop_operation_drag_cancelled,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = USlateBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Vector_LocalToAbsolute"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_vector_local_to_absolute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Vector_AbsoluteToLocal"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_vector_absolute_to_local,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TransformVectorLocalToAbsolute"),
-            &raw mut __FUNCTION_PTRS
-                .u_slate_blueprint_library_transform_vector_local_to_absolute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TransformVectorAbsoluteToLocal"),
-            &raw mut __FUNCTION_PTRS
-                .u_slate_blueprint_library_transform_vector_absolute_to_local,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TransformScalarLocalToAbsolute"),
-            &raw mut __FUNCTION_PTRS
-                .u_slate_blueprint_library_transform_scalar_local_to_absolute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TransformScalarAbsoluteToLocal"),
-            &raw mut __FUNCTION_PTRS
-                .u_slate_blueprint_library_transform_scalar_absolute_to_local,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScreenToWidgetLocal"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_screen_to_widget_local,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScreenToWidgetAbsolute"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_screen_to_widget_absolute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScreenToViewport"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_screen_to_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Scalar_LocalToAbsolute"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_scalar_local_to_absolute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Scalar_AbsoluteToLocal"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_scalar_absolute_to_local,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LocalToViewport"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_local_to_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LocalToAbsolute"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_local_to_absolute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsUnderLocation"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_is_under_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalTopLeft"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_get_local_top_left,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLocalSize"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_get_local_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAbsoluteSize"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_get_absolute_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EqualEqual_SlateBrush"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_equal_equal_slate_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AbsoluteToViewport"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_absolute_to_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AbsoluteToLocal"),
-            &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_absolute_to_local,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UUserWidgetFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOuterUserWidget"),
-            &raw mut __FUNCTION_PTRS.u_user_widget_function_library_get_outer_user_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_UMGSequencePlayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_user_widget_function_library_conv_umg_sequence_player,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnlockMouse"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_unlock_mouse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Unhandled"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_unhandled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWindowTitleBarState"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_window_title_bar_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWindowTitleBarOnCloseClickedDelegate"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_window_title_bar_on_close_clicked_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWindowTitleBarCloseButtonActive"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_window_title_bar_close_button_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUserFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_user_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMousePosition"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_mouse_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInputMode_UIOnlyEx"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_input_mode_ui_only_ex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInputMode_GameOnly"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_input_mode_game_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInputMode_GameAndUIEx"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_input_mode_game_and_ui_ex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHardwareCursor"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_hardware_cursor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFocusToGameViewport"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_focus_to_game_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorVisionDeficiencyType"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_color_vision_deficiency_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushResourceToTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_brush_resource_to_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBrushResourceToMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_set_brush_resource_to_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RestorePreviousWindowTitleBarState"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_restore_previous_window_title_bar_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseMouseCapture"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_release_mouse_capture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseJoystickCapture"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_release_joystick_capture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnGameWindowCloseButtonClickedDelegate__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_on_game_window_close_button_clicked_delegate_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NoResourceBrush"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_no_resource_brush,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeBrushFromTexture"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_make_brush_from_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeBrushFromMaterial"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_make_brush_from_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeBrushFromAsset"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_make_brush_from_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LockMouse"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_lock_mouse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsDragDropping"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_is_drag_dropping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Handled"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_handled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSafeZonePadding"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_safe_zone_padding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeyEventFromAnalogInputEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_key_event_from_analog_input_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputEventFromPointerEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_input_event_from_pointer_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputEventFromNavigationEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_input_event_from_navigation_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputEventFromKeyEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_input_event_from_key_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputEventFromCharacterEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_input_event_from_character_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDynamicMaterial"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_dynamic_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDragDroppingContent"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_drag_dropping_content,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBrushResourceAsTexture2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_brush_resource_as_texture2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBrushResourceAsMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_brush_resource_as_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBrushResource"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_brush_resource,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllWidgetsWithInterface"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_get_all_widgets_with_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllWidgetsOfClass"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_all_widgets_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EndDragDrop"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_end_drag_drop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DrawTextFormatted"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_text_formatted,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DrawText"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DrawSpline"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_spline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DrawLines"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_lines,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DrawLine"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_line,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DrawBox"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_box,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DismissAllMenus"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_dismiss_all_menus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DetectDragIfPressed"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_detect_drag_if_pressed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DetectDrag"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_detect_drag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateDragDropOperation"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_blueprint_library_create_drag_drop_operation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Create"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_create,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearUserFocus"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_clear_user_focus,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureMouse"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_capture_mouse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureJoystick"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_capture_joystick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelDragDrop"),
-            &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_cancel_drag_drop,
-        );
-    }
-    unsafe {
-        let bindings = crate::module::bindings();
-        let class_ptr = UWidgetLayoutLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsWrapBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_wrap_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsWidgetSwitcherSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_widget_switcher_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsVerticalBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_vertical_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsUniformGridSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_uniform_grid_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsStackBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_stack_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsSizeBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_size_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsScrollBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_scroll_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsScaleBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_scale_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsSafeBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_safe_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsOverlaySlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_overlay_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsHorizontalBoxSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_horizontal_box_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsGridSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_grid_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsCanvasSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_canvas_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SlotAsBorderSlot"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_border_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllWidgets"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_remove_all_widgets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ProjectWorldLocationToWidgetPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_layout_library_project_world_location_to_widget_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewportWidgetGeometry"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_get_viewport_widget_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewportSize"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_get_viewport_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetViewportScale"),
-            &raw mut __FUNCTION_PTRS.u_widget_layout_library_get_viewport_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayerScreenWidgetGeometry"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_layout_library_get_player_screen_widget_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMousePositionScaledByDPI"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_layout_library_get_mouse_position_scaled_by_dpi,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMousePositionOnViewport"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_layout_library_get_mouse_position_on_viewport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMousePositionOnPlatform"),
-            &raw mut __FUNCTION_PTRS
-                .u_widget_layout_library_get_mouse_position_on_platform,
-        );
+        if let Some(class_ptr) = UWidget::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVisibility"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUserFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_user_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetToolTipText"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_tool_tip_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetToolTip"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_tool_tip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderTranslation"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_translation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderTransformPivot"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_transform_pivot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderTransformAngle"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_transform_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderTransform"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderShear"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_shear,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderScale"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderOpacity"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_render_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationRuleExplicit"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_explicit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationRuleCustomBoundary"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_custom_boundary,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationRuleCustom"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_custom,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationRuleBase"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule_base,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationRule"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_navigation_rule,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetKeyboardFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_keyboard_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsEnabled"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_is_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCursor"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_cursor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetClipping"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_clipping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllNavigationRules"),
+                &raw mut __FUNCTION_PTRS.u_widget_set_all_navigation_rules,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetCursor"),
+                &raw mut __FUNCTION_PTRS.u_widget_reset_cursor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveFromParent"),
+                &raw mut __FUNCTION_PTRS.u_widget_remove_from_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnReply__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_on_reply_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPointerEvent__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_on_pointer_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_RemoveFieldValueChangedDelegate"),
+                &raw mut __FUNCTION_PTRS.u_widget_k2_remove_field_value_changed_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_BroadcastFieldValueChanged"),
+                &raw mut __FUNCTION_PTRS.u_widget_k2_broadcast_field_value_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_AddFieldValueChangedDelegate"),
+                &raw mut __FUNCTION_PTRS.u_widget_k2_add_field_value_changed_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVisible"),
+                &raw mut __FUNCTION_PTRS.u_widget_is_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRendered"),
+                &raw mut __FUNCTION_PTRS.u_widget_is_rendered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInViewport"),
+                &raw mut __FUNCTION_PTRS.u_widget_is_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsHovered"),
+                &raw mut __FUNCTION_PTRS.u_widget_is_hovered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InvalidateLayoutAndVolatility"),
+                &raw mut __FUNCTION_PTRS.u_widget_invalidate_layout_and_volatility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasUserFocusedDescendants"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_user_focused_descendants,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasUserFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_user_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMouseCaptureByUser"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_mouse_capture_by_user,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMouseCapture"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_mouse_capture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasKeyboardFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_keyboard_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasFocusedDescendants"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_focused_descendants,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAnyUserFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_has_any_user_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidget__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_widget_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVisibility"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTickSpaceGeometry"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_tick_space_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_text_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlateVisibility__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_slate_visibility_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlateColor__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_slate_color_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlateBrush__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_slate_brush_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRenderTransformAngle"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_render_transform_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRenderOpacity"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_render_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParent"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPaintSpaceGeometry"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_paint_space_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwningPlayer"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_owning_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwningLocalPlayer"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_owning_local_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMouseCursor__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_mouse_cursor_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinearColor__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_linear_color_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsEnabled"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_is_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInt32__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_int32_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGameInstance"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_game_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloat__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_float_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDesiredSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_desired_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClipping"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_clipping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCheckBoxState__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_check_box_state_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCachedGeometry"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_cached_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBool__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_bool_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAccessibleText"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_accessible_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAccessibleSummaryText"),
+                &raw mut __FUNCTION_PTRS.u_widget_get_accessible_summary_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateWidgetForString__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_generate_widget_for_string_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateWidgetForObject__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_generate_widget_for_object_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceVolatile"),
+                &raw mut __FUNCTION_PTRS.u_widget_force_volatile,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceLayoutPrepass"),
+                &raw mut __FUNCTION_PTRS.u_widget_force_layout_prepass,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUserWidget::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterInputComponent"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_unregister_input_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindFromAnimationStarted"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_unbind_from_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindFromAnimationFinished"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_unbind_from_animation_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindAllFromAnimationStarted"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_unbind_all_from_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindAllFromAnimationFinished"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_unbind_all_from_animation_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Tick"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopListeningForInputAction"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_stop_listening_for_input_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopListeningForAllInputActions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_user_widget_stop_listening_for_all_input_actions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopAnimationsAndLatentActions"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_stop_animations_and_latent_actions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_stop_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopAllAnimations"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_stop_all_animations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPositionInViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_position_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_playback_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOwningPlayer"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_owning_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumLoopsToPlay"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_num_loops_to_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInputActionPriority"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_input_action_priority,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInputActionBlocking"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_input_action_blocking,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForegroundColor"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_foreground_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDesiredSizeInViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_desired_size_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDesiredFocusWidget"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_desired_focus_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimationCurrentTime"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_animation_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnchorsInViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_anchors_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAlignmentInViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_set_alignment_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReverseAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_reverse_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveFromViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_remove_from_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveExtensions"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_remove_extensions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveExtension"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_remove_extension,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterInputComponent"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_register_input_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueueStopAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_stop_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueueStopAllAnimations"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_stop_all_animations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueuePlayAnimationTimeRange"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation_time_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueuePlayAnimationReverse"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation_reverse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueuePlayAnimationForward"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation_forward,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueuePlayAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_play_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("QueuePauseAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_queue_pause_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PreConstruct"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_pre_construct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlaySound"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_play_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayAnimationTimeRange"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_play_animation_time_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayAnimationReverse"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_play_animation_reverse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayAnimationForward"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_play_animation_forward,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_play_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PauseAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_pause_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTouchStarted"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTouchMoved"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_moved,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTouchGesture"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_gesture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTouchForceChanged"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_force_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTouchFirstMove"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_first_move,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTouchEnded"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_touch_ended,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRemovedFromFocusPath"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_removed_from_focus_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPreviewMouseButtonDown"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_preview_mouse_button_down,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPreviewKeyDown"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_preview_key_down,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPaint"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_paint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseWheel"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_wheel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseMove"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_move,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseLeave"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_leave,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseEnter"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_enter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseCaptureLost"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_capture_lost,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseButtonUp"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_button_up,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseButtonDown"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_button_down,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMouseButtonDoubleClick"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_mouse_button_double_click,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMotionDetected"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_motion_detected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnKeyUp"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_key_up,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnKeyDown"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_key_down,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnKeyChar"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_key_char,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnInitialized"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_initialized,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnFocusReceived"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_focus_received,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnFocusLost"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_focus_lost,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDrop"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_drop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragOver"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_over,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragLeave"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_leave,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragEnter"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_enter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragDetected"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_detected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDragCancelled"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_drag_cancelled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAnimationStarted"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAnimationFinished"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_animation_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAnalogValueChanged"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_analog_value_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnAddedToFocusPath"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_on_added_to_focus_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ListenForInputAction"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_listen_for_input_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlayingAnimation"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_is_playing_animation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsListeningForInputAction"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_is_listening_for_input_action,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInteractable"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_is_interactable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAnyAnimationPlaying"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_is_any_animation_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAnimationPlayingForward"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_is_animation_playing_forward,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAnimationPlaying"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_is_animation_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwningPlayerPawn"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_owning_player_pawn,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwningPlayerCameraManager"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_owning_player_camera_manager,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsVisible"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_is_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetExtensions"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_extensions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetExtension"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_extension,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimationCurrentTime"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_animation_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnchorsInViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_anchors_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAlignmentInViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_get_alignment_in_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FlushAnimations"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_flush_animations,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Destruct"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_destruct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Construct"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_construct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelLatentActions"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_cancel_latent_actions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindToAnimationStarted"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_bind_to_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindToAnimationFinished"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_bind_to_animation_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindToAnimationEvent"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_bind_to_animation_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddToViewport"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_add_to_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddToPlayerScreen"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_add_to_player_screen,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddExtension"),
+                &raw mut __FUNCTION_PTRS.u_user_widget_add_extension,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWindowVisibility"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_window_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWindowFocusable"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_window_focusable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetSpace"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_widget_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidget"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTwoSided"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTintColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_tint_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTickWhenOffscreen"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_tick_when_offscreen,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTickMode"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_tick_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRedrawTime"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_redraw_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPivot"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_pivot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOwnerPlayer"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_owner_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetManuallyRedraw"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_manually_redraw,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGeometryMode"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_geometry_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDrawSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_draw_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDrawAtDesiredSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_draw_at_desired_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCylinderArcAngle"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_cylinder_arc_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_set_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRenderUpdate"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_request_render_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRedraw"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_request_redraw,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsWidgetVisible"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_is_widget_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWindowVisiblility"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_window_visiblility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWindowFocusable"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_window_focusable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidgetSpace"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_widget_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidget"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUserWidgetObject"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_user_widget_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTwoSided"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTickWhenOffscreen"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_tick_when_offscreen,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRenderTarget"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_render_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRedrawTime"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_redraw_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPivot"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_pivot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwnerPlayer"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_owner_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInstance"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_material_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetManuallyRedraw"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_manually_redraw,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGeometryMode"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_geometry_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDrawSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_draw_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDrawAtDesiredSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_draw_at_desired_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCylinderArcAngle"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_cylinder_arc_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentDrawSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_component_get_current_draw_size,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UPanelWidget::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChildAt"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_remove_child_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveChild"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_remove_child,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasChild"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_has_child,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAnyChildren"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_has_any_children,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildrenCount"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_get_children_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildIndex"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_get_child_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildAt"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_get_child_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllChildren"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_get_all_children,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearChildren"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_clear_children,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChild"),
+                &raw mut __FUNCTION_PTRS.u_panel_widget_add_child,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UContentWidget::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetContent"),
+                &raw mut __FUNCTION_PTRS.u_content_widget_set_content,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetContentSlot"),
+                &raw mut __FUNCTION_PTRS.u_content_widget_get_content_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetContent"),
+                &raw mut __FUNCTION_PTRS.u_content_widget_get_content,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UButton::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTouchMethod"),
+                &raw mut __FUNCTION_PTRS.u_button_set_touch_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStyle"),
+                &raw mut __FUNCTION_PTRS.u_button_set_style,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPressMethod"),
+                &raw mut __FUNCTION_PTRS.u_button_set_press_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_button_set_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetClickMethod"),
+                &raw mut __FUNCTION_PTRS.u_button_set_click_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_button_set_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowDragDrop"),
+                &raw mut __FUNCTION_PTRS.u_button_set_allow_drag_drop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPressed"),
+                &raw mut __FUNCTION_PTRS.u_button_is_pressed,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UCheckBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTouchMethod"),
+                &raw mut __FUNCTION_PTRS.u_check_box_set_touch_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPressMethod"),
+                &raw mut __FUNCTION_PTRS.u_check_box_set_press_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsChecked"),
+                &raw mut __FUNCTION_PTRS.u_check_box_set_is_checked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetClickMethod"),
+                &raw mut __FUNCTION_PTRS.u_check_box_set_click_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCheckedState"),
+                &raw mut __FUNCTION_PTRS.u_check_box_set_checked_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPressed"),
+                &raw mut __FUNCTION_PTRS.u_check_box_is_pressed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsChecked"),
+                &raw mut __FUNCTION_PTRS.u_check_box_is_checked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCheckedState"),
+                &raw mut __FUNCTION_PTRS.u_check_box_get_checked_state,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UCircularThrobber::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRadius"),
+                &raw mut __FUNCTION_PTRS.u_circular_throbber_set_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPeriod"),
+                &raw mut __FUNCTION_PTRS.u_circular_throbber_set_period,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumberOfPieces"),
+                &raw mut __FUNCTION_PTRS.u_circular_throbber_set_number_of_pieces,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UComboBoxKey::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectedOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_set_selected_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_remove_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnSelectionChangedEvent__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_combo_box_key_on_selection_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnOpeningEvent__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_combo_box_key_on_opening_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOpen"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_is_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_get_selected_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateWidgetEvent__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_combo_box_key_generate_widget_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSelection"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_clear_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOptions"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_clear_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_key_add_option,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UComboBoxString::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectedOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_set_selected_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectedIndex"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_set_selected_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_remove_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshOptions"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_refresh_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnSelectionChangedEvent__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_combo_box_string_on_selection_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnOpeningEvent__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_combo_box_string_on_opening_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOpen"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_is_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_get_selected_option,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedIndex"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_get_selected_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOptionCount"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_get_option_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOptionAtIndex"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_get_option_at_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOptionIndex"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_find_option_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSelection"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_clear_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearOptions"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_clear_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddOption"),
+                &raw mut __FUNCTION_PTRS.u_combo_box_string_add_option,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UEditableText::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleVirtualKeyboard"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_toggle_virtual_keyboard,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_text_overflow_policy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinimumDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_minimum_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetJustification"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_justification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_is_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsPassword"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_is_password,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHintText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_hint_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFontOutlineMaterial"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_font_outline_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFontMaterial"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_font_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFont"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_set_font,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnEditableTextCommittedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_editable_text_on_editable_text_committed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnEditableTextChangedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_editable_text_on_editable_text_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_get_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetJustification"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_get_justification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHintText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_get_hint_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFont"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_get_font,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UEditableTextBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_text_overflow_policy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetJustification"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_justification,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_is_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsPassword"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_is_password,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHintText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_hint_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForegroundColor"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_foreground_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetError"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_set_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnEditableTextBoxCommittedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_editable_text_box_on_editable_text_box_committed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnEditableTextBoxChangedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_editable_text_box_on_editable_text_box_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasError"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_has_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_get_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearError"),
+                &raw mut __FUNCTION_PTRS.u_editable_text_box_clear_error,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UExpandableArea::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsExpanded_Animated"),
+                &raw mut __FUNCTION_PTRS.u_expandable_area_set_is_expanded_animated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsExpanded"),
+                &raw mut __FUNCTION_PTRS.u_expandable_area_set_is_expanded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsExpanded"),
+                &raw mut __FUNCTION_PTRS.u_expandable_area_get_is_expanded,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UInputKeySelector::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextBlockVisibility"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_text_block_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectedKey"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_selected_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNoKeySpecifiedText"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_no_key_specified_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetKeySelectionText"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_key_selection_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEscapeKeys"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_escape_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowModifierKeys"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_allow_modifier_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowGamepadKeys"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_set_allow_gamepad_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnKeySelected__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_input_key_selector_on_key_selected_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnIsSelectingKeyChanged__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_input_key_selector_on_is_selecting_key_changed_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsSelectingKey"),
+                &raw mut __FUNCTION_PTRS.u_input_key_selector_get_is_selecting_key,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UListViewBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWheelScrollMultiplier"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_set_wheel_scroll_multiplier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollOffset"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_set_scroll_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollbarVisibility"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_set_scrollbar_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsPointerScrollingEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_list_view_base_set_is_pointer_scrolling_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsGamepadScrollingEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_list_view_base_set_is_gamepad_scrolling_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowOverScroll"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_set_allow_over_scroll,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollToTop"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_scroll_to_top,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollToBottom"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_scroll_to_bottom,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRefresh"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_request_refresh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegenerateAllEntries"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_regenerate_all_entries,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScrollOffset"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_get_scroll_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsDraggingListItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_get_is_dragging_list_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplayedEntryWidgets"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_get_displayed_entry_widgets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndInertialScrolling"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_end_inertial_scrolling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateDragDropOperation"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_create_drag_drop_operation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelListViewDragDrop"),
+                &raw mut __FUNCTION_PTRS.u_list_view_base_cancel_list_view_drag_drop,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UListView::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectionMode"),
+                &raw mut __FUNCTION_PTRS.u_list_view_set_selection_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectedIndex"),
+                &raw mut __FUNCTION_PTRS.u_list_view_set_selected_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollIntoViewAlignment"),
+                &raw mut __FUNCTION_PTRS.u_list_view_set_scroll_into_view_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollBarPadding"),
+                &raw mut __FUNCTION_PTRS.u_list_view_set_scroll_bar_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollIndexIntoView"),
+                &raw mut __FUNCTION_PTRS.u_list_view_scroll_index_into_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_remove_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnListItemOuterEndPlayed"),
+                &raw mut __FUNCTION_PTRS.u_list_view_on_list_item_outer_end_played,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnListItemEndPlayed"),
+                &raw mut __FUNCTION_PTRS.u_list_view_on_list_item_end_played,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NavigateToIndex"),
+                &raw mut __FUNCTION_PTRS.u_list_view_navigate_to_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRefreshPending"),
+                &raw mut __FUNCTION_PTRS.u_list_view_is_refresh_pending,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVerticalEntrySpacing"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_vertical_entry_spacing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScrollBarPadding"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_scroll_bar_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumItems"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_num_items,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetListItems"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_list_items,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetItemAt"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_item_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIndexForItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_index_for_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHorizontalEntrySpacing"),
+                &raw mut __FUNCTION_PTRS.u_list_view_get_horizontal_entry_spacing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearListItems"),
+                &raw mut __FUNCTION_PTRS.u_list_view_clear_list_items,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_SetSelectedItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_set_selected_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_SetListItems"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_set_list_items,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_SetItemSelection"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_set_item_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_ScrollItemIntoView"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_scroll_item_into_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_NavigateToItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_navigate_to_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_IsItemVisible"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_is_item_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetSelectedItems"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_get_selected_items,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetSelectedItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_get_selected_item,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetNumItemsSelected"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_get_num_items_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_ClearSelection"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_clear_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_CancelScrollIntoView"),
+                &raw mut __FUNCTION_PTRS.u_list_view_bp_cancel_scroll_into_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddItem"),
+                &raw mut __FUNCTION_PTRS.u_list_view_add_item,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UTextLayoutWidget::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetJustification"),
+                &raw mut __FUNCTION_PTRS.u_text_layout_widget_set_justification,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UMultiLineEditableText::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetStyle"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_widget_style,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_is_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHintText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_hint_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFontOutlineMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_multi_line_editable_text_set_font_outline_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFontMaterial"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_font_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFont"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_set_font,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnMultiLineEditableTextCommittedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_multi_line_editable_text_on_multi_line_editable_text_committed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnMultiLineEditableTextChangedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_multi_line_editable_text_on_multi_line_editable_text_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_get_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHintText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_get_hint_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFont"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_get_font,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UMultiLineEditableTextBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextStyle"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_text_style,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_is_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHintText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_hint_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForegroundColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_multi_line_editable_text_box_set_foreground_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetError"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_set_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_multi_line_editable_text_box_on_multi_line_editable_text_box_committed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnMultiLineEditableTextBoxChangedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_multi_line_editable_text_box_on_multi_line_editable_text_box_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_get_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHintText"),
+                &raw mut __FUNCTION_PTRS.u_multi_line_editable_text_box_get_hint_text,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UProgressBar::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPercent"),
+                &raw mut __FUNCTION_PTRS.u_progress_bar_set_percent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsMarquee"),
+                &raw mut __FUNCTION_PTRS.u_progress_bar_set_is_marquee,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFillColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_progress_bar_set_fill_color_and_opacity,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UScrollBar::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetState"),
+                &raw mut __FUNCTION_PTRS.u_scroll_bar_set_state,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UScrollBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWheelScrollMultiplier"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_wheel_scroll_multiplier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollWhenFocusChanges"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_scroll_when_focus_changes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollOffset"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_scroll_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollBarVisibility"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_scroll_bar_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollbarThickness"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_scrollbar_thickness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollbarPadding"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_scrollbar_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetScrollAnimationInterpolationSpeed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_scroll_box_set_scroll_animation_interpolation_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOrientation"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_orientation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNavigationDestination"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_navigation_destination,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsTouchScrollingEnabled"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_is_touch_scrolling_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsFocusable"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_is_focusable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConsumePointerInput"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_consume_pointer_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetConsumeMouseWheel"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_consume_mouse_wheel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimateWheelScrolling"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_animate_wheel_scrolling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnalogMouseWheelKey"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_analog_mouse_wheel_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAlwaysShowScrollbar"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_always_show_scrollbar,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowOverscroll"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_set_allow_overscroll,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollWidgetIntoView"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_scroll_widget_into_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollToStart"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_scroll_to_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollToEnd"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_scroll_to_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewOffsetFraction"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_view_offset_fraction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewFraction"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_view_fraction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScrollOffsetOfEnd"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_scroll_offset_of_end,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScrollOffset"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_scroll_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverscrollPercentage"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_overscroll_percentage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverscrollOffset"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_overscroll_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsScrolling"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_is_scrolling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsFocusable"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_is_focusable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConsumePointerInput"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_consume_pointer_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnalogMouseWheelKey"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_get_analog_mouse_wheel_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndInertialScrolling"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_end_inertial_scrolling,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USlider::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_slider_handle_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderBarColor"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_slider_bar_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinValue"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_min_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxValue"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_max_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocked"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIndentHandle"),
+                &raw mut __FUNCTION_PTRS.u_slider_set_indent_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_slider_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedValue"),
+                &raw mut __FUNCTION_PTRS.u_slider_get_normalized_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USpinBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_min_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_min_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinFractionalDigits"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_min_fractional_digits,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_max_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_max_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxFractionalDigits"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_max_fractional_digits,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForegroundColor"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_foreground_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDelta"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAlwaysUsesDeltaSnap"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_set_always_uses_delta_snap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnSpinBoxValueCommittedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_spin_box_on_spin_box_value_committed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnSpinBoxValueChangedEvent__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_spin_box_on_spin_box_value_changed_event_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnSpinBoxBeginSliderMovement__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_spin_box_on_spin_box_begin_slider_movement_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMinValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_min_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMinSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_min_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMinFractionalDigits"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_min_fractional_digits,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_max_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_max_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxFractionalDigits"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_max_fractional_digits,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDelta"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAlwaysUsesDeltaSnap"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_get_always_uses_delta_snap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_clear_min_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_clear_min_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_clear_max_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_spin_box_clear_max_slider_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UThrobber::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNumberOfPieces"),
+                &raw mut __FUNCTION_PTRS.u_throbber_set_number_of_pieces,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimateVertically"),
+                &raw mut __FUNCTION_PTRS.u_throbber_set_animate_vertically,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimateOpacity"),
+                &raw mut __FUNCTION_PTRS.u_throbber_set_animate_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimateHorizontally"),
+                &raw mut __FUNCTION_PTRS.u_throbber_set_animate_horizontally,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UTreeView::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetItemExpansion"),
+                &raw mut __FUNCTION_PTRS.u_tree_view_set_item_expansion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExpandAll"),
+                &raw mut __FUNCTION_PTRS.u_tree_view_expand_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollapseAll"),
+                &raw mut __FUNCTION_PTRS.u_tree_view_collapse_all,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USlateAccessibleWidgetData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_accessible_widget_data_get_text_delegate_signature,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUMGSequencePlayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUserTag"),
+                &raw mut __FUNCTION_PTRS.uumg_sequence_player_set_user_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUserTag"),
+                &raw mut __FUNCTION_PTRS.uumg_sequence_player_get_user_tag,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetAnimation::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindFromAnimationStarted"),
+                &raw mut __FUNCTION_PTRS.u_widget_animation_unbind_from_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindFromAnimationFinished"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_unbind_from_animation_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindAllFromAnimationStarted"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_unbind_all_from_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnbindAllFromAnimationFinished"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_unbind_all_from_animation_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartTime"),
+                &raw mut __FUNCTION_PTRS.u_widget_animation_get_start_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEndTime"),
+                &raw mut __FUNCTION_PTRS.u_widget_animation_get_end_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindToAnimationStarted"),
+                &raw mut __FUNCTION_PTRS.u_widget_animation_bind_to_animation_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BindToAnimationFinished"),
+                &raw mut __FUNCTION_PTRS.u_widget_animation_bind_to_animation_finished,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetAnimationHandleFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUserTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_handle_function_library_set_user_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUserTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_handle_function_library_get_user_tag,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetAnimationPlayCallbackProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewPlayAnimationTimeRangeProxyObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_play_callback_proxy_new_play_animation_time_range_proxy_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NewPlayAnimationProxyObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_play_callback_proxy_new_play_animation_proxy_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePlayAnimationTimeRangeProxyObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_play_callback_proxy_create_play_animation_time_range_proxy_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePlayAnimationProxyObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_animation_play_callback_proxy_create_play_animation_proxy_object,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UBoolBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_bool_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UBrushBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_brush_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UCheckedStateBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_checked_state_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UColorBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlateValue"),
+                &raw mut __FUNCTION_PTRS.u_color_binding_get_slate_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinearValue"),
+                &raw mut __FUNCTION_PTRS.u_color_binding_get_linear_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UFloatBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_float_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UInt32Binding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_int32_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UMouseCursorBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_mouse_cursor_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UTextBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextValue"),
+                &raw mut __FUNCTION_PTRS.u_text_binding_get_text_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStringValue"),
+                &raw mut __FUNCTION_PTRS.u_text_binding_get_string_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UVisibilityBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_visibility_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_widget_binding_get_value,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UAsyncTaskDownloadImage::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DownloadImage"),
+                &raw mut __FUNCTION_PTRS.u_async_task_download_image_download_image,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UGameViewportSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetSlotPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_game_viewport_subsystem_set_widget_slot_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetSlotDesiredSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_game_viewport_subsystem_set_widget_slot_desired_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetSlot"),
+                &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_set_widget_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveWidget"),
+                &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_remove_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsWidgetAdded"),
+                &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_is_widget_added,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidgetSlot"),
+                &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_get_widget_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddWidgetForPlayer"),
+                &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_add_widget_for_player,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddWidget"),
+                &raw mut __FUNCTION_PTRS.u_game_viewport_subsystem_add_widget,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUserListEntry::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnUpdateEntryDropIndicator"),
+                &raw mut __FUNCTION_PTRS
+                    .u_user_list_entry_bp_on_update_entry_drop_indicator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnItemSelectionChanged"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_item_selection_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnItemExpansionChanged"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_item_expansion_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnEntryReleased"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_released,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnEntryDropped"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_dropped,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnEntryDragOverChanged"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_drag_over_changed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnEntryDragged"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_entry_dragged,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_OnEndEntryDropOperation"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_bp_on_end_entry_drop_operation,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUserListEntryLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsListItemSelected"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_library_is_list_item_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsListItemExpanded"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_library_is_list_item_expanded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwningListView"),
+                &raw mut __FUNCTION_PTRS.u_user_list_entry_library_get_owning_list_view,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUserObjectListEntry::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnListItemObjectSet"),
+                &raw mut __FUNCTION_PTRS.u_user_object_list_entry_on_list_item_object_set,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUserObjectListEntryLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLastWidget"),
+                &raw mut __FUNCTION_PTRS.u_user_object_list_entry_library_is_last_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFirstWidget"),
+                &raw mut __FUNCTION_PTRS.u_user_object_list_entry_library_is_first_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetListItemObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_user_object_list_entry_library_get_list_item_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetListItemIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_user_object_list_entry_library_get_list_item_index,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UBackgroundBlur::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLowQualityFallbackBrush"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_low_quality_fallback_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_horizontal_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCornerRadius"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_corner_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlurStrength"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_blur_strength,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlurRadius"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_blur_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetApplyAlphaToBlur"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_set_apply_alpha_to_blur,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UPanelSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetContent"),
+                &raw mut __FUNCTION_PTRS.u_panel_slot_get_content,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UBackgroundBlurSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_background_blur_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UBorder::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_border_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowEffectWhenDisabled"),
+                &raw mut __FUNCTION_PTRS.u_border_set_show_effect_when_disabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_border_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_border_set_horizontal_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDesiredSizeScale"),
+                &raw mut __FUNCTION_PTRS.u_border_set_desired_size_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetContentColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_border_set_content_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromTexture"),
+                &raw mut __FUNCTION_PTRS.u_border_set_brush_from_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromMaterial"),
+                &raw mut __FUNCTION_PTRS.u_border_set_brush_from_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromAsset"),
+                &raw mut __FUNCTION_PTRS.u_border_set_brush_from_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushColor"),
+                &raw mut __FUNCTION_PTRS.u_border_set_brush_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrush"),
+                &raw mut __FUNCTION_PTRS.u_border_set_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicMaterial"),
+                &raw mut __FUNCTION_PTRS.u_border_get_dynamic_material,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UBorderSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_border_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_border_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_border_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UButtonSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_button_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_button_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_button_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UCanvasPanel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToCanvas"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_add_child_to_canvas,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UCanvasPanelSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetZOrder"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_z_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSize"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPosition"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOffsets"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_offsets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinimum"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_minimum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaximum"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_maximum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLayout"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAutoSize"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_auto_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnchors"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_anchors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAlignment"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_set_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetZOrder"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_z_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSize"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPosition"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOffsets"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_offsets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLayout"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAutoSize"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_auto_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnchors"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_anchors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAlignment"),
+                &raw mut __FUNCTION_PTRS.u_canvas_panel_slot_get_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UDynamicEntryBoxBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRadialSettings"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_set_radial_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEntrySpacing"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_set_entry_spacing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumEntries"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_get_num_entries,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllEntries"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_base_get_all_entries,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UDynamicEntryBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Reset"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_reset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveEntry"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_remove_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_CreateEntryOfClass"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_bp_create_entry_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_CreateEntry"),
+                &raw mut __FUNCTION_PTRS.u_dynamic_entry_box_bp_create_entry,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UGridPanel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRowFill"),
+                &raw mut __FUNCTION_PTRS.u_grid_panel_set_row_fill,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColumnFill"),
+                &raw mut __FUNCTION_PTRS.u_grid_panel_set_column_fill,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearFill"),
+                &raw mut __FUNCTION_PTRS.u_grid_panel_clear_fill,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToGrid"),
+                &raw mut __FUNCTION_PTRS.u_grid_panel_add_child_to_grid,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UGridSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRowSpan"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_row_span,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRow"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNudge"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_nudge,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLayer"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_horizontal_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColumnSpan"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_column_span,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColumn"),
+                &raw mut __FUNCTION_PTRS.u_grid_slot_set_column,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UHorizontalBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToHorizontalBox"),
+                &raw mut __FUNCTION_PTRS.u_horizontal_box_add_child_to_horizontal_box,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UHorizontalBoxSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSize"),
+                &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_horizontal_box_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UImage::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOpacity"),
+                &raw mut __FUNCTION_PTRS.u_image_set_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDesiredSizeOverride"),
+                &raw mut __FUNCTION_PTRS.u_image_set_desired_size_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_image_set_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushTintColor"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_tint_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushResourceObject"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_resource_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromTextureDynamic"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_texture_dynamic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromTexture"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromSoftTexture"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_soft_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromSoftMaterial"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_soft_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromMaterial"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromAtlasInterface"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_atlas_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushFromAsset"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush_from_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrush"),
+                &raw mut __FUNCTION_PTRS.u_image_set_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicMaterial"),
+                &raw mut __FUNCTION_PTRS.u_image_get_dynamic_material,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UInvalidationBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCanCache"),
+                &raw mut __FUNCTION_PTRS.u_invalidation_box_set_can_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InvalidateCache"),
+                &raw mut __FUNCTION_PTRS.u_invalidation_box_invalidate_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCanCache"),
+                &raw mut __FUNCTION_PTRS.u_invalidation_box_get_can_cache,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UMenuAnchor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleOpen"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_toggle_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldOpenDueToClick"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_should_open_due_to_click,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlacement"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_set_placement,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Open"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOpen"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_is_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasOpenSubMenus"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_has_open_sub_menus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUserWidget__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_get_user_widget_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMenuPosition"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_get_menu_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FitInWindow"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_fit_in_window,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Close"),
+                &raw mut __FUNCTION_PTRS.u_menu_anchor_close,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UOverlay::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceOverlayChildAt"),
+                &raw mut __FUNCTION_PTRS.u_overlay_replace_overlay_child_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToOverlay"),
+                &raw mut __FUNCTION_PTRS.u_overlay_add_child_to_overlay,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UOverlaySlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_overlay_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_overlay_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_overlay_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = URetainerBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextureParameter"),
+                &raw mut __FUNCTION_PTRS.u_retainer_box_set_texture_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRetainRendering"),
+                &raw mut __FUNCTION_PTRS.u_retainer_box_set_retain_rendering,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderingPhase"),
+                &raw mut __FUNCTION_PTRS.u_retainer_box_set_rendering_phase,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEffectMaterial"),
+                &raw mut __FUNCTION_PTRS.u_retainer_box_set_effect_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestRender"),
+                &raw mut __FUNCTION_PTRS.u_retainer_box_request_render,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEffectMaterial"),
+                &raw mut __FUNCTION_PTRS.u_retainer_box_get_effect_material,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = URichTextBlock::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextTransformPolicy"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text_transform_policy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextStyleSet"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text_style_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text_overflow_policy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetText"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_min_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultTextStyle"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_text_style,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultStrikeBrush"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_strike_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultShadowOffset"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_shadow_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultShadowColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rich_text_block_set_default_shadow_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultMaterial"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultFont"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_font,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDefaultColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_default_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDecorators"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_decorators,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAutoWrapText"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_set_auto_wrap_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshTextLayout"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_refresh_text_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextStyleSet"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_get_text_style_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_get_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDefaultDynamicMaterial"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_get_default_dynamic_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDecoratorByClass"),
+                &raw mut __FUNCTION_PTRS.u_rich_text_block_get_decorator_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAllDefaultStyleOverrides"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rich_text_block_clear_all_default_style_overrides,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USafeZone::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSidesToPad"),
+                &raw mut __FUNCTION_PTRS.u_safe_zone_set_sides_to_pad,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UScaleBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUserSpecifiedScale"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_set_user_specified_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStretchDirection"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_set_stretch_direction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStretch"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_set_stretch,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIgnoreInheritedScale"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_set_ignore_inherited_scale,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UScaleBoxSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_scale_box_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UScrollBoxSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_scroll_box_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USizeBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidthOverride"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_width_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_min_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinDesiredHeight"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_min_desired_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_min_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_max_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxDesiredHeight"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_max_desired_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_max_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHeightOverride"),
+                &raw mut __FUNCTION_PTRS.u_size_box_set_height_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearWidthOverride"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_width_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_min_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinDesiredHeight"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_min_desired_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_min_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_max_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxDesiredHeight"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_max_desired_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_max_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearHeightOverride"),
+                &raw mut __FUNCTION_PTRS.u_size_box_clear_height_override,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USizeBoxComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearWidthOverride"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_width_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_min_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinDesiredHeight"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_min_desired_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMinAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_min_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_max_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxDesiredHeight"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_max_desired_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearMaxAspectRatio"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_max_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearHeightOverride"),
+                &raw mut __FUNCTION_PTRS.u_size_box_component_clear_height_override,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USizeBoxSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_size_box_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_size_box_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_size_box_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USpacer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSize"),
+                &raw mut __FUNCTION_PTRS.u_spacer_set_size,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UStackBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceStackBoxChildAt"),
+                &raw mut __FUNCTION_PTRS.u_stack_box_replace_stack_box_child_at,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToStackBox"),
+                &raw mut __FUNCTION_PTRS.u_stack_box_add_child_to_stack_box,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UTextBlock::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextTransformPolicy"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_text_transform_policy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextOverflowPolicy"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_text_overflow_policy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetText"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStrikeBrush"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_strike_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShadowOffset"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_shadow_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShadowColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_shadow_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOpacity"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinDesiredWidth"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_min_desired_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFontOutlineMaterial"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_font_outline_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFontMaterial"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_font_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFont"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_font,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorAndOpacity"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_color_and_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAutoWrapText"),
+                &raw mut __FUNCTION_PTRS.u_text_block_set_auto_wrap_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetText"),
+                &raw mut __FUNCTION_PTRS.u_text_block_get_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicOutlineMaterial"),
+                &raw mut __FUNCTION_PTRS.u_text_block_get_dynamic_outline_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicFontMaterial"),
+                &raw mut __FUNCTION_PTRS.u_text_block_get_dynamic_font_material,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UTileView::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEntryWidth"),
+                &raw mut __FUNCTION_PTRS.u_tile_view_set_entry_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEntryHeight"),
+                &raw mut __FUNCTION_PTRS.u_tile_view_set_entry_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAligned"),
+                &raw mut __FUNCTION_PTRS.u_tile_view_is_aligned,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEntryWidth"),
+                &raw mut __FUNCTION_PTRS.u_tile_view_get_entry_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEntryHeight"),
+                &raw mut __FUNCTION_PTRS.u_tile_view_get_entry_height,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUniformGridPanel::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSlotPadding"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_set_slot_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinDesiredSlotWidth"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_set_min_desired_slot_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMinDesiredSlotHeight"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_set_min_desired_slot_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToUniformGrid"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_panel_add_child_to_uniform_grid,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUniformGridSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRow"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_row,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_horizontal_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColumn"),
+                &raw mut __FUNCTION_PTRS.u_uniform_grid_slot_set_column,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UVerticalBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToVerticalBox"),
+                &raw mut __FUNCTION_PTRS.u_vertical_box_add_child_to_vertical_box,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UVerticalBoxSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSize"),
+                &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_vertical_box_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UViewport::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Spawn"),
+                &raw mut __FUNCTION_PTRS.u_viewport_spawn,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewRotation"),
+                &raw mut __FUNCTION_PTRS.u_viewport_set_view_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetViewLocation"),
+                &raw mut __FUNCTION_PTRS.u_viewport_set_view_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkyIntensity"),
+                &raw mut __FUNCTION_PTRS.u_viewport_set_sky_intensity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowFlag"),
+                &raw mut __FUNCTION_PTRS.u_viewport_set_show_flag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLightIntensity"),
+                &raw mut __FUNCTION_PTRS.u_viewport_set_light_intensity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableAdvancedFeatures"),
+                &raw mut __FUNCTION_PTRS.u_viewport_set_enable_advanced_features,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewRotation"),
+                &raw mut __FUNCTION_PTRS.u_viewport_get_view_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewProjectionMatrix"),
+                &raw mut __FUNCTION_PTRS.u_viewport_get_view_projection_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewportWorld"),
+                &raw mut __FUNCTION_PTRS.u_viewport_get_viewport_world,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewLocation"),
+                &raw mut __FUNCTION_PTRS.u_viewport_get_view_location,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetInteractionComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_interaction_component_set_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomHitResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_set_custom_hit_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SendKeyChar"),
+                &raw mut __FUNCTION_PTRS.u_widget_interaction_component_send_key_char,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScrollWheel"),
+                &raw mut __FUNCTION_PTRS.u_widget_interaction_component_scroll_wheel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleasePointerKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_release_pointer_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseKey"),
+                &raw mut __FUNCTION_PTRS.u_widget_interaction_component_release_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PressPointerKey"),
+                &raw mut __FUNCTION_PTRS.u_widget_interaction_component_press_pointer_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PressKey"),
+                &raw mut __FUNCTION_PTRS.u_widget_interaction_component_press_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PressAndReleaseKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_press_and_release_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOverInteractableWidget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_is_over_interactable_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOverHitTestVisibleWidget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_is_over_hit_test_visible_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOverFocusableWidget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_is_over_focusable_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLastHitResult"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_get_last_hit_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHoveredWidgetComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_get_hovered_widget_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Get2DHitLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_interaction_component_get2_d_hit_location,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetSwitcher::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActiveWidgetIndex"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_set_active_widget_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActiveWidget"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_set_active_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWidgetAtIndex"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_get_widget_at_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumWidgets"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_get_num_widgets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveWidgetIndex"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_get_active_widget_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActiveWidget"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_get_active_widget,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetSwitcherSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_widget_switcher_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWindowTitleBarArea::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_window_title_bar_area_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_window_title_bar_area_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_window_title_bar_area_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWindowTitleBarAreaSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS
+                    .u_window_title_bar_area_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_window_title_bar_area_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS
+                    .u_window_title_bar_area_slot_set_horizontal_alignment,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWrapBox::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInnerSlotPadding"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_set_inner_slot_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_set_horizontal_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddChildToWrapBox"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_add_child_to_wrap_box,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWrapBoxSlot::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVerticalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_vertical_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPadding"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNewLine"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_new_line,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHorizontalAlignment"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_horizontal_alignment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFillSpanWhenLessThan"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_fill_span_when_less_than,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFillEmptySpace"),
+                &raw mut __FUNCTION_PTRS.u_wrap_box_slot_set_fill_empty_space,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UDragDropOperation::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Drop"),
+                &raw mut __FUNCTION_PTRS.u_drag_drop_operation_drop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Dragged"),
+                &raw mut __FUNCTION_PTRS.u_drag_drop_operation_dragged,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DragCancelled"),
+                &raw mut __FUNCTION_PTRS.u_drag_drop_operation_drag_cancelled,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = USlateBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Vector_LocalToAbsolute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_vector_local_to_absolute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Vector_AbsoluteToLocal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_vector_absolute_to_local,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TransformVectorLocalToAbsolute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_transform_vector_local_to_absolute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TransformVectorAbsoluteToLocal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_transform_vector_absolute_to_local,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TransformScalarLocalToAbsolute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_transform_scalar_local_to_absolute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TransformScalarAbsoluteToLocal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_transform_scalar_absolute_to_local,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScreenToWidgetLocal"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_screen_to_widget_local,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScreenToWidgetAbsolute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_screen_to_widget_absolute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScreenToViewport"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_screen_to_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Scalar_LocalToAbsolute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_scalar_local_to_absolute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Scalar_AbsoluteToLocal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_scalar_absolute_to_local,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LocalToViewport"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_local_to_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LocalToAbsolute"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_local_to_absolute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsUnderLocation"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_is_under_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalTopLeft"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_get_local_top_left,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLocalSize"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_get_local_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAbsoluteSize"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_get_absolute_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EqualEqual_SlateBrush"),
+                &raw mut __FUNCTION_PTRS
+                    .u_slate_blueprint_library_equal_equal_slate_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AbsoluteToViewport"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_absolute_to_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AbsoluteToLocal"),
+                &raw mut __FUNCTION_PTRS.u_slate_blueprint_library_absolute_to_local,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UUserWidgetFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOuterUserWidget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_user_widget_function_library_get_outer_user_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_UMGSequencePlayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_user_widget_function_library_conv_umg_sequence_player,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnlockMouse"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_unlock_mouse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Unhandled"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_unhandled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWindowTitleBarState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_window_title_bar_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWindowTitleBarOnCloseClickedDelegate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_window_title_bar_on_close_clicked_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWindowTitleBarCloseButtonActive"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_window_title_bar_close_button_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUserFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_user_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMousePosition"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_mouse_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInputMode_UIOnlyEx"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_input_mode_ui_only_ex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInputMode_GameOnly"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_input_mode_game_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInputMode_GameAndUIEx"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_input_mode_game_and_ui_ex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHardwareCursor"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_set_hardware_cursor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFocusToGameViewport"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_focus_to_game_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorVisionDeficiencyType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_color_vision_deficiency_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushResourceToTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_brush_resource_to_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBrushResourceToMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_set_brush_resource_to_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RestorePreviousWindowTitleBarState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_restore_previous_window_title_bar_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseMouseCapture"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_release_mouse_capture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseJoystickCapture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_release_joystick_capture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnGameWindowCloseButtonClickedDelegate__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_on_game_window_close_button_clicked_delegate_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NoResourceBrush"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_no_resource_brush,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeBrushFromTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_make_brush_from_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeBrushFromMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_make_brush_from_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeBrushFromAsset"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_make_brush_from_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LockMouse"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_lock_mouse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsDragDropping"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_is_drag_dropping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Handled"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_handled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSafeZonePadding"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_safe_zone_padding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeyEventFromAnalogInputEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_key_event_from_analog_input_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputEventFromPointerEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_input_event_from_pointer_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputEventFromNavigationEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_input_event_from_navigation_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputEventFromKeyEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_input_event_from_key_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputEventFromCharacterEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_input_event_from_character_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDynamicMaterial"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_dynamic_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDragDroppingContent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_drag_dropping_content,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBrushResourceAsTexture2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_brush_resource_as_texture2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBrushResourceAsMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_brush_resource_as_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBrushResource"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_get_brush_resource,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllWidgetsWithInterface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_all_widgets_with_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllWidgetsOfClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_get_all_widgets_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EndDragDrop"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_end_drag_drop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DrawTextFormatted"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_text_formatted,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DrawText"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DrawSpline"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_spline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DrawLines"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_lines,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DrawLine"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_line,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DrawBox"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_draw_box,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DismissAllMenus"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_dismiss_all_menus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DetectDragIfPressed"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_detect_drag_if_pressed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DetectDrag"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_detect_drag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateDragDropOperation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_blueprint_library_create_drag_drop_operation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Create"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_create,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearUserFocus"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_clear_user_focus,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureMouse"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_capture_mouse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureJoystick"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_capture_joystick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelDragDrop"),
+                &raw mut __FUNCTION_PTRS.u_widget_blueprint_library_cancel_drag_drop,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UWidgetLayoutLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsWrapBoxSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_wrap_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsWidgetSwitcherSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_slot_as_widget_switcher_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsVerticalBoxSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_slot_as_vertical_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsUniformGridSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_slot_as_uniform_grid_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsStackBoxSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_stack_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsSizeBoxSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_size_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsScrollBoxSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_scroll_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsScaleBoxSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_scale_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsSafeBoxSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_safe_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsOverlaySlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_overlay_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsHorizontalBoxSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_slot_as_horizontal_box_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsGridSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_grid_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsCanvasSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_canvas_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SlotAsBorderSlot"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_slot_as_border_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllWidgets"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_remove_all_widgets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ProjectWorldLocationToWidgetPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_project_world_location_to_widget_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewportWidgetGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_get_viewport_widget_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewportSize"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_get_viewport_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetViewportScale"),
+                &raw mut __FUNCTION_PTRS.u_widget_layout_library_get_viewport_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayerScreenWidgetGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_get_player_screen_widget_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMousePositionScaledByDPI"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_get_mouse_position_scaled_by_dpi,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMousePositionOnViewport"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_get_mouse_position_on_viewport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMousePositionOnPlatform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_widget_layout_library_get_mouse_position_on_platform,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -8445,6 +8590,9 @@ impl UVisual {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UVisual").unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UVisual").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8485,6 +8633,9 @@ pub struct UWidget {
 impl UWidget {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UWidget").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UWidget").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10203,6 +10354,13 @@ impl UUserWidget {
             .name_to_ptr
             .get("UUserWidget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserWidget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14153,6 +14311,13 @@ impl UWidgetComponent {
             .get("UWidgetComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15269,6 +15434,13 @@ impl UUserWidgetBlueprint {
             .get("UUserWidgetBlueprint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserWidgetBlueprint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15289,6 +15461,13 @@ impl UPanelWidget {
             .name_to_ptr
             .get("UPanelWidget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPanelWidget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15584,6 +15763,13 @@ impl UContentWidget {
             .get("UContentWidget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UContentWidget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15690,6 +15876,9 @@ pub struct UButton {
 impl UButton {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UButton").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UButton").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15978,6 +16167,9 @@ impl UCheckBox {
             .get("UCheckBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UCheckBox").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -16247,6 +16439,13 @@ impl UCircularThrobber {
             .get("UCircularThrobber")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCircularThrobber")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -16362,6 +16561,13 @@ impl UComboBoxKey {
             .name_to_ptr
             .get("UComboBoxKey")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UComboBoxKey")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -16572,6 +16778,13 @@ impl UComboBoxString {
             .name_to_ptr
             .get("UComboBoxString")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UComboBoxString")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -16955,6 +17168,13 @@ impl UEditableText {
             .name_to_ptr
             .get("UEditableText")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableText")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17448,6 +17668,13 @@ impl UEditableTextBox {
             .get("UEditableTextBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableTextBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17797,6 +18024,13 @@ impl UExpandableArea {
             .get("UExpandableArea")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UExpandableArea")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17914,6 +18148,13 @@ impl UInputKeySelector {
             .name_to_ptr
             .get("UInputKeySelector")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputKeySelector")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -18210,6 +18451,13 @@ impl UListViewBase {
             .name_to_ptr
             .get("UListViewBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UListViewBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -18669,6 +18917,9 @@ impl UListView {
             .name_to_ptr
             .get("UListView")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UListView").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19487,6 +19738,13 @@ impl UTextLayoutWidget {
             .get("UTextLayoutWidget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextLayoutWidget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19555,6 +19813,13 @@ impl UMultiLineEditableText {
             .name_to_ptr
             .get("UMultiLineEditableText")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMultiLineEditableText")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19903,6 +20168,13 @@ impl UMultiLineEditableTextBox {
             .get("UMultiLineEditableTextBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMultiLineEditableTextBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20177,6 +20449,13 @@ impl UProgressBar {
             .get("UProgressBar")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UProgressBar")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20297,6 +20576,13 @@ impl UScrollBar {
             .get("UScrollBar")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScrollBar")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20379,6 +20665,13 @@ impl UScrollBox {
             .name_to_ptr
             .get("UScrollBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScrollBox")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -21331,6 +21624,9 @@ impl USlider {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USlider").unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USlider").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -21643,6 +21939,9 @@ pub struct USpinBox {
 impl USpinBox {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USpinBox").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USpinBox").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22263,6 +22562,9 @@ impl UThrobber {
             .get("UThrobber")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UThrobber").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22406,6 +22708,9 @@ impl UTreeView {
             .get("UTreeView")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UTreeView").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22514,6 +22819,13 @@ impl UListViewDesignerPreviewItem {
             .get("UListViewDesignerPreviewItem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UListViewDesignerPreviewItem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22534,6 +22846,13 @@ impl USlateAccessibleWidgetData {
             .name_to_ptr
             .get("USlateAccessibleWidgetData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateAccessibleWidgetData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22556,6 +22875,13 @@ impl UUserWidgetExtension {
             .get("UUserWidgetExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserWidgetExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22577,6 +22903,13 @@ impl UWidgetBlueprintGeneratedClassExtension {
             .get("UWidgetBlueprintGeneratedClassExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetBlueprintGeneratedClassExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22597,6 +22930,13 @@ impl UWidgetFieldNotificationExtension {
             .name_to_ptr
             .get("UWidgetFieldNotificationExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetFieldNotificationExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22628,6 +22968,13 @@ impl UWidgetNavigation {
             .get("UWidgetNavigation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetNavigation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22648,6 +22995,13 @@ impl UMovieScene2DTransformPropertySystem {
             .name_to_ptr
             .get("UMovieScene2DTransformPropertySystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene2DTransformPropertySystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22670,6 +23024,13 @@ impl UMovieScene2DTransformSection {
             .get("UMovieScene2DTransformSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene2DTransformSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22690,6 +23051,13 @@ impl UMovieScene2DTransformTrack {
             .name_to_ptr
             .get("UMovieScene2DTransformTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene2DTransformTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22712,6 +23080,13 @@ impl UMovieSceneMarginPropertySystem {
             .get("UMovieSceneMarginPropertySystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMarginPropertySystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22732,6 +23107,13 @@ impl UMovieSceneMarginSection {
             .name_to_ptr
             .get("UMovieSceneMarginSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMarginSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22754,6 +23136,13 @@ impl UMovieSceneMarginTrack {
             .get("UMovieSceneMarginTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMarginTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22774,6 +23163,13 @@ impl UMovieSceneWidgetMaterialSystem {
             .name_to_ptr
             .get("UMovieSceneWidgetMaterialSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneWidgetMaterialSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22796,6 +23192,13 @@ impl UMovieSceneWidgetMaterialTrack {
             .get("UMovieSceneWidgetMaterialTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneWidgetMaterialTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22816,6 +23219,13 @@ impl UUMGSequencePlayer {
             .name_to_ptr
             .get("UUMGSequencePlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUMGSequencePlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -22892,6 +23302,13 @@ impl UUMGSequenceTickManager {
             .get("UUMGSequenceTickManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUMGSequenceTickManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -22912,6 +23329,13 @@ impl UWidgetAnimation {
             .name_to_ptr
             .get("UWidgetAnimation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetAnimation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23218,6 +23642,13 @@ impl UWidgetAnimationDelegateBinding {
             .get("UWidgetAnimationDelegateBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetAnimationDelegateBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23238,6 +23669,13 @@ impl UWidgetAnimationHandleFunctionLibrary {
             .name_to_ptr
             .get("UWidgetAnimationHandleFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetAnimationHandleFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23334,6 +23772,13 @@ impl UWidgetAnimationPlayCallbackProxy {
             .name_to_ptr
             .get("UWidgetAnimationPlayCallbackProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetAnimationPlayCallbackProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23724,6 +24169,13 @@ impl UPropertyBinding {
             .get("UPropertyBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23744,6 +24196,13 @@ impl UBoolBinding {
             .name_to_ptr
             .get("UBoolBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBoolBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23766,6 +24225,13 @@ impl UBrushBinding {
             .get("UBrushBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBrushBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23786,6 +24252,13 @@ impl UCheckedStateBinding {
             .name_to_ptr
             .get("UCheckedStateBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCheckedStateBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23808,6 +24281,13 @@ impl UColorBinding {
             .get("UColorBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UColorBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23828,6 +24308,13 @@ impl UFloatBinding {
             .name_to_ptr
             .get("UFloatBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UFloatBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23850,6 +24337,13 @@ impl UInt32Binding {
             .get("UInt32Binding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInt32Binding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23870,6 +24364,13 @@ impl UMouseCursorBinding {
             .name_to_ptr
             .get("UMouseCursorBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMouseCursorBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23892,6 +24393,13 @@ impl UWidgetBinaryStateRegistration {
             .get("UWidgetBinaryStateRegistration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetBinaryStateRegistration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23912,6 +24420,13 @@ impl UWidgetHoveredStateRegistration {
             .name_to_ptr
             .get("UWidgetHoveredStateRegistration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetHoveredStateRegistration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23934,6 +24449,13 @@ impl UWidgetPressedStateRegistration {
             .get("UWidgetPressedStateRegistration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetPressedStateRegistration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23954,6 +24476,13 @@ impl UWidgetDisabledStateRegistration {
             .name_to_ptr
             .get("UWidgetDisabledStateRegistration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetDisabledStateRegistration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -23976,6 +24505,13 @@ impl UWidgetSelectedStateRegistration {
             .get("UWidgetSelectedStateRegistration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetSelectedStateRegistration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -23996,6 +24532,13 @@ impl UWidgetEnumStateRegistration {
             .name_to_ptr
             .get("UWidgetEnumStateRegistration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetEnumStateRegistration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24018,6 +24561,13 @@ impl UWidgetStateSettings {
             .get("UWidgetStateSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetStateSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24038,6 +24588,13 @@ impl UTextBinding {
             .name_to_ptr
             .get("UTextBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24060,6 +24617,13 @@ impl UVisibilityBinding {
             .get("UVisibilityBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVisibilityBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24081,6 +24645,13 @@ impl UWidgetBinding {
             .get("UWidgetBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24101,6 +24672,13 @@ impl UAsyncTaskDownloadImage {
             .name_to_ptr
             .get("UAsyncTaskDownloadImage")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncTaskDownloadImage")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24151,6 +24729,13 @@ impl UGameViewportSubsystem {
             .name_to_ptr
             .get("UGameViewportSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameViewportSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24513,6 +25098,13 @@ impl UUserListEntry {
             .get("UUserListEntry")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserListEntry")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24779,6 +25371,13 @@ impl UUserListEntryLibrary {
             .get("UUserListEntryLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserListEntryLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24906,6 +25505,13 @@ impl UUserObjectListEntry {
             .get("UUserObjectListEntry")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserObjectListEntry")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24961,6 +25567,13 @@ impl UUserObjectListEntryLibrary {
             .name_to_ptr
             .get("UUserObjectListEntryLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserObjectListEntryLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -25139,6 +25752,13 @@ impl UBackgroundBlur {
             .name_to_ptr
             .get("UBackgroundBlur")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBackgroundBlur")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -25429,6 +26049,13 @@ impl UPanelSlot {
             .get("UPanelSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPanelSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -25478,6 +26105,13 @@ impl UBackgroundBlurSlot {
             .name_to_ptr
             .get("UBackgroundBlurSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBackgroundBlurSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -25615,6 +26249,9 @@ pub struct UBorder {
 impl UBorder {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UBorder").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UBorder").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -26042,6 +26679,13 @@ impl UBorderSlot {
             .get("UBorderSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBorderSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -26172,6 +26816,13 @@ impl UButtonSlot {
             .get("UButtonSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UButtonSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -26297,6 +26948,13 @@ impl UCanvasPanel {
             .get("UCanvasPanel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCanvasPanel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -26356,6 +27014,13 @@ impl UCanvasPanelSlot {
             .name_to_ptr
             .get("UCanvasPanelSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UCanvasPanelSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -26818,6 +27483,13 @@ impl UWidgetCheckedStateRegistration {
             .get("UWidgetCheckedStateRegistration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetCheckedStateRegistration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -26845,6 +27517,9 @@ impl UComboBox {
             .name_to_ptr
             .get("UComboBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UComboBox").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -26876,6 +27551,13 @@ impl UDynamicEntryBoxBase {
             .name_to_ptr
             .get("UDynamicEntryBoxBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicEntryBoxBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -27018,6 +27700,13 @@ impl UDynamicEntryBox {
             .name_to_ptr
             .get("UDynamicEntryBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDynamicEntryBox")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -27165,6 +27854,13 @@ impl UGridPanel {
             .name_to_ptr
             .get("UGridPanel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGridPanel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -27332,6 +28028,9 @@ impl UGridSlot {
             .name_to_ptr
             .get("UGridSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UGridSlot").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -27624,6 +28323,13 @@ impl UHorizontalBox {
             .get("UHorizontalBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHorizontalBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -27685,6 +28391,13 @@ impl UHorizontalBoxSlot {
             .name_to_ptr
             .get("UHorizontalBoxSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHorizontalBoxSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -27845,6 +28558,9 @@ pub struct UImage {
 impl UImage {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UImage").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UImage").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -28380,6 +29096,13 @@ impl UInvalidationBox {
             .get("UInvalidationBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInvalidationBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -28485,6 +29208,13 @@ impl UMenuAnchor {
             .name_to_ptr
             .get("UMenuAnchor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMenuAnchor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -28749,6 +29479,13 @@ impl UUIComponent {
             .get("UUIComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUIComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -28772,6 +29509,13 @@ impl UMouseHoverComponent {
             .get("UMouseHoverComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMouseHoverComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -28792,6 +29536,13 @@ impl UNamedSlot {
             .name_to_ptr
             .get("UNamedSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamedSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -28815,6 +29566,13 @@ impl UNamedSlotInterface {
             .get("UNamedSlotInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamedSlotInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -28836,6 +29594,13 @@ impl UNativeWidgetHost {
             .get("UNativeWidgetHost")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNativeWidgetHost")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -28852,6 +29617,9 @@ pub struct UOverlay {
 impl UOverlay {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UOverlay").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UOverlay").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -28949,6 +29717,13 @@ impl UOverlaySlot {
             .name_to_ptr
             .get("UOverlaySlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UOverlaySlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -29075,6 +29850,13 @@ impl USlatePostBufferProcessorUpdater {
             .get("USlatePostBufferProcessorUpdater")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlatePostBufferProcessorUpdater")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -29095,6 +29877,13 @@ impl UPostBufferBlurUpdater {
             .name_to_ptr
             .get("UPostBufferBlurUpdater")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPostBufferBlurUpdater")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -29120,6 +29909,13 @@ impl UPostBufferUpdate {
             .name_to_ptr
             .get("UPostBufferUpdate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPostBufferUpdate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -29151,6 +29947,13 @@ impl URetainerBox {
             .name_to_ptr
             .get("URetainerBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URetainerBox")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -29374,6 +30177,13 @@ impl URichTextBlock {
             .name_to_ptr
             .get("URichTextBlock")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URichTextBlock")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -30044,6 +30854,13 @@ impl URichTextBlockDecorator {
             .get("URichTextBlockDecorator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URichTextBlockDecorator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -30064,6 +30881,13 @@ impl URichTextBlockImageDecorator {
             .name_to_ptr
             .get("URichTextBlockImageDecorator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URichTextBlockImageDecorator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -30091,6 +30915,9 @@ impl USafeZone {
             .name_to_ptr
             .get("USafeZone")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USafeZone").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -30177,6 +31004,13 @@ impl USafeZoneSlot {
             .get("USafeZoneSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USafeZoneSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -30203,6 +31037,9 @@ impl UScaleBox {
             .name_to_ptr
             .get("UScaleBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UScaleBox").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -30360,6 +31197,13 @@ impl UScaleBoxComponent {
             .get("UScaleBoxComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScaleBoxComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -30384,6 +31228,13 @@ impl UScaleBoxSlot {
             .name_to_ptr
             .get("UScaleBoxSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScaleBoxSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -30516,6 +31367,13 @@ impl UScrollBoxSlot {
             .get("UScrollBoxSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UScrollBoxSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -30646,6 +31504,9 @@ pub struct USizeBox {
 impl USizeBox {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USizeBox").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USizeBox").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -31109,6 +31970,13 @@ impl USizeBoxComponent {
             .get("USizeBoxComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USizeBoxComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -31336,6 +32204,13 @@ impl USizeBoxSlot {
             .get("USizeBoxSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USizeBoxSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -31460,6 +32335,9 @@ impl USpacer {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USpacer").unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("USpacer").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -31513,6 +32391,9 @@ impl UStackBox {
             .name_to_ptr
             .get("UStackBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UStackBox").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -31615,6 +32496,13 @@ impl UStackBoxSlot {
             .get("UStackBoxSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UStackBoxSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -31654,6 +32542,13 @@ impl UTextBlock {
             .name_to_ptr
             .get("UTextBlock")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTextBlock")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -32191,6 +33086,9 @@ impl UTileView {
             .get("UTileView")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UTileView").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -32316,6 +33214,13 @@ impl UUniformGridPanel {
             .name_to_ptr
             .get("UUniformGridPanel")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformGridPanel")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -32487,6 +33392,13 @@ impl UUniformGridSlot {
             .get("UUniformGridSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUniformGridSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -32634,6 +33546,13 @@ impl UVerticalBox {
             .get("UVerticalBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerticalBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -32696,6 +33615,13 @@ impl UVerticalBoxSlot {
             .name_to_ptr
             .get("UVerticalBoxSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVerticalBoxSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -32854,6 +33780,9 @@ impl UViewport {
             .name_to_ptr
             .get("UViewport")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UViewport").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -33216,6 +34145,13 @@ impl UWidgetInteractionComponent {
             .name_to_ptr
             .get("UWidgetInteractionComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetInteractionComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -33707,6 +34643,13 @@ impl UWidgetSwitcher {
             .get("UWidgetSwitcher")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetSwitcher")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -33897,6 +34840,13 @@ impl UWidgetSwitcherSlot {
             .get("UWidgetSwitcherSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetSwitcherSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -34025,6 +34975,13 @@ impl UWindowTitleBarArea {
             .name_to_ptr
             .get("UWindowTitleBarArea")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWindowTitleBarArea")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -34158,6 +35115,13 @@ impl UWindowTitleBarAreaSlot {
             .get("UWindowTitleBarAreaSlot")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWindowTitleBarAreaSlot")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -34287,6 +35251,9 @@ pub struct UWrapBox {
 impl UWrapBox {
     pub fn static_class() -> *mut crate::ffi::UObjectOpague {
         *crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UWrapBox").unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UWrapBox").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -34420,6 +35387,13 @@ impl UWrapBoxSlot {
             .name_to_ptr
             .get("UWrapBoxSlot")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWrapBoxSlot")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -34647,6 +35621,13 @@ impl UDragDropOperation {
             .get("UDragDropOperation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDragDropOperation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -34766,6 +35747,13 @@ impl UUIComponentContainer {
             .get("UUIComponentContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUIComponentContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -34786,6 +35774,13 @@ impl UNavigationUIComponent {
             .name_to_ptr
             .get("UNavigationUIComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNavigationUIComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -34808,6 +35803,13 @@ impl UUIComponentUserWidgetExtension {
             .get("UUIComponentUserWidgetExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUIComponentUserWidgetExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -34829,6 +35831,13 @@ impl UUIComponentWidgetBlueprintGeneratedClassExtension {
             .get("UUIComponentWidgetBlueprintGeneratedClassExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUIComponentWidgetBlueprintGeneratedClassExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -34849,6 +35858,13 @@ impl USlateBlueprintLibrary {
             .name_to_ptr
             .get("USlateBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -35850,6 +36866,13 @@ impl USlateVectorArtData {
             .get("USlateVectorArtData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateVectorArtData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -35870,6 +36893,13 @@ impl UUserWidgetFunctionLibrary {
             .name_to_ptr
             .get("UUserWidgetFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UUserWidgetFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -35960,6 +36990,13 @@ impl UWidgetBlueprintGeneratedClass {
             .get("UWidgetBlueprintGeneratedClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetBlueprintGeneratedClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -35980,6 +37017,13 @@ impl UWidgetBlueprintLibrary {
             .name_to_ptr
             .get("UWidgetBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -38501,6 +39545,13 @@ impl UWidgetLayoutLibrary {
             .get("UWidgetLayoutLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetLayoutLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -39352,6 +40403,13 @@ impl UWidgetTree {
             .name_to_ptr
             .get("UWidgetTree")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWidgetTree")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

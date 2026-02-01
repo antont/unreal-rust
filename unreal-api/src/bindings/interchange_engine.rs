@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -122,414 +123,438 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeFilePickerBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedFilePickerForTranslatorType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_file_picker_base_scripted_file_picker_for_translator_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedFilePickerForTranslatorAssetType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_file_picker_base_scripted_file_picker_for_translator_asset_type,
-        );
+        if let Some(class_ptr) = UInterchangeFilePickerBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedFilePickerForTranslatorType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_file_picker_base_scripted_file_picker_for_translator_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedFilePickerForTranslatorAssetType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_file_picker_base_scripted_file_picker_for_translator_asset_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangePipelineConfigurationBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedShowTestPlanConfigurationDialog"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_configuration_base_scripted_show_test_plan_configuration_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedShowScenePipelineConfigurationDialog"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_configuration_base_scripted_show_scene_pipeline_configuration_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedShowReimportPipelineConfigurationDialog"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_configuration_base_scripted_show_reimport_pipeline_configuration_dialog,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedShowPipelineConfigurationDialog"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_configuration_base_scripted_show_pipeline_configuration_dialog,
-        );
+        if let Some(class_ptr) = UInterchangePipelineConfigurationBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedShowTestPlanConfigurationDialog"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_configuration_base_scripted_show_test_plan_configuration_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ScriptedShowScenePipelineConfigurationDialog",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_configuration_base_scripted_show_scene_pipeline_configuration_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ScriptedShowReimportPipelineConfigurationDialog",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_configuration_base_scripted_show_reimport_pipeline_configuration_dialog,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedShowPipelineConfigurationDialog"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_configuration_base_scripted_show_pipeline_configuration_dialog,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeAssetImportData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTranslatorSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_set_translator_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPipelines"),
-            &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_set_pipelines,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeContainer"),
-            &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_set_node_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptGetFirstFilename"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_script_get_first_filename,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptExtractFilenames"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_script_extract_filenames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptExtractDisplayLabels"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_script_extract_display_labels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTranslatorSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_get_translator_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStoredNode"),
-            &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_get_stored_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStoredFactoryNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_get_stored_factory_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPipelines"),
-            &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_get_pipelines,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumberOfPipelines"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_asset_import_data_get_number_of_pipelines,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeContainer"),
-            &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_get_node_container,
-        );
+        if let Some(class_ptr) = UInterchangeAssetImportData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTranslatorSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_set_translator_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPipelines"),
+                &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_set_pipelines,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_set_node_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptGetFirstFilename"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_script_get_first_filename,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptExtractFilenames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_script_extract_filenames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptExtractDisplayLabels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_script_extract_display_labels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTranslatorSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_get_translator_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStoredNode"),
+                &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_get_stored_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStoredFactoryNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_get_stored_factory_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPipelines"),
+                &raw mut __FUNCTION_PTRS.u_interchange_asset_import_data_get_pipelines,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumberOfPipelines"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_get_number_of_pipelines,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_asset_import_data_get_node_container,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangePipelineStackOverride::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPythonPipeline"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_stack_override_add_python_pipeline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPipeline"),
-            &raw mut __FUNCTION_PTRS.u_interchange_pipeline_stack_override_add_pipeline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBlueprintPipeline"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_pipeline_stack_override_add_blueprint_pipeline,
-        );
+        if let Some(class_ptr) = UInterchangePipelineStackOverride::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPythonPipeline"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_stack_override_add_python_pipeline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPipeline"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_stack_override_add_pipeline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBlueprintPipeline"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_pipeline_stack_override_add_blueprint_pipeline,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WarnIfInterchangeIsActive"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_warn_if_interchange_is_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WaitUntilAllTasksDone"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_wait_until_all_tasks_done,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedReimportAssetAsync"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_scripted_reimport_asset_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedImportSceneAsync"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_scripted_import_scene_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedImportAssetAsync"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_scripted_import_asset_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReimportAsset"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_reimport_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsObjectBeingImported"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_is_object_being_imported,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInterchangeActive"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_is_interchange_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportScene"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_import_scene,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportAsset"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_import_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTranslatorForSourceData"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_get_translator_for_source_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedFormatsForObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_manager_get_supported_formats_for_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedFormats"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_get_supported_formats,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedAssetTypeFormats"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_manager_get_supported_asset_type_formats,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRegisteredFactoryClass"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_get_registered_factory_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInterchangeManagerScripted"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_manager_get_interchange_manager_scripted,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetImportData"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_get_asset_import_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportScene"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_export_scene,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAsset"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_export_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateSourceData"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_create_source_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanTranslateSourceData"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_can_translate_source_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanReimport"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_can_reimport,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelAllTasks"),
-            &raw mut __FUNCTION_PTRS.u_interchange_manager_cancel_all_tasks,
-        );
+        if let Some(class_ptr) = UInterchangeManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WarnIfInterchangeIsActive"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_warn_if_interchange_is_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WaitUntilAllTasksDone"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_wait_until_all_tasks_done,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedReimportAssetAsync"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_scripted_reimport_asset_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedImportSceneAsync"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_scripted_import_scene_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedImportAssetAsync"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_scripted_import_asset_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReimportAsset"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_reimport_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsObjectBeingImported"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_is_object_being_imported,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInterchangeActive"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_is_interchange_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportScene"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_import_scene,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportAsset"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_import_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTranslatorForSourceData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_get_translator_for_source_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedFormatsForObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_get_supported_formats_for_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedFormats"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_get_supported_formats,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedAssetTypeFormats"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_get_supported_asset_type_formats,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRegisteredFactoryClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_get_registered_factory_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInterchangeManagerScripted"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_manager_get_interchange_manager_scripted,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetImportData"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_get_asset_import_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportScene"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_export_scene,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAsset"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_export_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateSourceData"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_create_source_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanTranslateSourceData"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_can_translate_source_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanReimport"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_can_reimport,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelAllTasks"),
+                &raw mut __FUNCTION_PTRS.u_interchange_manager_cancel_all_tasks,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMeshUtilities::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScriptedImportMorphTarget"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_utilities_scripted_import_morph_target,
-        );
+        if let Some(class_ptr) = UInterchangeMeshUtilities::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScriptedImportMorphTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_utilities_scripted_import_morph_target,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeProjectSettingsScript::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPipelineStackFromSourceData"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_project_settings_script_get_pipeline_stack_from_source_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPipelineArrayFromTranslatorPipelines"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_project_settings_script_get_pipeline_array_from_translator_pipelines,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPipelineArrayFromPipelineStack"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_project_settings_script_get_pipeline_array_from_pipeline_stack,
-        );
+        if let Some(class_ptr) = UInterchangeProjectSettingsScript::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPipelineStackFromSourceData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_project_settings_script_get_pipeline_stack_from_source_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPipelineArrayFromTranslatorPipelines"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_project_settings_script_get_pipeline_array_from_translator_pipelines,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPipelineArrayFromPipelineStack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_project_settings_script_get_pipeline_array_from_pipeline_stack,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeEditorSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUsedGroupName"),
-            &raw mut __FUNCTION_PTRS.u_interchange_editor_settings_set_used_group_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUsedGroupName"),
-            &raw mut __FUNCTION_PTRS.u_interchange_editor_settings_get_used_group_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectableItems"),
-            &raw mut __FUNCTION_PTRS.u_interchange_editor_settings_get_selectable_items,
-        );
+        if let Some(class_ptr) = UInterchangeEditorSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUsedGroupName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_settings_set_used_group_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUsedGroupName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_settings_get_used_group_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectableItems"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_editor_settings_get_selectable_items,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -657,6 +682,13 @@ impl UInterchangeBlueprintPipelineBase {
             .get("UInterchangeBlueprintPipelineBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeBlueprintPipelineBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -678,6 +710,13 @@ impl UInterchangeEditorUtilitiesBase {
             .get("UInterchangeEditorUtilitiesBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeEditorUtilitiesBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -698,6 +737,13 @@ impl UInterchangeFilePickerBase {
             .name_to_ptr
             .get("UInterchangeFilePickerBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeFilePickerBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -843,6 +889,13 @@ impl UInterchangePipelineConfigurationBase {
             .name_to_ptr
             .get("UInterchangePipelineConfigurationBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePipelineConfigurationBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1373,6 +1426,13 @@ impl UInterchangeAssetImportData {
             .get("UInterchangeAssetImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeAssetImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1812,6 +1872,13 @@ impl UInterchangeAssetImportDataConverterBase {
             .get("UInterchangeAssetImportDataConverterBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeAssetImportDataConverterBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1834,6 +1901,13 @@ impl UInterchangePipelineStackOverride {
             .name_to_ptr
             .get("UInterchangePipelineStackOverride")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePipelineStackOverride")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1964,6 +2038,13 @@ impl UInterchangeManager {
             .name_to_ptr
             .get("UInterchangeManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2992,6 +3073,13 @@ impl UInterchangeMeshUtilities {
             .get("UInterchangeMeshUtilities")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMeshUtilities")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3081,6 +3169,13 @@ impl UInterchangeProjectSettings {
             .get("UInterchangeProjectSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeProjectSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3101,6 +3196,13 @@ impl UInterchangeProjectSettingsScript {
             .name_to_ptr
             .get("UInterchangeProjectSettingsScript")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeProjectSettingsScript")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3270,6 +3372,13 @@ impl UInterchangeEditorSettings {
             .get("UInterchangeEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3349,6 +3458,13 @@ impl UInterchangePythonPipelineBase {
             .get("UInterchangePythonPipelineBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePythonPipelineBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3370,6 +3486,13 @@ impl UInterchangePythonPipelineAsset {
             .get("UInterchangePythonPipelineAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePythonPipelineAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3390,6 +3513,13 @@ impl UInterchangeSceneImportAsset {
             .name_to_ptr
             .get("UInterchangeSceneImportAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSceneImportAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

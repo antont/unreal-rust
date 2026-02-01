@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -154,524 +155,543 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncInterface"),
-            &raw mut __FUNCTION_PTRS.u_py_test_interface_func_interface,
-        );
+        if let Some(class_ptr) = UPyTestInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncInterface"),
+                &raw mut __FUNCTION_PTRS.u_py_test_interface_func_interface,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestChildInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncInterfaceChild"),
-            &raw mut __FUNCTION_PTRS.u_py_test_child_interface_func_interface_child,
-        );
+        if let Some(class_ptr) = UPyTestChildInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncInterfaceChild"),
+                &raw mut __FUNCTION_PTRS.u_py_test_child_interface_func_interface_child,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestOtherInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncInterfaceOther"),
-            &raw mut __FUNCTION_PTRS.u_py_test_other_interface_func_interface_other,
-        );
+        if let Some(class_ptr) = UPyTestOtherInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncInterfaceOther"),
+                &raw mut __FUNCTION_PTRS.u_py_test_other_interface_func_interface_other,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorPythonScriptingLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetKeepPythonScriptAlive"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_python_scripting_library_set_keep_python_script_alive,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetKeepPythonScriptAlive"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_python_scripting_library_get_keep_python_script_alive,
-        );
+        if let Some(class_ptr) = UEditorPythonScriptingLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetKeepPythonScriptAlive"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_python_scripting_library_set_keep_python_script_alive,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetKeepPythonScriptAlive"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_python_scripting_library_get_keep_python_script_alive,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestStructLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolMutableViaRef"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_set_bool_mutable_via_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolMutable"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_set_bool_mutable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LegacyIsBoolSet"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_legacy_is_bool_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsBoolSet"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_is_bool_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConstantValue"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_get_constant_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearBoolMutableViaRef"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_clear_bool_mutable_via_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearBoolMutable"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_clear_bool_mutable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddStr"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_str,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInt"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddFloat"),
-            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_float,
-        );
+        if let Some(class_ptr) = UPyTestStructLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolMutableViaRef"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_struct_library_set_bool_mutable_via_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolMutable"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_set_bool_mutable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LegacyIsBoolSet"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_legacy_is_bool_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsBoolSet"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_is_bool_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConstantValue"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_get_constant_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearBoolMutableViaRef"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_struct_library_clear_bool_mutable_via_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearBoolMutable"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_clear_bool_mutable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddStr"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_str,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInt"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddFloat"),
+                &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_float,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReturnSet"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_return_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReturnMap"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_return_map,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReturnFieldPath"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_return_field_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReturnArray"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_return_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MulticastDelegatePropertyCallback"),
-            &raw mut __FUNCTION_PTRS
-                .u_py_test_object_multicast_delegate_property_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LegacyFuncTakingPyTestStruct"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_legacy_func_taking_py_test_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConstantValue"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_get_constant_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncTakingPyTestStructDefault"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_struct_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncTakingPyTestStruct"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncTakingPyTestDelegate"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncTakingPyTestChildStruct"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_child_struct,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncTakingFieldPath"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_field_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncBlueprintNativeRef"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_native_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncBlueprintNative"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_native,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncBlueprintImplementablePackedGetter"),
-            &raw mut __FUNCTION_PTRS
-                .u_py_test_object_func_blueprint_implementable_packed_getter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FuncBlueprintImplementable"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_implementable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EmitScriptWarning"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_emit_script_warning,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EmitScriptError"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_emit_script_error,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DelegatePropertyCallback"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_delegate_property_callback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CallFuncBlueprintNativeRef"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_native_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CallFuncBlueprintNative"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_native,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CallFuncBlueprintImplementablePackedGetter"),
-            &raw mut __FUNCTION_PTRS
-                .u_py_test_object_call_func_blueprint_implementable_packed_getter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CallFuncBlueprintImplementable"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_implementable,
-        );
+        if let Some(class_ptr) = UPyTestObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReturnSet"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_return_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReturnMap"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_return_map,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReturnFieldPath"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_return_field_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReturnArray"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_return_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MulticastDelegatePropertyCallback"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_multicast_delegate_property_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LegacyFuncTakingPyTestStruct"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_legacy_func_taking_py_test_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConstantValue"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_get_constant_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncTakingPyTestStructDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_struct_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncTakingPyTestStruct"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncTakingPyTestDelegate"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncTakingPyTestChildStruct"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_child_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncTakingFieldPath"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_field_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncBlueprintNativeRef"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_native_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncBlueprintNative"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_native,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncBlueprintImplementablePackedGetter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_implementable_packed_getter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FuncBlueprintImplementable"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_implementable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EmitScriptWarning"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_emit_script_warning,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EmitScriptError"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_emit_script_error,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DelegatePropertyCallback"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_delegate_property_callback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CallFuncBlueprintNativeRef"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_native_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CallFuncBlueprintNative"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_native,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CallFuncBlueprintImplementablePackedGetter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_implementable_packed_getter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CallFuncBlueprintImplementable"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_implementable,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestObjectLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsBoolSet"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_library_is_bool_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOtherConstantValue"),
-            &raw mut __FUNCTION_PTRS.u_py_test_object_library_get_other_constant_value,
-        );
+        if let Some(class_ptr) = UPyTestObjectLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsBoolSet"),
+                &raw mut __FUNCTION_PTRS.u_py_test_object_library_is_bool_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOtherConstantValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_object_library_get_other_constant_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestStructDelegate::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnNameCollisionDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_py_test_struct_delegate_on_name_collision_delegate_delegate_signature,
-        );
+        if let Some(class_ptr) = UPyTestStructDelegate::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnNameCollisionDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_struct_delegate_on_name_collision_delegate_delegate_signature,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestVectorDelegate::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnNameCollisionDelegate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_py_test_vector_delegate_on_name_collision_delegate_delegate_signature,
-        );
+        if let Some(class_ptr) = UPyTestVectorDelegate::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnNameCollisionDelegate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_py_test_vector_delegate_on_name_collision_delegate_delegate_signature,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPyTestTypeHint::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStringConst"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_get_string_const,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntConst"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_get_int_const,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTupleReturnType"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_tuple_return_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckTextTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_text_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckStructTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_struct_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckStringTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_string_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckStaticFunction"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_static_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckSetTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_set_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckObjectTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_object_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckNameTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_name_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckMapTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_map_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckIntegerTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_integer_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckFloatTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_float_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckFieldPathTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_field_path_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckEnumTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_enum_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckDelegateTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_delegate_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckBoolTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_bool_type_hints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CheckArrayTypeHints"),
-            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_array_type_hints,
-        );
+        if let Some(class_ptr) = UPyTestTypeHint::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStringConst"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_get_string_const,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntConst"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_get_int_const,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTupleReturnType"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_tuple_return_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckTextTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_text_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckStructTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_struct_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckStringTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_string_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckStaticFunction"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_static_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckSetTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_set_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckObjectTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_object_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckNameTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_name_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckMapTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_map_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckIntegerTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_integer_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckFloatTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_float_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckFieldPathTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_field_path_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckEnumTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_enum_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckDelegateTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_delegate_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckBoolTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_bool_type_hints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CheckArrayTypeHints"),
+                &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_array_type_hints,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPythonScriptLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPythonInitialized"),
-            &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_initialized,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPythonConfigured"),
-            &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_configured,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPythonAvailable"),
-            &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_available,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceEnablePythonAtRuntime"),
-            &raw mut __FUNCTION_PTRS
-                .u_python_script_library_force_enable_python_at_runtime,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExecutePythonScript"),
-            &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_script,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExecutePythonCommandEx"),
-            &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_command_ex,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExecutePythonCommand"),
-            &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_command,
-        );
+        if let Some(class_ptr) = UPythonScriptLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPythonInitialized"),
+                &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_initialized,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPythonConfigured"),
+                &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_configured,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPythonAvailable"),
+                &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_available,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceEnablePythonAtRuntime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_python_script_library_force_enable_python_at_runtime,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExecutePythonScript"),
+                &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_script,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExecutePythonCommandEx"),
+                &raw mut __FUNCTION_PTRS
+                    .u_python_script_library_execute_python_command_ex,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExecutePythonCommand"),
+                &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_command,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -721,6 +741,13 @@ impl UPyTestInterface {
             .name_to_ptr
             .get("UPyTestInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -773,6 +800,13 @@ impl UPyTestChildInterface {
             .get("UPyTestChildInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestChildInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -824,6 +858,13 @@ impl UPyTestOtherInterface {
             .get("UPyTestOtherInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestOtherInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -873,6 +914,13 @@ impl UEditorPythonScriptingLibrary {
             .name_to_ptr
             .get("UEditorPythonScriptingLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorPythonScriptingLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -953,6 +1001,13 @@ impl UK2Node_ExecutePythonScript {
             .get("UK2Node_ExecutePythonScript")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UK2Node_ExecutePythonScript")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -973,6 +1028,13 @@ impl UPyTestStructLibrary {
             .name_to_ptr
             .get("UPyTestStructLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestStructLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1352,6 +1414,13 @@ impl UPyTestObject {
             .name_to_ptr
             .get("UPyTestObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2067,6 +2136,13 @@ impl UPyTestChildObject {
             .get("UPyTestChildObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestChildObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2088,6 +2164,13 @@ impl UDEPRECATED_LegacyPyTestObject {
             .get("UDEPRECATED_LegacyPyTestObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_LegacyPyTestObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2108,6 +2191,13 @@ impl UPyTestObjectLibrary {
             .name_to_ptr
             .get("UPyTestObjectLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestObjectLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2189,6 +2279,13 @@ impl UPyTestStructDelegate {
             .get("UPyTestStructDelegate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestStructDelegate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2209,6 +2306,13 @@ impl UPyTestVectorDelegate {
             .name_to_ptr
             .get("UPyTestVectorDelegate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestVectorDelegate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2251,6 +2355,13 @@ impl UPyTestTypeHint {
             .name_to_ptr
             .get("UPyTestTypeHint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPyTestTypeHint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3023,6 +3134,13 @@ impl UPythonOnlineDocsCommandlet {
             .get("UPythonOnlineDocsCommandlet")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonOnlineDocsCommandlet")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3044,6 +3162,13 @@ impl UPythonScriptCommandlet {
             .get("UPythonScriptCommandlet")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonScriptCommandlet")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3064,6 +3189,13 @@ impl UPythonScriptLibrary {
             .name_to_ptr
             .get("UPythonScriptLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonScriptLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3347,6 +3479,13 @@ impl UPythonScriptPluginSettings {
             .get("UPythonScriptPluginSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonScriptPluginSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3367,6 +3506,13 @@ impl UPythonScriptPluginUserSettings {
             .name_to_ptr
             .get("UPythonScriptPluginUserSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonScriptPluginUserSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3390,6 +3536,13 @@ impl UPythonResourceOwner {
             .get("UPythonResourceOwner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonResourceOwner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3410,6 +3563,13 @@ impl UPythonObjectHandle {
             .name_to_ptr
             .get("UPythonObjectHandle")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonObjectHandle")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3432,6 +3592,13 @@ impl UPythonCallableForDelegate {
             .get("UPythonCallableForDelegate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonCallableForDelegate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3452,6 +3619,13 @@ impl UPythonGeneratedEnum {
             .name_to_ptr
             .get("UPythonGeneratedEnum")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonGeneratedEnum")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3474,6 +3648,13 @@ impl UPythonGeneratedClass {
             .get("UPythonGeneratedClass")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonGeneratedClass")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3494,6 +3675,13 @@ impl UPythonGeneratedStruct {
             .name_to_ptr
             .get("UPythonGeneratedStruct")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPythonGeneratedStruct")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

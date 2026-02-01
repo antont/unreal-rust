@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -52,119 +53,122 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AChaosCacheManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TriggerComponentByCache"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_component_by_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TriggerComponent"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TriggerAll"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_all,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Start"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStartTime"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_start_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCurrentTime"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCacheCollection"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_cache_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetSingleTransform"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_reset_single_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetAllComponentTransforms"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_reset_all_component_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveObservedComponent"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_remove_observed_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_is_recording,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindOrAddObservedComponent"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_find_or_add_observed_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnablePlaybackByCache"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_enable_playback_by_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnablePlayback"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_enable_playback,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearObservedComponents"),
-            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_clear_observed_components,
-        );
+        if let Some(class_ptr) = AChaosCacheManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TriggerComponentByCache"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_component_by_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TriggerComponent"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TriggerAll"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_all,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Stop"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Start"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStartTime"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_start_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCurrentTime"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCacheCollection"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_cache_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetSingleTransform"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_reset_single_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetAllComponentTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .a_chaos_cache_manager_reset_all_component_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveObservedComponent"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_remove_observed_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRecording"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_is_recording,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindOrAddObservedComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .a_chaos_cache_manager_find_or_add_observed_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnablePlaybackByCache"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_enable_playback_by_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnablePlayback"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_enable_playback,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearObservedComponents"),
+                &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_clear_observed_components,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -192,6 +196,13 @@ impl UChaosCacheCollection {
             .get("UChaosCacheCollection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosCacheCollection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -215,6 +226,13 @@ impl AChaosCacheManager {
             .name_to_ptr
             .get("AChaosCacheManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosCacheManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -722,6 +740,13 @@ impl AChaosCachePlayer {
             .get("AChaosCachePlayer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AChaosCachePlayer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -744,6 +769,13 @@ impl UChaosCacheData {
             .get("UChaosCacheData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosCacheData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -764,6 +796,13 @@ impl UChaosCache {
             .name_to_ptr
             .get("UChaosCache")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosCache")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -786,6 +825,13 @@ impl UMovieSceneChaosCacheSection {
             .get("UMovieSceneChaosCacheSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneChaosCacheSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -807,6 +853,13 @@ impl UMovieSceneChaosCacheTrack {
             .get("UMovieSceneChaosCacheTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneChaosCacheTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -827,6 +880,13 @@ impl UMovieSceneSpawnableChaosCacheBinding {
             .name_to_ptr
             .get("UMovieSceneSpawnableChaosCacheBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnableChaosCacheBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

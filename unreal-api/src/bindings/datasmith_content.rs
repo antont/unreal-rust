@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -34,67 +35,69 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDatasmithContentBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDatasmithUserDataValuesForKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDatasmithUserDataValueForKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDatasmithUserDataKeysAndValuesForValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDatasmithUserData"),
-            &raw mut __FUNCTION_PTRS
-                .u_datasmith_content_blueprint_library_get_datasmith_user_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllObjectsAndValuesForKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllDatasmithUserData"),
-            &raw mut __FUNCTION_PTRS
-                .u_datasmith_content_blueprint_library_get_all_datasmith_user_data,
-        );
+        if let Some(class_ptr) = UDatasmithContentBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDatasmithUserDataValuesForKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDatasmithUserDataValueForKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDatasmithUserDataKeysAndValuesForValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDatasmithUserData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllObjectsAndValuesForKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllDatasmithUserData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_all_datasmith_user_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ADatasmithImportedSequencesActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .a_datasmith_imported_sequences_actor_play_level_sequence,
-        );
+        if let Some(class_ptr) = ADatasmithImportedSequencesActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .a_datasmith_imported_sequences_actor_play_level_sequence,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -157,6 +160,13 @@ impl UDatasmithAdditionalData {
             .get("UDatasmithAdditionalData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAdditionalData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -196,6 +206,13 @@ impl ADatasmithAreaLightActor {
             .get("ADatasmithAreaLightActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADatasmithAreaLightActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -220,6 +237,13 @@ impl UDatasmithAssetImportData {
             .get("UDatasmithAssetImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAssetImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -240,6 +264,13 @@ impl UDatasmithStaticMeshImportData {
             .name_to_ptr
             .get("UDatasmithStaticMeshImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -262,6 +293,13 @@ impl UDatasmithStaticMeshCADImportData {
             .get("UDatasmithStaticMeshCADImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshCADImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -282,6 +320,13 @@ impl UDatasmithSceneImportData {
             .name_to_ptr
             .get("UDatasmithSceneImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSceneImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -304,6 +349,13 @@ impl UDatasmithTranslatedSceneImportData {
             .get("UDatasmithTranslatedSceneImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithTranslatedSceneImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -324,6 +376,13 @@ impl UDatasmithCADImportSceneData {
             .name_to_ptr
             .get("UDatasmithCADImportSceneData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCADImportSceneData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -346,6 +405,13 @@ impl UDatasmithMDLSceneImportData {
             .get("UDatasmithMDLSceneImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithMDLSceneImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -366,6 +432,13 @@ impl UDatasmithGLTFSceneImportData {
             .name_to_ptr
             .get("UDatasmithGLTFSceneImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithGLTFSceneImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -388,6 +461,13 @@ impl UDatasmithStaticMeshGLTFImportData {
             .get("UDatasmithStaticMeshGLTFImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshGLTFImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -408,6 +488,13 @@ impl UDatasmithFBXSceneImportData {
             .name_to_ptr
             .get("UDatasmithFBXSceneImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithFBXSceneImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -430,6 +517,13 @@ impl UDatasmithDeltaGenAssetImportData {
             .get("UDatasmithDeltaGenAssetImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithDeltaGenAssetImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -450,6 +544,13 @@ impl UDatasmithDeltaGenSceneImportData {
             .name_to_ptr
             .get("UDatasmithDeltaGenSceneImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithDeltaGenSceneImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -472,6 +573,13 @@ impl UDatasmithVREDAssetImportData {
             .get("UDatasmithVREDAssetImportData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithVREDAssetImportData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -492,6 +600,13 @@ impl UDatasmithVREDSceneImportData {
             .name_to_ptr
             .get("UDatasmithVREDSceneImportData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithVREDSceneImportData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -517,6 +632,13 @@ impl UDatasmithAssetUserData {
             .get("UDatasmithAssetUserData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAssetUserData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -537,6 +659,13 @@ impl UDatasmithContentBlueprintLibrary {
             .name_to_ptr
             .get("UDatasmithContentBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithContentBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -869,6 +998,13 @@ impl UDatasmithCustomActionBase {
             .get("UDatasmithCustomActionBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCustomActionBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -893,6 +1029,13 @@ impl ADatasmithImportedSequencesActor {
             .name_to_ptr
             .get("ADatasmithImportedSequencesActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADatasmithImportedSequencesActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -952,6 +1095,13 @@ impl UDatasmithOptionsBase {
             .get("UDatasmithOptionsBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithOptionsBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -974,6 +1124,13 @@ impl UDatasmithCommonTessellationOptions {
             .name_to_ptr
             .get("UDatasmithCommonTessellationOptions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCommonTessellationOptions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1003,6 +1160,13 @@ impl UDatasmithImportOptions {
             .get("UDatasmithImportOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithImportOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1023,6 +1187,13 @@ impl UDatasmithScene {
             .name_to_ptr
             .get("UDatasmithScene")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithScene")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1045,6 +1216,13 @@ impl ADatasmithSceneActor {
             .get("ADatasmithSceneActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADatasmithSceneActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1065,6 +1243,13 @@ impl UDatasmithObjectTemplate {
             .name_to_ptr
             .get("UDatasmithObjectTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithObjectTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1087,6 +1272,13 @@ impl UDatasmithActorTemplate {
             .get("UDatasmithActorTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithActorTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1107,6 +1299,13 @@ impl UDatasmithAreaLightActorTemplate {
             .name_to_ptr
             .get("UDatasmithAreaLightActorTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithAreaLightActorTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1129,6 +1328,13 @@ impl UDatasmithCineCameraActorTemplate {
             .get("UDatasmithCineCameraActorTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCineCameraActorTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1149,6 +1355,13 @@ impl UDatasmithCineCameraComponentTemplate {
             .name_to_ptr
             .get("UDatasmithCineCameraComponentTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithCineCameraComponentTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1171,6 +1384,13 @@ impl UDatasmithDecalComponentTemplate {
             .get("UDatasmithDecalComponentTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithDecalComponentTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1191,6 +1411,13 @@ impl UDatasmithLandscapeTemplate {
             .name_to_ptr
             .get("UDatasmithLandscapeTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithLandscapeTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1213,6 +1440,13 @@ impl UDatasmithLightComponentTemplate {
             .get("UDatasmithLightComponentTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithLightComponentTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1233,6 +1467,13 @@ impl UDatasmithMaterialInstanceTemplate {
             .name_to_ptr
             .get("UDatasmithMaterialInstanceTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithMaterialInstanceTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1255,6 +1496,13 @@ impl UDatasmithPointLightComponentTemplate {
             .get("UDatasmithPointLightComponentTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithPointLightComponentTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1275,6 +1523,13 @@ impl UDatasmithPostProcessVolumeTemplate {
             .name_to_ptr
             .get("UDatasmithPostProcessVolumeTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithPostProcessVolumeTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1297,6 +1552,13 @@ impl UDatasmithSceneComponentTemplate {
             .get("UDatasmithSceneComponentTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSceneComponentTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1317,6 +1579,13 @@ impl UDatasmithSkyLightComponentTemplate {
             .name_to_ptr
             .get("UDatasmithSkyLightComponentTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSkyLightComponentTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1339,6 +1608,13 @@ impl UDatasmithSpotLightComponentTemplate {
             .get("UDatasmithSpotLightComponentTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithSpotLightComponentTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1360,6 +1636,13 @@ impl UDatasmithStaticMeshComponentTemplate {
             .get("UDatasmithStaticMeshComponentTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshComponentTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1380,6 +1663,13 @@ impl UDatasmithStaticMeshTemplate {
             .name_to_ptr
             .get("UDatasmithStaticMeshTemplate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDatasmithStaticMeshTemplate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

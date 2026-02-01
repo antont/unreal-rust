@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -88,271 +89,278 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerCurveEditorObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowCurve"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_show_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRandomColorForChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_set_random_color_for_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomColorForChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_set_custom_color_for_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomColorForChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_set_custom_color_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectKeys"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_select_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OpenCurveEditor"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_open_curve_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCurveShown"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_is_curve_shown,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCurveEditorOpen"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_is_curve_editor_open,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasCustomColorForChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_has_custom_color_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedKeys"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_get_selected_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomColorForChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_get_custom_color_for_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChannelsWithSelectedKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_get_channels_with_selected_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EmptySelection"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_empty_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteColorForChannels"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_curve_editor_object_delete_color_for_channels,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CloseCurveEditor"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_close_curve_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyFilter"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_apply_filter,
-        );
+        if let Some(class_ptr) = USequencerCurveEditorObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowCurve"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_show_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRandomColorForChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_random_color_for_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomColorForChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_custom_color_for_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomColorForChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_custom_color_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectKeys"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_select_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OpenCurveEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_open_curve_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCurveShown"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_is_curve_shown,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCurveEditorOpen"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_is_curve_editor_open,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasCustomColorForChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_has_custom_color_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_selected_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomColorForChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_custom_color_for_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChannelsWithSelectedKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_channels_with_selected_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EmptySelection"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_empty_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteColorForChannels"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_delete_color_for_channels,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CloseCurveEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_close_curve_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyFilter"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_apply_filter,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerToolsFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenderMovie"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_render_movie,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LinkAnimSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_link_anim_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRenderingMovie"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_is_rendering_movie,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEventEndpointValid"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_is_event_endpoint_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportLevelSequenceFBX"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_import_level_sequence_fbx,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportFBXToControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_import_fbx_to_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_get_object_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLevelSequenceLinkFromAnimSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_get_bound_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimSequenceLinkFromLevelSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportLevelSequenceFBX"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_export_level_sequence_fbx,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportFBXFromControlRig"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_export_fbx_from_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAnimSequenceWaitForDelegate"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportAnimSequence"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_export_anim_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateQuickBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_create_quick_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateEvent"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_create_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearLinkedAnimSequences"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_clear_linked_anim_sequences,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CancelMovieRender"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_tools_function_library_cancel_movie_render,
-        );
+        if let Some(class_ptr) = USequencerToolsFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenderMovie"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_render_movie,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LinkAnimSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_link_anim_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRenderingMovie"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_is_rendering_movie,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEventEndpointValid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_is_event_endpoint_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportLevelSequenceFBX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_import_level_sequence_fbx,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportFBXToControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_import_fbx_to_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_object_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLevelSequenceLinkFromAnimSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_bound_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimSequenceLinkFromLevelSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportLevelSequenceFBX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_level_sequence_fbx,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportFBXFromControlRig"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_fbx_from_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAnimSequenceWaitForDelegate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportAnimSequence"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_anim_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateQuickBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_create_quick_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateEvent"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_create_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearLinkedAnimSequences"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_clear_linked_anim_sequences,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CancelMovieRender"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_cancel_movie_render,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -396,6 +404,13 @@ impl USequencerCurveEditorObject {
             .name_to_ptr
             .get("USequencerCurveEditorObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerCurveEditorObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1032,6 +1047,13 @@ impl USequencerToolsFunctionLibrary {
             .name_to_ptr
             .get("USequencerToolsFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerToolsFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

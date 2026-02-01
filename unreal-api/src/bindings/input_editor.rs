@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -30,46 +31,48 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEnhancedInputEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopConsumingInput"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_editor_subsystem_stop_consuming_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartConsumingInput"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_editor_subsystem_start_consuming_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PushInputComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_editor_subsystem_push_input_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PopInputComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_enhanced_input_editor_subsystem_pop_input_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsConsumingInput"),
-            &raw mut __FUNCTION_PTRS.u_enhanced_input_editor_subsystem_is_consuming_input,
-        );
+        if let Some(class_ptr) = UEnhancedInputEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopConsumingInput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_stop_consuming_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartConsumingInput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_start_consuming_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PushInputComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_push_input_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PopInputComponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_pop_input_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsConsumingInput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_is_consuming_input,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -83,6 +86,13 @@ impl UEnhancedInputEditorProjectSettings {
             .name_to_ptr
             .get("UEnhancedInputEditorProjectSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputEditorProjectSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -105,6 +115,13 @@ impl UEnhancedInputEditorSettings {
             .get("UEnhancedInputEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -125,6 +142,13 @@ impl UEnhancedInputEditorSubsystem {
             .name_to_ptr
             .get("UEnhancedInputEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEnhancedInputEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -294,6 +318,13 @@ impl UInputMappingContext_Factory {
             .get("UInputMappingContext_Factory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputMappingContext_Factory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -314,6 +345,13 @@ impl UInputAction_Factory {
             .name_to_ptr
             .get("UInputAction_Factory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputAction_Factory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -336,6 +374,13 @@ impl UInputBindingTarget {
             .get("UInputBindingTarget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInputBindingTarget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -356,6 +401,13 @@ impl UMockedEnhancedInputSubsystem {
             .name_to_ptr
             .get("UMockedEnhancedInputSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMockedEnhancedInputSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -378,6 +430,13 @@ impl UMockInputUserSettings {
             .get("UMockInputUserSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMockInputUserSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -399,6 +458,13 @@ impl UControllablePlayer {
             .get("UControllablePlayer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControllablePlayer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -419,6 +485,13 @@ impl UTestMappableKeysAction {
             .name_to_ptr
             .get("UTestMappableKeysAction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMappableKeysAction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

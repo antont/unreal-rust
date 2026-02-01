@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,21 +25,23 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTurnBasedMatchInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMatchReceivedTurn"),
-            &raw mut __FUNCTION_PTRS.u_turn_based_match_interface_on_match_received_turn,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMatchEnded"),
-            &raw mut __FUNCTION_PTRS.u_turn_based_match_interface_on_match_ended,
-        );
+        if let Some(class_ptr) = UTurnBasedMatchInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMatchReceivedTurn"),
+                &raw mut __FUNCTION_PTRS
+                    .u_turn_based_match_interface_on_match_received_turn,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMatchEnded"),
+                &raw mut __FUNCTION_PTRS.u_turn_based_match_interface_on_match_ended,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -52,6 +55,13 @@ impl UNamedInterfaces {
             .name_to_ptr
             .get("UNamedInterfaces")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNamedInterfaces")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -74,6 +84,13 @@ impl UTurnBasedMatchInterface {
             .name_to_ptr
             .get("UTurnBasedMatchInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTurnBasedMatchInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

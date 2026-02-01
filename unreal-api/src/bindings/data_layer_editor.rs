@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -134,456 +135,463 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataLayerEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateAllViewVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_update_all_view_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateAllActorsVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_update_all_actors_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateActorVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_update_actor_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateActorAllViewsVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_update_actor_all_views_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleDataLayerVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_toggle_data_layer_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleDataLayersVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_toggle_data_layers_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleDataLayersIsLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_toggle_data_layers_is_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleDataLayersIsDynamicallyLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_toggle_data_layers_is_dynamically_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleDataLayerIsLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_toggle_data_layer_is_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToggleDataLayerIsDynamicallyLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_toggle_data_layer_is_dynamically_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParentDataLayerForDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_parent_data_layer_for_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetParentDataLayer"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_set_parent_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayerVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layer_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayersVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layers_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayersIsLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layers_is_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayersIsDynamicallyLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layers_is_dynamically_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayerIsLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layer_is_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayerIsInitiallyVisible"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layer_is_initially_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayerIsDynamicallyLoadedInEditor"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layer_is_dynamically_loaded_in_editor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDataLayerInitialRuntimeState"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_data_layer_initial_runtime_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActorEditorContextCurrentExternalDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_set_actor_editor_context_current_external_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectActorsInDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_select_actors_in_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectActorsInDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_select_actors_in_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameDataLayer"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_rename_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSelectedActorsFromDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_selected_actors_from_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSelectedActorsFromDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_selected_actors_from_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveFromActorEditorContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_from_actor_editor_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorsFromDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_actors_from_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorsFromDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_actors_from_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorsFromAllDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_actors_from_all_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorFromDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_actor_from_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorFromDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_actor_from_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorFromAllDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_remove_actor_from_all_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeAllDataLayersVisible"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_make_all_data_layers_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActorValidForDataLayerInstances"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_is_actor_valid_for_data_layer_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActorValidForDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_is_actor_valid_for_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataLayerInstances"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_get_data_layer_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataLayerInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_get_data_layer_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataLayerFromLabel"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_get_data_layer_from_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataLayer"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_get_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllDataLayers"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_get_all_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorsFromDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_get_actors_from_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorsFromDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_get_actors_from_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorEditorContextCurrentExternalDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_get_actor_editor_context_current_external_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteDataLayers"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_delete_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteDataLayer"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_delete_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateDataLayerInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_create_data_layer_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateDataLayer"),
-            &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_create_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AppendActorsFromDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_append_actors_from_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AppendActorsFromDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_append_actors_from_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddToActorEditorContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_to_actor_editor_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSelectedActorsToDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_selected_actors_to_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSelectedActorsToDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_selected_actors_to_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorToDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_actor_to_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorToDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_actor_to_data_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorsToDataLayers"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_actors_to_data_layers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorsToDataLayer"),
-            &raw mut __FUNCTION_PTRS
-                .u_data_layer_editor_subsystem_add_actors_to_data_layer,
-        );
+        if let Some(class_ptr) = UDataLayerEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateAllViewVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_update_all_view_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateAllActorsVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_update_all_actors_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateActorVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_update_actor_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateActorAllViewsVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_update_actor_all_views_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleDataLayerVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_toggle_data_layer_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleDataLayersVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_toggle_data_layers_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleDataLayersIsLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_toggle_data_layers_is_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleDataLayersIsDynamicallyLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_toggle_data_layers_is_dynamically_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleDataLayerIsLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_toggle_data_layer_is_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToggleDataLayerIsDynamicallyLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_toggle_data_layer_is_dynamically_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParentDataLayerForDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_parent_data_layer_for_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetParentDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_parent_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayerVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layer_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayersVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layers_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayersIsLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layers_is_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayersIsDynamicallyLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layers_is_dynamically_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayerIsLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layer_is_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayerIsInitiallyVisible"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layer_is_initially_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayerIsDynamicallyLoadedInEditor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layer_is_dynamically_loaded_in_editor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDataLayerInitialRuntimeState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_data_layer_initial_runtime_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetActorEditorContextCurrentExternalDataLayer",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_set_actor_editor_context_current_external_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectActorsInDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_select_actors_in_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectActorsInDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_select_actors_in_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameDataLayer"),
+                &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_rename_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSelectedActorsFromDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_selected_actors_from_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSelectedActorsFromDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_selected_actors_from_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveFromActorEditorContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_from_actor_editor_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorsFromDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_actors_from_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorsFromDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_actors_from_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorsFromAllDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_actors_from_all_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorFromDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_actor_from_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorFromDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_actor_from_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorFromAllDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_remove_actor_from_all_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeAllDataLayersVisible"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_make_all_data_layers_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActorValidForDataLayerInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_is_actor_valid_for_data_layer_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActorValidForDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_is_actor_valid_for_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataLayerInstances"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_data_layer_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataLayerInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_data_layer_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataLayerFromLabel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_data_layer_from_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataLayer"),
+                &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_get_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_all_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorsFromDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_actors_from_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorsFromDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_actors_from_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetActorEditorContextCurrentExternalDataLayer",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_get_actor_editor_context_current_external_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteDataLayers"),
+                &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_delete_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteDataLayer"),
+                &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_delete_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateDataLayerInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_create_data_layer_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateDataLayer"),
+                &raw mut __FUNCTION_PTRS.u_data_layer_editor_subsystem_create_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AppendActorsFromDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_append_actors_from_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AppendActorsFromDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_append_actors_from_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddToActorEditorContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_to_actor_editor_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSelectedActorsToDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_selected_actors_to_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSelectedActorsToDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_selected_actors_to_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorToDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_actor_to_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorToDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_actor_to_data_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorsToDataLayers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_actors_to_data_layers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorsToDataLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_data_layer_editor_subsystem_add_actors_to_data_layer,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -604,6 +612,13 @@ impl UDataLayerEditorState {
             .name_to_ptr
             .get("UDataLayerEditorState")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataLayerEditorState")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -626,6 +641,13 @@ impl UActorEditorContextDataLayerState {
             .get("UActorEditorContextDataLayerState")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorEditorContextDataLayerState")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -646,6 +668,13 @@ impl UDataLayerEditorSubsystem {
             .name_to_ptr
             .get("UDataLayerEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataLayerEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3158,6 +3187,13 @@ impl UDataLayerFactory {
             .get("UDataLayerFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataLayerFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3178,6 +3214,13 @@ impl UExternalDataLayerFactory {
             .name_to_ptr
             .get("UExternalDataLayerFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UExternalDataLayerFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

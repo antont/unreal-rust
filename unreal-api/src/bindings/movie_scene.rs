@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -192,673 +193,692 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneSection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRowIndex"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_row_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreRollFrames"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_pre_roll_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPostRollFrames"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_post_roll_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOverlapPriority"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_overlap_priority,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsLocked"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_is_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsActive"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_is_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCompletionMode"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_completion_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorTint"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_color_tint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlendType"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_blend_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLocked"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_is_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActive"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_is_active,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRowIndex"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_row_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreRollFrames"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_pre_roll_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPostRollFrames"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_post_roll_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOverlapPriority"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_overlap_priority,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCompletionMode"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_completion_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetColorTint"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_color_tint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlendType"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_blend_type,
-        );
+        if let Some(class_ptr) = UMovieSceneSection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRowIndex"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_row_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreRollFrames"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_pre_roll_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPostRollFrames"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_post_roll_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOverlapPriority"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_overlap_priority,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsLocked"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_is_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsActive"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_is_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCompletionMode"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_completion_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorTint"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_color_tint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlendType"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_blend_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLocked"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_is_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActive"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_is_active,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRowIndex"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_row_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreRollFrames"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_pre_roll_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPostRollFrames"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_post_roll_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOverlapPriority"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_overlap_priority,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCompletionMode"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_completion_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetColorTint"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_color_tint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlendType"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_blend_type,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneSequence::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEarliestTimecodeSource"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_get_earliest_timecode_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBindingsByTag"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_find_bindings_by_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBindingByTag"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_find_binding_by_tag,
-        );
+        if let Some(class_ptr) = UMovieSceneSequence::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEarliestTimecodeSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_get_earliest_timecode_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBindingsByTag"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_find_bindings_by_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBindingByTag"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_find_binding_by_tag,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneCustomBinding::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBaseEnginePriority"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_custom_binding_get_base_engine_priority,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBaseCustomPriority"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_custom_binding_get_base_custom_priority,
-        );
+        if let Some(class_ptr) = UMovieSceneCustomBinding::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBaseEnginePriority"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_custom_binding_get_base_engine_priority,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBaseCustomPriority"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_custom_binding_get_base_custom_priority,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneCondition::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetScope"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_get_scope,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetCheckFrequency"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_get_check_frequency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_EvaluateCondition"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_evaluate_condition,
-        );
+        if let Some(class_ptr) = UMovieSceneCondition::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetScope"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_get_scope,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetCheckFrequency"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_get_check_frequency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_EvaluateCondition"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_evaluate_condition,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneSubSection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sub_section_set_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sub_section_get_sequence,
-        );
+        if let Some(class_ptr) = UMovieSceneSubSection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSequence"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sub_section_set_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sub_section_get_sequence,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneBoundObjectProxy::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetBoundObjectForSequencer"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer,
-        );
+        if let Some(class_ptr) = UMovieSceneBoundObjectProxy::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetBoundObjectForSequencer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneBindingEventReceiverInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnObjectUnboundBySequencer"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnObjectBoundBySequencer"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer,
-        );
+        if let Some(class_ptr) = UMovieSceneBindingEventReceiverInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnObjectUnboundBySequencer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnObjectBoundBySequencer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneEasingFunction::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnEvaluate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_easing_function_on_evaluate,
-        );
+        if let Some(class_ptr) = UMovieSceneEasingFunction::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnEvaluate"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_easing_function_on_evaluate,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneCustomClockSource::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTick"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnStopPlaying"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_stop_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnStartPlaying"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_start_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRequestCurrentTime"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_custom_clock_source_on_request_current_time,
-        );
+        if let Some(class_ptr) = UMovieSceneCustomClockSource::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTick"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnStopPlaying"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_custom_clock_source_on_stop_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnStartPlaying"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_custom_clock_source_on_start_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRequestCurrentTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_custom_clock_source_on_request_current_time,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBuiltInDynamicBindingResolverLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResolveToPlayerPawn"),
-            &raw mut __FUNCTION_PTRS
-                .u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn,
-        );
+        if let Some(class_ptr) = UBuiltInDynamicBindingResolverLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResolveToPlayerPawn"),
+                &raw mut __FUNCTION_PTRS
+                    .u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneMetaData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNotes"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_notes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCreated"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_created,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAuthor"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_author,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNotes"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_notes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCreated"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_created,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAuthor"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_author,
-        );
+        if let Some(class_ptr) = UMovieSceneMetaData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNotes"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_notes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCreated"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_created,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAuthor"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_author,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNotes"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_notes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCreated"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_created,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAuthor"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_author,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneSequencePlayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopAtCurrentTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_stop_at_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWeight"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTimeRange"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_time_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlayRate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_play_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPlaybackPosition"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_playback_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHideHud"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_hide_hud,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFrameRange"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_frame_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDisableCameraCuts"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_set_disable_camera_cuts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCompletionModeOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_set_completion_mode_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Scrub"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_scrub,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RPC_OnStopEvent"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_rpc_on_stop_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RPC_OnFinishPlaybackEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_rpc_on_finish_playback_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RPC_ExplicitServerUpdateEvent"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_rpc_explicit_server_update_event,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RestoreState"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_restore_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestInvalidateBinding"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_request_invalidate_binding,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveWeight"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_remove_weight,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayTo"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_to,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayReverse"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_reverse,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayLooping"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_looping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Play"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_pause,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReversed"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_reversed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_playing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_paused,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GoToEndAndStop"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_go_to_end_and_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_start_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequenceName"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_sequence_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_sequence,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPlayRate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_play_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectBindings"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_object_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHideHud"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_hide_hud,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFrameDuration"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_frame_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEndTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_end_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_duration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisableCameraCuts"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_get_disable_camera_cuts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentTime"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_current_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCompletionModeOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_get_completion_mode_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_bound_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ChangePlaybackDirection"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_sequence_player_change_playback_direction,
-        );
+        if let Some(class_ptr) = UMovieSceneSequencePlayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopAtCurrentTime"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_stop_at_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Stop"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWeight"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTimeRange"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_time_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlayRate"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_play_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPlaybackPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_playback_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHideHud"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_hide_hud,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFrameRange"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_frame_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDisableCameraCuts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_disable_camera_cuts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCompletionModeOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_completion_mode_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Scrub"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_scrub,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RPC_OnStopEvent"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_rpc_on_stop_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RPC_OnFinishPlaybackEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_rpc_on_finish_playback_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RPC_ExplicitServerUpdateEvent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_rpc_explicit_server_update_event,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RestoreState"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_restore_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestInvalidateBinding"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_request_invalidate_binding,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveWeight"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_remove_weight,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayTo"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_to,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayReverse"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_reverse,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayLooping"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_looping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Play"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Pause"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_pause,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReversed"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_reversed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPlaying"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_playing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPaused"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_paused,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GoToEndAndStop"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_go_to_end_and_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_start_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequenceName"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_sequence_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSequence"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_sequence,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPlayRate"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_play_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_object_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHideHud"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_hide_hud,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFrameRate"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFrameDuration"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_frame_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEndTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_end_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDuration"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_duration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisableCameraCuts"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_disable_camera_cuts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentTime"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_current_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCompletionModeOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_completion_mode_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoundObjects"),
+                &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_bound_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ChangePlaybackDirection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_change_playback_direction,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ATestMovieSceneArrayPropertiesActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTestSetterFloat"),
-            &raw mut __FUNCTION_PTRS
-                .a_test_movie_scene_array_properties_actor_set_test_setter_float,
-        );
+        if let Some(class_ptr) = ATestMovieSceneArrayPropertiesActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTestSetterFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .a_test_movie_scene_array_properties_actor_set_test_setter_float,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1056,6 +1076,13 @@ impl UMovieSceneEntitySystem {
             .get("UMovieSceneEntitySystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEntitySystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1076,6 +1103,13 @@ impl UMovieSceneSignedObject {
             .name_to_ptr
             .get("UMovieSceneSignedObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSignedObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1098,6 +1132,13 @@ impl UMovieSceneDecorationContainerObject {
             .get("UMovieSceneDecorationContainerObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDecorationContainerObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1118,6 +1159,13 @@ impl UMovieSceneSection {
             .name_to_ptr
             .get("UMovieSceneSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1670,6 +1718,13 @@ impl UMovieSceneTrack {
             .get("UMovieSceneTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1691,6 +1746,13 @@ impl UMovieSceneNameableTrack {
             .get("UMovieSceneNameableTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNameableTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1711,6 +1773,13 @@ impl UMovieSceneSequence {
             .name_to_ptr
             .get("UMovieSceneSequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1831,6 +1900,13 @@ impl UMovieSceneCustomBinding {
             .get("UMovieSceneCustomBinding")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCustomBinding")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1906,6 +1982,13 @@ impl UMovieSceneReplaceableBindingBase {
             .get("UMovieSceneReplaceableBindingBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneReplaceableBindingBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1930,6 +2013,13 @@ impl UMovieSceneSpawnableBindingBase {
             .get("UMovieSceneSpawnableBindingBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnableBindingBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1950,6 +2040,13 @@ impl UMovieSceneChannelOverrideContainer {
             .name_to_ptr
             .get("UMovieSceneChannelOverrideContainer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneChannelOverrideContainer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1974,6 +2071,13 @@ impl UMovieSceneCondition {
             .name_to_ptr
             .get("UMovieSceneCondition")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCondition")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2084,6 +2188,13 @@ impl UMovieSceneEntityInstantiatorSystem {
             .get("UMovieSceneEntityInstantiatorSystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEntityInstantiatorSystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2107,6 +2218,13 @@ impl UMovieSceneSubSection {
             .name_to_ptr
             .get("UMovieSceneSubSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSubSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2187,6 +2305,13 @@ impl UMovieSceneBoolSection {
             .get("UMovieSceneBoolSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBoolSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2207,6 +2332,13 @@ impl UMovieSceneBlenderSystem {
             .name_to_ptr
             .get("UMovieSceneBlenderSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBlenderSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2229,6 +2361,13 @@ impl UMovieSceneTrackInstance {
             .get("UMovieSceneTrackInstance")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackInstance")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2249,6 +2388,13 @@ impl UMovieSceneSubTrack {
             .name_to_ptr
             .get("UMovieSceneSubTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSubTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2272,6 +2418,13 @@ impl UMovieSceneBlenderSystemSupport {
             .get("UMovieSceneBlenderSystemSupport")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBlenderSystemSupport")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2293,6 +2446,13 @@ impl UMovieSceneBoundObjectProxy {
             .name_to_ptr
             .get("UMovieSceneBoundObjectProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBoundObjectProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2357,6 +2517,13 @@ impl UMovieSceneChannelDecoration {
             .get("UMovieSceneChannelDecoration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneChannelDecoration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2378,6 +2545,13 @@ impl UMovieSceneChannelOverrideProvider {
             .name_to_ptr
             .get("UMovieSceneChannelOverrideProvider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneChannelOverrideProvider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2401,6 +2575,13 @@ impl UMovieSceneChannelOwner {
             .get("UMovieSceneChannelOwner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneChannelOwner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2422,6 +2603,13 @@ impl UMovieSceneDecoration {
             .name_to_ptr
             .get("UMovieSceneDecoration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDecoration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2445,6 +2633,13 @@ impl UMovieSceneDeterminismSource {
             .get("UMovieSceneDeterminismSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneDeterminismSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2466,6 +2661,13 @@ impl UMovieSceneEntityDecorator {
             .name_to_ptr
             .get("UMovieSceneEntityDecorator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEntityDecorator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2489,6 +2691,13 @@ impl UMovieSceneLifetimeDecoration {
             .get("UMovieSceneLifetimeDecoration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneLifetimeDecoration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2510,6 +2719,13 @@ impl UMovieSceneMetaDataInterface {
             .name_to_ptr
             .get("UMovieSceneMetaDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMetaDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2533,6 +2749,13 @@ impl UMovieScenePlaybackClient {
             .get("UMovieScenePlaybackClient")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePlaybackClient")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2554,6 +2777,13 @@ impl UMovieSceneSectionDecoration {
             .name_to_ptr
             .get("UMovieSceneSectionDecoration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSectionDecoration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2577,6 +2807,13 @@ impl UMovieSceneSequencePlayerObserver {
             .get("UMovieSceneSequencePlayerObserver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSequencePlayerObserver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2599,6 +2836,13 @@ impl UMovieSceneTrackDecoration {
             .get("UMovieSceneTrackDecoration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackDecoration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2620,6 +2864,13 @@ impl UMovieSceneBindingEventReceiverInterface {
             .name_to_ptr
             .get("UMovieSceneBindingEventReceiverInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingEventReceiverInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2729,6 +2980,13 @@ impl UMovieSceneBindingOwnerInterface {
             .get("UMovieSceneBindingOwnerInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingOwnerInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2751,6 +3009,13 @@ impl UMovieSceneCachedTrack {
             .get("UMovieSceneCachedTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCachedTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2772,6 +3037,13 @@ impl UMovieSceneEasingFunction {
             .name_to_ptr
             .get("UMovieSceneEasingFunction")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEasingFunction")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2824,6 +3096,13 @@ impl UMovieSceneKeyProxy {
             .get("UMovieSceneKeyProxy")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneKeyProxy")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2844,6 +3123,13 @@ impl UMovieSceneNumericVariantGetter {
             .name_to_ptr
             .get("UMovieSceneNumericVariantGetter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNumericVariantGetter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2867,6 +3153,13 @@ impl UMovieSceneSequenceTickManagerClient {
             .get("UMovieSceneSequenceTickManagerClient")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSequenceTickManagerClient")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2887,6 +3180,13 @@ impl UMovieSceneSectionChannelOverrideRegistry {
             .name_to_ptr
             .get("UMovieSceneSectionChannelOverrideRegistry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSectionChannelOverrideRegistry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2910,6 +3210,13 @@ impl UMovieSceneTrackTemplateProducer {
             .get("UMovieSceneTrackTemplateProducer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackTemplateProducer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2931,6 +3238,13 @@ impl UMovieSceneCompiledData {
             .get("UMovieSceneCompiledData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCompiledData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2951,6 +3265,13 @@ impl UMovieSceneCompiledDataManager {
             .name_to_ptr
             .get("UMovieSceneCompiledDataManager")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCompiledDataManager")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2976,6 +3297,13 @@ impl UMovieSceneGroupCondition {
             .get("UMovieSceneGroupCondition")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneGroupCondition")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2997,6 +3325,13 @@ impl UMovieSceneLanguagePreviewDecoration {
             .get("UMovieSceneLanguagePreviewDecoration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneLanguagePreviewDecoration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3017,6 +3352,13 @@ impl UMovieSceneMuteSoloDecoration {
             .name_to_ptr
             .get("UMovieSceneMuteSoloDecoration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMuteSoloDecoration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3040,6 +3382,13 @@ impl UMovieSceneScalingDriver {
             .get("UMovieSceneScalingDriver")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScalingDriver")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3060,6 +3409,13 @@ impl UMovieSceneTimeWarpGetter {
             .name_to_ptr
             .get("UMovieSceneTimeWarpGetter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpGetter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3082,6 +3438,13 @@ impl UMovieScenePlayRateCurve {
             .get("UMovieScenePlayRateCurve")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePlayRateCurve")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3103,6 +3466,13 @@ impl UMovieSceneScalingAnchors {
             .get("UMovieSceneScalingAnchors")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneScalingAnchors")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3123,6 +3493,13 @@ impl UMovieSceneSectionAnchorsDecoration {
             .name_to_ptr
             .get("UMovieSceneSectionAnchorsDecoration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSectionAnchorsDecoration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3146,6 +3523,13 @@ impl UMovieSceneTimeWarpSource {
             .get("UMovieSceneTimeWarpSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3167,6 +3551,13 @@ impl UMovieSceneTimeWarpDecoration {
             .get("UMovieSceneTimeWarpDecoration")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpDecoration")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3187,6 +3578,13 @@ impl UMovieSceneTrackRowDecoration {
             .name_to_ptr
             .get("UMovieSceneTrackRowDecoration")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackRowDecoration")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3210,6 +3608,13 @@ impl UMovieSceneEntityProvider {
             .get("UMovieSceneEntityProvider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEntityProvider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3230,6 +3635,13 @@ impl UMovieSceneBindingLifetimeSystem {
             .name_to_ptr
             .get("UMovieSceneBindingLifetimeSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingLifetimeSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3252,6 +3664,13 @@ impl UMovieSceneGenericBoundObjectInstantiator {
             .get("UMovieSceneGenericBoundObjectInstantiator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneGenericBoundObjectInstantiator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3272,6 +3691,13 @@ impl UMovieSceneBoundSceneComponentInstantiator {
             .name_to_ptr
             .get("UMovieSceneBoundSceneComponentInstantiator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBoundSceneComponentInstantiator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3295,6 +3721,13 @@ impl UMovieSceneValueDecomposer {
             .get("UMovieSceneValueDecomposer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneValueDecomposer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3315,6 +3748,13 @@ impl UMovieSceneEntityGroupingSystem {
             .name_to_ptr
             .get("UMovieSceneEntityGroupingSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEntityGroupingSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3337,6 +3777,13 @@ impl UMovieSceneEntitySystemLinker {
             .get("UMovieSceneEntitySystemLinker")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEntitySystemLinker")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3357,6 +3804,13 @@ impl UMovieSceneEvalTimeSystem {
             .name_to_ptr
             .get("UMovieSceneEvalTimeSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEvalTimeSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3379,6 +3833,13 @@ impl UMovieSceneEvaluationHookSystem {
             .get("UMovieSceneEvaluationHookSystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEvaluationHookSystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3399,6 +3860,13 @@ impl UMovieSceneInitialValueSystem {
             .name_to_ptr
             .get("UMovieSceneInitialValueSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneInitialValueSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3422,6 +3890,13 @@ impl UMovieScenePreAnimatedStateSystemInterface {
             .get("UMovieScenePreAnimatedStateSystemInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScenePreAnimatedStateSystemInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3442,6 +3917,13 @@ impl UMovieSceneCachePreAnimatedStateSystem {
             .name_to_ptr
             .get("UMovieSceneCachePreAnimatedStateSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCachePreAnimatedStateSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3464,6 +3946,13 @@ impl UMovieSceneRestorePreAnimatedStateSystem {
             .get("UMovieSceneRestorePreAnimatedStateSystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneRestorePreAnimatedStateSystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3484,6 +3973,13 @@ impl UMovieSceneRootInstantiatorSystem {
             .name_to_ptr
             .get("UMovieSceneRootInstantiatorSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneRootInstantiatorSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3506,6 +4002,13 @@ impl UMovieSceneSpawnablesSystem {
             .get("UMovieSceneSpawnablesSystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnablesSystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3527,6 +4030,13 @@ impl UMovieSceneTrackInstanceInstantiator {
             .get("UMovieSceneTrackInstanceInstantiator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackInstanceInstantiator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3547,6 +4057,13 @@ impl UMovieSceneTrackInstanceSystem {
             .name_to_ptr
             .get("UMovieSceneTrackInstanceSystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTrackInstanceSystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3570,6 +4087,13 @@ impl UMovieSceneCustomClockSource {
             .get("UMovieSceneCustomClockSource")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCustomClockSource")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3592,6 +4116,13 @@ impl UMovieSceneEvaluationHook {
             .get("UMovieSceneEvaluationHook")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEvaluationHook")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3613,6 +4144,13 @@ impl UMovieSceneBuiltInEasingFunction {
             .get("UMovieSceneBuiltInEasingFunction")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBuiltInEasingFunction")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3633,6 +4171,13 @@ impl UMovieSceneEasingExternalCurve {
             .name_to_ptr
             .get("UMovieSceneEasingExternalCurve")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneEasingExternalCurve")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3656,6 +4201,13 @@ impl UNodeAndChannelMappings {
             .get("UNodeAndChannelMappings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNodeAndChannelMappings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3676,6 +4228,13 @@ impl UMovieSceneShotMetaData {
             .name_to_ptr
             .get("UMovieSceneShotMetaData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneShotMetaData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3698,6 +4257,13 @@ impl UMovieSceneNodeGroup {
             .get("UMovieSceneNodeGroup")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNodeGroup")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3718,6 +4284,13 @@ impl UMovieSceneNodeGroupCollection {
             .name_to_ptr
             .get("UMovieSceneNodeGroupCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNodeGroupCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3740,6 +4313,13 @@ impl UMovieScene {
             .get("UMovieScene")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieScene")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3760,6 +4340,13 @@ impl UMovieSceneBindingOverrides {
             .name_to_ptr
             .get("UMovieSceneBindingOverrides")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingOverrides")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3782,6 +4369,13 @@ impl UMovieSceneClock {
             .get("UMovieSceneClock")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneClock")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3803,6 +4397,13 @@ impl UMovieSceneExternalClock {
             .get("UMovieSceneExternalClock")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneExternalClock")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3823,6 +4424,13 @@ impl UBuiltInDynamicBindingResolverLibrary {
             .name_to_ptr
             .get("UBuiltInDynamicBindingResolverLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBuiltInDynamicBindingResolverLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3890,6 +4498,13 @@ impl UMovieSceneFolder {
             .get("UMovieSceneFolder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneFolder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3910,6 +4525,13 @@ impl UMovieSceneMetaData {
             .name_to_ptr
             .get("UMovieSceneMetaData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneMetaData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4110,6 +4732,13 @@ impl UMovieSceneSequencePlayer {
             .name_to_ptr
             .get("UMovieSceneSequencePlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSequencePlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5276,6 +5905,13 @@ impl UMovieSceneSequenceTickManager {
             .get("UMovieSceneSequenceTickManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSequenceTickManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5296,6 +5932,13 @@ impl UMovieSceneBindingLifetimeSection {
             .name_to_ptr
             .get("UMovieSceneBindingLifetimeSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingLifetimeSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5318,6 +5961,13 @@ impl UMovieSceneHookSection {
             .get("UMovieSceneHookSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneHookSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5338,6 +5988,13 @@ impl UMovieSceneSpawnSection {
             .name_to_ptr
             .get("UMovieSceneSpawnSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5360,6 +6017,13 @@ impl UMovieSceneTimeWarpSection {
             .get("UMovieSceneTimeWarpSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5380,6 +6044,13 @@ impl UTestMovieSceneTrack {
             .name_to_ptr
             .get("UTestMovieSceneTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5402,6 +6073,13 @@ impl UTestMovieSceneSection {
             .get("UTestMovieSceneSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5422,6 +6100,13 @@ impl UTestMovieSceneSequence {
             .name_to_ptr
             .get("UTestMovieSceneSequence")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneSequence")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5444,6 +6129,13 @@ impl UTestMovieSceneSubTrack {
             .get("UTestMovieSceneSubTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneSubTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5464,6 +6156,13 @@ impl UTestMovieSceneSubSection {
             .name_to_ptr
             .get("UTestMovieSceneSubSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneSubSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5486,6 +6185,13 @@ impl UTestMovieSceneEvalHookTrack {
             .get("UTestMovieSceneEvalHookTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneEvalHookTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5507,6 +6213,13 @@ impl UTestMovieSceneEvalHookSection {
             .get("UTestMovieSceneEvalHookSection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneEvalHookSection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5527,6 +6240,13 @@ impl UTestMovieSceneObject {
             .name_to_ptr
             .get("UTestMovieSceneObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTestMovieSceneObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5562,6 +6282,13 @@ impl ATestMovieSceneArrayPropertiesActor {
             .name_to_ptr
             .get("ATestMovieSceneArrayPropertiesActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ATestMovieSceneArrayPropertiesActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5612,6 +6339,13 @@ impl UMovieSceneBindingLifetimeTrack {
             .get("UMovieSceneBindingLifetimeTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneBindingLifetimeTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5632,6 +6366,13 @@ impl UMovieSceneSpawnTrack {
             .name_to_ptr
             .get("UMovieSceneSpawnTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneSpawnTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5654,6 +6395,13 @@ impl UMovieSceneTimeWarpTrack {
             .get("UMovieSceneTimeWarpTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5674,6 +6422,13 @@ impl UMovieSceneTimeWarpCurve {
             .name_to_ptr
             .get("UMovieSceneTimeWarpCurve")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneTimeWarpCurve")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

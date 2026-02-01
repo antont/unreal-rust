@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -54,128 +55,131 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UChaosClothingInteractor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWind"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_wind,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVelocityScale"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_velocity_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVelocityClamps"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_velocity_clamps,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPressure"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_pressure,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialLinear"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material_linear,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialBuckling"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material_buckling,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterial"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLongRangeAttachmentLinear"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_clothing_interactor_set_long_range_attachment_linear,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLongRangeAttachment"),
-            &raw mut __FUNCTION_PTRS
-                .u_chaos_clothing_interactor_set_long_range_attachment,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGravity"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_gravity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDamping"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_damping,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCollision"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBackstop"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_backstop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimDriveLinear"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_anim_drive_linear,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimDrive"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_anim_drive,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAerodynamics"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_aerodynamics,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetAndTeleport"),
-            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_reset_and_teleport,
-        );
+        if let Some(class_ptr) = UChaosClothingInteractor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWind"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_wind,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVelocityScale"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_velocity_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVelocityClamps"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_velocity_clamps,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPressure"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_pressure,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialLinear"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material_linear,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialBuckling"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material_buckling,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterial"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLongRangeAttachmentLinear"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_long_range_attachment_linear,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLongRangeAttachment"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_long_range_attachment,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGravity"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_gravity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDamping"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_damping,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCollision"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBackstop"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_backstop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimDriveLinear"),
+                &raw mut __FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_anim_drive_linear,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimDrive"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_anim_drive,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAerodynamics"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_aerodynamics,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetAndTeleport"),
+                &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_reset_and_teleport,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -189,6 +193,13 @@ impl UChaosClothConfig {
             .name_to_ptr
             .get("UChaosClothConfig")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosClothConfig")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -211,6 +222,13 @@ impl UChaosClothSharedSimConfig {
             .get("UChaosClothSharedSimConfig")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosClothSharedSimConfig")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -232,6 +250,13 @@ impl UChaosClothingSimulationFactory {
             .get("UChaosClothingSimulationFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosClothingSimulationFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -252,6 +277,13 @@ impl UChaosClothingInteractor {
             .name_to_ptr
             .get("UChaosClothingInteractor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosClothingInteractor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1091,6 +1123,13 @@ impl UChaosClothingSimulationInteractor {
             .name_to_ptr
             .get("UChaosClothingSimulationInteractor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UChaosClothingSimulationInteractor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -36,78 +37,81 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerModuleOutlinerScriptingObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBindingTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_module_outliner_scripting_object_remove_binding_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSections"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_module_outliner_scripting_object_get_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviousKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_module_outliner_scripting_object_get_previous_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNextKey"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_module_outliner_scripting_object_get_next_key,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBindingTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_module_outliner_scripting_object_get_binding_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBindingTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_module_outliner_scripting_object_add_binding_tags,
-        );
+        if let Some(class_ptr) = USequencerModuleOutlinerScriptingObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBindingTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_remove_binding_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviousKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_previous_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNextKey"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_next_key,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBindingTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_binding_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBindingTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_add_binding_tags,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerModuleScriptingLayer::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOutliner"),
-            &raw mut __FUNCTION_PTRS.u_sequencer_module_scripting_layer_get_outliner,
-        );
+        if let Some(class_ptr) = USequencerModuleScriptingLayer::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOutliner"),
+                &raw mut __FUNCTION_PTRS.u_sequencer_module_scripting_layer_get_outliner,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USequencerSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShouldShowThumbnailCaptureSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_sequencer_settings_should_show_thumbnail_capture_settings,
-        );
+        if let Some(class_ptr) = USequencerSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShouldShowThumbnailCaptureSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_sequencer_settings_should_show_thumbnail_capture_settings,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -157,6 +161,13 @@ impl UMotionTrailToolOptions {
             .get("UMotionTrailToolOptions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionTrailToolOptions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -177,6 +188,13 @@ impl UMovieSceneCopyableBinding {
             .name_to_ptr
             .get("UMovieSceneCopyableBinding")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCopyableBinding")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -199,6 +217,13 @@ impl UMovieSceneCopyableTrack {
             .get("UMovieSceneCopyableTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneCopyableTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -219,6 +244,13 @@ impl USequencerFilterBarContext {
             .name_to_ptr
             .get("USequencerFilterBarContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerFilterBarContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -241,6 +273,13 @@ impl USequencerFilterMenuContext {
             .get("USequencerFilterMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerFilterMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -261,6 +300,13 @@ impl USequencerMenuContext {
             .name_to_ptr
             .get("USequencerMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -283,6 +329,13 @@ impl USequencerToolMenuContext {
             .get("USequencerToolMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerToolMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -303,6 +356,13 @@ impl USequencerClockSourceMenuContext {
             .name_to_ptr
             .get("USequencerClockSourceMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerClockSourceMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -325,6 +385,13 @@ impl USequencerTimeSliderControllerMenuContext {
             .get("USequencerTimeSliderControllerMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerTimeSliderControllerMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -345,6 +412,13 @@ impl USequencerTrackFilterExtension {
             .name_to_ptr
             .get("USequencerTrackFilterExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerTrackFilterExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -367,6 +441,13 @@ impl USequencerTrackFilterTextExpressionExtension {
             .get("USequencerTrackFilterTextExpressionExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerTrackFilterTextExpressionExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -387,6 +468,13 @@ impl USequencerModuleOutlinerScriptingObject {
             .name_to_ptr
             .get("USequencerModuleOutlinerScriptingObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerModuleOutlinerScriptingObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -734,6 +822,13 @@ impl USequencerModuleScriptingLayer {
             .get("USequencerModuleScriptingLayer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerModuleScriptingLayer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -786,6 +881,13 @@ impl UMovieSceneKeyStructType {
             .get("UMovieSceneKeyStructType")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneKeyStructType")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -806,6 +908,13 @@ impl USequencerSettingsContainer {
             .name_to_ptr
             .get("USequencerSettingsContainer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerSettingsContainer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -828,6 +937,13 @@ impl USequencerSettings {
             .get("USequencerSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -848,6 +964,13 @@ impl USequencerTimeChangeUndoRedoProxy {
             .name_to_ptr
             .get("USequencerTimeChangeUndoRedoProxy")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USequencerTimeChangeUndoRedoProxy")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

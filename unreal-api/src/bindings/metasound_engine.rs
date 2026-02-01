@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -386,1425 +387,1464 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundAssetSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterAssetClassesInDirectories"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReplaceReferencesInDirectory"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_asset_subsystem_replace_references_in_directory,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterAssetClassesInDirectories"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_asset_subsystem_register_asset_classes_in_directories,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReassignClassName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_asset_subsystem_reassign_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindReferencingAssetClassInfo"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_asset_subsystem_find_referencing_asset_class_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindAssetClassInfo"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_asset_subsystem_find_asset_class_info,
-        );
+        if let Some(class_ptr) = UMetaSoundAssetSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterAssetClassesInDirectories"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReplaceReferencesInDirectory"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_replace_references_in_directory,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterAssetClassesInDirectories"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_register_asset_classes_in_directories,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReassignClassName"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_asset_subsystem_reassign_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindReferencingAssetClassInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_find_referencing_asset_class_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindAssetClassInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_find_asset_class_info,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundBuilderBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNodeInputDefault"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_node_input_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphOutputName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_output_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphOutputDataType"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_output_data_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphOutputAccessType"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_set_graph_output_access_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphInputName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphInputDefault"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphInputDataType"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_data_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGraphInputAccessType"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_set_graph_input_access_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveUnusedDependencies"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_unused_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNodeInputDefault"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_node_input_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveInterface"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGraphVariable"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGraphOutput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGraphInput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NodesAreConnected"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_nodes_are_connected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NodeOutputIsConnected"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_node_output_is_connected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NodeInputIsConnected"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_node_input_is_connected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPreset"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_is_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InterfaceIsDeclared"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_interface_is_declared,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRootGraphClassName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_root_graph_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReferencedPresetAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_get_referenced_preset_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeOutputIsConstructorPin"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_get_node_output_is_constructor_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeOutputData"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_output_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeInputIsConstructorPin"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_get_node_input_is_constructor_pin,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeInputDefault"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_input_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeInputData"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_input_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNodeInputClassDefault"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_get_node_input_class_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphVariableDefault"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_variable_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphOutputNames"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_output_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphInputNames"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_input_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphInputDefault"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_input_default,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeOutputsByDataType"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_find_node_outputs_by_data_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeOutputs"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_outputs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeOutputParent"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_output_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeOutputByName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_output_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeInputsByDataType"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_find_node_inputs_by_data_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeInputs"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_inputs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeInputParent"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_input_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeInputByName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_input_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindNodeClassVersion"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_class_version,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindInterfaceOutputNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_find_interface_output_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindInterfaceInputNodes"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_interface_input_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindGraphOutputNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_graph_output_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindGraphInputNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_graph_input_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisconnectNodesByInterfaceBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisconnectNodes"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisconnectNodeOutput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_node_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisconnectNodeInput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_node_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToPreset"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_convert_to_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertFromPreset"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_convert_from_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ContainsNodeOutput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ContainsNodeInput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ContainsNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNodesByInterfaceBindings"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_nodes_by_interface_bindings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNodes"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_connect_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNodeOutputToGraphOutput"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_node_output_to_graph_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "ConnectNodeOutputsToMatchingGraphInterfaceOutputs",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNodeInputToGraphInput"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_node_input_to_graph_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNodeInputsToMatchingGraphInterfaceInputs"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNamedNodeOutputToNamedGraphOutput"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectNamedNodeOutputToGraphOutput"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_connect_named_node_output_to_graph_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BuildNewMetaSound"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_build_new_meta_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BuildAndOverwriteMetaSound"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_build_and_overwrite_meta_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Build"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_build,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddNodeByClassName"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_node_by_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInterface"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGraphVariableSetNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_add_graph_variable_set_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGraphVariableGetNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_add_graph_variable_get_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGraphVariableGetDelayedNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_base_add_graph_variable_get_delayed_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGraphVariable"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_variable,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGraphOutputNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_output_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGraphInputNode"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_input_node,
-        );
+        if let Some(class_ptr) = UMetaSoundBuilderBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNodeInputDefault"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_node_input_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphOutputName"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_output_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphOutputDataType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_data_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphOutputAccessType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_access_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphInputName"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphInputDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphInputDataType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_data_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGraphInputAccessType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_access_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveUnusedDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_unused_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNodeInputDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_node_input_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveInterface"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGraphVariable"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGraphOutput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGraphInput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NodesAreConnected"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_nodes_are_connected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NodeOutputIsConnected"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_node_output_is_connected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NodeInputIsConnected"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_node_input_is_connected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPreset"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_is_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InterfaceIsDeclared"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_interface_is_declared,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRootGraphClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_root_graph_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReferencedPresetAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_referenced_preset_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeOutputIsConstructorPin"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_output_is_constructor_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeOutputData"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_output_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeInputIsConstructorPin"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_is_constructor_pin,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeInputDefault"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_input_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeInputData"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_input_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNodeInputClassDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_class_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphVariableDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_variable_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphOutputNames"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_output_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphInputNames"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_input_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphInputDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_input_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeOutputsByDataType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_outputs_by_data_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeOutputs"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_outputs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeOutputParent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_output_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeOutputByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_output_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeInputsByDataType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_inputs_by_data_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeInputs"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_inputs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeInputParent"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_input_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeInputByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_input_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindNodeClassVersion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_class_version,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindInterfaceOutputNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_interface_output_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindInterfaceInputNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_interface_input_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindGraphOutputNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_graph_output_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindGraphInputNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_graph_input_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisconnectNodesByInterfaceBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisconnectNodes"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisconnectNodeOutput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_node_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisconnectNodeInput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_node_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToPreset"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_convert_to_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertFromPreset"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_convert_from_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ContainsNodeOutput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ContainsNodeInput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ContainsNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectNodesByInterfaceBindings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_nodes_by_interface_bindings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectNodes"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_connect_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectNodeOutputToGraphOutput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_output_to_graph_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ConnectNodeOutputsToMatchingGraphInterfaceOutputs",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectNodeInputToGraphInput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_input_to_graph_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ConnectNodeInputsToMatchingGraphInterfaceInputs",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectNamedNodeOutputToNamedGraphOutput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectNamedNodeOutputToGraphOutput"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_named_node_output_to_graph_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BuildNewMetaSound"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_build_new_meta_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BuildAndOverwriteMetaSound"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build_and_overwrite_meta_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Build"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_build,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddNodeByClassName"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_node_by_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInterface"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGraphVariableSetNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_set_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGraphVariableGetNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_get_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGraphVariableGetDelayedNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_get_delayed_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGraphVariable"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_variable,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGraphOutputNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_output_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGraphInputNode"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_input_node,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundSourceBuilder::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSampleRateOverride"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_sample_rate_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetQuality"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_quality,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFormat"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBlockRateOverride"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_block_rate_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLiveUpdatesEnabled"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_get_live_updates_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Audition"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_audition,
-        );
+        if let Some(class_ptr) = UMetaSoundSourceBuilder::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSampleRateOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_sample_rate_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetQuality"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_quality,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFormat"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBlockRateOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_block_rate_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLiveUpdatesEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_source_builder_get_live_updates_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Audition"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_audition,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundBuilderSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterSourceBuilder"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_unregister_source_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterPatchBuilder"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_unregister_patch_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_unregister_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTargetPage"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_set_target_page,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterSourceBuilder"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_register_source_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterPatchBuilder"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_register_patch_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_register_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInterfaceRegistered"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_is_interface_registered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindSourceBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_source_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindPatchBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_patch_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindParentBuilderOfPreset"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_find_parent_builder_of_preset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBuilderOfDocument"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_find_builder_of_document,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateStringMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_string_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateStringArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateSourcePresetBuilder"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_source_preset_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateSourceBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_create_source_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePatchPresetBuilder"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_patch_preset_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePatchBuilder"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_create_patch_builder,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateObjectMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_object_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateObjectArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromParam"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateIntMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_int_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateIntArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFloatMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_float_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFloatArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateBoolMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_bool_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateBoolArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal,
-        );
+        if let Some(class_ptr) = UMetaSoundBuilderSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterSourceBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_source_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterPatchBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_patch_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTargetPage"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_set_target_page,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterSourceBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_source_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterPatchBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_patch_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterBuilder"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_register_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInterfaceRegistered"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_is_interface_registered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindSourceBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_source_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindPatchBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_patch_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindParentBuilderOfPreset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_parent_builder_of_preset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBuilderOfDocument"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_builder_of_document,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindBuilder"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateStringMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_string_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateStringArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateSourcePresetBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_source_preset_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateSourceBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_source_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePatchPresetBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_patch_preset_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePatchBuilder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_patch_builder,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateObjectMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_object_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateObjectArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromParam"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateIntMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_int_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateIntArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFloatMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_float_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFloatArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateBoolMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_bool_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateBoolArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetasoundFrontendLiteralBlueprintAccess::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetType"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStringValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStringArrayValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectArrayValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsStringArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsString"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsObjectArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsIntegerArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsFloatArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsBoolArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntArrayValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloatValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloatArrayValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoolValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoolArrayValueFromLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EqualEqual_MetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateStringMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateStringArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateObjectMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateObjectArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromStringArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromString"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromParam"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromObjectArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromIntegerArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromInteger"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromFloatArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromBooleanArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromBoolean"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromAudioParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateIntMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateIntArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFloatMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFloatArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateBoolMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateBoolArrayMetaSoundLiteral"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_MetaSoundLiteralToString"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string,
-        );
+        if let Some(class_ptr) = UMetasoundFrontendLiteralBlueprintAccess::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStringValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStringArrayValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectArrayValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsStringArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsObjectArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsIntegerArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsFloatArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsBoolArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntArrayValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloatValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloatArrayValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoolValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoolArrayValueFromLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EqualEqual_MetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateStringMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateStringArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateObjectMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateObjectArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromStringArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromParam"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromObjectArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromIntegerArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromInteger"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromFloatArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromBooleanArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromBoolean"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromAudioParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateIntMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateIntArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFloatMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFloatArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateBoolMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateBoolArrayMetaSoundLiteral"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_MetaSoundLiteralToString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetasoundGeneratorHandle::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WatchOutput"),
-            &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_watch_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateWatchers"),
-            &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_update_watchers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCPUCoreUtilization"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_generator_handle_get_cpu_core_utilization,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EnableRuntimeRenderTiming"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_generator_handle_enable_runtime_render_timing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMetaSoundGeneratorHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_generator_handle_create_meta_sound_generator_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyParameterPack"),
-            &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_apply_parameter_pack,
-        );
+        if let Some(class_ptr) = UMetasoundGeneratorHandle::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WatchOutput"),
+                &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_watch_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateWatchers"),
+                &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_update_watchers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCPUCoreUtilization"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_generator_handle_get_cpu_core_utilization,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableRuntimeRenderTiming"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_generator_handle_enable_runtime_render_timing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMetaSoundGeneratorHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_generator_handle_create_meta_sound_generator_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyParameterPack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_generator_handle_apply_parameter_pack,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundCacheSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TouchOrPrecacheMetaSound"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_cache_subsystem_touch_or_precache_meta_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCachedOperatorsForMetaSound"),
-            &raw mut __FUNCTION_PTRS
-                .u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PrecacheMetaSound"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_cache_subsystem_precache_meta_sound,
-        );
+        if let Some(class_ptr) = UMetaSoundCacheSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TouchOrPrecacheMetaSound"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_touch_or_precache_meta_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCachedOperatorsForMetaSound"),
+                &raw mut __FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PrecacheMetaSound"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_cache_subsystem_precache_meta_sound,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetasoundOutputBlueprintAccess::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTime"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsString"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsInt32"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_int32,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFloat"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsBool"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTimeSeconds"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_time_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInt32"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_int32,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBool"),
-            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_bool,
-        );
+        if let Some(class_ptr) = UMetasoundOutputBlueprintAccess::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTime"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsString"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsInt32"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_int32,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFloat"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsBool"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTimeSeconds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_time_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetString"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInt32"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_int32,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloat"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBool"),
+                &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_bool,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundOutputSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WatchOutput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_output_subsystem_watch_output,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnwatchOutput"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_output_subsystem_unwatch_output,
-        );
+        if let Some(class_ptr) = UMetaSoundOutputSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WatchOutput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_output_subsystem_watch_output,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnwatchOutput"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_output_subsystem_unwatch_output,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundQualityHelper::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetQualityNames"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_quality_helper_get_quality_names,
-        );
+        if let Some(class_ptr) = UMetaSoundQualityHelper::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetQualityNames"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_quality_helper_get_quality_names,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetaSoundSettings::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetQualityNames"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_settings_get_quality_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPageNames"),
-            &raw mut __FUNCTION_PTRS.u_meta_sound_settings_get_page_names,
-        );
+        if let Some(class_ptr) = UMetaSoundSettings::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetQualityNames"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_settings_get_quality_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPageNames"),
+                &raw mut __FUNCTION_PTRS.u_meta_sound_settings_get_page_names,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1851,6 +1891,13 @@ impl UMetasoundEditorGraphBase {
             .get("UMetasoundEditorGraphBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundEditorGraphBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1872,6 +1919,13 @@ impl UMetaSoundPatch {
             .get("UMetaSoundPatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundPatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1892,6 +1946,13 @@ impl UMetaSoundAssetSubsystem {
             .name_to_ptr
             .get("UMetaSoundAssetSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundAssetSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2323,6 +2384,13 @@ impl UMetaSoundBuilderBase {
             .name_to_ptr
             .get("UMetaSoundBuilderBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundBuilderBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6000,6 +6068,13 @@ impl UMetaSoundPatchBuilder {
             .get("UMetaSoundPatchBuilder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundPatchBuilder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -6020,6 +6095,13 @@ impl UMetaSoundSourceBuilder {
             .name_to_ptr
             .get("UMetaSoundSourceBuilder")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundSourceBuilder")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6260,6 +6342,13 @@ impl UMetaSoundBuilderSubsystem {
             .name_to_ptr
             .get("UMetaSoundBuilderSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundBuilderSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7569,6 +7658,13 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             .name_to_ptr
             .get("UMetasoundFrontendLiteralBlueprintAccess")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundFrontendLiteralBlueprintAccess")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9501,6 +9597,13 @@ impl UMetasoundGeneratorHandle {
             .get("UMetasoundGeneratorHandle")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundGeneratorHandle")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9738,6 +9841,13 @@ impl UMetaSoundCacheSubsystem {
             .get("UMetaSoundCacheSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundCacheSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9879,6 +9989,13 @@ impl UMetasoundOutputBlueprintAccess {
             .name_to_ptr
             .get("UMetasoundOutputBlueprintAccess")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundOutputBlueprintAccess")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10261,6 +10378,13 @@ impl UMetaSoundOutputSubsystem {
             .get("UMetaSoundOutputSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundOutputSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10418,6 +10542,13 @@ impl UMetaSoundQualityHelper {
             .get("UMetaSoundQualityHelper")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundQualityHelper")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10438,6 +10569,13 @@ impl UMetaSoundSettings {
             .name_to_ptr
             .get("UMetaSoundSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10467,6 +10605,13 @@ impl UMetaSoundSource {
             .name_to_ptr
             .get("UMetaSoundSource")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundSource")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

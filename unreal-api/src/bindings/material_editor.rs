@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -136,470 +137,480 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMaterialEditingLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateMaterialInstance"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_update_material_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateMaterialFunction"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_update_material_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialUsage"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_set_material_usage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInstanceVectorParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_vector_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInstanceTextureParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInstanceStaticSwitchParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_static_switch_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "SetMaterialInstanceSparseVolumeTextureParameterValue",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInstanceScalarParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_scalar_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "SetMaterialInstanceRuntimeVirtualTextureParameterValue",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialInstanceParent"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_set_material_instance_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameMaterialParameterGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_rename_material_parameter_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameMaterialFunctionParameterGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_rename_material_function_parameter_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecompileMaterial"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_recompile_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LayoutMaterialFunctionExpressions"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_layout_material_function_expressions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LayoutMaterialExpressions"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_layout_material_expressions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMaterialUsage"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_has_material_usage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVectorParameterSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_vector_parameter_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVectorParameterNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_vector_parameter_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUsedTextures"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_get_used_textures,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextureParameterSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_texture_parameter_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextureParameterNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_texture_parameter_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStatistics"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_get_statistics,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStaticSwitchParameterSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_static_switch_parameter_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStaticSwitchParameterNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_static_switch_parameter_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScalarParameterSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_scalar_parameter_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetScalarParameterNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_scalar_parameter_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumMaterialExpressionsInFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_num_material_expressions_in_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumMaterialExpressions"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_num_material_expressions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNaniteOverrideMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_nanite_override_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialSelectedNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_selected_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialPropertyInputNodeOutputName"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_property_input_node_output_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialPropertyInputNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_property_input_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInstanceVectorParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_instance_vector_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInstanceTextureParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_instance_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInstanceStaticSwitchParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_instance_static_switch_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "GetMaterialInstanceSparseVolumeTextureParameterValue",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialInstanceScalarParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_instance_scalar_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "GetMaterialInstanceRuntimeVirtualTextureParameterValue",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialExpressionNodePosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_expression_node_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialExpressionInputTypes"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_expression_input_types,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialExpressionInputNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_expression_input_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialDefaultVectorParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_default_vector_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialDefaultTextureParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_default_texture_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialDefaultStaticSwitchParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_default_static_switch_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialDefaultScalarParameterValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_material_default_scalar_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputsForMaterialExpression"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_inputs_for_material_expression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputNodeOutputNameForMaterialExpression"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_get_input_node_output_name_for_material_expression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildInstances"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_get_child_instances,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DuplicateMaterialExpression"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_duplicate_material_expression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteMaterialExpressionInFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_delete_material_expression_in_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteMaterialExpression"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_delete_material_expression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteAllMaterialExpressionsInFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_delete_all_material_expressions_in_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeleteAllMaterialExpressions"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_delete_all_material_expressions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMaterialExpressionInFunction"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_create_material_expression_in_function,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateMaterialExpression"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_create_material_expression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectMaterialProperty"),
-            &raw mut __FUNCTION_PTRS.u_material_editing_library_connect_material_property,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectMaterialExpressions"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_connect_material_expressions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearAllMaterialInstanceParameters"),
-            &raw mut __FUNCTION_PTRS
-                .u_material_editing_library_clear_all_material_instance_parameters,
-        );
+        if let Some(class_ptr) = UMaterialEditingLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateMaterialInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_update_material_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateMaterialFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_update_material_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialUsage"),
+                &raw mut __FUNCTION_PTRS.u_material_editing_library_set_material_usage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialInstanceVectorParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_vector_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialInstanceTextureParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetMaterialInstanceStaticSwitchParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_static_switch_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetMaterialInstanceSparseVolumeTextureParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialInstanceScalarParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_scalar_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetMaterialInstanceRuntimeVirtualTextureParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialInstanceParent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameMaterialParameterGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_rename_material_parameter_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameMaterialFunctionParameterGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_rename_material_function_parameter_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecompileMaterial"),
+                &raw mut __FUNCTION_PTRS.u_material_editing_library_recompile_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LayoutMaterialFunctionExpressions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_layout_material_function_expressions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LayoutMaterialExpressions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_layout_material_expressions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMaterialUsage"),
+                &raw mut __FUNCTION_PTRS.u_material_editing_library_has_material_usage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVectorParameterSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_vector_parameter_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVectorParameterNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_vector_parameter_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUsedTextures"),
+                &raw mut __FUNCTION_PTRS.u_material_editing_library_get_used_textures,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextureParameterSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_texture_parameter_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextureParameterNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_texture_parameter_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStatistics"),
+                &raw mut __FUNCTION_PTRS.u_material_editing_library_get_statistics,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStaticSwitchParameterSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_static_switch_parameter_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStaticSwitchParameterNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_static_switch_parameter_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScalarParameterSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_scalar_parameter_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetScalarParameterNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_scalar_parameter_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumMaterialExpressionsInFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_num_material_expressions_in_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumMaterialExpressions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_num_material_expressions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNaniteOverrideMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_nanite_override_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialSelectedNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_selected_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialPropertyInputNodeOutputName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_property_input_node_output_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialPropertyInputNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_property_input_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInstanceVectorParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_vector_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInstanceTextureParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetMaterialInstanceStaticSwitchParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_static_switch_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetMaterialInstanceSparseVolumeTextureParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialInstanceScalarParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_scalar_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetMaterialInstanceRuntimeVirtualTextureParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialExpressionNodePosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_node_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialExpressionInputTypes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_input_types,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialExpressionInputNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_input_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialDefaultVectorParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_vector_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialDefaultTextureParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_texture_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetMaterialDefaultStaticSwitchParameterValue",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_static_switch_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialDefaultScalarParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_scalar_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputsForMaterialExpression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_inputs_for_material_expression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputNodeOutputNameForMaterialExpression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_get_input_node_output_name_for_material_expression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildInstances"),
+                &raw mut __FUNCTION_PTRS.u_material_editing_library_get_child_instances,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DuplicateMaterialExpression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_duplicate_material_expression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteMaterialExpressionInFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_delete_material_expression_in_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteMaterialExpression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_delete_material_expression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteAllMaterialExpressionsInFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_delete_all_material_expressions_in_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeleteAllMaterialExpressions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_delete_all_material_expressions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMaterialExpressionInFunction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_create_material_expression_in_function,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateMaterialExpression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_create_material_expression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectMaterialProperty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_connect_material_property,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectMaterialExpressions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_connect_material_expressions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearAllMaterialInstanceParameters"),
+                &raw mut __FUNCTION_PTRS
+                    .u_material_editing_library_clear_all_material_instance_parameters,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -626,6 +637,13 @@ impl UMaterialEditorMenuContext {
             .get("UMaterialEditorMenuContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialEditorMenuContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -647,6 +665,13 @@ impl UMaterialEditorSettings {
             .get("UMaterialEditorSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialEditorSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -667,6 +692,13 @@ impl UMaterialEditingLibrary {
             .name_to_ptr
             .get("UMaterialEditingLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMaterialEditingLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -44,101 +45,108 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UHandKeypointConversion::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_HandKeypointToInt32"),
-            &raw mut __FUNCTION_PTRS
-                .u_hand_keypoint_conversion_conv_hand_keypoint_to_int32,
-        );
+        if let Some(class_ptr) = UHandKeypointConversion::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_HandKeypointToInt32"),
+                &raw mut __FUNCTION_PTRS
+                    .u_hand_keypoint_conversion_conv_hand_keypoint_to_int32,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMotionControllerComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrackingSource"),
-            &raw mut __FUNCTION_PTRS.u_motion_controller_component_set_tracking_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrackingMotionSource"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_controller_component_set_tracking_motion_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAssociatedPlayerIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_controller_component_set_associated_player_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMotionControllerUpdated"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_controller_component_on_motion_controller_updated,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTracked"),
-            &raw mut __FUNCTION_PTRS.u_motion_controller_component_is_tracked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrackingSource"),
-            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_tracking_source,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParameterValue"),
-            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_parameter_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinearVelocity"),
-            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_linear_velocity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinearAcceleration"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_controller_component_get_linear_acceleration,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHandJointPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_motion_controller_component_get_hand_joint_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAngularVelocity"),
-            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_angular_velocity,
-        );
+        if let Some(class_ptr) = UMotionControllerComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrackingSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_set_tracking_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrackingMotionSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_set_tracking_motion_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAssociatedPlayerIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_set_associated_player_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnMotionControllerUpdated"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_on_motion_controller_updated,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTracked"),
+                &raw mut __FUNCTION_PTRS.u_motion_controller_component_is_tracked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrackingSource"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_get_tracking_source,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParameterValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_get_parameter_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinearVelocity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_get_linear_velocity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinearAcceleration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_get_linear_acceleration,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHandJointPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_get_hand_joint_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAngularVelocity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_motion_controller_component_get_angular_velocity,
+            );
+        }
     }
 }
 #[repr(C, align(16))]
@@ -195,6 +203,13 @@ impl UHandKeypointConversion {
             .name_to_ptr
             .get("UHandKeypointConversion")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UHandKeypointConversion")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -257,6 +272,13 @@ impl UMotionControllerComponent {
             .name_to_ptr
             .get("UMotionControllerComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMotionControllerComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

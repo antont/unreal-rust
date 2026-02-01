@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -62,164 +63,172 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMockDataMeshTrackerComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnMockDataMeshTrackerUpdated__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_mock_data_mesh_tracker_component_on_mock_data_mesh_tracker_updated_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisconnectMRMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_mock_data_mesh_tracker_component_disconnect_mr_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectMRMesh"),
-            &raw mut __FUNCTION_PTRS.u_mock_data_mesh_tracker_component_connect_mr_mesh,
-        );
+        if let Some(class_ptr) = UMockDataMeshTrackerComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnMockDataMeshTrackerUpdated__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_on_mock_data_mesh_tracker_updated_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisconnectMRMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_disconnect_mr_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectMRMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_connect_mr_mesh,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMRMeshComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWireframeMaterial"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_wireframe_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWireframeColor"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_wireframe_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUseWireframe"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_use_wireframe,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEnableMeshOcclusion"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_enable_mesh_occlusion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestNavMeshUpdate"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_request_nav_mesh_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsConnected"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_is_connected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetWireframeColor"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_get_wireframe_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUseWireframe"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_get_use_wireframe,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEnableMeshOcclusion"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_get_enable_mesh_occlusion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForceNavMeshUpdate"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_force_nav_mesh_update,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut __FUNCTION_PTRS.umr_mesh_component_clear,
-        );
+        if let Some(class_ptr) = UMRMeshComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWireframeMaterial"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_set_wireframe_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWireframeColor"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_set_wireframe_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUseWireframe"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_set_use_wireframe,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEnableMeshOcclusion"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_set_enable_mesh_occlusion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestNavMeshUpdate"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_request_nav_mesh_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsConnected"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_is_connected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetWireframeColor"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_get_wireframe_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUseWireframe"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_get_use_wireframe,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEnableMeshOcclusion"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_get_enable_mesh_occlusion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForceNavMeshUpdate"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_force_nav_mesh_update,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Clear"),
+                &raw mut __FUNCTION_PTRS.umr_mesh_component_clear,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMeshReconstructorBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopReconstruction"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_stop_reconstruction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartReconstruction"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_start_reconstruction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PauseReconstruction"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_pause_reconstruction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReconstructionStarted"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_is_reconstruction_started,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsReconstructionPaused"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_is_reconstruction_paused,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DisconnectMRMesh"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_disconnect_mr_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectMRMesh"),
-            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_connect_mr_mesh,
-        );
+        if let Some(class_ptr) = UMeshReconstructorBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopReconstruction"),
+                &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_stop_reconstruction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartReconstruction"),
+                &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_start_reconstruction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PauseReconstruction"),
+                &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_pause_reconstruction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReconstructionStarted"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_is_reconstruction_started,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsReconstructionPaused"),
+                &raw mut __FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_is_reconstruction_paused,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisconnectMRMesh"),
+                &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_disconnect_mr_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectMRMesh"),
+                &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_connect_mr_mesh,
+            );
+        }
     }
 }
 #[repr(C, align(1))]
@@ -248,6 +257,13 @@ impl UMockDataMeshTrackerComponent {
             .name_to_ptr
             .get("UMockDataMeshTrackerComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMockDataMeshTrackerComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -334,6 +350,13 @@ impl UMRMeshBodyHolder {
             .get("UMRMeshBodyHolder")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMRMeshBodyHolder")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -354,6 +377,13 @@ impl UMRMeshComponent {
             .name_to_ptr
             .get("UMRMeshComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMRMeshComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -686,6 +716,13 @@ impl UMeshReconstructorBase {
             .name_to_ptr
             .get("UMeshReconstructorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMeshReconstructorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

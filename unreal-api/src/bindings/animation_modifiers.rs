@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,33 +27,35 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationModifier::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnRevert"),
-            &raw mut __FUNCTION_PTRS.u_animation_modifier_on_revert,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnApply"),
-            &raw mut __FUNCTION_PTRS.u_animation_modifier_on_apply,
-        );
+        if let Some(class_ptr) = UAnimationModifier::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnRevert"),
+                &raw mut __FUNCTION_PTRS.u_animation_modifier_on_revert,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnApply"),
+                &raw mut __FUNCTION_PTRS.u_animation_modifier_on_apply,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAnimationModifiersAssetUserData::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAnimationModifierOfClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_animation_modifiers_asset_user_data_add_animation_modifier_of_class,
-        );
+        if let Some(class_ptr) = UAnimationModifiersAssetUserData::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAnimationModifierOfClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_animation_modifiers_asset_user_data_add_animation_modifier_of_class,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -66,6 +69,13 @@ impl UAnimationModifierSettings {
             .name_to_ptr
             .get("UAnimationModifierSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationModifierSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -87,6 +97,13 @@ impl UAnimationModifier {
             .name_to_ptr
             .get("UAnimationModifier")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationModifier")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -184,6 +201,13 @@ impl UAnimationModifiersAssetUserData {
             .name_to_ptr
             .get("UAnimationModifiersAssetUserData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimationModifiersAssetUserData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

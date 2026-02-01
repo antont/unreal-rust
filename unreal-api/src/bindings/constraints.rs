@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -42,102 +43,108 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConstraintsManager::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnConstraintRemoved__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraints_manager_on_constraint_removed_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnConstraintAdded__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraints_manager_on_constraint_added_delegate_signature,
-        );
+        if let Some(class_ptr) = UConstraintsManager::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnConstraintRemoved__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_manager_on_constraint_removed_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnConstraintAdded__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_manager_on_constraint_added_delegate_signature,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConstraintsScriptingLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveThisConstraint"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraints_scripting_library_remove_this_constraint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveConstraint"),
-            &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_remove_constraint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConstraintsArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraints_scripting_library_get_constraints_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateTransformableHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraints_scripting_library_create_transformable_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateTransformableComponentHandle"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraints_scripting_library_create_transformable_component_handle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateFromType"),
-            &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_create_from_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddConstraint"),
-            &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_add_constraint,
-        );
+        if let Some(class_ptr) = UConstraintsScriptingLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveThisConstraint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_scripting_library_remove_this_constraint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveConstraint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_scripting_library_remove_constraint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConstraintsArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_scripting_library_get_constraints_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateTransformableHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_transformable_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateTransformableComponentHandle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_transformable_component_handle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateFromType"),
+                &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_create_from_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddConstraint"),
+                &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_add_constraint,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UConstraintSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "OnConstraintRemovedFromSystem__DelegateSignature",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_constraint_subsystem_on_constraint_removed_from_system_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnConstraintAddedToSystem__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_constraint_subsystem_on_constraint_added_to_system_delegate_signature,
-        );
+        if let Some(class_ptr) = UConstraintSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnConstraintRemovedFromSystem__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraint_subsystem_on_constraint_removed_from_system_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OnConstraintAddedToSystem__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_constraint_subsystem_on_constraint_added_to_system_delegate_signature,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -151,6 +158,13 @@ impl AConstraintsActor {
             .name_to_ptr
             .get("AConstraintsActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AConstraintsActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -176,6 +190,13 @@ impl UTickableConstraint {
             .get("UTickableConstraint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableConstraint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -197,6 +218,13 @@ impl UConstraintsManager {
             .get("UConstraintsManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstraintsManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -217,6 +245,13 @@ impl UConstraintsScriptingLibrary {
             .name_to_ptr
             .get("UConstraintsScriptingLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstraintsScriptingLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -570,6 +605,13 @@ impl UConstraintSubsystem {
             .get("UConstraintSubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UConstraintSubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -594,6 +636,13 @@ impl UTransformableHandle {
             .get("UTransformableHandle")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTransformableHandle")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -617,6 +666,13 @@ impl UTransformableComponentHandle {
             .name_to_ptr
             .get("UTransformableComponentHandle")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTransformableComponentHandle")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -646,6 +702,13 @@ impl UTickableTransformConstraint {
             .get("UTickableTransformConstraint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableTransformConstraint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -669,6 +732,13 @@ impl UTickableTranslationConstraint {
             .name_to_ptr
             .get("UTickableTranslationConstraint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableTranslationConstraint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -694,6 +764,13 @@ impl UTickableRotationConstraint {
             .get("UTickableRotationConstraint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableRotationConstraint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -717,6 +794,13 @@ impl UTickableScaleConstraint {
             .name_to_ptr
             .get("UTickableScaleConstraint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableScaleConstraint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -743,6 +827,13 @@ impl UTickableParentConstraint {
             .get("UTickableParentConstraint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableParentConstraint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -765,6 +856,13 @@ impl UTickableLookAtConstraint {
             .name_to_ptr
             .get("UTickableLookAtConstraint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTickableLookAtConstraint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

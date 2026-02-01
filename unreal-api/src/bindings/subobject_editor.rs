@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,14 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USubobjectEditorMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut __FUNCTION_PTRS.u_subobject_editor_menu_context_get_selected_objects,
-        );
+        if let Some(class_ptr) = USubobjectEditorMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_subobject_editor_menu_context_get_selected_objects,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -43,6 +46,13 @@ impl USubobjectEditorMenuContext {
             .name_to_ptr
             .get("USubobjectEditorMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USubobjectEditorMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

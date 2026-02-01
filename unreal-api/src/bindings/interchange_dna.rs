@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,15 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDNAMeshVertexColorDataAsset::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetColorByMeshAndIndex"),
-            &raw mut __FUNCTION_PTRS
-                .udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index,
-        );
+        if let Some(class_ptr) = UDNAMeshVertexColorDataAsset::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetColorByMeshAndIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -52,6 +54,13 @@ impl UDNAMeshVertexColorDataAsset {
             .name_to_ptr
             .get("UDNAMeshVertexColorDataAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDNAMeshVertexColorDataAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -122,6 +131,13 @@ impl UMetaHumanInterchangeDnaTranslator {
             .name_to_ptr
             .get("UMetaHumanInterchangeDnaTranslator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaHumanInterchangeDnaTranslator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

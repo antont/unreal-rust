@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,29 +27,32 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAndroidFileServerBPLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopFileServer"),
-            &raw mut __FUNCTION_PTRS.u_android_file_server_bp_library_stop_file_server,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartFileServer"),
-            &raw mut __FUNCTION_PTRS.u_android_file_server_bp_library_start_file_server,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsFileServerRunning"),
-            &raw mut __FUNCTION_PTRS
-                .u_android_file_server_bp_library_is_file_server_running,
-        );
+        if let Some(class_ptr) = UAndroidFileServerBPLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopFileServer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_android_file_server_bp_library_stop_file_server,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartFileServer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_android_file_server_bp_library_start_file_server,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsFileServerRunning"),
+                &raw mut __FUNCTION_PTRS
+                    .u_android_file_server_bp_library_is_file_server_running,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -62,6 +66,13 @@ impl UAndroidFileServerBPLibrary {
             .name_to_ptr
             .get("UAndroidFileServerBPLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAndroidFileServerBPLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

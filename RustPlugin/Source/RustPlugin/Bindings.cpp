@@ -113,7 +113,6 @@ uint32_t DestroyValuesInParamBuffer(const UFunctionOpague* function_opague, void
 	return 1;
 }
 
-UE_DISABLE_OPTIMIZATION
 uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunctionOpague** function_opague)
 {
 	const UClass* Class = static_cast<const UClass*>(cdo_opague);
@@ -137,7 +136,6 @@ uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunct
 
 	return 1;
 }
-UE_ENABLE_OPTIMIZATION
 
 void BeginTrace(const char* name)
 {

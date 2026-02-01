@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -632,2431 +633,2485 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceArrayDistributionInt::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayDistributionInt"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceArrayDistributionInt::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayDistributionInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceArrayMesh::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayMeshSM"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_mesh_set_niagara_array_mesh,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceArrayMesh::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayMeshSM"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_mesh_set_niagara_array_mesh,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceSceneCapture2D::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSceneCapture2DManagedShowOnlyActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceSceneCapture2D::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSceneCapture2DManagedShowOnlyActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceStaticMesh::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraStaticMeshDIInstanceIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSourceEndPlay"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_static_mesh_on_source_end_play,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceStaticMesh::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraStaticMeshDIInstanceIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnSourceEndPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_static_mesh_on_source_end_play,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceUObjectPropertyReader::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUObjectReaderPropertyRemap"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceUObjectPropertyReader::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUObjectReaderPropertyRemap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMovieSceneNiagaraSystemSpawnSection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionStartBehavior"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_set_section_start_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionEvaluateBehavior"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionEndBehavior"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_set_section_end_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowScalability"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_set_allow_scalability,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAgeUpdateMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_set_age_update_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionStartBehavior"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_get_section_start_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionEvaluateBehavior"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionEndBehavior"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_get_section_end_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllowScalability"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_get_allow_scalability,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAgeUpdateMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_movie_scene_niagara_system_spawn_section_get_age_update_mode,
-        );
+        if let Some(class_ptr) = UMovieSceneNiagaraSystemSpawnSection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionStartBehavior"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_start_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionEvaluateBehavior"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionEndBehavior"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_end_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowScalability"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_allow_scalability,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAgeUpdateMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_age_update_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionStartBehavior"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_start_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionEvaluateBehavior"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionEndBehavior"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_end_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllowScalability"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_allow_scalability,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAgeUpdateMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_age_update_mode,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANiagaraActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDestroyOnSystemFinish"),
-            &raw mut __FUNCTION_PTRS.a_niagara_actor_set_destroy_on_system_finish,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnNiagaraSystemFinished"),
-            &raw mut __FUNCTION_PTRS.a_niagara_actor_on_niagara_system_finished,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDestroyOnSystemFinish"),
-            &raw mut __FUNCTION_PTRS.a_niagara_actor_get_destroy_on_system_finish,
-        );
+        if let Some(class_ptr) = ANiagaraActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDestroyOnSystemFinish"),
+                &raw mut __FUNCTION_PTRS.a_niagara_actor_set_destroy_on_system_finish,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnNiagaraSystemFinished"),
+                &raw mut __FUNCTION_PTRS.a_niagara_actor_on_niagara_system_finished,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDestroyOnSystemFinish"),
+                &raw mut __FUNCTION_PTRS.a_niagara_actor_get_destroy_on_system_finish,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraComponent::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableVec4"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableVec3"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec3,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableVec2"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec2,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableTextureRenderTarget"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_component_set_variable_texture_render_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableTexture"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableStaticMesh"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableQuat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariablePosition"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableObject"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableMatrix"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableMaterial"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableLinearColor"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableInt"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableFloat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableBool"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVariableActor"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTickBehavior"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_tick_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSystemFixedBounds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_system_fixed_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSimCache"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_sim_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSeekDelta"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_seek_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRenderingEnabled"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_rendering_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetRandomSeedOffset"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_random_seed_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreviewLODDistance"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_preview_lod_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPaused"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_paused,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOcclusionQueryMode"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_occlusion_query_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableVec4"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableVec3"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec3,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableVec2"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec2,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableQuat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariablePosition"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableObject"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableMatrix"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableLinearColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_component_set_niagara_variable_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableInt"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableFloat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableBool"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraVariableActor"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaxSimTime"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_max_sim_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLockDesiredAgeDeltaTimeToSeekDelta"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetGpuComputeDebug"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_gpu_compute_debug,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForceSolo"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_force_solo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForceLocalPlayerEffect"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_force_local_player_effect,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetEmitterFixedBounds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_emitter_fixed_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetDesiredAge"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_desired_age,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTimeDilation"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_custom_time_dilation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCanRenderWhileSeeking"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_can_render_while_seeking,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAutoDestroy"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_auto_destroy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAsset"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAllowScalability"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_allow_scalability,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAgeUpdateMode"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_set_age_update_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SeekToDesiredAge"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_seek_to_desired_age,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetSystem"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_reset_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReinitializeSystem"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_reinitialize_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_is_paused,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitForPerformanceBaseline"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_init_for_performance_baseline,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableVec4"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableVec3"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec3,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableVec2"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec2,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableQuat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariablePosition"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableMatrix"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableInt"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableFloat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableColor"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVariableBool"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTickBehavior"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_tick_behavior,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSystemFixedBounds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_system_fixed_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSimCache"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_sim_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSeekDelta"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_seek_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRandomSeedOffset"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_random_seed_offset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviewLODDistanceEnabled"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_preview_lod_distance_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviewLODDistance"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_preview_lod_distance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOcclusionQueryMode"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_occlusion_query_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaxSimTime"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_max_sim_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLockDesiredAgeDeltaTimeToSeekDelta"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetForceSolo"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_force_solo,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetForceLocalPlayerEffect"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_force_local_player_effect,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEmitterFixedBounds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_emitter_fixed_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDesiredAge"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_desired_age,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataInterface"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_data_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTimeDilation"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_custom_time_dilation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAsset"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllowScalability"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_allow_scalability,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAgeUpdateMode"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_get_age_update_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSystemFixedBounds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_clear_system_fixed_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSimCache"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_clear_sim_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearEmitterFixedBounds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_clear_emitter_fixed_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AdvanceSimulationByTime"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_advance_simulation_by_time,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AdvanceSimulation"),
-            &raw mut __FUNCTION_PTRS.u_niagara_component_advance_simulation,
-        );
+        if let Some(class_ptr) = UNiagaraComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableVec4"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableVec3"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec3,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableVec2"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec2,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableTextureRenderTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_set_variable_texture_render_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableTexture"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableStaticMesh"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableQuat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariablePosition"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableObject"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableMatrix"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableMaterial"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableLinearColor"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableInt"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableFloat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableBool"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVariableActor"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTickBehavior"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_tick_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSystemFixedBounds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_system_fixed_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSimCache"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_sim_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSeekDelta"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_seek_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRenderingEnabled"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_rendering_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetRandomSeedOffset"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_random_seed_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreviewLODDistance"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_preview_lod_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPaused"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_paused,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOcclusionQueryMode"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_occlusion_query_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableVec4"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableVec3"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec3,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableVec2"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec2,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableQuat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariablePosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableObject"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableMatrix"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableLinearColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableInt"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableFloat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableBool"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraVariableActor"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaxSimTime"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_max_sim_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLockDesiredAgeDeltaTimeToSeekDelta"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetGpuComputeDebug"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_gpu_compute_debug,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForceSolo"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_force_solo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForceLocalPlayerEffect"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_set_force_local_player_effect,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetEmitterFixedBounds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_emitter_fixed_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetDesiredAge"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_desired_age,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTimeDilation"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_custom_time_dilation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCanRenderWhileSeeking"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_can_render_while_seeking,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAutoDestroy"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_auto_destroy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAsset"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAllowScalability"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_allow_scalability,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAgeUpdateMode"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_set_age_update_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SeekToDesiredAge"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_seek_to_desired_age,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetSystem"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_reset_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReinitializeSystem"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_reinitialize_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPaused"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_is_paused,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitForPerformanceBaseline"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_init_for_performance_baseline,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableVec4"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableVec3"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec3,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableVec2"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec2,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableQuat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariablePosition"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableMatrix"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableInt"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableFloat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableColor"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVariableBool"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTickBehavior"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_tick_behavior,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSystemFixedBounds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_system_fixed_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSimCache"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_sim_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSeekDelta"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_seek_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRandomSeedOffset"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_random_seed_offset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviewLODDistanceEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_get_preview_lod_distance_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviewLODDistance"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_preview_lod_distance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOcclusionQueryMode"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_occlusion_query_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaxSimTime"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_max_sim_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLockDesiredAgeDeltaTimeToSeekDelta"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetForceSolo"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_force_solo,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetForceLocalPlayerEffect"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_component_get_force_local_player_effect,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEmitterFixedBounds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_emitter_fixed_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDesiredAge"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_desired_age,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataInterface"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_data_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTimeDilation"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_custom_time_dilation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAsset"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllowScalability"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_allow_scalability,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAgeUpdateMode"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_get_age_update_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSystemFixedBounds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_clear_system_fixed_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSimCache"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_clear_sim_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearEmitterFixedBounds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_clear_emitter_fixed_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AdvanceSimulationByTime"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_advance_simulation_by_time,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AdvanceSimulation"),
+                &raw mut __FUNCTION_PTRS.u_niagara_component_advance_simulation,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataChannelReader::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadVector4"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadVector2D"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadVector"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadSpawnInfo"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_spawn_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadQuat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadPosition"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadLinearColor"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadInt"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadID"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFloat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadEnum"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadBool"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Num"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_num,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitAccess"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_init_access,
-        );
+        if let Some(class_ptr) = UNiagaraDataChannelReader::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadVector4"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadVector2D"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadVector"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadSpawnInfo"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_spawn_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadQuat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadPosition"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadLinearColor"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadInt"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadID"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadFloat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadEnum"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadBool"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Num"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_num,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitAccess"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_init_access,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataChannelWriter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteVector4"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteVector2D"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteVector"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteSpawnInfo"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_spawn_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteQuat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WritePosition"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteLinearColor"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_linear_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteInt"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteID"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteFloat"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteEnum"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_enum,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteBool"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Num"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_num,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitWrite"),
-            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_init_write,
-        );
+        if let Some(class_ptr) = UNiagaraDataChannelWriter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteVector4"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteVector2D"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteVector"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteSpawnInfo"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_spawn_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteQuat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WritePosition"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteLinearColor"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_linear_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteInt"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteID"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteFloat"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteEnum"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_enum,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteBool"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Num"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_num,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitWrite"),
+                &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_init_write,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataChannelLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannelSingle_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_write_to_niagara_data_channel_single_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannelSingle"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_write_to_niagara_data_channel_single,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannel_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_write_to_niagara_data_channel_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_write_to_niagara_data_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnsubscribeFromNiagaraDataChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SubscribeToNiagaraDataChannel_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SubscribeToNiagaraDataChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_subscribe_to_niagara_data_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSinglePropertyInNDCAccessContextInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMembersInNDCAccessContextInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_set_members_in_ndc_access_context_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannelSingle_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_read_from_niagara_data_channel_single_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannelSingle"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_read_from_niagara_data_channel_single,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannel_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_read_from_niagara_data_channel_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_read_from_niagara_data_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PrepareAccessContextFromNDCRef"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_prepare_access_context_from_ndc_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeNDCAccessContextInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_make_ndc_access_context_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUsableAccessContextFromNDCRef"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetUsableAccessContextFromNDC"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_usable_access_context_from_ndc,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSinglePropertyInNDCAccessContextInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraDataChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_niagara_data_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMembersInNDCAccessContextInstance"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_members_in_ndc_access_context_instance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataChannelElementCount_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_data_channel_element_count_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataChannelElementCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_library_get_data_channel_element_count,
-        );
+        if let Some(class_ptr) = UNiagaraDataChannelLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannelSingle_WithContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel_single_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannelSingle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel_single,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannel_WithContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnsubscribeFromNiagaraDataChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SubscribeToNiagaraDataChannel_WithContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SubscribeToNiagaraDataChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_subscribe_to_niagara_data_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSinglePropertyInNDCAccessContextInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMembersInNDCAccessContextInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_set_members_in_ndc_access_context_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "ReadFromNiagaraDataChannelSingle_WithContext",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel_single_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannelSingle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel_single,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannel_WithContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PrepareAccessContextFromNDCRef"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_prepare_access_context_from_ndc_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeNDCAccessContextInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_make_ndc_access_context_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUsableAccessContextFromNDCRef"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetUsableAccessContextFromNDC"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_usable_access_context_from_ndc,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSinglePropertyInNDCAccessContextInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraDataChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_niagara_data_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMembersInNDCAccessContextInstance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_members_in_ndc_access_context_instance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataChannelElementCount_WithContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_data_channel_element_count_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataChannelElementCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_data_channel_element_count,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataChannelHandler::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnsubscribeFromDataChannelUpdates"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SubscribeToDataChannelUpdates_WithContext"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SubscribeToDataChannelUpdates"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_handler_subscribe_to_data_channel_updates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataChannelWriter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_handler_get_data_channel_writer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDataChannelReader"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_channel_handler_get_data_channel_reader,
-        );
+        if let Some(class_ptr) = UNiagaraDataChannelHandler::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnsubscribeFromDataChannelUpdates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SubscribeToDataChannelUpdates_WithContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SubscribeToDataChannelUpdates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_subscribe_to_data_channel_updates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataChannelWriter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_get_data_channel_writer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDataChannelReader"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_get_data_channel_reader,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceArrayFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayVectorValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_vector_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayVector4Value"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayVector4"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayVector2DValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayVector"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayUInt8Value"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayUInt8"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayQuatValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_quat_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayQuat"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayPositionValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_position_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayMatrixValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayMatrix"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayInt32Value"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_int32_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayInt32"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_int32,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayFloatValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_float_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayColorValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_color_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayBoolValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_bool_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNiagaraArrayBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_set_niagara_array_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayVectorValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_vector_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayVector4Value"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayVector4"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_vector4,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayVector2DValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayVector2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayVector"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_vector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayUInt8Value"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayUInt8"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayQuatValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_quat_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayQuat"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_quat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayPositionValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_position_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayMatrixValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayMatrix"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_matrix,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayInt32Value"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_int32_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayInt32"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_int32,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayFloatValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_float_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayColorValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_color_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayBoolValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_bool_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraArrayBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_array_function_library_get_niagara_array_bool,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceArrayFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayVectorValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayVector4Value"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayVector4"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayVector2DValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayUInt8Value"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayUInt8"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayQuatValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_quat_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayQuat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayPositionValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_position_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayMatrixValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayMatrix"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayInt32Value"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_int32_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayInt32"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_int32,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayFloatValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_float_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayColorValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_color_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayBoolValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_bool_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNiagaraArrayBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayVectorValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayVector4Value"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayVector4"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector4,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayVector2DValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayVector2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayVector"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayUInt8Value"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayUInt8"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayQuatValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_quat_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayQuat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_quat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayPositionValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_position_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayMatrixValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayMatrix"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_matrix,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayInt32Value"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_int32_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayInt32"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_int32,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayFloatValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_float_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayColorValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_color_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayBoolValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_bool_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraArrayBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_bool,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraParticleCallbackHandler::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveParticleData"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_particle_callback_handler_receive_particle_data,
-        );
+        if let Some(class_ptr) = UNiagaraParticleCallbackHandler::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveParticleData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_particle_callback_handler_receive_particle_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceGrid2DCollection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextureSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid2_d_collection_get_texture_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRawTextureSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid2_d_collection_get_raw_texture_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillTexture2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid2_d_collection_fill_texture2_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillRawTexture2D"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceGrid2DCollection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextureSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_get_texture_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRawTextureSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_get_raw_texture_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillTexture2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_fill_texture2_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillRawTexture2D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceGrid3DCollection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTextureSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid3_d_collection_get_texture_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRawTextureSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid3_d_collection_get_raw_texture_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillVolumeTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid3_d_collection_fill_volume_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FillRawVolumeTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceGrid3DCollection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTextureSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_get_texture_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRawTextureSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_get_raw_texture_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillVolumeTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_fill_volume_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FillRawVolumeTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDIRigidMeshCollisionFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceActors"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_di_rigid_mesh_collision_function_library_set_source_actors,
-        );
+        if let Some(class_ptr) = UNiagaraDIRigidMeshCollisionFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceActors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_di_rigid_mesh_collision_function_library_set_source_actors,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraDataInterfaceSkeletalMesh::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnSourceEndPlay"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_data_interface_skeletal_mesh_on_source_end_play,
-        );
+        if let Some(class_ptr) = UNiagaraDataInterfaceSkeletalMesh::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnSourceEndPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_data_interface_skeletal_mesh_on_source_end_play,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANiagaraEditorPreviewActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CalculateRotation"),
-            &raw mut __FUNCTION_PTRS.a_niagara_editor_preview_actor_calculate_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CalculateLocation"),
-            &raw mut __FUNCTION_PTRS.a_niagara_editor_preview_actor_calculate_location,
-        );
+        if let Some(class_ptr) = ANiagaraEditorPreviewActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CalculateRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .a_niagara_editor_preview_actor_calculate_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CalculateLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .a_niagara_editor_preview_actor_calculate_location,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnSystemAttachedWithParams"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_spawn_system_attached_with_params,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnSystemAttached"),
-            &raw mut __FUNCTION_PTRS.u_niagara_function_library_spawn_system_attached,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnSystemAtLocationWithParams"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_spawn_system_at_location_with_params,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnSystemAtLocation"),
-            &raw mut __FUNCTION_PTRS.u_niagara_function_library_spawn_system_at_location,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVolumeTextureObject"),
-            &raw mut __FUNCTION_PTRS.u_niagara_function_library_set_volume_texture_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextureObject"),
-            &raw mut __FUNCTION_PTRS.u_niagara_function_library_set_texture_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTexture2DArrayObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_texture2_d_array_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceSamplingRegions"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceFilteredSockets"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceFilteredBones"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSceneCapture2DDataInterfaceManagedMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetComponentNiagaraGPURayTracedCollisionGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActorNiagaraGPURayTracedCollisionGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseNiagaraGPURayTracedCollisionGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideSystemUserVariableStaticMeshComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_override_system_user_variable_static_mesh_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideSystemUserVariableStaticMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_override_system_user_variable_static_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideSystemUserVariableSkeletalMeshComponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_override_system_user_variable_skeletal_mesh_component,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNiagaraParameterCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_get_niagara_parameter_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AcquireNiagaraGPURayTracedCollisionGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group,
-        );
+        if let Some(class_ptr) = UNiagaraFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnSystemAttachedWithParams"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_attached_with_params,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnSystemAttached"),
+                &raw mut __FUNCTION_PTRS.u_niagara_function_library_spawn_system_attached,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnSystemAtLocationWithParams"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_at_location_with_params,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnSystemAtLocation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_at_location,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVolumeTextureObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_volume_texture_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextureObject"),
+                &raw mut __FUNCTION_PTRS.u_niagara_function_library_set_texture_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTexture2DArrayObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_texture2_d_array_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceSamplingRegions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceFilteredSockets"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceFilteredBones"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSceneCapture2DDataInterfaceManagedMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetComponentNiagaraGPURayTracedCollisionGroup",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActorNiagaraGPURayTracedCollisionGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseNiagaraGPURayTracedCollisionGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OverrideSystemUserVariableStaticMeshComponent",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_static_mesh_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideSystemUserVariableStaticMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_static_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "OverrideSystemUserVariableSkeletalMeshComponent",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_skeletal_mesh_component,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNiagaraParameterCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_get_niagara_parameter_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AcquireNiagaraGPURayTracedCollisionGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraParameterCollectionInstance::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVectorParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_vector_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector4Parameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_vector4_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetVector2DParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_vector2_d_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetQuatParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_quat_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIntParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_int_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloatParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_float_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetColorParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_color_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBoolParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_set_bool_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVectorParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_vector_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVector4Parameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_vector4_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVector2DParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_vector2_d_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetQuatParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_quat_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIntParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_int_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloatParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_float_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetColorParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_color_parameter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoolParameter"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_parameter_collection_instance_get_bool_parameter,
-        );
+        if let Some(class_ptr) = UNiagaraParameterCollectionInstance::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVectorParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector4Parameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector4_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetVector2DParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector2_d_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetQuatParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_quat_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIntParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_int_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloatParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_float_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetColorParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_color_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBoolParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_bool_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVectorParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVector4Parameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector4_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetVector2DParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector2_d_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetQuatParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_quat_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIntParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_int_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloatParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_float_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetColorParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_color_parameter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoolParameter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_bool_parameter,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraBaselineController::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnTickTest"),
-            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_tick_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnOwnerTick"),
-            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_owner_tick,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnEndTest"),
-            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_end_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnBeginTest"),
-            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_begin_test,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSystem"),
-            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_get_system,
-        );
+        if let Some(class_ptr) = UNiagaraBaselineController::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnTickTest"),
+                &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_tick_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnOwnerTick"),
+                &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_owner_tick,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnEndTest"),
+                &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_end_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnBeginTest"),
+                &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_begin_test,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSystem"),
+                &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_get_system,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANiagaraPreviewBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSystem"),
-            &raw mut __FUNCTION_PTRS.a_niagara_preview_base_set_system,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLabelText"),
-            &raw mut __FUNCTION_PTRS.a_niagara_preview_base_set_label_text,
-        );
+        if let Some(class_ptr) = ANiagaraPreviewBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSystem"),
+                &raw mut __FUNCTION_PTRS.a_niagara_preview_base_set_system,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLabelText"),
+                &raw mut __FUNCTION_PTRS.a_niagara_preview_base_set_label_text,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraPreviewAxis::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Num"),
-            &raw mut __FUNCTION_PTRS.u_niagara_preview_axis_num,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ApplyToPreview"),
-            &raw mut __FUNCTION_PTRS.u_niagara_preview_axis_apply_to_preview,
-        );
+        if let Some(class_ptr) = UNiagaraPreviewAxis::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Num"),
+                &raw mut __FUNCTION_PTRS.u_niagara_preview_axis_num,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ApplyToPreview"),
+                &raw mut __FUNCTION_PTRS.u_niagara_preview_axis_apply_to_preview,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ANiagaraPreviewGrid::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPaused"),
-            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_set_paused,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviews"),
-            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_get_previews,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeactivatePreviews"),
-            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_deactivate_previews,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ActivatePreviews"),
-            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_activate_previews,
-        );
+        if let Some(class_ptr) = ANiagaraPreviewGrid::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPaused"),
+                &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_set_paused,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviews"),
+                &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_get_previews,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeactivatePreviews"),
+                &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_deactivate_previews,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ActivatePreviews"),
+                &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_activate_previews,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraScript::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RaiseOnGPUCompilationComplete"),
-            &raw mut __FUNCTION_PTRS.u_niagara_script_raise_on_gpu_compilation_complete,
-        );
+        if let Some(class_ptr) = UNiagaraScript::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RaiseOnGPUCompilationComplete"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_script_raise_on_gpu_compilation_complete,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraSimCache::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadVectorAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadVector4Attribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector4_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadVector2Attribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector2_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadQuatAttributeWithRebase"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_quat_attribute_with_rebase,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadQuatAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_quat_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadPositionAttributeWithRebase"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_sim_cache_read_position_attribute_with_rebase,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadPositionAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_position_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadIntAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_int_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadIDAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_id_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadFloatAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_float_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadDataInterfaceAs"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_data_interface_as,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReadColorAttribute"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_color_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsEmpty"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_is_empty,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCacheValid"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_is_cache_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStartSeconds"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_start_seconds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumFrames"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_num_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumEmitters"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_num_emitters,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEmitterNames"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_emitter_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEmitterName"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_emitter_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAttributeCaptureMode"),
-            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_attribute_capture_mode,
-        );
+        if let Some(class_ptr) = UNiagaraSimCache::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadVectorAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadVector4Attribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector4_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadVector2Attribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector2_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadQuatAttributeWithRebase"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_quat_attribute_with_rebase,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadQuatAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_quat_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadPositionAttributeWithRebase"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_position_attribute_with_rebase,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadPositionAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_position_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadIntAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_int_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadIDAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_id_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadFloatAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_float_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadDataInterfaceAs"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_data_interface_as,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReadColorAttribute"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_color_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsEmpty"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_is_empty,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCacheValid"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_is_cache_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStartSeconds"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_start_seconds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumFrames"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_num_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumEmitters"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_num_emitters,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEmitterNames"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_emitter_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEmitterName"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_emitter_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAttributeCaptureMode"),
+                &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_attribute_capture_mode,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncNiagaraCaptureSimCache::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnCaptureComplete__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_niagara_capture_sim_cache_on_capture_complete_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheUntilComplete"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheMultiFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureNiagaraSimCache"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache,
-        );
+        if let Some(class_ptr) = UAsyncNiagaraCaptureSimCache::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnCaptureComplete__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_on_capture_complete_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheUntilComplete"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheMultiFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureNiagaraSimCache"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraSimCacheFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateNiagaraSimCache"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_sim_cache_function_library_create_niagara_sim_cache,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheImmediate"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate,
-        );
+        if let Some(class_ptr) = UNiagaraSimCacheFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateNiagaraSimCache"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_sim_cache_function_library_create_niagara_sim_cache,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheImmediate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraSystemCollection::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Release"),
-            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_release,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Num"),
-            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_num,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadSynchronous"),
-            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_load_synchronous,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAsync"),
-            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_load_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSystems"),
-            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_get_systems,
-        );
+        if let Some(class_ptr) = UNiagaraSystemCollection::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Release"),
+                &raw mut __FUNCTION_PTRS.u_niagara_system_collection_release,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Num"),
+                &raw mut __FUNCTION_PTRS.u_niagara_system_collection_num,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadSynchronous"),
+                &raw mut __FUNCTION_PTRS.u_niagara_system_collection_load_synchronous,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAsync"),
+                &raw mut __FUNCTION_PTRS.u_niagara_system_collection_load_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSystems"),
+                &raw mut __FUNCTION_PTRS.u_niagara_system_collection_get_systems,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraStatelessModule_DecalAttributes::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsOrientationEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_stateless_module_decal_attributes_is_orientation_enabled,
-        );
+        if let Some(class_ptr) = UNiagaraStatelessModule_DecalAttributes::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsOrientationEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_stateless_module_decal_attributes_is_orientation_enabled,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraStatelessModule_MeshIndex::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NeedsMeshIndexWeights"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_stateless_module_mesh_index_needs_mesh_index_weights,
-        );
+        if let Some(class_ptr) = UNiagaraStatelessModule_MeshIndex::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NeedsMeshIndexWeights"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_stateless_module_mesh_index_needs_mesh_index_weights,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraStatelessModule_ScaleMeshSize::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_stateless_module_scale_mesh_size_use_scale_curve_range,
-        );
+        if let Some(class_ptr) = UNiagaraStatelessModule_ScaleMeshSize::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_stateless_module_scale_mesh_size_use_scale_curve_range,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraStatelessModule_ScaleRibbonWidth::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_stateless_module_scale_ribbon_width_use_scale_curve_range,
-        );
+        if let Some(class_ptr) = UNiagaraStatelessModule_ScaleRibbonWidth::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_stateless_module_scale_ribbon_width_use_scale_curve_range,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UNiagaraStatelessModule_ScaleSpriteSize::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
-            &raw mut __FUNCTION_PTRS
-                .u_niagara_stateless_module_scale_sprite_size_use_scale_curve_range,
-        );
+        if let Some(class_ptr) = UNiagaraStatelessModule_ScaleSpriteSize::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
+                &raw mut __FUNCTION_PTRS
+                    .u_niagara_stateless_module_scale_sprite_size_use_scale_curve_range,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -3265,6 +3320,13 @@ impl UNiagaraDataInterface {
             .get("UNiagaraDataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3285,6 +3347,13 @@ impl UNiagaraDataInterfacePlatformSet {
             .name_to_ptr
             .get("UNiagaraDataInterfacePlatformSet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfacePlatformSet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3316,6 +3385,13 @@ impl UNiagaraSystem {
             .get("UNiagaraSystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3336,6 +3412,13 @@ impl UNiagaraConvertInPlaceUtilityBase {
             .name_to_ptr
             .get("UNiagaraConvertInPlaceUtilityBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraConvertInPlaceUtilityBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3358,6 +3441,13 @@ impl UNiagaraDataInterfaceDynamicMeshSimCacheData {
             .get("UNiagaraDataInterfaceDynamicMeshSimCacheData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceDynamicMeshSimCacheData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3378,6 +3468,13 @@ impl UNiagaraParameterDefinitionsBase {
             .name_to_ptr
             .get("UNiagaraParameterDefinitionsBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraParameterDefinitionsBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3401,6 +3498,13 @@ impl UNiagaraRenderableMeshArrayInterface {
             .get("UNiagaraRenderableMeshArrayInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraRenderableMeshArrayInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3423,6 +3527,13 @@ impl UNiagaraRenderableMeshInterface {
             .get("UNiagaraRenderableMeshInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraRenderableMeshInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3443,6 +3554,13 @@ impl UNiagaraScriptSourceBase {
             .name_to_ptr
             .get("UNiagaraScriptSourceBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraScriptSourceBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3466,6 +3584,13 @@ impl UNiagaraSimCacheCustomStorageInterface {
             .get("UNiagaraSimCacheCustomStorageInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSimCacheCustomStorageInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3486,6 +3611,13 @@ impl UNiagaraValidationRuleSet {
             .name_to_ptr
             .get("UNiagaraValidationRuleSet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraValidationRuleSet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3508,6 +3640,13 @@ impl UNDIRenderTargetSimCacheData {
             .get("UNDIRenderTargetSimCacheData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNDIRenderTargetSimCacheData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3529,6 +3668,13 @@ impl UNiagaraDataInterfaceActorComponent {
             .get("UNiagaraDataInterfaceActorComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceActorComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3549,6 +3695,13 @@ impl UNiagaraDataInterfaceArrayDistributionInt {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayDistributionInt")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayDistributionInt")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3621,6 +3774,13 @@ impl UNiagaraDataInterfaceRWBase {
             .get("UNiagaraDataInterfaceRWBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRWBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3645,6 +3805,13 @@ impl UNiagaraDataInterfaceArray {
             .get("UNiagaraDataInterfaceArray")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArray")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3665,6 +3832,13 @@ impl UNiagaraDataInterfaceArrayMesh {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayMesh")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayMesh")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3791,6 +3965,13 @@ impl UNiagaraDataInterfaceAsyncGpuTrace {
             .get("UNiagaraDataInterfaceAsyncGpuTrace")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceAsyncGpuTrace")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3811,6 +3992,13 @@ impl UNiagaraDataInterfaceConsoleVariable {
             .name_to_ptr
             .get("UNiagaraDataInterfaceConsoleVariable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceConsoleVariable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3833,6 +4021,13 @@ impl UNiagaraDataInterfaceDataChannelRead {
             .get("UNiagaraDataInterfaceDataChannelRead")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceDataChannelRead")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3853,6 +4048,13 @@ impl UNDIDataChannelWriteSimCacheData {
             .name_to_ptr
             .get("UNDIDataChannelWriteSimCacheData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNDIDataChannelWriteSimCacheData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3875,6 +4077,13 @@ impl UNiagaraDataInterfaceDataChannelWrite {
             .get("UNiagaraDataInterfaceDataChannelWrite")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceDataChannelWrite")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3895,6 +4104,13 @@ impl UNiagaraDataInterfaceDataTable {
             .name_to_ptr
             .get("UNiagaraDataInterfaceDataTable")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceDataTable")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3917,6 +4133,13 @@ impl UNiagaraDataInterfaceDebugDraw {
             .get("UNiagaraDataInterfaceDebugDraw")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceDebugDraw")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3937,6 +4160,13 @@ impl UNiagaraDataInterfaceDynamicMesh {
             .name_to_ptr
             .get("UNiagaraDataInterfaceDynamicMesh")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceDynamicMesh")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3959,6 +4189,13 @@ impl UNiagaraDataInterfaceEmitterProperties {
             .get("UNiagaraDataInterfaceEmitterProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceEmitterProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3979,6 +4216,13 @@ impl UNiagaraDataInterfaceGBuffer {
             .name_to_ptr
             .get("UNiagaraDataInterfaceGBuffer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGBuffer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4001,6 +4245,13 @@ impl UNiagaraDataInterfaceMemoryBuffer {
             .get("UNiagaraDataInterfaceMemoryBuffer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceMemoryBuffer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4022,6 +4273,13 @@ impl UNDIMemoryBufferSimCacheData {
             .get("UNDIMemoryBufferSimCacheData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNDIMemoryBufferSimCacheData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4042,6 +4300,13 @@ impl UNiagaraDataInterfacePhysicsAsset {
             .name_to_ptr
             .get("UNiagaraDataInterfacePhysicsAsset")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfacePhysicsAsset")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4065,6 +4330,13 @@ impl UNiagaraPhysicsAssetDICollectorInterface {
             .get("UNiagaraPhysicsAssetDICollectorInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPhysicsAssetDICollectorInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4085,6 +4357,13 @@ impl UNiagaraDataInterfaceSceneCapture2D {
             .name_to_ptr
             .get("UNiagaraDataInterfaceSceneCapture2D")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSceneCapture2D")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4157,6 +4436,13 @@ impl UNiagaraDataInterfaceSimCacheReader {
             .get("UNiagaraDataInterfaceSimCacheReader")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSimCacheReader")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4177,6 +4463,13 @@ impl UNiagaraDataInterfaceSimpleCounter {
             .name_to_ptr
             .get("UNiagaraDataInterfaceSimpleCounter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSimpleCounter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4199,6 +4492,13 @@ impl UNDISimpleCounterSimCacheData {
             .get("UNDISimpleCounterSimCacheData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNDISimpleCounterSimCacheData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4220,6 +4520,13 @@ impl UNiagaraDataInterfaceSocketReader {
             .get("UNiagaraDataInterfaceSocketReader")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSocketReader")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4240,6 +4547,13 @@ impl UNiagaraDataInterfaceStaticMesh {
             .name_to_ptr
             .get("UNiagaraDataInterfaceStaticMesh")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceStaticMesh")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4311,6 +4625,13 @@ impl UNiagaraDataInterfaceUObjectPropertyReader {
             .name_to_ptr
             .get("UNiagaraDataInterfaceUObjectPropertyReader")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceUObjectPropertyReader")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4391,6 +4712,13 @@ impl UNiagaraDataInterfaceVirtualTexture {
             .get("UNiagaraDataInterfaceVirtualTexture")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVirtualTexture")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4411,6 +4739,13 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             .name_to_ptr
             .get("UMovieSceneNiagaraSystemSpawnSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraSystemSpawnSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4738,6 +5073,13 @@ impl UMovieSceneNiagaraTrack {
             .get("UMovieSceneNiagaraTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4758,6 +5100,13 @@ impl UMovieSceneNiagaraSystemTrack {
             .name_to_ptr
             .get("UMovieSceneNiagaraSystemTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraSystemTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4780,6 +5129,13 @@ impl UMovieSceneNiagaraParameterTrack {
             .get("UMovieSceneNiagaraParameterTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraParameterTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4800,6 +5156,13 @@ impl UMovieSceneNiagaraBoolParameterTrack {
             .name_to_ptr
             .get("UMovieSceneNiagaraBoolParameterTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraBoolParameterTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4822,6 +5185,13 @@ impl UMovieSceneNiagaraColorParameterTrack {
             .get("UMovieSceneNiagaraColorParameterTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraColorParameterTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4842,6 +5212,13 @@ impl UMovieSceneNiagaraFloatParameterTrack {
             .name_to_ptr
             .get("UMovieSceneNiagaraFloatParameterTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraFloatParameterTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4864,6 +5241,13 @@ impl UMovieSceneNiagaraIntegerParameterTrack {
             .get("UMovieSceneNiagaraIntegerParameterTrack")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraIntegerParameterTrack")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4884,6 +5268,13 @@ impl UMovieSceneNiagaraVectorParameterTrack {
             .name_to_ptr
             .get("UMovieSceneNiagaraVectorParameterTrack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMovieSceneNiagaraVectorParameterTrack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4908,6 +5299,13 @@ impl ANiagaraActor {
             .name_to_ptr
             .get("ANiagaraActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANiagaraActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4991,6 +5389,13 @@ impl UDEPRECATED_NiagaraAssetTagDefinitions {
             .get("UDEPRECATED_NiagaraAssetTagDefinitions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_NiagaraAssetTagDefinitions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5011,6 +5416,13 @@ impl UNiagaraBakerOutput {
             .name_to_ptr
             .get("UNiagaraBakerOutput")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerOutput")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5033,6 +5445,13 @@ impl UNiagaraBakerOutputSimCache {
             .get("UNiagaraBakerOutputSimCache")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerOutputSimCache")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5053,6 +5472,13 @@ impl UNiagaraBakerOutputSparseVolumeTexture {
             .name_to_ptr
             .get("UNiagaraBakerOutputSparseVolumeTexture")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerOutputSparseVolumeTexture")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5075,6 +5501,13 @@ impl UNiagaraBakerOutputStaticMesh {
             .get("UNiagaraBakerOutputStaticMesh")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerOutputStaticMesh")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5095,6 +5528,13 @@ impl UNiagaraBakerOutputTexture2D {
             .name_to_ptr
             .get("UNiagaraBakerOutputTexture2D")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerOutputTexture2D")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5117,6 +5557,13 @@ impl UNiagaraBakerOutputVolumeTexture {
             .get("UNiagaraBakerOutputVolumeTexture")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerOutputVolumeTexture")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -5137,6 +5584,13 @@ impl UNiagaraBakerSettings {
             .name_to_ptr
             .get("UNiagaraBakerSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBakerSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -5174,6 +5628,13 @@ impl UNiagaraComponent {
             .name_to_ptr
             .get("UNiagaraComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8401,6 +8862,13 @@ impl UNiagaraComponentPool {
             .get("UNiagaraComponentPool")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraComponentPool")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8421,6 +8889,13 @@ impl UNiagaraRendererProperties {
             .name_to_ptr
             .get("UNiagaraRendererProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraRendererProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8443,6 +8918,13 @@ impl UNiagaraComponentRendererProperties {
             .get("UNiagaraComponentRendererProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraComponentRendererProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8463,6 +8945,13 @@ impl UNiagaraCullProxyComponent {
             .name_to_ptr
             .get("UNiagaraCullProxyComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraCullProxyComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8485,6 +8974,13 @@ impl UNiagaraDataChannel {
             .get("UNiagaraDataChannel")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannel")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -8505,6 +9001,13 @@ impl UNiagaraDataChannelReader {
             .name_to_ptr
             .get("UNiagaraDataChannelReader")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelReader")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -9064,6 +9567,13 @@ impl UNiagaraDataChannelWriter {
             .get("UNiagaraDataChannelWriter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelWriter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9586,6 +10096,13 @@ impl UNiagaraDataChannelAsset {
             .get("UNiagaraDataChannelAsset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelAsset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -9606,6 +10123,13 @@ impl UNiagaraDataChannelLibrary {
             .name_to_ptr
             .get("UNiagaraDataChannelLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10594,6 +11118,13 @@ impl UNiagaraDataChannelHandler {
             .get("UNiagaraDataChannelHandler")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelHandler")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10812,6 +11343,13 @@ impl UNiagaraDataChannel_MapBase {
             .get("UNiagaraDataChannel_MapBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannel_MapBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10832,6 +11370,13 @@ impl UNiagaraDataChannel_GameplayBurst {
             .name_to_ptr
             .get("UNiagaraDataChannel_GameplayBurst")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannel_GameplayBurst")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10854,6 +11399,13 @@ impl UNiagaraDataChannelHandler_MapBase {
             .get("UNiagaraDataChannelHandler_MapBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelHandler_MapBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10874,6 +11426,13 @@ impl UNiagaraDataChannelHandler_GameplayBurst {
             .name_to_ptr
             .get("UNiagaraDataChannelHandler_GameplayBurst")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelHandler_GameplayBurst")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10896,6 +11455,13 @@ impl UNiagaraDataChannel_Global {
             .get("UNiagaraDataChannel_Global")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannel_Global")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10916,6 +11482,13 @@ impl UNiagaraDataChannelHandler_Global {
             .name_to_ptr
             .get("UNiagaraDataChannelHandler_Global")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelHandler_Global")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10938,6 +11511,13 @@ impl UNiagaraDataChannel_Islands {
             .get("UNiagaraDataChannel_Islands")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannel_Islands")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -10958,6 +11538,13 @@ impl UNiagaraDataChannelHandler_Islands {
             .name_to_ptr
             .get("UNiagaraDataChannelHandler_Islands")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataChannelHandler_Islands")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -10980,6 +11567,13 @@ impl UNiagaraDataInterface2DArrayTexture {
             .get("UNiagaraDataInterface2DArrayTexture")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterface2DArrayTexture")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11000,6 +11594,13 @@ impl UNDIArraySimCacheData {
             .name_to_ptr
             .get("UNDIArraySimCacheData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNDIArraySimCacheData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11023,6 +11624,13 @@ impl UNiagaraDataInterfaceArrayFloat {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayFloat")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayFloat")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11048,6 +11656,13 @@ impl UNiagaraDataInterfaceArrayFloat2 {
             .get("UNiagaraDataInterfaceArrayFloat2")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayFloat2")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11072,6 +11687,13 @@ impl UNiagaraDataInterfaceArrayFloat3 {
             .get("UNiagaraDataInterfaceArrayFloat3")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayFloat3")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11094,6 +11716,13 @@ impl UNiagaraDataInterfaceArrayPosition {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayPosition")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayPosition")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11119,6 +11748,13 @@ impl UNiagaraDataInterfaceArrayFloat4 {
             .get("UNiagaraDataInterfaceArrayFloat4")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayFloat4")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11141,6 +11777,13 @@ impl UNiagaraDataInterfaceArrayColor {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayColor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayColor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11166,6 +11809,13 @@ impl UNiagaraDataInterfaceArrayQuat {
             .get("UNiagaraDataInterfaceArrayQuat")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayQuat")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11190,6 +11840,13 @@ impl UNiagaraDataInterfaceArrayMatrix {
             .get("UNiagaraDataInterfaceArrayMatrix")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayMatrix")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11210,6 +11867,13 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13536,6 +14200,13 @@ impl UNiagaraDataInterfaceArrayInt32 {
             .get("UNiagaraDataInterfaceArrayInt32")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayInt32")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13560,6 +14231,13 @@ impl UNiagaraDataInterfaceArrayUInt8 {
             .get("UNiagaraDataInterfaceArrayUInt8")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayUInt8")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13582,6 +14260,13 @@ impl UNiagaraDataInterfaceArrayBool {
             .name_to_ptr
             .get("UNiagaraDataInterfaceArrayBool")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayBool")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13606,6 +14291,13 @@ impl UNiagaraDataInterfaceArrayNiagaraID {
             .get("UNiagaraDataInterfaceArrayNiagaraID")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceArrayNiagaraID")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13627,6 +14319,13 @@ impl UNiagaraDataInterfaceAudioSubmix {
             .get("UNiagaraDataInterfaceAudioSubmix")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceAudioSubmix")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13647,6 +14346,13 @@ impl UNiagaraDataInterfaceAudioOscilloscope {
             .name_to_ptr
             .get("UNiagaraDataInterfaceAudioOscilloscope")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceAudioOscilloscope")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13674,6 +14380,13 @@ impl UNiagaraDataInterfaceAudioPlayerSettings {
             .get("UNiagaraDataInterfaceAudioPlayerSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceAudioPlayerSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13694,6 +14407,13 @@ impl UNiagaraDataInterfaceAudioPlayer {
             .name_to_ptr
             .get("UNiagaraDataInterfaceAudioPlayer")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceAudioPlayer")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13716,6 +14436,13 @@ impl UNiagaraDataInterfaceAudioSpectrum {
             .get("UNiagaraDataInterfaceAudioSpectrum")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceAudioSpectrum")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13736,6 +14463,13 @@ impl UNiagaraDataInterfaceCamera {
             .name_to_ptr
             .get("UNiagaraDataInterfaceCamera")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceCamera")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13758,6 +14492,13 @@ impl UNiagaraDataInterfaceCollisionQuery {
             .get("UNiagaraDataInterfaceCollisionQuery")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceCollisionQuery")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13778,6 +14519,13 @@ impl UNiagaraDataInterfaceCurveBase {
             .name_to_ptr
             .get("UNiagaraDataInterfaceCurveBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceCurveBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13800,6 +14548,13 @@ impl UNiagaraDataInterfaceColorCurve {
             .get("UNiagaraDataInterfaceColorCurve")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceColorCurve")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13820,6 +14575,13 @@ impl UNiagaraDataInterfaceCubeTexture {
             .name_to_ptr
             .get("UNiagaraDataInterfaceCubeTexture")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceCubeTexture")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13842,6 +14604,13 @@ impl UNiagaraDataInterfaceCurlNoise {
             .get("UNiagaraDataInterfaceCurlNoise")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceCurlNoise")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13862,6 +14631,13 @@ impl UNiagaraDataInterfaceCurve {
             .name_to_ptr
             .get("UNiagaraDataInterfaceCurve")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceCurve")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13884,6 +14660,13 @@ impl UNiagaraParticleCallbackHandler {
             .name_to_ptr
             .get("UNiagaraParticleCallbackHandler")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraParticleCallbackHandler")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -13957,6 +14740,13 @@ impl UNiagaraDataInterfaceExport {
             .get("UNiagaraDataInterfaceExport")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceExport")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13978,6 +14768,13 @@ impl UNiagaraDataInterfaceGrid2D {
             .get("UNiagaraDataInterfaceGrid2D")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGrid2D")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -13998,6 +14795,13 @@ impl UNiagaraDataInterfaceGrid2DCollection {
             .name_to_ptr
             .get("UNiagaraDataInterfaceGrid2DCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGrid2DCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14232,6 +15036,13 @@ impl UNiagaraDataInterfaceGrid2DCollectionReader {
             .get("UNiagaraDataInterfaceGrid2DCollectionReader")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGrid2DCollectionReader")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14253,6 +15064,13 @@ impl UNiagaraDataInterfaceGrid3D {
             .get("UNiagaraDataInterfaceGrid3D")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGrid3D")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14273,6 +15091,13 @@ impl UNiagaraDataInterfaceGrid3DCollection {
             .name_to_ptr
             .get("UNiagaraDataInterfaceGrid3DCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGrid3DCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14524,6 +15349,13 @@ impl UNiagaraDataInterfaceGrid3DCollectionReader {
             .get("UNiagaraDataInterfaceGrid3DCollectionReader")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceGrid3DCollectionReader")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14544,6 +15376,13 @@ impl UNiagaraDataInterfaceIntRenderTarget2D {
             .name_to_ptr
             .get("UNiagaraDataInterfaceIntRenderTarget2D")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceIntRenderTarget2D")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14566,6 +15405,13 @@ impl UNiagaraDataInterfaceLandscape {
             .get("UNiagaraDataInterfaceLandscape")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceLandscape")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14586,6 +15432,13 @@ impl UNDILandscapeSimCacheData {
             .name_to_ptr
             .get("UNDILandscapeSimCacheData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNDILandscapeSimCacheData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14608,6 +15461,13 @@ impl UNiagaraDataInterfaceMaterialInstanceDynamic {
             .get("UNiagaraDataInterfaceMaterialInstanceDynamic")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceMaterialInstanceDynamic")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14628,6 +15488,13 @@ impl UNiagaraDataInterfaceMaterialParameterCollection {
             .name_to_ptr
             .get("UNiagaraDataInterfaceMaterialParameterCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceMaterialParameterCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14650,6 +15517,13 @@ impl UNiagaraDataInterfaceMeshRendererInfo {
             .get("UNiagaraDataInterfaceMeshRendererInfo")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceMeshRendererInfo")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14670,6 +15544,13 @@ impl UNiagaraDataInterfaceNeighborGrid3D {
             .name_to_ptr
             .get("UNiagaraDataInterfaceNeighborGrid3D")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceNeighborGrid3D")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14692,6 +15573,13 @@ impl UNiagaraDataInterfaceOcclusion {
             .get("UNiagaraDataInterfaceOcclusion")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceOcclusion")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14712,6 +15600,13 @@ impl UNiagaraDataInterfaceParticleRead {
             .name_to_ptr
             .get("UNiagaraDataInterfaceParticleRead")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceParticleRead")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14734,6 +15629,13 @@ impl UNiagaraDataInterfaceRasterizationGrid3D {
             .get("UNiagaraDataInterfaceRasterizationGrid3D")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRasterizationGrid3D")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14754,6 +15656,13 @@ impl UNiagaraDataInterfaceRenderTarget2D {
             .name_to_ptr
             .get("UNiagaraDataInterfaceRenderTarget2D")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRenderTarget2D")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14776,6 +15685,13 @@ impl UNiagaraDataInterfaceRenderTarget2DArray {
             .get("UNiagaraDataInterfaceRenderTarget2DArray")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRenderTarget2DArray")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14796,6 +15712,13 @@ impl UNiagaraDataInterfaceRenderTargetCube {
             .name_to_ptr
             .get("UNiagaraDataInterfaceRenderTargetCube")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRenderTargetCube")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14818,6 +15741,13 @@ impl UNiagaraDataInterfaceRenderTargetVolume {
             .get("UNiagaraDataInterfaceRenderTargetVolume")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRenderTargetVolume")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14839,6 +15769,13 @@ impl UNiagaraDataInterfaceRigidMeshCollisionQuery {
             .get("UNiagaraDataInterfaceRigidMeshCollisionQuery")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceRigidMeshCollisionQuery")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14859,6 +15796,13 @@ impl UNiagaraDIRigidMeshCollisionFunctionLibrary {
             .name_to_ptr
             .get("UNiagaraDIRigidMeshCollisionFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDIRigidMeshCollisionFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14931,6 +15875,13 @@ impl UNiagaraDataInterfaceSkeletalMesh {
             .get("UNiagaraDataInterfaceSkeletalMesh")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSkeletalMesh")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14951,6 +15902,13 @@ impl UNiagaraDataInterfaceSparseVolumeTexture {
             .name_to_ptr
             .get("UNiagaraDataInterfaceSparseVolumeTexture")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSparseVolumeTexture")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14973,6 +15931,13 @@ impl UNiagaraDataInterfaceSpline {
             .get("UNiagaraDataInterfaceSpline")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSpline")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14993,6 +15958,13 @@ impl UNiagaraDataInterfaceSpriteRendererInfo {
             .name_to_ptr
             .get("UNiagaraDataInterfaceSpriteRendererInfo")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceSpriteRendererInfo")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15015,6 +15987,13 @@ impl UNiagaraDataInterfaceTexture {
             .get("UNiagaraDataInterfaceTexture")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceTexture")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15035,6 +16014,13 @@ impl UNiagaraDataInterfaceVector2DCurve {
             .name_to_ptr
             .get("UNiagaraDataInterfaceVector2DCurve")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVector2DCurve")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15057,6 +16043,13 @@ impl UNiagaraDataInterfaceVector4Curve {
             .get("UNiagaraDataInterfaceVector4Curve")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVector4Curve")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15077,6 +16070,13 @@ impl UNiagaraDataInterfaceVectorCurve {
             .name_to_ptr
             .get("UNiagaraDataInterfaceVectorCurve")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVectorCurve")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15099,6 +16099,13 @@ impl UNiagaraDataInterfaceVectorField {
             .get("UNiagaraDataInterfaceVectorField")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVectorField")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15119,6 +16126,13 @@ impl UNiagaraDataInterfaceVirtualTextureSample {
             .name_to_ptr
             .get("UNiagaraDataInterfaceVirtualTextureSample")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVirtualTextureSample")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15141,6 +16155,13 @@ impl UNiagaraDataInterfaceVolumeCache {
             .get("UNiagaraDataInterfaceVolumeCache")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVolumeCache")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15161,6 +16182,13 @@ impl UNiagaraDataInterfaceVolumeTexture {
             .name_to_ptr
             .get("UNiagaraDataInterfaceVolumeTexture")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDataInterfaceVolumeTexture")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15183,6 +16211,13 @@ impl UNiagaraDebugHUDSettings {
             .get("UNiagaraDebugHUDSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDebugHUDSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15203,6 +16238,13 @@ impl UNiagaraDecalRendererProperties {
             .name_to_ptr
             .get("UNiagaraDecalRendererProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraDecalRendererProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15225,6 +16267,13 @@ impl UNiagaraEditorDataBase {
             .get("UNiagaraEditorDataBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEditorDataBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15245,6 +16294,13 @@ impl UNiagaraEditorParametersAdapterBase {
             .name_to_ptr
             .get("UNiagaraEditorParametersAdapterBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEditorParametersAdapterBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15269,6 +16325,13 @@ impl ANiagaraEditorPreviewActor {
             .name_to_ptr
             .get("ANiagaraEditorPreviewActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANiagaraEditorPreviewActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15389,6 +16452,13 @@ impl UNiagaraSignificanceHandler {
             .get("UNiagaraSignificanceHandler")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSignificanceHandler")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15409,6 +16479,13 @@ impl UNiagaraSignificanceHandlerDistance {
             .name_to_ptr
             .get("UNiagaraSignificanceHandlerDistance")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSignificanceHandlerDistance")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15431,6 +16508,13 @@ impl UNiagaraSignificanceHandlerAge {
             .get("UNiagaraSignificanceHandlerAge")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSignificanceHandlerAge")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15451,6 +16535,13 @@ impl UNiagaraEffectType {
             .name_to_ptr
             .get("UNiagaraEffectType")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEffectType")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15473,6 +16564,13 @@ impl UNiagaraEmitterBase {
             .get("UNiagaraEmitterBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEmitterBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15493,6 +16591,13 @@ impl UNiagaraEmitter {
             .name_to_ptr
             .get("UNiagaraEmitter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEmitter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -15515,6 +16620,13 @@ impl UNiagaraEventReceiverEmitterAction {
             .get("UNiagaraEventReceiverEmitterAction")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEventReceiverEmitterAction")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15536,6 +16648,13 @@ impl UNiagaraEventReceiverEmitterAction_SpawnParticles {
             .get("UNiagaraEventReceiverEmitterAction_SpawnParticles")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraEventReceiverEmitterAction_SpawnParticles")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -15556,6 +16675,13 @@ impl UNiagaraFunctionLibrary {
             .name_to_ptr
             .get("UNiagaraFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -16652,6 +17778,13 @@ impl ANiagaraLensEffectBase {
             .get("ANiagaraLensEffectBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANiagaraLensEffectBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -16676,6 +17809,13 @@ impl UNiagaraLightRendererProperties {
             .get("UNiagaraLightRendererProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraLightRendererProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -16696,6 +17836,13 @@ impl UNiagaraMeshRendererProperties {
             .name_to_ptr
             .get("UNiagaraMeshRendererProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraMeshRendererProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -16718,6 +17865,13 @@ impl UNiagaraMessageDataBase {
             .get("UNiagaraMessageDataBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraMessageDataBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -16738,6 +17892,13 @@ impl UNiagaraParameterCollectionInstance {
             .name_to_ptr
             .get("UNiagaraParameterCollectionInstance")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraParameterCollectionInstance")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17372,6 +18533,13 @@ impl UNiagaraParameterCollection {
             .get("UNiagaraParameterCollection")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraParameterCollection")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17397,6 +18565,13 @@ impl UNiagaraBaselineController {
             .name_to_ptr
             .get("UNiagaraBaselineController")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBaselineController")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17556,6 +18731,13 @@ impl UNiagaraBaselineController_Basic {
             .get("UNiagaraBaselineController_Basic")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraBaselineController_Basic")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17576,6 +18758,13 @@ impl ANiagaraPerfBaselineActor {
             .name_to_ptr
             .get("ANiagaraPerfBaselineActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANiagaraPerfBaselineActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17598,6 +18787,13 @@ impl UNiagaraPrecompileContainer {
             .get("UNiagaraPrecompileContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPrecompileContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17618,6 +18814,13 @@ impl ANiagaraPreviewBase {
             .name_to_ptr
             .get("ANiagaraPreviewBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANiagaraPreviewBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17710,6 +18913,13 @@ impl UNiagaraPreviewAxis {
             .name_to_ptr
             .get("UNiagaraPreviewAxis")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17818,6 +19028,13 @@ impl UNiagaraPreviewAxis_InterpParamBase {
             .get("UNiagaraPreviewAxis_InterpParamBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17838,6 +19055,13 @@ impl UNiagaraPreviewAxis_InterpParamInt32 {
             .name_to_ptr
             .get("UNiagaraPreviewAxis_InterpParamInt32")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamInt32")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17860,6 +19084,13 @@ impl UNiagaraPreviewAxis_InterpParamFloat {
             .get("UNiagaraPreviewAxis_InterpParamFloat")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamFloat")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17880,6 +19111,13 @@ impl UNiagaraPreviewAxis_InterpParamVector2D {
             .name_to_ptr
             .get("UNiagaraPreviewAxis_InterpParamVector2D")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamVector2D")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17902,6 +19140,13 @@ impl UNiagaraPreviewAxis_InterpParamVector {
             .get("UNiagaraPreviewAxis_InterpParamVector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamVector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17922,6 +19167,13 @@ impl UNiagaraPreviewAxis_InterpParamVector4 {
             .name_to_ptr
             .get("UNiagaraPreviewAxis_InterpParamVector4")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamVector4")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -17944,6 +19196,13 @@ impl UNiagaraPreviewAxis_InterpParamLinearColor {
             .get("UNiagaraPreviewAxis_InterpParamLinearColor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraPreviewAxis_InterpParamLinearColor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17964,6 +19223,13 @@ impl ANiagaraPreviewGrid {
             .name_to_ptr
             .get("ANiagaraPreviewGrid")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ANiagaraPreviewGrid")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -18102,6 +19368,13 @@ impl UNiagaraRibbonRendererProperties {
             .get("UNiagaraRibbonRendererProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraRibbonRendererProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18123,6 +19396,13 @@ impl UNiagaraScratchPadContainer {
             .get("UNiagaraScratchPadContainer")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraScratchPadContainer")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18143,6 +19423,13 @@ impl UNiagaraScript {
             .name_to_ptr
             .get("UNiagaraScript")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraScript")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -18169,6 +19456,13 @@ impl UNiagaraSettings {
             .get("UNiagaraSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18189,6 +19483,13 @@ impl UNiagaraSimCache {
             .name_to_ptr
             .get("UNiagaraSimCache")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSimCache")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19233,6 +20534,13 @@ impl UNiagaraSimCacheDebugData {
             .get("UNiagaraSimCacheDebugData")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSimCacheDebugData")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19253,6 +20561,13 @@ impl UAsyncNiagaraCaptureSimCache {
             .name_to_ptr
             .get("UAsyncNiagaraCaptureSimCache")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncNiagaraCaptureSimCache")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19525,6 +20840,13 @@ impl UNiagaraSimCacheFunctionLibrary {
             .get("UNiagaraSimCacheFunctionLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSimCacheFunctionLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19659,6 +20981,13 @@ impl UNiagaraSimulationStageBase {
             .get("UNiagaraSimulationStageBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSimulationStageBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19679,6 +21008,13 @@ impl UNiagaraSimulationStageGeneric {
             .name_to_ptr
             .get("UNiagaraSimulationStageGeneric")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSimulationStageGeneric")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19704,6 +21040,13 @@ impl UNiagaraSpriteRendererProperties {
             .get("UNiagaraSpriteRendererProperties")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSpriteRendererProperties")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19724,6 +21067,13 @@ impl UNiagaraSystemCollection {
             .name_to_ptr
             .get("UNiagaraSystemCollection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraSystemCollection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19873,6 +21223,13 @@ impl UNiagaraValidationRule {
             .get("UNiagaraValidationRule")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraValidationRule")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19893,6 +21250,13 @@ impl UNiagaraVolumeRendererProperties {
             .name_to_ptr
             .get("UNiagaraVolumeRendererProperties")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraVolumeRendererProperties")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19915,6 +21279,13 @@ impl UNiagaraStatelessModule {
             .get("UNiagaraStatelessModule")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19935,6 +21306,13 @@ impl UNiagaraStatelessModule_AccelerationForce {
             .name_to_ptr
             .get("UNiagaraStatelessModule_AccelerationForce")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_AccelerationForce")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19957,6 +21335,13 @@ impl UNiagaraStatelessModule_AddVelocity {
             .get("UNiagaraStatelessModule_AddVelocity")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_AddVelocity")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19977,6 +21362,13 @@ impl UNiagaraStatelessModule_CalculateAccurateVelocity {
             .name_to_ptr
             .get("UNiagaraStatelessModule_CalculateAccurateVelocity")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_CalculateAccurateVelocity")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19999,6 +21391,13 @@ impl UNiagaraStatelessModule_CameraOffset {
             .get("UNiagaraStatelessModule_CameraOffset")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_CameraOffset")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20019,6 +21418,13 @@ impl UNiagaraStatelessModule_CurlNoiseForce {
             .name_to_ptr
             .get("UNiagaraStatelessModule_CurlNoiseForce")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_CurlNoiseForce")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20041,6 +21447,13 @@ impl UNiagaraStatelessModule_DecalAttributes {
             .get("UNiagaraStatelessModule_DecalAttributes")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_DecalAttributes")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20061,6 +21474,13 @@ impl UNiagaraStatelessModule_Drag {
             .name_to_ptr
             .get("UNiagaraStatelessModule_Drag")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_Drag")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20083,6 +21503,13 @@ impl UNiagaraStatelessModule_DynamicMaterialParameters {
             .get("UNiagaraStatelessModule_DynamicMaterialParameters")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_DynamicMaterialParameters")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20103,6 +21530,13 @@ impl UNiagaraStatelessModule_GravityForce {
             .name_to_ptr
             .get("UNiagaraStatelessModule_GravityForce")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_GravityForce")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20125,6 +21559,13 @@ impl UNiagaraStatelessModule_InitializeParticle {
             .get("UNiagaraStatelessModule_InitializeParticle")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_InitializeParticle")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20145,6 +21586,13 @@ impl UNiagaraStatelessModule_InitialMeshOrientation {
             .name_to_ptr
             .get("UNiagaraStatelessModule_InitialMeshOrientation")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_InitialMeshOrientation")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20167,6 +21615,13 @@ impl UNiagaraStatelessModule_LightAttributes {
             .get("UNiagaraStatelessModule_LightAttributes")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_LightAttributes")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20187,6 +21642,13 @@ impl UNiagaraStatelessModule_MeshIndex {
             .name_to_ptr
             .get("UNiagaraStatelessModule_MeshIndex")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_MeshIndex")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20209,6 +21671,13 @@ impl UNiagaraStatelessModule_MeshRotationRate {
             .get("UNiagaraStatelessModule_MeshRotationRate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_MeshRotationRate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20229,6 +21698,13 @@ impl UNiagaraStatelessModule_RotateAroundPoint {
             .name_to_ptr
             .get("UNiagaraStatelessModule_RotateAroundPoint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_RotateAroundPoint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20251,6 +21727,13 @@ impl UNiagaraStatelessModule_ScaleColor {
             .get("UNiagaraStatelessModule_ScaleColor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ScaleColor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20271,6 +21754,13 @@ impl UNiagaraStatelessModule_ScaleMeshSize {
             .name_to_ptr
             .get("UNiagaraStatelessModule_ScaleMeshSize")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ScaleMeshSize")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20293,6 +21783,13 @@ impl UNiagaraStatelessModule_ScaleMeshSizeBySpeed {
             .get("UNiagaraStatelessModule_ScaleMeshSizeBySpeed")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ScaleMeshSizeBySpeed")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20313,6 +21810,13 @@ impl UNiagaraStatelessModule_ScaleRibbonWidth {
             .name_to_ptr
             .get("UNiagaraStatelessModule_ScaleRibbonWidth")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ScaleRibbonWidth")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20335,6 +21839,13 @@ impl UNiagaraStatelessModule_ScaleSpriteSize {
             .get("UNiagaraStatelessModule_ScaleSpriteSize")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ScaleSpriteSize")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20355,6 +21866,13 @@ impl UNiagaraStatelessModule_ScaleSpriteSizeBySpeed {
             .name_to_ptr
             .get("UNiagaraStatelessModule_ScaleSpriteSizeBySpeed")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ScaleSpriteSizeBySpeed")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20377,6 +21895,13 @@ impl UNiagaraStatelessModule_ShapeLocation {
             .get("UNiagaraStatelessModule_ShapeLocation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_ShapeLocation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20397,6 +21922,13 @@ impl UNiagaraStatelessModule_SolveVelocitiesAndForces {
             .name_to_ptr
             .get("UNiagaraStatelessModule_SolveVelocitiesAndForces")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_SolveVelocitiesAndForces")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20419,6 +21951,13 @@ impl UNiagaraStatelessModule_SpriteFacingAndAlignment {
             .get("UNiagaraStatelessModule_SpriteFacingAndAlignment")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_SpriteFacingAndAlignment")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20439,6 +21978,13 @@ impl UNiagaraStatelessModule_SpriteRotationRate {
             .name_to_ptr
             .get("UNiagaraStatelessModule_SpriteRotationRate")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_SpriteRotationRate")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20461,6 +22007,13 @@ impl UNiagaraStatelessModule_SubUVAnimation {
             .get("UNiagaraStatelessModule_SubUVAnimation")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessModule_SubUVAnimation")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20481,6 +22034,13 @@ impl UNiagaraStatelessEmitter {
             .name_to_ptr
             .get("UNiagaraStatelessEmitter")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessEmitter")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20503,6 +22063,13 @@ impl UNiagaraStatelessEmitterTemplate {
             .get("UNiagaraStatelessEmitterTemplate")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessEmitterTemplate")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20524,6 +22091,13 @@ impl UNiagaraStatelessEmitterDefault {
             .get("UNiagaraStatelessEmitterDefault")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNiagaraStatelessEmitterDefault")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20544,6 +22118,13 @@ impl UVolumeCache {
             .name_to_ptr
             .get("UVolumeCache")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UVolumeCache")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

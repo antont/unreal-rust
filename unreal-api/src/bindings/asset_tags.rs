@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -76,213 +77,222 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetTagsSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReparentCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_reparent_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_rename_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssetsFromCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_remove_assets_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssetPtrsFromCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_remove_asset_ptrs_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssetPtrFromCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_remove_asset_ptr_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssetFromCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_remove_asset_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssetDatasFromCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_remove_asset_datas_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssetDataFromCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_remove_asset_data_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_RemoveAssetsFromCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_k2_remove_assets_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_RemoveAssetFromCollection"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_k2_remove_asset_from_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetCollectionsContainingAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_k2_get_collections_containing_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_AddAssetToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_k2_add_asset_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_AddAssetsToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_k2_add_assets_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetPtr"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_get_collections_containing_asset_ptr,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_get_collections_containing_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCollectionsContainingAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_tags_subsystem_get_collections_containing_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCollections"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_get_collections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsInCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_get_assets_in_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EmptyCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_empty_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DestroyCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_destroy_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_create_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CollectionExists"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_collection_exists,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAssetToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAssetsToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_assets_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAssetPtrToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_ptr_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAssetPtrsToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_ptrs_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAssetDataToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_data_to_collection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddAssetDatasToCollection"),
-            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_datas_to_collection,
-        );
+        if let Some(class_ptr) = UAssetTagsSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReparentCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_reparent_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_rename_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssetsFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_assets_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssetPtrsFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_ptrs_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssetPtrFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_ptr_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssetFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssetDatasFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_datas_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssetDataFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_data_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_RemoveAssetsFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_remove_assets_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_RemoveAssetFromCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_remove_asset_from_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetCollectionsContainingAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_get_collections_containing_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_AddAssetToCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_add_asset_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_AddAssetsToCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_add_assets_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetPtr"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset_ptr,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCollectionsContainingAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCollections"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_get_collections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsInCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_get_assets_in_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EmptyCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_empty_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DestroyCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_destroy_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_create_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CollectionExists"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_collection_exists,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAssetToCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAssetsToCollection"),
+                &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_assets_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAssetPtrToCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_ptr_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAssetPtrsToCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_ptrs_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAssetDataToCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_data_to_collection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddAssetDatasToCollection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_datas_to_collection,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -296,6 +306,13 @@ impl UAssetTagsSubsystem {
             .name_to_ptr
             .get("UAssetTagsSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetTagsSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

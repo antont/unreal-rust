@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -1246,5068 +1247,5136 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeActorFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMobility"),
-            &raw mut __FUNCTION_PTRS.u_interchange_actor_factory_node_set_custom_mobility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLocalTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_set_custom_local_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGlobalTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_set_custom_global_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomComponentVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_set_custom_component_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomActorVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_set_custom_actor_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomActorClassName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_set_custom_actor_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMobility"),
-            &raw mut __FUNCTION_PTRS.u_interchange_actor_factory_node_get_custom_mobility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLocalTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_get_custom_local_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGlobalTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_get_custom_global_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomComponentVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_get_custom_component_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomActorVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_get_custom_actor_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomActorClassName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_actor_factory_node_get_custom_actor_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetComponentUids"),
-            &raw mut __FUNCTION_PTRS.u_interchange_actor_factory_node_get_component_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddComponentUid"),
-            &raw mut __FUNCTION_PTRS.u_interchange_actor_factory_node_add_component_uid,
-        );
+        if let Some(class_ptr) = UInterchangeActorFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMobility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_set_custom_mobility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLocalTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_set_custom_local_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGlobalTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_set_custom_global_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomComponentVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_set_custom_component_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomActorVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_set_custom_actor_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomActorClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_set_custom_actor_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMobility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_custom_mobility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLocalTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_custom_local_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGlobalTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_custom_global_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomComponentVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_custom_component_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomActorVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_custom_actor_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomActorClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_custom_actor_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetComponentUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_get_component_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddComponentUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_actor_factory_node_add_component_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangePhysicalCameraFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSensorWidth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_set_custom_sensor_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSensorHeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_set_custom_sensor_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFocusMethod"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_set_custom_focus_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFocalLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_set_custom_focal_length,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSensorWidth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_get_custom_sensor_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSensorHeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_get_custom_sensor_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFocusMethod"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_get_custom_focus_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFocalLength"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physical_camera_factory_node_get_custom_focal_length,
-        );
+        if let Some(class_ptr) = UInterchangePhysicalCameraFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSensorWidth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_set_custom_sensor_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSensorHeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_set_custom_sensor_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFocusMethod"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_set_custom_focus_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFocalLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_set_custom_focal_length,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSensorWidth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_get_custom_sensor_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSensorHeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_get_custom_sensor_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFocusMethod"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_get_custom_focus_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFocalLength"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physical_camera_factory_node_get_custom_focal_length,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeStandardCameraFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomWidth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_set_custom_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomProjectionMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_set_custom_projection_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomNearClipPlane"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_set_custom_near_clip_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFieldOfView"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_set_custom_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFarClipPlane"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_set_custom_far_clip_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAspectRatio"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_set_custom_aspect_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomWidth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_get_custom_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomProjectionMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_get_custom_projection_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomNearClipPlane"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_get_custom_near_clip_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFieldOfView"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_get_custom_field_of_view,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFarClipPlane"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_get_custom_far_clip_plane,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAspectRatio"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_standard_camera_factory_node_get_custom_aspect_ratio,
-        );
+        if let Some(class_ptr) = UInterchangeStandardCameraFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomWidth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_set_custom_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomProjectionMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_set_custom_projection_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomNearClipPlane"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_set_custom_near_clip_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_set_custom_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFarClipPlane"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_set_custom_far_clip_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAspectRatio"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_set_custom_aspect_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomWidth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_get_custom_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomProjectionMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_get_custom_projection_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomNearClipPlane"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_get_custom_near_clip_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFieldOfView"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_get_custom_field_of_view,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFarClipPlane"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_get_custom_far_clip_plane,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAspectRatio"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_standard_camera_factory_node_get_custom_aspect_ratio,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangePhysicsAssetFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSkeletalMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physics_asset_factory_node_set_custom_skeletal_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializePhysicsAssetNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physics_asset_factory_node_initialize_physics_asset_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSkeletalMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_physics_asset_factory_node_get_custom_skeletal_mesh_uid,
-        );
+        if let Some(class_ptr) = UInterchangePhysicsAssetFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSkeletalMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physics_asset_factory_node_set_custom_skeletal_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializePhysicsAssetNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physics_asset_factory_node_initialize_physics_asset_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSkeletalMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_physics_asset_factory_node_get_custom_skeletal_mesh_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSkeletonFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseTimeZeroForBindPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_set_custom_use_time_zero_for_bind_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSkeletalMeshFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_set_custom_skeletal_mesh_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRootJointUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_set_custom_root_joint_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeSkeletonNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_initialize_skeleton_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseTimeZeroForBindPose"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_get_custom_use_time_zero_for_bind_pose,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSkeletalMeshFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_get_custom_skeletal_mesh_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRootJointUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeleton_factory_node_get_custom_root_joint_uid,
-        );
+        if let Some(class_ptr) = UInterchangeSkeletonFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseTimeZeroForBindPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_set_custom_use_time_zero_for_bind_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSkeletalMeshFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_set_custom_skeletal_mesh_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRootJointUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_set_custom_root_joint_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeSkeletonNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_initialize_skeleton_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseTimeZeroForBindPose"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_get_custom_use_time_zero_for_bind_pose,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSkeletalMeshFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_get_custom_skeletal_mesh_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRootJointUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeleton_factory_node_get_custom_root_joint_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeTextureFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomVirtualTextureStreaming"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_virtual_texture_streaming,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTranslatedTextureNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_translated_texture_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSRGB"),
-            &raw mut __FUNCTION_PTRS.u_interchange_texture_factory_node_set_custom_srgb,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomPreferCompressedSourceData"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_prefer_compressed_source_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomPowerOfTwoMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_power_of_two_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomPaddingColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_padding_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMipLoadOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_mip_load_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMipGenSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_mip_gen_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMaxTextureSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_max_texture_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLossyCompressionAmount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_lossy_compression_amount,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLODGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_lod_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLODBias"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_lod_bias,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFilter"),
-            &raw mut __FUNCTION_PTRS.u_interchange_texture_factory_node_set_custom_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDownscaleOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_downscale_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDownscale"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_downscale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDeferCompression"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_defer_compression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCompressionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_compression_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCompressionQuality"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_compression_quality,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCompressionNoAlpha"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_compression_no_alpha,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCompositeTextureMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_composite_texture_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCompositePower"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_composite_power,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomColorSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_color_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomChromaKeyThreshold"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_chroma_key_threshold,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomChromaKeyColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_chroma_key_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustombUseLegacyGamma"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_customb_use_legacy_gamma,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustombPreserveBorder"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_customb_preserve_border,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustombFlipGreenChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_customb_flip_green_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustombDoScaleMipsForAlphaCoverage"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_customb_do_scale_mips_for_alpha_coverage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustombChromaKeyTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_customb_chroma_key_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAlphaCoverageThresholds"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_alpha_coverage_thresholds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAllowNonPowerOfTwo"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_allow_non_power_of_two,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustVibrance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_vibrance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustSaturation"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_saturation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustRGBCurve"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_rgb_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustMinAlpha"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_min_alpha,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustMaxAlpha"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_max_alpha,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustHue"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_hue,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustBrightnessCurve"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_brightness_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAdjustBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_set_custom_adjust_brightness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeTextureNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_initialize_texture_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVirtualTextureStreaming"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_virtual_texture_streaming,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTranslatedTextureNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_translated_texture_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSRGB"),
-            &raw mut __FUNCTION_PTRS.u_interchange_texture_factory_node_get_custom_srgb,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomPreferCompressedSourceData"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_prefer_compressed_source_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomPowerOfTwoMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_power_of_two_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomPaddingColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_padding_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMipLoadOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_mip_load_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMipGenSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_mip_gen_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMaxTextureSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_max_texture_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLossyCompressionAmount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_lossy_compression_amount,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLODGroup"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_lod_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLODBias"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_lod_bias,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFilter"),
-            &raw mut __FUNCTION_PTRS.u_interchange_texture_factory_node_get_custom_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDownscaleOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_downscale_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDownscale"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_downscale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDeferCompression"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_defer_compression,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCompressionSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_compression_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCompressionQuality"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_compression_quality,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCompressionNoAlpha"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_compression_no_alpha,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCompositeTextureMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_composite_texture_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCompositePower"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_composite_power,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomColorSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_color_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomChromaKeyThreshold"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_chroma_key_threshold,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomChromaKeyColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_chroma_key_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustombUseLegacyGamma"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_customb_use_legacy_gamma,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustombPreserveBorder"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_customb_preserve_border,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustombFlipGreenChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_customb_flip_green_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustombDoScaleMipsForAlphaCoverage"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_customb_do_scale_mips_for_alpha_coverage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustombChromaKeyTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_customb_chroma_key_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAlphaCoverageThresholds"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_alpha_coverage_thresholds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAllowNonPowerOfTwo"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_allow_non_power_of_two,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustVibrance"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_vibrance,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustSaturation"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_saturation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustRGBCurve"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_rgb_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustMinAlpha"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_min_alpha,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustMaxAlpha"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_max_alpha,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustHue"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_hue,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustBrightnessCurve"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_brightness_curve,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAdjustBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_factory_node_get_custom_adjust_brightness,
-        );
+        if let Some(class_ptr) = UInterchangeTextureFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomVirtualTextureStreaming"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_virtual_texture_streaming,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTranslatedTextureNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_translated_texture_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSRGB"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_srgb,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomPreferCompressedSourceData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_prefer_compressed_source_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomPowerOfTwoMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_power_of_two_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomPaddingColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_padding_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMipLoadOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_mip_load_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMipGenSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_mip_gen_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMaxTextureSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_max_texture_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLossyCompressionAmount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_lossy_compression_amount,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLODGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_lod_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLODBias"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_lod_bias,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFilter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDownscaleOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_downscale_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDownscale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_downscale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDeferCompression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_defer_compression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCompressionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_compression_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCompressionQuality"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_compression_quality,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCompressionNoAlpha"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_compression_no_alpha,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCompositeTextureMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_composite_texture_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCompositePower"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_composite_power,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomColorSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_color_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomChromaKeyThreshold"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_chroma_key_threshold,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomChromaKeyColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_chroma_key_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustombUseLegacyGamma"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_customb_use_legacy_gamma,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustombPreserveBorder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_customb_preserve_border,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustombFlipGreenChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_customb_flip_green_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustombDoScaleMipsForAlphaCoverage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_customb_do_scale_mips_for_alpha_coverage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustombChromaKeyTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_customb_chroma_key_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAlphaCoverageThresholds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_alpha_coverage_thresholds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAllowNonPowerOfTwo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_allow_non_power_of_two,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustVibrance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_vibrance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustSaturation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_saturation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustRGBCurve"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_rgb_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustMinAlpha"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_min_alpha,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustMaxAlpha"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_max_alpha,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustHue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_hue,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustBrightnessCurve"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_brightness_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAdjustBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_set_custom_adjust_brightness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeTextureNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_initialize_texture_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVirtualTextureStreaming"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_virtual_texture_streaming,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTranslatedTextureNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_translated_texture_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSRGB"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_srgb,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomPreferCompressedSourceData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_prefer_compressed_source_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomPowerOfTwoMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_power_of_two_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomPaddingColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_padding_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMipLoadOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_mip_load_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMipGenSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_mip_gen_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMaxTextureSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_max_texture_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLossyCompressionAmount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_lossy_compression_amount,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLODGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_lod_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLODBias"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_lod_bias,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFilter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDownscaleOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_downscale_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDownscale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_downscale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDeferCompression"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_defer_compression,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCompressionSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_compression_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCompressionQuality"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_compression_quality,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCompressionNoAlpha"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_compression_no_alpha,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCompositeTextureMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_composite_texture_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCompositePower"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_composite_power,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomColorSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_color_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomChromaKeyThreshold"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_chroma_key_threshold,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomChromaKeyColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_chroma_key_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustombUseLegacyGamma"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_customb_use_legacy_gamma,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustombPreserveBorder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_customb_preserve_border,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustombFlipGreenChannel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_customb_flip_green_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustombDoScaleMipsForAlphaCoverage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_customb_do_scale_mips_for_alpha_coverage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustombChromaKeyTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_customb_chroma_key_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAlphaCoverageThresholds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_alpha_coverage_thresholds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAllowNonPowerOfTwo"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_allow_non_power_of_two,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustVibrance"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_vibrance,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustSaturation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_saturation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustRGBCurve"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_rgb_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustMinAlpha"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_min_alpha,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustMaxAlpha"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_max_alpha,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustHue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_hue,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustBrightnessCurve"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_brightness_curve,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAdjustBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_factory_node_get_custom_adjust_brightness,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeTexture2DArrayFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAddressZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_array_factory_node_set_custom_address_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddressZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_array_factory_node_get_custom_address_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddressY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_array_factory_node_get_custom_address_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddressX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_array_factory_node_get_custom_address_x,
-        );
+        if let Some(class_ptr) = UInterchangeTexture2DArrayFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAddressZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_array_factory_node_set_custom_address_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddressZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_array_factory_node_get_custom_address_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddressY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_array_factory_node_get_custom_address_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddressX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_array_factory_node_get_custom_address_x,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeTexture2DFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceBlocks"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_set_source_blocks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceBlockByCoordinates"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_set_source_block_by_coordinates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSourceBlock"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_set_source_block,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAddressY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_set_custom_address_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAddressX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_set_custom_address_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceBlocks"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_get_source_blocks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceBlockByCoordinates"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_get_source_block_by_coordinates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSourceBlock"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_get_source_block,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddressY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_get_custom_address_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddressX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture2_d_factory_node_get_custom_address_x,
-        );
+        if let Some(class_ptr) = UInterchangeTexture2DFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceBlocks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_set_source_blocks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceBlockByCoordinates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_set_source_block_by_coordinates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSourceBlock"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_set_source_block,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAddressY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_set_custom_address_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAddressX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_set_custom_address_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceBlocks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_get_source_blocks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceBlockByCoordinates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_get_source_block_by_coordinates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSourceBlock"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_get_source_block,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddressY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_get_custom_address_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddressX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture2_d_factory_node_get_custom_address_x,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeTextureLightProfileFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTextureMultiplier"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_light_profile_factory_node_set_custom_texture_multiplier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_light_profile_factory_node_set_custom_brightness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTextureMultiplier"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_light_profile_factory_node_get_custom_texture_multiplier,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_texture_light_profile_factory_node_get_custom_brightness,
-        );
+        if let Some(class_ptr) = UInterchangeTextureLightProfileFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTextureMultiplier"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_light_profile_factory_node_set_custom_texture_multiplier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_light_profile_factory_node_set_custom_brightness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTextureMultiplier"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_light_profile_factory_node_get_custom_texture_multiplier,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_texture_light_profile_factory_node_get_custom_brightness,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeAnimSequenceFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSkeletonSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_skeleton_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSkeletonFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_skeleton_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRemoveCurveRedundantKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_remove_curve_redundant_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "SetCustomMaterialDriveParameterOnCustomAttribute",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_material_drive_parameter_on_custom_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportBoneTracksSampleRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks_sample_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportBoneTracksRangeStop"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks_range_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportBoneTracksRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportBoneTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportAttributeCurves"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_import_attribute_curves,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDoNotImportCurveWithZero"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_do_not_import_curve_with_zero,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDeleteExistingNonCurveCustomAttributes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_delete_existing_non_curve_custom_attributes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDeleteExistingMorphTargetCurves"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_delete_existing_morph_target_curves,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDeleteExistingCustomAttributeCurves"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_delete_existing_custom_attribute_curves,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAddCurveMetadataToSkeleton"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_custom_add_curve_metadata_to_skeleton,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimationPayloadKeysForSceneNodeUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_animation_payload_keys_for_scene_node_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimationPayloadKeysForMorphTargetNodeUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_animation_payload_keys_for_morph_target_node_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimatedMaterialCurveSuffixe"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_animated_material_curve_suffixe,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimatedAttributeStepCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_animated_attribute_step_curve_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimatedAttributeCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_set_animated_attribute_curve_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimatedMaterialCurveSuffixe"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_remove_animated_material_curve_suffixe,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimatedAttributeStepCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_remove_animated_attribute_step_curve_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAnimatedAttributeCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_remove_animated_attribute_curve_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeAnimSequenceNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_initialize_anim_sequence_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSceneNodeAnimationPayloadKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_scene_node_animation_payload_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMorphTargetNodeAnimationPayloadKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_morph_target_node_animation_payload_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSkeletonSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_skeleton_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSkeletonFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_skeleton_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRemoveCurveRedundantKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_remove_curve_redundant_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "GetCustomMaterialDriveParameterOnCustomAttribute",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_material_drive_parameter_on_custom_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportBoneTracksSampleRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks_sample_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportBoneTracksRangeStop"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks_range_stop,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportBoneTracksRangeStart"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks_range_start,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportBoneTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportAttributeCurves"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_import_attribute_curves,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDoNotImportCurveWithZero"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_do_not_import_curve_with_zero,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDeleteExistingNonCurveCustomAttributes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_delete_existing_non_curve_custom_attributes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDeleteExistingMorphTargetCurves"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_delete_existing_morph_target_curves,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDeleteExistingCustomAttributeCurves"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_delete_existing_custom_attribute_curves,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddCurveMetadataToSkeleton"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_custom_add_curve_metadata_to_skeleton,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedMaterialCurveSuffixesCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_material_curve_suffixes_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedMaterialCurveSuffixes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_material_curve_suffixes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedMaterialCurveSuffixe"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_material_curve_suffixe,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedAttributeStepCurveNamesCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_attribute_step_curve_names_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedAttributeStepCurveNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_attribute_step_curve_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedAttributeStepCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_attribute_step_curve_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedAttributeCurveNamesCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_attribute_curve_names_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedAttributeCurveNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_attribute_curve_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnimatedAttributeCurveName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_anim_sequence_factory_node_get_animated_attribute_curve_name,
-        );
+        if let Some(class_ptr) = UInterchangeAnimSequenceFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSkeletonSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_skeleton_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSkeletonFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_skeleton_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRemoveCurveRedundantKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_remove_curve_redundant_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetCustomMaterialDriveParameterOnCustomAttribute",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_material_drive_parameter_on_custom_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportBoneTracksSampleRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks_sample_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportBoneTracksRangeStop"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks_range_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportBoneTracksRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportBoneTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_import_bone_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportAttributeCurves"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_import_attribute_curves,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDoNotImportCurveWithZero"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_do_not_import_curve_with_zero,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetCustomDeleteExistingNonCurveCustomAttributes",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_delete_existing_non_curve_custom_attributes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDeleteExistingMorphTargetCurves"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_delete_existing_morph_target_curves,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetCustomDeleteExistingCustomAttributeCurves",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_delete_existing_custom_attribute_curves,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAddCurveMetadataToSkeleton"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_custom_add_curve_metadata_to_skeleton,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimationPayloadKeysForSceneNodeUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_animation_payload_keys_for_scene_node_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetAnimationPayloadKeysForMorphTargetNodeUids",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_animation_payload_keys_for_morph_target_node_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimatedMaterialCurveSuffixe"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_animated_material_curve_suffixe,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimatedAttributeStepCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_animated_attribute_step_curve_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimatedAttributeCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_set_animated_attribute_curve_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimatedMaterialCurveSuffixe"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_remove_animated_material_curve_suffixe,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimatedAttributeStepCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_remove_animated_attribute_step_curve_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAnimatedAttributeCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_remove_animated_attribute_curve_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeAnimSequenceNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_initialize_anim_sequence_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSceneNodeAnimationPayloadKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_scene_node_animation_payload_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMorphTargetNodeAnimationPayloadKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_morph_target_node_animation_payload_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSkeletonSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_skeleton_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSkeletonFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_skeleton_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRemoveCurveRedundantKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_remove_curve_redundant_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetCustomMaterialDriveParameterOnCustomAttribute",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_material_drive_parameter_on_custom_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportBoneTracksSampleRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks_sample_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportBoneTracksRangeStop"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks_range_stop,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportBoneTracksRangeStart"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks_range_start,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportBoneTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_import_bone_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportAttributeCurves"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_import_attribute_curves,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDoNotImportCurveWithZero"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_do_not_import_curve_with_zero,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetCustomDeleteExistingNonCurveCustomAttributes",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_delete_existing_non_curve_custom_attributes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDeleteExistingMorphTargetCurves"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_delete_existing_morph_target_curves,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetCustomDeleteExistingCustomAttributeCurves",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_delete_existing_custom_attribute_curves,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddCurveMetadataToSkeleton"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_custom_add_curve_metadata_to_skeleton,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedMaterialCurveSuffixesCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_material_curve_suffixes_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedMaterialCurveSuffixes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_material_curve_suffixes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedMaterialCurveSuffixe"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_material_curve_suffixe,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedAttributeStepCurveNamesCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_attribute_step_curve_names_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedAttributeStepCurveNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_attribute_step_curve_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedAttributeStepCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_attribute_step_curve_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedAttributeCurveNamesCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_attribute_curve_names_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedAttributeCurveNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_attribute_curve_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnimatedAttributeCurveName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_anim_sequence_factory_node_get_animated_attribute_curve_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeCommonPipelineDataFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGlobalOffsetTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_common_pipeline_data_factory_node_set_custom_global_offset_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBakePivotMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_common_pipeline_data_factory_node_set_bake_pivot_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBakeMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_common_pipeline_data_factory_node_set_bake_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGlobalOffsetTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_common_pipeline_data_factory_node_get_custom_global_offset_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBakePivotMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_common_pipeline_data_factory_node_get_bake_pivot_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBakeMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_common_pipeline_data_factory_node_get_bake_meshes,
-        );
+        if let Some(class_ptr) = UInterchangeCommonPipelineDataFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGlobalOffsetTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_common_pipeline_data_factory_node_set_custom_global_offset_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBakePivotMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_common_pipeline_data_factory_node_set_bake_pivot_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBakeMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_common_pipeline_data_factory_node_set_bake_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGlobalOffsetTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_common_pipeline_data_factory_node_get_custom_global_offset_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBakePivotMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_common_pipeline_data_factory_node_get_bake_pivot_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBakeMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_common_pipeline_data_factory_node_get_bake_meshes,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeDecalActorFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSortOrder"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_actor_factory_node_set_custom_sort_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDecalSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_actor_factory_node_set_custom_decal_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDecalMaterialPathName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_actor_factory_node_set_custom_decal_material_path_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSortOrder"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_actor_factory_node_get_custom_sort_order,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDecalSize"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_actor_factory_node_get_custom_decal_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDecalMaterialPathName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_actor_factory_node_get_custom_decal_material_path_name,
-        );
+        if let Some(class_ptr) = UInterchangeDecalActorFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSortOrder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_actor_factory_node_set_custom_sort_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDecalSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_actor_factory_node_set_custom_decal_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDecalMaterialPathName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_actor_factory_node_set_custom_decal_material_path_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSortOrder"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_actor_factory_node_get_custom_sort_order,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDecalSize"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_actor_factory_node_get_custom_decal_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDecalMaterialPathName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_actor_factory_node_get_custom_decal_material_path_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeBaseMaterialFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomIsMaterialImportEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_material_factory_node_set_custom_is_material_import_enabled,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomIsMaterialImportEnabled"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_material_factory_node_get_custom_is_material_import_enabled,
-        );
+        if let Some(class_ptr) = UInterchangeBaseMaterialFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomIsMaterialImportEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_material_factory_node_set_custom_is_material_import_enabled,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomIsMaterialImportEnabled"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_material_factory_node_get_custom_is_material_import_enabled,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeDecalMaterialFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomNormalTexturePath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_material_factory_node_set_custom_normal_texture_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDiffuseTexturePath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_material_factory_node_set_custom_diffuse_texture_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomNormalTexturePath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_material_factory_node_get_custom_normal_texture_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDiffuseTexturePath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_decal_material_factory_node_get_custom_diffuse_texture_path,
-        );
+        if let Some(class_ptr) = UInterchangeDecalMaterialFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomNormalTexturePath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_material_factory_node_set_custom_normal_texture_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDiffuseTexturePath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_material_factory_node_set_custom_diffuse_texture_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomNormalTexturePath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_material_factory_node_get_custom_normal_texture_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDiffuseTexturePath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_decal_material_factory_node_get_custom_diffuse_texture_path,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMeshFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSlotMaterialDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_slot_material_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomVertexColorReplace"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_vertex_color_replace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomVertexColorOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_vertex_color_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomVertexColorIgnore"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_vertex_color_ignore,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseMikkTSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_use_mikk_t_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseHighPrecisionTangentBasis"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_use_high_precision_tangent_basis,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseFullPrecisionUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_use_full_precision_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseBackwardsCompatibleF16TruncUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_use_backwards_compatible_f16_trunc_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRemoveDegenerates"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_remove_degenerates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRecomputeTangents"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_recompute_tangents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRecomputeNormals"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_recompute_normals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLODGroup"),
-            &raw mut __FUNCTION_PTRS.u_interchange_mesh_factory_node_set_custom_lod_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomKeepSectionsSeparate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_keep_sections_separate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportSockets"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_import_sockets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomComputeWeightedNormals"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_custom_compute_weighted_normals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAssemblyPartDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_set_assembly_part_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetSlotMaterialDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_reset_slot_material_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ResetAssemblyDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_reset_assembly_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSlotMaterialDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_remove_slot_material_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLodDataUniqueId"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_remove_lod_data_unique_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAssemblyPartDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_remove_assembly_part_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlotMaterialDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_slot_material_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlotMaterialDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_slot_material_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPayloadKeyStringAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_payload_key_string_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPayloadKeyInt32Attribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_payload_key_int32_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPayloadKeyFloatAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_payload_key_float_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPayloadKeyDoubleAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_payload_key_double_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPayloadKeyBooleanAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_payload_key_boolean_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodDataUniqueIds"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_lod_data_unique_ids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodDataCount"),
-            &raw mut __FUNCTION_PTRS.u_interchange_mesh_factory_node_get_lod_data_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVertexColorReplace"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_vertex_color_replace,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVertexColorOverride"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_vertex_color_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVertexColorIgnore"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_vertex_color_ignore,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseMikkTSpace"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_use_mikk_t_space,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseHighPrecisionTangentBasis"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_use_high_precision_tangent_basis,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseFullPrecisionUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_use_full_precision_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseBackwardsCompatibleF16TruncUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_use_backwards_compatible_f16_trunc_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRemoveDegenerates"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_remove_degenerates,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRecomputeTangents"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_recompute_tangents,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRecomputeNormals"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_recompute_normals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLODGroup"),
-            &raw mut __FUNCTION_PTRS.u_interchange_mesh_factory_node_get_custom_lod_group,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomKeepSectionsSeparate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_keep_sections_separate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportSockets"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_import_sockets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomComputeWeightedNormals"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_custom_compute_weighted_normals,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssemblyPartDependenciesCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_assembly_part_dependencies_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssemblyPartDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_get_assembly_part_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPayloadKeyStringAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_add_payload_key_string_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPayloadKeyInt32Attribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_add_payload_key_int32_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPayloadKeyFloatAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_add_payload_key_float_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPayloadKeyDoubleAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_add_payload_key_double_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddPayloadKeyBooleanAttribute"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_add_payload_key_boolean_attribute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddLodDataUniqueId"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_factory_node_add_lod_data_unique_id,
-        );
+        if let Some(class_ptr) = UInterchangeMeshFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSlotMaterialDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_slot_material_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomVertexColorReplace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_vertex_color_replace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomVertexColorOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_vertex_color_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomVertexColorIgnore"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_vertex_color_ignore,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseMikkTSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_use_mikk_t_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseHighPrecisionTangentBasis"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_use_high_precision_tangent_basis,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseFullPrecisionUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_use_full_precision_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseBackwardsCompatibleF16TruncUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_use_backwards_compatible_f16_trunc_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRemoveDegenerates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_remove_degenerates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRecomputeTangents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_recompute_tangents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRecomputeNormals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_recompute_normals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLODGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_lod_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomKeepSectionsSeparate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_keep_sections_separate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportSockets"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_import_sockets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomComputeWeightedNormals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_custom_compute_weighted_normals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAssemblyPartDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_set_assembly_part_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetSlotMaterialDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_reset_slot_material_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ResetAssemblyDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_reset_assembly_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSlotMaterialDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_remove_slot_material_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLodDataUniqueId"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_remove_lod_data_unique_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAssemblyPartDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_remove_assembly_part_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlotMaterialDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_slot_material_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlotMaterialDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_slot_material_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPayloadKeyStringAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_payload_key_string_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPayloadKeyInt32Attribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_payload_key_int32_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPayloadKeyFloatAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_payload_key_float_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPayloadKeyDoubleAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_payload_key_double_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPayloadKeyBooleanAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_payload_key_boolean_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodDataUniqueIds"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_lod_data_unique_ids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodDataCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_lod_data_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVertexColorReplace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_vertex_color_replace,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVertexColorOverride"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_vertex_color_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVertexColorIgnore"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_vertex_color_ignore,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseMikkTSpace"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_use_mikk_t_space,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseHighPrecisionTangentBasis"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_use_high_precision_tangent_basis,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseFullPrecisionUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_use_full_precision_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseBackwardsCompatibleF16TruncUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_use_backwards_compatible_f16_trunc_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRemoveDegenerates"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_remove_degenerates,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRecomputeTangents"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_recompute_tangents,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRecomputeNormals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_recompute_normals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLODGroup"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_lod_group,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomKeepSectionsSeparate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_keep_sections_separate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportSockets"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_import_sockets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomComputeWeightedNormals"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_custom_compute_weighted_normals,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssemblyPartDependenciesCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_assembly_part_dependencies_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssemblyPartDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_get_assembly_part_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPayloadKeyStringAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_add_payload_key_string_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPayloadKeyInt32Attribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_add_payload_key_int32_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPayloadKeyFloatAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_add_payload_key_float_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPayloadKeyDoubleAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_add_payload_key_double_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddPayloadKeyBooleanAttribute"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_add_payload_key_boolean_attribute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddLodDataUniqueId"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_factory_node_add_lod_data_unique_id,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeGeometryCacheFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomStoreImportedVertexNumbers"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_store_imported_vertex_numbers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomPositionPrecision"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_position_precision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomOptimizeIndexBuffers"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_optimize_index_buffers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomNumBitsForUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_num_bits_for_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMotionVectorsImport"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_motion_vectors_import,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFlattenTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_flatten_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomEndFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomApplyConstantTopologyOptimization"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_custom_apply_constant_topology_optimization,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetAnimationPayloadKeyForSceneNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_set_animation_payload_key_for_scene_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeGeometryCacheNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_initialize_geometry_cache_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSceneNodeAnimationPayloadKeys"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_scene_node_animation_payload_keys,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomStoreImportedVertexNumbers"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_store_imported_vertex_numbers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomPositionPrecision"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_position_precision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomOptimizeIndexBuffers"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_optimize_index_buffers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomNumBitsForUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_num_bits_for_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMotionVectorsImport"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_motion_vectors_import,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFlattenTracks"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_flatten_tracks,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomEndFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomApplyConstantTopologyOptimization"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_geometry_cache_factory_node_get_custom_apply_constant_topology_optimization,
-        );
+        if let Some(class_ptr) = UInterchangeGeometryCacheFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomStoreImportedVertexNumbers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_store_imported_vertex_numbers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomPositionPrecision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_position_precision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomOptimizeIndexBuffers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_optimize_index_buffers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomNumBitsForUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_num_bits_for_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMotionVectorsImport"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_motion_vectors_import,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFlattenTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_flatten_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomApplyConstantTopologyOptimization"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_custom_apply_constant_topology_optimization,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetAnimationPayloadKeyForSceneNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_set_animation_payload_key_for_scene_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeGeometryCacheNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_initialize_geometry_cache_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSceneNodeAnimationPayloadKeys"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_scene_node_animation_payload_keys,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomStoreImportedVertexNumbers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_store_imported_vertex_numbers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomPositionPrecision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_position_precision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomOptimizeIndexBuffers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_optimize_index_buffers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomNumBitsForUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_num_bits_for_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMotionVectorsImport"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_motion_vectors_import,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFlattenTracks"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_flatten_tracks,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomApplyConstantTopologyOptimization"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_geometry_cache_factory_node_get_custom_apply_constant_topology_optimization,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeGroomCacheFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomNumFrames"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_num_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGroomCacheImportType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_groom_cache_import_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGroomCacheAttributes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_groom_cache_attributes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGroomAssetPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_groom_asset_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomEndFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_set_custom_end_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_start_frame,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomNumFrames"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_num_frames,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGroomCacheImportType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_groom_cache_import_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGroomCacheAttributes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_groom_cache_attributes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGroomAssetPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_groom_asset_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomEndFrame"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_cache_factory_node_get_custom_end_frame,
-        );
+        if let Some(class_ptr) = UInterchangeGroomCacheFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomNumFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_num_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGroomCacheImportType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_groom_cache_import_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGroomCacheAttributes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_groom_cache_attributes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGroomAssetPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_groom_asset_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_set_custom_end_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_start_frame,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomNumFrames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_num_frames,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGroomCacheImportType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_groom_cache_import_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGroomCacheAttributes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_groom_cache_attributes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGroomAssetPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_groom_asset_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomEndFrame"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_cache_factory_node_get_custom_end_frame,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeGroomFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGroupInterpolationSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_factory_node_set_custom_group_interpolation_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGroupInterpolationSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_groom_factory_node_get_custom_group_interpolation_settings,
-        );
+        if let Some(class_ptr) = UInterchangeGroomFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGroupInterpolationSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_factory_node_set_custom_group_interpolation_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGroupInterpolationSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_groom_factory_node_get_custom_group_interpolation_settings,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeHeterogeneousVolumeActorFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomVolumetricMaterialUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_heterogeneous_volume_actor_factory_node_set_custom_volumetric_material_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVolumetricMaterialUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_heterogeneous_volume_actor_factory_node_get_custom_volumetric_material_uid,
-        );
+        if let Some(class_ptr) = UInterchangeHeterogeneousVolumeActorFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomVolumetricMaterialUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_heterogeneous_volume_actor_factory_node_set_custom_volumetric_material_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVolumetricMaterialUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_heterogeneous_volume_actor_factory_node_get_custom_volumetric_material_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeLevelFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomShouldCreateLevel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_set_custom_should_create_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSceneImportAssetFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_set_custom_scene_import_asset_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCreateWorldPartitionLevel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_set_custom_create_world_partition_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCustomActorFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_remove_custom_actor_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomShouldCreateLevel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_get_custom_should_create_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSceneImportAssetFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_get_custom_scene_import_asset_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCreateWorldPartitionLevel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_get_custom_create_world_partition_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomActorFactoryNodeUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_get_custom_actor_factory_node_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomActorFactoryNodeUidCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_get_custom_actor_factory_node_uid_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomActorFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_get_custom_actor_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCustomActorFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_factory_node_add_custom_actor_factory_node_uid,
-        );
+        if let Some(class_ptr) = UInterchangeLevelFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomShouldCreateLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_set_custom_should_create_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSceneImportAssetFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_set_custom_scene_import_asset_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCreateWorldPartitionLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_set_custom_create_world_partition_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCustomActorFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_remove_custom_actor_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomShouldCreateLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_get_custom_should_create_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSceneImportAssetFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_get_custom_scene_import_asset_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCreateWorldPartitionLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_get_custom_create_world_partition_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomActorFactoryNodeUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_get_custom_actor_factory_node_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomActorFactoryNodeUidCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_get_custom_actor_factory_node_uid_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomActorFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_get_custom_actor_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCustomActorFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_factory_node_add_custom_actor_factory_node_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeLevelInstanceActorFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLevelReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_instance_actor_factory_node_set_custom_level_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLevelReference"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_instance_actor_factory_node_get_custom_level_reference,
-        );
+        if let Some(class_ptr) = UInterchangeLevelInstanceActorFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLevelReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_instance_actor_factory_node_set_custom_level_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLevelReference"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_instance_actor_factory_node_get_custom_level_reference,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeLevelSequenceFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_set_custom_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCustomAnimationTrackUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_remove_custom_animation_track_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_get_custom_frame_rate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_get_custom_animation_track_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUidCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_get_custom_animation_track_uid_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_get_custom_animation_track_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCustomAnimationTrackUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_level_sequence_factory_node_add_custom_animation_track_uid,
-        );
+        if let Some(class_ptr) = UInterchangeLevelSequenceFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_set_custom_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCustomAnimationTrackUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_remove_custom_animation_track_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_get_custom_frame_rate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_get_custom_animation_track_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUidCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_get_custom_animation_track_uid_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_get_custom_animation_track_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCustomAnimationTrackUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_level_sequence_factory_node_add_custom_animation_track_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeBaseLightFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseTemperature"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_set_custom_use_temperature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTemperature"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_set_custom_temperature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLightColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_set_custom_light_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomIntensity"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_set_custom_intensity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseTemperature"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_get_custom_use_temperature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTemperature"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_get_custom_temperature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLightColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_get_custom_light_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomIntensity"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_base_light_factory_node_get_custom_intensity,
-        );
+        if let Some(class_ptr) = UInterchangeBaseLightFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseTemperature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_set_custom_use_temperature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTemperature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_set_custom_temperature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLightColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_set_custom_light_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomIntensity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_set_custom_intensity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseTemperature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_get_custom_use_temperature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTemperature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_get_custom_temperature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLightColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_get_custom_light_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomIntensity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_base_light_factory_node_get_custom_intensity,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeLightFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseIESBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_set_custom_use_ies_brightness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRotation"),
-            &raw mut __FUNCTION_PTRS.u_interchange_light_factory_node_set_custom_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomIntensityUnits"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_set_custom_intensity_units,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomIESTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_set_custom_ies_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomIESBrightnessScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_set_custom_ies_brightness_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttenuationRadius"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_set_custom_attenuation_radius,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseIESBrightness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_get_custom_use_ies_brightness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRotation"),
-            &raw mut __FUNCTION_PTRS.u_interchange_light_factory_node_get_custom_rotation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomIntensityUnits"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_get_custom_intensity_units,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomIESTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_get_custom_ies_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomIESBrightnessScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_get_custom_ies_brightness_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttenuationRadius"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_light_factory_node_get_custom_attenuation_radius,
-        );
+        if let Some(class_ptr) = UInterchangeLightFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseIESBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_set_custom_use_ies_brightness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_set_custom_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomIntensityUnits"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_set_custom_intensity_units,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomIESTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_set_custom_ies_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomIESBrightnessScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_set_custom_ies_brightness_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttenuationRadius"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_set_custom_attenuation_radius,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseIESBrightness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_get_custom_use_ies_brightness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRotation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_get_custom_rotation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomIntensityUnits"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_get_custom_intensity_units,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomIESTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_get_custom_ies_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomIESBrightnessScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_get_custom_ies_brightness_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttenuationRadius"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_light_factory_node_get_custom_attenuation_radius,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeRectLightFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSourceWidth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_rect_light_factory_node_set_custom_source_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSourceHeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_rect_light_factory_node_set_custom_source_height,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSourceWidth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_rect_light_factory_node_get_custom_source_width,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSourceHeight"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_rect_light_factory_node_get_custom_source_height,
-        );
+        if let Some(class_ptr) = UInterchangeRectLightFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSourceWidth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_rect_light_factory_node_set_custom_source_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSourceHeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_rect_light_factory_node_set_custom_source_height,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSourceWidth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_rect_light_factory_node_get_custom_source_width,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSourceHeight"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_rect_light_factory_node_get_custom_source_height,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangePointLightFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseInverseSquaredFalloff"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_point_light_factory_node_set_custom_use_inverse_squared_falloff,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLightFalloffExponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_point_light_factory_node_set_custom_light_falloff_exponent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseInverseSquaredFalloff"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_point_light_factory_node_get_custom_use_inverse_squared_falloff,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLightFalloffExponent"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_point_light_factory_node_get_custom_light_falloff_exponent,
-        );
+        if let Some(class_ptr) = UInterchangePointLightFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseInverseSquaredFalloff"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_point_light_factory_node_set_custom_use_inverse_squared_falloff,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLightFalloffExponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_point_light_factory_node_set_custom_light_falloff_exponent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseInverseSquaredFalloff"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_point_light_factory_node_get_custom_use_inverse_squared_falloff,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLightFalloffExponent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_point_light_factory_node_get_custom_light_falloff_exponent,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSpotLightFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomOuterConeAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_spot_light_factory_node_set_custom_outer_cone_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomInnerConeAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_spot_light_factory_node_set_custom_inner_cone_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomOuterConeAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_spot_light_factory_node_get_custom_outer_cone_angle,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomInnerConeAngle"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_spot_light_factory_node_get_custom_inner_cone_angle,
-        );
+        if let Some(class_ptr) = UInterchangeSpotLightFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomOuterConeAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_spot_light_factory_node_set_custom_outer_cone_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomInnerConeAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_spot_light_factory_node_set_custom_inner_cone_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomOuterConeAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_spot_light_factory_node_get_custom_outer_cone_angle,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomInnerConeAngle"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_spot_light_factory_node_get_custom_inner_cone_angle,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSkyLightFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSourceType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sky_light_factory_node_set_custom_source_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCubemapDependency"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sky_light_factory_node_set_custom_cubemap_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSourceType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sky_light_factory_node_get_custom_source_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCubemapDependency"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sky_light_factory_node_get_custom_cubemap_dependency,
-        );
+        if let Some(class_ptr) = UInterchangeSkyLightFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSourceType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sky_light_factory_node_set_custom_source_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCubemapDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sky_light_factory_node_set_custom_cubemap_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSourceType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sky_light_factory_node_get_custom_source_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCubemapDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sky_light_factory_node_get_custom_cubemap_dependency,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMaterialFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTwoSided"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTranslucencyLightingMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_translucency_lighting_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomShadingModel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_shading_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomScreenSpaceReflections"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_screen_space_reflections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomRefractionMethod"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_refraction_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomOpacityMaskClipValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_opacity_mask_clip_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDisplacementCenter"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_displacement_center,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBlendMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_set_custom_blend_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTransmissionColorConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_transmission_color_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTangentConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_tangent_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSurfaceCoverageConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_surface_coverage_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSubsurfaceConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_subsurface_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSpecularConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_specular_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRoughnessConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_roughness_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRefractionConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_refraction_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOpacityConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_opacity_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOcclusionConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_occlusion_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_normal_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMetallicConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_metallic_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFuzzColorConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_fuzz_color_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEmissiveColorConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_emissive_color_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisplacementConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_displacement_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTwoSided"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTranslucencyLightingMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_translucency_lighting_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomShadingModel"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_shading_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomScreenSpaceReflections"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_screen_space_reflections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomRefractionMethod"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_refraction_method,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomOpacityMaskClipValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_opacity_mask_clip_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDisplacementCenter"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_displacement_center,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBlendMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_custom_blend_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClothConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_cloth_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClearCoatRoughnessConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_clear_coat_roughness_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClearCoatNormalConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_clear_coat_normal_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClearCoatConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_clear_coat_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBaseColorConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_base_color_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAnisotropyConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_get_anisotropy_connection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToTransmissionColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_transmission_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToSurfaceCoverage"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_surface_coverage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToSubsurface"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_subsurface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToSpecular"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_specular,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToRoughness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_roughness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToRefraction"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_refraction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToOpacity"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToOcclusion"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_occlusion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToMetallic"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_metallic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToFuzzColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_fuzz_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToEmissiveColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_emissive_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToDisplacement"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_displacement,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToCloth"),
-            &raw mut __FUNCTION_PTRS.u_interchange_material_factory_node_connect_to_cloth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToClearCoatRoughness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_clear_coat_roughness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToClearCoatNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_clear_coat_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToClearCoat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_clear_coat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToBaseColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_base_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectToAnisotropy"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_to_anisotropy,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToTransmissionColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_transmission_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToSurfaceCoverage"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_surface_coverage,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToSubsurface"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_subsurface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToSpecular"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_specular,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToRoughness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_roughness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToRefraction"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_refraction,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToOpacity"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_opacity,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToOcclusion"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_occlusion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToMetallic"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_metallic,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToFuzzColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_fuzz_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToEmissiveColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_emissive_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToDisplacement"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_displacement,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToCloth"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_cloth,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToClearCoatRoughness"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_clear_coat_roughness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToClearCoatNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_clear_coat_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToClearCoat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_clear_coat,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToBaseColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_base_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConnectOutputToAnisotropy"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_factory_node_connect_output_to_anisotropy,
-        );
+        if let Some(class_ptr) = UInterchangeMaterialFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTwoSided"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTranslucencyLightingMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_translucency_lighting_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomShadingModel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_shading_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomScreenSpaceReflections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_screen_space_reflections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomRefractionMethod"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_refraction_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomOpacityMaskClipValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_opacity_mask_clip_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDisplacementCenter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_displacement_center,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBlendMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_set_custom_blend_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTransmissionColorConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_transmission_color_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTangentConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_tangent_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSurfaceCoverageConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_surface_coverage_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSubsurfaceConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_subsurface_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSpecularConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_specular_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRoughnessConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_roughness_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRefractionConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_refraction_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOpacityConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_opacity_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOcclusionConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_occlusion_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_normal_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMetallicConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_metallic_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFuzzColorConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_fuzz_color_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEmissiveColorConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_emissive_color_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisplacementConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_displacement_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTwoSided"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTranslucencyLightingMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_translucency_lighting_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomShadingModel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_shading_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomScreenSpaceReflections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_screen_space_reflections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomRefractionMethod"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_refraction_method,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomOpacityMaskClipValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_opacity_mask_clip_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDisplacementCenter"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_displacement_center,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBlendMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_custom_blend_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClothConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_cloth_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClearCoatRoughnessConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_clear_coat_roughness_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClearCoatNormalConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_clear_coat_normal_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClearCoatConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_clear_coat_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBaseColorConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_base_color_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAnisotropyConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_get_anisotropy_connection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToTransmissionColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_transmission_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToSurfaceCoverage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_surface_coverage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToSubsurface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_subsurface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToSpecular"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_specular,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToRoughness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_roughness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToRefraction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_refraction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToOpacity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToOcclusion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_occlusion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToMetallic"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_metallic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToFuzzColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_fuzz_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToEmissiveColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_emissive_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToDisplacement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_displacement,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToCloth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_cloth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToClearCoatRoughness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_clear_coat_roughness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToClearCoatNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_clear_coat_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToClearCoat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_clear_coat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToBaseColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_base_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectToAnisotropy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_to_anisotropy,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToTransmissionColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_transmission_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToSurfaceCoverage"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_surface_coverage,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToSubsurface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_subsurface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToSpecular"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_specular,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToRoughness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_roughness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToRefraction"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_refraction,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToOpacity"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_opacity,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToOcclusion"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_occlusion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToMetallic"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_metallic,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToFuzzColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_fuzz_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToEmissiveColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_emissive_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToDisplacement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_displacement,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToCloth"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_cloth,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToClearCoatRoughness"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_clear_coat_roughness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToClearCoatNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_clear_coat_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToClearCoat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_clear_coat,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToBaseColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_base_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConnectOutputToAnisotropy"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_factory_node_connect_output_to_anisotropy,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMaterialExpressionFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomExpressionClassName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_expression_factory_node_set_custom_expression_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomExpressionClassName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_expression_factory_node_get_custom_expression_class_name,
-        );
+        if let Some(class_ptr) = UInterchangeMaterialExpressionFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomExpressionClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_expression_factory_node_set_custom_expression_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomExpressionClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_expression_factory_node_get_custom_expression_class_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMaterialInstanceFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomParent"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_instance_factory_node_set_custom_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomInstanceClassName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_instance_factory_node_set_custom_instance_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBlendMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_instance_factory_node_set_custom_blend_mode,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomParent"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_instance_factory_node_get_custom_parent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomInstanceClassName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_instance_factory_node_get_custom_instance_class_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBlendMode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_instance_factory_node_get_custom_blend_mode,
-        );
+        if let Some(class_ptr) = UInterchangeMaterialInstanceFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomParent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_instance_factory_node_set_custom_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomInstanceClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_instance_factory_node_set_custom_instance_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBlendMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_instance_factory_node_set_custom_blend_mode,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomParent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_instance_factory_node_get_custom_parent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomInstanceClassName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_instance_factory_node_get_custom_instance_class_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBlendMode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_instance_factory_node_get_custom_blend_mode,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMaterialFunctionCallExpressionFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMaterialFunctionDependency"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_function_call_expression_factory_node_set_custom_material_function_dependency,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMaterialFunctionDependency"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_function_call_expression_factory_node_get_custom_material_function_dependency,
-        );
+        if let Some(class_ptr) = UInterchangeMaterialFunctionCallExpressionFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMaterialFunctionDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_function_call_expression_factory_node_set_custom_material_function_dependency,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMaterialFunctionDependency"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_function_call_expression_factory_node_get_custom_material_function_dependency,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMaterialFunctionFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputConnection"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_material_function_factory_node_get_input_connection,
-        );
+        if let Some(class_ptr) = UInterchangeMaterialFunctionFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputConnection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_material_function_factory_node_get_input_connection,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeMeshActorFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSlotMaterialDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_set_slot_material_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomInstancedAssetFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_set_custom_instanced_asset_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGeometricTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_set_custom_geometric_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAnimationAssetUidToPlay"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_set_custom_animation_asset_uid_to_play,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSlotMaterialDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_remove_slot_material_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlotMaterialDependencyUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_get_slot_material_dependency_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSlotMaterialDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_get_slot_material_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomInstancedAssetFactoryNodeUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_get_custom_instanced_asset_factory_node_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGeometricTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_get_custom_geometric_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAnimationAssetUidToPlay"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_mesh_actor_factory_node_get_custom_animation_asset_uid_to_play,
-        );
+        if let Some(class_ptr) = UInterchangeMeshActorFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSlotMaterialDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_set_slot_material_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomInstancedAssetFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_set_custom_instanced_asset_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGeometricTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_set_custom_geometric_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAnimationAssetUidToPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_set_custom_animation_asset_uid_to_play,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSlotMaterialDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_remove_slot_material_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlotMaterialDependencyUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_get_slot_material_dependency_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSlotMaterialDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_get_slot_material_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomInstancedAssetFactoryNodeUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_get_custom_instanced_asset_factory_node_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGeometricTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_get_custom_geometric_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAnimationAssetUidToPlay"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_mesh_actor_factory_node_get_custom_animation_asset_uid_to_play,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSceneComponentFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomLocalTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_component_factory_node_set_custom_local_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomComponentVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_component_factory_node_set_custom_component_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomLocalTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_component_factory_node_get_custom_local_transform,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomComponentVisibility"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_component_factory_node_get_custom_component_visibility,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetComponentUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_component_factory_node_get_component_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddComponentUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_component_factory_node_add_component_uid,
-        );
+        if let Some(class_ptr) = UInterchangeSceneComponentFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomLocalTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_component_factory_node_set_custom_local_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomComponentVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_component_factory_node_set_custom_component_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomLocalTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_component_factory_node_get_custom_local_transform,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomComponentVisibility"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_component_factory_node_get_custom_component_visibility,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetComponentUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_component_factory_node_get_component_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddComponentUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_component_factory_node_add_component_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeInstancedStaticMeshComponentFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomInstancedAssetUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_set_custom_instanced_asset_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomHierarchicalISM"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_set_custom_hierarchical_ism,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInstanceTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_get_instance_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomInstancedAssetUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_get_custom_instanced_asset_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomHierarchicalISM"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_get_custom_hierarchical_ism,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInstanceTransforms"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_add_instance_transforms,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddInstanceTransform"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_instanced_static_mesh_component_factory_node_add_instance_transform,
-        );
+        if let Some(class_ptr) = UInterchangeInstancedStaticMeshComponentFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomInstancedAssetUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_set_custom_instanced_asset_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomHierarchicalISM"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_set_custom_hierarchical_ism,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInstanceTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_get_instance_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomInstancedAssetUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_get_custom_instanced_asset_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomHierarchicalISM"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_get_custom_hierarchical_ism,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInstanceTransforms"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_add_instance_transforms,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddInstanceTransform"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_factory_node_add_instance_transform,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSceneVariantSetsFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCustomVariantSetUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_variant_sets_factory_node_remove_custom_variant_set_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVariantSetUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_variant_sets_factory_node_get_custom_variant_set_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVariantSetUidCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_variant_sets_factory_node_get_custom_variant_set_uid_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomVariantSetUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_variant_sets_factory_node_get_custom_variant_set_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCustomVariantSetUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_scene_variant_sets_factory_node_add_custom_variant_set_uid,
-        );
+        if let Some(class_ptr) = UInterchangeSceneVariantSetsFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCustomVariantSetUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_factory_node_remove_custom_variant_set_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVariantSetUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_factory_node_get_custom_variant_set_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVariantSetUidCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_factory_node_get_custom_variant_set_uid_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomVariantSetUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_factory_node_get_custom_variant_set_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCustomVariantSetUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_factory_node_add_custom_variant_set_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSkeletalMeshFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomUseHighPrecisionSkinWeights"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_use_high_precision_skin_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomThresholdUV"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_threshold_uv,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomThresholdTangentNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_threshold_tangent_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomThresholdPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_threshold_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSkeletonSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_skeleton_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomPhysicAssetSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_physic_asset_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMorphThresholdPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_morph_threshold_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMergeMorphTargetShapeWithSameName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_merge_morph_target_shape_with_same_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportVertexAttributes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_import_vertex_attributes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportMorphTarget"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_import_morph_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomImportContentType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_import_content_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomCreatePhysicsAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_create_physics_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBoneInfluenceLimit"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_bone_influence_limit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAddCurveMetadataToSkeleton"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_set_custom_add_curve_metadata_to_skeleton,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeSkeletalMeshNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_initialize_skeletal_mesh_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomUseHighPrecisionSkinWeights"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_use_high_precision_skin_weights,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomThresholdUV"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_threshold_uv,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomThresholdTangentNormal"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_threshold_tangent_normal,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomThresholdPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_threshold_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSkeletonSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_skeleton_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomPhysicAssetSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_physic_asset_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMorphThresholdPosition"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_morph_threshold_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMergeMorphTargetShapeWithSameName"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_merge_morph_target_shape_with_same_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportVertexAttributes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_import_vertex_attributes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportMorphTarget"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_import_morph_target,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomImportContentType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_import_content_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomCreatePhysicsAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_create_physics_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBoneInfluenceLimit"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_bone_influence_limit,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAddCurveMetadataToSkeleton"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_factory_node_get_custom_add_curve_metadata_to_skeleton,
-        );
+        if let Some(class_ptr) = UInterchangeSkeletalMeshFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomUseHighPrecisionSkinWeights"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_use_high_precision_skin_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomThresholdUV"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_threshold_uv,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomThresholdTangentNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_threshold_tangent_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomThresholdPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_threshold_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSkeletonSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_skeleton_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomPhysicAssetSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_physic_asset_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMorphThresholdPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_morph_threshold_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMergeMorphTargetShapeWithSameName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_merge_morph_target_shape_with_same_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportVertexAttributes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_import_vertex_attributes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportMorphTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_import_morph_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomImportContentType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_import_content_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomCreatePhysicsAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_create_physics_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBoneInfluenceLimit"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_bone_influence_limit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAddCurveMetadataToSkeleton"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_set_custom_add_curve_metadata_to_skeleton,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeSkeletalMeshNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_initialize_skeletal_mesh_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomUseHighPrecisionSkinWeights"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_use_high_precision_skin_weights,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomThresholdUV"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_threshold_uv,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomThresholdTangentNormal"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_threshold_tangent_normal,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomThresholdPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_threshold_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSkeletonSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_skeleton_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomPhysicAssetSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_physic_asset_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMorphThresholdPosition"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_morph_threshold_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMergeMorphTargetShapeWithSameName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_merge_morph_target_shape_with_same_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportVertexAttributes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_import_vertex_attributes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportMorphTarget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_import_morph_target,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomImportContentType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_import_content_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomCreatePhysicsAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_create_physics_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBoneInfluenceLimit"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_bone_influence_limit,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAddCurveMetadataToSkeleton"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_factory_node_get_custom_add_curve_metadata_to_skeleton,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSkeletalMeshLodDataNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSkeletonUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_set_custom_skeleton_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_remove_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_remove_all_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshUidsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_get_mesh_uids_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_get_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSkeletonUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_get_custom_skeleton_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_skeletal_mesh_lod_data_node_add_mesh_uid,
-        );
+        if let Some(class_ptr) = UInterchangeSkeletalMeshLodDataNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSkeletonUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_set_custom_skeleton_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_remove_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_remove_all_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshUidsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_get_mesh_uids_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_get_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSkeletonUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_get_custom_skeleton_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_skeletal_mesh_lod_data_node_add_mesh_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSparseVolumeTextureFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesBFormat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelW"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_w,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesAFormat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelW"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_w,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAnimationID"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_set_custom_animation_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesBFormat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelW"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_w,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesAFormat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelZ"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_z,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelY"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_y,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_x,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelW"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_w,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAnimationID"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_sparse_volume_texture_factory_node_get_custom_animation_id,
-        );
+        if let Some(class_ptr) = UInterchangeSparseVolumeTextureFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesBFormat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesBChannelW"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_b_channel_w,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesAFormat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAttributesAChannelW"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_attributes_a_channel_w,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAnimationID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_set_custom_animation_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesBFormat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesBChannelW"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_b_channel_w,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesAFormat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelZ"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_z,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelY"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_y,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_x,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAttributesAChannelW"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_attributes_a_channel_w,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAnimationID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_sparse_volume_texture_factory_node_get_custom_animation_id,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeSpecularProfileFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_specular_profile_factory_node_set_custom_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomFormat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_specular_profile_factory_node_set_custom_format,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomTexture"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_specular_profile_factory_node_get_custom_texture,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomFormat"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_specular_profile_factory_node_get_custom_format,
-        );
+        if let Some(class_ptr) = UInterchangeSpecularProfileFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_specular_profile_factory_node_set_custom_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomFormat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_specular_profile_factory_node_set_custom_format,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomTexture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_specular_profile_factory_node_get_custom_texture,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomFormat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_specular_profile_factory_node_get_custom_format,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeStaticMeshFactoryNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLODScreenSizes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSupportFaceRemap"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_support_face_remap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSubstituteUID"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_substitute_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomSrcLightmapIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_src_lightmap_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMinLightmapResolution"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_min_lightmap_resolution,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomMaxLumenMeshCards"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_max_lumen_mesh_cards,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGenerateLightmapUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_generate_lightmap_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomGenerateDistanceFieldAsIfTwoSided"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_generate_distance_field_as_if_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDstLightmapIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_dst_lightmap_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDistanceFieldResolutionScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_distance_field_resolution_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDistanceFieldReplacementMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_distance_field_replacement_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBuildScale3D"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_build_scale3_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBuildReversedIndexBuffer"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_build_reversed_index_buffer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomBuildNanite"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_build_nanite,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomAutoComputeLODScreenSizes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_set_custom_auto_compute_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSocketUd"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_remove_socket_ud,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitializeStaticMeshNode"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_initialize_static_mesh_node,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSocketUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_socket_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSocketUidCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_socket_uid_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODScreenSizes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODScreenSizeCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_lod_screen_size_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSupportFaceRemap"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_support_face_remap,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSubstituteUID"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_substitute_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomSrcLightmapIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_src_lightmap_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMinLightmapResolution"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_min_lightmap_resolution,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomMaxLumenMeshCards"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_max_lumen_mesh_cards,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGenerateLightmapUVs"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_generate_lightmap_u_vs,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomGenerateDistanceFieldAsIfTwoSided"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_generate_distance_field_as_if_two_sided,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDstLightmapIndex"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_dst_lightmap_index,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDistanceFieldResolutionScale"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_distance_field_resolution_scale,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomDistanceFieldReplacementMesh"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_distance_field_replacement_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBuildScale3D"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_build_scale3_d,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBuildReversedIndexBuffer"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_build_reversed_index_buffer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomBuildNanite"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_build_nanite,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCustomAutoComputeLODScreenSizes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_get_custom_auto_compute_lod_screen_sizes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSocketUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_add_socket_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSocketUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_factory_node_add_socket_uid,
-        );
+        if let Some(class_ptr) = UInterchangeStaticMeshFactoryNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLODScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSupportFaceRemap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_support_face_remap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSubstituteUID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_substitute_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomSrcLightmapIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_src_lightmap_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMinLightmapResolution"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_min_lightmap_resolution,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomMaxLumenMeshCards"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_max_lumen_mesh_cards,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGenerateLightmapUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_generate_lightmap_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomGenerateDistanceFieldAsIfTwoSided"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_generate_distance_field_as_if_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDstLightmapIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_dst_lightmap_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDistanceFieldResolutionScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_distance_field_resolution_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDistanceFieldReplacementMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_distance_field_replacement_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBuildScale3D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_build_scale3_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBuildReversedIndexBuffer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_build_reversed_index_buffer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomBuildNanite"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_build_nanite,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomAutoComputeLODScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_set_custom_auto_compute_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSocketUd"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_remove_socket_ud,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitializeStaticMeshNode"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_initialize_static_mesh_node,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSocketUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_socket_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSocketUidCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_socket_uid_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODScreenSizeCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_lod_screen_size_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSupportFaceRemap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_support_face_remap,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSubstituteUID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_substitute_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomSrcLightmapIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_src_lightmap_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMinLightmapResolution"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_min_lightmap_resolution,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomMaxLumenMeshCards"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_max_lumen_mesh_cards,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGenerateLightmapUVs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_generate_lightmap_u_vs,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomGenerateDistanceFieldAsIfTwoSided"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_generate_distance_field_as_if_two_sided,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDstLightmapIndex"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_dst_lightmap_index,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDistanceFieldResolutionScale"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_distance_field_resolution_scale,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomDistanceFieldReplacementMesh"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_distance_field_replacement_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBuildScale3D"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_build_scale3_d,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBuildReversedIndexBuffer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_build_reversed_index_buffer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomBuildNanite"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_build_nanite,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCustomAutoComputeLODScreenSizes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_get_custom_auto_compute_lod_screen_sizes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSocketUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_add_socket_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSocketUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_factory_node_add_socket_uid,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UInterchangeStaticMeshLodDataNode::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOneConvexHullPerUCX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_set_one_convex_hull_per_ucx,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetImportCollisionType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_set_import_collision_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetImportCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_set_import_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetForceCollisionPrimitiveGeneration"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_set_force_collision_primitive_generation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSphereCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_sphere_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveConvexCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_convex_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveCapsuleCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_capsule_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveBoxCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_box_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllSphereCollisionMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_all_sphere_collision_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_all_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllConvexCollisionMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_all_convex_collision_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllCapsuleCollisionMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_all_capsule_collision_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveAllBoxCollisionMeshes"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_remove_all_box_collision_meshes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSphereCollisionMeshUidsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_sphere_collision_mesh_uids_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSphereCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_sphere_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSphereCollisionMeshMap"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_sphere_collision_mesh_map,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSphereColliderRenderMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_sphere_collider_render_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOneConvexHullPerUCX"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_one_convex_hull_per_ucx,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshUidsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_mesh_uids_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetImportCollisionType"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_import_collision_type,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetImportCollision"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_import_collision,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetForceCollisionPrimitiveGeneration"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_force_collision_primitive_generation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConvexCollisionMeshUidsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_convex_collision_mesh_uids_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConvexCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_convex_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConvexCollisionMeshMap"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_convex_collision_mesh_map,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetConvexColliderRenderMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_convex_collider_render_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCapsuleCollisionMeshUidsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_capsule_collision_mesh_uids_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCapsuleCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_capsule_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCapsuleCollisionMeshMap"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_capsule_collision_mesh_map,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCapsuleColliderRenderMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_capsule_collider_render_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoxCollisionMeshUidsCount"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_box_collision_mesh_uids_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoxCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_box_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoxCollisionMeshMap"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_box_collision_mesh_map,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBoxColliderRenderMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_get_box_collider_render_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSphereCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_sphere_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSphereCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_sphere_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMeshUid"),
-            &raw mut __FUNCTION_PTRS.u_interchange_static_mesh_lod_data_node_add_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddConvexCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_convex_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddConvexCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_convex_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCapsuleCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_capsule_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddCapsuleCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_capsule_collision_mesh_uid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBoxCollisionMeshUids"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_box_collision_mesh_uids,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddBoxCollisionMeshUid"),
-            &raw mut __FUNCTION_PTRS
-                .u_interchange_static_mesh_lod_data_node_add_box_collision_mesh_uid,
-        );
+        if let Some(class_ptr) = UInterchangeStaticMeshLodDataNode::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOneConvexHullPerUCX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_set_one_convex_hull_per_ucx,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetImportCollisionType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_set_import_collision_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetImportCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_set_import_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetForceCollisionPrimitiveGeneration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_set_force_collision_primitive_generation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSphereCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_sphere_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveConvexCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_convex_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveCapsuleCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_capsule_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveBoxCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_box_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllSphereCollisionMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_all_sphere_collision_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_all_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllConvexCollisionMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_all_convex_collision_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllCapsuleCollisionMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_all_capsule_collision_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveAllBoxCollisionMeshes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_remove_all_box_collision_meshes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSphereCollisionMeshUidsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_sphere_collision_mesh_uids_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSphereCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_sphere_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSphereCollisionMeshMap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_sphere_collision_mesh_map,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSphereColliderRenderMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_sphere_collider_render_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOneConvexHullPerUCX"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_one_convex_hull_per_ucx,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshUidsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_mesh_uids_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetImportCollisionType"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_import_collision_type,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetImportCollision"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_import_collision,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetForceCollisionPrimitiveGeneration"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_force_collision_primitive_generation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConvexCollisionMeshUidsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_convex_collision_mesh_uids_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConvexCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_convex_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConvexCollisionMeshMap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_convex_collision_mesh_map,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConvexColliderRenderMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_convex_collider_render_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCapsuleCollisionMeshUidsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_capsule_collision_mesh_uids_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCapsuleCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_capsule_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCapsuleCollisionMeshMap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_capsule_collision_mesh_map,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCapsuleColliderRenderMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_capsule_collider_render_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoxCollisionMeshUidsCount"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_box_collision_mesh_uids_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoxCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_box_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoxCollisionMeshMap"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_box_collision_mesh_map,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBoxColliderRenderMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_get_box_collider_render_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSphereCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_sphere_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSphereCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_sphere_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddConvexCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_convex_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddConvexCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_convex_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCapsuleCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_capsule_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddCapsuleCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_capsule_collision_mesh_uid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBoxCollisionMeshUids"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_box_collision_mesh_uids,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddBoxCollisionMeshUid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_interchange_static_mesh_lod_data_node_add_box_collision_mesh_uid,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -6321,6 +6390,13 @@ impl UInterchangeAudioSoundWaveFactoryNode {
             .name_to_ptr
             .get("UInterchangeAudioSoundWaveFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeAudioSoundWaveFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6342,6 +6418,13 @@ impl UInterchangeActorFactoryNode {
             .name_to_ptr
             .get("UInterchangeActorFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeActorFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -6913,6 +6996,13 @@ impl UInterchangePhysicalCameraFactoryNode {
             .get("UInterchangePhysicalCameraFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePhysicalCameraFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7263,6 +7353,13 @@ impl UInterchangeStandardCameraFactoryNode {
             .name_to_ptr
             .get("UInterchangeStandardCameraFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeStandardCameraFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -7771,6 +7868,13 @@ impl UInterchangePhysicsAssetFactoryNode {
             .get("UInterchangePhysicsAssetFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePhysicsAssetFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -7927,6 +8031,13 @@ impl UInterchangeSkeletonFactoryNode {
             .name_to_ptr
             .get("UInterchangeSkeletonFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSkeletonFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -8234,6 +8345,13 @@ impl UInterchangeTextureFactoryNode {
             .name_to_ptr
             .get("UInterchangeTextureFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTextureFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -11452,6 +11570,13 @@ impl UInterchangeTexture2DArrayFactoryNode {
             .get("UInterchangeTexture2DArrayFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTexture2DArrayFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -11624,6 +11749,13 @@ impl UInterchangeTexture2DFactoryNode {
             .name_to_ptr
             .get("UInterchangeTexture2DFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTexture2DFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12052,6 +12184,13 @@ impl UInterchangeTextureCubeArrayFactoryNode {
             .get("UInterchangeTextureCubeArrayFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTextureCubeArrayFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12073,6 +12212,13 @@ impl UInterchangeTextureCubeFactoryNode {
             .get("UInterchangeTextureCubeFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTextureCubeFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12093,6 +12239,13 @@ impl UInterchangeTextureLightProfileFactoryNode {
             .name_to_ptr
             .get("UInterchangeTextureLightProfileFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeTextureLightProfileFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -12275,6 +12428,13 @@ impl UInterchangeVolumeTextureFactoryNode {
             .get("UInterchangeVolumeTextureFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeVolumeTextureFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -12295,6 +12455,13 @@ impl UInterchangeAnimSequenceFactoryNode {
             .name_to_ptr
             .get("UInterchangeAnimSequenceFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeAnimSequenceFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14162,6 +14329,13 @@ impl UInterchangeCommonPipelineDataFactoryNode {
             .get("UInterchangeCommonPipelineDataFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeCommonPipelineDataFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14414,6 +14588,13 @@ impl UInterchangeDecalActorFactoryNode {
             .name_to_ptr
             .get("UInterchangeDecalActorFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeDecalActorFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14677,6 +14858,13 @@ impl UInterchangeBaseMaterialFactoryNode {
             .get("UInterchangeBaseMaterialFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeBaseMaterialFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -14772,6 +14960,13 @@ impl UInterchangeDecalMaterialFactoryNode {
             .name_to_ptr
             .get("UInterchangeDecalMaterialFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeDecalMaterialFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -14934,6 +15129,13 @@ impl UInterchangeMeshFactoryNode {
             .name_to_ptr
             .get("UInterchangeMeshFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMeshFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -16948,6 +17150,13 @@ impl UInterchangeGeometryCacheFactoryNode {
             .get("UInterchangeGeometryCacheFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGeometryCacheFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -17773,6 +17982,13 @@ impl UInterchangeGroomCacheFactoryNode {
             .get("UInterchangeGroomCacheFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGroomCacheFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18318,6 +18534,13 @@ impl UInterchangeGroomFactoryNode {
             .get("UInterchangeGroomFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeGroomFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18425,6 +18648,13 @@ impl UInterchangeHeterogeneousVolumeActorFactoryNode {
             .get("UInterchangeHeterogeneousVolumeActorFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeHeterogeneousVolumeActorFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -18520,6 +18750,13 @@ impl UInterchangeLevelFactoryNode {
             .name_to_ptr
             .get("UInterchangeLevelFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeLevelFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -18939,6 +19176,13 @@ impl UInterchangeLevelInstanceActorFactoryNode {
             .get("UInterchangeLevelInstanceActorFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeLevelInstanceActorFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19028,6 +19272,13 @@ impl UInterchangeLevelSequenceFactoryNode {
             .name_to_ptr
             .get("UInterchangeLevelSequenceFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeLevelSequenceFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19296,6 +19547,13 @@ impl UInterchangeBaseLightFactoryNode {
             .name_to_ptr
             .get("UInterchangeBaseLightFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeBaseLightFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -19644,6 +19902,13 @@ impl UInterchangeDirectionalLightFactoryNode {
             .get("UInterchangeDirectionalLightFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeDirectionalLightFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -19664,6 +19929,13 @@ impl UInterchangeLightFactoryNode {
             .name_to_ptr
             .get("UInterchangeLightFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeLightFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20167,6 +20439,13 @@ impl UInterchangeRectLightFactoryNode {
             .get("UInterchangeRectLightFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeRectLightFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20347,6 +20626,13 @@ impl UInterchangePointLightFactoryNode {
             .name_to_ptr
             .get("UInterchangePointLightFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangePointLightFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20532,6 +20818,13 @@ impl UInterchangeSpotLightFactoryNode {
             .get("UInterchangeSpotLightFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSpotLightFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -20712,6 +21005,13 @@ impl UInterchangeSkyLightFactoryNode {
             .name_to_ptr
             .get("UInterchangeSkyLightFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSkyLightFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -20896,6 +21196,13 @@ impl UInterchangeMaterialFactoryNode {
             .name_to_ptr
             .get("UInterchangeMaterialFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24110,6 +24417,13 @@ impl UInterchangeMaterialExpressionFactoryNode {
             .get("UInterchangeMaterialExpressionFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialExpressionFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24205,6 +24519,13 @@ impl UInterchangeMaterialInstanceFactoryNode {
             .name_to_ptr
             .get("UInterchangeMaterialInstanceFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialInstanceFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24451,6 +24772,13 @@ impl UInterchangeMaterialReferenceFactoryNode {
             .get("UInterchangeMaterialReferenceFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialReferenceFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24471,6 +24799,13 @@ impl UInterchangeMaterialFunctionCallExpressionFactoryNode {
             .name_to_ptr
             .get("UInterchangeMaterialFunctionCallExpressionFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialFunctionCallExpressionFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -24568,6 +24903,13 @@ impl UInterchangeMaterialFunctionFactoryNode {
             .get("UInterchangeMaterialFunctionFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMaterialFunctionFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -24646,6 +24988,13 @@ impl UInterchangeMeshActorFactoryNode {
             .name_to_ptr
             .get("UInterchangeMeshActorFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeMeshActorFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -25061,6 +25410,13 @@ impl UInterchangeSceneComponentFactoryNode {
             .get("UInterchangeSceneComponentFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSceneComponentFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -25296,6 +25652,13 @@ impl UInterchangeInstancedStaticMeshComponentFactoryNode {
             .name_to_ptr
             .get("UInterchangeInstancedStaticMeshComponentFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeInstancedStaticMeshComponentFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -25571,6 +25934,13 @@ impl UInterchangeSceneImportAssetFactoryNode {
             .get("UInterchangeSceneImportAssetFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSceneImportAssetFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -25591,6 +25961,13 @@ impl UInterchangeSceneVariantSetsFactoryNode {
             .name_to_ptr
             .get("UInterchangeSceneVariantSetsFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSceneVariantSetsFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -25777,6 +26154,13 @@ impl UInterchangeSkeletalMeshFactoryNode {
             .name_to_ptr
             .get("UInterchangeSkeletalMeshFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSkeletalMeshFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -26960,6 +27344,13 @@ impl UInterchangeSkeletalMeshLodDataNode {
             .get("UInterchangeSkeletalMeshLodDataNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSkeletalMeshLodDataNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -27202,6 +27593,13 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
             .name_to_ptr
             .get("UInterchangeSparseVolumeTextureFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSparseVolumeTextureFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -28069,6 +28467,13 @@ impl UInterchangeSpecularProfileFactoryNode {
             .get("UInterchangeSpecularProfileFactoryNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeSpecularProfileFactoryNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -28240,6 +28645,13 @@ impl UInterchangeStaticMeshFactoryNode {
             .name_to_ptr
             .get("UInterchangeStaticMeshFactoryNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeStaticMeshFactoryNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -29711,6 +30123,13 @@ impl UInterchangeStaticMeshLodDataNode {
             .name_to_ptr
             .get("UInterchangeStaticMeshLodDataNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UInterchangeStaticMeshLodDataNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

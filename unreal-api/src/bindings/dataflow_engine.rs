@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -40,87 +41,88 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDataflowBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegenerateAssetFromDataflow"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_regenerate_asset_from_dataflow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableObjectArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_object_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableIntArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_int_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableInt"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableFloatArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_float_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableFloat"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableBoolArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_bool_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OverrideDataflowVariableBool"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_override_dataflow_variable_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EvaluateTerminalNodeByName"),
-            &raw mut __FUNCTION_PTRS
-                .u_dataflow_blueprint_library_evaluate_terminal_node_by_name,
-        );
+        if let Some(class_ptr) = UDataflowBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegenerateAssetFromDataflow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_regenerate_asset_from_dataflow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableObjectArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_object_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableIntArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_int_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableFloatArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_float_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableBoolArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_bool_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OverrideDataflowVariableBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EvaluateTerminalNodeByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_evaluate_terminal_node_by_name,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -140,6 +142,13 @@ impl UDataflowBlueprintLibrary {
             .name_to_ptr
             .get("UDataflowBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -666,6 +675,13 @@ impl UDataflowContentOwner {
             .get("UDataflowContentOwner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowContentOwner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -686,6 +702,13 @@ impl UDataflowContextObject {
             .name_to_ptr
             .get("UDataflowContextObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowContextObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -708,6 +731,13 @@ impl UDataflowBaseContent {
             .get("UDataflowBaseContent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowBaseContent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -728,6 +758,13 @@ impl UDataflowSkeletalContent {
             .name_to_ptr
             .get("UDataflowSkeletalContent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSkeletalContent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -750,6 +787,13 @@ impl UDataflowDebugDrawComponent {
             .get("UDataflowDebugDrawComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowDebugDrawComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -770,6 +814,13 @@ impl UDataflowEdNode {
             .name_to_ptr
             .get("UDataflowEdNode")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowEdNode")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -793,6 +844,13 @@ impl UDataflowInstanceInterface {
             .get("UDataflowInstanceInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowInstanceInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -813,6 +871,13 @@ impl UDataflowMesh {
             .name_to_ptr
             .get("UDataflowMesh")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowMesh")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -835,6 +900,9 @@ impl UDataflow {
             .get("UDataflow")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UDataflow").copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -855,6 +923,13 @@ impl UDataflowSubGraph {
             .name_to_ptr
             .get("UDataflowSubGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataflowSubGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

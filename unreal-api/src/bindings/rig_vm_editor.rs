@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -56,151 +57,155 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMEditorMenuContext::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAltDown"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_is_alt_down,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigVMHost"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_rig_vm_host,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigVMBlueprint"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_rig_vm_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigVMAssetInterface"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_menu_context_get_rig_vm_asset_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetGraphMenuContext"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_graph_menu_context,
-        );
+        if let Some(class_ptr) = URigVMEditorMenuContext::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAltDown"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_is_alt_down,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigVMHost"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_rig_vm_host,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigVMBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigVMAssetInterface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_asset_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetGraphMenuContext"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_graph_menu_context,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = URigVMEditorBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RequestAutoVMRecompilation"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecompileVMIfRequired"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_recompile_vm_if_required,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecompileVM"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_recompile_vm,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAssetsWithNodeFilter_ForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAssetsWithBlueprintFilter_ForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAssetsWithAssetDataFilter_ForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "LoadAssetsWithAssetDataAndNodeFilters_ForBlueprint",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "LoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAssetsByClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_load_assets_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("LoadAssets"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_load_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetModel"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_get_model,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetController"),
-            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_get_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsWithFilter_ForBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint,
-        );
+        if let Some(class_ptr) = URigVMEditorBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RequestAutoVMRecompilation"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecompileVMIfRequired"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_recompile_vm_if_required,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecompileVM"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_recompile_vm,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAssetsWithNodeFilter_ForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAssetsWithBlueprintFilter_ForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAssetsWithAssetDataFilter_ForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "LoadAssetsWithAssetDataAndNodeFilters_ForBlueprint",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "LoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAssetsByClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("LoadAssets"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_load_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetModel"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_get_model,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetController"),
+                &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_get_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsWithFilter_ForBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -229,6 +234,13 @@ impl URigVMEdGraphNodeBlueprintSpawner {
             .get("URigVMEdGraphNodeBlueprintSpawner")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEdGraphNodeBlueprintSpawner")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -249,6 +261,13 @@ impl URigVMBlueprintCompilerExtension {
             .name_to_ptr
             .get("URigVMBlueprintCompilerExtension")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMBlueprintCompilerExtension")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -271,6 +290,13 @@ impl URigVMDetailsViewWrapperObject {
             .get("URigVMDetailsViewWrapperObject")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMDetailsViewWrapperObject")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -291,6 +317,13 @@ impl URigVMEditorMenuContext {
             .name_to_ptr
             .get("URigVMEditorMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEditorMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -462,6 +495,13 @@ impl URigVMEditorBlueprintLibrary {
             .name_to_ptr
             .get("URigVMEditorBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URigVMEditorBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

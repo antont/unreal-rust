@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -28,35 +29,36 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioLinkBlueprintInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopLink"),
-            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_stop_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLinkSound"),
-            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_set_link_sound,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PlayLink"),
-            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_play_link,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLinkPlaying"),
-            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_is_link_playing,
-        );
+        if let Some(class_ptr) = UAudioLinkBlueprintInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopLink"),
+                &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_stop_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLinkSound"),
+                &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_set_link_sound,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PlayLink"),
+                &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_play_link,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLinkPlaying"),
+                &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_is_link_playing,
+            );
+        }
     }
 }
 pub struct IAudioLinkBlueprintInterface {}
@@ -71,6 +73,13 @@ impl UAudioLinkBlueprintInterface {
             .name_to_ptr
             .get("UAudioLinkBlueprintInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioLinkBlueprintInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

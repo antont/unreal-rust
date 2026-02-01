@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -82,249 +83,256 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USkeletalMeshEditorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StripLODGeometry"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_strip_lod_geometry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSkeletalMeshOverlayMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionVisibleInRayTracing"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionRecomputeTangentsVertexMaskChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionRecomputeTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionCastShadow"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_section_cast_shadow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from(
-                "SetMorphTargetsToGeneratedByEngineForAllSkeletalMesh",
-            ),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMorphTargetsToGeneratedByEngine"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMaterialSlotOverlayMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_set_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameSocket"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_rename_socket,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveLODs"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_remove_lo_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegenerateLOD"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_regenerate_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsPhysicsAssetCompatible"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_import_lod,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkeletonCurveMetaDataNames"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSkeletalMeshOverlayMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionVisibleInRayTracing"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionRecomputeTangentsVertexMaskChannel"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionRecomputeTangent"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSectionCastShadow"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_section_cast_shadow,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumVerts"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_num_verts,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumSections"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_num_sections,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMorphTargetsGeneratedByEngine"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMaterialSlotOverlayMaterial"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODMaterialSlot"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_lod_material_slot,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLODCount"),
-            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_lod_count,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_get_lod_build_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreatePhysicsAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_create_physics_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssignPhysicsAsset"),
-            &raw mut __FUNCTION_PTRS
-                .u_skeletal_mesh_editor_subsystem_assign_physics_asset,
-        );
+        if let Some(class_ptr) = USkeletalMeshEditorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StripLODGeometry"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_strip_lod_geometry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSkeletalMeshOverlayMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionVisibleInRayTracing"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetSectionRecomputeTangentsVertexMaskChannel",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionRecomputeTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionCastShadow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_cast_shadow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "SetMorphTargetsToGeneratedByEngineForAllSkeletalMesh",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMorphTargetsToGeneratedByEngine"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMaterialSlotOverlayMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameSocket"),
+                &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_rename_socket,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveLODs"),
+                &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_remove_lo_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegenerateLOD"),
+                &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_regenerate_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsPhysicsAssetCompatible"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ImportLOD"),
+                &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_import_lod,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkeletonCurveMetaDataNames"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSkeletalMeshOverlayMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionVisibleInRayTracing"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetSectionRecomputeTangentsVertexMaskChannel",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionRecomputeTangent"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSectionCastShadow"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_cast_shadow,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumVerts"),
+                &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_num_verts,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumSections"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_num_sections,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMorphTargetsGeneratedByEngine"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMaterialSlotOverlayMaterial"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODMaterialSlot"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_material_slot,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLODCount"),
+                &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_lod_count,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_build_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreatePhysicsAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_create_physics_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssignPhysicsAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_assign_physics_asset,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -338,6 +346,13 @@ impl USkeletalMeshEditorContextMenuContext {
             .name_to_ptr
             .get("USkeletalMeshEditorContextMenuContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshEditorContextMenuContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -360,6 +375,13 @@ impl USkeletalMeshEditorUISubsystem {
             .get("USkeletalMeshEditorUISubsystem")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshEditorUISubsystem")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -380,6 +402,13 @@ impl USkeletalMeshEditorSubsystem {
             .name_to_ptr
             .get("USkeletalMeshEditorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USkeletalMeshEditorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

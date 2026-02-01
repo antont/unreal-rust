@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -52,120 +53,121 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UMetasoundParameterPack::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTrigger"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_trigger,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetString"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetInt"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFloat"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBool"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeMetasoundParameterPack"),
-            &raw mut __FUNCTION_PTRS
-                .u_metasound_parameter_pack_make_metasound_parameter_pack,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasTrigger"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_trigger,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasString"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasInt"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasFloat"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasBool"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_bool,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTrigger"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_trigger,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_string,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInt"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_int,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_float,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBool"),
-            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_bool,
-        );
+        if let Some(class_ptr) = UMetasoundParameterPack::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTrigger"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_trigger,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetString"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetInt"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFloat"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBool"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeMetasoundParameterPack"),
+                &raw mut __FUNCTION_PTRS
+                    .u_metasound_parameter_pack_make_metasound_parameter_pack,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasTrigger"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_trigger,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasString"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasInt"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasFloat"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasBool"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_bool,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTrigger"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_trigger,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetString"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInt"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFloat"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBool"),
+                &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_bool,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -259,6 +261,13 @@ impl UMetaSoundDocumentInterface {
             .get("UMetaSoundDocumentInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundDocumentInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -279,6 +288,13 @@ impl UMetaSoundFrontendMemberMetadata {
             .name_to_ptr
             .get("UMetaSoundFrontendMemberMetadata")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundFrontendMemberMetadata")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -301,6 +317,13 @@ impl UMetaSoundBuilderDocument {
             .get("UMetaSoundBuilderDocument")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetaSoundBuilderDocument")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -321,6 +344,13 @@ impl UMetasoundParameterPack {
             .name_to_ptr
             .get("UMetasoundParameterPack")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UMetasoundParameterPack")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

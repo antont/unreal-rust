@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -118,356 +119,360 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetRegistryHelpers::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ToSoftObjectPath"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_to_soft_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortingPredicate__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_registry_helpers_sorting_predicate_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortByPredicate"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_sort_by_predicate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SortByAssetName"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_sort_by_asset_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFilterTagsAndValues"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_set_filter_tags_and_values,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsUAsset"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_u_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsRedirector"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_redirector,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAssetLoaded"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_asset_loaded,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAssetCooked"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_asset_cooked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTagValue"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_tag_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFullName"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_full_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetExportTextName"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_export_text_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDerivedClassAssetData"),
-            &raw mut __FUNCTION_PTRS
-                .u_asset_registry_helpers_get_derived_class_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetClass"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBlueprintAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_blueprint_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetRegistry"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_asset_registry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAsset"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindAssetNativeClass"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_find_asset_native_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAssetData"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_create_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssetHasEditorOnlyData"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_asset_has_editor_only_data,
-        );
+        if let Some(class_ptr) = UAssetRegistryHelpers::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ToSoftObjectPath"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_to_soft_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortingPredicate__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_registry_helpers_sorting_predicate_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortByPredicate"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_sort_by_predicate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SortByAssetName"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_sort_by_asset_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFilterTagsAndValues"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_registry_helpers_set_filter_tags_and_values,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsValid"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsUAsset"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_u_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsRedirector"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_redirector,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAssetLoaded"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_asset_loaded,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAssetCooked"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_asset_cooked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTagValue"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_tag_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFullName"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_full_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetExportTextName"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_export_text_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDerivedClassAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_derived_class_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetClass"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBlueprintAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_blueprint_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetRegistry"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_asset_registry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAsset"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindAssetNativeClass"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_find_asset_native_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAssetData"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_create_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssetHasEditorOnlyData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_asset_registry_helpers_asset_has_editor_only_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetRegistry::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WaitForPackage"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_wait_for_package,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WaitForCompletion"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_wait_for_completion,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UseFilterToExcludeAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_use_filter_to_exclude_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SearchAllAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_search_all_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScanPathsSynchronous"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_scan_paths_synchronous,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScanModifiedAssetFiles"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_scan_modified_asset_files,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ScanFilesSynchronous"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_scan_files_synchronous,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RunAssetsThroughFilter"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_run_assets_through_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("PrioritizeSearchPath"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_prioritize_search_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetReferencers"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_referencers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetDependencies"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_dependencies,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetAssetByObjectPath"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_asset_by_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSearchAsync"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_is_search_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsSearchAllAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_is_search_all_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsLoadingAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_is_loading_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_has_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSubPaths"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_sub_paths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInMemoryAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_in_memory_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDerivedClassNames"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_derived_class_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsByPaths"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_paths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsByPath"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsByPackageName"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_package_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetsByClass"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetByObjectPath"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_asset_by_object_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAncestorClassNames"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_ancestor_class_names,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllCachedPaths"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_all_cached_paths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllAssets"),
-            &raw mut __FUNCTION_PTRS.u_asset_registry_get_all_assets,
-        );
+        if let Some(class_ptr) = UAssetRegistry::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WaitForPackage"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_wait_for_package,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WaitForCompletion"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_wait_for_completion,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UseFilterToExcludeAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_use_filter_to_exclude_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SearchAllAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_search_all_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScanPathsSynchronous"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_scan_paths_synchronous,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScanModifiedAssetFiles"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_scan_modified_asset_files,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ScanFilesSynchronous"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_scan_files_synchronous,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RunAssetsThroughFilter"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_run_assets_through_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("PrioritizeSearchPath"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_prioritize_search_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetReferencers"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_referencers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetDependencies"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_dependencies,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetAssetByObjectPath"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_asset_by_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSearchAsync"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_is_search_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsSearchAllAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_is_search_all_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsLoadingAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_is_loading_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_has_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSubPaths"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_sub_paths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInMemoryAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_in_memory_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDerivedClassNames"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_derived_class_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsByPaths"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_paths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsByPath"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsByPackageName"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_package_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetsByClass"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetByObjectPath"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_asset_by_object_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAncestorClassNames"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_ancestor_class_names,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllCachedPaths"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_all_cached_paths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllAssets"),
+                &raw mut __FUNCTION_PTRS.u_asset_registry_get_all_assets,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -498,6 +503,13 @@ impl UAssetRegistryHelpers {
             .name_to_ptr
             .get("UAssetRegistryHelpers")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetRegistryHelpers")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1342,6 +1354,13 @@ impl UAssetRegistry {
             .name_to_ptr
             .get("UAssetRegistry")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetRegistry")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2694,6 +2713,13 @@ impl UAssetRegistryImpl {
             .name_to_ptr
             .get("UAssetRegistryImpl")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetRegistryImpl")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

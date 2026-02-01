@@ -9,6 +9,7 @@ pub use unreal_api::ffi;
 use unreal_api::{
     bindings::globals::{self, ClassPtrDB},
     ffi::ResultCode,
+    module::bindings,
 };
 
 use unreal_api::{
@@ -57,11 +58,10 @@ pub trait UserModule {
     fn begin_play(&mut self);
 }
 
-pub static BINDINGS: OnceLock<UnrealBindings> = OnceLock::new();
-
 fn set_custom_panic_hook() {
     std::panic::set_hook(Box::new(|panic_info| {
-        let bt = std::backtrace::Backtrace::force_capture();
+        debug_break();
+        let bt: std::backtrace::Backtrace = std::backtrace::Backtrace::force_capture();
         log::error!("{}", bt);
         let info = panic_info
             .payload()
@@ -88,6 +88,14 @@ fn create_rust_bindings() -> RustBindings {
         tick,
         begin_play,
         allocate,
+    }
+}
+fn debug_break() {
+    #[cfg(windows)]
+    unsafe {
+        if windows_sys::Win32::System::Diagnostics::Debug::IsDebuggerPresent() != 0 {
+            windows_sys::Win32::System::Diagnostics::Debug::DebugBreak();
+        }
     }
 }
 
@@ -147,7 +155,9 @@ pub unsafe fn initialize_module(
 ) {
     set_custom_panic_hook();
     let _ = init_log();
-    let _ = BINDINGS.set(unreal_bindings);
+    {
+        let _ = unreal_api::module::BINDINGS.set(unreal_bindings);
+    }
     unsafe {
         *rust_bindings = create_rust_bindings();
     }
@@ -156,16 +166,13 @@ pub unsafe fn initialize_module(
         MODULE = Box::leak(Box::new(Module { user_module })) as *mut _;
     }
 
-    let class_db = ClassPtrDB::from(bindings());
-    let _ = globals::CLASS_PTRS.set(class_db);
+    {
+        let class_db = ClassPtrDB::from(bindings());
+        let _ = globals::CLASS_PTRS.set(class_db);
+    }
+
     unreal_api::bindings::globals::initialize_modules();
 }
-
-// extern "C" fn initialize_unreal_api() {
-//     let class_db = ClassPtrDB::from(bindings());
-//     let _ = globals::CLASS_PTRS.set(class_db);
-//     unreal_api::bindings::globals::initialize_modules();
-// }
 
 #[macro_export]
 macro_rules! implement_unreal_module {
@@ -179,8 +186,4 @@ macro_rules! implement_unreal_module {
             1
         }
     };
-}
-
-pub fn bindings() -> &'static UnrealBindings {
-    BINDINGS.wait()
 }

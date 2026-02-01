@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -22,15 +23,16 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USvgDistanceFieldGenerator::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GenerateTextureFromSvgFile"),
-            &raw mut __FUNCTION_PTRS
-                .u_svg_distance_field_generator_generate_texture_from_svg_file,
-        );
+        if let Some(class_ptr) = USvgDistanceFieldGenerator::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GenerateTextureFromSvgFile"),
+                &raw mut __FUNCTION_PTRS
+                    .u_svg_distance_field_generator_generate_texture_from_svg_file,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -59,6 +61,13 @@ impl USvgDistanceFieldGenerator {
             .name_to_ptr
             .get("USvgDistanceFieldGenerator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USvgDistanceFieldGenerator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

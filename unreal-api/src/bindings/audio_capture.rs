@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -34,67 +35,70 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioCapture::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopCapturingAudio"),
-            &raw mut __FUNCTION_PTRS.u_audio_capture_stop_capturing_audio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartCapturingAudio"),
-            &raw mut __FUNCTION_PTRS.u_audio_capture_start_capturing_audio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsCapturingAudio"),
-            &raw mut __FUNCTION_PTRS.u_audio_capture_is_capturing_audio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAudioCaptureDeviceInfo"),
-            &raw mut __FUNCTION_PTRS.u_audio_capture_get_audio_capture_device_info,
-        );
+        if let Some(class_ptr) = UAudioCapture::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopCapturingAudio"),
+                &raw mut __FUNCTION_PTRS.u_audio_capture_stop_capturing_audio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartCapturingAudio"),
+                &raw mut __FUNCTION_PTRS.u_audio_capture_start_capturing_audio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsCapturingAudio"),
+                &raw mut __FUNCTION_PTRS.u_audio_capture_is_capturing_audio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAudioCaptureDeviceInfo"),
+                &raw mut __FUNCTION_PTRS.u_audio_capture_get_audio_capture_device_info,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioCaptureFunctionLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateAudioCapture"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_capture_function_library_create_audio_capture,
-        );
+        if let Some(class_ptr) = UAudioCaptureFunctionLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateAudioCapture"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_capture_function_library_create_audio_capture,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioCaptureBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailableAudioInputDevices"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_capture_blueprint_library_get_available_audio_input_devices,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_AudioInputDeviceInfoToString"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string,
-        );
+        if let Some(class_ptr) = UAudioCaptureBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailableAudioInputDevices"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_capture_blueprint_library_get_available_audio_input_devices,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_AudioInputDeviceInfoToString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -124,6 +128,13 @@ impl UAudioCapture {
             .name_to_ptr
             .get("UAudioCapture")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioCapture")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -261,6 +272,13 @@ impl UAudioCaptureFunctionLibrary {
             .get("UAudioCaptureFunctionLibrary")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioCaptureFunctionLibrary")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -307,6 +325,13 @@ impl UAudioCaptureBlueprintLibrary {
             .name_to_ptr
             .get("UAudioCaptureBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioCaptureBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -410,6 +435,13 @@ impl UAudioCaptureComponent {
             .name_to_ptr
             .get("UAudioCaptureComponent")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioCaptureComponent")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

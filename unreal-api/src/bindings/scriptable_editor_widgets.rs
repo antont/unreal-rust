@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -32,53 +33,55 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPropertyViewBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetObject"),
-            &raw mut __FUNCTION_PTRS.u_property_view_base_set_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut __FUNCTION_PTRS.u_property_view_base_get_object,
-        );
+        if let Some(class_ptr) = UPropertyViewBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetObject"),
+                &raw mut __FUNCTION_PTRS.u_property_view_base_set_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObject"),
+                &raw mut __FUNCTION_PTRS.u_property_view_base_get_object,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = USinglePropertyView::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPropertyName"),
-            &raw mut __FUNCTION_PTRS.u_single_property_view_set_property_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetNameOverride"),
-            &raw mut __FUNCTION_PTRS.u_single_property_view_set_name_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPropertyName"),
-            &raw mut __FUNCTION_PTRS.u_single_property_view_get_property_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNameOverride"),
-            &raw mut __FUNCTION_PTRS.u_single_property_view_get_name_override,
-        );
+        if let Some(class_ptr) = USinglePropertyView::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPropertyName"),
+                &raw mut __FUNCTION_PTRS.u_single_property_view_set_property_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetNameOverride"),
+                &raw mut __FUNCTION_PTRS.u_single_property_view_set_name_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPropertyName"),
+                &raw mut __FUNCTION_PTRS.u_single_property_view_get_property_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNameOverride"),
+                &raw mut __FUNCTION_PTRS.u_single_property_view_get_name_override,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -92,6 +95,13 @@ impl UPropertyViewBase {
             .name_to_ptr
             .get("UPropertyViewBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPropertyViewBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -180,6 +190,13 @@ impl UDetailsView {
             .get("UDetailsView")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDetailsView")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -200,6 +217,13 @@ impl USinglePropertyView {
             .name_to_ptr
             .get("USinglePropertyView")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USinglePropertyView")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

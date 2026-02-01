@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -102,328 +103,335 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UBlueprintGameplayTagLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveGameplayTag"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_remove_gameplay_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotEqual_TagTag"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_not_equal_tag_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotEqual_TagContainerTagContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotEqual_GameplayTagContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("NotEqual_GameplayTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MatchesTag"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_matches_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MatchesAnyTags"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_matches_any_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralGameplayTagContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeLiteralGameplayTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchNoTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchAnyTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchAllTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeGameplayTagQuery"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeGameplayTagContainerFromTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeGameplayTagContainerFromArray"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsTagQueryEmpty"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_is_tag_query_empty,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsGameplayTagValid"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_is_gameplay_tag_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasTag"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAnyTags"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_any_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAnyMatchingGameplayTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAllTags"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_all_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAllMatchingGameplayTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTagName"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_get_tag_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOwnedGameplayTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_get_owned_gameplay_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumGameplayTagsInContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDebugStringFromGameplayTagContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDebugStringFromGameplayTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllActorsOfClassMatchingTagQuery"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Filter"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_filter,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EqualEqual_GameplayTagContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("EqualEqual_GameplayTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesTagAssetInterfaceHaveTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesContainerMatchTagQuery"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_does_container_match_tag_query,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Conv_ObjectToGameplayTagAssetInterface"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakGameplayTagContainer"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_break_gameplay_tag_container,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AppendGameplayTagContainers"),
-            &raw mut __FUNCTION_PTRS
-                .u_blueprint_gameplay_tag_library_append_gameplay_tag_containers,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddGameplayTag"),
-            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_add_gameplay_tag,
-        );
+        if let Some(class_ptr) = UBlueprintGameplayTagLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveGameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_remove_gameplay_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotEqual_TagTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_tag_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotEqual_TagContainerTagContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotEqual_GameplayTagContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("NotEqual_GameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MatchesTag"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_matches_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MatchesAnyTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_matches_any_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralGameplayTagContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeLiteralGameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchNoTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchAnyTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchAllTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeGameplayTagQuery"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeGameplayTagContainerFromTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeGameplayTagContainerFromArray"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsTagQueryEmpty"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_is_tag_query_empty,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsGameplayTagValid"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_is_gameplay_tag_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasTag"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAnyTags"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_any_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAnyMatchingGameplayTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAllTags"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_all_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAllMatchingGameplayTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTagName"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_get_tag_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOwnedGameplayTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_owned_gameplay_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumGameplayTagsInContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDebugStringFromGameplayTagContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDebugStringFromGameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllActorsOfClassMatchingTagQuery"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Filter"),
+                &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_filter,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EqualEqual_GameplayTagContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EqualEqual_GameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesTagAssetInterfaceHaveTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesContainerMatchTagQuery"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_does_container_match_tag_query,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Conv_ObjectToGameplayTagAssetInterface"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakGameplayTagContainer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_break_gameplay_tag_container,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AppendGameplayTagContainers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_append_gameplay_tag_containers,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddGameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_add_gameplay_tag,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UGameplayTagAssetInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasMatchingGameplayTag"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_tag_asset_interface_has_matching_gameplay_tag,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAnyMatchingGameplayTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasAllMatchingGameplayTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BP_GetOwnedGameplayTags"),
-            &raw mut __FUNCTION_PTRS
-                .u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags,
-        );
+        if let Some(class_ptr) = UGameplayTagAssetInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasMatchingGameplayTag"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_matching_gameplay_tag,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAnyMatchingGameplayTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasAllMatchingGameplayTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BP_GetOwnedGameplayTags"),
+                &raw mut __FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -468,6 +476,13 @@ impl UBlueprintGameplayTagLibrary {
             .name_to_ptr
             .get("UBlueprintGameplayTagLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UBlueprintGameplayTagLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1993,6 +2008,13 @@ impl UGameplayTagAssetInterface {
             .get("UGameplayTagAssetInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagAssetInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2145,6 +2167,13 @@ impl UEditableGameplayTagQuery {
             .get("UEditableGameplayTagQuery")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQuery")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2165,6 +2194,13 @@ impl UEditableGameplayTagQueryExpression {
             .name_to_ptr
             .get("UEditableGameplayTagQueryExpression")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2187,6 +2223,13 @@ impl UEditableGameplayTagQueryExpression_AnyTagsMatch {
             .get("UEditableGameplayTagQueryExpression_AnyTagsMatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_AnyTagsMatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2207,6 +2250,13 @@ impl UEditableGameplayTagQueryExpression_AllTagsMatch {
             .name_to_ptr
             .get("UEditableGameplayTagQueryExpression_AllTagsMatch")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_AllTagsMatch")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2229,6 +2279,13 @@ impl UEditableGameplayTagQueryExpression_NoTagsMatch {
             .get("UEditableGameplayTagQueryExpression_NoTagsMatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_NoTagsMatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2249,6 +2306,13 @@ impl UEditableGameplayTagQueryExpression_AnyTagsExactMatch {
             .name_to_ptr
             .get("UEditableGameplayTagQueryExpression_AnyTagsExactMatch")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_AnyTagsExactMatch")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2271,6 +2335,13 @@ impl UEditableGameplayTagQueryExpression_AllTagsExactMatch {
             .get("UEditableGameplayTagQueryExpression_AllTagsExactMatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_AllTagsExactMatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2291,6 +2362,13 @@ impl UEditableGameplayTagQueryExpression_AnyExprMatch {
             .name_to_ptr
             .get("UEditableGameplayTagQueryExpression_AnyExprMatch")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_AnyExprMatch")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2313,6 +2391,13 @@ impl UEditableGameplayTagQueryExpression_AllExprMatch {
             .get("UEditableGameplayTagQueryExpression_AllExprMatch")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_AllExprMatch")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2333,6 +2418,13 @@ impl UEditableGameplayTagQueryExpression_NoExprMatch {
             .name_to_ptr
             .get("UEditableGameplayTagQueryExpression_NoExprMatch")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditableGameplayTagQueryExpression_NoExprMatch")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2355,6 +2447,13 @@ impl UGameplayTagsManager {
             .get("UGameplayTagsManager")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsManager")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2375,6 +2474,13 @@ impl UGameplayTagsList {
             .name_to_ptr
             .get("UGameplayTagsList")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsList")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2397,6 +2503,13 @@ impl URestrictedGameplayTagsList {
             .get("URestrictedGameplayTagsList")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("URestrictedGameplayTagsList")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2418,6 +2531,13 @@ impl UGameplayTagsSettings {
             .get("UGameplayTagsSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2438,6 +2558,13 @@ impl UGameplayTagsDeveloperSettings {
             .name_to_ptr
             .get("UGameplayTagsDeveloperSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGameplayTagsDeveloperSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

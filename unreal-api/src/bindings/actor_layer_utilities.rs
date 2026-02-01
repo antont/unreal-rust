@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -26,28 +27,30 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ULayersBlueprintLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveActorFromLayer"),
-            &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_remove_actor_from_layer,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActors"),
-            &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_get_actors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddActorToLayer"),
-            &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_add_actor_to_layer,
-        );
+        if let Some(class_ptr) = ULayersBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveActorFromLayer"),
+                &raw mut __FUNCTION_PTRS
+                    .u_layers_blueprint_library_remove_actor_from_layer,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActors"),
+                &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_get_actors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddActorToLayer"),
+                &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_add_actor_to_layer,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -66,6 +69,13 @@ impl ULayersBlueprintLibrary {
             .name_to_ptr
             .get("ULayersBlueprintLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ULayersBlueprintLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

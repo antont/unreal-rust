@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -130,417 +131,430 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenu::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMenuEntryObject"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_remove_menu_entry_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitMenu"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_init_menu,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSubMenuScript"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_add_sub_menu_script,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSectionScript"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_add_section_script,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMenuEntryObject"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_add_menu_entry_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMenuEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_add_menu_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddDynamicSectionScript"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_add_dynamic_section_script,
-        );
+        if let Some(class_ptr) = UToolMenu::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMenuEntryObject"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_remove_menu_entry_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitMenu"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_init_menu,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSubMenuScript"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_add_sub_menu_script,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSectionScript"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_add_section_script,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMenuEntryObject"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_add_menu_entry_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMenuEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_add_menu_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddDynamicSectionScript"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_add_dynamic_section_script,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenuEntryScript::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterMenuEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_unregister_menu_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ShowInToolbarTopLevel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_show_in_toolbar_top_level,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterMenuEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_register_menu_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsVisible"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_is_visible,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_init_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetToolTip"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_tool_tip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIcon"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_icon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCheckState"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_check_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Execute"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_execute,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConstructMenuEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_construct_menu_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanExecute"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_can_execute,
-        );
+        if let Some(class_ptr) = UToolMenuEntryScript::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterMenuEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_unregister_menu_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ShowInToolbarTopLevel"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_entry_script_show_in_toolbar_top_level,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterMenuEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_register_menu_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsVisible"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_is_visible,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_init_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetToolTip"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_tool_tip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLabel"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIcon"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_icon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCheckState"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_check_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Execute"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_execute,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConstructMenuEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_construct_menu_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanExecute"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_can_execute,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenus::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterOwnerByName"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_unregister_owner_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionPosition"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_set_section_position,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSectionLabel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_set_section_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveSection"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_section,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMenuEntryObject"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_menu_entry_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveMenu"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_menu,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterMenu"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_register_menu,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshMenuWidget"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_refresh_menu_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RefreshAllWidgets"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_refresh_all_widgets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsMenuRegistered"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_is_menu_registered,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Get"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_get,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindMenu"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_find_menu,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindContext"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_find_context,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExtendMenu"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_extend_menu,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddMenuEntryObject"),
-            &raw mut __FUNCTION_PTRS.u_tool_menus_add_menu_entry_object,
-        );
+        if let Some(class_ptr) = UToolMenus::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterOwnerByName"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_unregister_owner_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionPosition"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_set_section_position,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSectionLabel"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_set_section_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveSection"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_remove_section,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMenuEntryObject"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_remove_menu_entry_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveMenu"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_remove_menu,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_remove_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterMenu"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_register_menu,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshMenuWidget"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_refresh_menu_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RefreshAllWidgets"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_refresh_all_widgets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsMenuRegistered"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_is_menu_registered,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Get"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_get,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindMenu"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_find_menu,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindContext"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_find_context,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExtendMenu"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_extend_menu,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddMenuEntryObject"),
+                &raw mut __FUNCTION_PTRS.u_tool_menus_add_menu_entry_object,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenuContextExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindByClass"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_context_extensions_find_by_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DebugLogContextObjectClasses"),
-            &raw mut __FUNCTION_PTRS
-                .u_tool_menu_context_extensions_debug_log_context_object_classes,
-        );
+        if let Some(class_ptr) = UToolMenuContextExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindByClass"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_context_extensions_find_by_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DebugLogContextObjectClasses"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_context_extensions_debug_log_context_object_classes,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenuEntryExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetToolTip"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_tool_tip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStringCommand"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_string_command,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLabel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIcon"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_icon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeToolMenuOwner"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_tool_menu_owner,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeStringCommand"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_string_command,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("MakeScriptSlateIcon"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_script_slate_icon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("InitMenuEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_init_menu_entry,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetToolTip"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_get_tool_tip,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_get_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakToolMenuOwner"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_break_tool_menu_owner,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakStringCommand"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_break_string_command,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("BreakScriptSlateIcon"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_break_script_slate_icon,
-        );
+        if let Some(class_ptr) = UToolMenuEntryExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetToolTip"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_tool_tip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStringCommand"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_string_command,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLabel"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIcon"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_icon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeToolMenuOwner"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_tool_menu_owner,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeStringCommand"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_string_command,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("MakeScriptSlateIcon"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_script_slate_icon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("InitMenuEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_init_menu_entry,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetToolTip"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_get_tool_tip,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLabel"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_get_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakToolMenuOwner"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_tool_menu_owner,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakStringCommand"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_string_command,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("BreakScriptSlateIcon"),
+                &raw mut __FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_script_slate_icon,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenuSectionExtensions::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLabel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_set_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_get_label,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddEntryObject"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_add_entry_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddEntry"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_add_entry,
-        );
+        if let Some(class_ptr) = UToolMenuSectionExtensions::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLabel"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_set_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLabel"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_get_label,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddEntryObject"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_add_entry_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddEntry"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_add_entry,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UToolMenuSectionDynamic::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConstructSections"),
-            &raw mut __FUNCTION_PTRS.u_tool_menu_section_dynamic_construct_sections,
-        );
+        if let Some(class_ptr) = UToolMenuSectionDynamic::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConstructSections"),
+                &raw mut __FUNCTION_PTRS.u_tool_menu_section_dynamic_construct_sections,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -661,6 +675,9 @@ impl UToolMenu {
             .name_to_ptr
             .get("UToolMenu")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS.wait().name_to_ptr.get("UToolMenu").copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -991,6 +1008,13 @@ impl UToolMenuContextBase {
             .get("UToolMenuContextBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuContextBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1011,6 +1035,13 @@ impl USlateTabManagerContext {
             .name_to_ptr
             .get("USlateTabManagerContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("USlateTabManagerContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1035,6 +1066,13 @@ impl UToolMenuEntryScript {
             .name_to_ptr
             .get("UToolMenuEntryScript")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuEntryScript")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1484,6 +1522,13 @@ impl UToolMenuProfileContext {
             .get("UToolMenuProfileContext")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuProfileContext")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1504,6 +1549,13 @@ impl UToolMenus {
             .name_to_ptr
             .get("UToolMenus")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenus")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2090,6 +2142,13 @@ impl UToolMenuContextExtensions {
             .get("UToolMenuContextExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuContextExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2192,6 +2251,13 @@ impl UToolMenuEntryExtensions {
             .name_to_ptr
             .get("UToolMenuEntryExtensions")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuEntryExtensions")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2852,6 +2918,13 @@ impl UToolMenuSectionExtensions {
             .get("UToolMenuSectionExtensions")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuSectionExtensions")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3031,6 +3104,13 @@ impl UToolMenuSectionDynamic {
             .get("UToolMenuSectionDynamic")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuSectionDynamic")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3094,6 +3174,13 @@ impl UToolMenuWidgetCollectionContext {
             .name_to_ptr
             .get("UToolMenuWidgetCollectionContext")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuWidgetCollectionContext")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -54,132 +55,135 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UControlRigBlueprint::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UpdateExposedModuleConnectors"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_update_exposed_module_connectors,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TurnIntoStandaloneRig_Blueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_turn_into_standalone_rig_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TurnIntoControlRigModule_Blueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_turn_into_control_rig_module_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetPreviewMesh"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_set_preview_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RecompileModularRig"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_recompile_modular_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsControlRigModule"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_is_control_rig_module,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetRigModuleIcon"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_rig_module_icon,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetPreviewMesh"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_preview_mesh,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetModularRigController"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_modular_rig_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetHierarchyController"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_hierarchy_controller,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDebuggedControlRig"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_debugged_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentlyOpenRigBlueprints"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_get_currently_open_rig_blueprints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetControlRigClass"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_control_rig_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindReferencesToModule"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_find_references_to_module,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CreateControlRig"),
-            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_create_control_rig,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertHierarchyElementsToSpawnerNodes"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanTurnIntoStandaloneRig_Blueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint,
-        );
+        if let Some(class_ptr) = UControlRigBlueprint::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UpdateExposedModuleConnectors"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_update_exposed_module_connectors,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TurnIntoStandaloneRig_Blueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_turn_into_standalone_rig_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TurnIntoControlRigModule_Blueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_turn_into_control_rig_module_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPreviewMesh"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_set_preview_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RecompileModularRig"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_recompile_modular_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsControlRigModule"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_is_control_rig_module,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetRigModuleIcon"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_rig_module_icon,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetPreviewMesh"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_preview_mesh,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetModularRigController"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_modular_rig_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetHierarchyController"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_hierarchy_controller,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDebuggedControlRig"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_debugged_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentlyOpenRigBlueprints"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_currently_open_rig_blueprints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetControlRigClass"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_control_rig_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindReferencesToModule"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_find_references_to_module,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CreateControlRig"),
+                &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_create_control_rig,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertHierarchyElementsToSpawnerNodes"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanTurnIntoStandaloneRig_Blueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -193,6 +197,13 @@ impl UAnimGraphNode_ControlRig {
             .name_to_ptr
             .get("UAnimGraphNode_ControlRig")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAnimGraphNode_ControlRig")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -215,6 +226,13 @@ impl UControlRigAssetInterface {
             .name_to_ptr
             .get("UControlRigAssetInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigAssetInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -240,6 +258,13 @@ impl UControlRigBlueprint {
             .name_to_ptr
             .get("UControlRigBlueprint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigBlueprint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -800,6 +825,13 @@ impl UControlRigSchema {
             .get("UControlRigSchema")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigSchema")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -820,6 +852,13 @@ impl UControlRigGraph {
             .name_to_ptr
             .get("UControlRigGraph")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigGraph")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -842,6 +881,13 @@ impl UControlRigGraphNode {
             .get("UControlRigGraphNode")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigGraphNode")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -862,6 +908,13 @@ impl UControlRigGraphSchema {
             .name_to_ptr
             .get("UControlRigGraphSchema")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UControlRigGraphSchema")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -108,364 +109,382 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementSelectionSetLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelectionFromList"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_library_set_selection_from_list,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectElementsFromList"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_library_select_elements_from_list,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedSelection"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_library_get_normalized_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNormalizedElementList"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_library_get_normalized_element_list,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeselectElementsFromList"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_library_deselect_elements_from_list,
-        );
+        if let Some(class_ptr) = UTypedElementSelectionSetLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelectionFromList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_set_selection_from_list,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectElementsFromList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_select_elements_from_list,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedSelection"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_get_normalized_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNormalizedElementList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_get_normalized_element_list,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeselectElementsFromList"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_deselect_elements_from_list,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementSelectionSet::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSelection"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_set_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectElements"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_select_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_select_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RestoreSelectionState"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_restore_selection_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnPreChangeDynamic__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_on_pre_change_dynamic_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnChangeDynamic__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_on_change_dynamic_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_GetSelectedElementHandles"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_k2_get_selected_element_handles,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsElementSelected"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_is_element_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasSelectedObjects"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_has_selected_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("HasSelectedElements"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_has_selected_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTopSelectedObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_get_top_selected_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_get_selection_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_get_selected_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetNumSelectedElements"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_get_num_selected_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentSelectionState"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_get_current_selection_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetBottomSelectedObject"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_get_bottom_selected_object,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeselectElements"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_deselect_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeselectElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_deselect_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CountSelectedObjects"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_count_selected_objects,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CountSelectedElements"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_count_selected_elements,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearSelection"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_clear_selection,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanSelectElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_can_select_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanDeselectElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_can_deselect_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AllowSelectionModifiers"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_set_allow_selection_modifiers,
-        );
+        if let Some(class_ptr) = UTypedElementSelectionSet::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSelection"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_set_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectElements"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_select_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectElement"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_select_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RestoreSelectionState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_restore_selection_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnPreChangeDynamic__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_on_pre_change_dynamic_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnChangeDynamic__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_on_change_dynamic_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_GetSelectedElementHandles"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_k2_get_selected_element_handles,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsElementSelected"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_is_element_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasSelectedObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_has_selected_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("HasSelectedElements"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_has_selected_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTopSelectedObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_top_selected_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_selection_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_selected_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetNumSelectedElements"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_num_selected_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentSelectionState"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_current_selection_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetBottomSelectedObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_bottom_selected_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeselectElements"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_deselect_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeselectElement"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_deselect_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CountSelectedObjects"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_count_selected_objects,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CountSelectedElements"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_count_selected_elements,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearSelection"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_clear_selection,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanSelectElement"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_can_select_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanDeselectElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_can_deselect_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AllowSelectionModifiers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_set_allow_selection_modifiers,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementAssetDataInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAssetData"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_asset_data_interface_get_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAllReferencedAssetDatas"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_asset_data_interface_get_all_referenced_asset_datas,
-        );
+        if let Some(class_ptr) = UTypedElementAssetDataInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAssetData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_asset_data_interface_get_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAllReferencedAssetDatas"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_asset_data_interface_get_all_referenced_asset_datas,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementHierarchyInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetParentElement"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_hierarchy_interface_get_parent_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetChildElements"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_hierarchy_interface_get_child_elements,
-        );
+        if let Some(class_ptr) = UTypedElementHierarchyInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetParentElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_hierarchy_interface_get_parent_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetChildElements"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_hierarchy_interface_get_child_elements,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementObjectInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObjectClass"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_object_interface_get_object_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_object_interface_get_object,
-        );
+        if let Some(class_ptr) = UTypedElementObjectInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObjectClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_object_interface_get_object_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetObject"),
+                &raw mut __FUNCTION_PTRS.u_typed_element_object_interface_get_object,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementPrimitiveCustomDataInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomDataValue"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_primitive_custom_data_interface_set_custom_data_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCustomData"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_primitive_custom_data_interface_set_custom_data,
-        );
+        if let Some(class_ptr) = UTypedElementPrimitiveCustomDataInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomDataValue"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_primitive_custom_data_interface_set_custom_data_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCustomData"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_primitive_custom_data_interface_set_custom_data,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UTypedElementSelectionInterface::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_interface_select_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsElementSelected"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_interface_is_element_selected,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionElement"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_interface_get_selection_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DeselectElement"),
-            &raw mut __FUNCTION_PTRS.u_typed_element_selection_interface_deselect_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanSelectElement"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_interface_can_select_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanDeselectElement"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_interface_can_deselect_element,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AllowSelectionModifiers"),
-            &raw mut __FUNCTION_PTRS
-                .u_typed_element_selection_interface_allow_selection_modifiers,
-        );
+        if let Some(class_ptr) = UTypedElementSelectionInterface::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_select_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsElementSelected"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_is_element_selected,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_get_selection_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DeselectElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_deselect_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanSelectElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_can_select_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanDeselectElement"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_can_deselect_element,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AllowSelectionModifiers"),
+                &raw mut __FUNCTION_PTRS
+                    .u_typed_element_selection_interface_allow_selection_modifiers,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -513,6 +532,13 @@ impl UTypedElementSelectionSetLibrary {
             .name_to_ptr
             .get("UTypedElementSelectionSetLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementSelectionSetLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -811,6 +837,13 @@ impl UTypedElementSelectionSet {
             .name_to_ptr
             .get("UTypedElementSelectionSet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementSelectionSet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1776,6 +1809,13 @@ impl UTypedElementAssetDataInterface {
             .get("UTypedElementAssetDataInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementAssetDataInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1884,6 +1924,13 @@ impl UTypedElementHierarchyInterface {
             .name_to_ptr
             .get("UTypedElementHierarchyInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementHierarchyInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2035,6 +2082,13 @@ impl UTypedElementObjectInterface {
             .get("UTypedElementObjectInterface")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementObjectInterface")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2146,6 +2200,13 @@ impl UTypedElementPrimitiveCustomDataInterface {
             .name_to_ptr
             .get("UTypedElementPrimitiveCustomDataInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementPrimitiveCustomDataInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2286,6 +2347,13 @@ impl UTypedElementSelectionInterface {
             .name_to_ptr
             .get("UTypedElementSelectionInterface")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UTypedElementSelectionInterface")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

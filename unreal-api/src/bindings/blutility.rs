@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -180,663 +181,688 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorUtilityObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Run"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_object_run,
-        );
+        if let Some(class_ptr) = UEditorUtilityObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Run"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_object_run,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UActorActionUtility::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedClasses"),
-            &raw mut __FUNCTION_PTRS.u_actor_action_utility_get_supported_classes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedClass"),
-            &raw mut __FUNCTION_PTRS.u_actor_action_utility_get_supported_class,
-        );
+        if let Some(class_ptr) = UActorActionUtility::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedClasses"),
+                &raw mut __FUNCTION_PTRS.u_actor_action_utility_get_supported_classes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedClass"),
+                &raw mut __FUNCTION_PTRS.u_actor_action_utility_get_supported_class,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAssetActionUtility::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsActionForBlueprints"),
-            &raw mut __FUNCTION_PTRS.u_asset_action_utility_is_action_for_blueprints,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedClasses"),
-            &raw mut __FUNCTION_PTRS.u_asset_action_utility_get_supported_classes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSupportedClass"),
-            &raw mut __FUNCTION_PTRS.u_asset_action_utility_get_supported_class,
-        );
+        if let Some(class_ptr) = UAssetActionUtility::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsActionForBlueprints"),
+                &raw mut __FUNCTION_PTRS.u_asset_action_utility_is_action_for_blueprints,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedClasses"),
+                &raw mut __FUNCTION_PTRS.u_asset_action_utility_get_supported_classes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSupportedClass"),
+                &raw mut __FUNCTION_PTRS.u_asset_action_utility_get_supported_class,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncCaptureScene::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureSceneWithWarmupAsync"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_capture_scene_capture_scene_with_warmup_async,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CaptureSceneAsync"),
-            &raw mut __FUNCTION_PTRS.u_async_capture_scene_capture_scene_async,
-        );
+        if let Some(class_ptr) = UAsyncCaptureScene::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureSceneWithWarmupAsync"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_capture_scene_capture_scene_with_warmup_async,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CaptureSceneAsync"),
+                &raw mut __FUNCTION_PTRS.u_async_capture_scene_capture_scene_async,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncImageExport::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ExportImageAsync"),
-            &raw mut __FUNCTION_PTRS.u_async_image_export_export_image_async,
-        );
+        if let Some(class_ptr) = UAsyncImageExport::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ExportImageAsync"),
+                &raw mut __FUNCTION_PTRS.u_async_image_export_export_image_async,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncRegisterAndExecuteTask::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterAndExecuteTask"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_register_and_execute_task_register_and_execute_task,
-        );
+        if let Some(class_ptr) = UAsyncRegisterAndExecuteTask::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterAndExecuteTask"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_register_and_execute_task_register_and_execute_task,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = AEditorUtilityActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetReceivesEditorInput"),
-            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_set_receives_editor_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Run"),
-            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_run,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetReceivesEditorInput"),
-            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_get_receives_editor_input,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetInputComponent"),
-            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_get_input_component,
-        );
+        if let Some(class_ptr) = AEditorUtilityActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetReceivesEditorInput"),
+                &raw mut __FUNCTION_PTRS.a_editor_utility_actor_set_receives_editor_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Run"),
+                &raw mut __FUNCTION_PTRS.a_editor_utility_actor_run,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetReceivesEditorInput"),
+                &raw mut __FUNCTION_PTRS.a_editor_utility_actor_get_receives_editor_input,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetInputComponent"),
+                &raw mut __FUNCTION_PTRS.a_editor_utility_actor_get_input_component,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncEditorDelay::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AsyncEditorDelay"),
-            &raw mut __FUNCTION_PTRS.u_async_editor_delay_async_editor_delay,
-        );
+        if let Some(class_ptr) = UAsyncEditorDelay::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AsyncEditorDelay"),
+                &raw mut __FUNCTION_PTRS.u_async_editor_delay_async_editor_delay,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncEditorWaitForGameWorld::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AsyncWaitForGameWorld"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_editor_wait_for_game_world_async_wait_for_game_world,
-        );
+        if let Some(class_ptr) = UAsyncEditorWaitForGameWorld::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AsyncWaitForGameWorld"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_editor_wait_for_game_world_async_wait_for_game_world,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAsyncEditorOpenMapAndFocusActor::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AsyncEditorOpenMapAndFocusActor"),
-            &raw mut __FUNCTION_PTRS
-                .u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor,
-        );
+        if let Some(class_ptr) = UAsyncEditorOpenMapAndFocusActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AsyncEditorOpenMapAndFocusActor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorUtilityLibrary::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SyncBrowserToFolders"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_sync_browser_to_folders,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_rename_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selection_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionBounds"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selection_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedPathViewFolderPaths"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_library_get_selected_path_view_folder_paths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedFolderPaths"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_folder_paths,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedBlueprintClasses"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_library_get_selected_blueprint_classes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedAssetsOfClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_library_get_selected_assets_of_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedAssets"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedAssetData"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_asset_data,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentContentBrowserPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_library_get_current_content_browser_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetCurrentContentBrowserItemPath"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_library_get_current_content_browser_item_path,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_actor_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindSourceWidgetByName"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_find_source_widget_by_name,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ConvertToEditorUtilityWidget"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_library_convert_to_editor_utility_widget,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CastToWidgetBlueprint"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_cast_to_widget_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddSourceWidget"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_library_add_source_widget,
-        );
+        if let Some(class_ptr) = UEditorUtilityLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SyncBrowserToFolders"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_sync_browser_to_folders,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_rename_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionSet"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selection_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionBounds"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selection_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedPathViewFolderPaths"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_path_view_folder_paths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedFolderPaths"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_folder_paths,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedBlueprintClasses"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_blueprint_classes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedAssetsOfClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_assets_of_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedAssets"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedAssetData"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_asset_data,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentContentBrowserPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_get_current_content_browser_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetCurrentContentBrowserItemPath"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_get_current_content_browser_item_path,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorReference"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_actor_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindSourceWidgetByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_find_source_widget_by_name,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ConvertToEditorUtilityWidget"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_convert_to_editor_utility_widget,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CastToWidgetBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_library_cast_to_widget_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddSourceWidget"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_library_add_source_widget,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorUtilitySubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("UnregisterTabByID"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_unregister_tab_by_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TryRunClass"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_try_run_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("TryRun"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_try_run,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnRegisteredTabByID"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_spawn_registered_tab_by_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAndRegisterTabWithIdGeneratedClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAndRegisterTabWithId"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_spawn_and_register_tab_with_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAndRegisterTabGeneratedClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_spawn_and_register_tab_generated_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAndRegisterTabAndGetIDGeneratedClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAndRegisterTabAndGetID"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SpawnAndRegisterTab"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_spawn_and_register_tab,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReleaseInstanceOfAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_release_instance_of_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterTabAndGetIDGeneratedClass"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_register_tab_and_get_id_generated_class,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterTabAndGetID"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_register_tab_and_get_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RegisterAndExecuteTask"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_register_and_execute_task,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindUtilityWidgetFromBlueprint"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_utility_subsystem_find_utility_widget_from_blueprint,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("DoesTabExist"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_does_tab_exist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CloseTabByID"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_close_tab_by_id,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanRun"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_can_run,
-        );
+        if let Some(class_ptr) = UEditorUtilitySubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("UnregisterTabByID"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_unregister_tab_by_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TryRunClass"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_try_run_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("TryRun"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_try_run,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnRegisteredTabByID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_registered_tab_by_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAndRegisterTabWithIdGeneratedClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAndRegisterTabWithId"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_with_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAndRegisterTabGeneratedClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_generated_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAndRegisterTabAndGetIDGeneratedClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAndRegisterTabAndGetID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SpawnAndRegisterTab"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReleaseInstanceOfAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_release_instance_of_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterTabAndGetIDGeneratedClass"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_tab_and_get_id_generated_class,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterTabAndGetID"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_tab_and_get_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RegisterAndExecuteTask"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_and_execute_task,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindUtilityWidgetFromBlueprint"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_subsystem_find_utility_widget_from_blueprint,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DoesTabExist"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_does_tab_exist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CloseTabByID"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_close_tab_by_id,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanRun"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_can_run,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorUtilityTask::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("WasCancelRequested"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_was_cancel_requested,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTaskNotificationText"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_set_task_notification_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Run"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_run,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveCancelRequested"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_receive_cancel_requested,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ReceiveBeginExecution"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_receive_begin_execution,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTaskTitleOverride"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_get_task_title_override,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FinishExecutingTask"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_task_finish_executing_task,
-        );
+        if let Some(class_ptr) = UEditorUtilityTask::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("WasCancelRequested"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_was_cancel_requested,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTaskNotificationText"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_set_task_notification_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Run"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_run,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveCancelRequested"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_receive_cancel_requested,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ReceiveBeginExecution"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_receive_begin_execution,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTaskTitleOverride"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_get_task_title_override,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FinishExecutingTask"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_task_finish_executing_task,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorUtilityWidget::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("Run"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_widget_run,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("FindChildWidgetByName"),
-            &raw mut __FUNCTION_PTRS.u_editor_utility_widget_find_child_widget_by_name,
-        );
+        if let Some(class_ptr) = UEditorUtilityWidget::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("Run"),
+                &raw mut __FUNCTION_PTRS.u_editor_utility_widget_run,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("FindChildWidgetByName"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_utility_widget_find_child_widget_by_name,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UDEPRECATED_GlobalEditorUtilityBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_set_actor_selection_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_select_nothing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut __FUNCTION_PTRS.udeprecated_global_editor_utility_base_rename_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("OnDefaultActionClicked"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_on_default_action_clicked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_get_selection_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionBounds"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_get_selection_bounds,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectedAssets"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_get_selected_assets,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetEditorUserSettings"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_get_editor_user_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_get_actor_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForEachSelectedAsset"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_for_each_selected_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ForEachSelectedActor"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_for_each_selected_actor,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut __FUNCTION_PTRS
-                .udeprecated_global_editor_utility_base_clear_actor_selection_set,
-        );
+        if let Some(class_ptr) = UDEPRECATED_GlobalEditorUtilityBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActorSelectionState"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_set_actor_selection_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectNothing"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_select_nothing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RenameAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_rename_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("OnDefaultActionClicked"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_on_default_action_clicked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionSet"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selection_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionBounds"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selection_bounds,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectedAssets"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selected_assets,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetEditorUserSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_editor_user_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorReference"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_actor_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForEachSelectedAsset"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_for_each_selected_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ForEachSelectedActor"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_for_each_selected_actor,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
+                &raw mut __FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_clear_actor_selection_set,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = ADEPRECATED_PlacedEditorUtilityBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_set_level_viewport_camera_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_set_actor_selection_state,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_select_nothing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_get_selection_set,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_get_level_viewport_camera_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_get_actor_reference,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut __FUNCTION_PTRS
-                .adeprecated_placed_editor_utility_base_clear_actor_selection_set,
-        );
+        if let Some(class_ptr) = ADEPRECATED_PlacedEditorUtilityBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_set_level_viewport_camera_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetActorSelectionState"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_set_actor_selection_state,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SelectNothing"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_select_nothing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSelectionSet"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_selection_set,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_level_viewport_camera_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetActorReference"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_actor_reference,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
+                &raw mut __FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_clear_actor_selection_set,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -850,6 +876,13 @@ impl UEditorFunctionLibrary {
             .name_to_ptr
             .get("UEditorFunctionLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorFunctionLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -872,6 +905,13 @@ impl UEditorUtilityToolMenuEntry {
             .get("UEditorUtilityToolMenuEntry")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityToolMenuEntry")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -892,6 +932,13 @@ impl UEditorUtilityToolMenuSection {
             .name_to_ptr
             .get("UEditorUtilityToolMenuSection")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityToolMenuSection")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -915,6 +962,13 @@ impl UEditorUtilityExtension {
             .get("UEditorUtilityExtension")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityExtension")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -935,6 +989,13 @@ impl UEditorUtilityObject {
             .name_to_ptr
             .get("UEditorUtilityObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -979,6 +1040,13 @@ impl UActorActionUtility {
             .name_to_ptr
             .get("UActorActionUtility")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UActorActionUtility")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1066,6 +1134,13 @@ impl UAssetActionUtility {
             .name_to_ptr
             .get("UAssetActionUtility")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAssetActionUtility")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1179,6 +1254,13 @@ impl UAsyncCaptureScene {
             .name_to_ptr
             .get("UAsyncCaptureScene")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncCaptureScene")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1319,6 +1401,13 @@ impl UAsyncImageExport {
             .get("UAsyncImageExport")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncImageExport")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1387,6 +1476,13 @@ impl UAsyncRegisterAndExecuteTask {
             .get("UAsyncRegisterAndExecuteTask")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncRegisterAndExecuteTask")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1452,6 +1548,13 @@ impl AEditorUtilityActor {
             .name_to_ptr
             .get("AEditorUtilityActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AEditorUtilityActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1586,6 +1689,13 @@ impl UEditorUtilityActorComponent {
             .get("UEditorUtilityActorComponent")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityActorComponent")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1606,6 +1716,13 @@ impl UEditorUtilityBlueprint {
             .name_to_ptr
             .get("UEditorUtilityBlueprint")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityBlueprint")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1628,6 +1745,13 @@ impl UEditorUtilityBlueprintFactory {
             .get("UEditorUtilityBlueprintFactory")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityBlueprintFactory")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1648,6 +1772,13 @@ impl AEditorUtilityCamera {
             .name_to_ptr
             .get("AEditorUtilityCamera")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AEditorUtilityCamera")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1670,6 +1801,13 @@ impl UEditorUtilityBlueprintAsyncActionBase {
             .get("UEditorUtilityBlueprintAsyncActionBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityBlueprintAsyncActionBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1690,6 +1828,13 @@ impl UAsyncEditorDelay {
             .name_to_ptr
             .get("UAsyncEditorDelay")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncEditorDelay")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1751,6 +1896,13 @@ impl UAsyncEditorWaitForGameWorld {
             .get("UAsyncEditorWaitForGameWorld")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncEditorWaitForGameWorld")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1806,6 +1958,13 @@ impl UAsyncEditorOpenMapAndFocusActor {
             .name_to_ptr
             .get("UAsyncEditorOpenMapAndFocusActor")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAsyncEditorOpenMapAndFocusActor")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1874,6 +2033,13 @@ impl UEditorUtilityLibrary {
             .name_to_ptr
             .get("UEditorUtilityLibrary")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityLibrary")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2566,6 +2732,13 @@ impl UEditorUtilitySubsystem {
             .name_to_ptr
             .get("UEditorUtilitySubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilitySubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3299,6 +3472,13 @@ impl UEditorUtilityTask {
             .get("UEditorUtilityTask")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityTask")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3484,6 +3664,13 @@ impl UEditorUtilityWidget {
             .get("UEditorUtilityWidget")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityWidget")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3564,6 +3751,13 @@ impl UEditorUtilityWidgetBlueprint {
             .get("UEditorUtilityWidgetBlueprint")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityWidgetBlueprint")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3584,6 +3778,13 @@ impl UEditorUtilityWidgetBlueprintFactory {
             .name_to_ptr
             .get("UEditorUtilityWidgetBlueprintFactory")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityWidgetBlueprintFactory")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3606,6 +3807,13 @@ impl UEditorUtilityButton {
             .get("UEditorUtilityButton")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityButton")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3626,6 +3834,13 @@ impl UEditorUtilityCheckBox {
             .name_to_ptr
             .get("UEditorUtilityCheckBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityCheckBox")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3648,6 +3863,13 @@ impl UEditorUtilityCircularThrobber {
             .get("UEditorUtilityCircularThrobber")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityCircularThrobber")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3668,6 +3890,13 @@ impl UEditorUtilityComboBoxKey {
             .name_to_ptr
             .get("UEditorUtilityComboBoxKey")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityComboBoxKey")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3690,6 +3919,13 @@ impl UEditorUtilityComboBoxString {
             .get("UEditorUtilityComboBoxString")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityComboBoxString")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3710,6 +3946,13 @@ impl UEditorUtilityEditableText {
             .name_to_ptr
             .get("UEditorUtilityEditableText")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityEditableText")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3732,6 +3975,13 @@ impl UEditorUtilityEditableTextBox {
             .get("UEditorUtilityEditableTextBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityEditableTextBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3752,6 +4002,13 @@ impl UEditorUtilityExpandableArea {
             .name_to_ptr
             .get("UEditorUtilityExpandableArea")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityExpandableArea")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3774,6 +4031,13 @@ impl UEditorUtilityInputKeySelector {
             .get("UEditorUtilityInputKeySelector")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityInputKeySelector")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3794,6 +4058,13 @@ impl UEditorUtilityListView {
             .name_to_ptr
             .get("UEditorUtilityListView")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityListView")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3816,6 +4087,13 @@ impl UEditorUtilityMultiLineEditableText {
             .get("UEditorUtilityMultiLineEditableText")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityMultiLineEditableText")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3836,6 +4114,13 @@ impl UEditorUtilityMultiLineEditableTextBox {
             .name_to_ptr
             .get("UEditorUtilityMultiLineEditableTextBox")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityMultiLineEditableTextBox")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3858,6 +4143,13 @@ impl UEditorUtilityProgressBar {
             .get("UEditorUtilityProgressBar")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityProgressBar")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3878,6 +4170,13 @@ impl UEditorUtilityScrollBar {
             .name_to_ptr
             .get("UEditorUtilityScrollBar")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityScrollBar")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3900,6 +4199,13 @@ impl UEditorUtilityScrollBox {
             .get("UEditorUtilityScrollBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityScrollBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3920,6 +4226,13 @@ impl UEditorUtilitySlider {
             .name_to_ptr
             .get("UEditorUtilitySlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilitySlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3942,6 +4255,13 @@ impl UEditorUtilitySpinBox {
             .get("UEditorUtilitySpinBox")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilitySpinBox")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3962,6 +4282,13 @@ impl UEditorUtilityThrobber {
             .name_to_ptr
             .get("UEditorUtilityThrobber")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityThrobber")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3984,6 +4311,13 @@ impl UEditorUtilityTreeView {
             .get("UEditorUtilityTreeView")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityTreeView")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4004,6 +4338,13 @@ impl UEditorUtilityWidgetProjectSettings {
             .name_to_ptr
             .get("UEditorUtilityWidgetProjectSettings")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorUtilityWidgetProjectSettings")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4031,6 +4372,13 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             .name_to_ptr
             .get("UDEPRECATED_GlobalEditorUtilityBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDEPRECATED_GlobalEditorUtilityBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -4471,6 +4819,13 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             .get("ADEPRECATED_PlacedEditorUtilityBase")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADEPRECATED_PlacedEditorUtilityBase")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -4760,6 +5115,13 @@ impl UToolMenuWidget {
             .name_to_ptr
             .get("UToolMenuWidget")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UToolMenuWidget")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

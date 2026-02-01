@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -48,110 +49,113 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorValidatorBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_ValidateLoadedAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_validate_loaded_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_CanValidateAsset"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_can_validate_asset,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("K2_CanValidate"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_can_validate,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValidationResult"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_get_validation_result,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssetWarning"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_warning,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssetPasses"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_passes,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AssetFails"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_fails,
-        );
+        if let Some(class_ptr) = UEditorValidatorBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_ValidateLoadedAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_validate_loaded_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_CanValidateAsset"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_can_validate_asset,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("K2_CanValidate"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_can_validate,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValidationResult"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_get_validation_result,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssetWarning"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_warning,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssetPasses"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_passes,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AssetFails"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_fails,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UEditorValidatorSubsystem::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ValidateChangelists"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_validate_changelists,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ValidateChangelist"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_validate_changelist,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("ValidateAssetsWithSettings"),
-            &raw mut __FUNCTION_PTRS
-                .u_editor_validator_subsystem_validate_assets_with_settings,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("RemoveValidator"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_remove_validator,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsObjectValid"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_is_object_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("IsAssetValid"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_is_asset_valid,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("AddValidator"),
-            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_add_validator,
-        );
+        if let Some(class_ptr) = UEditorValidatorSubsystem::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ValidateChangelists"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_changelists,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ValidateChangelist"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_validate_changelist,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("ValidateAssetsWithSettings"),
+                &raw mut __FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_assets_with_settings,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("RemoveValidator"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_remove_validator,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsObjectValid"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_is_object_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("IsAssetValid"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_is_asset_valid,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("AddValidator"),
+                &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_add_validator,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -212,6 +216,13 @@ impl UDataValidationSettings {
             .get("UDataValidationSettings")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataValidationSettings")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -233,6 +244,13 @@ impl UDataValidationChangelist {
             .get("UDataValidationChangelist")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataValidationChangelist")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -253,6 +271,13 @@ impl UDataValidationCommandlet {
             .name_to_ptr
             .get("UDataValidationCommandlet")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDataValidationCommandlet")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -278,6 +303,13 @@ impl ADataValidationTestActor {
             .get("ADataValidationTestActor")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("ADataValidationTestActor")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -298,6 +330,13 @@ impl UEditorValidatorBase {
             .name_to_ptr
             .get("UEditorValidatorBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorValidatorBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -589,6 +628,13 @@ impl UDirtyFilesChangelistValidator {
             .get("UDirtyFilesChangelistValidator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UDirtyFilesChangelistValidator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -609,6 +655,13 @@ impl UEditorValidatorSubsystem {
             .name_to_ptr
             .get("UEditorValidatorSubsystem")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorValidatorSubsystem")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1018,6 +1071,13 @@ impl UEditorValidator_Localization {
             .get("UEditorValidator_Localization")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorValidator_Localization")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1038,6 +1098,13 @@ impl UEditorValidator_Material {
             .name_to_ptr
             .get("UEditorValidator_Material")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UEditorValidator_Material")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1060,6 +1127,13 @@ impl UValidationMaterial {
             .get("UValidationMaterial")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UValidationMaterial")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1081,6 +1155,13 @@ impl UPackageFileValidator {
             .get("UPackageFileValidator")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPackageFileValidator")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1101,6 +1182,13 @@ impl UWorldPartitionChangelistValidator {
             .name_to_ptr
             .get("UWorldPartitionChangelistValidator")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UWorldPartitionChangelistValidator")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

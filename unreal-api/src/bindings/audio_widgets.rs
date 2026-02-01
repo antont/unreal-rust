@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -168,562 +169,578 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioMaterialButton::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetIsPressed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_button_set_is_pressed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsPressed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_button_get_is_pressed,
-        );
+        if let Some(class_ptr) = UAudioMaterialButton::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetIsPressed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_button_set_is_pressed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsPressed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_button_get_is_pressed,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioMaterialKnob::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_tune_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_mouse_uses_step,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_fine_tune_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_tune_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_mouse_uses_step,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsLocked"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_is_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_fine_tune_speed,
-        );
+        if let Some(class_ptr) = UAudioMaterialKnob::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_tune_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_mouse_uses_step,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocked"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_fine_tune_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_tune_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_mouse_uses_step,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsLocked"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_is_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_fine_tune_speed,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioMaterialMeter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_meter_set_meter_channel_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_material_meter_get_meter_channel_info_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_meter_get_meter_channel_info,
-        );
+        if let Some(class_ptr) = UAudioMaterialMeter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_meter_set_meter_channel_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_material_meter_get_meter_channel_info_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_meter_get_meter_channel_info,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioMaterialSlider::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_tune_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_mouse_uses_step,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_fine_tune_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_tune_speed,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetStepSize"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_step_size,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_mouse_uses_step,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetIsLocked"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_is_locked,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
-            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_fine_tune_speed,
-        );
+        if let Some(class_ptr) = UAudioMaterialSlider::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_tune_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_mouse_uses_step,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetLocked"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_fine_tune_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_tune_speed,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetStepSize"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_step_size,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_mouse_uses_step,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetIsLocked"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_is_locked,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
+                &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_fine_tune_speed,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioMeter::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterValueColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_value_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterScaleLabelColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_scale_label_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterScaleColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_scale_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterPeakColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_peak_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterClippingColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_clipping_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_channel_info,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetMeterBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_set_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_meter_get_meter_channel_info_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
-            &raw mut __FUNCTION_PTRS.u_audio_meter_get_meter_channel_info,
-        );
+        if let Some(class_ptr) = UAudioMeter::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterValueColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_value_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterScaleLabelColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_scale_label_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterScaleColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_scale_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterPeakColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_peak_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterClippingColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_clipping_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_channel_info,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetMeterBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_set_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_meter_get_meter_channel_info_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
+                &raw mut __FUNCTION_PTRS.u_audio_meter_get_meter_channel_info,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioOscilloscope::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopProcessing"),
-            &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_stop_processing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartProcessing"),
-            &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_start_processing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOscilloscopeAudioSamples__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_oscilloscope_get_oscilloscope_audio_samples_delegate_signature,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("CanTriggeringBeSet"),
-            &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_can_triggering_be_set,
-        );
+        if let Some(class_ptr) = UAudioOscilloscope::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopProcessing"),
+                &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_stop_processing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartProcessing"),
+                &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_start_processing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetOscilloscopeAudioSamples__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_oscilloscope_get_oscilloscope_audio_samples_delegate_signature,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("CanTriggeringBeSet"),
+                &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_can_triggering_be_set,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioRadialSlider::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetLayout"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_widget_layout,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_value_text_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_units_text_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUnitsText"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_units_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_radial_slider_set_text_label_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderThickness"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_thickness,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_progress_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_bar_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowUnitsText"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_show_units_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_show_label_only_on_hover,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetOutputRange"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_output_range,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_hand_start_end_ratio,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_center_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_get_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOutputValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_get_output_value,
-        );
+        if let Some(class_ptr) = UAudioRadialSlider::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetLayout"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_widget_layout,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_value_text_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_units_text_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUnitsText"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_units_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_radial_slider_set_text_label_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderThickness"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_thickness,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_progress_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderBarColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_bar_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowUnitsText"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_show_units_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_radial_slider_set_show_label_only_on_hover,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetOutputRange"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_output_range,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_hand_start_end_ratio,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_radial_slider_set_center_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_get_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOutputValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_radial_slider_get_output_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioSliderBase::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetWidgetBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_widget_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_value_text_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_units_text_read_only,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetUnitsText"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_units_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_text_label_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderThumbColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_thumb_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_bar_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetSliderBackgroundColor"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_background_color,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowUnitsText"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_show_units_text,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_show_label_only_on_hover,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetSliderValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_slider_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetOutputValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_output_value,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetLinValue"),
-            &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_lin_value,
-        );
+        if let Some(class_ptr) = UAudioSliderBase::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetWidgetBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_widget_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_value_text_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_units_text_read_only,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetUnitsText"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_units_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_slider_base_set_text_label_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderThumbColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_thumb_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderBarColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_bar_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetSliderBackgroundColor"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_background_color,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowUnitsText"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_show_units_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_show_label_only_on_hover,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetSliderValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_slider_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetOutputValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_output_value,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetLinValue"),
+                &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_lin_value,
+            );
+        }
     }
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UAudioVectorscope::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StopProcessing"),
-            &raw mut __FUNCTION_PTRS.u_audio_vectorscope_stop_processing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("StartProcessing"),
-            &raw mut __FUNCTION_PTRS.u_audio_vectorscope_start_processing,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetVectorscopeAudioSamples__DelegateSignature"),
-            &raw mut __FUNCTION_PTRS
-                .u_audio_vectorscope_get_vectorscope_audio_samples_delegate_signature,
-        );
+        if let Some(class_ptr) = UAudioVectorscope::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StopProcessing"),
+                &raw mut __FUNCTION_PTRS.u_audio_vectorscope_stop_processing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("StartProcessing"),
+                &raw mut __FUNCTION_PTRS.u_audio_vectorscope_start_processing,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from(
+                    "GetVectorscopeAudioSamples__DelegateSignature",
+                ),
+                &raw mut __FUNCTION_PTRS
+                    .u_audio_vectorscope_get_vectorscope_audio_samples_delegate_signature,
+            );
+        }
     }
 }
 #[repr(C, align(4))]
@@ -986,6 +1003,13 @@ impl UAudioMaterialKnobWidgetStyle {
             .get("UAudioMaterialKnobWidgetStyle")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialKnobWidgetStyle")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1006,6 +1030,13 @@ impl UAudioMaterialMeterWidgetStyle {
             .name_to_ptr
             .get("UAudioMaterialMeterWidgetStyle")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialMeterWidgetStyle")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1028,6 +1059,13 @@ impl UAudioMaterialButtonWidgetStyle {
             .get("UAudioMaterialButtonWidgetStyle")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialButtonWidgetStyle")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1048,6 +1086,13 @@ impl UAudioMaterialSliderWidgetStyle {
             .name_to_ptr
             .get("UAudioMaterialSliderWidgetStyle")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialSliderWidgetStyle")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1075,6 +1120,13 @@ impl UAudioMaterialButton {
             .name_to_ptr
             .get("UAudioMaterialButton")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialButton")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1159,6 +1211,13 @@ impl UAudioMaterialEnvelope {
             .get("UAudioMaterialEnvelope")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialEnvelope")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1190,6 +1249,13 @@ impl UAudioMaterialKnob {
             .name_to_ptr
             .get("UAudioMaterialKnob")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialKnob")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -1546,6 +1612,13 @@ impl UAudioMaterialMeter {
             .get("UAudioMaterialMeter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialMeter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -1640,6 +1713,13 @@ impl UAudioMaterialSlider {
             .name_to_ptr
             .get("UAudioMaterialSlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMaterialSlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2005,6 +2085,13 @@ impl UAudioMeter {
             .get("UAudioMeter")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioMeter")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2348,6 +2435,13 @@ impl UAudioOscilloscope {
             .get("UAudioOscilloscope")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioOscilloscope")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2418,6 +2512,13 @@ impl UAudioRadialSlider {
             .name_to_ptr
             .get("UAudioRadialSlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioRadialSlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2936,6 +3037,13 @@ impl UAudioVolumeRadialSlider {
             .get("UAudioVolumeRadialSlider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioVolumeRadialSlider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -2956,6 +3064,13 @@ impl UAudioFrequencyRadialSlider {
             .name_to_ptr
             .get("UAudioFrequencyRadialSlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioFrequencyRadialSlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -2980,6 +3095,13 @@ impl UAudioSliderBase {
             .name_to_ptr
             .get("UAudioSliderBase")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSliderBase")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3435,6 +3557,13 @@ impl UAudioSlider {
             .get("UAudioSlider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioSlider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3456,6 +3585,13 @@ impl UAudioVolumeSlider {
             .get("UAudioVolumeSlider")
             .unwrap()
     }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioVolumeSlider")
+            .copied()
+    }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
         unsafe {
@@ -3476,6 +3612,13 @@ impl UAudioFrequencySlider {
             .name_to_ptr
             .get("UAudioFrequencySlider")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioFrequencySlider")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -3507,6 +3650,13 @@ impl UAudioVectorscope {
             .name_to_ptr
             .get("UAudioVectorscope")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UAudioVectorscope")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();

@@ -1,3 +1,4 @@
+#![allow(clippy::all)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
@@ -24,23 +25,24 @@ impl FunctionPtrs {
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
-        let class_ptr = UPluginMetadataObject::static_class();
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetDisallowedPluginsOptions"),
-            &raw mut __FUNCTION_PTRS
-                .u_plugin_metadata_object_get_disallowed_plugins_options,
-        );
-        (bindings
-            .core_fns
-            .find_function_by_name)(
-            class_ptr,
-            unreal_ffi::Utf8Str::from("GetAvailablePluginDependencies"),
-            &raw mut __FUNCTION_PTRS
-                .u_plugin_metadata_object_get_available_plugin_dependencies,
-        );
+        if let Some(class_ptr) = UPluginMetadataObject::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetDisallowedPluginsOptions"),
+                &raw mut __FUNCTION_PTRS
+                    .u_plugin_metadata_object_get_disallowed_plugins_options,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetAvailablePluginDependencies"),
+                &raw mut __FUNCTION_PTRS
+                    .u_plugin_metadata_object_get_available_plugin_dependencies,
+            );
+        }
     }
 }
 #[repr(C, align(8))]
@@ -54,6 +56,13 @@ impl UNewPluginDescriptorData {
             .name_to_ptr
             .get("UNewPluginDescriptorData")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNewPluginDescriptorData")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
@@ -75,6 +84,13 @@ impl UPluginMetadataObject {
             .name_to_ptr
             .get("UPluginMetadataObject")
             .unwrap()
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UPluginMetadataObject")
+            .copied()
     }
     pub fn cdo() -> *mut crate::ffi::UObjectOpague {
         let class = Self::static_class();
