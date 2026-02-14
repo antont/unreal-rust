@@ -40,12 +40,17 @@ pub struct URecomputeUVsToolProperties {
     __padding_end: [u8; 240],
 }
 impl URecomputeUVsToolProperties {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("URecomputeUVsToolProperties")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -58,7 +63,9 @@ impl URecomputeUVsToolProperties {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -68,12 +75,17 @@ pub struct UUVLayoutProperties {
     __padding_end: [u8; 224],
 }
 impl UUVLayoutProperties {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UUVLayoutProperties")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -86,7 +98,9 @@ impl UUVLayoutProperties {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -96,12 +110,17 @@ pub struct UGenerateCrossSectionOpFactory {
     __padding_end: [u8; 208],
 }
 impl UGenerateCrossSectionOpFactory {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UGenerateCrossSectionOpFactory")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -114,7 +133,9 @@ impl UGenerateCrossSectionOpFactory {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -124,12 +145,17 @@ pub struct URecomputeUVsOpFactory {
     __padding_end: [u8; 304],
 }
 impl URecomputeUVsOpFactory {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("URecomputeUVsOpFactory")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -142,7 +168,9 @@ impl URecomputeUVsOpFactory {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -152,12 +180,17 @@ pub struct UUVEditorTexelDensitySettings {
     __padding_end: [u8; 208],
 }
 impl UUVEditorTexelDensitySettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UUVEditorTexelDensitySettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -170,7 +203,9 @@ impl UUVEditorTexelDensitySettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -180,12 +215,17 @@ pub struct UUVTexelDensityOperatorFactory {
     __padding_end: [u8; 384],
 }
 impl UUVTexelDensityOperatorFactory {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UUVTexelDensityOperatorFactory")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -198,7 +238,9 @@ impl UUVTexelDensityOperatorFactory {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -208,12 +250,17 @@ pub struct UUVLayoutOperatorFactory {
     __padding_end: [u8; 384],
 }
 impl UUVLayoutOperatorFactory {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UUVLayoutOperatorFactory")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -226,7 +273,9 @@ impl UUVLayoutOperatorFactory {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

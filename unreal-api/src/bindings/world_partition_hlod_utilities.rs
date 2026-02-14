@@ -22,12 +22,17 @@ pub struct UHLODBuilderCustomHLODActorSettings {
     __padding_end: [u8; 48],
 }
 impl UHLODBuilderCustomHLODActorSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderCustomHLODActorSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -40,7 +45,9 @@ impl UHLODBuilderCustomHLODActorSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -50,12 +57,17 @@ pub struct UHLODBuilderCustomHLODActor {
     __padding_end: [u8; 72],
 }
 impl UHLODBuilderCustomHLODActor {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderCustomHLODActor")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -68,7 +80,9 @@ impl UHLODBuilderCustomHLODActor {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -84,12 +98,17 @@ pub struct UHLODBuilderInstancingSettings {
     pub minimum_volume: f64,
 }
 impl UHLODBuilderInstancingSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderInstancingSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -102,7 +121,9 @@ impl UHLODBuilderInstancingSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -112,12 +133,17 @@ pub struct UHLODBuilderInstancing {
     __padding_end: [u8; 72],
 }
 impl UHLODBuilderInstancing {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderInstancing")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -130,7 +156,9 @@ impl UHLODBuilderInstancing {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -140,12 +168,17 @@ pub struct UHLODBuilderMeshApproximateSettings {
     __padding_end: [u8; 360],
 }
 impl UHLODBuilderMeshApproximateSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderMeshApproximateSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -158,7 +191,9 @@ impl UHLODBuilderMeshApproximateSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -168,12 +203,17 @@ pub struct UHLODBuilderMeshApproximate {
     __padding_end: [u8; 72],
 }
 impl UHLODBuilderMeshApproximate {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderMeshApproximate")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -186,7 +226,9 @@ impl UHLODBuilderMeshApproximate {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -196,12 +238,17 @@ pub struct UHLODBuilderMeshMergeSettings {
     __padding_end: [u8; 384],
 }
 impl UHLODBuilderMeshMergeSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderMeshMergeSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -214,7 +261,9 @@ impl UHLODBuilderMeshMergeSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -224,12 +273,17 @@ pub struct UHLODBuilderMeshMerge {
     __padding_end: [u8; 72],
 }
 impl UHLODBuilderMeshMerge {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderMeshMerge")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -242,7 +296,9 @@ impl UHLODBuilderMeshMerge {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -252,12 +308,17 @@ pub struct UHLODBuilderMeshSimplifySettings {
     __padding_end: [u8; 376],
 }
 impl UHLODBuilderMeshSimplifySettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderMeshSimplifySettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -270,7 +331,9 @@ impl UHLODBuilderMeshSimplifySettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -280,12 +343,17 @@ pub struct UHLODBuilderMeshSimplify {
     __padding_end: [u8; 72],
 }
 impl UHLODBuilderMeshSimplify {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UHLODBuilderMeshSimplify")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -298,7 +366,9 @@ impl UHLODBuilderMeshSimplify {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -308,12 +378,17 @@ pub struct UWorldPartitionHLODModifierMeshDestruction {
     __padding_end: [u8; 80],
 }
 impl UWorldPartitionHLODModifierMeshDestruction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UWorldPartitionHLODModifierMeshDestruction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -326,7 +401,9 @@ impl UWorldPartitionHLODModifierMeshDestruction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

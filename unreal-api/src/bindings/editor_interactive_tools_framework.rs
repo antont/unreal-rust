@@ -23,12 +23,17 @@ pub struct UEditorInteractiveGizmoConditionalBuilder {
     __padding_end: [u8; 48],
 }
 impl UEditorInteractiveGizmoConditionalBuilder {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorInteractiveGizmoConditionalBuilder")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -41,7 +46,9 @@ impl UEditorInteractiveGizmoConditionalBuilder {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -51,12 +58,17 @@ pub struct UEditorSceneSnappingManager {
     __padding_end: [u8; 56],
 }
 impl UEditorSceneSnappingManager {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorSceneSnappingManager")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -69,7 +81,9 @@ impl UEditorSceneSnappingManager {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -80,12 +94,17 @@ pub struct UGizmoEdModeInterface {
     __padding_end: [u8; 48],
 }
 impl UGizmoEdModeInterface {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UGizmoEdModeInterface")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -98,7 +117,9 @@ impl UGizmoEdModeInterface {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -109,12 +130,17 @@ pub struct UTransformGizmoSource {
     __padding_end: [u8; 48],
 }
 impl UTransformGizmoSource {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UTransformGizmoSource")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -127,7 +153,9 @@ impl UTransformGizmoSource {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -137,12 +165,17 @@ pub struct UViewportInteraction {
     __padding_end: [u8; 112],
 }
 impl UViewportInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -155,7 +188,9 @@ impl UViewportInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -165,12 +200,17 @@ pub struct UViewportCameraRotateInteraction {
     __padding_end: [u8; 136],
 }
 impl UViewportCameraRotateInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportCameraRotateInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -183,7 +223,9 @@ impl UViewportCameraRotateInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -193,12 +235,17 @@ pub struct UViewportCameraSpeedMouseWheelInteraction {
     __padding_end: [u8; 120],
 }
 impl UViewportCameraSpeedMouseWheelInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportCameraSpeedMouseWheelInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -211,7 +258,9 @@ impl UViewportCameraSpeedMouseWheelInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -221,12 +270,17 @@ pub struct UViewportCameraTranslateInteraction {
     __padding_end: [u8; 136],
 }
 impl UViewportCameraTranslateInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportCameraTranslateInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -239,7 +293,9 @@ impl UViewportCameraTranslateInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -249,12 +305,17 @@ pub struct UMultiButtonClickDragBehavior {
     __padding_end: [u8; 624],
 }
 impl UMultiButtonClickDragBehavior {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UMultiButtonClickDragBehavior")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -267,7 +328,9 @@ impl UMultiButtonClickDragBehavior {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -277,12 +340,17 @@ pub struct UViewportClickDragBehavior {
     __padding_end: [u8; 656],
 }
 impl UViewportClickDragBehavior {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportClickDragBehavior")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -295,7 +363,9 @@ impl UViewportClickDragBehavior {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -305,12 +375,17 @@ pub struct UViewportCommandsInteraction {
     __padding_end: [u8; 168],
 }
 impl UViewportCommandsInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportCommandsInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -323,7 +398,9 @@ impl UViewportCommandsInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -333,12 +410,17 @@ pub struct UViewportDragInteraction {
     __padding_end: [u8; 144],
 }
 impl UViewportDragInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportDragInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -351,7 +433,9 @@ impl UViewportDragInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -361,12 +445,17 @@ pub struct UViewportFOVInteraction {
     __padding_end: [u8; 136],
 }
 impl UViewportFOVInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportFOVInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -379,7 +468,9 @@ impl UViewportFOVInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -389,12 +480,17 @@ pub struct UViewportInteractionsBehaviorSource {
     __padding_end: [u8; 288],
 }
 impl UViewportInteractionsBehaviorSource {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportInteractionsBehaviorSource")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -407,7 +503,9 @@ impl UViewportInteractionsBehaviorSource {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -417,12 +515,17 @@ pub struct UViewportMoveYawInteraction {
     __padding_end: [u8; 144],
 }
 impl UViewportMoveYawInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportMoveYawInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -435,7 +538,9 @@ impl UViewportMoveYawInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -445,12 +550,17 @@ pub struct UViewportOrbitInteraction {
     __padding_end: [u8; 144],
 }
 impl UViewportOrbitInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportOrbitInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -463,7 +573,9 @@ impl UViewportOrbitInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -473,12 +585,17 @@ pub struct UViewportOrthoPanInteraction {
     __padding_end: [u8; 144],
 }
 impl UViewportOrthoPanInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportOrthoPanInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -491,7 +608,9 @@ impl UViewportOrthoPanInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -501,12 +620,17 @@ pub struct UViewportPanInteraction {
     __padding_end: [u8; 152],
 }
 impl UViewportPanInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportPanInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -519,7 +643,9 @@ impl UViewportPanInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -529,12 +655,17 @@ pub struct UViewportViewAngleInteraction {
     __padding_end: [u8; 144],
 }
 impl UViewportViewAngleInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportViewAngleInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -547,7 +678,9 @@ impl UViewportViewAngleInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -557,12 +690,17 @@ pub struct UViewportZoomInteraction {
     __padding_end: [u8; 208],
 }
 impl UViewportZoomInteraction {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UViewportZoomInteraction")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -575,7 +713,9 @@ impl UViewportZoomInteraction {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -585,12 +725,17 @@ pub struct UDragToolsBehaviorSource {
     __padding_end: [u8; 192],
 }
 impl UDragToolsBehaviorSource {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UDragToolsBehaviorSource")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -603,7 +748,9 @@ impl UDragToolsBehaviorSource {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -613,12 +760,17 @@ pub struct UEditorGizmoStateTarget {
     __padding_end: [u8; 112],
 }
 impl UEditorGizmoStateTarget {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorGizmoStateTarget")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -631,7 +783,9 @@ impl UEditorGizmoStateTarget {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -641,12 +795,17 @@ pub struct UTransformGizmo {
     __padding_end: [u8; 2032],
 }
 impl UTransformGizmo {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UTransformGizmo")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -659,7 +818,9 @@ impl UTransformGizmo {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -669,12 +830,17 @@ pub struct UEditorTransformGizmo {
     __padding_end: [u8; 2032],
 }
 impl UEditorTransformGizmo {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorTransformGizmo")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -687,7 +853,9 @@ impl UEditorTransformGizmo {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -697,12 +865,17 @@ pub struct UEditorTransformGizmoBuilder {
     __padding_end: [u8; 112],
 }
 impl UEditorTransformGizmoBuilder {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorTransformGizmoBuilder")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -715,7 +888,9 @@ impl UEditorTransformGizmoBuilder {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -725,12 +900,17 @@ pub struct UEditorTransformGizmoSource {
     __padding_end: [u8; 64],
 }
 impl UEditorTransformGizmoSource {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorTransformGizmoSource")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -743,7 +923,9 @@ impl UEditorTransformGizmoSource {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -753,12 +935,17 @@ pub struct UEditorTransformGizmoContextObject {
     __padding_end: [u8; 272],
 }
 impl UEditorTransformGizmoContextObject {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorTransformGizmoContextObject")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -771,7 +958,9 @@ impl UEditorTransformGizmoContextObject {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -781,12 +970,17 @@ pub struct UEditorTransformProxy {
     __padding_end: [u8; 544],
 }
 impl UEditorTransformProxy {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorTransformProxy")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -799,7 +993,9 @@ impl UEditorTransformProxy {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -809,12 +1005,17 @@ pub struct UGizmoElementGimbal {
     __padding_end: [u8; 624],
 }
 impl UGizmoElementGimbal {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UGizmoElementGimbal")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -827,7 +1028,9 @@ impl UGizmoElementGimbal {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -837,12 +1040,17 @@ pub struct UEditorInteractiveGizmoManager {
     __padding_end: [u8; 336],
 }
 impl UEditorInteractiveGizmoManager {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorInteractiveGizmoManager")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -855,7 +1063,9 @@ impl UEditorInteractiveGizmoManager {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -865,12 +1075,17 @@ pub struct UEditorGizmoRegistryCategoryEntry {
     __padding_end: [u8; 80],
 }
 impl UEditorGizmoRegistryCategoryEntry {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorGizmoRegistryCategoryEntry")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -883,7 +1098,9 @@ impl UEditorGizmoRegistryCategoryEntry {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -893,12 +1110,17 @@ pub struct UEditorGizmoRegistryCategoryEntry_ConditionalSelection {
     __padding_end: [u8; 80],
 }
 impl UEditorGizmoRegistryCategoryEntry_ConditionalSelection {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorGizmoRegistryCategoryEntry_ConditionalSelection")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -911,7 +1133,9 @@ impl UEditorGizmoRegistryCategoryEntry_ConditionalSelection {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -921,12 +1145,17 @@ pub struct UEditorGizmoRegistryCategoryEntry_Primary {
     __padding_end: [u8; 80],
 }
 impl UEditorGizmoRegistryCategoryEntry_Primary {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorGizmoRegistryCategoryEntry_Primary")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -939,7 +1168,9 @@ impl UEditorGizmoRegistryCategoryEntry_Primary {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -949,12 +1180,17 @@ pub struct UEditorGizmoRegistryCategoryEntry_Accessory {
     __padding_end: [u8; 80],
 }
 impl UEditorGizmoRegistryCategoryEntry_Accessory {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorGizmoRegistryCategoryEntry_Accessory")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -967,7 +1203,9 @@ impl UEditorGizmoRegistryCategoryEntry_Accessory {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -977,12 +1215,17 @@ pub struct UEditorInteractiveGizmoRegistry {
     __padding_end: [u8; 128],
 }
 impl UEditorInteractiveGizmoRegistry {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorInteractiveGizmoRegistry")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -995,7 +1238,9 @@ impl UEditorInteractiveGizmoRegistry {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1006,12 +1251,17 @@ pub struct UEditorInteractiveGizmoSelectionBuilder {
     __padding_end: [u8; 48],
 }
 impl UEditorInteractiveGizmoSelectionBuilder {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorInteractiveGizmoSelectionBuilder")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1024,7 +1274,9 @@ impl UEditorInteractiveGizmoSelectionBuilder {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1034,12 +1286,17 @@ pub struct UEditorInteractiveGizmoSubsystem {
     __padding_end: [u8; 136],
 }
 impl UEditorInteractiveGizmoSubsystem {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UEditorInteractiveGizmoSubsystem")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1052,7 +1309,9 @@ impl UEditorInteractiveGizmoSubsystem {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1062,12 +1321,17 @@ pub struct UToolStackContext {
     __padding_end: [u8; 176],
 }
 impl UToolStackContext {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UToolStackContext")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1080,7 +1344,9 @@ impl UToolStackContext {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1090,12 +1356,17 @@ pub struct UWidgetToolsContext {
     __padding_end: [u8; 1296],
 }
 impl UWidgetToolsContext {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UWidgetToolsContext")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1108,7 +1379,9 @@ impl UWidgetToolsContext {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1118,12 +1391,17 @@ pub struct UTransformGizmoEditorSettings {
     __padding_end: [u8; 128],
 }
 impl UTransformGizmoEditorSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UTransformGizmoEditorSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1136,7 +1414,9 @@ impl UTransformGizmoEditorSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

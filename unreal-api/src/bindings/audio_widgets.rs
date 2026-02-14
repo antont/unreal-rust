@@ -996,12 +996,17 @@ pub struct UAudioMaterialKnobWidgetStyle {
     __padding_end: [u8; 544],
 }
 impl UAudioMaterialKnobWidgetStyle {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialKnobWidgetStyle")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1014,7 +1019,9 @@ impl UAudioMaterialKnobWidgetStyle {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1024,12 +1031,17 @@ pub struct UAudioMaterialMeterWidgetStyle {
     __padding_end: [u8; 312],
 }
 impl UAudioMaterialMeterWidgetStyle {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialMeterWidgetStyle")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1042,7 +1054,9 @@ impl UAudioMaterialMeterWidgetStyle {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1052,12 +1066,17 @@ pub struct UAudioMaterialButtonWidgetStyle {
     __padding_end: [u8; 192],
 }
 impl UAudioMaterialButtonWidgetStyle {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialButtonWidgetStyle")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1070,7 +1089,9 @@ impl UAudioMaterialButtonWidgetStyle {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1080,12 +1101,17 @@ pub struct UAudioMaterialSliderWidgetStyle {
     __padding_end: [u8; 432],
 }
 impl UAudioMaterialSliderWidgetStyle {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialSliderWidgetStyle")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1098,7 +1124,9 @@ impl UAudioMaterialSliderWidgetStyle {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1114,12 +1142,17 @@ pub struct UAudioMaterialButton {
     __padding_end: [u8; 23],
 }
 impl UAudioMaterialButton {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialButton")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1132,7 +1165,9 @@ impl UAudioMaterialButton {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1204,12 +1239,17 @@ pub struct UAudioMaterialEnvelope {
     __padding_end: [u8; 20],
 }
 impl UAudioMaterialEnvelope {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialEnvelope")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1222,7 +1262,9 @@ impl UAudioMaterialEnvelope {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1243,12 +1285,17 @@ pub struct UAudioMaterialKnob {
     __padding_end: [u8; 20],
 }
 impl UAudioMaterialKnob {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialKnob")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1261,7 +1308,9 @@ impl UAudioMaterialKnob {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1605,12 +1654,17 @@ pub struct UAudioMaterialMeter {
     pub meter_channel_info: TArray<FMeterChannelInfo>,
 }
 impl UAudioMaterialMeter {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialMeter")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1623,7 +1677,9 @@ impl UAudioMaterialMeter {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -1707,12 +1763,17 @@ pub struct UAudioMaterialSlider {
     __padding_end: [u8; 16],
 }
 impl UAudioMaterialSlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMaterialSlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -1725,7 +1786,9 @@ impl UAudioMaterialSlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -2078,12 +2141,17 @@ pub struct UAudioMeter {
     __padding_end: [u8; 44],
 }
 impl UAudioMeter {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioMeter")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -2096,7 +2164,9 @@ impl UAudioMeter {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -2428,12 +2498,17 @@ pub struct UAudioOscilloscope {
     __padding_end: [u8; 88],
 }
 impl UAudioOscilloscope {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioOscilloscope")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -2446,7 +2521,9 @@ impl UAudioOscilloscope {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -2506,12 +2583,17 @@ pub struct UAudioRadialSlider {
     __padding_end: [u8; 1280],
 }
 impl UAudioRadialSlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioRadialSlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -2524,7 +2606,9 @@ impl UAudioRadialSlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3030,12 +3114,17 @@ pub struct UAudioVolumeRadialSlider {
     __padding_end: [u8; 1280],
 }
 impl UAudioVolumeRadialSlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioVolumeRadialSlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3048,7 +3137,9 @@ impl UAudioVolumeRadialSlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3058,12 +3149,17 @@ pub struct UAudioFrequencyRadialSlider {
     __padding_end: [u8; 1280],
 }
 impl UAudioFrequencyRadialSlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioFrequencyRadialSlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3076,7 +3172,9 @@ impl UAudioFrequencyRadialSlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3089,12 +3187,17 @@ pub struct UAudioSliderBase {
     __padding_end: [u8; 2023],
 }
 impl UAudioSliderBase {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioSliderBase")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3107,7 +3210,9 @@ impl UAudioSliderBase {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3550,12 +3655,17 @@ pub struct UAudioSlider {
     pub output_to_lin_curve: TWeakObjectPtr<crate::bindings::engine::UCurveFloat>,
 }
 impl UAudioSlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioSlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3568,7 +3678,9 @@ impl UAudioSlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3578,12 +3690,17 @@ pub struct UAudioVolumeSlider {
     __padding_end: [u8; 3040],
 }
 impl UAudioVolumeSlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioVolumeSlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3596,7 +3713,9 @@ impl UAudioVolumeSlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3606,12 +3725,17 @@ pub struct UAudioFrequencySlider {
     __padding_end: [u8; 3040],
 }
 impl UAudioFrequencySlider {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioFrequencySlider")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3624,7 +3748,9 @@ impl UAudioFrequencySlider {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -3644,12 +3770,17 @@ pub struct UAudioVectorscope {
     __padding_end: [u8; 83],
 }
 impl UAudioVectorscope {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAudioVectorscope")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -3662,7 +3793,9 @@ impl UAudioVectorscope {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

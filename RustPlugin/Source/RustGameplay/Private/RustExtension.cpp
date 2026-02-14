@@ -7,3 +7,8 @@ FHitResult URustExtension_FHitResult::New()
 {
 	return FHitResult();
 }
+
+UObject* URustExtension_Core::NewObject(UObject* Outer, TSubclassOf<UObject> Class, FName Name)
+{
+	return ::NewObject<UObject>(Outer, Class.Get(), Name);
+}

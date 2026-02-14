@@ -92,7 +92,7 @@ bool FRustLoader::TryLoad()
 	ensure(LocalBindings);
 	ensure(this->TryLoadFunction);
 	// ensure(LocalEditorTick);
-	
+
 	// this->EditorTick = static_cast<TickFn>(LocalEditorTick);
 
 	this->Bindings = static_cast<EntryUnrealBindingsFn>(LocalBindings);
@@ -100,6 +100,7 @@ bool FRustLoader::TryLoad()
 	this->TargetPath = LocalTargetDllPath;
 	NeedsInit = true;
 	CallEntryPoints();
+	RegisterTypes();
 	return true;
 }
 
@@ -116,7 +117,6 @@ bool FRustLoader::IsLoaded()
 	return Handle != nullptr;
 }
 
-UE_DISABLE_OPTIMIZATION
 void FRustLoader::CallEntryPoints()
 {
 	if (!IsLoaded())
@@ -133,16 +133,66 @@ void FRustLoader::CallEntryPoints()
 		// TODO: We had a panic when calling the entry point. We need to handle that better, otherwise unreal will segfault because the rust bindings are nullptrs
 	}
 }
+
+UE_DISABLE_OPTIMIZATION
+void FRustLoader::RegisterTypes()
+{
+	auto& Module = GetRustModule();
+	FArchive ArDummy;
+
+	UClass* NewClass = NewObject<UClass>(
+		Module.GetPackage(),
+		UClass::StaticClass(),
+		FName(TEXT("URustTestDataAsset")),
+		RF_Public | RF_Standalone | RF_MarkAsRootSet
+	);
+	
+	UClass* SuperClass = UDataAsset::StaticClass();
+	NewClass->PropertyLink = SuperClass->PropertyLink;
+	NewClass->SetSuperStruct(SuperClass);
+	NewClass->ClassConstructor = SuperClass->ClassConstructor;
+	
+	int32 CurrentSize = SuperClass->GetPropertiesSize();
+	int32 ClassAlignment = SuperClass->GetMinAlignment();
+	
+	FFloatProperty* MyFloatProp = new FFloatProperty(NewClass, FName("MyFloat"), RF_Public);
+	MyFloatProp->SetPropertyFlags(CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData);
+
+	int32 PropAlignment = MyFloatProp->GetMinAlignment();
+	int32 PropOffset = Align(CurrentSize, 16);
+	
+	NewClass->AddCppProperty(MyFloatProp);
+	NewClass->SetPropertiesSize(PropOffset);
+	MyFloatProp->Link(ArDummy);
+	
+	CurrentSize = PropOffset + MyFloatProp->GetElementSize();
+	
+	NewClass->SetPropertiesSize(Align(CurrentSize, 16));
+	NewClass->StaticLink(false);
+	NewClass->AssembleReferenceTokenStream(true);
+	
+	NotifyRegistrationEvent(TEXT("/Script/Rust"), *NewClass->GetName(), ENotifyRegistrationType::NRT_Class,
+	ENotifyRegistrationPhase::NRP_Finished, nullptr, false, NewClass);
+}
 UE_ENABLE_OPTIMIZATION
 
 void FRustPluginModule::StartupModule()
 {
-	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
-
+	// TODO: Don't run the module if we just want to generate the api. We should allow this and properly handle loading of this module if we don't have
+	// a valid rust dll yet.
+	FString RunCommand;
+	if (FParse::Value(FCommandLine::Get(), TEXT("run="), RunCommand) && RunCommand == TEXT("GenerateApi"))
+	{
+		return;
+	}
 	FRustPluginStyle::Initialize();
 	FRustPluginStyle::ReloadTextures();
 
 	FRustPluginCommands::Register();
+
+	RustPackage = NewObject<UPackage>(nullptr, FName(TEXT("/Script/Rust")),
+	                                  RF_Public | RF_Standalone | RF_MarkAsRootSet);
+	RustPackage->SetPackageFlags(PKG_CompiledIn);
 
 	//PluginCommands = MakeShareable(new FUICommandList);
 

@@ -32,6 +32,7 @@ struct FRustLoader
 	bool IsLoaded();
 	bool TryLoad();
 	void CallEntryPoints();
+	void RegisterTypes();
 	void RetrieveReflectionData();
 	FString PluginFolderPath();
 	FString PluginPath();
@@ -53,9 +54,15 @@ public:
 
 	/** This function will be bound to Command (by default it will bring up plugin window) */
 	void PluginButtonClicked();
+	
+	UPackage* GetPackage() const
+	{
+		return RustPackage;
+	}
 
 	FRustLoader Plugin;
 	ARustGameModeBase* GameMode;
+	UPackage* RustPackage;
 	void Exit();
 private:
 	void RegisterMenus();

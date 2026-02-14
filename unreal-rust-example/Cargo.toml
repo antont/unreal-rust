@@ -8,6 +8,7 @@ edition.workspace = true
 
 [dependencies]
 unreal-module = { path = "../unreal-module"}
+unreal-api = { path = "../unreal-api"}
 bevy_app = "0.18"
 bevy_ecs = "0.18"
 log = "0.4"

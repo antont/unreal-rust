@@ -23,3 +23,12 @@ class RUSTGAMEPLAY_API URustExtension_FHitResult : public UBlueprintFunctionLibr
 	UFUNCTION(BlueprintCallable)
 	static FHitResult New();
 };
+
+UCLASS()
+class RUSTGAMEPLAY_API URustExtension_Core : public UBlueprintFunctionLibrary
+{
+	GENERATED_BODY()
+
+	UFUNCTION(BlueprintCallable)
+	static UObject* NewObject(UObject* Outer, TSubclassOf<UObject> Class, FName Name);
+};

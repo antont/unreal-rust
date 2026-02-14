@@ -19,9 +19,12 @@ void FRustPluginStyle::Initialize()
 
 void FRustPluginStyle::Shutdown()
 {
-	FSlateStyleRegistry::UnRegisterSlateStyle(*StyleInstance);
-	ensure(StyleInstance.IsUnique());
-	StyleInstance.Reset();
+	if (StyleInstance.IsValid())
+	{
+		FSlateStyleRegistry::UnRegisterSlateStyle(*StyleInstance);
+		ensure(StyleInstance.IsUnique());
+		StyleInstance.Reset();
+	}
 }
 
 FName FRustPluginStyle::GetStyleSetName()

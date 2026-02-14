@@ -2,7 +2,7 @@ use std::ffi::c_void;
 
 use glam::DVec3;
 
-use crate::bindings::core_u_object::{FQuat, FTransform, FVector};
+use crate::bindings::core_u_object::{FQuat, FTransform, FVector, UClass};
 
 // TODO: This whole file is extremely handwavy and needs to be done properly by getting the correct
 // layout from the reflection. Right now most of the layout is just guess work based on my machine
@@ -102,8 +102,17 @@ pub struct FMulticastDelegateProperty;
 
 #[repr(C)]
 pub struct TSubclassOf<T> {
-    class: *mut c_void,
+    class: UPtr<UClass>,
     _marker: std::marker::PhantomData<T>,
+}
+
+impl<T> From<UPtr<UClass>> for TSubclassOf<T> {
+    fn from(class: UPtr<UClass>) -> Self {
+        TSubclassOf {
+            class,
+            _marker: std::marker::PhantomData,
+        }
+    }
 }
 
 #[repr(C)]
