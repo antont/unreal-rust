@@ -13,6 +13,22 @@
 
 DEFINE_LOG_CATEGORY(RustVisualLog);
 
+namespace
+{
+static_assert(sizeof(FScriptArrayStorage) == sizeof(FScriptArray), "FFI script array size must match Unreal FScriptArray");
+static_assert(alignof(FScriptArrayStorage) == alignof(FScriptArray), "FFI script array alignment must match Unreal FScriptArray");
+
+FScriptArray* AsNative(FScriptArrayStorage* array)
+{
+	return reinterpret_cast<FScriptArray*>(array);
+}
+
+const FScriptArray* AsNative(const FScriptArrayStorage* array)
+{
+	return reinterpret_cast<const FScriptArray*>(array);
+}
+}
+
 void Log(Utf8Str message)
 {
 	// TODO: Can we get rid of that allocation?
@@ -138,54 +154,77 @@ uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunct
 	return 1;
 }
 
-uint32_t FScriptArrayNum(const FScriptArrayOpaque* array, int32_t* out_num)
+uint32_t FScriptArrayNum(const FScriptArrayStorage* array, int32_t* out_num)
 {
 	if (array == nullptr || out_num == nullptr)
 	{
 		return 0;
 	}
 
-	const FScriptArray* ScriptArray = static_cast<const FScriptArray*>(array);
+	const FScriptArray* ScriptArray = AsNative(array);
 	*out_num = ScriptArray->Num();
 	return 1;
 }
 
-uint32_t FScriptArrayMax(const FScriptArrayOpaque* array, int32_t* out_max)
-{
-	if (array == nullptr || out_max == nullptr)
-	{
-		return 0;
-	}
-
-	const FScriptArray* ScriptArray = static_cast<const FScriptArray*>(array);
-	*out_max = ScriptArray->Max();
-	return 1;
-}
-
-uint32_t FScriptArrayGetData(FScriptArrayOpaque* array, void** out_data)
-{
-	if (array == nullptr || out_data == nullptr)
-	{
-		return 0;
-	}
-
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
-	*out_data = ScriptArray->GetData();
-	return 1;
-}
-
-uint32_t FScriptArrayIsValidIndex(const FScriptArrayOpaque* array, int32_t index)
+uint32_t FScriptArrayCtor(FScriptArrayStorage* array)
 {
 	if (array == nullptr)
 	{
 		return 0;
 	}
 
-	const FScriptArray* ScriptArray = static_cast<const FScriptArray*>(array);
+	new (array) FScriptArray();
+	return 1;
+}
+
+uint32_t FScriptArrayDtor(FScriptArrayStorage* array)
+{
+	if (array == nullptr)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = AsNative(array);
+	ScriptArray->~FScriptArray();
+	return 1;
+}
+
+uint32_t FScriptArrayMax(const FScriptArrayStorage* array, int32_t* out_max)
+{
+	if (array == nullptr || out_max == nullptr)
+	{
+		return 0;
+	}
+
+	const FScriptArray* ScriptArray = AsNative(array);
+	*out_max = ScriptArray->Max();
+	return 1;
+}
+
+uint32_t FScriptArrayGetData(FScriptArrayStorage* array, void** out_data)
+{
+	if (array == nullptr || out_data == nullptr)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = AsNative(array);
+	*out_data = ScriptArray->GetData();
+	return 1;
+}
+
+uint32_t FScriptArrayIsValidIndex(const FScriptArrayStorage* array, int32_t index)
+{
+	if (array == nullptr)
+	{
+		return 0;
+	}
+
+	const FScriptArray* ScriptArray = AsNative(array);
 	return ScriptArray->IsValidIndex(index) ? 1 : 0;
 }
 
-uint32_t FScriptArrayReserve(FScriptArrayOpaque* array,
+uint32_t FScriptArrayReserve(FScriptArrayStorage* array,
 	int32_t capacity,
 	int32_t elem_size,
 	uint32_t elem_align)
@@ -195,7 +234,7 @@ uint32_t FScriptArrayReserve(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	const int32_t OldNum = ScriptArray->Num();
 	if (capacity > ScriptArray->Max())
 	{
@@ -209,7 +248,7 @@ uint32_t FScriptArrayReserve(FScriptArrayOpaque* array,
 	return 1;
 }
 
-uint32_t FScriptArrayAdd(FScriptArrayOpaque* array,
+uint32_t FScriptArrayAdd(FScriptArrayStorage* array,
 	int32_t count,
 	int32_t elem_size,
 	uint32_t elem_align,
@@ -220,7 +259,7 @@ uint32_t FScriptArrayAdd(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	const int32_t NewIndex = ScriptArray->Add(count, elem_size, elem_align);
 
 	if (out_index != nullptr)
@@ -231,7 +270,7 @@ uint32_t FScriptArrayAdd(FScriptArrayOpaque* array,
 	return 1;
 }
 
-uint32_t FScriptArrayInsert(FScriptArrayOpaque* array,
+uint32_t FScriptArrayInsert(FScriptArrayStorage* array,
 	int32_t index,
 	int32_t count,
 	int32_t elem_size,
@@ -242,7 +281,7 @@ uint32_t FScriptArrayInsert(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	if (index > ScriptArray->Num())
 	{
 		return 0;
@@ -252,7 +291,7 @@ uint32_t FScriptArrayInsert(FScriptArrayOpaque* array,
 	return 1;
 }
 
-uint32_t FScriptArrayRemove(FScriptArrayOpaque* array,
+uint32_t FScriptArrayRemove(FScriptArrayStorage* array,
 	int32_t index,
 	int32_t count,
 	int32_t elem_size,
@@ -263,7 +302,7 @@ uint32_t FScriptArrayRemove(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	if (index + count > ScriptArray->Num())
 	{
 		return 0;
@@ -273,7 +312,7 @@ uint32_t FScriptArrayRemove(FScriptArrayOpaque* array,
 	return 1;
 }
 
-uint32_t FScriptArrayEmpty(FScriptArrayOpaque* array,
+uint32_t FScriptArrayEmpty(FScriptArrayStorage* array,
 	int32_t slack,
 	int32_t elem_size,
 	uint32_t elem_align)
@@ -283,12 +322,12 @@ uint32_t FScriptArrayEmpty(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	ScriptArray->Empty(slack, elem_size, elem_align);
 	return 1;
 }
 
-uint32_t FScriptArrayReset(FScriptArrayOpaque* array,
+uint32_t FScriptArrayReset(FScriptArrayStorage* array,
 	int32_t new_size,
 	int32_t elem_size,
 	uint32_t elem_align)
@@ -298,12 +337,12 @@ uint32_t FScriptArrayReset(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	ScriptArray->Reset(new_size, elem_size, elem_align);
 	return 1;
 }
 
-uint32_t FScriptArrayShrink(FScriptArrayOpaque* array,
+uint32_t FScriptArrayShrink(FScriptArrayStorage* array,
 	int32_t elem_size,
 	uint32_t elem_align)
 {
@@ -312,7 +351,7 @@ uint32_t FScriptArrayShrink(FScriptArrayOpaque* array,
 		return 0;
 	}
 
-	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	FScriptArray* ScriptArray = AsNative(array);
 	ScriptArray->Shrink(elem_size, elem_align);
 	return 1;
 }

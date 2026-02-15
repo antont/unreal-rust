@@ -15,6 +15,8 @@ fn main() {
         .include_item("TryLoadFn")
         .include_item("AActorOpague")
         .include_item("PluginBindings")
+        .include_item("FScriptArrayStorage")
+        .include_item("FScriptArrayFns")
         .with_pragma_once(true)
         //.with_config(Config {
         //    structure: StructConfig  {

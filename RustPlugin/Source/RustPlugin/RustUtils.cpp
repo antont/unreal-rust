@@ -17,6 +17,8 @@ UnrealBindings CreateBindings()
 
 	FScriptArrayFns fscript_array_fns = {};
 	fscript_array_fns.num = &FScriptArrayNum;
+	fscript_array_fns.ctor = &FScriptArrayCtor;
+	fscript_array_fns.dtor = &FScriptArrayDtor;
 	fscript_array_fns.max = &FScriptArrayMax;
 	fscript_array_fns.get_data = &FScriptArrayGetData;
 	fscript_array_fns.is_valid_index = &FScriptArrayIsValidIndex;

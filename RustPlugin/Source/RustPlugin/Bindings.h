@@ -32,7 +32,9 @@ struct StrRustAlloc {
 
 using UFunctionOpague = void;
 
-using FScriptArrayOpaque = void;
+struct FScriptArrayStorage {
+  uint64_t opaque_words[2];
+};
 
 using LogFn = void(*)(Utf8Str message);
 
@@ -72,53 +74,59 @@ struct CoreFns {
   EndTraceCoreFn end_trace;
 };
 
-using FScriptArrayNumFn = uint32_t(*)(const FScriptArrayOpaque *array, int32_t *out_num);
+using FScriptArrayNumFn = uint32_t(*)(const FScriptArrayStorage *array, int32_t *out_num);
 
-using FScriptArrayMaxFn = uint32_t(*)(const FScriptArrayOpaque *array, int32_t *out_max);
+using FScriptArrayCtorFn = uint32_t(*)(FScriptArrayStorage *array);
 
-using FScriptArrayGetDataFn = uint32_t(*)(FScriptArrayOpaque *array, void **out_data);
+using FScriptArrayDtorFn = uint32_t(*)(FScriptArrayStorage *array);
 
-using FScriptArrayIsValidIndexFn = uint32_t(*)(const FScriptArrayOpaque *array, int32_t index);
+using FScriptArrayMaxFn = uint32_t(*)(const FScriptArrayStorage *array, int32_t *out_max);
 
-using FScriptArrayReserveFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayGetDataFn = uint32_t(*)(FScriptArrayStorage *array, void **out_data);
+
+using FScriptArrayIsValidIndexFn = uint32_t(*)(const FScriptArrayStorage *array, int32_t index);
+
+using FScriptArrayReserveFn = uint32_t(*)(FScriptArrayStorage *array,
                                           int32_t capacity,
                                           int32_t elem_size,
                                           uint32_t elem_align);
 
-using FScriptArrayAddFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayAddFn = uint32_t(*)(FScriptArrayStorage *array,
                                       int32_t count,
                                       int32_t elem_size,
                                       uint32_t elem_align,
                                       int32_t *out_index);
 
-using FScriptArrayInsertFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayInsertFn = uint32_t(*)(FScriptArrayStorage *array,
                                          int32_t index,
                                          int32_t count,
                                          int32_t elem_size,
                                          uint32_t elem_align);
 
-using FScriptArrayRemoveFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayRemoveFn = uint32_t(*)(FScriptArrayStorage *array,
                                          int32_t index,
                                          int32_t count,
                                          int32_t elem_size,
                                          uint32_t elem_align);
 
-using FScriptArrayEmptyFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayEmptyFn = uint32_t(*)(FScriptArrayStorage *array,
                                         int32_t slack,
                                         int32_t elem_size,
                                         uint32_t elem_align);
 
-using FScriptArrayResetFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayResetFn = uint32_t(*)(FScriptArrayStorage *array,
                                         int32_t new_size,
                                         int32_t elem_size,
                                         uint32_t elem_align);
 
-using FScriptArrayShrinkFn = uint32_t(*)(FScriptArrayOpaque *array,
+using FScriptArrayShrinkFn = uint32_t(*)(FScriptArrayStorage *array,
                                          int32_t elem_size,
                                          uint32_t elem_align);
 
 struct FScriptArrayFns {
   FScriptArrayNumFn num;
+  FScriptArrayCtorFn ctor;
+  FScriptArrayDtorFn dtor;
   FScriptArrayMaxFn max;
   FScriptArrayGetDataFn get_data;
   FScriptArrayIsValidIndexFn is_valid_index;
@@ -185,48 +193,52 @@ extern void BeginTrace(const char *name);
 
 extern void EndTrace();
 
-extern uint32_t FScriptArrayNum(const FScriptArrayOpaque *array, int32_t *out_num);
+extern uint32_t FScriptArrayNum(const FScriptArrayStorage *array, int32_t *out_num);
 
-extern uint32_t FScriptArrayMax(const FScriptArrayOpaque *array, int32_t *out_max);
+extern uint32_t FScriptArrayCtor(FScriptArrayStorage *array);
 
-extern uint32_t FScriptArrayGetData(FScriptArrayOpaque *array, void **out_data);
+extern uint32_t FScriptArrayDtor(FScriptArrayStorage *array);
 
-extern uint32_t FScriptArrayIsValidIndex(const FScriptArrayOpaque *array, int32_t index);
+extern uint32_t FScriptArrayMax(const FScriptArrayStorage *array, int32_t *out_max);
 
-extern uint32_t FScriptArrayReserve(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayGetData(FScriptArrayStorage *array, void **out_data);
+
+extern uint32_t FScriptArrayIsValidIndex(const FScriptArrayStorage *array, int32_t index);
+
+extern uint32_t FScriptArrayReserve(FScriptArrayStorage *array,
                                     int32_t capacity,
                                     int32_t elem_size,
                                     uint32_t elem_align);
 
-extern uint32_t FScriptArrayAdd(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayAdd(FScriptArrayStorage *array,
                                 int32_t count,
                                 int32_t elem_size,
                                 uint32_t elem_align,
                                 int32_t *out_index);
 
-extern uint32_t FScriptArrayInsert(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayInsert(FScriptArrayStorage *array,
                                    int32_t index,
                                    int32_t count,
                                    int32_t elem_size,
                                    uint32_t elem_align);
 
-extern uint32_t FScriptArrayRemove(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayRemove(FScriptArrayStorage *array,
                                    int32_t index,
                                    int32_t count,
                                    int32_t elem_size,
                                    uint32_t elem_align);
 
-extern uint32_t FScriptArrayEmpty(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayEmpty(FScriptArrayStorage *array,
                                   int32_t slack,
                                   int32_t elem_size,
                                   uint32_t elem_align);
 
-extern uint32_t FScriptArrayReset(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayReset(FScriptArrayStorage *array,
                                   int32_t new_size,
                                   int32_t elem_size,
                                   uint32_t elem_align);
 
-extern uint32_t FScriptArrayShrink(FScriptArrayOpaque *array,
+extern uint32_t FScriptArrayShrink(FScriptArrayStorage *array,
                                    int32_t elem_size,
                                    uint32_t elem_align);
 

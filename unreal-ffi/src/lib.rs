@@ -39,7 +39,12 @@ impl<'a> From<&'a str> for Utf8Str {
 pub type UClassOpague = c_void;
 pub type UFunctionOpague = c_void;
 pub type UObjectOpague = c_void;
-pub type FScriptArrayOpaque = c_void;
+
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FScriptArrayStorage {
+    pub opaque_words: [u64; 2],
+}
 
 pub type LogFn = unsafe extern "C" fn(message: Utf8Str);
 
@@ -214,55 +219,57 @@ pub type BeginTraceCoreFn = unsafe extern "C" fn(name: *const c_char);
 pub type EndTraceCoreFn = unsafe extern "C" fn();
 
 pub type FScriptArrayNumFn =
-    unsafe extern "C" fn(array: *const FScriptArrayOpaque, out_num: *mut i32) -> u32;
+    unsafe extern "C" fn(array: *const FScriptArrayStorage, out_num: *mut i32) -> u32;
+pub type FScriptArrayCtorFn = unsafe extern "C" fn(array: *mut FScriptArrayStorage) -> u32;
+pub type FScriptArrayDtorFn = unsafe extern "C" fn(array: *mut FScriptArrayStorage) -> u32;
 pub type FScriptArrayMaxFn =
-    unsafe extern "C" fn(array: *const FScriptArrayOpaque, out_max: *mut i32) -> u32;
+    unsafe extern "C" fn(array: *const FScriptArrayStorage, out_max: *mut i32) -> u32;
 pub type FScriptArrayGetDataFn =
-    unsafe extern "C" fn(array: *mut FScriptArrayOpaque, out_data: *mut *mut c_void) -> u32;
+    unsafe extern "C" fn(array: *mut FScriptArrayStorage, out_data: *mut *mut c_void) -> u32;
 pub type FScriptArrayIsValidIndexFn =
-    unsafe extern "C" fn(array: *const FScriptArrayOpaque, index: i32) -> u32;
+    unsafe extern "C" fn(array: *const FScriptArrayStorage, index: i32) -> u32;
 
 pub type FScriptArrayReserveFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayOpaque,
+    array: *mut FScriptArrayStorage,
     capacity: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayAddFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayOpaque,
+    array: *mut FScriptArrayStorage,
     count: i32,
     elem_size: i32,
     elem_align: u32,
     out_index: *mut i32,
 ) -> u32;
 pub type FScriptArrayInsertFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayOpaque,
+    array: *mut FScriptArrayStorage,
     index: i32,
     count: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayRemoveFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayOpaque,
+    array: *mut FScriptArrayStorage,
     index: i32,
     count: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayEmptyFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayOpaque,
+    array: *mut FScriptArrayStorage,
     slack: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayResetFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayOpaque,
+    array: *mut FScriptArrayStorage,
     new_size: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayShrinkFn =
-    unsafe extern "C" fn(array: *mut FScriptArrayOpaque, elem_size: i32, elem_align: u32) -> u32;
+    unsafe extern "C" fn(array: *mut FScriptArrayStorage, elem_size: i32, elem_align: u32) -> u32;
 //
 unsafe extern "C" {
     pub fn GetCDOFromClass(
@@ -292,51 +299,53 @@ unsafe extern "C" {
     pub fn BeginTrace(name: *const c_char);
     pub fn EndTrace();
 
-    pub fn FScriptArrayNum(array: *const FScriptArrayOpaque, out_num: *mut i32) -> u32;
-    pub fn FScriptArrayMax(array: *const FScriptArrayOpaque, out_max: *mut i32) -> u32;
-    pub fn FScriptArrayGetData(array: *mut FScriptArrayOpaque, out_data: *mut *mut c_void) -> u32;
-    pub fn FScriptArrayIsValidIndex(array: *const FScriptArrayOpaque, index: i32) -> u32;
+    pub fn FScriptArrayNum(array: *const FScriptArrayStorage, out_num: *mut i32) -> u32;
+    pub fn FScriptArrayCtor(array: *mut FScriptArrayStorage) -> u32;
+    pub fn FScriptArrayDtor(array: *mut FScriptArrayStorage) -> u32;
+    pub fn FScriptArrayMax(array: *const FScriptArrayStorage, out_max: *mut i32) -> u32;
+    pub fn FScriptArrayGetData(array: *mut FScriptArrayStorage, out_data: *mut *mut c_void) -> u32;
+    pub fn FScriptArrayIsValidIndex(array: *const FScriptArrayStorage, index: i32) -> u32;
     pub fn FScriptArrayReserve(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         capacity: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayAdd(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         count: i32,
         elem_size: i32,
         elem_align: u32,
         out_index: *mut i32,
     ) -> u32;
     pub fn FScriptArrayInsert(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         index: i32,
         count: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayRemove(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         index: i32,
         count: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayEmpty(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         slack: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayReset(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         new_size: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayShrink(
-        array: *mut FScriptArrayOpaque,
+        array: *mut FScriptArrayStorage,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
@@ -360,6 +369,8 @@ pub struct CoreFns {
 #[derive(Clone)]
 pub struct FScriptArrayFns {
     pub num: FScriptArrayNumFn,
+    pub ctor: FScriptArrayCtorFn,
+    pub dtor: FScriptArrayDtorFn,
     pub max: FScriptArrayMaxFn,
     pub get_data: FScriptArrayGetDataFn,
     pub is_valid_index: FScriptArrayIsValidIndexFn,
