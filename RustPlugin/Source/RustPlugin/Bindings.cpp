@@ -1,4 +1,5 @@
 #include "Bindings.h"
+#include "Containers/ScriptArray.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "RustUtils.h"
@@ -134,6 +135,185 @@ uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunct
 
 	(*function_opague) = static_cast<UFunctionOpague*>(Function);
 
+	return 1;
+}
+
+uint32_t FScriptArrayNum(const FScriptArrayOpaque* array, int32_t* out_num)
+{
+	if (array == nullptr || out_num == nullptr)
+	{
+		return 0;
+	}
+
+	const FScriptArray* ScriptArray = static_cast<const FScriptArray*>(array);
+	*out_num = ScriptArray->Num();
+	return 1;
+}
+
+uint32_t FScriptArrayMax(const FScriptArrayOpaque* array, int32_t* out_max)
+{
+	if (array == nullptr || out_max == nullptr)
+	{
+		return 0;
+	}
+
+	const FScriptArray* ScriptArray = static_cast<const FScriptArray*>(array);
+	*out_max = ScriptArray->Max();
+	return 1;
+}
+
+uint32_t FScriptArrayGetData(FScriptArrayOpaque* array, void** out_data)
+{
+	if (array == nullptr || out_data == nullptr)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	*out_data = ScriptArray->GetData();
+	return 1;
+}
+
+uint32_t FScriptArrayIsValidIndex(const FScriptArrayOpaque* array, int32_t index)
+{
+	if (array == nullptr)
+	{
+		return 0;
+	}
+
+	const FScriptArray* ScriptArray = static_cast<const FScriptArray*>(array);
+	return ScriptArray->IsValidIndex(index) ? 1 : 0;
+}
+
+uint32_t FScriptArrayReserve(FScriptArrayOpaque* array,
+	int32_t capacity,
+	int32_t elem_size,
+	uint32_t elem_align)
+{
+	if (array == nullptr || capacity < 0 || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	const int32_t OldNum = ScriptArray->Num();
+	if (capacity > ScriptArray->Max())
+	{
+		const int32_t GrowCount = capacity - OldNum;
+		if (GrowCount > 0)
+		{
+			ScriptArray->Add(GrowCount, elem_size, elem_align);
+			ScriptArray->Remove(OldNum, GrowCount, elem_size, elem_align, EAllowShrinking::No);
+		}
+	}
+	return 1;
+}
+
+uint32_t FScriptArrayAdd(FScriptArrayOpaque* array,
+	int32_t count,
+	int32_t elem_size,
+	uint32_t elem_align,
+	int32_t* out_index)
+{
+	if (array == nullptr || count < 0 || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	const int32_t NewIndex = ScriptArray->Add(count, elem_size, elem_align);
+
+	if (out_index != nullptr)
+	{
+		*out_index = NewIndex;
+	}
+
+	return 1;
+}
+
+uint32_t FScriptArrayInsert(FScriptArrayOpaque* array,
+	int32_t index,
+	int32_t count,
+	int32_t elem_size,
+	uint32_t elem_align)
+{
+	if (array == nullptr || index < 0 || count < 0 || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	if (index > ScriptArray->Num())
+	{
+		return 0;
+	}
+
+	ScriptArray->Insert(index, count, elem_size, elem_align);
+	return 1;
+}
+
+uint32_t FScriptArrayRemove(FScriptArrayOpaque* array,
+	int32_t index,
+	int32_t count,
+	int32_t elem_size,
+	uint32_t elem_align)
+{
+	if (array == nullptr || index < 0 || count < 0 || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	if (index + count > ScriptArray->Num())
+	{
+		return 0;
+	}
+
+	ScriptArray->Remove(index, count, elem_size, elem_align);
+	return 1;
+}
+
+uint32_t FScriptArrayEmpty(FScriptArrayOpaque* array,
+	int32_t slack,
+	int32_t elem_size,
+	uint32_t elem_align)
+{
+	if (array == nullptr || slack < 0 || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	ScriptArray->Empty(slack, elem_size, elem_align);
+	return 1;
+}
+
+uint32_t FScriptArrayReset(FScriptArrayOpaque* array,
+	int32_t new_size,
+	int32_t elem_size,
+	uint32_t elem_align)
+{
+	if (array == nullptr || new_size < 0 || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	ScriptArray->Reset(new_size, elem_size, elem_align);
+	return 1;
+}
+
+uint32_t FScriptArrayShrink(FScriptArrayOpaque* array,
+	int32_t elem_size,
+	uint32_t elem_align)
+{
+	if (array == nullptr || elem_size <= 0 || elem_align == 0)
+	{
+		return 0;
+	}
+
+	FScriptArray* ScriptArray = static_cast<FScriptArray*>(array);
+	ScriptArray->Shrink(elem_size, elem_align);
 	return 1;
 }
 

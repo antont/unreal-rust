@@ -15,8 +15,22 @@ UnrealBindings CreateBindings()
 	core_fns.end_trace = &EndTrace;
 	core_fns.begin_trace = &BeginTrace;
 
+	FScriptArrayFns fscript_array_fns = {};
+	fscript_array_fns.num = &FScriptArrayNum;
+	fscript_array_fns.max = &FScriptArrayMax;
+	fscript_array_fns.get_data = &FScriptArrayGetData;
+	fscript_array_fns.is_valid_index = &FScriptArrayIsValidIndex;
+	fscript_array_fns.reserve = &FScriptArrayReserve;
+	fscript_array_fns.add = &FScriptArrayAdd;
+	fscript_array_fns.insert = &FScriptArrayInsert;
+	fscript_array_fns.remove = &FScriptArrayRemove;
+	fscript_array_fns.empty = &FScriptArrayEmpty;
+	fscript_array_fns.reset = &FScriptArrayReset;
+	fscript_array_fns.shrink = &FScriptArrayShrink;
+
 	UnrealBindings b = {};
 	b.core_fns = core_fns;
+	b.fscript_array_fns = fscript_array_fns;
 	b.log = &Log;
 	return b;
 }

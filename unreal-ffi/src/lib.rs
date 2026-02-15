@@ -36,14 +36,10 @@ impl<'a> From<&'a str> for Utf8Str {
 
 // TODO: Is there a more typesafe way of defining an opaque type that
 // is c ffi safe in Rust without nightly?
-pub type AActorOpaque = c_void;
-pub type UPrimtiveOpaque = c_void;
-pub type UCapsuleOpaque = c_void;
 pub type UClassOpague = c_void;
 pub type UFunctionOpague = c_void;
 pub type UObjectOpague = c_void;
-pub type USoundBaseOpague = c_void;
-pub type USceneComponentOpague = c_void;
+pub type FScriptArrayOpaque = c_void;
 
 pub type LogFn = unsafe extern "C" fn(message: Utf8Str);
 
@@ -58,6 +54,7 @@ unsafe extern "C" {
 pub struct UnrealBindings {
     pub log: LogFn,
     pub core_fns: CoreFns,
+    pub fscript_array_fns: FScriptArrayFns,
 }
 
 unsafe impl Sync for UnrealBindings {}
@@ -120,8 +117,6 @@ impl RustBindings {
     }
 }
 
-pub type SendActorEventFn =
-    unsafe extern "C" fn(actor: *const AActorOpaque, uuid: Uuid, json: Utf8Str);
 pub type InitializeModulesFn = unsafe extern "C" fn();
 
 #[repr(u32)]
@@ -217,6 +212,57 @@ pub type ProcessEventsCoreFn = unsafe extern "C" fn(
 ) -> u32;
 pub type BeginTraceCoreFn = unsafe extern "C" fn(name: *const c_char);
 pub type EndTraceCoreFn = unsafe extern "C" fn();
+
+pub type FScriptArrayNumFn =
+    unsafe extern "C" fn(array: *const FScriptArrayOpaque, out_num: *mut i32) -> u32;
+pub type FScriptArrayMaxFn =
+    unsafe extern "C" fn(array: *const FScriptArrayOpaque, out_max: *mut i32) -> u32;
+pub type FScriptArrayGetDataFn =
+    unsafe extern "C" fn(array: *mut FScriptArrayOpaque, out_data: *mut *mut c_void) -> u32;
+pub type FScriptArrayIsValidIndexFn =
+    unsafe extern "C" fn(array: *const FScriptArrayOpaque, index: i32) -> u32;
+
+pub type FScriptArrayReserveFn = unsafe extern "C" fn(
+    array: *mut FScriptArrayOpaque,
+    capacity: i32,
+    elem_size: i32,
+    elem_align: u32,
+) -> u32;
+pub type FScriptArrayAddFn = unsafe extern "C" fn(
+    array: *mut FScriptArrayOpaque,
+    count: i32,
+    elem_size: i32,
+    elem_align: u32,
+    out_index: *mut i32,
+) -> u32;
+pub type FScriptArrayInsertFn = unsafe extern "C" fn(
+    array: *mut FScriptArrayOpaque,
+    index: i32,
+    count: i32,
+    elem_size: i32,
+    elem_align: u32,
+) -> u32;
+pub type FScriptArrayRemoveFn = unsafe extern "C" fn(
+    array: *mut FScriptArrayOpaque,
+    index: i32,
+    count: i32,
+    elem_size: i32,
+    elem_align: u32,
+) -> u32;
+pub type FScriptArrayEmptyFn = unsafe extern "C" fn(
+    array: *mut FScriptArrayOpaque,
+    slack: i32,
+    elem_size: i32,
+    elem_align: u32,
+) -> u32;
+pub type FScriptArrayResetFn = unsafe extern "C" fn(
+    array: *mut FScriptArrayOpaque,
+    new_size: i32,
+    elem_size: i32,
+    elem_align: u32,
+) -> u32;
+pub type FScriptArrayShrinkFn =
+    unsafe extern "C" fn(array: *mut FScriptArrayOpaque, elem_size: i32, elem_align: u32) -> u32;
 //
 unsafe extern "C" {
     pub fn GetCDOFromClass(
@@ -245,6 +291,55 @@ unsafe extern "C" {
     ) -> u32;
     pub fn BeginTrace(name: *const c_char);
     pub fn EndTrace();
+
+    pub fn FScriptArrayNum(array: *const FScriptArrayOpaque, out_num: *mut i32) -> u32;
+    pub fn FScriptArrayMax(array: *const FScriptArrayOpaque, out_max: *mut i32) -> u32;
+    pub fn FScriptArrayGetData(array: *mut FScriptArrayOpaque, out_data: *mut *mut c_void) -> u32;
+    pub fn FScriptArrayIsValidIndex(array: *const FScriptArrayOpaque, index: i32) -> u32;
+    pub fn FScriptArrayReserve(
+        array: *mut FScriptArrayOpaque,
+        capacity: i32,
+        elem_size: i32,
+        elem_align: u32,
+    ) -> u32;
+    pub fn FScriptArrayAdd(
+        array: *mut FScriptArrayOpaque,
+        count: i32,
+        elem_size: i32,
+        elem_align: u32,
+        out_index: *mut i32,
+    ) -> u32;
+    pub fn FScriptArrayInsert(
+        array: *mut FScriptArrayOpaque,
+        index: i32,
+        count: i32,
+        elem_size: i32,
+        elem_align: u32,
+    ) -> u32;
+    pub fn FScriptArrayRemove(
+        array: *mut FScriptArrayOpaque,
+        index: i32,
+        count: i32,
+        elem_size: i32,
+        elem_align: u32,
+    ) -> u32;
+    pub fn FScriptArrayEmpty(
+        array: *mut FScriptArrayOpaque,
+        slack: i32,
+        elem_size: i32,
+        elem_align: u32,
+    ) -> u32;
+    pub fn FScriptArrayReset(
+        array: *mut FScriptArrayOpaque,
+        new_size: i32,
+        elem_size: i32,
+        elem_align: u32,
+    ) -> u32;
+    pub fn FScriptArrayShrink(
+        array: *mut FScriptArrayOpaque,
+        elem_size: i32,
+        elem_align: u32,
+    ) -> u32;
 }
 
 #[repr(C)]
@@ -259,4 +354,20 @@ pub struct CoreFns {
     pub process_event: ProcessEventsCoreFn,
     pub begin_trace: BeginTraceCoreFn,
     pub end_trace: EndTraceCoreFn,
+}
+
+#[repr(C)]
+#[derive(Clone)]
+pub struct FScriptArrayFns {
+    pub num: FScriptArrayNumFn,
+    pub max: FScriptArrayMaxFn,
+    pub get_data: FScriptArrayGetDataFn,
+    pub is_valid_index: FScriptArrayIsValidIndexFn,
+    pub reserve: FScriptArrayReserveFn,
+    pub add: FScriptArrayAddFn,
+    pub insert: FScriptArrayInsertFn,
+    pub remove: FScriptArrayRemoveFn,
+    pub empty: FScriptArrayEmptyFn,
+    pub reset: FScriptArrayResetFn,
+    pub shrink: FScriptArrayShrinkFn,
 }
