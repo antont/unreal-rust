@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -311,6 +312,7 @@ impl UMockDataMeshTrackerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_mr_mesh_ptr);
     }
     pub fn connect_mr_mesh(&mut self, in_mr_mesh_ptr: UPtr<UMRMeshComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -343,6 +345,7 @@ impl UMockDataMeshTrackerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_mr_mesh_ptr);
     }
 }
 #[repr(C, align(8))]
@@ -450,6 +453,7 @@ impl UMRMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_wireframe_color(
         &mut self,
@@ -517,6 +521,7 @@ impl UMRMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_use_wireframe);
     }
     pub fn set_enable_mesh_occlusion(&mut self, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -545,6 +550,7 @@ impl UMRMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn request_nav_mesh_update(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

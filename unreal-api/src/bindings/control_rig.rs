@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -8670,6 +8671,7 @@ impl UAnimNodeControlRigLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(control_rig_class);
         unsafe { __buffer.add(24).cast::<FControlRigReference>().read() }
     }
     pub fn convert_to_control_rig_pure(
@@ -8911,6 +8913,7 @@ impl UControlRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_interaction_rig_class);
     }
     pub fn set_interaction_rig(&mut self, in_interaction_rig: UPtr<UControlRig>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -8943,6 +8946,7 @@ impl UControlRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_interaction_rig);
     }
     pub fn select_control(
         &mut self,
@@ -8990,6 +8994,8 @@ impl UControlRig {
                 __buffer,
             )
         };
+        std::mem::forget(b_select);
+        std::mem::forget(b_setup_undo);
     }
     pub fn request_construction(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -9194,6 +9200,8 @@ impl UControlRig {
                 __buffer,
             )
         };
+        std::mem::forget(outer);
+        std::mem::forget(optional_class);
         unsafe { __buffer.add(16).cast::<TArray<UPtr<UControlRig>>>().read() }
     }
     pub fn current_control_selection(&self) -> TArray<FName> {
@@ -9289,6 +9297,7 @@ impl UControlRig {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
 }
@@ -9398,6 +9407,7 @@ impl UControlRigShapeLibraryLink {
                 __buffer,
             )
         };
+        std::mem::forget(in_shape_library);
     }
     pub fn get_shape_library(&self) -> TSoftObjectPtr<UControlRigShapeLibrary> {
         let mut __stack = crate::core_data::StackAlloc::<48>::new();
@@ -9527,6 +9537,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
     }
     pub fn set_object_binding(
         &mut self,
@@ -9562,6 +9573,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_object_to_bind);
     }
     pub fn set_mapped_elements(
         &mut self,
@@ -9597,6 +9609,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_mapped_elements);
     }
     pub fn set_initial_space_transform(
         &mut self,
@@ -9648,6 +9661,9 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(space_name);
+        std::mem::forget(initial_transform);
+        std::mem::forget(space);
     }
     pub fn set_initial_bone_transform(
         &mut self,
@@ -9707,6 +9723,10 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(initial_transform);
+        std::mem::forget(space);
+        std::mem::forget(b_propagate_to_children);
     }
     pub fn set_control_vector2_d(
         &mut self,
@@ -9750,6 +9770,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
     }
     pub fn set_control_transform(
         &mut self,
@@ -9801,6 +9823,9 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
+        std::mem::forget(space);
     }
     pub fn set_control_scale(
         &mut self,
@@ -9852,6 +9877,9 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
+        std::mem::forget(space);
     }
     pub fn set_control_rotator(
         &mut self,
@@ -9903,6 +9931,9 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
+        std::mem::forget(space);
     }
     pub fn set_control_rig_class(
         &mut self,
@@ -9938,6 +9969,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig_class);
     }
     pub fn set_control_position(
         &mut self,
@@ -9989,6 +10021,9 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
+        std::mem::forget(space);
     }
     pub fn set_control_offset(
         &mut self,
@@ -10040,6 +10075,9 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(offset_transform);
+        std::mem::forget(space);
     }
     pub fn set_control_int(&mut self, control_name: FName, value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -10075,6 +10113,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
     }
     pub fn set_control_float(&mut self, control_name: FName, value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -10110,6 +10150,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
     }
     pub fn set_control_bool(&mut self, control_name: FName, value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -10145,6 +10187,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(value);
     }
     pub fn set_bone_transform(
         &mut self,
@@ -10208,6 +10252,11 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(transform);
+        std::mem::forget(space);
+        std::mem::forget(weight);
+        std::mem::forget(b_propagate_to_children);
     }
     pub fn set_bone_initial_transforms_from_skeletal_mesh(
         &mut self,
@@ -10243,6 +10292,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
     }
     pub fn on_pre_initialize(&mut self, component: UPtr<UControlRigComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10275,6 +10325,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
     }
     pub fn on_pre_forwards_solve(&mut self, component: UPtr<UControlRigComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10307,6 +10358,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
     }
     pub fn on_pre_construction(&mut self, component: UPtr<UControlRigComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10339,6 +10391,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
     }
     pub fn on_post_initialize(&mut self, component: UPtr<UControlRigComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10371,6 +10424,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
     }
     pub fn on_post_forwards_solve(&mut self, component: UPtr<UControlRigComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10403,6 +10457,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
     }
     pub fn on_post_construction(&mut self, component: UPtr<UControlRigComponent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10435,6 +10490,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
     }
     pub fn initialize(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10503,6 +10559,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(space_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -10549,6 +10607,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(space_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -10595,6 +10655,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -10630,6 +10692,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(element_type);
         unsafe { __buffer.add(8).cast::<TArray<FName>>().read() }
     }
     pub fn get_control_vector2_d(
@@ -10666,6 +10729,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -10712,6 +10776,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -10758,6 +10824,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10804,6 +10872,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -10876,6 +10946,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10922,6 +10994,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -10957,6 +11031,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_control_float(&mut self, control_name: FName) -> f32 {
@@ -10990,6 +11065,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_control_bool(&mut self, control_name: FName) -> bool {
@@ -11023,6 +11099,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(control_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_bone_transform(
@@ -11067,6 +11144,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -11135,6 +11214,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(element_type);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn clear_mapped_elements(&mut self) {
@@ -11248,6 +11329,10 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh_component);
+        std::mem::forget(bones);
+        std::mem::forget(curves);
+        std::mem::forget(in_direction);
     }
     pub fn add_mapped_elements(
         &mut self,
@@ -11283,6 +11368,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_mapped_elements);
     }
     pub fn add_mapped_components(
         &mut self,
@@ -11318,6 +11404,7 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(components);
     }
     pub fn add_mapped_complete_skeletal_mesh(
         &mut self,
@@ -11363,6 +11450,8 @@ impl UControlRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh_component);
+        std::mem::forget(in_direction);
     }
 }
 #[repr(C, align(8))]
@@ -11555,6 +11644,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_selected);
     }
     pub fn set_selectable(&mut self, b_in_selectable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11587,6 +11677,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_selectable);
     }
     pub fn set_hovered(&mut self, b_in_hovered: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11619,6 +11710,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_hovered);
     }
     pub fn set_global_transform(
         &mut self,
@@ -11686,6 +11778,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_enabled);
     }
     pub fn on_transform_changed(
         &mut self,
@@ -11753,6 +11846,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_selected);
     }
     pub fn on_manipulating_changed(&mut self, b_is_manipulating: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11785,6 +11879,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_manipulating);
     }
     pub fn on_hovered_changed(&mut self, b_is_selected: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11817,6 +11912,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_selected);
     }
     pub fn on_enabled_changed(&mut self, b_is_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11849,6 +11945,7 @@ impl AControlRigShapeActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
     }
     pub fn is_selected_in_editor(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -12169,6 +12266,8 @@ impl UControlRigReplay {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_mode);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn start_recording(&mut self, in_control_rig: UPtr<UControlRig>) -> bool {
@@ -12202,6 +12301,7 @@ impl UControlRigReplay {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_playback_mode(&mut self, in_mode: EControlRigReplayPlaybackMode) {
@@ -12235,6 +12335,7 @@ impl UControlRigReplay {
                 __buffer,
             )
         };
+        std::mem::forget(in_mode);
     }
     pub fn pause_replay(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -12445,6 +12546,9 @@ impl UControlRigReplay {
                 __buffer,
             )
         };
+        std::mem::forget(in_desired_package_path);
+        std::mem::forget(in_blueprint_path_name);
+        std::mem::forget(in_asset_class);
         unsafe { __buffer.add(40).cast::<UPtr<UControlRigReplay>>().read() }
     }
 }
@@ -12518,6 +12622,8 @@ impl UControlRigTestData {
                 __buffer,
             )
         };
+        std::mem::forget(in_seconds);
+        std::mem::forget(b_input);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
 }
@@ -12656,6 +12762,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_path);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_parent_module_name(&self, in_module_name: FName) -> FName {
@@ -12689,6 +12796,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_module_rig_by_name(
@@ -12725,6 +12833,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_name);
         unsafe { __buffer.add(16).cast::<UPtr<UControlRig>>().read() }
     }
     pub fn get_module_rig(&mut self, in_module_path: FString) -> UPtr<UControlRig> {
@@ -12758,6 +12867,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_path);
         unsafe { __buffer.add(16).cast::<UPtr<UControlRig>>().read() }
     }
     pub fn get_module_paths(&self) -> TArray<FString> {
@@ -12843,6 +12953,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_name);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
     pub fn get_events_for_module(&self, in_module_path: FString) -> TArray<FName> {
@@ -12876,6 +12987,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_path);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
     pub fn get_events_for_all_modules(&self) -> TArray<FName> {
@@ -12942,6 +13054,8 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_event);
+        std::mem::forget(in_module_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn execute_event_on_module_by_name(
@@ -12982,6 +13096,8 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_event);
+        std::mem::forget(in_module_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn execute_event_on_all_modules(&mut self, in_event: FName) -> TArray<FName> {
@@ -13011,6 +13127,7 @@ impl UModularRig {
                 __buffer,
             )
         };
+        std::mem::forget(in_event);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
 }
@@ -13098,6 +13215,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn swap_modules_of_class(
@@ -13150,6 +13268,9 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_old_class);
+        std::mem::forget(in_new_class);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn swap_module_class(
@@ -13202,6 +13323,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_class);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn set_module_selection(&mut self, in_module_names: &TArray<FName>) -> bool {
@@ -13295,6 +13418,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn select_module(&mut self, in_module_name: &FName, in_selected: bool) -> bool {
@@ -13335,6 +13460,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_selected);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn reset_config_value_in_module(
@@ -13395,6 +13521,9 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_path);
+        std::mem::forget(b_clear_override);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn reparent_module(
@@ -13447,6 +13576,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn reorder_module(
@@ -13499,6 +13629,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_index);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn rename_module(
@@ -13551,6 +13683,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(28).cast::<FName>().read() }
     }
     pub fn mirror_module(
@@ -13603,6 +13736,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(60).cast::<FName>().read() }
     }
     pub fn import_module_settings_from_string(
@@ -13655,6 +13789,9 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_content);
+        std::mem::forget(in_optional_module_names);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn get_selected_modules(&self) -> TArray<FName> {
@@ -13714,6 +13851,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_name);
         unsafe { __buffer.add(16).cast::<FRigModuleReference>().read() }
     }
     pub fn get_connectors_for_module(
@@ -13750,6 +13888,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_name);
         unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_all_modules(&self) -> TArray<FName> {
@@ -13812,6 +13951,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_module_names);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn disconnect_cyclic_connectors(
@@ -13848,6 +13988,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn disconnect_connector(
@@ -13900,6 +14041,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_disconnect_sub_modules);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn deselect_module(&mut self, in_module_name: &FName) -> bool {
@@ -13973,6 +14116,7 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn connect_connector_to_elements(
@@ -14041,6 +14185,9 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_auto_resolve_other_connectors);
+        std::mem::forget(b_check_valid_connection);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn connect_connector_to_element(
@@ -14109,6 +14256,9 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_auto_resolve_other_connectors);
+        std::mem::forget(b_check_valid_connection);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn can_connect_connector_to_elements(
@@ -14279,6 +14429,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_path);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn auto_connect_secondary_connectors(
@@ -14331,6 +14483,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_replace_existing_connections);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn auto_connect_modules(
@@ -14383,6 +14537,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_replace_existing_connections);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn add_target_to_array_connector(
@@ -14451,6 +14607,9 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_auto_resolve_other_connectors);
+        std::mem::forget(b_check_valid_connection);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn add_module(
@@ -14511,6 +14670,8 @@ impl UModularRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(40).cast::<FName>().read() }
     }
 }
@@ -14698,6 +14859,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_setup_undo);
     }
     pub fn unset_curve_value(&mut self, in_key: FRigElementKey, b_setup_undo: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -14737,6 +14900,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_setup_undo);
     }
     pub fn switch_to_world_space(
         &mut self,
@@ -14788,6 +14953,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn switch_to_parent(
@@ -14848,6 +15016,10 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn switch_to_default_parent(
@@ -14900,6 +15072,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn sort_keys(&self, in_keys: &TArray<FRigElementKey>) -> TArray<FRigElementKey> {
@@ -14983,6 +15158,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn set_vector_array_metadata(
@@ -15037,6 +15215,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_transform_metadata(
@@ -15089,6 +15270,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(128).cast::<bool>().read() }
     }
     pub fn set_transform_array_metadata(
@@ -15143,6 +15327,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_tag(&mut self, in_item: FRigElementKey, in_tag: FName) -> bool {
@@ -15177,6 +15364,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_tag);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn set_rotator_metadata(
@@ -15229,6 +15418,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn set_rotator_array_metadata(
@@ -15283,6 +15475,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_rig_element_key_metadata(
@@ -15335,6 +15530,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn set_rig_element_key_array_metadata(
@@ -15387,6 +15585,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_quat_metadata(
@@ -15439,6 +15640,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn set_quat_array_metadata(
@@ -15491,6 +15695,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_pose(&mut self, in_pose: FRigPose) {
@@ -15524,6 +15731,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_pose);
     }
     pub fn set_parent_weight_array(
         &mut self,
@@ -15583,6 +15791,10 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_weights);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_parent_weight(
@@ -15651,6 +15863,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(in_weight);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
         unsafe { __buffer.add(46).cast::<bool>().read() }
     }
     pub fn set_name_metadata(
@@ -15703,6 +15920,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_name_array_metadata(
@@ -15755,6 +15975,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_local_transform_by_index(
@@ -15831,6 +16054,12 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_local_transform(
         &mut self,
@@ -15906,6 +16135,12 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_linear_color_metadata(
         &mut self,
@@ -15957,6 +16192,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn set_linear_color_array_metadata(
@@ -16011,6 +16249,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_int32_metadata(
@@ -16059,6 +16300,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_int32_array_metadata(
@@ -16111,6 +16355,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_global_transform_by_index(
@@ -16187,6 +16434,12 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
     }
     pub fn set_global_transform(
         &mut self,
@@ -16262,6 +16515,12 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
     }
     pub fn set_float_metadata(
         &mut self,
@@ -16309,6 +16568,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_float_array_metadata(
@@ -16361,6 +16623,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_curve_value_by_index(
@@ -16409,6 +16674,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_value);
+        std::mem::forget(b_setup_undo);
     }
     pub fn set_curve_value(
         &mut self,
@@ -16456,6 +16724,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_value);
+        std::mem::forget(b_setup_undo);
     }
     pub fn set_control_visibility_by_index(
         &mut self,
@@ -16499,6 +16770,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_visibility);
     }
     pub fn set_control_visibility(
         &mut self,
@@ -16542,6 +16815,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_visibility);
     }
     pub fn set_control_value_by_index(
         &mut self,
@@ -16609,6 +16884,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_value);
+        std::mem::forget(in_value_type);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_control_value(
         &mut self,
@@ -16676,6 +16956,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_value);
+        std::mem::forget(in_value_type);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_control_shape_transform_by_index(
         &mut self,
@@ -16735,6 +17020,10 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_setup_undo);
     }
     pub fn set_control_shape_transform(
         &mut self,
@@ -16794,6 +17083,10 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_setup_undo);
     }
     pub fn set_control_settings_by_index(
         &mut self,
@@ -16857,6 +17150,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_force);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_control_settings(
         &mut self,
@@ -16920,6 +17218,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_force);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_control_preferred_rotator_by_index(
         &mut self,
@@ -16979,6 +17282,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_fix_euler_flips);
     }
     pub fn set_control_preferred_rotator(
         &mut self,
@@ -17038,6 +17344,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_fix_euler_flips);
     }
     pub fn set_control_preferred_rotation_order_by_index(
         &mut self,
@@ -17083,6 +17392,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_rotation_order);
     }
     pub fn set_control_preferred_rotation_order(
         &mut self,
@@ -17128,6 +17439,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_rotation_order);
     }
     pub fn set_control_preferred_euler_angles_by_index(
         &mut self,
@@ -17197,6 +17510,10 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_rotation_order);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_fix_euler_flips);
     }
     pub fn set_control_preferred_euler_angles(
         &mut self,
@@ -17266,6 +17583,10 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_rotation_order);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_fix_euler_flips);
     }
     pub fn set_control_offset_transform_by_index(
         &mut self,
@@ -17341,6 +17662,12 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_control_offset_transform(
         &mut self,
@@ -17416,6 +17743,12 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_affect_children);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_connector_settings_by_index(
         &mut self,
@@ -17479,6 +17812,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_force);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_connector_settings(
         &mut self,
@@ -17542,6 +17880,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_force);
+        std::mem::forget(b_print_python_commands);
     }
     pub fn set_bool_metadata(
         &mut self,
@@ -17589,6 +17932,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(29).cast::<bool>().read() }
     }
     pub fn set_bool_array_metadata(
@@ -17641,6 +17987,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn send_auto_key_event(
@@ -17693,6 +18042,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_offset_in_seconds);
+        std::mem::forget(b_asynchronous);
     }
     pub fn restore_sockets_from_states(
         &mut self,
@@ -17736,6 +18088,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_states);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn restore_connectors_from_states(
@@ -17780,6 +18134,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_states);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn reset_to_default(&mut self) {
@@ -17838,6 +18194,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_type_filter);
     }
     pub fn reset_curve_values(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -17929,6 +18286,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn remove_all_metadata(&mut self, in_item: FRigElementKey) -> bool {
@@ -17962,6 +18321,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn num_components(&self, in_element: FRigElementKey) -> i32 {
@@ -17995,6 +18355,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn num(&self) -> i32 {
@@ -18054,6 +18415,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_vector(
@@ -18089,6 +18451,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_transform_no_scale(
@@ -18126,6 +18489,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(64).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_transform(
@@ -18161,6 +18525,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(96).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_rotator(
@@ -18196,6 +18561,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_int(in_value: i32) -> FRigControlValue {
@@ -18225,6 +18591,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_float(in_value: f32) -> FRigControlValue {
@@ -18254,6 +18621,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_euler_transform(
@@ -18291,6 +18659,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(80).cast::<FRigControlValue>().read() }
     }
     pub fn make_control_value_from_bool(in_value: bool) -> FRigControlValue {
@@ -18320,6 +18689,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
     }
     pub fn is_valid_index(&self, in_element_index: i32) -> bool {
@@ -18353,6 +18723,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_selected_by_index(&self, in_index: i32) -> bool {
@@ -18382,6 +18753,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_selected(&self, in_key: FRigElementKey) -> bool {
@@ -18415,6 +18787,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_procedural(&self, in_key: &FRigElementKey) -> bool {
@@ -18492,6 +18865,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn is_curve_value_set_by_index(&self, in_element_index: i32) -> bool {
@@ -18525,6 +18900,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_curve_value_set(&self, in_key: FRigElementKey) -> bool {
@@ -18558,6 +18934,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_controller_available(&self) -> bool {
@@ -18617,6 +18994,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn has_tag(&self, in_item: FRigElementKey, in_tag: FName) -> bool {
@@ -18651,6 +19029,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_tag);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn get_vector_metadata(
@@ -18703,6 +19083,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -18740,6 +19123,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer.add(240).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -18786,6 +19170,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe {
             __buffer
                 .add(32)
@@ -18826,6 +19212,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer.add(240).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -18863,6 +19250,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer
                 .add(240)
@@ -18920,6 +19308,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe {
             __buffer.add(128).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -18957,6 +19348,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer.add(240).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -19003,6 +19395,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe {
             __buffer
                 .add(32)
@@ -19039,6 +19433,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
     pub fn get_socket_states(&self) -> TArray<FRigSocketState> {
@@ -19098,6 +19493,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_selected_keys(
@@ -19134,6 +19530,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_type_filter);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_selected_hierarchy_keys(&self) -> TArray<FRigHierarchyKey> {
@@ -19196,6 +19593,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_create_if_needed);
         unsafe { __buffer.add(8).cast::<UPtr<UModularRigRuleManager>>().read() }
     }
     pub fn get_rotator_metadata(
@@ -19248,6 +19646,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -19285,6 +19686,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer.add(240).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -19331,6 +19733,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe {
             __buffer
                 .add(32)
@@ -19414,6 +19818,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(44).cast::<FRigElementKey>().read() }
     }
     pub fn get_rig_element_key_array_metadata(
@@ -19458,6 +19865,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_references(&self, b_traverse: bool) -> TArray<FRigElementKey> {
@@ -19491,6 +19900,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_quat_metadata(
@@ -19543,6 +19953,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe {
             __buffer.add(64).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -19589,6 +20002,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe {
             __buffer
                 .add(32)
@@ -19767,6 +20182,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_initial);
+        std::mem::forget(b_include_transient_controls);
         unsafe { __buffer.add(8).cast::<FRigPose>().read() }
     }
     pub fn get_parent_weight_array(
@@ -19811,6 +20228,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(b_initial);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementWeight>>().read() }
     }
     pub fn get_parent_weight(
@@ -19863,6 +20282,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(b_initial);
         unsafe { __buffer.add(36).cast::<FRigElementWeight>().read() }
     }
     pub fn get_parent_transform_by_index(
@@ -19903,6 +20325,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -19949,6 +20373,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -19995,6 +20421,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_number_of_parents(&self, in_key: FRigElementKey) -> i32 {
@@ -20028,6 +20456,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_nulls(&self, b_traverse: bool) -> TArray<FRigElementKey> {
@@ -20061,6 +20490,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_name_space_f_name(&self, in_item: FRigElementKey) -> FName {
@@ -20094,6 +20524,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn get_name_space(&self, in_item: FRigElementKey) -> FString {
@@ -20127,6 +20558,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_name_metadata(
@@ -20179,6 +20611,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(40).cast::<FName>().read() }
     }
     pub fn get_name_array_metadata(
@@ -20223,6 +20658,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(32).cast::<TArray<FName>>().read() }
     }
     pub fn get_module_prefix(&self, in_item: FRigElementKey) -> FString {
@@ -20256,6 +20693,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_module_path_f_name(&self, in_item: FRigElementKey) -> FName {
@@ -20289,6 +20727,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn get_module_path(&self, in_item: FRigElementKey) -> FString {
@@ -20322,6 +20761,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_module_name(&self, in_item: FRigElementKey) -> FString {
@@ -20355,6 +20795,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_module_f_name(&self, in_item: FRigElementKey) -> FName {
@@ -20388,6 +20829,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn get_metadata_type(
@@ -20432,6 +20874,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(28).cast::<ERigMetadataType>().read() }
     }
     pub fn get_metadata_names(&self, in_item: FRigElementKey) -> TArray<FName> {
@@ -20465,6 +20909,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
     pub fn get_local_transform_by_index(
@@ -20505,6 +20950,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -20551,6 +20998,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -20586,6 +21035,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_local_control_shape_transform_by_index(
@@ -20626,6 +21076,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -20672,6 +21124,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -20726,6 +21180,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe {
             __buffer
                 .add(44)
@@ -20775,6 +21232,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe {
             __buffer
                 .add(32)
@@ -20811,6 +21270,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_indices);
         unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_key(&self, in_element_index: i32) -> FRigElementKey {
@@ -20842,6 +21302,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
         unsafe { __buffer.add(4).cast::<FRigElementKey>().read() }
     }
     pub fn get_int_from_control_value(in_value: FRigControlValue) -> i32 {
@@ -20875,6 +21336,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(240).cast::<i32>().read() }
     }
     pub fn get_int32_metadata(
@@ -20927,6 +21389,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn get_int32_array_metadata(
@@ -20971,6 +21436,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(32).cast::<TArray<i32>>().read() }
     }
     pub fn get_index(&self, in_key: FRigElementKey) -> i32 {
@@ -21004,6 +21471,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_global_transform_by_index(
@@ -21044,6 +21512,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -21090,6 +21560,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -21132,6 +21604,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -21178,6 +21652,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -21220,6 +21696,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -21266,6 +21744,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -21320,6 +21800,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(32).cast::<f32>().read() }
     }
     pub fn get_float_from_control_value(in_value: FRigControlValue) -> f32 {
@@ -21353,6 +21836,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(240).cast::<f32>().read() }
     }
     pub fn get_float_array_metadata(
@@ -21397,6 +21881,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(32).cast::<TArray<f32>>().read() }
     }
     pub fn get_first_parent(&self, in_key: FRigElementKey) -> FRigElementKey {
@@ -21430,6 +21916,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<FRigElementKey>().read() }
     }
     pub fn get_euler_transform_from_control_value(
@@ -21465,6 +21952,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer
                 .add(240)
@@ -21503,6 +21991,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<FRigElementKey>().read() }
     }
     pub fn get_curve_value_by_index(&self, in_element_index: i32) -> f32 {
@@ -21536,6 +22025,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_curve_value(&self, in_key: FRigElementKey) -> f32 {
@@ -21569,6 +22059,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_curves(&self) -> TArray<FRigElementKey> {
@@ -21639,6 +22130,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_value_type);
         unsafe { __buffer.add(16).cast::<FRigControlValue>().read() }
     }
     pub fn get_control_value(
@@ -21683,6 +22176,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_value_type);
         unsafe { __buffer.add(32).cast::<FRigControlValue>().read() }
     }
     pub fn get_control_preferred_rotator_by_index(
@@ -21723,6 +22218,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -21769,6 +22266,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -21815,6 +22314,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(b_from_settings);
         unsafe {
             __buffer
                 .add(5)
@@ -21864,6 +22365,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_from_settings);
         unsafe {
             __buffer
                 .add(17)
@@ -21919,6 +22422,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element_index);
+        std::mem::forget(in_rotation_order);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -21975,6 +22481,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_rotation_order);
+        std::mem::forget(b_initial);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -22013,6 +22522,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_create_if_needed);
         unsafe { __buffer.add(8).cast::<UPtr<URigHierarchyController>>().read() }
     }
     pub fn get_controls(&self, b_traverse: bool) -> TArray<FRigElementKey> {
@@ -22046,6 +22556,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_connector_states(&self) -> TArray<FRigConnectorState> {
@@ -22105,6 +22616,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_component_type(
@@ -22149,6 +22661,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_component_index);
         unsafe {
             __buffer
                 .add(24)
@@ -22198,6 +22712,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_component_index);
         unsafe { __buffer.add(20).cast::<FName>().read() }
     }
     pub fn get_component_keys(
@@ -22234,6 +22750,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
         unsafe { __buffer.add(16).cast::<TArray<FRigComponentKey>>().read() }
     }
     pub fn get_component_key(
@@ -22278,6 +22795,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_component_index);
         unsafe { __buffer.add(20).cast::<FRigComponentKey>().read() }
     }
     pub fn get_component_content(
@@ -22322,6 +22841,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_component_index);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn get_children(
@@ -22366,6 +22887,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_bool_metadata(
@@ -22418,6 +22941,9 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(29).cast::<bool>().read() }
     }
     pub fn get_bool_array_metadata(
@@ -22462,6 +22988,8 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_item);
+        std::mem::forget(in_metadata_name);
         unsafe { __buffer.add(32).cast::<TArray<bool>>().read() }
     }
     pub fn get_bones(&self, b_traverse: bool) -> TArray<FRigElementKey> {
@@ -22495,6 +23023,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_all_keys(&self, b_traverse: bool) -> TArray<FRigElementKey> {
@@ -22528,6 +23057,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(b_traverse);
         unsafe { __buffer.add(8).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_all_component_keys(&self) -> TArray<FRigComponentKey> {
@@ -22711,6 +23241,11 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_hierarchy);
+        std::mem::forget(b_current);
+        std::mem::forget(b_initial);
+        std::mem::forget(b_weights);
+        std::mem::forget(b_match_pose_in_global_if_needed);
     }
     pub fn copy_hierarchy(&mut self, in_hierarchy: UPtr<URigHierarchy>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -22743,6 +23278,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_hierarchy);
     }
     pub fn contains(&self, in_key: FRigElementKey) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -22775,6 +23311,7 @@ impl URigHierarchy {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -22898,6 +23435,8 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_parent(
@@ -22966,6 +23505,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(b_maintain_global_transform);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn set_hierarchy_selection(
@@ -23018,6 +23562,8 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_hierarchy(&mut self, in_hierarchy: UPtr<URigHierarchy>) {
@@ -23051,6 +23597,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_hierarchy);
     }
     pub fn set_display_name(
         &mut self,
@@ -23118,6 +23665,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_control);
+        std::mem::forget(in_display_name);
+        std::mem::forget(b_rename_element);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<FName>().read() }
     }
     pub fn set_control_settings(
@@ -23170,6 +23722,9 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(785).cast::<bool>().read() }
     }
     pub fn set_component_selection(
@@ -23214,6 +23769,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn set_component_content(
@@ -23274,6 +23830,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_component);
+        std::mem::forget(in_content);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(50).cast::<bool>().read() }
     }
     pub fn set_available_space_label(
@@ -23342,6 +23902,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_control);
+        std::mem::forget(in_space);
+        std::mem::forget(in_display_label);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(46).cast::<bool>().read() }
     }
     pub fn set_available_space_index(
@@ -23406,6 +23971,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_control);
+        std::mem::forget(in_space);
+        std::mem::forget(in_index);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(38).cast::<bool>().read() }
     }
     pub fn select_hierarchy_key(
@@ -23462,6 +24032,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_select);
+        std::mem::forget(b_clear_selection);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(55).cast::<bool>().read() }
     }
     pub fn select_element(
@@ -23518,6 +24092,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_select);
+        std::mem::forget(b_clear_selection);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn select_component(
@@ -23574,6 +24152,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_select);
+        std::mem::forget(b_clear_selection);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(31).cast::<bool>().read() }
     }
     pub fn reparent_component(
@@ -23642,6 +24224,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_component_key);
+        std::mem::forget(in_parent_element_key);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_clear_selection);
         unsafe { __buffer.add(48).cast::<FRigComponentKey>().read() }
     }
     pub fn reorder_element(
@@ -23698,6 +24285,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_index);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(22).cast::<bool>().read() }
     }
     pub fn rename_element(
@@ -23762,6 +24353,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(in_name);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_clear_selection);
         unsafe { __buffer.add(32).cast::<FRigElementKey>().read() }
     }
     pub fn rename_component(
@@ -23826,6 +24422,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_component);
+        std::mem::forget(in_name);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_clear_selection);
         unsafe { __buffer.add(44).cast::<FRigComponentKey>().read() }
     }
     pub fn remove_parent(
@@ -23894,6 +24495,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(b_maintain_global_transform);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn remove_element(
@@ -23946,6 +24552,9 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_element);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn remove_component(
@@ -23998,6 +24607,9 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_component);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(30).cast::<bool>().read() }
     }
     pub fn remove_channel_host(
@@ -24058,6 +24670,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_channel);
+        std::mem::forget(in_host);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn remove_available_space(
@@ -24118,6 +24734,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_control);
+        std::mem::forget(in_space);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn remove_all_parents(
@@ -24178,6 +24798,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(b_maintain_global_transform);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn mirror_elements(
@@ -24246,6 +24870,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_keys);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_select_new_elements);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
         unsafe { __buffer.add(64).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_sockets_from_skeletal_mesh(
@@ -24330,6 +24959,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
+        std::mem::forget(b_replace_existing_sockets);
+        std::mem::forget(b_remove_obsolete_sockets);
+        std::mem::forget(b_select_sockets);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_preview_skeletal_mesh(
@@ -24398,6 +25033,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
+        std::mem::forget(b_replace_existing_bones);
+        std::mem::forget(b_remove_obsolete_bones);
+        std::mem::forget(b_select_bones);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(16).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_from_text(
@@ -24466,6 +25106,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_content);
+        std::mem::forget(b_replace_existing_elements);
+        std::mem::forget(b_select_new_elements);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_curves_from_skeletal_mesh(
@@ -24534,6 +25179,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
+        std::mem::forget(in_name_space);
+        std::mem::forget(b_select_curves);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_curves_from_asset(
@@ -24594,6 +25244,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset_path);
+        std::mem::forget(in_name_space);
+        std::mem::forget(b_select_curves);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_curves(
@@ -24662,6 +25316,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeleton);
+        std::mem::forget(in_name_space);
+        std::mem::forget(b_select_curves);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_bones_from_skeletal_mesh(
@@ -24746,6 +25405,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
+        std::mem::forget(b_replace_existing_bones);
+        std::mem::forget(b_remove_obsolete_bones);
+        std::mem::forget(b_select_bones);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_bones_from_asset(
@@ -24822,6 +25487,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset_path);
+        std::mem::forget(in_name_space);
+        std::mem::forget(b_replace_existing_bones);
+        std::mem::forget(b_remove_obsolete_bones);
+        std::mem::forget(b_select_bones);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn import_bones(
@@ -24906,6 +25577,13 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeleton);
+        std::mem::forget(in_name_space);
+        std::mem::forget(b_replace_existing_bones);
+        std::mem::forget(b_remove_obsolete_bones);
+        std::mem::forget(b_select_bones);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn get_hierarchy(&self) -> UPtr<URigHierarchy> {
@@ -24965,6 +25643,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<FRigControlSettings>().read() }
     }
     pub fn generate_python_commands(&mut self) -> TArray<FString> {
@@ -25024,6 +25703,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_keys);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn export_selection_to_text(&self) -> FString {
@@ -25110,6 +25790,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_keys);
+        std::mem::forget(b_select_new_elements);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_commands);
         unsafe { __buffer.add(24).cast::<TArray<FRigElementKey>>().read() }
     }
     pub fn deselect_hierarchy_key(
@@ -25154,6 +25838,8 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(53).cast::<bool>().read() }
     }
     pub fn deselect_element(&mut self, in_key: FRigElementKey) -> bool {
@@ -25187,6 +25873,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn deselect_component(&mut self, in_key: FRigComponentKey) -> bool {
@@ -25220,6 +25907,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn clear_selection(&mut self, b_setup_undo: bool) -> bool {
@@ -25253,6 +25941,7 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn add_socket(
@@ -25341,6 +26030,13 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_parent);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_transform_in_global);
+        std::mem::forget(in_description);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(172).cast::<FRigElementKey>().read() }
     }
     pub fn add_parent(
@@ -25413,6 +26109,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(in_weight);
+        std::mem::forget(b_maintain_global_transform);
+        std::mem::forget(in_display_label);
+        std::mem::forget(b_setup_undo);
         unsafe { __buffer.add(53).cast::<bool>().read() }
     }
     pub fn add_null(
@@ -25485,6 +26187,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_parent);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_transform_in_global);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(132).cast::<FRigElementKey>().read() }
     }
     pub fn add_curve(
@@ -25537,6 +26245,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_value);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(20).cast::<FRigElementKey>().read() }
     }
     pub fn add_control(
@@ -25609,6 +26321,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_parent);
+        std::mem::forget(in_settings);
+        std::mem::forget(in_value);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(1044).cast::<FRigElementKey>().read() }
     }
     pub fn add_connector(
@@ -25665,6 +26383,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(60).cast::<FRigElementKey>().read() }
     }
     pub fn add_component(
@@ -25739,6 +26461,12 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_component_struct);
+        std::mem::forget(in_name);
+        std::mem::forget(in_element);
+        std::mem::forget(in_content);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(60).cast::<FRigComponentKey>().read() }
     }
     pub fn add_channel_host(
@@ -25799,6 +26527,10 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_channel);
+        std::mem::forget(in_host);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn add_bone(
@@ -25879,6 +26611,13 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_parent);
+        std::mem::forget(in_transform);
+        std::mem::forget(b_transform_in_global);
+        std::mem::forget(in_bone_type);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(132).cast::<FRigElementKey>().read() }
     }
     pub fn add_available_space(
@@ -25947,6 +26686,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_control);
+        std::mem::forget(in_space);
+        std::mem::forget(in_display_label);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(46).cast::<bool>().read() }
     }
     pub fn add_animation_channel(
@@ -26011,6 +26755,11 @@ impl URigHierarchyController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_parent_control);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(804).cast::<FRigElementKey>().read() }
     }
 }
@@ -26292,6 +27041,7 @@ impl UControlRigPoseAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
     }
     pub fn select_controls(
         &mut self,
@@ -26343,6 +27093,9 @@ impl UControlRigPoseAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
+        std::mem::forget(b_do_mirror);
+        std::mem::forget(b_clear_selection);
     }
     pub fn save_pose(&mut self, in_control_rig: UPtr<UControlRig>, b_use_all: bool) {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -26378,6 +27131,8 @@ impl UControlRigPoseAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
+        std::mem::forget(b_use_all);
     }
     pub fn replace_control_name(&mut self, current_name: &FName, new_name: &FName) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -26468,6 +27223,10 @@ impl UControlRigPoseAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
+        std::mem::forget(b_do_key);
+        std::mem::forget(b_do_mirror);
+        std::mem::forget(b_do_additive);
     }
     pub fn get_current_pose(
         &mut self,
@@ -26514,6 +27273,7 @@ impl UControlRigPoseAsset {
         unsafe {
             __buffer.add(8).cast::<FControlRigControlPose>().swap(out_pose);
         }
+        std::mem::forget(in_control_rig);
     }
     pub fn get_control_names(&self) -> TArray<FName> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -26583,6 +27343,7 @@ impl UControlRigPoseAsset {
                 __buffer,
             )
         };
+        std::mem::forget(control_rig);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
 }

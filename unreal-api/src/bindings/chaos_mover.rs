@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1117,6 +1118,8 @@ impl UChaosMoverSimulation {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_find);
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn get_local_sim_input_mutable(
@@ -1350,6 +1353,7 @@ impl UChaosMoverSimulation {
                 __buffer,
             )
         };
+        std::mem::forget(modifier_handle);
     }
 }
 pub struct IChaosCharacterMovementModeInterface {}
@@ -1440,6 +1444,7 @@ impl UChaosCharacterMovementModeInterface {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn override_acceleration(&mut self, value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1468,6 +1473,7 @@ impl UChaosCharacterMovementModeInterface {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn get_target_height(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1754,6 +1760,7 @@ impl UChaosCharacterMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(overrides);
     }
     pub fn launch(
         &mut self,
@@ -1797,6 +1804,7 @@ impl UChaosCharacterMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(mode);
     }
     pub fn cancel_movement_settings_overrides(&mut self, mode_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -1829,6 +1837,7 @@ impl UChaosCharacterMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(mode_name);
     }
 }
 #[repr(C, align(8))]
@@ -2332,6 +2341,7 @@ impl UChaosPathedMovementMode {
                 __buffer,
             )
         };
+        std::mem::forget(new_duration);
     }
     pub fn bp_find_pattern(
         &self,
@@ -2367,6 +2377,7 @@ impl UChaosPathedMovementMode {
                 __buffer,
             )
         };
+        std::mem::forget(pattern_type);
         unsafe { __buffer.add(8).cast::<UPtr<UChaosPathedMovementPatternBase>>().read() }
     }
 }
@@ -2620,6 +2631,8 @@ impl UChaosPathedMovementControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(execution_type);
+        std::mem::forget(b_is_scheduled);
     }
     pub fn request_start_playing_path(
         &mut self,
@@ -2663,6 +2676,8 @@ impl UChaosPathedMovementControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(execution_type);
+        std::mem::forget(b_is_scheduled);
     }
     pub fn request_reverse_playback(
         &mut self,
@@ -2714,6 +2729,9 @@ impl UChaosPathedMovementControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_wants_reverse_playback);
+        std::mem::forget(execution_type);
+        std::mem::forget(b_is_scheduled);
     }
     pub fn request_one_way_playback(
         &mut self,
@@ -2765,6 +2783,9 @@ impl UChaosPathedMovementControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_wants_one_way_playback);
+        std::mem::forget(execution_type);
+        std::mem::forget(b_is_scheduled);
     }
     pub fn request_looping_playback(
         &mut self,
@@ -2816,6 +2837,9 @@ impl UChaosPathedMovementControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_wants_looping_playback);
+        std::mem::forget(execution_type);
+        std::mem::forget(b_is_scheduled);
     }
     pub fn is_reverse_playback(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();

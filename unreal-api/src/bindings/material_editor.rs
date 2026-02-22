@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -764,6 +765,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
     }
     pub fn update_material_function(
         material_function: UPtr<crate::bindings::engine::UMaterialFunctionInterface>,
@@ -808,6 +810,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
+        std::mem::forget(preview_material);
     }
     pub fn set_material_usage(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -861,6 +865,8 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(9).cast::<bool>().swap(b_needs_recompile);
         }
+        std::mem::forget(material);
+        std::mem::forget(usage);
         unsafe { __buffer.add(10).cast::<bool>().read() }
     }
     pub fn set_material_instance_vector_parameter_value(
@@ -924,6 +930,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
+        std::mem::forget(association);
         unsafe { __buffer.add(37).cast::<bool>().read() }
     }
     pub fn set_material_instance_texture_parameter_value(
@@ -987,6 +997,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
+        std::mem::forget(association);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn set_material_instance_static_switch_parameter_value(
@@ -1054,6 +1068,11 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
+        std::mem::forget(association);
+        std::mem::forget(b_update_material_instance);
         unsafe { __buffer.add(23).cast::<bool>().read() }
     }
     pub fn set_material_instance_sparse_volume_texture_parameter_value(
@@ -1119,6 +1138,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
+        std::mem::forget(association);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn set_material_instance_scalar_parameter_value(
@@ -1178,6 +1201,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
+        std::mem::forget(association);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn set_material_instance_runtime_virtual_texture_parameter_value(
@@ -1243,6 +1270,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
+        std::mem::forget(association);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn set_material_instance_parent(
@@ -1290,6 +1321,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(new_parent);
     }
     pub fn rename_material_parameter_group(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -1340,6 +1373,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(old_group_name);
+        std::mem::forget(new_group_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn rename_material_function_parameter_group(
@@ -1393,6 +1429,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
+        std::mem::forget(old_group_name);
+        std::mem::forget(new_group_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn recompile_material(material: UPtr<crate::bindings::engine::UMaterial>) {
@@ -1426,6 +1465,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn layout_material_function_expressions(
         material_function: UPtr<crate::bindings::engine::UMaterialFunction>,
@@ -1462,6 +1502,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
     }
     pub fn layout_material_expressions(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -1496,6 +1537,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn has_material_usage(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -1538,6 +1580,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(usage);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn get_vector_parameter_source(
@@ -1599,6 +1643,8 @@ impl UMaterialEditingLibrary {
                 .cast::<crate::bindings::core_u_object::FSoftObjectPath>()
                 .swap(parameter_source);
         }
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_vector_parameter_names(
@@ -1647,6 +1693,7 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(parameter_names);
         }
+        std::mem::forget(material);
     }
     pub fn get_used_textures(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -1681,6 +1728,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
         unsafe {
             __buffer
                 .add(8)
@@ -1747,6 +1795,8 @@ impl UMaterialEditingLibrary {
                 .cast::<crate::bindings::core_u_object::FSoftObjectPath>()
                 .swap(parameter_source);
         }
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_texture_parameter_names(
@@ -1795,6 +1845,7 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(parameter_names);
         }
+        std::mem::forget(material);
     }
     pub fn get_statistics(
         material: UPtr<crate::bindings::engine::UMaterialInterface>,
@@ -1831,6 +1882,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
         unsafe { __buffer.add(8).cast::<FMaterialStatistics>().read() }
     }
     pub fn get_static_switch_parameter_source(
@@ -1892,6 +1944,8 @@ impl UMaterialEditingLibrary {
                 .cast::<crate::bindings::core_u_object::FSoftObjectPath>()
                 .swap(parameter_source);
         }
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_static_switch_parameter_names(
@@ -1940,6 +1994,7 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(parameter_names);
         }
+        std::mem::forget(material);
     }
     pub fn get_scalar_parameter_source(
         material: UPtr<crate::bindings::engine::UMaterialInterface>,
@@ -2000,6 +2055,8 @@ impl UMaterialEditingLibrary {
                 .cast::<crate::bindings::core_u_object::FSoftObjectPath>()
                 .swap(parameter_source);
         }
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_scalar_parameter_names(
@@ -2048,6 +2105,7 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(parameter_names);
         }
+        std::mem::forget(material);
     }
     pub fn get_num_material_expressions_in_function(
         material_function: UPtr<crate::bindings::engine::UMaterialFunction>,
@@ -2084,6 +2142,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_num_material_expressions(
@@ -2119,6 +2178,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_nanite_override_material(
@@ -2156,6 +2216,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
         unsafe {
             __buffer
                 .add(8)
@@ -2196,6 +2257,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
         unsafe {
             __buffer
                 .add(8)
@@ -2244,6 +2306,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(property);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_material_property_input_node(
@@ -2287,6 +2351,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(property);
         unsafe {
             __buffer
                 .add(16)
@@ -2347,6 +2413,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(association);
         unsafe {
             __buffer
                 .add(24)
@@ -2407,6 +2476,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(association);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::UTexture>>().read()
         }
@@ -2464,6 +2536,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(association);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn get_material_instance_sparse_volume_texture_parameter_value(
@@ -2519,6 +2594,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(association);
         unsafe {
             __buffer
                 .add(24)
@@ -2579,6 +2657,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(association);
         unsafe { __buffer.add(24).cast::<f32>().read() }
     }
     pub fn get_material_instance_runtime_virtual_texture_parameter_value(
@@ -2634,6 +2715,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(parameter_name);
+        std::mem::forget(association);
         unsafe {
             __buffer
                 .add(24)
@@ -2690,6 +2774,7 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(12).cast::<i32>().swap(node_pos_y);
         }
+        std::mem::forget(material_expression);
     }
     pub fn get_material_expression_input_types(
         material_expression: UPtr<crate::bindings::engine::UMaterialExpression>,
@@ -2726,6 +2811,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_expression);
         unsafe { __buffer.add(8).cast::<TArray<i32>>().read() }
     }
     pub fn get_material_expression_input_names(
@@ -2763,6 +2849,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_expression);
         unsafe { __buffer.add(8).cast::<TArray<FString>>().read() }
     }
     pub fn get_material_default_vector_parameter_value(
@@ -2806,6 +2893,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe {
             __buffer
                 .add(20)
@@ -2854,6 +2943,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::UTexture>>().read()
         }
@@ -2899,6 +2990,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_material_default_scalar_parameter_value(
@@ -2942,6 +3035,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(20).cast::<f32>().read() }
     }
     pub fn get_inputs_for_material_expression(
@@ -2987,6 +3082,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(material_expression);
         unsafe {
             __buffer
                 .add(16)
@@ -3050,6 +3147,8 @@ impl UMaterialEditingLibrary {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(output_name);
         }
+        std::mem::forget(material_expression);
+        std::mem::forget(input_node);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_child_instances(
@@ -3103,6 +3202,7 @@ impl UMaterialEditingLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(child_instances);
         }
+        std::mem::forget(parent);
     }
     pub fn duplicate_material_expression(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -3157,6 +3257,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(material_function);
+        std::mem::forget(expression);
         unsafe {
             __buffer
                 .add(24)
@@ -3209,6 +3312,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
+        std::mem::forget(expression);
     }
     pub fn delete_material_expression(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -3253,6 +3358,8 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(expression);
     }
     pub fn delete_all_material_expressions_in_function(
         material_function: UPtr<crate::bindings::engine::UMaterialFunction>,
@@ -3289,6 +3396,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
     }
     pub fn delete_all_material_expressions(
         material: UPtr<crate::bindings::engine::UMaterial>,
@@ -3323,6 +3431,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn create_material_expression_in_function(
         material_function: UPtr<crate::bindings::engine::UMaterialFunction>,
@@ -3385,6 +3494,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_function);
+        std::mem::forget(expression_class);
+        std::mem::forget(node_pos_x);
+        std::mem::forget(node_pos_y);
         unsafe {
             __buffer
                 .add(24)
@@ -3451,6 +3564,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(expression_class);
+        std::mem::forget(node_pos_x);
+        std::mem::forget(node_pos_y);
         unsafe {
             __buffer
                 .add(24)
@@ -3509,6 +3626,9 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(from_expression);
+        std::mem::forget(from_output_name);
+        std::mem::forget(property);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn connect_material_expressions(
@@ -3572,6 +3692,10 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(from_expression);
+        std::mem::forget(from_output_name);
+        std::mem::forget(to_expression);
+        std::mem::forget(to_input_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn clear_all_material_instance_parameters(
@@ -3609,6 +3733,7 @@ impl UMaterialEditingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
     }
 }
 #[repr(transparent)]

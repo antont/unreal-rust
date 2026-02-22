@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -626,6 +627,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
     }
     pub fn reset(element_list: FScriptTypedElementListProxy) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -658,6 +660,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
     }
     pub fn reserve(element_list: FScriptTypedElementListProxy, size: i32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -693,6 +696,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(size);
     }
     pub fn remove(
         element_list: FScriptTypedElementListProxy,
@@ -735,6 +740,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn num(element_list: FScriptTypedElementListProxy) -> i32 {
@@ -768,6 +774,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn is_valid_index(
@@ -807,6 +814,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(index);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn has_elements_of_type(
@@ -850,6 +859,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(element_type_name);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn has_elements(
@@ -895,6 +906,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(base_interface_type);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_element_interface(
@@ -948,6 +961,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(base_interface_type);
         unsafe {
             __buffer
                 .add(32)
@@ -998,6 +1013,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(base_interface_type);
         unsafe { __buffer.add(24).cast::<TArray<FScriptTypedElementHandle>>().read() }
     }
     pub fn get_element_handle_at(
@@ -1037,6 +1054,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(index);
         unsafe { __buffer.add(24).cast::<FScriptTypedElementHandle>().read() }
     }
     pub fn empty(element_list: FScriptTypedElementListProxy, slack: i32) {
@@ -1073,6 +1092,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(slack);
     }
     pub fn create_element_list(
         registry: UPtr<UTypedElementRegistry>,
@@ -1107,6 +1128,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(registry);
         unsafe { __buffer.add(8).cast::<FScriptTypedElementListProxy>().read() }
     }
     pub fn count_elements_of_type(
@@ -1150,6 +1172,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(element_type_name);
         unsafe { __buffer.add(28).cast::<i32>().read() }
     }
     pub fn count_elements(
@@ -1195,6 +1219,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(base_interface_type);
         unsafe { __buffer.add(24).cast::<i32>().read() }
     }
     pub fn contains(
@@ -1238,6 +1264,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn clone(
@@ -1273,6 +1300,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
         unsafe { __buffer.add(16).cast::<FScriptTypedElementListProxy>().read() }
     }
     pub fn append_list(
@@ -1316,6 +1344,8 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
+        std::mem::forget(other_element_list);
     }
     pub fn append(
         element_list: FScriptTypedElementListProxy,
@@ -1358,6 +1388,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
     }
     pub fn add(
         element_list: FScriptTypedElementListProxy,
@@ -1400,6 +1431,7 @@ impl UTypedElementListLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(element_list);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
@@ -1543,6 +1575,7 @@ impl UTypedElementRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(in_base_interface_type);
         unsafe {
             __buffer
                 .add(16)
@@ -1632,6 +1665,8 @@ impl UTestTypedElementInterfaceA {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_name);
+        std::mem::forget(b_notify);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn get_display_name(

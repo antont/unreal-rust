@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1016,6 +1017,7 @@ impl UMovieSceneCapture {
                 __buffer,
             )
         };
+        std::mem::forget(protocol_type);
     }
     pub fn set_audio_capture_protocol_type(
         &mut self,
@@ -1051,6 +1053,7 @@ impl UMovieSceneCapture {
                 __buffer,
             )
         };
+        std::mem::forget(protocol_type);
     }
     pub fn get_image_capture_protocol(
         &mut self,
@@ -1449,6 +1452,7 @@ impl UUserDefinedCaptureProtocol {
                 __buffer,
             )
         };
+        std::mem::forget(buffer);
     }
     pub fn on_warm_up(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1626,6 +1630,7 @@ impl UUserDefinedCaptureProtocol {
                 __buffer,
             )
         };
+        std::mem::forget(frame_metrics);
     }
     pub fn on_pause_capture(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1909,6 +1914,7 @@ impl UUserDefinedImageCaptureProtocol {
                 __buffer,
             )
         };
+        std::mem::forget(b_copy_image_data);
     }
     pub fn generate_filename_for_current_frame(&mut self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1978,6 +1984,7 @@ impl UUserDefinedImageCaptureProtocol {
                 __buffer,
             )
         };
+        std::mem::forget(buffer);
         unsafe { __buffer.add(88).cast::<FString>().read() }
     }
 }

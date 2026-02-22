@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1963,6 +1964,7 @@ impl UInterchangeTestsBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(pipeline);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
 }

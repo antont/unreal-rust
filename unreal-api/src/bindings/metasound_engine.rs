@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -2100,6 +2101,8 @@ impl UMetaSoundAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(old_version);
+        std::mem::forget(new_version);
         unsafe { __buffer.add(104).cast::<bool>().read() }
     }
     pub fn register_asset_classes_in_directories(
@@ -2179,6 +2182,7 @@ impl UMetaSoundAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(doc_interface);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn find_referencing_asset_class_info(
@@ -2307,6 +2311,9 @@ impl UMetaSoundAssetSubsystem {
                 >()
                 .swap(out_interface_info);
         }
+        std::mem::forget(meta_sound);
+        std::mem::forget(b_only_presets);
+        std::mem::forget(b_force_load);
         unsafe { __buffer.add(66).cast::<bool>().read() }
     }
     pub fn find_asset_class_info(
@@ -2391,6 +2398,7 @@ impl UMetaSoundAssetSubsystem {
                 >()
                 .swap(out_interface_info);
         }
+        std::mem::forget(b_force_load);
         unsafe { __buffer.add(185).cast::<bool>().read() }
     }
 }
@@ -2539,6 +2547,8 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(24).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(output_name);
+        std::mem::forget(new_name);
     }
     pub fn set_graph_output_data_type(
         &mut self,
@@ -2593,6 +2603,8 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(24).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(output_name);
+        std::mem::forget(data_type);
     }
     pub fn set_graph_output_access_type(
         &mut self,
@@ -2651,6 +2663,8 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(16).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(output_name);
+        std::mem::forget(access_type);
     }
     pub fn set_graph_input_name(
         &mut self,
@@ -2705,6 +2719,8 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(24).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
+        std::mem::forget(new_name);
     }
     pub fn set_graph_input_default(
         &mut self,
@@ -2763,6 +2779,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(104).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
     }
     pub fn set_graph_input_data_type(
         &mut self,
@@ -2817,6 +2834,8 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(24).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
+        std::mem::forget(data_type);
     }
     pub fn set_graph_input_access_type(
         &mut self,
@@ -2875,6 +2894,8 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(16).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
+        std::mem::forget(access_type);
     }
     pub fn remove_unused_dependencies(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3000,6 +3021,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(16).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(b_remove_unused_dependencies);
     }
     pub fn remove_interface(
         &mut self,
@@ -3046,6 +3068,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(interface_name);
     }
     pub fn remove_graph_variable(
         &mut self,
@@ -3088,6 +3111,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
     }
     pub fn remove_graph_output(
         &mut self,
@@ -3130,6 +3154,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
     }
     pub fn remove_graph_input(
         &mut self,
@@ -3172,6 +3197,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
     }
     pub fn nodes_are_connected(
         &self,
@@ -3346,6 +3372,7 @@ impl UMetaSoundBuilderBase {
                 __buffer,
             )
         };
+        std::mem::forget(interface_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_root_graph_class_name(
@@ -3765,6 +3792,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(variable_name);
         unsafe {
             __buffer
                 .add(16)
@@ -3895,6 +3923,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
         unsafe {
             __buffer
                 .add(16)
@@ -3955,6 +3984,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(16).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(data_type);
         unsafe {
             __buffer.add(32).cast::<TArray<FMetaSoundBuilderNodeOutputHandle>>().read()
         }
@@ -4108,6 +4138,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(28).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<FMetaSoundBuilderNodeOutputHandle>().read() }
     }
     pub fn find_node_inputs_by_data_type(
@@ -4163,6 +4194,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(16).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(data_type);
         unsafe {
             __buffer.add(32).cast::<TArray<FMetaSoundBuilderNodeInputHandle>>().read()
         }
@@ -4316,6 +4348,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(28).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
         unsafe { __buffer.add(32).cast::<FMetaSoundBuilderNodeInputHandle>().read() }
     }
     pub fn find_node_class_version(
@@ -4415,6 +4448,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(interface_name);
         unsafe { __buffer.add(16).cast::<TArray<FMetaSoundNodeHandle>>().read() }
     }
     pub fn find_interface_input_nodes(
@@ -4462,6 +4496,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(interface_name);
         unsafe { __buffer.add(16).cast::<TArray<FMetaSoundNodeHandle>>().read() }
     }
     pub fn find_graph_output_node(
@@ -4534,6 +4569,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(56).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(output_name);
         unsafe { __buffer.add(60).cast::<FMetaSoundNodeHandle>().read() }
     }
     pub fn find_graph_input_node(
@@ -4606,6 +4642,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(56).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(input_name);
         unsafe { __buffer.add(60).cast::<FMetaSoundNodeHandle>().read() }
     }
     pub fn disconnect_nodes_by_interface_bindings(
@@ -5160,6 +5197,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(44).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(graph_output_name);
     }
     pub fn connect_node_outputs_to_matching_graph_interface_outputs(
         &mut self,
@@ -5263,6 +5301,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(44).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(graph_input_name);
     }
     pub fn connect_node_inputs_to_matching_graph_interface_inputs(
         &mut self,
@@ -5473,6 +5512,7 @@ impl UMetaSoundBuilderBase {
                 __buffer,
             )
         };
+        std::mem::forget(name_base);
         unsafe {
             __buffer
                 .add(16)
@@ -5534,6 +5574,8 @@ impl UMetaSoundBuilderBase {
                 __buffer,
             )
         };
+        std::mem::forget(existing_meta_sound);
+        std::mem::forget(b_force_unique_class_name);
     }
     pub fn build(
         &self,
@@ -5579,6 +5621,7 @@ impl UMetaSoundBuilderBase {
                 __buffer,
             )
         };
+        std::mem::forget(parent);
         unsafe {
             __buffer
                 .add(40)
@@ -5647,6 +5690,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(36).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(major_version);
         unsafe { __buffer.add(44).cast::<FMetaSoundNodeHandle>().read() }
     }
     pub fn add_node(
@@ -5749,6 +5793,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(interface_name);
     }
     pub fn add_graph_variable_set_node(
         &mut self,
@@ -5791,6 +5836,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<FMetaSoundNodeHandle>().read() }
     }
     pub fn add_graph_variable_get_node(
@@ -5834,6 +5880,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<FMetaSoundNodeHandle>().read() }
     }
     pub fn add_graph_variable_get_delayed_node(
@@ -5877,6 +5924,7 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<FMetaSoundNodeHandle>().read() }
     }
     pub fn add_graph_variable(
@@ -5940,6 +5988,9 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(112).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
+        std::mem::forget(data_type);
+        std::mem::forget(default_value);
     }
     pub fn add_graph_output_node(
         &mut self,
@@ -6010,6 +6061,10 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(112).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
+        std::mem::forget(data_type);
+        std::mem::forget(default_value);
+        std::mem::forget(b_is_constructor_output);
         unsafe { __buffer.add(116).cast::<FMetaSoundBuilderNodeInputHandle>().read() }
     }
     pub fn add_graph_input_node(
@@ -6081,6 +6136,10 @@ impl UMetaSoundBuilderBase {
         unsafe {
             __buffer.add(112).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(name);
+        std::mem::forget(data_type);
+        std::mem::forget(default_value);
+        std::mem::forget(b_is_constructor_input);
         unsafe { __buffer.add(116).cast::<FMetaSoundBuilderNodeOutputHandle>().read() }
     }
 }
@@ -6184,6 +6243,7 @@ impl UMetaSoundSourceBuilder {
                 __buffer,
             )
         };
+        std::mem::forget(sample_rate);
     }
     pub fn set_quality(&mut self, quality: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -6212,6 +6272,7 @@ impl UMetaSoundSourceBuilder {
                 __buffer,
             )
         };
+        std::mem::forget(quality);
     }
     pub fn set_format(
         &mut self,
@@ -6258,6 +6319,7 @@ impl UMetaSoundSourceBuilder {
         unsafe {
             __buffer.add(1).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(output_format);
     }
     pub fn set_block_rate_override(&mut self, block_rate: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -6286,6 +6348,7 @@ impl UMetaSoundSourceBuilder {
                 __buffer,
             )
         };
+        std::mem::forget(block_rate);
     }
     pub fn get_live_updates_enabled(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6371,6 +6434,10 @@ impl UMetaSoundSourceBuilder {
                 __buffer,
             )
         };
+        std::mem::forget(parent);
+        std::mem::forget(audio_component);
+        std::mem::forget(on_create_generator);
+        std::mem::forget(b_live_updates_enabled);
     }
 }
 #[repr(C, align(8))]
@@ -6438,6 +6505,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn unregister_patch_builder(&mut self, builder_name: FName) -> bool {
@@ -6471,6 +6539,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn unregister_builder(&mut self, builder_name: FName) -> bool {
@@ -6504,6 +6573,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_target_page(&mut self, page_name: FName) -> bool {
@@ -6537,6 +6607,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(page_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn register_source_builder(
@@ -6581,6 +6652,8 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
+        std::mem::forget(builder);
     }
     pub fn register_patch_builder(
         &mut self,
@@ -6624,6 +6697,8 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
+        std::mem::forget(builder);
     }
     pub fn register_builder(
         &mut self,
@@ -6667,6 +6742,8 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
+        std::mem::forget(builder);
     }
     pub fn is_interface_registered(&self, in_interface_name: FName) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -6699,6 +6776,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_interface_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn find_source_builder(
@@ -6735,6 +6813,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(16).cast::<UPtr<UMetaSoundSourceBuilder>>().read() }
     }
     pub fn find_patch_builder(
@@ -6771,6 +6850,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(16).cast::<UPtr<UMetaSoundPatchBuilder>>().read() }
     }
     pub fn find_parent_builder_of_preset(
@@ -6823,6 +6903,8 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_meta_sound_preset);
+        std::mem::forget(b_follow_preset_chain);
         unsafe { __buffer.add(24).cast::<UPtr<UMetaSoundBuilderBase>>().read() }
     }
     pub fn find_builder_of_document(
@@ -6867,6 +6949,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_meta_sound);
         unsafe { __buffer.add(16).cast::<UPtr<UMetaSoundBuilderBase>>().read() }
     }
     pub fn find_builder(&mut self, builder_name: FName) -> UPtr<UMetaSoundBuilderBase> {
@@ -6900,6 +6983,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(16).cast::<UPtr<UMetaSoundBuilderBase>>().read() }
     }
     pub fn create_string_meta_sound_literal(
@@ -6943,6 +7027,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(16).cast::<FName>().swap(data_type);
         }
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(32)
@@ -7063,6 +7148,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(32).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(40).cast::<UPtr<UMetaSoundSourceBuilder>>().read() }
     }
     pub fn create_source_builder(
@@ -7168,6 +7254,9 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(96).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(builder_name);
+        std::mem::forget(output_format);
+        std::mem::forget(b_is_one_shot);
         unsafe { __buffer.add(104).cast::<UPtr<UMetaSoundSourceBuilder>>().read() }
     }
     pub fn create_patch_preset_builder(
@@ -7231,6 +7320,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(32).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(40).cast::<UPtr<UMetaSoundPatchBuilder>>().read() }
     }
     pub fn create_patch_builder(
@@ -7278,6 +7368,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(12).cast::<EMetaSoundBuilderResult>().swap(out_result);
         }
+        std::mem::forget(builder_name);
         unsafe { __buffer.add(16).cast::<UPtr<UMetaSoundPatchBuilder>>().read() }
     }
     pub fn create_object_meta_sound_literal(
@@ -7314,6 +7405,7 @@ impl UMetaSoundBuilderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(8)
@@ -7444,6 +7536,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(4).cast::<FName>().swap(data_type);
         }
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(16)
@@ -7540,6 +7633,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(4).cast::<FName>().swap(data_type);
         }
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(16)
@@ -7636,6 +7730,7 @@ impl UMetaSoundBuilderSubsystem {
         unsafe {
             __buffer.add(4).cast::<FName>().swap(data_type);
         }
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(16)
@@ -8766,6 +8861,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(16)
@@ -8846,6 +8942,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(8)
@@ -8968,6 +9065,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(in_string);
         unsafe {
             __buffer
                 .add(16)
@@ -9092,6 +9190,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(in_object);
         unsafe {
             __buffer
                 .add(8)
@@ -9168,6 +9267,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(in_integer);
         unsafe {
             __buffer
                 .add(8)
@@ -9244,6 +9344,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(in_float);
         unsafe {
             __buffer
                 .add(8)
@@ -9324,6 +9425,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(in_boolean);
         unsafe {
             __buffer
                 .add(8)
@@ -9402,6 +9504,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(8)
@@ -9478,6 +9581,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(8)
@@ -9554,6 +9658,7 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(8)
@@ -9733,6 +9838,9 @@ impl UMetasoundGeneratorHandle {
                 __buffer,
             )
         };
+        std::mem::forget(output_name);
+        std::mem::forget(analyzer_name);
+        std::mem::forget(analyzer_output_name);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn update_watchers(&self) {
@@ -9813,6 +9921,7 @@ impl UMetasoundGeneratorHandle {
                 __buffer,
             )
         };
+        std::mem::forget(enable);
     }
     pub fn create_meta_sound_generator_handle(
         on_component: UPtr<crate::bindings::engine::UAudioComponent>,
@@ -9847,6 +9956,7 @@ impl UMetasoundGeneratorHandle {
                 __buffer,
             )
         };
+        std::mem::forget(on_component);
         unsafe { __buffer.add(8).cast::<UPtr<UMetasoundGeneratorHandle>>().read() }
     }
     pub fn apply_parameter_pack(
@@ -9889,6 +9999,7 @@ impl UMetasoundGeneratorHandle {
                 __buffer,
             )
         };
+        std::mem::forget(pack);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -9968,6 +10079,8 @@ impl UMetaSoundCacheSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_meta_sound);
+        std::mem::forget(in_num_instances);
     }
     pub fn remove_cached_operators_for_meta_sound(
         &mut self,
@@ -10003,6 +10116,7 @@ impl UMetaSoundCacheSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_meta_sound);
     }
     pub fn precache_meta_sound(
         &mut self,
@@ -10046,6 +10160,8 @@ impl UMetaSoundCacheSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_meta_sound);
+        std::mem::forget(in_num_instances);
     }
 }
 #[repr(C, align(8))]
@@ -10543,6 +10659,10 @@ impl UMetaSoundOutputSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(audio_component);
+        std::mem::forget(output_name);
+        std::mem::forget(analyzer_name);
+        std::mem::forget(analyzer_output_name);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn unwatch_output(
@@ -10611,6 +10731,10 @@ impl UMetaSoundOutputSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(audio_component);
+        std::mem::forget(output_name);
+        std::mem::forget(analyzer_name);
+        std::mem::forget(analyzer_output_name);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
 }

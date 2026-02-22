@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1226,6 +1227,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blackboard_component);
+        std::mem::forget(value);
     }
     pub fn set_smart_object_enabled(
         smart_object_actor: UPtr<crate::bindings::engine::AActor>,
@@ -1264,6 +1267,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(smart_object_actor);
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_multiple_smart_objects_enabled(
@@ -1307,6 +1312,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn set_blackboard_value_as_so_claim_handle(
@@ -1360,6 +1366,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
     }
     pub fn remove_smart_object(
         smart_object_actor: UPtr<crate::bindings::engine::AActor>,
@@ -1394,6 +1401,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(smart_object_actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn remove_multiple_smart_objects(
@@ -1566,6 +1574,9 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(claim_handle);
+        std::mem::forget(definition_class);
         unsafe { __buffer.add(56).cast::<UPtr<USmartObjectBehaviorDefinition>>().read() }
     }
     pub fn mark_smart_object_slot_as_free(
@@ -1609,6 +1620,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(claim_handle);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn mark_smart_object_slot_as_claimed(
@@ -1668,6 +1681,10 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(slot_handle);
+        std::mem::forget(user_actor);
+        std::mem::forget(claim_priority);
         unsafe { __buffer.add(44).cast::<FSmartObjectClaimHandle>().read() }
     }
     pub fn is_valid_smart_object_slot_handle(handle: &FSmartObjectSlotHandle) -> bool {
@@ -1767,6 +1784,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_value_as_so_claim_handle(
@@ -1808,6 +1826,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blackboard_component);
         unsafe { __buffer.add(20).cast::<FSmartObjectClaimHandle>().read() }
     }
     pub fn get_blackboard_value_as_so_claim_handle(
@@ -1853,6 +1872,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<FSmartObjectClaimHandle>().read() }
     }
     pub fn find_smart_objects_in_targeting_request(
@@ -1930,6 +1950,9 @@ impl USmartObjectBlueprintFunctionLibrary {
                 .cast::<TArray<FSmartObjectRequestResult>>()
                 .swap(out_results);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(targeting_handle);
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(240).cast::<bool>().read() }
     }
     pub fn find_smart_objects_in_list(
@@ -2005,6 +2028,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 .cast::<TArray<FSmartObjectRequestResult>>()
                 .swap(out_results);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(248).cast::<bool>().read() }
     }
     pub fn find_smart_objects_in_component(
@@ -2070,6 +2095,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 .cast::<TArray<FSmartObjectRequestResult>>()
                 .swap(out_results);
         }
+        std::mem::forget(smart_object_component);
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(224).cast::<bool>().read() }
     }
     pub fn find_smart_objects_in_actor(
@@ -2135,6 +2162,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 .cast::<TArray<FSmartObjectRequestResult>>()
                 .swap(out_results);
         }
+        std::mem::forget(search_actor);
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(224).cast::<bool>().read() }
     }
     pub fn equal_smart_object_slot_handle_smart_object_slot_handle(
@@ -2359,6 +2388,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(definition);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn conv_smart_object_claim_handle_to_string(
@@ -2429,6 +2459,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(smart_object_actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn add_or_remove_smart_object(
@@ -2468,6 +2499,8 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(smart_object);
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn add_or_remove_multiple_smart_objects(
@@ -2507,6 +2540,7 @@ impl USmartObjectBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_add);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn add_multiple_smart_objects(
@@ -2664,6 +2698,8 @@ impl USmartObjectComponent {
                 __buffer,
             )
         };
+        std::mem::forget(reason_tag);
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn set_smart_object_enabled(&self, b_enable: bool) -> bool {
@@ -2693,6 +2729,7 @@ impl USmartObjectComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_definition(&mut self, definition_asset: UPtr<USmartObjectDefinition>) {
@@ -2726,6 +2763,7 @@ impl USmartObjectComponent {
                 __buffer,
             )
         };
+        std::mem::forget(definition_asset);
     }
     pub fn receive_on_event(
         &mut self,
@@ -2769,6 +2807,7 @@ impl USmartObjectComponent {
                 __buffer,
             )
         };
+        std::mem::forget(interactor);
     }
     pub fn is_smart_object_enabled_for_reason(
         &self,
@@ -2804,6 +2843,7 @@ impl USmartObjectComponent {
                 __buffer,
             )
         };
+        std::mem::forget(reason_tag);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn is_smart_object_enabled(&self) -> bool {
@@ -3117,6 +3157,7 @@ impl USmartObjectDefinition {
                 __buffer,
             )
         };
+        std::mem::forget(slot_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_user_tags_filtering_policy(&self) -> ESmartObjectTagFilteringPolicy {
@@ -3216,6 +3257,7 @@ impl USmartObjectDefinition {
                 __buffer,
             )
         };
+        std::mem::forget(slot_index);
         unsafe {
             __buffer.add(112).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -3266,6 +3308,7 @@ impl USmartObjectDefinition {
                 .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
                 .swap(out_activity_tags);
         }
+        std::mem::forget(slot_index);
     }
     pub fn get_mutable_slot(&mut self, index: i32) -> FSmartObjectSlotDefinition {
         let mut __stack = crate::core_data::StackAlloc::<304>::new();
@@ -3294,6 +3337,7 @@ impl USmartObjectDefinition {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<FSmartObjectSlotDefinition>().read() }
     }
     pub fn get_bounds(&self) -> crate::bindings::core_u_object::FBox {
@@ -3607,6 +3651,8 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot_handle);
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn set_enabled_for_reason(
@@ -3659,6 +3705,9 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
+        std::mem::forget(reason_tag);
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(29).cast::<bool>().read() }
     }
     pub fn set_enabled(&mut self, handle: FSmartObjectHandle, b_enabled: bool) -> bool {
@@ -3699,6 +3748,8 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
+        std::mem::forget(b_enabled);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn remove_tag_from_slot(
@@ -3743,6 +3794,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot_handle);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_tag_from_instance(
@@ -3787,6 +3839,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
     }
     pub fn release(&mut self, claim_handle: &FSmartObjectClaimHandle) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<41>::new();
@@ -3863,6 +3916,8 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
+        std::mem::forget(reason_tag);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn is_enabled(&self, handle: FSmartObjectHandle) -> bool {
@@ -3896,6 +3951,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_smart_object_component_by_request_result(
@@ -3940,6 +3996,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(try_spawn_actor_if_dehydrated);
         unsafe { __buffer.add(40).cast::<UPtr<USmartObjectComponent>>().read() }
     }
     pub fn get_smart_object_component(
@@ -3984,6 +4041,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(try_spawn_actor_if_dehydrated);
         unsafe { __buffer.add(48).cast::<UPtr<USmartObjectComponent>>().read() }
     }
     pub fn get_slot_transform_from_request_result(
@@ -4120,6 +4178,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot_handle);
         unsafe {
             __buffer
                 .add(24)
@@ -4161,6 +4220,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot_handle);
         unsafe { __buffer.add(20).cast::<ESmartObjectSlotState>().read() }
     }
     pub fn get_slot_location(
@@ -4247,6 +4307,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe {
             __buffer
                 .add(16)
@@ -4296,6 +4357,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(definition_class);
         unsafe { __buffer.add(48).cast::<UPtr<USmartObjectBehaviorDefinition>>().read() }
     }
     pub fn get_behavior_definition(
@@ -4340,6 +4402,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(definition_class);
         unsafe { __buffer.add(48).cast::<UPtr<USmartObjectBehaviorDefinition>>().read() }
     }
     pub fn get_all_slots(
@@ -4387,6 +4450,7 @@ impl USmartObjectSubsystem {
         unsafe {
             __buffer.add(16).cast::<TArray<FSmartObjectSlotHandle>>().swap(out_slots);
         }
+        std::mem::forget(handle);
     }
     pub fn find_smart_objects_bp(
         &self,
@@ -4444,6 +4508,7 @@ impl USmartObjectSubsystem {
                 .cast::<TArray<FSmartObjectRequestResult>>()
                 .swap(out_results);
         }
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(280).cast::<bool>().read() }
     }
     pub fn find_smart_objects(
@@ -4502,6 +4567,7 @@ impl USmartObjectSubsystem {
                 .cast::<TArray<FSmartObjectRequestResult>>()
                 .swap(out_results);
         }
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(280).cast::<bool>().read() }
     }
     pub fn find_smart_object(
@@ -4546,6 +4612,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(user_actor);
         unsafe { __buffer.add(264).cast::<FSmartObjectRequestResult>().read() }
     }
     pub fn add_tag_to_slot(
@@ -4590,6 +4657,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot_handle);
     }
     pub fn add_tag_to_instance(
         &mut self,
@@ -4633,6 +4701,7 @@ impl USmartObjectSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
     }
 }
 #[repr(C, align(16))]

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -414,6 +415,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
     }
     pub fn set_blueprint_variable_instance_editable(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -464,6 +466,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(b_instance_editable);
     }
     pub fn set_blueprint_variable_expose_to_cinematics(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -514,6 +518,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(b_expose_to_cinematics);
     }
     pub fn set_blueprint_variable_expose_on_spawn(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -564,6 +570,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(b_expose_on_spawn);
     }
     pub fn replace_variable_references(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -614,6 +622,9 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(old_var_name);
+        std::mem::forget(new_var_name);
     }
     pub fn reparent_blueprint(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -658,6 +669,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(new_parent_class);
     }
     pub fn rename_graph(
         graph: UPtr<crate::bindings::engine::UEdGraph>,
@@ -700,6 +713,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(graph);
+        std::mem::forget(new_name_str);
     }
     pub fn remove_unused_variables(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -734,6 +749,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn remove_unused_nodes(blueprint: UPtr<crate::bindings::engine::UBlueprint>) {
@@ -767,6 +783,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
     }
     pub fn remove_graph(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -809,6 +826,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(graph);
     }
     pub fn remove_function_graph(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -851,6 +870,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(func_name);
     }
     pub fn refresh_open_editors_for_blueprint(
         bp: UPtr<crate::bindings::engine::UBlueprint>,
@@ -885,6 +906,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(bp);
     }
     pub fn refresh_all_open_blueprint_editors() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -946,6 +968,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(struct_type);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::engine::FEdGraphPinType>().read()
         }
@@ -1020,6 +1043,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_object_reference_type(
@@ -1057,6 +1081,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object_type);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::engine::FEdGraphPinType>().read()
         }
@@ -1167,6 +1192,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class_type);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::engine::FEdGraphPinType>().read()
         }
@@ -1217,6 +1243,7 @@ impl UBlueprintEditorLibrary {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_does_class_have_blueprint);
         }
+        std::mem::forget(class);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::UBlueprint>>().read()
         }
@@ -1254,6 +1281,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
         unsafe {
             __buffer.add(8).cast::<UPtr<crate::bindings::engine::UBlueprint>>().read()
         }
@@ -1291,6 +1319,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(type_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::engine::FEdGraphPinType>().read()
         }
@@ -1365,6 +1394,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint_obj);
         unsafe {
             __buffer
                 .add(8)
@@ -1413,6 +1443,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(graph_name);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::UEdGraph>>().read()
         }
@@ -1450,6 +1482,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
         unsafe {
             __buffer.add(8).cast::<UPtr<crate::bindings::engine::UEdGraph>>().read()
         }
@@ -1497,6 +1530,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
+        std::mem::forget(parent_class);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::UBlueprint>>().read()
         }
@@ -1532,6 +1567,7 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
     }
     pub fn compare_soft_object_save_version_to(
         object_to_check: TSoftObjectPtr<crate::bindings::core_u_object::UObject>,
@@ -1587,6 +1623,8 @@ impl UBlueprintEditorLibrary {
         unsafe {
             __buffer.add(64).cast::<EAssetSaveVersionComparisonResults>().swap(result);
         }
+        std::mem::forget(object_to_check);
+        std::mem::forget(version_to_check);
     }
     pub fn compare_asset_save_version_to(
         asset: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1640,6 +1678,8 @@ impl UBlueprintEditorLibrary {
         unsafe {
             __buffer.add(24).cast::<EAssetSaveVersionComparisonResults>().swap(result);
         }
+        std::mem::forget(asset);
+        std::mem::forget(version_to_check);
     }
     pub fn add_member_variable_with_value(
         blueprint: UPtr<crate::bindings::engine::UBlueprint>,
@@ -1690,6 +1730,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(member_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_member_variable(
@@ -1741,6 +1783,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(member_name);
         unsafe { __buffer.add(136).cast::<bool>().read() }
     }
     pub fn add_function_graph(
@@ -1784,6 +1828,8 @@ impl UBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
+        std::mem::forget(func_name);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::UEdGraph>>().read()
         }

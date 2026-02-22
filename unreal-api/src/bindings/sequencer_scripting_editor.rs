@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -465,6 +466,7 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(b_show_curve);
     }
     pub fn set_random_color_for_channels(
         &mut self,
@@ -510,6 +512,7 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(class);
     }
     pub fn set_custom_color_for_channels(
         &mut self,
@@ -565,6 +568,7 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(class);
     }
     pub fn set_custom_color_for_channel(
         &mut self,
@@ -618,6 +622,8 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(class);
+        std::mem::forget(identifier);
     }
     pub fn select_keys(
         &mut self,
@@ -790,6 +796,8 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(class);
+        std::mem::forget(identifier);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_selected_keys(
@@ -872,6 +880,8 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(class);
+        std::mem::forget(identifier);
         unsafe {
             __buffer
                 .add(24)
@@ -977,6 +987,7 @@ impl USequencerCurveEditorObject {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(identifier);
         }
+        std::mem::forget(class);
     }
     pub fn close_curve_editor(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1041,6 +1052,7 @@ impl USequencerCurveEditorObject {
                 __buffer,
             )
         };
+        std::mem::forget(filter);
     }
 }
 #[repr(C, align(8))]
@@ -1124,6 +1136,8 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_capture_settings);
+        std::mem::forget(on_finished_callback);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn link_anim_sequence(
@@ -1189,6 +1203,9 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(anim_sequence);
+        std::mem::forget(export_options);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn is_rendering_movie() -> bool {
@@ -1341,6 +1358,11 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_import_fbx_settings);
+        std::mem::forget(in_import_filename);
+        std::mem::forget(actor_context);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn import_fbx_to_control_rig(
@@ -1426,6 +1448,11 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(in_sequence);
+        std::mem::forget(actor_with_control_rig_track);
+        std::mem::forget(import_fbx_control_rig_settings);
+        std::mem::forget(import_filename);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn get_object_bindings(
@@ -1493,6 +1520,8 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_sequence);
         unsafe { __buffer.add(56).cast::<TArray<FSequencerBoundObjects>>().read() }
     }
     pub fn get_level_sequence_link_from_anim_sequence(
@@ -1528,6 +1557,7 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_anim_sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -1604,6 +1634,8 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_sequence);
         unsafe { __buffer.add(56).cast::<TArray<FSequencerBoundObjects>>().read() }
     }
     pub fn get_anim_sequence_link_from_level_sequence(
@@ -1641,6 +1673,7 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -1742,6 +1775,9 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(actor_with_control_rig_track);
+        std::mem::forget(export_fbx_control_rig_settings);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn export_anim_sequence_wait_for_delegate(
@@ -1831,6 +1867,12 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(sequence);
+        std::mem::forget(anim_sequence);
+        std::mem::forget(export_options);
+        std::mem::forget(b_create_link);
+        std::mem::forget(delegate);
         unsafe { __buffer.add(96).cast::<bool>().read() }
     }
     pub fn export_anim_sequence(
@@ -1912,6 +1954,11 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(sequence);
+        std::mem::forget(anim_sequence);
+        std::mem::forget(export_options);
+        std::mem::forget(b_create_link);
         unsafe { __buffer.add(57).cast::<bool>().read() }
     }
     pub fn create_quick_binding(
@@ -1973,6 +2020,10 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_object);
+        std::mem::forget(in_function_name);
+        std::mem::forget(b_call_in_editor);
         unsafe { __buffer.add(40).cast::<FSequencerQuickBindingResult>().read() }
     }
     pub fn create_event(
@@ -2042,6 +2093,8 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_section);
         unsafe {
             __buffer
                 .add(56)
@@ -2084,6 +2137,7 @@ impl USequencerToolsFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
     }
     pub fn cancel_movie_render() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

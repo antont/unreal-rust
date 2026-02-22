@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -490,6 +491,7 @@ impl UViewportInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
     }
     pub fn shutdown(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -550,6 +552,7 @@ impl UViewportInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(new_filter);
     }
     pub fn set_dragging_mode(
         &mut self,
@@ -585,6 +588,7 @@ impl UViewportInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(new_dragging_mode);
     }
     pub fn set_can_carry(&mut self, b_in_can_carry: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -617,6 +621,7 @@ impl UViewportInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_can_carry);
     }
     pub fn is_hovering_over_gizmo(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -705,6 +710,8 @@ impl UViewportInteractor {
         unsafe {
             __buffer.add(49).cast::<bool>().swap(b_out_was_handled);
         }
+        std::mem::forget(key);
+        std::mem::forget(event);
     }
     pub fn handle_input_axis_bp(
         &mut self,
@@ -771,6 +778,9 @@ impl UViewportInteractor {
         unsafe {
             __buffer.add(56).cast::<bool>().swap(b_out_was_handled);
         }
+        std::mem::forget(key);
+        std::mem::forget(delta);
+        std::mem::forget(delta_time);
     }
     pub fn get_world_interaction(&self) -> UPtr<UViewportWorldInteraction> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1066,6 +1076,8 @@ impl UViewportInteractor {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(laser_pointer_end);
         }
+        std::mem::forget(b_even_if_blocked);
+        std::mem::forget(laser_length_override);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn get_hover_location(&mut self) -> crate::bindings::core_u_object::FVector {
@@ -2092,6 +2104,8 @@ impl UViewportWorldInteraction {
                 __buffer,
             )
         };
+        std::mem::forget(new_world_to_meters_scale);
+        std::mem::forget(b_compensate_room_world_scale);
     }
     pub fn set_room_transform_for_next_frame(
         &mut self,
@@ -2194,6 +2208,7 @@ impl UViewportWorldInteraction {
                 __buffer,
             )
         };
+        std::mem::forget(interactor);
     }
     pub fn get_world_scale_factor(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2390,6 +2405,7 @@ impl UViewportWorldInteraction {
                 __buffer,
             )
         };
+        std::mem::forget(interactor);
     }
     pub fn add_actor_to_exclude_from_hit_tests(
         &mut self,
@@ -2425,6 +2441,7 @@ impl UViewportWorldInteraction {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_exclude_from_hit_tests);
     }
 }
 #[repr(transparent)]

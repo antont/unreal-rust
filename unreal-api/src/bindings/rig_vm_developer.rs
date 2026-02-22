@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -4596,6 +4597,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(b_suspend_notifs);
     }
     pub fn split_asset_variant(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4654,6 +4656,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(b_auto_recompile);
     }
     pub fn request_rig_vm_init(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4799,6 +4802,9 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn remove_member_variable(&mut self, in_name: &FName) -> bool {
@@ -4983,6 +4989,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMFunctionLibrary>>().read() }
     }
     pub fn get_or_create_controller(
@@ -5019,6 +5026,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMController>>().read() }
     }
     pub fn get_model(
@@ -5055,6 +5063,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_ed_graph);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMGraph>>().read() }
     }
     pub fn get_member_variables(&self) -> TArray<FRigVMGraphVariableDescription> {
@@ -5260,6 +5269,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph_name);
         unsafe { __buffer.add(16).cast::<UPtr<URigVMController>>().read() }
     }
     pub fn get_controller(&self, in_graph: UPtr<URigVMGraph>) -> UPtr<URigVMController> {
@@ -5293,6 +5303,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMController>>().read() }
     }
     pub fn get_available_rig_vm_structs(
@@ -5470,6 +5481,7 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_blueprint_name);
         unsafe { __buffer.add(16).cast::<TArray<FString>>().read() }
     }
     pub fn create_rig_vm_host(&mut self) -> UPtr<crate::bindings::rig_vm::URigVMHost> {
@@ -5562,6 +5574,10 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(b_is_public);
+        std::mem::forget(b_is_read_only);
+        std::mem::forget(in_default_value);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn bulk_remove_member_variables(&mut self, in_names: &TArray<FName>) -> bool {
@@ -5647,6 +5663,9 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(24).cast::<UPtr<URigVMGraph>>().read() }
     }
     pub fn add_member_variable(
@@ -5711,6 +5730,10 @@ impl URigVMBlueprint {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(b_is_public);
+        std::mem::forget(b_is_read_only);
+        std::mem::forget(in_default_value);
         unsafe { __buffer.add(56).cast::<FName>().read() }
     }
 }
@@ -5814,6 +5837,9 @@ impl URigVMCompiler {
                 .cast::<crate::bindings::rig_vm::FRigVMExtendedExecuteContext>()
                 .swap(context);
         }
+        std::mem::forget(in_graphs);
+        std::mem::forget(in_controller);
+        std::mem::forget(out_vm);
         unsafe { __buffer.add(800).cast::<bool>().read() }
     }
     pub fn compile(
@@ -5866,6 +5892,9 @@ impl URigVMCompiler {
                 __buffer,
             )
         };
+        std::mem::forget(in_graphs);
+        std::mem::forget(in_controller);
+        std::mem::forget(out_vm);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
@@ -5934,6 +5963,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_excluded);
     }
     pub fn set_has_early_exit_marker(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5962,6 +5992,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_has_breakpoint(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5990,6 +6021,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_execution_is_halted_at_this_node(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6018,6 +6050,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn is_visible_in_ui(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6072,6 +6105,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn is_selected(&self) -> bool {
@@ -6155,6 +6189,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_mutable(&self) -> bool {
@@ -6240,6 +6275,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_input_aggregate(&self) -> bool {
@@ -6510,6 +6546,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_direction);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn has_output_pin(&self, b_include_io: bool) -> bool {
@@ -6543,6 +6580,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_io);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn has_orphaned_pins(&self) -> bool {
@@ -6602,6 +6640,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_consider_pins_with_links);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn has_io_pin(&self) -> bool {
@@ -6661,6 +6700,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_io);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn has_early_exit_marker(&self) -> bool {
@@ -6811,6 +6851,8 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_type);
+        std::mem::forget(in_subject);
         unsafe {
             __buffer
                 .add(16)
@@ -6868,6 +6910,9 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
+        std::mem::forget(b_only_existing);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn get_size(&self) -> crate::bindings::core_u_object::FVector2D {
@@ -7038,6 +7083,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
         unsafe { __buffer.add(16).cast::<TArray<UPtr<URigVMPin>>>().read() }
     }
     pub fn get_pins(&self) -> TArray<UPtr<URigVMPin>> {
@@ -7097,6 +7143,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_pin_categories(&self) -> TArray<FString> {
@@ -7167,6 +7214,8 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
+        std::mem::forget(b_only_existing);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn get_parent_pin_categories(
@@ -7219,6 +7268,9 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
+        std::mem::forget(b_only_existing);
+        std::mem::forget(b_include_self);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn get_orphaned_pins(&self) -> TArray<UPtr<URigVMPin>> {
@@ -7356,6 +7408,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_node_layout(
@@ -7392,6 +7445,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_empty_categories);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::rig_vm::FRigVMNodeLayout>().read()
         }
@@ -7833,6 +7887,7 @@ impl URigVMNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
         unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
     }
     pub fn find_function_for_node(&self) -> UPtr<URigVMLibraryNode> {
@@ -9917,6 +9972,7 @@ impl URigVMBuildData {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_public);
         unsafe {
             __buffer
                 .add(8)
@@ -10077,6 +10133,7 @@ impl URigVMBuildData {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_public);
         unsafe {
             __buffer
                 .add(8)
@@ -10339,6 +10396,7 @@ impl URigVMBuildData {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
         unsafe {
             __buffer.add(112).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
         }
@@ -10385,6 +10443,7 @@ impl URigVMBuildData {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
         unsafe {
             __buffer.add(168).cast::<crate::bindings::rig_vm::FRigVMVariantRef>().read()
         }
@@ -10634,6 +10693,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_schema_class);
     }
     pub fn set_default_function_library(
         &mut self,
@@ -10669,6 +10729,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_library);
     }
     pub fn is_top_level_graph(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11086,6 +11147,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_input_arguments);
         unsafe {
             __buffer.add(8).cast::<TArray<FRigVMGraphVariableDescription>>().read()
         }
@@ -11305,6 +11367,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMGraph>>>().read() }
     }
     pub fn find_pin(&self, in_pin_path: FString) -> UPtr<URigVMPin> {
@@ -11338,6 +11401,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
         unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
     }
     pub fn find_node_by_name(&self, in_node_name: &FName) -> UPtr<URigVMNode> {
@@ -11404,6 +11468,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_path);
         unsafe { __buffer.add(16).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn find_link(
@@ -11440,6 +11505,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_link_pin_path_representation);
         unsafe { __buffer.add(16).cast::<UPtr<URigVMLink>>().read() }
     }
     pub fn contains_link(&self, in_pin_path_representation: FString) -> bool {
@@ -11473,6 +11539,7 @@ impl URigVMGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path_representation);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -11647,6 +11714,7 @@ impl URigVMFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMLibraryNode>>().read() }
     }
     pub fn find_function(&self, in_function_name: &FName) -> UPtr<URigVMLibraryNode> {
@@ -11878,6 +11946,7 @@ impl URigVMLink {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMPin>>().read() }
     }
     pub fn get_link_index(&self) -> i32 {
@@ -12159,6 +12228,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_check_exposed_pin_chain);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn is_wild_card(&self) -> bool {
@@ -12218,6 +12288,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_u_object(&self) -> bool {
@@ -12433,6 +12504,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_lazy(&self) -> bool {
@@ -12768,6 +12840,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_default_value_override(&self) -> bool {
@@ -12853,6 +12926,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMLink>>>().read() }
     }
     pub fn get_sub_pins(&self) -> TArray<UPtr<URigVMPin>> {
@@ -12923,6 +12997,8 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_parent_pin);
+        std::mem::forget(b_include_parent_pin_name);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_source_links(&self, b_recursive: bool) -> TArray<UPtr<URigVMLink>> {
@@ -12956,6 +13032,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMLink>>>().read() }
     }
     pub fn get_segment_path(&self, b_include_root_pin: bool) -> FString {
@@ -12989,6 +13066,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_root_pin);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_script_struct(
@@ -13081,6 +13159,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_use_node_path);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_pin_index(&self) -> i32 {
@@ -13169,6 +13248,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(fallback_node);
         unsafe {
             __buffer
                 .add(8)
@@ -13305,6 +13385,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_links(&self) -> TArray<UPtr<URigVMLink>> {
@@ -13364,6 +13445,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMPin>>>().read() }
     }
     pub fn get_linked_source_pins(&self, b_recursive: bool) -> TArray<UPtr<URigVMPin>> {
@@ -13397,6 +13479,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<URigVMPin>>>().read() }
     }
     pub fn get_index_in_category(&self) -> i32 {
@@ -13827,6 +13910,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
         unsafe { __buffer.add(16).cast::<UPtr<URigVMPin>>().read() }
     }
     pub fn find_link_for_pin(&self, in_other_pin: UPtr<URigVMPin>) -> UPtr<URigVMLink> {
@@ -13860,6 +13944,7 @@ impl URigVMPin {
                 __buffer,
             )
         };
+        std::mem::forget(in_other_pin);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMLink>>().read() }
     }
     pub fn contains_wild_card_sub_pin(&self) -> bool {
@@ -14011,6 +14096,7 @@ impl URigVMUserWorkflowRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(in_handle);
     }
     pub fn register_provider(
         &mut self,
@@ -14056,6 +14142,8 @@ impl URigVMUserWorkflowRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(in_struct);
+        std::mem::forget(in_provider);
         unsafe { __buffer.add(40).cast::<i32>().read() }
     }
     pub fn get_workflows(
@@ -14112,6 +14200,9 @@ impl URigVMUserWorkflowRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(in_type);
+        std::mem::forget(in_struct);
+        std::mem::forget(in_subject);
         unsafe {
             __buffer
                 .add(24)
@@ -14241,6 +14332,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_recursive);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(24).cast::<TArray<UPtr<URigVMNode>>>().read() }
     }
     pub fn unresolve_template_nodes(
@@ -14293,6 +14387,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn undo(&mut self) -> bool {
@@ -14371,6 +14467,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn swap_function_reference_by_name(
@@ -14441,6 +14540,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_orphan_pins);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(115).cast::<bool>().read() }
     }
     pub fn swap_function_reference(
@@ -14511,6 +14613,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_reference_node);
+        std::mem::forget(b_setup_orphan_pins);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(107).cast::<bool>().read() }
     }
     pub fn swap_all_function_references(
@@ -14583,6 +14689,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_orphan_pins);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(195).cast::<bool>().read() }
     }
     pub fn split_function_variant(
@@ -14635,6 +14744,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn set_unit_node_defaults(
@@ -14695,6 +14806,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(in_defaults);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn set_schema_class(&mut self, in_schema_class: TSubclassOf<URigVMSchema>) {
@@ -14728,6 +14843,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_schema_class);
     }
     pub fn set_schema(&mut self, in_schema: UPtr<URigVMSchema>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -14760,6 +14876,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_schema);
     }
     pub fn set_remapped_variable(
         &mut self,
@@ -14819,6 +14936,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_ref_node);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn set_pin_is_watched(
@@ -14871,6 +14990,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_is_watched);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_pin_index_in_category(
@@ -14931,6 +15053,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(in_index_in_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(22).cast::<bool>().read() }
     }
     pub fn set_pin_expansion(
@@ -14991,6 +15117,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_is_expanded);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn set_pin_display_name(
@@ -15051,6 +15181,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(in_display_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_pin_default_value(
@@ -15135,6 +15269,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_resize_arrays);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_set_value_on_linked_pins);
         unsafe { __buffer.add(37).cast::<bool>().read() }
     }
     pub fn set_pin_category_index(
@@ -15203,6 +15344,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_category);
+        std::mem::forget(in_new_index);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(38).cast::<bool>().read() }
     }
     pub fn set_pin_category_expansion(
@@ -15271,6 +15416,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_category);
+        std::mem::forget(b_is_expanded);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn set_pin_category(
@@ -15331,6 +15480,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(in_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_node_title_by_name(
@@ -15391,6 +15544,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_title);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_node_title(
@@ -15459,6 +15615,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(in_node_title);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_node_size_by_name(
@@ -15527,6 +15688,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn set_node_size(
@@ -15595,6 +15759,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_node_selection(
@@ -15647,6 +15815,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_node_position_by_name(
@@ -15715,6 +15885,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(35).cast::<bool>().read() }
     }
     pub fn set_node_position(
@@ -15783,6 +15956,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_node_layout(
@@ -15843,6 +16020,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_layout);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(194).cast::<bool>().read() }
     }
     pub fn set_node_keywords_by_name(
@@ -15903,6 +16083,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_keywords);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_node_keywords(
@@ -15971,6 +16154,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(in_keywords);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_node_description_by_name(
@@ -16031,6 +16219,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_description);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_node_description(
@@ -16099,6 +16290,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(in_description);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_node_color_by_name(
@@ -16159,6 +16355,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
         unsafe { __buffer.add(30).cast::<bool>().read() }
     }
     pub fn set_node_color(
@@ -16227,6 +16425,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_node_category_by_name(
@@ -16287,6 +16489,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_node_category(
@@ -16355,6 +16560,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(in_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_merge_undo_action);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(27).cast::<bool>().read() }
     }
     pub fn set_local_variable_type_from_object_path(
@@ -16423,6 +16633,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(50).cast::<bool>().read() }
     }
     pub fn set_local_variable_type(
@@ -16491,6 +16705,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(42).cast::<bool>().read() }
     }
     pub fn set_local_variable_default_value(
@@ -16551,6 +16769,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn set_is_running_unit_test(&mut self, b_is_running: bool) {
@@ -16584,6 +16805,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_running);
     }
     pub fn set_graph(&mut self, in_graph: UPtr<URigVMGraph>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -16616,6 +16838,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
     }
     pub fn set_exposed_pin_index(
         &mut self,
@@ -16675,6 +16898,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_index);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_comment_text_by_name(
@@ -16759,6 +16985,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_comment_text);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_comment_text(
@@ -16843,6 +17072,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(in_comment_text);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_array_pin_size(
@@ -16907,6 +17140,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_pin_path);
+        std::mem::forget(in_size);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(42).cast::<bool>().read() }
     }
     pub fn set_action_stack(&mut self, in_action_stack: UPtr<URigVMActionStack>) {
@@ -16940,6 +17178,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_action_stack);
     }
     pub fn select_node_islands(
         &mut self,
@@ -16999,6 +17238,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_clear_selection);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn select_node_by_name(
@@ -17047,6 +17289,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_select);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn select_node(
@@ -17103,6 +17347,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_select);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(11).cast::<bool>().read() }
     }
     pub fn select_linked_nodes(
@@ -17171,6 +17419,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_select_source_nodes);
+        std::mem::forget(b_clear_selection);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn resolve_wild_card_pin(
@@ -17239,6 +17491,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(46).cast::<bool>().read() }
     }
     pub fn reset_pin_default_value(
@@ -17291,6 +17547,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn reset_default_value_for_pins(
@@ -17343,6 +17602,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn reset_default_value_for_all_pins_on_nodes(
@@ -17395,6 +17656,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn reset_default_value_for_all_pins_on_node(
@@ -17447,6 +17710,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn replace_parameter_node_with_variable(
@@ -17515,6 +17780,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(56).cast::<UPtr<URigVMVariableNode>>().read() }
     }
     pub fn rename_variable(
@@ -17567,6 +17835,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn rename_pin_category(
@@ -17635,6 +17904,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_old_pin_category);
+        std::mem::forget(in_new_pin_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(50).cast::<bool>().read() }
     }
     pub fn rename_parameter(
@@ -17687,6 +17960,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn rename_node(
@@ -17747,6 +18021,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(22).cast::<bool>().read() }
     }
     pub fn rename_local_variable(
@@ -17807,6 +18084,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn rename_function(
@@ -17867,6 +18146,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn rename_exposed_pin(
@@ -17927,6 +18208,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn remove_trait(
@@ -17987,6 +18270,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn remove_tag_from_function_variant(
@@ -18047,6 +18332,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn remove_pin_category(
@@ -18107,6 +18394,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn remove_nodes_by_name(
@@ -18159,6 +18449,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn remove_nodes(
@@ -18211,6 +18503,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_nodes);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn remove_node_by_name(
@@ -18263,6 +18558,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn remove_node(
@@ -18315,6 +18612,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(10).cast::<bool>().read() }
     }
     pub fn remove_local_variable(
@@ -18367,6 +18667,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn remove_injected_node(
@@ -18427,6 +18729,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_as_input);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn remove_function_from_library(
@@ -18479,6 +18785,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn remove_exposed_pin(
@@ -18531,6 +18839,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn remove_array_pin(
@@ -18583,6 +18893,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_element_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn remove_aggregate_pin(
@@ -18635,6 +18948,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn refresh_variable_node(
@@ -18711,6 +19027,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_setup_orphan_pins);
     }
     pub fn redo(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18780,6 +19100,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn promote_pin_to_variable(
@@ -18848,6 +19170,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_create_variable_node);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(42).cast::<bool>().read() }
     }
     pub fn promote_function_reference_node_to_collapse_node(
@@ -18908,6 +19234,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_remove_function_definition);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn promote_collapse_node_to_function_reference_node(
@@ -18968,6 +19297,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(in_existing_function_definition_path);
         unsafe { __buffer.add(32).cast::<FName>().read() }
     }
     pub fn pop_graph(&mut self, b_setup_undo_redo: bool) -> UPtr<URigVMGraph> {
@@ -19001,6 +19333,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMGraph>>().read() }
     }
     pub fn perform_user_workflow(
@@ -19055,6 +19388,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_options);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(121).cast::<bool>().read() }
     }
     pub fn open_undo_bracket(&mut self, in_title: FString) -> bool {
@@ -19088,6 +19423,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_title);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn mark_function_as_public(
@@ -19148,6 +19484,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_public);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(15).cast::<bool>().read() }
     }
     pub fn make_variable_node_from_binding(
@@ -19208,6 +19547,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn make_options_for_workflow(
@@ -19252,6 +19594,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_subject);
         unsafe {
             __buffer
                 .add(120)
@@ -19309,6 +19652,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn localize_functions(
@@ -19378,6 +19723,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_definitions);
+        std::mem::forget(b_localize_dependent_private_functions);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe {
             __buffer
                 .add(24)
@@ -19456,6 +19805,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_host_path);
+        std::mem::forget(b_localize_dependent_private_functions);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<UPtr<URigVMLibraryNode>>().read() }
     }
     pub fn localize_function(
@@ -19518,6 +19871,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_localize_dependent_private_functions);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(104).cast::<UPtr<URigVMLibraryNode>>().read() }
     }
     pub fn join_function_variant(
@@ -19578,6 +19934,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(30).cast::<bool>().read() }
     }
     pub fn is_transacting(&self) -> bool {
@@ -19727,6 +20085,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_pin_path);
+        std::mem::forget(in_index);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(48).cast::<FString>().read() }
     }
     pub fn import_nodes_from_text(
@@ -19779,6 +20142,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_commands);
         unsafe { __buffer.add(24).cast::<TArray<FName>>().read() }
     }
     pub fn get_unit_structs_for_template(
@@ -19890,6 +20256,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_function);
+        std::mem::forget(in_method_name);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn get_schema(&self) -> UPtr<URigVMSchema> {
@@ -20008,6 +20376,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_graph(&self) -> UPtr<URigVMGraph> {
@@ -20070,6 +20439,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
         unsafe { __buffer.add(8).cast::<UPtr<URigVMController>>().read() }
     }
     pub fn get_action_stack(&self) -> UPtr<URigVMActionStack> {
@@ -20207,6 +20577,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_host_path);
+        std::mem::forget(in_function_name);
         unsafe {
             __buffer
                 .add(32)
@@ -20256,6 +20628,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_host_path);
+        std::mem::forget(in_function_name);
         unsafe {
             __buffer
                 .add(32)
@@ -20299,6 +20673,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_identifier);
         unsafe {
             __buffer
                 .add(96)
@@ -20340,6 +20715,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_exterior_links);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn export_node_to_text(
@@ -20384,6 +20760,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
+        std::mem::forget(b_include_exterior_links);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn export_nodes_to_text(
@@ -20428,6 +20806,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_exterior_links);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn expand_library_node(
@@ -20480,6 +20859,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(16).cast::<TArray<UPtr<URigVMNode>>>().read() }
     }
     pub fn enable_reporting(&mut self, b_enabled: bool) {
@@ -20509,6 +20890,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn eject_node_from_pin(
         &mut self,
@@ -20560,6 +20942,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(24).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn duplicate_array_pin(
@@ -20612,6 +20997,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_element_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn create_function_variant(
@@ -20672,6 +21060,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(32).cast::<UPtr<URigVMLibraryNode>>().read() }
     }
     pub fn collapse_nodes(
@@ -20740,6 +21130,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_collapse_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_is_aggregate);
         unsafe { __buffer.add(40).cast::<UPtr<URigVMCollapseNode>>().read() }
     }
     pub fn close_undo_bracket(&mut self) -> bool {
@@ -20818,6 +21212,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn clear_override_on_pins(
@@ -20870,6 +21267,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn clear_override_on_pin(
@@ -20922,6 +21321,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn clear_override_on_all_pins_on_nodes(
@@ -20974,6 +21376,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn clear_override_on_all_pins_on_node(
@@ -21026,6 +21430,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn clear_node_selection(
@@ -21070,6 +21476,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn clear_node_layout(
@@ -21122,6 +21530,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn clear_array_pin(
@@ -21174,6 +21584,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn change_exposed_pin_type(
@@ -21253,6 +21666,9 @@ impl URigVMController {
         unsafe {
             __buffer.add(44).cast::<bool>().swap(b_setup_undo_redo);
         }
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(b_setup_orphan_pins);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(47).cast::<bool>().read() }
     }
     pub fn can_import_nodes_from_text(&mut self, in_text: FString) -> bool {
@@ -21286,6 +21702,7 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn cancel_undo_bracket(&mut self) -> bool {
@@ -21372,6 +21789,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_output_pin_path);
+        std::mem::forget(in_input_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn break_all_links(
@@ -21432,6 +21853,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_as_input);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn bind_pin_to_variable(
@@ -21492,6 +21917,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(in_new_bound_variable_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn add_variable_node_from_object_path(
@@ -21592,6 +22021,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object_path);
+        std::mem::forget(b_is_getter);
+        std::mem::forget(in_default_value);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(112).cast::<UPtr<URigVMVariableNode>>().read() }
     }
     pub fn add_variable_node(
@@ -21692,6 +22128,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(b_is_getter);
+        std::mem::forget(in_default_value);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(104).cast::<UPtr<URigVMVariableNode>>().read() }
     }
     pub fn add_unit_node_with_defaults(
@@ -21778,6 +22221,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_script_struct);
+        std::mem::forget(in_defaults);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(80).cast::<UPtr<URigVMUnitNode>>().read() }
     }
     pub fn add_unit_node_from_struct_path(
@@ -21854,6 +22302,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_script_struct_path);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(72).cast::<UPtr<URigVMUnitNode>>().read() }
     }
     pub fn add_unit_node(
@@ -21932,6 +22384,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_script_struct);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(64).cast::<UPtr<URigVMUnitNode>>().read() }
     }
     pub fn add_trait(
@@ -22016,6 +22472,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
+        std::mem::forget(in_pin_index);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(64).cast::<FName>().read() }
     }
     pub fn add_template_node(
@@ -22084,6 +22544,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(56).cast::<UPtr<URigVMTemplateNode>>().read() }
     }
     pub fn add_tag_to_function_variant(
@@ -22144,6 +22607,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(90).cast::<bool>().read() }
     }
     pub fn add_select_node_from_struct(
@@ -22206,6 +22671,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_script_struct);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(48).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_select_node(
@@ -22282,6 +22750,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(72).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_reroute_node_on_pin(
@@ -22358,6 +22830,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_as_input);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(64).cast::<UPtr<URigVMRerouteNode>>().read() }
     }
     pub fn add_reroute_node_on_link_path(
@@ -22426,6 +22903,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_link_pin_path_representation);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(56).cast::<UPtr<URigVMRerouteNode>>().read() }
     }
     pub fn add_reroute_node_on_link(
@@ -22494,6 +22975,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_link);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(48).cast::<UPtr<URigVMRerouteNode>>().read() }
     }
     pub fn add_parameter_node_from_object_path(
@@ -22594,6 +23079,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object_path);
+        std::mem::forget(b_is_input);
+        std::mem::forget(in_default_value);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(112).cast::<UPtr<URigVMParameterNode>>().read() }
     }
     pub fn add_parameter_node(
@@ -22694,6 +23186,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(b_is_input);
+        std::mem::forget(in_default_value);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(104).cast::<UPtr<URigVMParameterNode>>().read() }
     }
     pub fn add_override_to_pins(
@@ -22746,6 +23245,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn add_override_to_pin(
@@ -22798,6 +23299,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn add_override_to_all_pins_on_nodes(
@@ -22850,6 +23354,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn add_override_to_all_pins_on_node(
@@ -22902,6 +23408,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn add_local_variable_from_object_path(
@@ -22970,6 +23478,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object_path);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(72).cast::<FRigVMGraphVariableDescription>().read() }
     }
     pub fn add_local_variable(
@@ -23046,6 +23558,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(64).cast::<FRigVMGraphVariableDescription>().read() }
     }
     pub fn add_link(
@@ -23122,6 +23639,12 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_output_pin_path);
+        std::mem::forget(in_input_pin_path);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(in_user_direction);
+        std::mem::forget(b_create_cast_node);
         unsafe { __buffer.add(36).cast::<bool>().read() }
     }
     pub fn add_invoke_entry_node(
@@ -23190,6 +23713,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(56).cast::<UPtr<URigVMInvokeEntryNode>>().read() }
     }
     pub fn add_injected_node_from_struct_path(
@@ -23282,6 +23808,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_as_input);
+        std::mem::forget(in_script_struct_path);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(104).cast::<UPtr<URigVMInjectionInfo>>().read() }
     }
     pub fn add_injected_node(
@@ -23384,6 +23915,12 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_pin_path);
+        std::mem::forget(b_as_input);
+        std::mem::forget(in_script_struct);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(96).cast::<UPtr<URigVMInjectionInfo>>().read() }
     }
     pub fn add_if_node_from_struct(
@@ -23446,6 +23983,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_script_struct);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(48).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_if_node(
@@ -23522,6 +24062,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(72).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_function_to_library(
@@ -23590,6 +24134,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_mutable);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(40).cast::<UPtr<URigVMLibraryNode>>().read() }
     }
     pub fn add_function_reference_node_from_description(
@@ -23660,6 +24207,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(568).cast::<UPtr<URigVMFunctionReferenceNode>>().read() }
     }
     pub fn add_function_reference_node(
@@ -23728,6 +24278,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_definition);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(48).cast::<UPtr<URigVMFunctionReferenceNode>>().read() }
     }
     pub fn add_free_reroute_node(
@@ -23820,6 +24374,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(b_is_constant);
+        std::mem::forget(in_default_value);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
         unsafe { __buffer.add(104).cast::<UPtr<URigVMRerouteNode>>().read() }
     }
     pub fn add_external_function_reference_node(
@@ -23896,6 +24455,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_host_path);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(72).cast::<UPtr<URigVMFunctionReferenceNode>>().read() }
     }
     pub fn add_exposed_pin(
@@ -23980,6 +24543,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_direction);
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(68).cast::<FName>().read() }
     }
     pub fn add_enum_node(
@@ -24048,6 +24616,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(56).cast::<UPtr<URigVMEnumNode>>().read() }
     }
     pub fn add_empty_pin_category(
@@ -24108,6 +24679,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_category);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn add_default_tag_to_function_variant(
@@ -24168,6 +24742,8 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(26).cast::<bool>().read() }
     }
     pub fn add_comment_node(
@@ -24252,6 +24828,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_comment_text);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(88).cast::<UPtr<URigVMCommentNode>>().read() }
     }
     pub fn add_branch_node(
@@ -24312,6 +24892,9 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(40).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_array_pin(
@@ -24372,6 +24955,10 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_pin_path);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(40).cast::<FString>().read() }
     }
     pub fn add_array_node_from_object_path(
@@ -24464,6 +25051,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_code);
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object_path);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_is_patching);
         unsafe { __buffer.add(80).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_array_node(
@@ -24556,6 +25150,13 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_code);
+        std::mem::forget(in_cpp_type);
+        std::mem::forget(in_cpp_type_object);
+        std::mem::forget(in_node_name);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
+        std::mem::forget(b_is_patching);
         unsafe { __buffer.add(72).cast::<UPtr<URigVMNode>>().read() }
     }
     pub fn add_aggregate_pin(
@@ -24624,6 +25225,11 @@ impl URigVMController {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_name);
+        std::mem::forget(in_pin_name);
+        std::mem::forget(in_default_value);
+        std::mem::forget(b_setup_undo_redo);
+        std::mem::forget(b_print_python_command);
         unsafe { __buffer.add(56).cast::<FString>().read() }
     }
 }

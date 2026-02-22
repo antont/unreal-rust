@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1760,6 +1761,7 @@ impl UCameraRigInstanceFunctions {
                 __buffer,
             )
         };
+        std::mem::forget(instance_id);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -3344,6 +3346,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
+        std::mem::forget(child_slot_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn run_camera_director(
@@ -3392,6 +3396,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
+        std::mem::forget(evaluation_context_owner);
     }
     pub fn resolve_camera_rig_proxy(
         &self,
@@ -3427,6 +3433,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_proxy);
         unsafe { __buffer.add(8).cast::<UPtr<UCameraRigAsset>>().read() }
     }
     pub fn remove_child_evaluation_context(
@@ -3471,6 +3478,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(child_evaluation_context_owner);
+        std::mem::forget(child_slot_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_initial_context_result(&self) -> FBlueprintCameraEvaluationDataRef {
@@ -3533,6 +3542,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(condition);
         unsafe { __buffer.add(8).cast::<FBlueprintCameraEvaluationDataRef>().read() }
     }
     pub fn find_evaluation_context_owner_actor(
@@ -3569,6 +3579,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
         unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
     pub fn deactivate_persistent_visual_camera_rig(
@@ -3605,6 +3616,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_prefab);
     }
     pub fn deactivate_persistent_global_camera_rig(
         &mut self,
@@ -3640,6 +3652,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_prefab);
     }
     pub fn deactivate_persistent_base_camera_rig(
         &mut self,
@@ -3675,6 +3688,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_prefab);
     }
     pub fn deactivate_camera_director(
         &mut self,
@@ -3718,6 +3732,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(evaluation_context_owner);
     }
     pub fn add_child_evaluation_context(
         &mut self,
@@ -3753,6 +3768,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(child_evaluation_context_owner);
         unsafe { __buffer.add(8).cast::<FName>().read() }
     }
     pub fn activate_persistent_visual_camera_rig(
@@ -3789,6 +3805,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_prefab);
     }
     pub fn activate_persistent_global_camera_rig(
         &mut self,
@@ -3824,6 +3841,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_prefab);
     }
     pub fn activate_persistent_base_camera_rig(
         &mut self,
@@ -3859,6 +3877,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_prefab);
     }
     pub fn activate_camera_rig_via_proxy(
         &mut self,
@@ -3902,6 +3921,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig_proxy);
+        std::mem::forget(b_force_new_instance);
     }
     pub fn activate_camera_rig(
         &mut self,
@@ -3945,6 +3966,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(b_force_new_instance);
     }
     pub fn activate_camera_director(
         &mut self,
@@ -3988,6 +4011,7 @@ impl UBlueprintCameraDirectorEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(evaluation_context_owner);
     }
 }
 #[repr(C, align(8))]
@@ -4250,6 +4274,9 @@ impl UActivateCameraRigFunctions {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(camera_rig);
     }
     pub fn activate_persistent_global_camera_rig(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4302,6 +4329,9 @@ impl UActivateCameraRigFunctions {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(camera_rig);
     }
     pub fn activate_persistent_base_camera_rig(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4354,6 +4384,9 @@ impl UActivateCameraRigFunctions {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(camera_rig);
     }
 }
 #[repr(C, align(8))]
@@ -4501,6 +4534,7 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
     pub fn set_camera_pose(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -4650,6 +4684,7 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(factor);
     }
 }
 #[repr(C, align(8))]
@@ -4735,6 +4770,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
     }
     pub fn set_vector3_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -4785,6 +4821,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
     }
     pub fn set_vector2_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -4835,6 +4872,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
     }
     pub fn set_transform_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -4885,6 +4923,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
     }
     pub fn set_rotator_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -4935,6 +4974,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
     }
     pub fn set_integer32_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -4981,6 +5021,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
+        std::mem::forget(value);
     }
     pub fn set_float_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -5027,6 +5069,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
+        std::mem::forget(value);
     }
     pub fn set_double_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -5073,6 +5117,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
+        std::mem::forget(value);
     }
     pub fn set_boolean_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -5119,6 +5165,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
+        std::mem::forget(value);
     }
     pub fn get_vector4_camera_variable(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -5161,6 +5209,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>().read()
         }
@@ -5206,6 +5255,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -5251,6 +5301,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -5296,6 +5347,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -5341,6 +5393,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -5386,6 +5439,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn get_float_camera_variable(
@@ -5429,6 +5483,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe { __buffer.add(32).cast::<f32>().read() }
     }
     pub fn get_double_camera_variable(
@@ -5472,6 +5527,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe { __buffer.add(32).cast::<f64>().read() }
     }
     pub fn get_boolean_camera_variable(
@@ -5515,6 +5571,7 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variable);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
@@ -5603,6 +5660,7 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_string_data(
@@ -5650,6 +5708,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
+        std::mem::forget(data);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_object_data(
@@ -5701,6 +5761,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
+        std::mem::forget(data);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_name_data(
@@ -5748,6 +5810,7 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_enum_data(
@@ -5803,6 +5866,9 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
+        std::mem::forget(enum_type);
+        std::mem::forget(data);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn set_class_data(
@@ -5856,6 +5922,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
+        std::mem::forget(data);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_struct_data(
@@ -5909,6 +5977,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
+        std::mem::forget(data_struct_type);
         unsafe {
             __buffer
                 .add(40)
@@ -5957,6 +6027,7 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
         unsafe { __buffer.add(32).cast::<FString>().read() }
     }
     pub fn get_object_data(
@@ -6000,6 +6071,7 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
         unsafe {
             __buffer
                 .add(32)
@@ -6048,6 +6120,7 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
         unsafe { __buffer.add(28).cast::<FName>().read() }
     }
     pub fn get_enum_data(
@@ -6099,6 +6172,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
+        std::mem::forget(enum_type);
         unsafe { __buffer.add(40).cast::<u8>().read() }
     }
     pub fn get_class_data(
@@ -6142,6 +6217,7 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_id);
         unsafe {
             __buffer
                 .add(32)
@@ -6268,6 +6344,7 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target_distance);
         unsafe { __buffer.add(144).cast::<FBlueprintCameraPose>().read() }
     }
     pub fn set_rotation(
@@ -6397,6 +6474,7 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(focal_length);
         unsafe { __buffer.add(144).cast::<FBlueprintCameraPose>().read() }
     }
     pub fn set_field_of_view(
@@ -6440,6 +6518,7 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(field_of_view);
         unsafe { __buffer.add(144).cast::<FBlueprintCameraPose>().read() }
     }
     pub fn make_camera_pose_from_cine_camera_component(
@@ -6479,6 +6558,7 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_component);
         unsafe { __buffer.add(8).cast::<FBlueprintCameraPose>().read() }
     }
     pub fn make_camera_pose_from_camera_component(
@@ -6516,6 +6596,7 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_component);
         unsafe { __buffer.add(8).cast::<FBlueprintCameraPose>().read() }
     }
     pub fn get_transform(
@@ -6629,6 +6710,7 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target_distance);
         unsafe {
             __buffer.add(144).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -7038,6 +7120,8 @@ impl UCameraRigParameterInterop {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(parameter_name);
     }
     pub fn get_camera_parameter(
         camera_data: &FBlueprintCameraEvaluationDataRef,
@@ -7096,6 +7180,8 @@ impl UCameraRigParameterInterop {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(44).cast::<i32>().read() }
     }
 }
@@ -7166,6 +7252,7 @@ impl UCameraRigParameterInteropLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer.add(12).cast::<crate::bindings::core_u_object::FVector3f>().read()
         }
@@ -7203,6 +7290,7 @@ impl UCameraRigParameterInteropLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -7240,6 +7328,7 @@ impl UCameraRigParameterInteropLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -7277,6 +7366,7 @@ impl UCameraRigParameterInteropLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -7314,6 +7404,7 @@ impl UCameraRigParameterInteropLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe {
             __buffer
                 .add(16)
@@ -7616,6 +7707,7 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(condition);
         unsafe { __buffer.add(8).cast::<FBlueprintCameraEvaluationDataRef>().read() }
     }
     pub fn deactivate_camera(&mut self, b_immediately: bool) {
@@ -7649,6 +7741,7 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_immediately);
     }
     pub fn activate_persistent_visual_camera_rig(
         &mut self,
@@ -7684,6 +7777,7 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
     pub fn activate_persistent_global_camera_rig(
         &mut self,
@@ -7719,6 +7813,7 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
     pub fn activate_persistent_base_camera_rig(
         &mut self,
@@ -7754,6 +7849,7 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
     pub fn activate_camera_for_player_index(
         &mut self,
@@ -7805,6 +7901,9 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(player_index);
+        std::mem::forget(b_set_as_view_target);
+        std::mem::forget(activation_mode);
     }
     pub fn activate_camera_for_player_controller(
         &mut self,
@@ -7858,6 +7957,9 @@ impl UGameplayCameraComponentBase {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(b_set_as_view_target);
+        std::mem::forget(activation_mode);
     }
 }
 #[repr(C, align(16))]
@@ -7969,6 +8071,7 @@ impl UGameplayCameraParameterSetterComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_immediately);
     }
     pub fn start_parameter_setters(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -8173,6 +8276,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_instance_id);
+        std::mem::forget(b_immediately);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn stop_camera_modifier_rig(
@@ -8217,6 +8322,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(instance_id);
+        std::mem::forget(b_immediately);
     }
     pub fn steal_player_controller(
         &mut self,
@@ -8254,6 +8361,7 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
     }
     pub fn start_visual_camera_modifier_rig(
         &mut self,
@@ -8293,6 +8401,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(order_key);
         unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
     }
     pub fn start_global_camera_modifier_rig(
@@ -8333,6 +8443,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(order_key);
         unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
     }
     pub fn start_camera_shake_asset(
@@ -8395,6 +8507,10 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(camera_shake);
+        std::mem::forget(shake_scale);
+        std::mem::forget(play_space);
+        std::mem::forget(user_play_space_rotation);
         unsafe { __buffer.add(40).cast::<FCameraShakeInstanceID>().read() }
     }
     pub fn release_player_controller(&mut self) {
@@ -8456,6 +8572,7 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_instance_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn activate_persistent_visual_camera_rig(
@@ -8492,6 +8609,7 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
     pub fn activate_persistent_global_camera_rig(
         &mut self,
@@ -8527,6 +8645,7 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
     pub fn activate_persistent_base_camera_rig(
         &mut self,
@@ -8562,6 +8681,7 @@ impl AGameplayCamerasPlayerCameraManager {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
     }
 }
 #[repr(C, align(8))]
@@ -8706,6 +8826,8 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(instance_id);
+        std::mem::forget(b_immediately);
     }
     pub fn start_visual_camera_modifier_rig(
         &mut self,
@@ -8745,6 +8867,8 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(order_key);
         unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
     }
     pub fn start_global_camera_modifier_rig(
@@ -8785,6 +8909,8 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(camera_rig);
+        std::mem::forget(order_key);
         unsafe { __buffer.add(12).cast::<FCameraRigInstanceID>().read() }
     }
     pub fn is_camera_system_active_for_play_controller(
@@ -8823,6 +8949,7 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn deactivate_camera_system(
@@ -8859,6 +8986,7 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(next_view_target);
     }
     pub fn activate_camera_system_for_player_index(&mut self, player_index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8891,6 +9019,7 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(player_index);
     }
     pub fn activate_camera_system_for_player_controller(
         &mut self,
@@ -8928,6 +9057,7 @@ impl UGameplayCameraSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
     }
 }
 #[repr(C, align(8))]
@@ -9026,6 +9156,7 @@ impl UGameplayControlRotationComponent {
                 __buffer,
             )
         };
+        std::mem::forget(player_index);
     }
     pub fn activate_control_rotation_management_for_player_controller(
         &mut self,
@@ -9063,6 +9194,7 @@ impl UGameplayControlRotationComponent {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
     }
 }
 pub struct IGameplayCameraSystemHost {}
@@ -11063,6 +11195,7 @@ impl UBlueprintCameraNodeEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
     }
     pub fn set_default_owning_camera_rig_parameters(
         &self,
@@ -11098,6 +11231,7 @@ impl UBlueprintCameraNodeEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(target_camera_data);
     }
     pub fn set_current_camera_pose(&mut self, camera_pose: &FBlueprintCameraPose) {
         let mut __stack = crate::core_data::StackAlloc::<136>::new();
@@ -11307,6 +11441,7 @@ impl UBlueprintCameraNodeEvaluator {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
         unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
 }

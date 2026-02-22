@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -272,6 +273,8 @@ impl USharedImageConstRefBlueprintFns {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(b_valid);
         }
+        std::mem::forget(x);
+        std::mem::forget(y);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4f>().read()
         }
@@ -332,6 +335,9 @@ impl USharedImageConstRefBlueprintFns {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(b_valid);
         }
+        std::mem::forget(x);
+        std::mem::forget(y);
+        std::mem::forget(failure_color);
         unsafe {
             __buffer
                 .add(36)

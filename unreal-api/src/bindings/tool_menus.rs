@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -725,6 +726,7 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(in_object);
     }
     pub fn init_menu(
         &mut self,
@@ -774,6 +776,10 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(owner);
+        std::mem::forget(name);
+        std::mem::forget(parent);
+        std::mem::forget(ty);
     }
     pub fn add_sub_menu(
         &mut self,
@@ -825,6 +831,9 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(owner);
+        std::mem::forget(section_name);
+        std::mem::forget(name);
         unsafe { __buffer.add(72).cast::<UPtr<UToolMenu>>().read() }
     }
     pub fn add_section(
@@ -889,6 +898,10 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(section_name);
+        std::mem::forget(insert_name);
+        std::mem::forget(insert_type);
+        std::mem::forget(alignment);
     }
     pub fn add_menu_entry_object(&mut self, in_object: UPtr<UToolMenuEntryScript>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -921,6 +934,7 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(in_object);
     }
     pub fn add_menu_entry(&mut self, section_name: FName, args: &FToolMenuEntry) {
         let mut __stack = crate::core_data::StackAlloc::<2024>::new();
@@ -958,6 +972,7 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(section_name);
     }
     pub fn add_dynamic_section(
         &mut self,
@@ -1001,6 +1016,8 @@ impl UToolMenu {
                 __buffer,
             )
         };
+        std::mem::forget(section_name);
+        std::mem::forget(object);
     }
 }
 #[repr(C, align(8))]
@@ -1280,6 +1297,10 @@ impl UToolMenuEntryScript {
                 __buffer,
             )
         };
+        std::mem::forget(owner_name);
+        std::mem::forget(menu);
+        std::mem::forget(section);
+        std::mem::forget(name);
     }
     pub fn get_tool_tip(&self, context: &FToolMenuContext) -> FText {
         let mut __stack = crate::core_data::StackAlloc::<120>::new();
@@ -1503,6 +1524,8 @@ impl UToolMenuEntryScript {
                 __buffer,
             )
         };
+        std::mem::forget(menu);
+        std::mem::forget(section_name);
     }
     pub fn can_execute(&self, context: &FToolMenuContext) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<105>::new();
@@ -1638,6 +1661,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(in_owner_name);
     }
     pub fn set_section_position(
         &mut self,
@@ -1697,6 +1721,10 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_name);
+        std::mem::forget(section_name);
+        std::mem::forget(other_section_name);
+        std::mem::forget(position_type);
     }
     pub fn set_section_label(
         &mut self,
@@ -1744,6 +1772,9 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_name);
+        std::mem::forget(section_name);
+        std::mem::forget(label);
     }
     pub fn remove_section(&mut self, menu_name: FName, section: FName) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -1777,6 +1808,8 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_name);
+        std::mem::forget(section);
     }
     pub fn remove_menu_entry_object(
         menu_entry_object: UPtr<UToolMenuEntryScript>,
@@ -1811,6 +1844,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_entry_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn remove_menu(&mut self, menu_name: FName) {
@@ -1842,6 +1876,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_name);
     }
     pub fn remove_entry(&mut self, menu_name: FName, section: FName, name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<36>::new();
@@ -1878,6 +1913,9 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_name);
+        std::mem::forget(section);
+        std::mem::forget(name);
     }
     pub fn register_menu(
         &mut self,
@@ -1927,6 +1965,10 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(parent);
+        std::mem::forget(ty);
+        std::mem::forget(b_warn_if_already_registered);
         unsafe { __buffer.add(32).cast::<UPtr<UToolMenu>>().read() }
     }
     pub fn refresh_menu_widget(&mut self, name: FName) -> bool {
@@ -1956,6 +1998,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn refresh_all_widgets(&mut self) {
@@ -2010,6 +2053,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get() -> UPtr<UToolMenus> {
@@ -2061,6 +2105,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<UPtr<UToolMenu>>().read() }
     }
     pub fn find_context(
@@ -2104,6 +2149,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
         unsafe {
             __buffer
                 .add(112)
@@ -2136,6 +2182,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<UPtr<UToolMenu>>().read() }
     }
     pub fn add_menu_entry_object(menu_entry_object: UPtr<UToolMenuEntryScript>) -> bool {
@@ -2169,6 +2216,7 @@ impl UToolMenus {
                 __buffer,
             )
         };
+        std::mem::forget(menu_entry_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -2249,6 +2297,7 @@ impl UToolMenuContextExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
         unsafe {
             __buffer
                 .add(112)
@@ -2425,6 +2474,9 @@ impl UToolMenuEntryExtensions {
         unsafe {
             __buffer.add(0).cast::<FToolMenuEntry>().swap(target);
         }
+        std::mem::forget(ty);
+        std::mem::forget(custom_type);
+        std::mem::forget(string);
     }
     pub fn set_label(target: &mut FToolMenuEntry, label: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<2024>::new();
@@ -2524,6 +2576,9 @@ impl UToolMenuEntryExtensions {
         unsafe {
             __buffer.add(0).cast::<FToolMenuEntry>().swap(target);
         }
+        std::mem::forget(style_set_name);
+        std::mem::forget(style_name);
+        std::mem::forget(small_style_name);
     }
     pub fn make_tool_menu_owner(name: FName) -> FToolMenuOwner {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -2552,6 +2607,7 @@ impl UToolMenuEntryExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<FToolMenuOwner>().read() }
     }
     pub fn make_string_command(
@@ -2603,6 +2659,9 @@ impl UToolMenuEntryExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(ty);
+        std::mem::forget(custom_type);
+        std::mem::forget(string);
         unsafe { __buffer.add(32).cast::<FToolMenuStringCommand>().read() }
     }
     pub fn make_script_slate_icon(
@@ -2654,6 +2713,9 @@ impl UToolMenuEntryExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(style_set_name);
+        std::mem::forget(style_name);
+        std::mem::forget(small_style_name);
         unsafe { __buffer.add(36).cast::<FScriptSlateIcon>().read() }
     }
     pub fn init_menu_entry(
@@ -2725,6 +2787,11 @@ impl UToolMenuEntryExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_owner);
+        std::mem::forget(in_name);
+        std::mem::forget(command_type);
+        std::mem::forget(custom_command_type);
+        std::mem::forget(command_string);
         unsafe { __buffer.add(88).cast::<FToolMenuEntry>().read() }
     }
     pub fn get_tool_tip(target: &FToolMenuEntry) -> FText {
@@ -3111,6 +3178,7 @@ impl UToolMenuSectionExtensions {
         unsafe {
             __buffer.add(0).cast::<FToolMenuSection>().swap(section);
         }
+        std::mem::forget(in_object);
     }
     pub fn add_entry(section: &mut FToolMenuSection, args: &FToolMenuEntry) {
         let mut __stack = crate::core_data::StackAlloc::<2584>::new();
@@ -3231,6 +3299,7 @@ impl UToolMenuSectionDynamic {
                 __buffer,
             )
         };
+        std::mem::forget(menu);
     }
 }
 #[repr(C, align(8))]

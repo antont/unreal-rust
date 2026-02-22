@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1951,6 +1952,10 @@ impl UIKRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(transform);
+        std::mem::forget(position_alpha);
+        std::mem::forget(rotation_alpha);
     }
     pub fn set_ik_rig_goal_position_and_rotation(
         &mut self,
@@ -2018,6 +2023,11 @@ impl UIKRigComponent {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(position);
+        std::mem::forget(rotation);
+        std::mem::forget(position_alpha);
+        std::mem::forget(rotation_alpha);
     }
     pub fn set_ik_rig_goal(&mut self, goal: &FIKRigGoal) {
         let mut __stack = crate::core_data::StackAlloc::<192>::new();
@@ -2364,6 +2374,7 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
         }
+        std::mem::forget(target_chain_name);
     }
     pub fn set_chain_settings_in_retarget_profile(
         retarget_profile: &mut FRetargetProfile,
@@ -2417,6 +2428,7 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
         }
+        std::mem::forget(target_chain_name);
     }
     pub fn set_chain_ik_settings_in_retarget_profile(
         retarget_profile: &mut FRetargetProfile,
@@ -2470,6 +2482,7 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
         }
+        std::mem::forget(target_chain_name);
     }
     pub fn set_chain_fk_settings_in_retarget_profile(
         retarget_profile: &mut FRetargetProfile,
@@ -2523,6 +2536,7 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
         }
+        std::mem::forget(target_chain_name);
     }
     pub fn has_target_ik_rig(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2666,6 +2680,8 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(24).cast::<FTargetRootSettings>().swap(out_settings);
         }
+        std::mem::forget(retarget_asset);
+        std::mem::forget(optional_profile_name);
     }
     pub fn get_global_settings_from_retarget_profile(
         retarget_profile: &mut FRetargetProfile,
@@ -2757,6 +2773,8 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(20).cast::<FRetargetGlobalSettings>().swap(out_settings);
         }
+        std::mem::forget(retarget_asset);
+        std::mem::forget(optional_profile_name);
     }
     pub fn get_chain_using_goal_from_retarget_asset(
         retarget_asset: UPtr<UIKRetargeter>,
@@ -2799,6 +2817,8 @@ impl UIKRetargeter {
                 __buffer,
             )
         };
+        std::mem::forget(retarget_asset);
+        std::mem::forget(ik_goal_name);
         unsafe { __buffer.add(24).cast::<FTargetChainSettings>().read() }
     }
     pub fn get_chain_settings_from_retarget_profile(
@@ -2845,6 +2865,7 @@ impl UIKRetargeter {
         unsafe {
             __buffer.add(0).cast::<FRetargetProfile>().swap(retarget_profile);
         }
+        std::mem::forget(target_chain_name);
         unsafe { __buffer.add(328).cast::<FTargetChainSettings>().read() }
     }
     pub fn get_chain_settings_from_retarget_asset(
@@ -2896,6 +2917,9 @@ impl UIKRetargeter {
                 __buffer,
             )
         };
+        std::mem::forget(retarget_asset);
+        std::mem::forget(target_chain_name);
+        std::mem::forget(optional_profile_name);
         unsafe { __buffer.add(32).cast::<FTargetChainSettings>().read() }
     }
 }
@@ -3117,6 +3141,7 @@ impl URetargetProfileLibrary {
         unsafe {
             __buffer.add(0).cast::<FRetargetProfile>().swap(in_retarget_profile);
         }
+        std::mem::forget(in_retarget_op_name);
         unsafe { __buffer.add(328).cast::<UPtr<UIKRetargetOpControllerBase>>().read() }
     }
     pub fn copy_retarget_profile_from_retarget_asset(
@@ -3152,6 +3177,7 @@ impl URetargetProfileLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_retarget_asset);
         unsafe { __buffer.add(8).cast::<FRetargetProfile>().read() }
     }
 }
@@ -3220,6 +3246,7 @@ impl UIKRetargetAlignPoleVectorController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetAlignPoleVectorOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<88>::new();
@@ -3313,6 +3340,7 @@ impl UIKRetargetCopyBasePoseController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn set_copy_from_start(&self, in_bone_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -3345,6 +3373,7 @@ impl UIKRetargetCopyBasePoseController {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
     }
     pub fn reset_bones_to_exclude(&self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3480,6 +3509,7 @@ impl UIKRetargetCopyBasePoseController {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
     }
 }
 #[repr(C, align(8))]
@@ -3547,6 +3577,7 @@ impl UIKRetargetCurveRemapController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetCurveRemapOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<88>::new();
@@ -3675,6 +3706,7 @@ impl UIKRetargetFilterBoneController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetFilterBoneOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<112>::new();
@@ -3784,6 +3816,7 @@ impl UIKRetargetFilterBoneController {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_bone);
     }
 }
 #[repr(C, align(8))]
@@ -3851,6 +3884,7 @@ impl UIKRetargetFKChainsController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetFKChainsOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<144>::new();
@@ -3944,6 +3978,7 @@ impl UIKRetargetFloorGoalsController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetIKChainsOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<104>::new();
@@ -4037,6 +4072,7 @@ impl UIKRetargetIKChainsController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetIKChainsOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<104>::new();
@@ -4130,6 +4166,7 @@ impl UIKRetargetPelvisMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_pelvis_bone);
     }
     pub fn set_source_pelvis_bone(&mut self, in_source_pelvis_bone: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -4162,6 +4199,7 @@ impl UIKRetargetPelvisMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_pelvis_bone);
     }
     pub fn set_settings(&mut self, in_settings: FIKRetargetPelvisMotionOpSettings) {
         let mut __stack = crate::core_data::StackAlloc::<376>::new();
@@ -4194,6 +4232,7 @@ impl UIKRetargetPelvisMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_target_pelvis_bone(&mut self) -> FName {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -4339,6 +4378,7 @@ impl UIKRetargetPinBoneController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn set_bone_pair(
         &mut self,
@@ -4382,6 +4422,8 @@ impl UIKRetargetPinBoneController {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_to_copy_from);
+        std::mem::forget(in_bone_to_copy_to);
     }
     pub fn get_settings(&mut self) -> FIKRetargetPinBoneOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<288>::new();
@@ -4561,6 +4603,7 @@ impl UIKRetargetAdditivePoseController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetAdditivePoseOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<80>::new();
@@ -4654,6 +4697,7 @@ impl UIKRetargetRootMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_root_bone);
     }
     pub fn set_target_pelvis_bone(&mut self, in_target_pelvis_bone: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -4686,6 +4730,7 @@ impl UIKRetargetRootMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_pelvis_bone);
     }
     pub fn set_source_root_bone(&mut self, in_source_root_bone: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -4718,6 +4763,7 @@ impl UIKRetargetRootMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_root_bone);
     }
     pub fn set_settings(&mut self, in_settings: FIKRetargetRootMotionOpSettings) {
         let mut __stack = crate::core_data::StackAlloc::<288>::new();
@@ -4750,6 +4796,7 @@ impl UIKRetargetRootMotionController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_target_root_bone(&mut self) -> FName {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -4956,6 +5003,7 @@ impl UIKRetargetRunIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetRunIKRigOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<112>::new();
@@ -5049,6 +5097,7 @@ impl UIKRetargetScaleSourceController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetScaleSourceOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<104>::new();
@@ -5142,6 +5191,7 @@ impl UIKRetargetSpeedPlantingController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetSpeedPlantingOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<104>::new();
@@ -5235,6 +5285,7 @@ impl UIKRetargetStretchChainController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetStretchChainOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<88>::new();
@@ -5328,6 +5379,7 @@ impl UIKRetargetStrideWarpingController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings(&mut self) -> FIKRetargetStrideWarpingOpSettings {
         let mut __stack = crate::core_data::StackAlloc::<152>::new();
@@ -5538,6 +5590,7 @@ impl UIKRigSolverControllerBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
     }
     pub fn get_enabled(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5631,6 +5684,7 @@ impl UIKRigBodyMoverController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn set_goal_settings(
         &mut self,
@@ -5674,6 +5728,8 @@ impl UIKRigBodyMoverController {
                 __buffer,
             )
         };
+        std::mem::forget(in_goal_name);
+        std::mem::forget(in_settings);
     }
     pub fn get_solver_settings(&mut self) -> FIKRigBodyMoverSettings {
         let mut __stack = crate::core_data::StackAlloc::<64>::new();
@@ -5735,6 +5791,7 @@ impl UIKRigBodyMoverController {
                 __buffer,
             )
         };
+        std::mem::forget(in_goal_name);
         unsafe { __buffer.add(16).cast::<FIKRigBodyMoverGoalSettings>().read() }
     }
 }
@@ -5908,6 +5965,7 @@ impl UIKRigFBIKController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn set_goal_settings(
         &mut self,
@@ -5951,6 +6009,8 @@ impl UIKRigFBIKController {
                 __buffer,
             )
         };
+        std::mem::forget(in_goal_name);
+        std::mem::forget(in_settings);
     }
     pub fn set_bone_settings(
         &mut self,
@@ -5994,6 +6054,8 @@ impl UIKRigFBIKController {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(in_settings);
     }
     pub fn get_solver_settings(&mut self) -> FIKRigFBIKSettings {
         let mut __stack = crate::core_data::StackAlloc::<80>::new();
@@ -6052,6 +6114,7 @@ impl UIKRigFBIKController {
                 __buffer,
             )
         };
+        std::mem::forget(in_goal_name);
         unsafe { __buffer.add(16).cast::<FIKRigFBIKGoalSettings>().read() }
     }
     pub fn get_bone_settings(&mut self, in_bone_name: FName) -> FIKRigFBIKBoneSettings {
@@ -6085,6 +6148,7 @@ impl UIKRigFBIKController {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
         unsafe { __buffer.add(16).cast::<FIKRigFBIKBoneSettings>().read() }
     }
 }
@@ -6258,6 +6322,7 @@ impl UIKRigLimbSolverController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_solver_settings(&mut self) -> FIKRigLimbSolverSettings {
         let mut __stack = crate::core_data::StackAlloc::<88>::new();
@@ -6421,6 +6486,7 @@ impl UIKRigPoleSolverController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_solver_settings(&mut self) -> FIKRigPoleSolverSettings {
         let mut __stack = crate::core_data::StackAlloc::<48>::new();
@@ -6584,6 +6650,7 @@ impl UIKRigSetTransformController {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_solver_settings(&mut self) -> FIKRigSetTransformSettings {
         let mut __stack = crate::core_data::StackAlloc::<48>::new();

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -257,6 +258,7 @@ impl UHandKeypointConversion {
                 __buffer,
             )
         };
+        std::mem::forget(input);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
@@ -336,6 +338,7 @@ impl UMotionControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_source);
     }
     pub fn set_tracking_motion_source(&mut self, new_source: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -368,6 +371,7 @@ impl UMotionControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_source);
     }
     pub fn set_associated_player_index(&mut self, new_player: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -396,6 +400,7 @@ impl UMotionControllerComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_player);
     }
     pub fn on_motion_controller_updated(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -517,6 +522,7 @@ impl UMotionControllerComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_value_found);
         }
+        std::mem::forget(in_name);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_linear_velocity(
@@ -648,6 +654,7 @@ impl UMotionControllerComponent {
         unsafe {
             __buffer.add(4).cast::<bool>().swap(b_value_found);
         }
+        std::mem::forget(joint_index);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -150,6 +151,7 @@ impl USlateFXSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_post_buffer_bit);
         unsafe { __buffer.add(8).cast::<UPtr<USlateRHIPostBufferProcessor>>().read() }
     }
 }
@@ -363,6 +365,16 @@ impl USlateFontBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(font_object);
+        std::mem::forget(font_material);
+        std::mem::forget(outline_settings);
+        std::mem::forget(typeface_font_name);
+        std::mem::forget(size);
+        std::mem::forget(letter_spacing);
+        std::mem::forget(skew_amount);
+        std::mem::forget(b_force_monospaced);
+        std::mem::forget(b_material_is_stencil);
+        std::mem::forget(monospaced_width);
         unsafe {
             __buffer.add(80).cast::<crate::bindings::slate_core::FSlateFontInfo>().read()
         }
@@ -436,6 +448,7 @@ impl USlateRHIRendererSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_post_buffer_bit);
         unsafe { __buffer.add(8).cast::<FSlatePostSettings>().read() }
     }
     pub fn get_mutable_slate_post_setting(
@@ -472,6 +485,7 @@ impl USlateRHIRendererSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_post_buffer_bit);
         unsafe { __buffer.add(8).cast::<FSlatePostSettings>().read() }
     }
 }

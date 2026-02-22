@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -876,6 +877,17 @@ impl UBlendStackAnimNodeLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
+        std::mem::forget(animation_time);
+        std::mem::forget(b_loop);
+        std::mem::forget(b_mirrored);
+        std::mem::forget(blend_time);
+        std::mem::forget(blend_profile);
+        std::mem::forget(blend_option);
+        std::mem::forget(b_inertial_blend);
+        std::mem::forget(blend_parameters);
+        std::mem::forget(wanted_play_rate);
+        std::mem::forget(activation_delay);
     }
     pub fn blend_to(
         context: &crate::bindings::engine::FAnimUpdateContext,
@@ -980,6 +992,14 @@ impl UBlendStackAnimNodeLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
+        std::mem::forget(animation_time);
+        std::mem::forget(b_loop);
+        std::mem::forget(b_mirrored);
+        std::mem::forget(blend_time);
+        std::mem::forget(blend_parameters);
+        std::mem::forget(wanted_play_rate);
+        std::mem::forget(activation_delay);
     }
 }
 #[repr(C, align(8))]

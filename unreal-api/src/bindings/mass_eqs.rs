@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -281,6 +282,8 @@ impl UMassEQSBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(owner);
+        std::mem::forget(signal);
     }
     pub fn get_enviroment_query_result_as_entity_info(
         query_instance: UPtr<
@@ -323,6 +326,7 @@ impl UMassEQSBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(query_instance);
         unsafe {
             __buffer
                 .add(8)
@@ -371,6 +375,7 @@ impl UMassEQSBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(owner);
         unsafe {
             __buffer.add(128).cast::<crate::bindings::core_u_object::FVector>().read()
         }

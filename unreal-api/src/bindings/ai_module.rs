@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -3134,6 +3135,7 @@ impl AAIController {
                 .cast::<UPtr<UBlackboardComponent>>()
                 .swap(blackboard_component);
         }
+        std::mem::forget(blackboard_asset);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn unclaim_task_resource(
@@ -3178,6 +3180,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(resource_class);
     }
     pub fn set_path_following_component(
         &mut self,
@@ -3213,6 +3216,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(new_pf_component);
     }
     pub fn set_move_block_detection(&mut self, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3241,6 +3245,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn run_behavior_tree(&mut self, bt_asset: UPtr<UBehaviorTree>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -3273,6 +3278,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(bt_asset);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn on_using_black_board(
@@ -3317,6 +3323,8 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(blackboard_comp);
+        std::mem::forget(blackboard_asset);
     }
     pub fn move_to_location(
         &mut self,
@@ -3416,6 +3424,13 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(acceptance_radius);
+        std::mem::forget(b_stop_on_overlap);
+        std::mem::forget(b_use_pathfinding);
+        std::mem::forget(b_project_destination_to_navigation);
+        std::mem::forget(b_can_strafe);
+        std::mem::forget(filter_class);
+        std::mem::forget(b_allow_partial_path);
         unsafe { __buffer.add(41).cast::<EPathFollowingRequestResult>().read() }
     }
     pub fn move_to_actor(
@@ -3506,6 +3521,13 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(goal);
+        std::mem::forget(acceptance_radius);
+        std::mem::forget(b_stop_on_overlap);
+        std::mem::forget(b_use_pathfinding);
+        std::mem::forget(b_can_strafe);
+        std::mem::forget(filter_class);
+        std::mem::forget(b_allow_partial_path);
         unsafe { __buffer.add(25).cast::<EPathFollowingRequestResult>().read() }
     }
     pub fn set_focus(&mut self, new_focus: UPtr<crate::bindings::engine::AActor>) {
@@ -3537,6 +3559,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(new_focus);
     }
     pub fn set_focal_point(&mut self, fp: crate::bindings::core_u_object::FVector) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -3569,6 +3592,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(fp);
     }
     pub fn clear_focus(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3763,6 +3787,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -3863,6 +3888,7 @@ impl AAIController {
                 __buffer,
             )
         };
+        std::mem::forget(resource_class);
     }
 }
 #[repr(C, align(8))]
@@ -4095,6 +4121,7 @@ impl UBrainComponent {
                 __buffer,
             )
         };
+        std::mem::forget(reason);
     }
     pub fn start_logic(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4274,6 +4301,8 @@ impl UBehaviorTreeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(inject_tag);
+        std::mem::forget(behavior_asset);
     }
     pub fn get_tag_cooldown_end_time(
         &self,
@@ -4309,6 +4338,7 @@ impl UBehaviorTreeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(cooldown_tag);
         unsafe { __buffer.add(16).cast::<f64>().read() }
     }
     pub fn add_cooldown_tag_duration(
@@ -4361,6 +4391,9 @@ impl UBehaviorTreeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(cooldown_tag);
+        std::mem::forget(cooldown_duration);
+        std::mem::forget(b_add_to_existing_duration);
     }
 }
 #[repr(C, align(8))]
@@ -4567,6 +4600,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(vector_value);
     }
     pub fn set_value_as_string(&mut self, key_name: &FName, string_value: FString) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -4602,6 +4636,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(string_value);
     }
     pub fn set_value_as_rotator(
         &mut self,
@@ -4641,6 +4676,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(vector_value);
     }
     pub fn set_value_as_object(
         &mut self,
@@ -4680,6 +4716,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(object_value);
     }
     pub fn set_value_as_name(&mut self, key_name: &FName, name_value: FName) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -4715,6 +4752,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(name_value);
     }
     pub fn set_value_as_int(&mut self, key_name: &FName, int_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -4746,6 +4784,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(int_value);
     }
     pub fn set_value_as_float(&mut self, key_name: &FName, float_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -4781,6 +4820,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(float_value);
     }
     pub fn set_value_as_enum(&mut self, key_name: &FName, enum_value: u8) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -4812,6 +4852,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enum_value);
     }
     pub fn set_value_as_class(
         &mut self,
@@ -4853,6 +4894,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(class_value);
     }
     pub fn set_value_as_bool(&mut self, key_name: &FName, bool_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -4888,6 +4930,7 @@ impl UBlackboardComponent {
                 __buffer,
             )
         };
+        std::mem::forget(bool_value);
     }
     pub fn is_vector_value_set(&self, key_name: &FName) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -6046,6 +6089,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
     }
     pub fn start_using_external_event(
         node_owner: UPtr<UBTNode>,
@@ -6088,6 +6132,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(owning_actor);
     }
     pub fn set_blackboard_value_as_vector(
         node_owner: UPtr<UBTNode>,
@@ -6138,6 +6184,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_string(
         node_owner: UPtr<UBTNode>,
@@ -6184,6 +6232,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_rotator(
         node_owner: UPtr<UBTNode>,
@@ -6234,6 +6284,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_object(
         node_owner: UPtr<UBTNode>,
@@ -6284,6 +6336,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_name(
         node_owner: UPtr<UBTNode>,
@@ -6330,6 +6384,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_int(
         node_owner: UPtr<UBTNode>,
@@ -6376,6 +6432,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_float(
         node_owner: UPtr<UBTNode>,
@@ -6422,6 +6480,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_enum(
         node_owner: UPtr<UBTNode>,
@@ -6468,6 +6528,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_class(
         node_owner: UPtr<UBTNode>,
@@ -6520,6 +6582,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn set_blackboard_value_as_bool(
         node_owner: UPtr<UBTNode>,
@@ -6566,6 +6630,8 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
+        std::mem::forget(value);
     }
     pub fn get_owners_blackboard(
         node_owner: UPtr<UBTNode>,
@@ -6600,6 +6666,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(8).cast::<UPtr<UBlackboardComponent>>().read() }
     }
     pub fn get_owner_component(
@@ -6635,6 +6702,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(8).cast::<UPtr<UBehaviorTreeComponent>>().read() }
     }
     pub fn get_blackboard_value_as_vector(
@@ -6678,6 +6746,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -6723,6 +6792,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<FString>().read() }
     }
     pub fn get_blackboard_value_as_rotator(
@@ -6766,6 +6836,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -6811,6 +6882,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe {
             __buffer
                 .add(56)
@@ -6859,6 +6931,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<FName>().read() }
     }
     pub fn get_blackboard_value_as_int(
@@ -6902,6 +6975,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<i32>().read() }
     }
     pub fn get_blackboard_value_as_float(
@@ -6945,6 +7019,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<f32>().read() }
     }
     pub fn get_blackboard_value_as_enum(
@@ -6988,6 +7063,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<u8>().read() }
     }
     pub fn get_blackboard_value_as_class(
@@ -7031,6 +7107,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe {
             __buffer
                 .add(56)
@@ -7079,6 +7156,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn get_blackboard_value_as_actor(
@@ -7122,6 +7200,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
         unsafe {
             __buffer.add(56).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -7167,6 +7246,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
     }
     pub fn clear_blackboard_value(
         node_owner: UPtr<UBTNode>,
@@ -7209,6 +7289,7 @@ impl UBTFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(node_owner);
     }
 }
 #[repr(C, align(8))]
@@ -7543,6 +7624,9 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
+        std::mem::forget(delta_seconds);
     }
     pub fn receive_tick(
         &mut self,
@@ -7586,6 +7670,8 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
+        std::mem::forget(delta_seconds);
     }
     pub fn receive_observer_deactivated_ai(
         &mut self,
@@ -7629,6 +7715,8 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_observer_deactivated(
         &mut self,
@@ -7664,6 +7752,7 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn receive_observer_activated_ai(
         &mut self,
@@ -7707,6 +7796,8 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_observer_activated(
         &mut self,
@@ -7742,6 +7833,7 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn receive_execution_start_ai(
         &mut self,
@@ -7785,6 +7877,8 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_execution_start(
         &mut self,
@@ -7820,6 +7914,7 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn receive_execution_finish_ai(
         &mut self,
@@ -7871,6 +7966,9 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
+        std::mem::forget(node_result);
     }
     pub fn receive_execution_finish(
         &mut self,
@@ -7914,6 +8012,8 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
+        std::mem::forget(node_result);
     }
     pub fn perform_condition_check_ai(
         &mut self,
@@ -7957,6 +8057,8 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn perform_condition_check(
@@ -7993,6 +8095,7 @@ impl UBTDecorator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_decorator_observer_active(&self) -> bool {
@@ -8730,6 +8833,9 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
+        std::mem::forget(delta_seconds);
     }
     pub fn receive_tick(
         &mut self,
@@ -8773,6 +8879,8 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
+        std::mem::forget(delta_seconds);
     }
     pub fn receive_search_start_ai(
         &mut self,
@@ -8816,6 +8924,8 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_search_start(
         &mut self,
@@ -8851,6 +8961,7 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn receive_deactivation_ai(
         &mut self,
@@ -8894,6 +9005,8 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_deactivation(
         &mut self,
@@ -8929,6 +9042,7 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn receive_activation_ai(
         &mut self,
@@ -8972,6 +9086,8 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_activation(
         &mut self,
@@ -9007,6 +9123,7 @@ impl UBTService_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn is_service_active(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9219,6 +9336,8 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(message_name);
+        std::mem::forget(request_id);
     }
     pub fn set_finish_on_message(&mut self, message_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -9251,6 +9370,7 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(message_name);
     }
     pub fn receive_tick_ai(
         &mut self,
@@ -9302,6 +9422,9 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
+        std::mem::forget(delta_seconds);
     }
     pub fn receive_tick(
         &mut self,
@@ -9345,6 +9468,8 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
+        std::mem::forget(delta_seconds);
     }
     pub fn receive_execute_ai(
         &mut self,
@@ -9388,6 +9513,8 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_execute(
         &mut self,
@@ -9423,6 +9550,7 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn receive_abort_ai(
         &mut self,
@@ -9466,6 +9594,8 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_controller);
+        std::mem::forget(controlled_pawn);
     }
     pub fn receive_abort(&mut self, owner_actor: UPtr<crate::bindings::engine::AActor>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -9498,6 +9628,7 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(owner_actor);
     }
     pub fn is_task_executing(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9578,6 +9709,7 @@ impl UBTTask_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_success);
     }
     pub fn finish_abort(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10555,6 +10687,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10600,6 +10733,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe {
             __buffer
                 .add(56)
@@ -10648,6 +10782,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe { __buffer.add(48).cast::<FString>().read() }
     }
     pub fn get_rotator(
@@ -10691,6 +10826,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -10736,6 +10872,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe {
             __buffer
                 .add(48)
@@ -10784,6 +10921,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe { __buffer.add(48).cast::<FName>().read() }
     }
     pub fn get_int32(
@@ -10827,6 +10965,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe { __buffer.add(40).cast::<i32>().read() }
     }
     pub fn get_float(
@@ -10870,6 +11009,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe { __buffer.add(40).cast::<f32>().read() }
     }
     pub fn get_enum(
@@ -10913,6 +11053,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe { __buffer.add(64).cast::<u8>().read() }
     }
     pub fn get_class(
@@ -10956,6 +11097,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe {
             __buffer
                 .add(48)
@@ -11004,6 +11146,7 @@ impl UValueOrBBKeyBlueprintUtility {
                 __buffer,
             )
         };
+        std::mem::forget(behavior_tree_comp);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
 }
@@ -11090,6 +11233,9 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
+        std::mem::forget(b_unlock_movement);
+        std::mem::forget(unlock_ai_logic);
     }
     pub fn spawn_ai_from_class(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -11172,6 +11318,13 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(pawn_class);
+        std::mem::forget(behavior_tree);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(b_no_collision_fail);
+        std::mem::forget(owner);
         unsafe { __buffer.add(88).cast::<UPtr<crate::bindings::engine::APawn>>().read() }
     }
     pub fn simple_move_to_location(
@@ -11215,6 +11368,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
     }
     pub fn simple_move_to_actor(
         controller: UPtr<crate::bindings::engine::AController>,
@@ -11257,6 +11411,8 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
+        std::mem::forget(goal);
     }
     pub fn send_ai_message(
         target: UPtr<crate::bindings::engine::APawn>,
@@ -11311,6 +11467,10 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target);
+        std::mem::forget(message);
+        std::mem::forget(message_source);
+        std::mem::forget(b_success);
     }
     pub fn lock_ai_resources_with_animation(
         anim_instance: UPtr<crate::bindings::engine::UAnimInstance>,
@@ -11361,6 +11521,9 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
+        std::mem::forget(b_lock_movement);
+        std::mem::forget(lock_ai_logic);
     }
     pub fn is_valid_ai_rotation(
         rotation: crate::bindings::core_u_object::FRotator,
@@ -11395,6 +11558,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(rotation);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn is_valid_ai_location(
@@ -11430,6 +11594,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(location);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn is_valid_ai_direction(
@@ -11465,6 +11630,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(direction_vector);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_next_nav_link_index(
@@ -11500,6 +11666,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_current_path_points(
@@ -11535,6 +11702,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
         unsafe {
             __buffer
                 .add(8)
@@ -11575,6 +11743,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_current_path(
@@ -11610,6 +11779,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
         unsafe {
             __buffer
                 .add(8)
@@ -11650,6 +11820,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target);
         unsafe { __buffer.add(8).cast::<UPtr<UBlackboardComponent>>().read() }
     }
     pub fn get_ai_controller(
@@ -11685,6 +11856,7 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(controlled_actor);
         unsafe { __buffer.add(8).cast::<UPtr<AAIController>>().read() }
     }
     pub fn create_move_to_proxy_object(
@@ -11760,6 +11932,12 @@ impl UAIBlueprintHelperLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(pawn);
+        std::mem::forget(destination);
+        std::mem::forget(target_actor);
+        std::mem::forget(acceptance_radius);
+        std::mem::forget(b_stop_on_overlap);
         unsafe { __buffer.add(56).cast::<UPtr<UAIAsyncTaskBlueprintProxy>>().read() }
     }
 }
@@ -12028,6 +12206,8 @@ impl UEnvQueryContext_BlueprintBase {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(resulting_location);
         }
+        std::mem::forget(querier_object);
+        std::mem::forget(querier_actor);
     }
     pub fn provide_single_actor(
         &self,
@@ -12085,6 +12265,8 @@ impl UEnvQueryContext_BlueprintBase {
                 .cast::<UPtr<crate::bindings::engine::AActor>>()
                 .swap(resulting_actor);
         }
+        std::mem::forget(querier_object);
+        std::mem::forget(querier_actor);
     }
     pub fn provide_locations_set(
         &self,
@@ -12144,6 +12326,8 @@ impl UEnvQueryContext_BlueprintBase {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(resulting_location_set);
         }
+        std::mem::forget(querier_object);
+        std::mem::forget(querier_actor);
     }
     pub fn provide_actors_set(
         &self,
@@ -12201,6 +12385,8 @@ impl UEnvQueryContext_BlueprintBase {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(resulting_actors_set);
         }
+        std::mem::forget(querier_object);
+        std::mem::forget(querier_actor);
     }
 }
 #[repr(C, align(8))]
@@ -12519,6 +12705,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 __buffer,
             )
         };
+        std::mem::forget(param_name);
+        std::mem::forget(value);
     }
     pub fn get_results_as_locations(
         &self,
@@ -12699,6 +12887,7 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -12803,6 +12992,11 @@ impl UEnvQueryManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(query_template);
+        std::mem::forget(querier);
+        std::mem::forget(run_mode);
+        std::mem::forget(wrapper_class);
         unsafe {
             __buffer.add(40).cast::<UPtr<UEnvQueryInstanceBlueprintWrapper>>().read()
         }
@@ -13189,6 +13383,7 @@ impl UEnvQueryGenerator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(generated_vector);
     }
     pub fn add_generated_actor(
         &self,
@@ -13224,6 +13419,7 @@ impl UEnvQueryGenerator_BlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(generated_actor);
     }
 }
 #[repr(C, align(8))]
@@ -14321,6 +14517,7 @@ impl UCrowdFollowingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_suspend);
     }
 }
 #[repr(C, align(8))]
@@ -14434,6 +14631,8 @@ impl UGeneratedNavLinksProxy {
                 __buffer,
             )
         };
+        std::mem::forget(agent);
+        std::mem::forget(destination);
     }
 }
 #[repr(C, align(8))]
@@ -14570,6 +14769,7 @@ impl ANavLinkProxy {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn resume_path_following(
         &mut self,
@@ -14605,6 +14805,7 @@ impl ANavLinkProxy {
                 __buffer,
             )
         };
+        std::mem::forget(agent);
     }
     pub fn receive_smart_link_reached(
         &mut self,
@@ -14648,6 +14849,7 @@ impl ANavLinkProxy {
                 __buffer,
             )
         };
+        std::mem::forget(agent);
     }
     pub fn is_smart_link_enabled(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14773,6 +14975,8 @@ impl UNavLocalGridManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(cell_size);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_local_navigation_grid(
@@ -14820,6 +15024,9 @@ impl UNavLocalGridManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(grid_id);
+        std::mem::forget(b_rebuild_grids);
     }
     pub fn find_local_navigation_grid_path(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -14886,6 +15093,7 @@ impl UNavLocalGridManager {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(path_points);
         }
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn add_local_navigation_grid_for_points(
@@ -14947,6 +15155,10 @@ impl UNavLocalGridManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(radius2_d);
+        std::mem::forget(height);
+        std::mem::forget(b_rebuild_grids);
         unsafe { __buffer.add(36).cast::<i32>().read() }
     }
     pub fn add_local_navigation_grid_for_point(
@@ -15006,6 +15218,10 @@ impl UNavLocalGridManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(radius2_d);
+        std::mem::forget(height);
+        std::mem::forget(b_rebuild_grids);
         unsafe { __buffer.add(44).cast::<i32>().read() }
     }
     pub fn add_local_navigation_grid_for_capsule(
@@ -15081,6 +15297,12 @@ impl UNavLocalGridManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(capsule_radius);
+        std::mem::forget(capsule_half_height);
+        std::mem::forget(radius2_d);
+        std::mem::forget(height);
+        std::mem::forget(b_rebuild_grids);
         unsafe { __buffer.add(52).cast::<i32>().read() }
     }
     pub fn add_local_navigation_grid_for_box(
@@ -15156,6 +15378,12 @@ impl UNavLocalGridManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(extent);
+        std::mem::forget(rotation);
+        std::mem::forget(radius2_d);
+        std::mem::forget(height);
+        std::mem::forget(b_rebuild_grids);
         unsafe { __buffer.add(92).cast::<i32>().read() }
     }
 }
@@ -15266,6 +15494,8 @@ impl UAIPerceptionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sense_class);
+        std::mem::forget(b_enable);
     }
     pub fn request_stimuli_listener_update(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -15323,6 +15553,7 @@ impl UAIPerceptionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sense_class);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_perceived_hostile_actors_by_sense(
@@ -15373,6 +15604,7 @@ impl UAIPerceptionComponent {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(out_actors);
         }
+        std::mem::forget(sense_to_use);
     }
     pub fn get_perceived_hostile_actors(
         &self,
@@ -15463,6 +15695,7 @@ impl UAIPerceptionComponent {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(out_actors);
         }
+        std::mem::forget(sense_to_use);
     }
     pub fn get_currently_perceived_actors(
         &self,
@@ -15512,6 +15745,7 @@ impl UAIPerceptionComponent {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(out_actors);
         }
+        std::mem::forget(sense_to_use);
     }
     pub fn get_actors_perception(
         &mut self,
@@ -15558,6 +15792,7 @@ impl UAIPerceptionComponent {
         unsafe {
             __buffer.add(8).cast::<FActorPerceptionBlueprintInfo>().swap(info);
         }
+        std::mem::forget(actor);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn forget_all(&mut self) {
@@ -15690,6 +15925,7 @@ impl UAIPerceptionStimuliSourceComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sense_class);
     }
     pub fn unregister_from_perception_system(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -15772,6 +16008,7 @@ impl UAIPerceptionStimuliSourceComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sense_class);
     }
 }
 #[repr(C, align(8))]
@@ -15849,6 +16086,8 @@ impl UAIPerceptionSystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(perception_event);
     }
     pub fn report_event(&mut self, perception_event: UPtr<UAISenseEvent>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -15881,6 +16120,7 @@ impl UAIPerceptionSystem {
                 __buffer,
             )
         };
+        std::mem::forget(perception_event);
     }
     pub fn register_perception_stimuli_source(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -15931,6 +16171,9 @@ impl UAIPerceptionSystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sense);
+        std::mem::forget(target);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_sense_class_for_stimulus(
@@ -15974,6 +16217,7 @@ impl UAIPerceptionSystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(104).cast::<TSubclassOf<UAISense>>().read() }
     }
 }
@@ -16166,6 +16410,8 @@ impl UAISense_Blueprint {
                 __buffer,
             )
         };
+        std::mem::forget(actor_listener);
+        std::mem::forget(perception_component);
     }
     pub fn on_listener_unregistered(
         &mut self,
@@ -16209,6 +16455,8 @@ impl UAISense_Blueprint {
                 __buffer,
             )
         };
+        std::mem::forget(actor_listener);
+        std::mem::forget(perception_component);
     }
     pub fn on_listener_registered(
         &mut self,
@@ -16252,6 +16500,8 @@ impl UAISense_Blueprint {
                 __buffer,
             )
         };
+        std::mem::forget(actor_listener);
+        std::mem::forget(perception_component);
     }
     pub fn on_new_pawn(&mut self, new_pawn: UPtr<crate::bindings::engine::APawn>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -16284,6 +16534,7 @@ impl UAISense_Blueprint {
                 __buffer,
             )
         };
+        std::mem::forget(new_pawn);
     }
     pub fn get_all_listener_components(
         &self,
@@ -16479,6 +16730,13 @@ impl UAISense_Damage {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(damaged_actor);
+        std::mem::forget(instigator);
+        std::mem::forget(damage_amount);
+        std::mem::forget(event_location);
+        std::mem::forget(hit_location);
+        std::mem::forget(tag);
     }
 }
 #[repr(C, align(8))]
@@ -16576,6 +16834,12 @@ impl UAISense_Hearing {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(noise_location);
+        std::mem::forget(loudness);
+        std::mem::forget(instigator);
+        std::mem::forget(max_range);
+        std::mem::forget(tag);
     }
 }
 #[repr(C, align(8))]
@@ -16661,6 +16925,9 @@ impl UAISense_Prediction {
                 __buffer,
             )
         };
+        std::mem::forget(requestor);
+        std::mem::forget(predicted_actor);
+        std::mem::forget(prediction_time);
     }
     pub fn request_controller_prediction_event(
         requestor: UPtr<AAIController>,
@@ -16711,6 +16978,9 @@ impl UAISense_Prediction {
                 __buffer,
             )
         };
+        std::mem::forget(requestor);
+        std::mem::forget(predicted_actor);
+        std::mem::forget(prediction_time);
     }
 }
 #[repr(C, align(8))]
@@ -16874,6 +17144,10 @@ impl UAISense_Touch {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(touch_receiver);
+        std::mem::forget(other_actor);
+        std::mem::forget(location);
     }
 }
 pub struct IAISightTargetInterface {}
@@ -16983,6 +17257,7 @@ impl UPawnSensingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn set_sensing_interval(&mut self, new_sensing_interval: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -17015,6 +17290,7 @@ impl UPawnSensingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_sensing_interval);
     }
     pub fn set_peripheral_vision_angle(&mut self, new_peripheral_vision_angle: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -17047,6 +17323,7 @@ impl UPawnSensingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_peripheral_vision_angle);
     }
     pub fn get_peripheral_vision_cosine(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -17314,6 +17591,17 @@ impl UAITask_MoveTo {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
+        std::mem::forget(goal_location);
+        std::mem::forget(goal_actor);
+        std::mem::forget(acceptance_radius);
+        std::mem::forget(stop_on_overlap);
+        std::mem::forget(accept_partial_path);
+        std::mem::forget(b_use_pathfinding);
+        std::mem::forget(b_lock_ai_logic);
+        std::mem::forget(b_use_continuous_goal_tracking);
+        std::mem::forget(project_goal_on_navigation);
+        std::mem::forget(require_navigable_end_location);
         unsafe { __buffer.add(56).cast::<UPtr<UAITask_MoveTo>>().read() }
     }
 }
@@ -17390,6 +17678,8 @@ impl UAITask_RunEQS {
                 __buffer,
             )
         };
+        std::mem::forget(controller);
+        std::mem::forget(query_template);
         unsafe { __buffer.add(16).cast::<UPtr<UAITask_RunEQS>>().read() }
     }
 }

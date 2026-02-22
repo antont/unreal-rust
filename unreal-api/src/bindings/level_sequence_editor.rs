@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1210,6 +1211,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn set_track_filter_active(track_filter_name: &FText, b_active: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -1245,6 +1247,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_active);
     }
     pub fn set_selection_range_start(new_frame: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1273,6 +1276,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_frame);
     }
     pub fn set_selection_range_end(new_frame: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1301,6 +1305,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_frame);
     }
     pub fn set_random_color_for_channels(
         class: TSubclassOf<crate::bindings::core_u_object::UObject>,
@@ -1345,6 +1350,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class);
     }
     pub fn set_playback_speed(new_playback_speed: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1377,6 +1383,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_playback_speed);
     }
     pub fn set_loop_mode(new_loop_mode: crate::bindings::sequencer::ESequencerLoopMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1409,6 +1416,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_loop_mode);
     }
     pub fn set_lock_level_sequence(b_lock: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1437,6 +1445,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_lock);
     }
     pub fn set_lock_camera_cut_to_viewport(b_lock: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1465,6 +1474,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_lock);
     }
     pub fn set_local_position(
         playback_params: crate::bindings::movie_scene::FMovieSceneSequencePlaybackParams,
@@ -1513,6 +1523,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(playback_params);
+        std::mem::forget(time_unit);
     }
     pub fn set_global_position(
         playback_params: crate::bindings::movie_scene::FMovieSceneSequencePlaybackParams,
@@ -1561,6 +1573,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(playback_params);
+        std::mem::forget(time_unit);
     }
     pub fn set_custom_color_for_channels(
         class: TSubclassOf<crate::bindings::core_u_object::UObject>,
@@ -1615,6 +1629,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class);
     }
     pub fn set_custom_color_for_channel(
         class: TSubclassOf<crate::bindings::core_u_object::UObject>,
@@ -1667,6 +1682,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class);
+        std::mem::forget(identifier);
     }
     pub fn set_current_time(new_frame: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1695,6 +1712,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_frame);
     }
     pub fn set_current_local_time(new_frame: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1723,6 +1741,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_frame);
     }
     pub fn select_tracks(
         tracks: &TArray<UPtr<crate::bindings::movie_scene::UMovieSceneTrack>>,
@@ -2036,6 +2055,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(playback_params);
+        std::mem::forget(time_unit);
     }
     pub fn play() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -2122,6 +2143,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_track_filter_enabled(track_filter_name: &FText) -> bool {
@@ -2311,6 +2333,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class);
+        std::mem::forget(identifier);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_track_filter_names() -> TArray<FText> {
@@ -2669,6 +2693,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(8)
@@ -2739,6 +2764,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(8)
@@ -2814,6 +2840,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(8)
@@ -2858,6 +2885,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(8)
@@ -2943,6 +2971,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class);
+        std::mem::forget(identifier);
         unsafe {
             __buffer
                 .add(24)
@@ -3107,6 +3137,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
         unsafe {
             __buffer
                 .add(32)
@@ -3199,6 +3230,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sub_section);
     }
     pub fn empty_selection() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3309,6 +3341,7 @@ impl ULevelSequenceEditorBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(identifier);
         }
+        std::mem::forget(class);
     }
     pub fn close_level_sequence() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3795,6 +3828,8 @@ impl ULevelSequenceEditorSubsystem {
                 .cast::<TArray<UPtr<crate::bindings::movie_scene::UMovieSceneTrack>>>()
                 .swap(out_tracks);
         }
+        std::mem::forget(text_to_import);
+        std::mem::forget(paste_tracks_params);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn paste_sections(
@@ -3861,6 +3896,8 @@ impl ULevelSequenceEditorSubsystem {
                 .cast::<TArray<UPtr<crate::bindings::movie_scene::UMovieSceneSection>>>()
                 .swap(out_sections);
         }
+        std::mem::forget(text_to_import);
+        std::mem::forget(paste_sections_params);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn paste_folders(
@@ -3925,6 +3962,8 @@ impl ULevelSequenceEditorSubsystem {
                 .cast::<TArray<UPtr<crate::bindings::movie_scene::UMovieSceneFolder>>>()
                 .swap(out_folders);
         }
+        std::mem::forget(text_to_import);
+        std::mem::forget(paste_folders_params);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn paste_bindings(
@@ -3993,6 +4032,8 @@ impl ULevelSequenceEditorSubsystem {
                 .cast::<TArray<crate::bindings::movie_scene::FMovieSceneBindingProxy>>()
                 .swap(out_object_bindings);
         }
+        std::mem::forget(text_to_import);
+        std::mem::forget(paste_bindings_params);
         unsafe { __buffer.add(160).cast::<bool>().read() }
     }
     pub fn get_scripting_layer(
@@ -4117,6 +4158,7 @@ impl ULevelSequenceEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(custom_binding_type);
         unsafe {
             __buffer
                 .add(8)
@@ -4281,6 +4323,7 @@ impl ULevelSequenceEditorSubsystem {
                 .cast::<UPtr<crate::bindings::cinematic_camera::ACineCameraActor>>()
                 .swap(out_actor);
         }
+        std::mem::forget(b_spawnable);
         unsafe {
             __buffer
                 .add(16)
@@ -4646,6 +4689,7 @@ impl ULevelSequenceEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(binding_type);
         unsafe {
             __buffer
                 .add(32)
@@ -4697,6 +4741,7 @@ impl ULevelSequenceEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn bake_transform_with_settings(
@@ -4803,6 +4848,8 @@ impl ULevelSequenceEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(object_to_spawn);
         unsafe {
             __buffer
                 .add(16)
@@ -4856,6 +4903,8 @@ impl ULevelSequenceEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(class_to_spawn);
         unsafe {
             __buffer
                 .add(16)

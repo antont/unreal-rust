@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -152,6 +153,7 @@ impl UPropertyViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(new_object);
     }
     pub fn get_object(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -285,6 +287,7 @@ impl USinglePropertyView {
                 __buffer,
             )
         };
+        std::mem::forget(new_property_name);
     }
     pub fn set_name_override(&mut self, new_property_name: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -317,6 +320,7 @@ impl USinglePropertyView {
                 __buffer,
             )
         };
+        std::mem::forget(new_property_name);
     }
     pub fn get_property_name(&self) -> FName {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();

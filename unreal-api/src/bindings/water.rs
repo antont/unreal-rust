@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1982,6 +1983,9 @@ impl UNiagaraWaterFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(water_body_component);
     }
     pub fn set_water_body(
         niagara_system: UPtr<crate::bindings::niagara::UNiagaraComponent>,
@@ -2034,6 +2038,9 @@ impl UNiagaraWaterFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(water_body);
     }
 }
 #[repr(C, align(16))]
@@ -2177,6 +2184,7 @@ impl AWaterBody {
                 __buffer,
             )
         };
+        std::mem::forget(in_water_waves);
     }
     pub fn set_water_material(
         &mut self,
@@ -2212,6 +2220,7 @@ impl AWaterBody {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn on_water_body_changed(
         &mut self,
@@ -2255,6 +2264,8 @@ impl AWaterBody {
                 __buffer,
             )
         };
+        std::mem::forget(b_shape_or_position_changed);
+        std::mem::forget(b_weightmap_settings_changed);
     }
     pub fn get_water_velocity_vector_at_spline_input_key(
         &self,
@@ -2286,6 +2297,7 @@ impl AWaterBody {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -2317,6 +2329,7 @@ impl AWaterBody {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_water_spline(&self) -> UPtr<UWaterSplineComponent> {
@@ -2571,6 +2584,7 @@ impl AWaterBody {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -2745,6 +2759,8 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_velocity);
     }
     pub fn set_water_static_mesh_material(
         &mut self,
@@ -2782,6 +2798,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_water_material(
         &mut self,
@@ -2819,6 +2836,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_water_info_material(
         &mut self,
@@ -2856,6 +2874,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_water_body_static_mesh_enabled(&mut self, b_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2884,6 +2903,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn set_water_and_under_water_post_process_material(
         &mut self,
@@ -2933,6 +2953,8 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_water_material);
+        std::mem::forget(in_under_water_post_process_material);
     }
     pub fn set_underwater_post_process_material(
         &mut self,
@@ -2970,6 +2992,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_audio_intensity_at_spline_input_key(
         &mut self,
@@ -3009,6 +3032,8 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_audio_intensity);
     }
     pub fn on_water_body_changed(
         &mut self,
@@ -3060,6 +3085,9 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_shape_or_position_changed);
+        std::mem::forget(b_weightmap_settings_changed);
+        std::mem::forget(b_user_triggered_changed);
     }
     pub fn get_water_waves(&self) -> UPtr<UWaterWavesBase> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3117,6 +3145,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -3148,6 +3177,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_water_surface_info_at_location(
@@ -3245,6 +3275,7 @@ impl UWaterBodyComponent {
         unsafe {
             __buffer.add(96).cast::<f32>().swap(out_water_depth);
         }
+        std::mem::forget(b_include_depth);
         unsafe { __buffer.add(101).cast::<bool>().read() }
     }
     pub fn get_water_static_mesh_material_instance(
@@ -3776,6 +3807,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_only_enabled_components);
         unsafe {
             __buffer
                 .add(8)
@@ -3810,6 +3842,7 @@ impl UWaterBodyComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -4448,6 +4481,8 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_width);
     }
     pub fn set_river_depth_at_spline_input_key(&mut self, in_key: f32, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4479,6 +4514,8 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
+        std::mem::forget(in_depth);
     }
     pub fn set_ocean_transition_material(
         &mut self,
@@ -4516,6 +4553,7 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_mat);
     }
     pub fn set_lake_transition_material(
         &mut self,
@@ -4553,6 +4591,7 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_mat);
     }
     pub fn set_lake_and_ocean_transition_materials(
         &mut self,
@@ -4600,6 +4639,8 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_lake_transition);
+        std::mem::forget(in_ocean_transition);
     }
     pub fn get_river_width_at_spline_input_key(&self, in_key: f32) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4628,6 +4669,7 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_river_depth_at_spline_input_key(&self, in_key: f32) -> f32 {
@@ -4657,6 +4699,7 @@ impl UWaterBodyRiverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_key);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -4952,6 +4995,7 @@ impl UWaterSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_flood_height);
     }
     pub fn print_to_water_log(&mut self, message: FString, b_warning: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -4991,6 +5035,8 @@ impl UWaterSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(message);
+        std::mem::forget(b_warning);
     }
     pub fn is_water_rendering_enabled(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5543,6 +5589,7 @@ impl AWaterZone {
                 __buffer,
             )
         };
+        std::mem::forget(in_far_material);
     }
     pub fn get_water_zone_index(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();

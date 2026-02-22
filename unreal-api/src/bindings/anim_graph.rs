@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -250,6 +251,8 @@ impl UAnimationGraph {
                 .cast::<TArray<UPtr<UAnimGraphNode_Base>>>()
                 .swap(graph_nodes);
         }
+        std::mem::forget(node_class);
+        std::mem::forget(b_include_child_classes);
     }
 }
 #[repr(C, align(8))]
@@ -3397,6 +3400,7 @@ impl UAnimGraphNode_PoseDriver {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
     }
     pub fn set_pose_driver_source(
         &mut self,
@@ -3434,6 +3438,7 @@ impl UAnimGraphNode_PoseDriver {
                 __buffer,
             )
         };
+        std::mem::forget(driver_source);
     }
     pub fn set_pose_driver_output(
         &mut self,
@@ -3471,6 +3476,7 @@ impl UAnimGraphNode_PoseDriver {
                 __buffer,
             )
         };
+        std::mem::forget(driver_output);
     }
     pub fn set_driving_bones(&mut self, bone_names: &TArray<FName>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();

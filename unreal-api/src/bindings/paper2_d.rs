@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -812,6 +813,7 @@ impl UPaperFlipbook {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_total_duration(&self) -> f32 {
@@ -878,6 +880,8 @@ impl UPaperFlipbook {
                 __buffer,
             )
         };
+        std::mem::forget(time);
+        std::mem::forget(b_clamp_to_ends);
         unsafe { __buffer.add(8).cast::<UPtr<UPaperSprite>>().read() }
     }
     pub fn get_sprite_at_frame(&self, frame_index: i32) -> UPtr<UPaperSprite> {
@@ -911,6 +915,7 @@ impl UPaperFlipbook {
                 __buffer,
             )
         };
+        std::mem::forget(frame_index);
         unsafe { __buffer.add(8).cast::<UPtr<UPaperSprite>>().read() }
     }
     pub fn get_num_key_frames(&self) -> i32 {
@@ -999,6 +1004,8 @@ impl UPaperFlipbook {
                 __buffer,
             )
         };
+        std::mem::forget(time);
+        std::mem::forget(b_clamp_to_ends);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -1135,6 +1142,7 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_color);
     }
     pub fn set_play_rate(&mut self, new_rate: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1163,6 +1171,7 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_rate);
     }
     pub fn set_playback_position_in_frames(
         &mut self,
@@ -1206,6 +1215,8 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_frame_position);
+        std::mem::forget(b_fire_events);
     }
     pub fn set_playback_position(&mut self, new_position: f32, b_fire_events: bool) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -1245,6 +1256,8 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_position);
+        std::mem::forget(b_fire_events);
     }
     pub fn set_new_time(&mut self, new_time: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1273,6 +1286,7 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_time);
     }
     pub fn set_looping(&mut self, b_new_looping: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1305,6 +1319,7 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_looping);
     }
     pub fn set_flipbook(&mut self, new_flipbook: UPtr<UPaperFlipbook>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -1337,6 +1352,7 @@ impl UPaperFlipbookComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_flipbook);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn reverse_from_end(&mut self) {
@@ -1865,6 +1881,10 @@ impl UPaperGroupedSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(instance_index);
+        std::mem::forget(b_world_space);
+        std::mem::forget(b_mark_render_state_dirty);
+        std::mem::forget(b_teleport);
         unsafe { __buffer.add(115).cast::<bool>().read() }
     }
     pub fn update_instance_color(
@@ -1917,6 +1937,9 @@ impl UPaperGroupedSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(instance_index);
+        std::mem::forget(new_instance_color);
+        std::mem::forget(b_mark_render_state_dirty);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn sort_instances_along_axis(
@@ -1953,6 +1976,7 @@ impl UPaperGroupedSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(world_space_sort_axis);
     }
     pub fn remove_instance(&mut self, instance_index: i32) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -1985,6 +2009,7 @@ impl UPaperGroupedSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(instance_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_instance_transform(
@@ -2043,6 +2068,8 @@ impl UPaperGroupedSpriteComponent {
                 .cast::<crate::bindings::core_u_object::FTransform>()
                 .swap(out_instance_transform);
         }
+        std::mem::forget(instance_index);
+        std::mem::forget(b_world_space);
         unsafe { __buffer.add(113).cast::<bool>().read() }
     }
     pub fn get_instance_count(&self) -> i32 {
@@ -2154,6 +2181,9 @@ impl UPaperGroupedSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sprite);
+        std::mem::forget(b_world_space);
+        std::mem::forget(color);
         unsafe { __buffer.add(124).cast::<i32>().read() }
     }
 }
@@ -2378,6 +2408,9 @@ impl UPaperSpriteBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sprite);
+        std::mem::forget(width);
+        std::mem::forget(height);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
         }
@@ -2456,6 +2489,7 @@ impl UPaperSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_color);
     }
     pub fn set_sprite(&mut self, new_sprite: UPtr<UPaperSprite>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -2488,6 +2522,7 @@ impl UPaperSpriteComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_sprite);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_sprite(&mut self) -> UPtr<UPaperSprite> {
@@ -2720,6 +2755,7 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_color);
     }
     pub fn set_tile_map(&mut self, new_tile_map: UPtr<UPaperTileMap>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -2752,6 +2788,7 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_tile_map);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_tile(&mut self, x: i32, y: i32, layer: i32, new_value: FPaperTileInfo) {
@@ -2794,6 +2831,10 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(x);
+        std::mem::forget(y);
+        std::mem::forget(layer);
+        std::mem::forget(new_value);
     }
     pub fn set_layer_color(
         &mut self,
@@ -2833,6 +2874,8 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_color);
+        std::mem::forget(layer);
     }
     pub fn set_layer_collision(
         &mut self,
@@ -2912,6 +2955,13 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(layer);
+        std::mem::forget(b_has_collision);
+        std::mem::forget(b_override_thickness);
+        std::mem::forget(custom_thickness);
+        std::mem::forget(b_override_offset);
+        std::mem::forget(custom_offset);
+        std::mem::forget(b_rebuild_collision);
     }
     pub fn set_default_collision_thickness(
         &mut self,
@@ -2951,6 +3001,8 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(thickness);
+        std::mem::forget(b_rebuild_collision);
     }
     pub fn resize_map(&mut self, new_width_in_tiles: i32, new_height_in_tiles: i32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2990,6 +3042,8 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_width_in_tiles);
+        std::mem::forget(new_height_in_tiles);
     }
     pub fn rebuild_collision(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3133,6 +3187,10 @@ impl UPaperTileMapComponent {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(points);
         }
+        std::mem::forget(tile_x);
+        std::mem::forget(tile_y);
+        std::mem::forget(layer_index);
+        std::mem::forget(b_world_space);
     }
     pub fn get_tile_map_color(&self) -> crate::bindings::core_u_object::FLinearColor {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -3212,6 +3270,10 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tile_x);
+        std::mem::forget(tile_y);
+        std::mem::forget(layer_index);
+        std::mem::forget(b_world_space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -3266,6 +3328,10 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tile_x);
+        std::mem::forget(tile_y);
+        std::mem::forget(layer_index);
+        std::mem::forget(b_world_space);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -3303,6 +3369,9 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(x);
+        std::mem::forget(y);
+        std::mem::forget(layer);
         unsafe { __buffer.add(16).cast::<FPaperTileInfo>().read() }
     }
     pub fn get_map_size(
@@ -3383,6 +3452,7 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(layer);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FLinearColor>().read()
         }
@@ -3449,6 +3519,12 @@ impl UPaperTileMapComponent {
                 __buffer,
             )
         };
+        std::mem::forget(map_width);
+        std::mem::forget(map_height);
+        std::mem::forget(tile_width);
+        std::mem::forget(tile_height);
+        std::mem::forget(pixels_per_unreal_unit);
+        std::mem::forget(b_create_layer);
     }
     pub fn add_new_layer(&mut self) -> UPtr<UPaperTileLayer> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3669,6 +3745,7 @@ impl UPaperTerrainComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_color);
     }
 }
 #[repr(C, align(8))]
@@ -3824,6 +3901,11 @@ impl UTileMapBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tile_index);
+        std::mem::forget(tile_set);
+        std::mem::forget(b_flip_h);
+        std::mem::forget(b_flip_v);
+        std::mem::forget(b_flip_d);
         unsafe { __buffer.add(24).cast::<FPaperTileInfo>().read() }
     }
     pub fn get_tile_user_data(tile: FPaperTileInfo) -> FName {
@@ -3857,6 +3939,7 @@ impl UTileMapBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tile);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn get_tile_transform(
@@ -3892,6 +3975,7 @@ impl UTileMapBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tile);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -3968,6 +4052,7 @@ impl UTileMapBlueprintLibrary {
         unsafe {
             __buffer.add(34).cast::<bool>().swap(b_flip_d);
         }
+        std::mem::forget(tile);
     }
 }
 #[repr(C, align(8))]

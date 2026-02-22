@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -436,6 +437,11 @@ impl UGameplayTasksComponent {
                 __buffer,
             )
         };
+        std::mem::forget(task_owner);
+        std::mem::forget(task);
+        std::mem::forget(priority);
+        std::mem::forget(additional_required_resources);
+        std::mem::forget(additional_claimed_resources);
         unsafe { __buffer.add(64).cast::<EGameplayTaskRunResult>().read() }
     }
 }
@@ -526,6 +532,10 @@ impl UGameplayTask_ClaimResource {
                 __buffer,
             )
         };
+        std::mem::forget(in_task_owner);
+        std::mem::forget(resource_classes);
+        std::mem::forget(priority);
+        std::mem::forget(task_instance_name);
         unsafe { __buffer.add(48).cast::<UPtr<UGameplayTask_ClaimResource>>().read() }
     }
     pub fn claim_resource(
@@ -581,6 +591,10 @@ impl UGameplayTask_ClaimResource {
                 __buffer,
             )
         };
+        std::mem::forget(in_task_owner);
+        std::mem::forget(resource_class);
+        std::mem::forget(priority);
+        std::mem::forget(task_instance_name);
         unsafe { __buffer.add(40).cast::<UPtr<UGameplayTask_ClaimResource>>().read() }
     }
 }
@@ -683,6 +697,11 @@ impl UGameplayTask_SpawnActor {
                 __buffer,
             )
         };
+        std::mem::forget(task_owner);
+        std::mem::forget(spawn_location);
+        std::mem::forget(spawn_rotation);
+        std::mem::forget(class);
+        std::mem::forget(b_spawn_only_on_authority);
         unsafe { __buffer.add(80).cast::<UPtr<UGameplayTask_SpawnActor>>().read() }
     }
     pub fn finish_spawning_actor(
@@ -727,6 +746,8 @@ impl UGameplayTask_SpawnActor {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(spawned_actor);
     }
     pub fn begin_spawning_actor(
         &mut self,
@@ -776,6 +797,7 @@ impl UGameplayTask_SpawnActor {
                 .cast::<UPtr<crate::bindings::engine::AActor>>()
                 .swap(spawned_actor);
         }
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -889,6 +911,9 @@ impl UGameplayTask_WaitDelay {
                 __buffer,
             )
         };
+        std::mem::forget(task_owner);
+        std::mem::forget(time);
+        std::mem::forget(priority);
         unsafe { __buffer.add(24).cast::<UPtr<UGameplayTask_WaitDelay>>().read() }
     }
 }

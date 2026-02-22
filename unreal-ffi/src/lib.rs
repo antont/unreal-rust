@@ -15,6 +15,23 @@ pub enum UObjectType {
 }
 
 #[repr(C)]
+pub struct FRustString {
+    pub data: *mut u16,
+    pub num: i32,
+    pub max: i32,
+}
+
+impl FRustString {
+    pub fn uninit() -> Self {
+        FRustString {
+            data: std::ptr::null_mut(),
+            num: 0,
+            max: 0,
+        }
+    }
+}
+
+#[repr(C)]
 pub struct Utf8Str {
     pub ptr: *const c_char,
     pub len: usize,
@@ -42,8 +59,16 @@ pub type UObjectOpague = c_void;
 
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FScriptArrayStorage {
+pub struct FRustScriptArray {
     pub opaque_words: [u64; 2],
+}
+
+impl FRustScriptArray {
+    pub const fn uninit() -> Self {
+        Self {
+            opaque_words: [0; 2],
+        }
+    }
 }
 
 pub type LogFn = unsafe extern "C" fn(message: Utf8Str);
@@ -219,57 +244,62 @@ pub type BeginTraceCoreFn = unsafe extern "C" fn(name: *const c_char);
 pub type EndTraceCoreFn = unsafe extern "C" fn();
 
 pub type FScriptArrayNumFn =
-    unsafe extern "C" fn(array: *const FScriptArrayStorage, out_num: *mut i32) -> u32;
-pub type FScriptArrayCtorFn = unsafe extern "C" fn(array: *mut FScriptArrayStorage) -> u32;
-pub type FScriptArrayDtorFn = unsafe extern "C" fn(array: *mut FScriptArrayStorage) -> u32;
+    unsafe extern "C" fn(array: *const FRustScriptArray, out_num: *mut i32) -> u32;
+pub type FScriptArrayCtorFn = unsafe extern "C" fn(array: *mut FRustScriptArray) -> u32;
+pub type FScriptArrayDtorFn = unsafe extern "C" fn(array: *mut FRustScriptArray) -> u32;
 pub type FScriptArrayMaxFn =
-    unsafe extern "C" fn(array: *const FScriptArrayStorage, out_max: *mut i32) -> u32;
+    unsafe extern "C" fn(array: *const FRustScriptArray, out_max: *mut i32) -> u32;
 pub type FScriptArrayGetDataFn =
-    unsafe extern "C" fn(array: *mut FScriptArrayStorage, out_data: *mut *mut c_void) -> u32;
+    unsafe extern "C" fn(array: *mut FRustScriptArray, out_data: *mut *mut c_void) -> u32;
 pub type FScriptArrayIsValidIndexFn =
-    unsafe extern "C" fn(array: *const FScriptArrayStorage, index: i32) -> u32;
+    unsafe extern "C" fn(array: *const FRustScriptArray, index: i32) -> u32;
 
 pub type FScriptArrayReserveFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayStorage,
+    array: *mut FRustScriptArray,
     capacity: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayAddFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayStorage,
+    array: *mut FRustScriptArray,
     count: i32,
     elem_size: i32,
     elem_align: u32,
     out_index: *mut i32,
 ) -> u32;
 pub type FScriptArrayInsertFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayStorage,
+    array: *mut FRustScriptArray,
     index: i32,
     count: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayRemoveFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayStorage,
+    array: *mut FRustScriptArray,
     index: i32,
     count: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayEmptyFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayStorage,
+    array: *mut FRustScriptArray,
     slack: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayResetFn = unsafe extern "C" fn(
-    array: *mut FScriptArrayStorage,
+    array: *mut FRustScriptArray,
     new_size: i32,
     elem_size: i32,
     elem_align: u32,
 ) -> u32;
 pub type FScriptArrayShrinkFn =
-    unsafe extern "C" fn(array: *mut FScriptArrayStorage, elem_size: i32, elem_align: u32) -> u32;
+    unsafe extern "C" fn(array: *mut FRustScriptArray, elem_size: i32, elem_align: u32) -> u32;
+
+pub type NewFStringFromUtf8Fn = unsafe extern "C" fn(str: Utf8Str, fstring: *mut FRustString);
+pub type CopyFromFStringFn =
+    unsafe extern "C" fn(source: *const FRustString, fstring: *mut FRustString);
+pub type DeleteFStringFn = unsafe extern "C" fn(fstring: *mut FRustString);
 //
 unsafe extern "C" {
     pub fn GetCDOFromClass(
@@ -299,56 +329,57 @@ unsafe extern "C" {
     pub fn BeginTrace(name: *const c_char);
     pub fn EndTrace();
 
-    pub fn FScriptArrayNum(array: *const FScriptArrayStorage, out_num: *mut i32) -> u32;
-    pub fn FScriptArrayCtor(array: *mut FScriptArrayStorage) -> u32;
-    pub fn FScriptArrayDtor(array: *mut FScriptArrayStorage) -> u32;
-    pub fn FScriptArrayMax(array: *const FScriptArrayStorage, out_max: *mut i32) -> u32;
-    pub fn FScriptArrayGetData(array: *mut FScriptArrayStorage, out_data: *mut *mut c_void) -> u32;
-    pub fn FScriptArrayIsValidIndex(array: *const FScriptArrayStorage, index: i32) -> u32;
+    pub fn NewFStringFromUtf8(str: Utf8Str, fstring: *mut FRustString);
+    pub fn CopyFromFString(source: *const FRustString, fstring: *mut FRustString);
+    pub fn DeleteFString(fstring: *mut FRustString);
+
+    pub fn FScriptArrayNum(array: *const FRustScriptArray, out_num: *mut i32) -> u32;
+    pub fn FScriptArrayCtor(array: *mut FRustScriptArray) -> u32;
+    pub fn FScriptArrayDtor(array: *mut FRustScriptArray) -> u32;
+    pub fn FScriptArrayMax(array: *const FRustScriptArray, out_max: *mut i32) -> u32;
+    pub fn FScriptArrayGetData(array: *mut FRustScriptArray, out_data: *mut *mut c_void) -> u32;
+    pub fn FScriptArrayIsValidIndex(array: *const FRustScriptArray, index: i32) -> u32;
     pub fn FScriptArrayReserve(
-        array: *mut FScriptArrayStorage,
+        array: *mut FRustScriptArray,
         capacity: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayAdd(
-        array: *mut FScriptArrayStorage,
+        array: *mut FRustScriptArray,
         count: i32,
         elem_size: i32,
         elem_align: u32,
         out_index: *mut i32,
     ) -> u32;
     pub fn FScriptArrayInsert(
-        array: *mut FScriptArrayStorage,
+        array: *mut FRustScriptArray,
         index: i32,
         count: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayRemove(
-        array: *mut FScriptArrayStorage,
+        array: *mut FRustScriptArray,
         index: i32,
         count: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayEmpty(
-        array: *mut FScriptArrayStorage,
+        array: *mut FRustScriptArray,
         slack: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
     pub fn FScriptArrayReset(
-        array: *mut FScriptArrayStorage,
+        array: *mut FRustScriptArray,
         new_size: i32,
         elem_size: i32,
         elem_align: u32,
     ) -> u32;
-    pub fn FScriptArrayShrink(
-        array: *mut FScriptArrayStorage,
-        elem_size: i32,
-        elem_align: u32,
-    ) -> u32;
+    pub fn FScriptArrayShrink(array: *mut FRustScriptArray, elem_size: i32, elem_align: u32)
+    -> u32;
 }
 
 #[repr(C)]
@@ -363,6 +394,9 @@ pub struct CoreFns {
     pub process_event: ProcessEventsCoreFn,
     pub begin_trace: BeginTraceCoreFn,
     pub end_trace: EndTraceCoreFn,
+    pub new_fstring_from_utf8: NewFStringFromUtf8Fn,
+    pub copy_from_fstring: CopyFromFStringFn,
+    pub delete_fstring: DeleteFStringFn,
 }
 
 #[repr(C)]

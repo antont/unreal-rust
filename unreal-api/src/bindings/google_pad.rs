@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -301,6 +302,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
     }
     pub fn request_info(asset_packs: TArray<FString>) -> EGooglePADErrorCode {
@@ -334,6 +336,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_packs);
         unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
     }
     pub fn request_download(asset_packs: TArray<FString>) -> EGooglePADErrorCode {
@@ -367,6 +370,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_packs);
         unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
     }
     pub fn release_download_state(state: i32) {
@@ -396,6 +400,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(state);
     }
     pub fn release_asset_pack_location(location: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -424,6 +429,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(location);
     }
     pub fn get_total_bytes_to_download(state: i32) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -452,6 +458,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(state);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_storage_method(location: i32) -> EGooglePADStorageMethod {
@@ -481,6 +488,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(location);
         unsafe { __buffer.add(4).cast::<EGooglePADStorageMethod>().read() }
     }
     pub fn get_show_confirmation_dialog_status(
@@ -586,6 +594,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(state);
         unsafe { __buffer.add(4).cast::<EGooglePADDownloadStatus>().read() }
     }
     pub fn get_download_state(name: FString, state: &mut i32) -> EGooglePADErrorCode {
@@ -621,6 +630,7 @@ impl UGooglePADFunctionLibrary {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(state);
         }
+        std::mem::forget(name);
         unsafe { __buffer.add(20).cast::<EGooglePADErrorCode>().read() }
     }
     pub fn get_bytes_downloaded(state: i32) -> i32 {
@@ -650,6 +660,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(state);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_assets_path(location: i32) -> FString {
@@ -679,6 +690,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(location);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_asset_pack_location(
@@ -717,6 +729,7 @@ impl UGooglePADFunctionLibrary {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(location);
         }
+        std::mem::forget(name);
         unsafe { __buffer.add(20).cast::<EGooglePADErrorCode>().read() }
     }
     pub fn cancel_download(asset_packs: TArray<FString>) -> EGooglePADErrorCode {
@@ -750,6 +763,7 @@ impl UGooglePADFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_packs);
         unsafe { __buffer.add(16).cast::<EGooglePADErrorCode>().read() }
     }
 }

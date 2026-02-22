@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -526,6 +527,8 @@ impl UAnimNotifyState_MotionWarping {
                 __buffer,
             )
         };
+        std::mem::forget(motion_warping_comp);
+        std::mem::forget(modifier);
     }
     pub fn on_warp_end(
         &self,
@@ -569,6 +572,8 @@ impl UAnimNotifyState_MotionWarping {
                 __buffer,
             )
         };
+        std::mem::forget(motion_warping_comp);
+        std::mem::forget(modifier);
     }
     pub fn on_warp_begin(
         &self,
@@ -612,6 +617,8 @@ impl UAnimNotifyState_MotionWarping {
                 __buffer,
             )
         };
+        std::mem::forget(motion_warping_comp);
+        std::mem::forget(modifier);
     }
     pub fn add_root_motion_modifier(
         &self,
@@ -669,6 +676,10 @@ impl UAnimNotifyState_MotionWarping {
                 __buffer,
             )
         };
+        std::mem::forget(motion_warping_comp);
+        std::mem::forget(animation);
+        std::mem::forget(start_time);
+        std::mem::forget(end_time);
         unsafe { __buffer.add(24).cast::<UPtr<URootMotionModifier>>().read() }
     }
 }
@@ -825,6 +836,7 @@ impl UMotionWarpingUtilities {
         unsafe {
             __buffer.add(8).cast::<TArray<FMotionWarpingWindowData>>().swap(out_windows);
         }
+        std::mem::forget(animation);
     }
     pub fn get_motion_warping_windows_for_warp_target_from_animation(
         animation: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -883,6 +895,8 @@ impl UMotionWarpingUtilities {
                 .cast::<TArray<FMotionWarpingWindowData>>()
                 .swap(out_windows);
         }
+        std::mem::forget(animation);
+        std::mem::forget(warp_target_name);
     }
     pub fn extract_root_motion_from_animation(
         animation: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -927,6 +941,9 @@ impl UMotionWarpingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
+        std::mem::forget(start_time);
+        std::mem::forget(end_time);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -1016,6 +1033,12 @@ impl UMotionWarpingUtilities {
                 .cast::<crate::bindings::core_u_object::FTransform>()
                 .swap(out_transform);
         }
+        std::mem::forget(anim_instance);
+        std::mem::forget(animation);
+        std::mem::forget(time);
+        std::mem::forget(b_extract_root_motion);
+        std::mem::forget(bone_name);
+        std::mem::forget(b_local_space);
     }
 }
 #[repr(C, align(8))]
@@ -1119,6 +1142,7 @@ impl UMotionWarpingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(warp_target_name);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn remove_all_warp_targets(&mut self) -> i32 {
@@ -1214,6 +1238,8 @@ impl UMotionWarpingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(warp_target_name);
+        std::mem::forget(condition);
     }
     pub fn add_or_update_warp_target_from_transform(
         &mut self,
@@ -1257,6 +1283,8 @@ impl UMotionWarpingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(warp_target_name);
+        std::mem::forget(target_transform);
     }
     pub fn add_or_update_warp_target_from_location_and_rotation(
         &mut self,
@@ -1308,6 +1336,9 @@ impl UMotionWarpingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(warp_target_name);
+        std::mem::forget(target_location);
+        std::mem::forget(target_rotation);
     }
     pub fn add_or_update_warp_target_from_location(
         &mut self,
@@ -1351,6 +1382,8 @@ impl UMotionWarpingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(warp_target_name);
+        std::mem::forget(target_location);
     }
     pub fn add_or_update_warp_target_from_component(
         &mut self,
@@ -1436,6 +1469,13 @@ impl UMotionWarpingComponent {
                 __buffer,
             )
         };
+        std::mem::forget(warp_target_name);
+        std::mem::forget(component);
+        std::mem::forget(bone_name);
+        std::mem::forget(b_follow_component);
+        std::mem::forget(location_offset_direction);
+        std::mem::forget(location_offset);
+        std::mem::forget(rotation_offset);
     }
     pub fn add_or_update_warp_target(&mut self, warp_target: &FMotionWarpingTarget) {
         let mut __stack = crate::core_data::StackAlloc::<232>::new();
@@ -1607,6 +1647,16 @@ impl UMotionWarpingFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(component);
+        std::mem::forget(bone_name);
+        std::mem::forget(b_follow_component);
+        std::mem::forget(location_offset_direction);
+        std::mem::forget(avatar_actor);
+        std::mem::forget(location_offset);
+        std::mem::forget(rotation_offset);
         unsafe { __buffer.add(144).cast::<FMotionWarpingTarget>().read() }
     }
 }
@@ -1758,6 +1808,11 @@ impl UMotionWarpingSwitchOffDistanceCondition {
                 .cast::<UPtr<crate::bindings::engine::AActor>>()
                 .swap(in_owner_actor);
         }
+        std::mem::forget(in_effect);
+        std::mem::forget(in_operator);
+        std::mem::forget(in_distance);
+        std::mem::forget(inb_use_warp_target_as_target_location);
+        std::mem::forget(in_target_actor);
         unsafe {
             __buffer
                 .add(32)
@@ -1883,6 +1938,12 @@ impl UMotionWarpingSwitchOffAngleToTargetCondition {
                 .cast::<UPtr<crate::bindings::engine::AActor>>()
                 .swap(in_owner_actor);
         }
+        std::mem::forget(in_effect);
+        std::mem::forget(in_operator);
+        std::mem::forget(in_angle);
+        std::mem::forget(b_in_ignore_z_axis);
+        std::mem::forget(b_in_use_warp_target_as_target_location);
+        std::mem::forget(in_target_actor);
         unsafe {
             __buffer
                 .add(32)
@@ -2024,6 +2085,10 @@ impl UMotionWarpingSwitchOffCompositeCondition {
                 .cast::<UPtr<UMotionWarpingSwitchOffCondition>>()
                 .swap(in_switch_off_condition_b);
         }
+        std::mem::forget(in_effect);
+        std::mem::forget(in_logic_operator);
+        std::mem::forget(b_in_use_warp_target_as_target_location);
+        std::mem::forget(in_target_actor);
         unsafe {
             __buffer
                 .add(56)
@@ -2143,6 +2208,10 @@ impl UMotionWarpingSwitchOffBlueprintableCondition {
                 .cast::<UPtr<crate::bindings::engine::AActor>>()
                 .swap(in_owner_actor);
         }
+        std::mem::forget(in_effect);
+        std::mem::forget(in_blueprintable_condition);
+        std::mem::forget(b_in_use_warp_target_as_target_location);
+        std::mem::forget(in_target_actor);
         unsafe {
             __buffer
                 .add(40)
@@ -2208,6 +2277,10 @@ impl UMotionWarpingSwitchOffBlueprintableCondition {
                 __buffer,
             )
         };
+        std::mem::forget(in_owner_actor);
+        std::mem::forget(in_target_actor);
+        std::mem::forget(in_target_location);
+        std::mem::forget(b_in_use_warp_target_as_target_location);
         unsafe { __buffer.add(48).cast::<FString>().read() }
     }
     pub fn bp_check(
@@ -2268,6 +2341,10 @@ impl UMotionWarpingSwitchOffBlueprintableCondition {
                 __buffer,
             )
         };
+        std::mem::forget(in_owner_actor);
+        std::mem::forget(in_target_actor);
+        std::mem::forget(in_target_location);
+        std::mem::forget(b_in_use_warp_target_as_target_location);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
 }
@@ -2508,6 +2585,11 @@ impl URootMotionModifier_Scale {
                 __buffer,
             )
         };
+        std::mem::forget(in_motion_warping_comp);
+        std::mem::forget(in_animation);
+        std::mem::forget(in_start_time);
+        std::mem::forget(in_end_time);
+        std::mem::forget(in_scale);
         unsafe { __buffer.add(48).cast::<UPtr<URootMotionModifier_Scale>>().read() }
     }
 }
@@ -2618,6 +2700,7 @@ impl URootMotionModifier_PrecomputedWarp {
                 __buffer,
             )
         };
+        std::mem::forget(new_transform);
     }
 }
 #[repr(C, align(16))]
@@ -2803,6 +2886,21 @@ impl URootMotionModifier_SkewWarp {
                 __buffer,
             )
         };
+        std::mem::forget(in_motion_warping_comp);
+        std::mem::forget(in_animation);
+        std::mem::forget(in_start_time);
+        std::mem::forget(in_end_time);
+        std::mem::forget(in_warp_target_name);
+        std::mem::forget(in_warp_point_anim_provider);
+        std::mem::forget(in_warp_point_anim_transform);
+        std::mem::forget(in_warp_point_anim_bone_name);
+        std::mem::forget(b_in_warp_translation);
+        std::mem::forget(b_in_ignore_z_axis);
+        std::mem::forget(b_in_warp_rotation);
+        std::mem::forget(in_rotation_type);
+        std::mem::forget(in_rotation_method);
+        std::mem::forget(in_warp_rotation_time_multiplier);
+        std::mem::forget(in_warp_max_rotation_rate);
         unsafe { __buffer.add(176).cast::<UPtr<URootMotionModifier_SkewWarp>>().read() }
     }
 }

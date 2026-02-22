@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -468,6 +469,9 @@ impl ACausticsGeneratorActor {
                 __buffer,
             )
         };
+        std::mem::forget(hismc);
+        std::mem::forget(grid_size);
+        std::mem::forget(grid_tiles);
     }
     pub fn spawn_caustic_particle_grid(
         &mut self,
@@ -521,6 +525,9 @@ impl ACausticsGeneratorActor {
                 __buffer,
             )
         };
+        std::mem::forget(hismc);
+        std::mem::forget(grid_size);
+        std::mem::forget(grid_tiles);
     }
     pub fn set_editor_tick_enabled(&mut self, b_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -549,6 +556,7 @@ impl ACausticsGeneratorActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn editor_tick(&mut self, delta_seconds: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -581,6 +589,7 @@ impl ACausticsGeneratorActor {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
     }
 }
 #[repr(C, align(8))]
@@ -758,6 +767,11 @@ impl UJumpFloodComponent2D {
                 __buffer,
             )
         };
+        std::mem::forget(seed_rt);
+        std::mem::forget(scene_capture_z);
+        std::mem::forget(curl);
+        std::mem::forget(use_depth);
+        std::mem::forget(zx_location_t);
     }
     pub fn find_edges_debug(
         &mut self,
@@ -821,6 +835,11 @@ impl UJumpFloodComponent2D {
                 __buffer,
             )
         };
+        std::mem::forget(seed_rt);
+        std::mem::forget(capture_z);
+        std::mem::forget(curl);
+        std::mem::forget(dest_rt);
+        std::mem::forget(z_offset);
     }
     pub fn find_edges(
         &mut self,
@@ -886,6 +905,11 @@ impl UJumpFloodComponent2D {
                 __buffer,
             )
         };
+        std::mem::forget(seed_rt);
+        std::mem::forget(capture_z);
+        std::mem::forget(curl);
+        std::mem::forget(use_depth);
+        std::mem::forget(zx_location_t);
         unsafe {
             __buffer
                 .add(40)
@@ -965,6 +989,8 @@ impl UJumpFloodComponent2D {
                 __buffer,
             )
         };
+        std::mem::forget(in_rta);
+        std::mem::forget(in_rtb);
     }
 }
 #[repr(C, align(8))]
@@ -1325,6 +1351,8 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(water_body);
+        std::mem::forget(in_cache);
     }
     pub fn set_actor_cache(
         &mut self,
@@ -1368,6 +1396,8 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(in_cache);
     }
     pub fn get_water_body_islands(
         &self,
@@ -1423,6 +1453,7 @@ impl AWaterLandscapeBrush {
                 .cast::<TArray<UPtr<crate::bindings::water::AWaterBodyIsland>>>()
                 .swap(out_water_body_islands);
         }
+        std::mem::forget(water_body_island_class);
     }
     pub fn get_water_body_cache(
         &self,
@@ -1468,6 +1499,8 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(water_body);
+        std::mem::forget(cache_class);
         unsafe {
             __buffer
                 .add(16)
@@ -1527,6 +1560,7 @@ impl AWaterLandscapeBrush {
                 .cast::<TArray<UPtr<crate::bindings::water::AWaterBody>>>()
                 .swap(out_water_bodies);
         }
+        std::mem::forget(water_body_class);
     }
     pub fn get_actors_affecting_landscape(
         &self,
@@ -1629,6 +1663,8 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(cache_class);
         unsafe {
             __buffer
                 .add(16)
@@ -1695,6 +1731,7 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(water_body);
     }
     pub fn clear_actor_cache(
         &mut self,
@@ -1730,6 +1767,7 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
     }
     pub fn blueprint_water_body_changed(
         &mut self,
@@ -1765,6 +1803,7 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
     }
     pub fn blueprint_water_bodies_changed(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1825,6 +1864,7 @@ impl AWaterLandscapeBrush {
                 __buffer,
             )
         };
+        std::mem::forget(velocity_texture);
     }
     pub fn blueprint_get_render_targets(
         &mut self,
@@ -1880,6 +1920,7 @@ impl AWaterLandscapeBrush {
                 .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>()
                 .swap(out_velocity_render_target);
         }
+        std::mem::forget(in_height_render_target);
     }
 }
 #[repr(C, align(16))]
@@ -2145,6 +2186,7 @@ impl AWaterBrushManager {
         unsafe {
             __buffer.add(16).cast::<FWaterBodyBrushCache>().swap(value);
         }
+        std::mem::forget(water_brush);
     }
     pub fn force_update(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

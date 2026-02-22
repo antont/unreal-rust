@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -334,6 +335,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_use_vertical_drag(&mut self, in_use_vertical_drag: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -366,6 +368,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_use_vertical_drag);
     }
     pub fn set_step_size(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -394,6 +397,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_range(
         &mut self,
@@ -464,6 +468,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_handle_start_angle(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -492,6 +497,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_handle_end_angle(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -520,6 +526,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_handle_color(
         &mut self,
@@ -555,6 +562,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_bar_color(
         &mut self,
@@ -590,6 +598,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_show_slider_handle(&mut self, in_show_slider_handle: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -622,6 +631,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_show_slider_handle);
     }
     pub fn set_show_slider_hand(&mut self, in_show_slider_hand: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -654,6 +664,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_show_slider_hand);
     }
     pub fn set_locked(&mut self, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -682,6 +693,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_hand_start_end_ratio(
         &mut self,
@@ -717,6 +729,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_custom_default_value(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -745,6 +758,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_center_background_color(
         &mut self,
@@ -780,6 +794,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_angular_offset(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -808,6 +823,7 @@ impl URadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();

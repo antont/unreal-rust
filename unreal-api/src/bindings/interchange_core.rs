@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1674,6 +1675,9 @@ impl UInterchangeFactoryBase {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(source_filename);
+        std::mem::forget(source_index);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn get_source_filenames(
@@ -1721,6 +1725,7 @@ impl UInterchangeFactoryBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FString>>().swap(out_source_filenames);
         }
+        std::mem::forget(object);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_factory_class(
@@ -1922,6 +1927,8 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(reimport_object_class);
+        std::mem::forget(source_file_index);
     }
     pub fn scripted_get_pipeline_display_name(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2007,6 +2014,10 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(base_node_container);
+        std::mem::forget(factory_node_key);
+        std::mem::forget(created_asset);
+        std::mem::forget(b_is_a_reimport);
     }
     pub fn scripted_execute_post_factory_pipeline(
         &mut self,
@@ -2066,6 +2077,10 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(base_node_container);
+        std::mem::forget(factory_node_key);
+        std::mem::forget(created_asset);
+        std::mem::forget(b_is_a_reimport);
     }
     pub fn scripted_execute_post_broadcast_pipeline(
         &mut self,
@@ -2125,6 +2140,10 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(base_node_container);
+        std::mem::forget(factory_node_key);
+        std::mem::forget(created_asset);
+        std::mem::forget(b_is_a_reimport);
     }
     pub fn scripted_execute_pipeline(
         &mut self,
@@ -2176,6 +2195,8 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(base_node_container);
+        std::mem::forget(content_base_path);
     }
     pub fn scripted_execute_export_pipeline(
         &mut self,
@@ -2211,6 +2232,7 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(base_node_container);
     }
     pub fn is_reimport_context(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2319,6 +2341,7 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(property_path);
         unsafe { __buffer.add(12).cast::<FInterchangePipelinePropertyStates>().read() }
     }
     pub fn does_property_states_exist(&self, property_path: FName) -> bool {
@@ -2352,6 +2375,7 @@ impl UInterchangePipelineBase {
                 __buffer,
             )
         };
+        std::mem::forget(property_path);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
 }
@@ -2735,6 +2759,7 @@ impl UInterchangeSourceData {
                 __buffer,
             )
         };
+        std::mem::forget(in_filename);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_context_object_by_tag(
@@ -2775,6 +2800,8 @@ impl UInterchangeSourceData {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
+        std::mem::forget(object);
     }
     pub fn remove_all_context_objects(&self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -2857,6 +2884,7 @@ impl UInterchangeSourceData {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
         unsafe {
             __buffer
                 .add(16)
@@ -3044,6 +3072,7 @@ impl UInterchangeTranslatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_translator_settings);
     }
     pub fn get_translator_type(&self) -> EInterchangeTranslatorType {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3209,6 +3238,7 @@ impl UInterchangeTranslatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_data);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -3277,6 +3307,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_display_label(&mut self, in_display_label: FString) -> bool {
@@ -3310,6 +3341,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_display_label);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_asset_name(&mut self, asset_name: FString) -> bool {
@@ -3343,6 +3375,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_target_node_uid(&self, asset_uid: FString) -> bool {
@@ -3376,6 +3409,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(asset_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_attribute(&mut self, node_attribute_key: FString) -> bool {
@@ -3409,6 +3443,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_enabled(&self) -> bool {
@@ -3487,6 +3522,9 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(node_container_type);
     }
     pub fn get_vector2_attribute(
         &self,
@@ -3536,6 +3574,7 @@ impl UInterchangeBaseNode {
                 .cast::<crate::bindings::core_u_object::FVector2f>()
                 .swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_unique_id(&self) -> FString {
@@ -3696,6 +3735,7 @@ impl UInterchangeBaseNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_parent_uid(&self) -> FString {
@@ -3834,6 +3874,7 @@ impl UInterchangeBaseNode {
                 .cast::<crate::bindings::core_u_object::FLinearColor>()
                 .swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_int32_attribute(
@@ -3877,6 +3918,7 @@ impl UInterchangeBaseNode {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_icon_name(&self) -> FName {
@@ -3953,6 +3995,7 @@ impl UInterchangeBaseNode {
                 .cast::<crate::bindings::core_u_object::FGuid>()
                 .swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_float_attribute(
@@ -3996,6 +4039,7 @@ impl UInterchangeBaseNode {
         unsafe {
             __buffer.add(16).cast::<f32>().swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_double_attribute(
@@ -4039,6 +4083,7 @@ impl UInterchangeBaseNode {
         unsafe {
             __buffer.add(16).cast::<f64>().swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_display_label(&self) -> FString {
@@ -4134,6 +4179,7 @@ impl UInterchangeBaseNode {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(out_value);
         }
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_asset_name(&self) -> FString {
@@ -4204,6 +4250,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_target_node_uid(&self, asset_uid: FString) -> bool {
@@ -4237,6 +4284,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(asset_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_string_attribute(
@@ -4277,6 +4325,8 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
+        std::mem::forget(value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_linear_color_attribute(
@@ -4321,6 +4371,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_int32_attribute(
@@ -4361,6 +4412,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn add_guid_attribute(
@@ -4405,6 +4457,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_float_attribute(
@@ -4445,6 +4498,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn add_double_attribute(
@@ -4485,6 +4539,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_boolean_attribute(
@@ -4525,6 +4580,7 @@ impl UInterchangeBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_attribute_key);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
 }
@@ -4604,6 +4660,8 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
+        std::mem::forget(new_parent_node_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_node_desired_child_index(
@@ -4648,6 +4706,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn set_namespace(
@@ -4694,6 +4753,8 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(namespace);
+        std::mem::forget(target_class);
     }
     pub fn save_to_file(&mut self, filename: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -4726,6 +4787,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(filename);
     }
     pub fn reset_children_cache(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4819,6 +4881,8 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
+        std::mem::forget(new_node);
     }
     pub fn remove_node(&mut self, node_unique_id: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -4851,6 +4915,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
     }
     pub fn load_from_file(&mut self, filename: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -4883,6 +4948,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(filename);
     }
     pub fn is_node_uid_valid(&self, node_unique_id: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -4915,6 +4981,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_roots(&self, root_nodes: &mut TArray<FString>) {
@@ -4999,6 +5066,7 @@ impl UInterchangeBaseNodeContainer {
         unsafe {
             __buffer.add(8).cast::<TArray<FString>>().swap(out_nodes);
         }
+        std::mem::forget(class_node);
     }
     pub fn get_node_children_uids(&self, node_unique_id: FString) -> TArray<FString> {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -5031,6 +5099,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(16).cast::<TArray<FString>>().read() }
     }
     pub fn get_node_children_count(&self, node_unique_id: FString) -> i32 {
@@ -5064,6 +5133,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_node_children(
@@ -5108,6 +5178,8 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
+        std::mem::forget(child_index);
         unsafe { __buffer.add(24).cast::<UPtr<UInterchangeBaseNode>>().read() }
     }
     pub fn get_node(&self, node_unique_id: FString) -> UPtr<UInterchangeBaseNode> {
@@ -5141,6 +5213,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(16).cast::<UPtr<UInterchangeBaseNode>>().read() }
     }
     pub fn get_is_ancestor(
@@ -5185,6 +5258,8 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
+        std::mem::forget(ancestor_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_factory_node(
@@ -5221,6 +5296,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(16).cast::<UPtr<UInterchangeFactoryBaseNode>>().read() }
     }
     pub fn compute_children_cache(&mut self) {
@@ -5279,6 +5355,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node_unique_id);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_node(&mut self, node: UPtr<UInterchangeBaseNode>) -> FString {
@@ -5312,6 +5389,7 @@ impl UInterchangeBaseNodeContainer {
                 __buffer,
             )
         };
+        std::mem::forget(node);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
 }
@@ -5572,6 +5650,7 @@ impl UInterchangeFactoryBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_reference_object(
@@ -5643,6 +5722,7 @@ impl UInterchangeFactoryBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_factory_dependency_uid(&mut self, dependency_uid: FString) -> bool {
@@ -5676,6 +5756,7 @@ impl UInterchangeFactoryBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(dependency_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_runtime_import_allowed(&self) -> bool {
@@ -5800,6 +5881,7 @@ impl UInterchangeFactoryBaseNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_dependency);
         }
+        std::mem::forget(index);
     }
     pub fn get_factory_dependencies_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -6009,6 +6091,7 @@ impl UInterchangeFactoryBaseNode {
                 __buffer,
             )
         };
+        std::mem::forget(dependency_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -6076,6 +6159,8 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_custom_use_legacy_skeletal_mesh_bake_transform(
@@ -6170,6 +6255,7 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(prefix);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_source_timeline_start(&mut self, attribute_value: &f64) -> bool {
@@ -6341,6 +6427,7 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_custom_reimport_strategy_flags(&mut self, strategy_flag: u8) -> bool {
@@ -6374,6 +6461,7 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(strategy_flag);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_custom_nanite_triangle_threshold(
@@ -6610,6 +6698,7 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn initialize_source_node(
@@ -6662,6 +6751,9 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(node_container);
     }
     pub fn get_unique_instance(
         node_container: UPtr<UInterchangeBaseNodeContainer>,
@@ -6696,6 +6788,7 @@ impl UInterchangeSourceNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_container);
         unsafe { __buffer.add(8).cast::<UPtr<UInterchangeSourceNode>>().read() }
     }
     pub fn get_extra_information(
@@ -7365,6 +7458,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_user_defined_attribute_infos(
@@ -7414,6 +7509,7 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .cast::<TArray<FInterchangeUserDefinedAttributeInfo>>()
                 .swap(user_defined_attribute_infos);
         }
+        std::mem::forget(interchange_node);
     }
     pub fn get_user_defined_attribute_int32(
         interchange_node: UPtr<UInterchangeBaseNode>,
@@ -7474,6 +7570,8 @@ impl UInterchangeUserDefinedAttributesAPI {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(out_payload_key);
         }
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn get_user_defined_attribute_f_string(
@@ -7539,6 +7637,8 @@ impl UInterchangeUserDefinedAttributesAPI {
         unsafe {
             __buffer.add(40).cast::<FString>().swap(out_payload_key);
         }
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn get_user_defined_attribute_float(
@@ -7600,6 +7700,8 @@ impl UInterchangeUserDefinedAttributesAPI {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(out_payload_key);
         }
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn get_user_defined_attribute_double(
@@ -7661,6 +7763,8 @@ impl UInterchangeUserDefinedAttributesAPI {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(out_payload_key);
         }
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn get_user_defined_attribute_boolean(
@@ -7722,6 +7826,8 @@ impl UInterchangeUserDefinedAttributesAPI {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(out_payload_key);
         }
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn duplicate_all_user_defined_attribute(
@@ -7773,6 +7879,9 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_source_node);
+        std::mem::forget(interchange_destination_node);
+        std::mem::forget(b_add_source_node_name);
     }
     pub fn create_user_defined_attribute_int32(
         interchange_node: UPtr<UInterchangeBaseNode>,
@@ -7835,6 +7944,10 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
+        std::mem::forget(payload_key);
+        std::mem::forget(requires_delegate);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn create_user_defined_attribute_f_string(
@@ -7898,6 +8011,11 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
+        std::mem::forget(value);
+        std::mem::forget(payload_key);
+        std::mem::forget(requires_delegate);
         unsafe { __buffer.add(57).cast::<bool>().read() }
     }
     pub fn create_user_defined_attribute_float(
@@ -7961,6 +8079,10 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
+        std::mem::forget(payload_key);
+        std::mem::forget(requires_delegate);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn create_user_defined_attribute_double(
@@ -8024,6 +8146,10 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
+        std::mem::forget(payload_key);
+        std::mem::forget(requires_delegate);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn create_user_defined_attribute_boolean(
@@ -8087,6 +8213,10 @@ impl UInterchangeUserDefinedAttributesAPI {
                 __buffer,
             )
         };
+        std::mem::forget(interchange_node);
+        std::mem::forget(user_defined_attribute_name);
+        std::mem::forget(payload_key);
+        std::mem::forget(requires_delegate);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
 }

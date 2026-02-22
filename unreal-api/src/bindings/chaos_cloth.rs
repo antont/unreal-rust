@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -395,6 +396,12 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(drag);
+        std::mem::forget(lift);
+        std::mem::forget(air_density);
+        std::mem::forget(wind_velocity);
+        std::mem::forget(outer_drag);
+        std::mem::forget(outer_lift);
     }
     pub fn set_velocity_scale(
         &mut self,
@@ -446,6 +453,9 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(linear_velocity_scale);
+        std::mem::forget(angular_velocity_scale);
+        std::mem::forget(fictitious_angular_scale);
     }
     pub fn set_velocity_clamps(
         &mut self,
@@ -537,6 +547,14 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable_linear_velocity_clamping);
+        std::mem::forget(max_linear_velocity);
+        std::mem::forget(b_enable_linear_acceleration_clamping);
+        std::mem::forget(max_linear_acceleration);
+        std::mem::forget(b_enable_angular_velocity_clamping);
+        std::mem::forget(max_angular_velocity);
+        std::mem::forget(b_enable_angular_acceleration_clamping);
+        std::mem::forget(max_angular_acceleration);
     }
     pub fn set_pressure(&mut self, pressure: crate::bindings::core_u_object::FVector2D) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -569,6 +587,7 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(pressure);
     }
     pub fn set_material_linear(
         &mut self,
@@ -620,6 +639,9 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(edge_stiffness);
+        std::mem::forget(bending_stiffness);
+        std::mem::forget(area_stiffness);
     }
     pub fn set_material_buckling(
         &mut self,
@@ -663,6 +685,8 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(buckling_ratio);
+        std::mem::forget(buckling_stiffness);
     }
     pub fn set_material(
         &mut self,
@@ -714,6 +738,9 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(edge_stiffness);
+        std::mem::forget(bending_stiffness);
+        std::mem::forget(area_stiffness);
     }
     pub fn set_long_range_attachment_linear(
         &mut self,
@@ -757,6 +784,8 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(tether_stiffness);
+        std::mem::forget(tether_scale);
     }
     pub fn set_long_range_attachment(
         &mut self,
@@ -800,6 +829,8 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(tether_stiffness);
+        std::mem::forget(tether_scale);
     }
     pub fn set_gravity(
         &mut self,
@@ -851,6 +882,9 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(gravity_scale);
+        std::mem::forget(b_is_gravity_overridden);
+        std::mem::forget(gravity_override);
     }
     pub fn set_damping(
         &mut self,
@@ -894,6 +928,8 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(damping_coefficient);
+        std::mem::forget(local_damping_coefficient);
     }
     pub fn set_collision(
         &mut self,
@@ -949,6 +985,10 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(collision_thickness);
+        std::mem::forget(friction_coefficient);
+        std::mem::forget(b_use_ccd);
+        std::mem::forget(self_collision_thickness);
     }
     pub fn set_backstop(&mut self, b_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -977,6 +1017,7 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn set_anim_drive_linear(&mut self, anim_drive_stiffness: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1009,6 +1050,7 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(anim_drive_stiffness);
     }
     pub fn set_anim_drive(
         &mut self,
@@ -1052,6 +1094,8 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(anim_drive_stiffness);
+        std::mem::forget(anim_drive_damping);
     }
     pub fn set_aerodynamics(
         &mut self,
@@ -1103,6 +1147,9 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(drag_coefficient);
+        std::mem::forget(lift_coefficient);
+        std::mem::forget(wind_velocity);
     }
     pub fn reset_and_teleport(&mut self, b_reset: bool, b_teleport: bool) {
         let mut __stack = crate::core_data::StackAlloc::<2>::new();
@@ -1138,6 +1185,8 @@ impl UChaosClothingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(b_reset);
+        std::mem::forget(b_teleport);
     }
 }
 #[repr(C, align(8))]

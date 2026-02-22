@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -119,6 +120,7 @@ impl UGameMapsSettings {
                 __buffer,
             )
         };
+        std::mem::forget(b_skip_first_player);
     }
     pub fn get_skip_assigning_gamepad_to_player1(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();

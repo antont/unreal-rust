@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -363,6 +364,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(new_parent_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn rename_collection(&mut self, name: FName, new_name: FName) -> bool {
@@ -399,6 +402,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(new_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_assets_from_collection(
@@ -439,6 +444,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_asset_ptrs_from_collection(
@@ -481,6 +487,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_asset_ptr_from_collection(
@@ -521,6 +528,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(asset_ptr);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_asset_from_collection(
@@ -561,6 +570,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(asset_path_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_asset_datas_from_collection(
@@ -603,6 +614,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_asset_data_from_collection(
@@ -643,6 +655,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(168).cast::<bool>().read() }
     }
     pub fn k2_remove_assets_from_collection(
@@ -685,6 +698,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn k2_remove_asset_from_collection(
@@ -727,6 +741,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn k2_get_collections_containing_asset(
@@ -807,6 +822,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn k2_add_assets_to_collection(
@@ -849,6 +865,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_collections_containing_asset_ptr(
@@ -885,6 +902,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_ptr);
         unsafe { __buffer.add(8).cast::<TArray<FName>>().read() }
     }
     pub fn get_collections_containing_asset_data(
@@ -957,6 +975,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path_name);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
     pub fn get_collections(&mut self) -> TArray<FName> {
@@ -1015,6 +1034,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe {
             __buffer
                 .add(16)
@@ -1049,6 +1069,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn destroy_collection(&mut self, name: FName) -> bool {
@@ -1078,6 +1099,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn create_collection(
@@ -1120,6 +1142,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(share_type);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn collection_exists(&mut self, name: FName) -> bool {
@@ -1149,6 +1173,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn add_asset_to_collection(
@@ -1189,6 +1214,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(asset_path_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_assets_to_collection(
@@ -1229,6 +1256,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_asset_ptr_to_collection(
@@ -1269,6 +1297,8 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(asset_ptr);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_asset_ptrs_to_collection(
@@ -1311,6 +1341,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_asset_data_to_collection(
@@ -1351,6 +1382,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(168).cast::<bool>().read() }
     }
     pub fn add_asset_datas_to_collection(
@@ -1393,6 +1425,7 @@ impl UAssetTagsSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }

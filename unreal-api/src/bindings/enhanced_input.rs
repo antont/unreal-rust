@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1391,6 +1392,7 @@ impl UEnhancedInputComponent {
                 __buffer,
             )
         };
+        std::mem::forget(action);
         unsafe { __buffer.add(8).cast::<FInputActionValue>().read() }
     }
 }
@@ -1504,6 +1506,8 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context);
+        std::mem::forget(b_force_immediately);
     }
     pub fn make_input_action_value_of_type(
         x: f64,
@@ -1550,6 +1554,10 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(x);
+        std::mem::forget(y);
+        std::mem::forget(z);
+        std::mem::forget(value_type);
         unsafe { __buffer.add(32).cast::<FInputActionValue>().read() }
     }
     pub fn is_action_key_mapping_player_mappable(
@@ -1696,6 +1704,8 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(action);
         unsafe { __buffer.add(16).cast::<FInputActionValue>().read() }
     }
     pub fn flush_player_input(
@@ -1733,6 +1743,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
     }
     pub fn conv_trigger_event_value_to_string(trigger_event: ETriggerEvent) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -1765,6 +1776,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(trigger_event);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn conv_input_action_value_to_string(
@@ -1800,6 +1812,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(action_value);
         unsafe { __buffer.add(32).cast::<FString>().read() }
     }
     pub fn conv_input_action_value_to_bool(in_value: FInputActionValue) -> bool {
@@ -1833,6 +1846,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn conv_input_action_value_to_axis3_d(
@@ -1868,6 +1882,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(action_value);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -1905,6 +1920,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -1940,6 +1956,7 @@ impl UEnhancedInputLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<f64>().read() }
     }
     pub fn break_input_action_value(
@@ -2007,6 +2024,7 @@ impl UEnhancedInputLibrary {
         unsafe {
             __buffer.add(56).cast::<EInputActionValueType>().swap(ty);
         }
+        std::mem::forget(in_action_value);
     }
 }
 #[repr(C, align(8))]
@@ -2082,6 +2100,7 @@ impl UEnhancedInputPlatformData {
                 __buffer,
             )
         };
+        std::mem::forget(in_context);
         unsafe { __buffer.add(8).cast::<UPtr<UInputMappingContext>>().read() }
     }
 }
@@ -2197,6 +2216,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
+        std::mem::forget(raw_value);
     }
     pub fn update_value_of_continuous_input_injection_for_action(
         &mut self,
@@ -2240,6 +2261,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(action);
+        std::mem::forget(raw_value);
     }
     pub fn stop_continuous_input_injection_for_player_mapping(
         &mut self,
@@ -2275,6 +2298,7 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
     }
     pub fn stop_continuous_input_injection_for_action(
         &mut self,
@@ -2310,6 +2334,7 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(action);
     }
     pub fn start_continuous_input_injection_for_player_mapping(
         &mut self,
@@ -2369,6 +2394,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
+        std::mem::forget(raw_value);
     }
     pub fn start_continuous_input_injection_for_action(
         &mut self,
@@ -2428,6 +2455,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(action);
+        std::mem::forget(raw_value);
     }
     pub fn set_input_mode(
         &mut self,
@@ -2516,6 +2545,7 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(rebuild_type);
     }
     pub fn remove_tags_from_input_mode(
         &mut self,
@@ -2647,6 +2677,7 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_context);
     }
     pub fn query_map_key_in_context_set(
         &mut self,
@@ -2725,6 +2756,10 @@ impl UEnhancedInputSubsystemInterface {
         unsafe {
             __buffer.add(64).cast::<TArray<FMappingQueryIssue>>().swap(out_issues);
         }
+        std::mem::forget(input_context);
+        std::mem::forget(action);
+        std::mem::forget(key);
+        std::mem::forget(blocking_issues);
         unsafe { __buffer.add(81).cast::<EMappingQueryResult>().read() }
     }
     pub fn query_map_key_in_active_context_set(
@@ -2796,6 +2831,10 @@ impl UEnhancedInputSubsystemInterface {
         unsafe {
             __buffer.add(48).cast::<TArray<FMappingQueryIssue>>().swap(out_issues);
         }
+        std::mem::forget(input_context);
+        std::mem::forget(action);
+        std::mem::forget(key);
+        std::mem::forget(blocking_issues);
         unsafe { __buffer.add(65).cast::<EMappingQueryResult>().read() }
     }
     pub fn query_keys_mapped_to_action(
@@ -2832,6 +2871,7 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(action);
         unsafe {
             __buffer.add(8).cast::<TArray<crate::bindings::input_core::FKey>>().read()
         }
@@ -2894,6 +2934,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
+        std::mem::forget(value);
     }
     pub fn inject_input_vector_for_action(
         &mut self,
@@ -2953,6 +2995,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(action);
+        std::mem::forget(value);
     }
     pub fn inject_input_for_player_mapping(
         &mut self,
@@ -3012,6 +3056,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
+        std::mem::forget(raw_value);
     }
     pub fn inject_input_for_action(
         &mut self,
@@ -3071,6 +3117,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(action);
+        std::mem::forget(raw_value);
     }
     pub fn has_mapping_context(
         &self,
@@ -3117,6 +3165,7 @@ impl UEnhancedInputSubsystemInterface {
         unsafe {
             __buffer.add(8).cast::<i32>().swap(out_found_priority);
         }
+        std::mem::forget(mapping_context);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_user_settings(&self) -> UPtr<UEnhancedInputUserSettings> {
@@ -3365,6 +3414,8 @@ impl UEnhancedInputSubsystemInterface {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_context);
+        std::mem::forget(priority);
     }
 }
 #[repr(C, align(8))]
@@ -3470,6 +3521,7 @@ impl UEnhancedInputWorldSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn add_actor_input_component(
@@ -3506,6 +3558,7 @@ impl UEnhancedInputWorldSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
     }
 }
 #[repr(C, align(8))]
@@ -3709,6 +3762,8 @@ impl UInputMappingContext {
                 __buffer,
             )
         };
+        std::mem::forget(action);
+        std::mem::forget(key);
     }
     pub fn unmap_all_keys_from_action(&mut self, action: UPtr<UInputAction>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3741,6 +3796,7 @@ impl UInputMappingContext {
                 __buffer,
             )
         };
+        std::mem::forget(action);
     }
     pub fn unmap_all(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3809,6 +3865,8 @@ impl UInputMappingContext {
                 __buffer,
             )
         };
+        std::mem::forget(action);
+        std::mem::forget(to_key);
         unsafe { __buffer.add(40).cast::<FEnhancedActionKeyMapping>().read() }
     }
 }
@@ -3896,6 +3954,9 @@ impl UInputModifier {
                 __buffer,
             )
         };
+        std::mem::forget(player_input);
+        std::mem::forget(current_value);
+        std::mem::forget(delta_time);
         unsafe { __buffer.add(48).cast::<FInputActionValue>().read() }
     }
     pub fn get_visualization_color(
@@ -3940,6 +4001,8 @@ impl UInputModifier {
                 __buffer,
             )
         };
+        std::mem::forget(sample_value);
+        std::mem::forget(final_value);
         unsafe {
             __buffer
                 .add(64)
@@ -4447,6 +4510,9 @@ impl UInputTrigger {
                 __buffer,
             )
         };
+        std::mem::forget(player_input);
+        std::mem::forget(modified_value);
+        std::mem::forget(delta_time);
         unsafe { __buffer.add(44).cast::<ETriggerState>().read() }
     }
     pub fn is_actuated(&self, for_value: &FInputActionValue) -> bool {
@@ -5162,6 +5228,7 @@ impl UPlayerMappableInputConfig {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
         unsafe { __buffer.add(16).cast::<FEnhancedActionKeyMapping>().read() }
     }
     pub fn get_keys_bound_to_action(
@@ -5198,6 +5265,7 @@ impl UPlayerMappableInputConfig {
                 __buffer,
             )
         };
+        std::mem::forget(in_action);
         unsafe { __buffer.add(8).cast::<TArray<FEnhancedActionKeyMapping>>().read() }
     }
     pub fn get_display_name(&self) -> FText {
@@ -5449,6 +5517,7 @@ impl UEnhancedPlayerMappableKeyProfile {
                 __buffer,
             )
         };
+        std::mem::forget(in_mapping_name);
     }
     pub fn query_player_mapped_keys(
         &self,
@@ -5719,6 +5788,7 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .cast::<TArray<crate::bindings::input_core::FKey>>()
                 .swap(out_keys);
         }
+        std::mem::forget(mapping_name);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn dump_profile_to_log(&self) {
@@ -5895,6 +5965,7 @@ impl UEnhancedInputUserSettings {
                 __buffer,
             )
         };
+        std::mem::forget(imc);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn un_map_player_key(
@@ -5979,6 +6050,7 @@ impl UEnhancedInputUserSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_profile_id);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn save_settings(&mut self) {
@@ -6107,6 +6179,7 @@ impl UEnhancedInputUserSettings {
                 .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
                 .swap(failure_reason);
         }
+        std::mem::forget(profile_id);
     }
     pub fn reset_all_player_keys_in_row(
         &mut self,
@@ -6229,6 +6302,7 @@ impl UEnhancedInputUserSettings {
                 __buffer,
             )
         };
+        std::mem::forget(imc);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn map_player_key(
@@ -6316,6 +6390,7 @@ impl UEnhancedInputUserSettings {
                 __buffer,
             )
         };
+        std::mem::forget(imc);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_key_profile_with_id(
@@ -6352,6 +6427,7 @@ impl UEnhancedInputUserSettings {
                 __buffer,
             )
         };
+        std::mem::forget(profile_id);
         unsafe {
             __buffer.add(16).cast::<UPtr<UEnhancedPlayerMappableKeyProfile>>().read()
         }
@@ -6441,6 +6517,7 @@ impl UEnhancedInputUserSettings {
                 __buffer,
             )
         };
+        std::mem::forget(mapping_name);
         unsafe { __buffer.add(16).cast::<TSet<FPlayerKeyMapping>>().read() }
     }
     pub fn create_new_key_profile(

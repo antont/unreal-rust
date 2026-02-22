@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -741,6 +742,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer_that_changed);
     }
     pub fn update_all_actors_visibility(
         &mut self,
@@ -784,6 +786,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_notify_selection_change);
+        std::mem::forget(b_redraw_viewports);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn update_actor_visibility(
@@ -858,6 +862,9 @@ impl UDataLayerEditorSubsystem {
         unsafe {
             __buffer.add(9).cast::<bool>().swap(b_out_actor_modified);
         }
+        std::mem::forget(actor);
+        std::mem::forget(b_notify_selection_change);
+        std::mem::forget(b_redraw_viewports);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn update_actor_all_views_visibility(
@@ -894,6 +901,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
     }
     pub fn toggle_data_layer_visibility(
         &mut self,
@@ -931,6 +939,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
     }
     pub fn toggle_data_layers_visibility(
         &mut self,
@@ -1013,6 +1022,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn toggle_data_layers_is_dynamically_loaded_in_editor(
@@ -1061,6 +1071,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn toggle_data_layer_is_loaded_in_editor(
@@ -1107,6 +1118,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn toggle_data_layer_is_dynamically_loaded_in_editor(
@@ -1153,6 +1166,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_parent_data_layer_for_data_layers(
@@ -1201,6 +1216,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(parent_data_layer);
     }
     pub fn set_parent_data_layer(
         &mut self,
@@ -1248,6 +1264,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(parent_data_layer);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_data_layer_visibility(
@@ -1294,6 +1312,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_is_visible);
     }
     pub fn set_data_layers_visibility(
         &mut self,
@@ -1339,6 +1359,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_visible);
     }
     pub fn set_data_layers_is_loaded_in_editor(
         &mut self,
@@ -1392,6 +1413,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_loaded_in_editor);
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_data_layers_is_dynamically_loaded_in_editor(
@@ -1448,6 +1471,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_loaded_in_editor);
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn set_data_layer_is_loaded_in_editor(
@@ -1502,6 +1527,9 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_is_loaded_in_editor);
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(10).cast::<bool>().read() }
     }
     pub fn set_data_layer_is_initially_visible(
@@ -1548,6 +1576,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_is_initially_visible);
     }
     pub fn set_data_layer_is_dynamically_loaded_in_editor(
         &mut self,
@@ -1601,6 +1631,9 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_is_loaded_in_editor);
+        std::mem::forget(b_is_from_user_change);
         unsafe { __buffer.add(10).cast::<bool>().read() }
     }
     pub fn set_data_layer_initial_runtime_state(
@@ -1649,6 +1682,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(initial_runtime_state);
     }
     pub fn set_actor_editor_context_current_external_data_layer(
         &mut self,
@@ -1688,6 +1723,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_external_data_layer_asset);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn select_actors_in_data_layers(
@@ -1742,6 +1778,9 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_select);
+        std::mem::forget(b_notify);
+        std::mem::forget(b_select_even_if_hidden);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn select_actors_in_data_layer(
@@ -1796,6 +1835,10 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
+        std::mem::forget(b_select);
+        std::mem::forget(b_notify);
+        std::mem::forget(b_select_even_if_hidden);
         unsafe { __buffer.add(11).cast::<bool>().read() }
     }
     pub fn rename_data_layer(
@@ -1842,6 +1885,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn remove_selected_actors_from_data_layers(
@@ -1918,6 +1962,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn remove_from_actor_editor_context(
@@ -1956,6 +2001,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_data_layer_instance);
     }
     pub fn remove_actors_from_data_layers(
         &mut self,
@@ -2047,6 +2093,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_actors_from_all_data_layers(
@@ -2129,6 +2176,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_actor_from_data_layer(
@@ -2175,6 +2223,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(data_layer_to_remove);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_actor_from_all_data_layers(
@@ -2211,6 +2261,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn make_all_data_layers_visible(&mut self) {
@@ -2282,6 +2333,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn is_actor_valid_for_data_layer(
@@ -2318,6 +2370,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_data_layer_instances(
@@ -2356,6 +2409,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer_assets);
         unsafe {
             __buffer
                 .add(16)
@@ -2397,6 +2451,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer_asset);
         unsafe {
             __buffer
                 .add(8)
@@ -2598,6 +2653,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
         unsafe {
             __buffer
                 .add(8)
@@ -2711,6 +2767,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer_to_delete);
     }
     pub fn create_data_layer_instance(
         &mut self,
@@ -2789,6 +2846,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(parent_data_layer);
         unsafe {
             __buffer
                 .add(8)
@@ -2897,6 +2955,7 @@ impl UDataLayerEditorSubsystem {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(in_out_actors);
         }
+        std::mem::forget(data_layer);
     }
     pub fn add_to_actor_editor_context(
         &mut self,
@@ -2934,6 +2993,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_data_layer_instance);
     }
     pub fn add_selected_actors_to_data_layers(
         &mut self,
@@ -3009,6 +3069,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn add_actor_to_data_layers(
@@ -3055,6 +3116,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_actor_to_data_layer(
@@ -3101,6 +3163,8 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(data_layer);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_actors_to_data_layers(
@@ -3193,6 +3257,7 @@ impl UDataLayerEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_layer);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }

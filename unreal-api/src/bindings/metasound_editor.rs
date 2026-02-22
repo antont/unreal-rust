@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -230,6 +231,7 @@ impl UMetaSoundPresetWidgetInterface {
                 __buffer,
             )
         };
+        std::mem::forget(builder);
     }
     pub fn on_audition_state_changed(
         &mut self,
@@ -273,6 +275,8 @@ impl UMetaSoundPresetWidgetInterface {
                 __buffer,
             )
         };
+        std::mem::forget(audio_component);
+        std::mem::forget(b_is_auditioning);
     }
     pub fn get_supported_meta_sounds(
         &self,
@@ -1633,6 +1637,7 @@ impl UMetaSoundEditorSubsystem {
                 .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
                 .swap(out_result);
         }
+        std::mem::forget(in_builder);
     }
     pub fn set_focused_page(
         &self,
@@ -1706,6 +1711,9 @@ impl UMetaSoundEditorSubsystem {
                 .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
                 .swap(out_result);
         }
+        std::mem::forget(builder);
+        std::mem::forget(page_name);
+        std::mem::forget(b_open_editor);
     }
     pub fn find_or_create_graph_input_metadata(
         &mut self,
@@ -1771,6 +1779,8 @@ impl UMetaSoundEditorSubsystem {
                 .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
                 .swap(out_result);
         }
+        std::mem::forget(in_builder);
+        std::mem::forget(input_name);
         unsafe {
             __buffer
                 .add(24)
@@ -1842,6 +1852,7 @@ impl UMetaSoundEditorSubsystem {
                 .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
                 .swap(out_result);
         }
+        std::mem::forget(meta_sound);
         unsafe {
             __buffer
                 .add(24)
@@ -1935,6 +1946,11 @@ impl UMetaSoundEditorSubsystem {
                 .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
                 .swap(out_result);
         }
+        std::mem::forget(in_builder);
+        std::mem::forget(author);
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(template_sound_wave);
         unsafe {
             __buffer
                 .add(72)
@@ -2002,6 +2018,7 @@ impl UMetaSoundEditorSubsystem {
                 .cast::<crate::bindings::metasound_engine::EMetaSoundBuilderResult>()
                 .swap(out_result);
         }
+        std::mem::forget(in_builder);
         unsafe {
             __buffer.add(16).cast::<UPtr<UMetaSoundEditorBuilderListener>>().read()
         }

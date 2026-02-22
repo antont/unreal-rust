@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -608,6 +609,9 @@ impl UTypedElementSelectionSetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(selection_set);
+        std::mem::forget(element_list);
+        std::mem::forget(selection_options);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn select_elements_from_list(
@@ -663,6 +667,9 @@ impl UTypedElementSelectionSetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(selection_set);
+        std::mem::forget(element_list);
+        std::mem::forget(selection_options);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn get_normalized_selection(
@@ -706,6 +713,8 @@ impl UTypedElementSelectionSetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(selection_set);
+        std::mem::forget(normalization_options);
         unsafe {
             __buffer
                 .add(24)
@@ -768,6 +777,9 @@ impl UTypedElementSelectionSetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(selection_set);
+        std::mem::forget(element_list);
+        std::mem::forget(normalization_options);
         unsafe {
             __buffer
                 .add(40)
@@ -830,6 +842,9 @@ impl UTypedElementSelectionSetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(selection_set);
+        std::mem::forget(element_list);
+        std::mem::forget(selection_options);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
 }
@@ -917,6 +932,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(36).cast::<bool>().read() }
     }
     pub fn select_elements(
@@ -969,6 +985,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(36).cast::<bool>().read() }
     }
     pub fn select_element(
@@ -1017,6 +1034,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn restore_selection_state(
@@ -1090,6 +1108,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_base_interface_type);
         unsafe {
             __buffer
                 .add(8)
@@ -1147,6 +1166,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn has_selected_objects(
@@ -1185,6 +1205,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_required_class);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_selected_elements(
@@ -1223,6 +1244,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_base_interface_type);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_top_selected_object(
@@ -1261,6 +1283,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_required_class);
         unsafe {
             __buffer
                 .add(8)
@@ -1314,6 +1337,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_method);
         unsafe {
             __buffer
                 .add(16)
@@ -1359,6 +1383,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_required_class);
         unsafe {
             __buffer
                 .add(8)
@@ -1454,6 +1479,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_required_class);
         unsafe {
             __buffer
                 .add(8)
@@ -1511,6 +1537,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(36).cast::<bool>().read() }
     }
     pub fn deselect_element(
@@ -1559,6 +1586,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn count_selected_objects(
@@ -1597,6 +1625,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_required_class);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn count_selected_elements(
@@ -1635,6 +1664,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_base_interface_type);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn clear_selection(
@@ -1671,6 +1701,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn can_select_element(
@@ -1719,6 +1750,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn can_deselect_element(
@@ -1767,6 +1799,7 @@ impl UTypedElementSelectionSet {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_options);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn allow_selection_modifiers(
@@ -2014,6 +2047,7 @@ impl UTypedElementHierarchyInterface {
                 __buffer,
             )
         };
+        std::mem::forget(b_allow_create);
         unsafe {
             __buffer
                 .add(16)
@@ -2095,6 +2129,7 @@ impl UTypedElementHierarchyInterface {
                 >()
                 .swap(out_element_handles);
         }
+        std::mem::forget(b_allow_create);
     }
 }
 pub struct ITypedElementObjectInterface {}
@@ -2320,6 +2355,9 @@ impl UTypedElementPrimitiveCustomDataInterface {
                 __buffer,
             )
         };
+        std::mem::forget(custom_data_index);
+        std::mem::forget(custom_data_value);
+        std::mem::forget(b_mark_render_state_dirty);
     }
     pub fn set_custom_data(
         &mut self,
@@ -2375,6 +2413,7 @@ impl UTypedElementPrimitiveCustomDataInterface {
                 __buffer,
             )
         };
+        std::mem::forget(b_mark_render_state_dirty);
     }
 }
 pub struct ITypedElementSelectionInterface {}
@@ -2470,6 +2509,7 @@ impl UTypedElementSelectionInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_set);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn is_element_selected(
@@ -2530,6 +2570,7 @@ impl UTypedElementSelectionInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_set);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_selection_element(
@@ -2590,6 +2631,8 @@ impl UTypedElementSelectionInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_current_selection);
+        std::mem::forget(in_selection_method);
         unsafe {
             __buffer
                 .add(32)
@@ -2657,6 +2700,7 @@ impl UTypedElementSelectionInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_set);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn can_select_element(
@@ -2805,6 +2849,7 @@ impl UTypedElementSelectionInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_selection_set);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -330,6 +331,8 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_tickable_constraint);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_constraint(
@@ -369,6 +372,8 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_index);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_constraints_array(
@@ -404,6 +409,7 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<UTickableConstraint>>>().read() }
     }
     pub fn create_transformable_handle(
@@ -455,6 +461,8 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_object);
         unsafe { __buffer.add(32).cast::<UPtr<UTransformableHandle>>().read() }
     }
     pub fn create_transformable_component_handle(
@@ -506,6 +514,8 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_scene_component);
         unsafe { __buffer.add(32).cast::<UPtr<UTransformableComponentHandle>>().read() }
     }
     pub fn create_from_type(
@@ -551,6 +561,8 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_type);
         unsafe { __buffer.add(16).cast::<UPtr<UTickableTransformConstraint>>().read() }
     }
     pub fn add_constraint(
@@ -618,6 +630,11 @@ impl UConstraintsScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_parent_handle);
+        std::mem::forget(in_child_handle);
+        std::mem::forget(in_constraint);
+        std::mem::forget(b_maintain_offset);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
 }

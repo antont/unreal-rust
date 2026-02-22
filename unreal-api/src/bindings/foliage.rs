@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -401,6 +402,8 @@ impl AInstancedFoliageActor {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_foliage_type);
     }
     pub fn add_instances(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -453,6 +456,8 @@ impl AInstancedFoliageActor {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_foliage_type);
     }
 }
 #[repr(C, align(16))]
@@ -577,6 +582,10 @@ impl UFoliageStatistics {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(static_mesh);
+        std::mem::forget(center_position);
+        std::mem::forget(radius);
         unsafe { __buffer.add(44).cast::<i32>().read() }
     }
     pub fn foliage_overlapping_box_transforms(
@@ -644,6 +653,9 @@ impl UFoliageStatistics {
                 .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
                 .swap(out_transforms);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(static_mesh);
+        std::mem::forget(box_);
     }
     pub fn foliage_overlapping_box_count(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -694,6 +706,9 @@ impl UFoliageStatistics {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(static_mesh);
+        std::mem::forget(box_);
         unsafe { __buffer.add(72).cast::<i32>().read() }
     }
 }
@@ -924,6 +939,7 @@ impl UProceduralFoliageSpawner {
                 __buffer,
             )
         };
+        std::mem::forget(num_steps);
     }
 }
 #[repr(C, align(8))]

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -536,6 +537,7 @@ impl UContentBrowserDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_path);
         unsafe { __buffer.add(48).cast::<TArray<FContentBrowserItem>>().read() }
     }
     pub fn get_items_at_path(
@@ -576,6 +578,8 @@ impl UContentBrowserDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_path);
+        std::mem::forget(in_item_type_filter);
         unsafe { __buffer.add(16).cast::<TArray<FContentBrowserItem>>().read() }
     }
     pub fn get_item_at_path(
@@ -616,6 +620,8 @@ impl UContentBrowserDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_path);
+        std::mem::forget(in_item_type_filter);
         unsafe { __buffer.add(16).cast::<FContentBrowserItem>().read() }
     }
     pub fn get_available_data_sources(&self) -> TArray<FName> {
@@ -697,6 +703,7 @@ impl UContentBrowserDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn deactivate_all_data_sources(&mut self) {
@@ -751,6 +758,7 @@ impl UContentBrowserDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn activate_all_data_sources(&mut self) {
@@ -1028,6 +1036,8 @@ impl UContentBrowserItemPathExtensions {
         unsafe {
             __buffer.add(0).cast::<FContentBrowserItemPath>().swap(item_path);
         }
+        std::mem::forget(in_path);
+        std::mem::forget(in_path_type);
     }
     pub fn make_content_browser_item_path(
         in_path: FName,
@@ -1066,6 +1076,8 @@ impl UContentBrowserItemPathExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_path);
+        std::mem::forget(in_path_type);
         unsafe { __buffer.add(16).cast::<FContentBrowserItemPath>().read() }
     }
     pub fn get_virtual_path(item_path: &FContentBrowserItemPath) -> FName {

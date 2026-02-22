@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -364,6 +365,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn sync_file(in_file: FString, b_silent: bool) -> bool {
@@ -400,6 +402,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn revert_unchanged_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
@@ -436,6 +440,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn revert_unchanged_file(in_file: FString, b_silent: bool) -> bool {
@@ -472,6 +477,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn revert_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
@@ -508,6 +515,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn revert_file(in_file: FString, b_silent: bool) -> bool {
@@ -544,6 +552,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn revert_and_reload_packages(
@@ -595,6 +605,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_revert_all);
+        std::mem::forget(b_reload_world);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn query_file_states(
@@ -634,6 +646,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_files);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(24).cast::<TArray<FSourceControlState>>().read() }
     }
     pub fn query_file_state(in_file: FString, b_silent: bool) -> FSourceControlState {
@@ -670,6 +684,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(24).cast::<FSourceControlState>().read() }
     }
     pub fn mark_files_for_delete(in_files: &TArray<FString>, b_silent: bool) -> bool {
@@ -706,6 +722,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn mark_files_for_add(in_files: &TArray<FString>, b_silent: bool) -> bool {
@@ -742,6 +759,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn mark_file_for_delete(in_file: FString, b_silent: bool) -> bool {
@@ -778,6 +796,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn mark_file_for_add(in_file: FString, b_silent: bool) -> bool {
@@ -814,6 +834,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn last_error_msg() -> FText {
@@ -965,6 +987,9 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_file);
+        std::mem::forget(in_dest_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn check_out_or_add_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
@@ -1001,6 +1026,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn check_out_or_add_file(in_file: FString, b_silent: bool) -> bool {
@@ -1037,6 +1063,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn check_out_files(in_files: &TArray<FString>, b_silent: bool) -> bool {
@@ -1073,6 +1101,7 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn check_out_file(in_file: FString, b_silent: bool) -> bool {
@@ -1109,6 +1138,8 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn check_in_files(
@@ -1164,6 +1195,9 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_description);
+        std::mem::forget(b_silent);
+        std::mem::forget(b_keep_checked_out);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn check_in_file(
@@ -1219,6 +1253,10 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_file);
+        std::mem::forget(in_description);
+        std::mem::forget(b_silent);
+        std::mem::forget(b_keep_checked_out);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn async_query_file_states(
@@ -1266,6 +1304,9 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(file_state_callback);
+        std::mem::forget(in_files);
+        std::mem::forget(b_silent);
     }
     pub fn async_query_file_state(
         file_state_callback: FAsyncQueryFileState_FileStateCallback,
@@ -1312,6 +1353,9 @@ impl USourceControlHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(file_state_callback);
+        std::mem::forget(in_file);
+        std::mem::forget(b_silent);
     }
 }
 #[repr(C, align(8))]

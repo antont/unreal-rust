@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -219,6 +220,8 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(b_show_ui);
     }
     pub fn trace_mark_region_start(name: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -247,6 +250,7 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name);
     }
     pub fn trace_mark_region_end(name: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -275,6 +279,7 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name);
     }
     pub fn trace_bookmark(name: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -303,6 +308,7 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name);
     }
     pub fn toggle_channel(channel_name: FString, enabled: bool) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<18>::new();
@@ -338,6 +344,8 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(channel_name);
+        std::mem::forget(enabled);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn stop_tracing() -> bool {
@@ -404,6 +412,7 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(file_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn start_trace_send_to(target: FString, channels: &TArray<FString>) -> bool {
@@ -440,6 +449,7 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn resume_tracing() -> bool {
@@ -551,6 +561,7 @@ impl UTraceUtilLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(channel_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_enabled_channels() -> TArray<FString> {

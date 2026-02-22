@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1164,6 +1165,7 @@ impl UGroomAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_);
     }
     pub fn set_hair_interpolation_type(&mut self, in_: EGroomInterpolationType) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1196,6 +1198,7 @@ impl UGroomAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_);
     }
     pub fn set_hair_groups_rendering(&mut self, in_: &TArray<FHairGroupsRendering>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1457,6 +1460,7 @@ impl UGroomAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_);
     }
     pub fn set_enable_global_interpolation(&mut self, in_: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1485,6 +1489,7 @@ impl UGroomAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_);
     }
     pub fn set_deformed_group_sections(&mut self, in_: &TArray<i32>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2053,6 +2058,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
     }
     pub fn set_target_mesh_used_min_lod(&mut self, in_target_mesh_used_min_lod: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2085,6 +2091,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_mesh_used_min_lod);
     }
     pub fn set_target_mesh_requested_min_lod(
         &mut self,
@@ -2120,6 +2127,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_mesh_requested_min_lod);
     }
     pub fn set_target_geometry_cache(
         &mut self,
@@ -2157,6 +2165,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_geometry_cache);
     }
     pub fn set_target_binding_attribute(&mut self, in_attribute_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -2189,6 +2198,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_attribute_name);
     }
     pub fn set_source_skeletal_mesh(
         &mut self,
@@ -2224,6 +2234,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
     }
     pub fn set_source_mesh_used_lod(&mut self, in_source_mesh_used_lod: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2256,6 +2267,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_mesh_used_lod);
     }
     pub fn set_source_mesh_requested_lod(&mut self, in_source_mesh_requested_lod: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2288,6 +2300,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_mesh_requested_lod);
     }
     pub fn set_source_geometry_cache(
         &mut self,
@@ -2325,6 +2338,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_geometry_cache);
     }
     pub fn set_num_interpolation_points(&mut self, in_num_interpolation_points: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2357,6 +2371,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_num_interpolation_points);
     }
     pub fn set_matching_section(&mut self, in_matching_section: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2389,6 +2404,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_matching_section);
     }
     pub fn set_group_infos(&mut self, in_group_infos: &TArray<FGoomBindingGroupInfo>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2456,6 +2472,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_groom_binding_type);
     }
     pub fn set_groom(&mut self, in_groom: UPtr<UGroomAsset>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2488,6 +2505,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(in_groom);
     }
     pub fn get_target_skeletal_mesh(
         &self,
@@ -2906,6 +2924,7 @@ impl UGroomBindingAsset {
                 __buffer,
             )
         };
+        std::mem::forget(completion_delegate);
     }
 }
 #[repr(C, align(8))]
@@ -3010,6 +3029,7 @@ impl UGroomBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn create_new_groom_binding_asset_with_path(
@@ -3087,6 +3107,12 @@ impl UGroomBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_desired_package_path);
+        std::mem::forget(in_groom_asset);
+        std::mem::forget(in_skeletal_mesh);
+        std::mem::forget(in_num_interpolation_points);
+        std::mem::forget(in_source_skeletal_mesh_for_transfer);
+        std::mem::forget(in_matching_section);
         unsafe { __buffer.add(56).cast::<UPtr<UGroomBindingAsset>>().read() }
     }
     pub fn create_new_groom_binding_asset(
@@ -3156,6 +3182,11 @@ impl UGroomBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_groom_asset);
+        std::mem::forget(in_skeletal_mesh);
+        std::mem::forget(in_num_interpolation_points);
+        std::mem::forget(in_source_skeletal_mesh_for_transfer);
+        std::mem::forget(in_matching_section);
         unsafe { __buffer.add(40).cast::<UPtr<UGroomBindingAsset>>().read() }
     }
     pub fn create_new_geometry_cache_groom_binding_asset_with_path(
@@ -3237,6 +3268,12 @@ impl UGroomBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(desired_package_path);
+        std::mem::forget(groom_asset);
+        std::mem::forget(geometry_cache);
+        std::mem::forget(num_interpolation_points);
+        std::mem::forget(source_geometry_cache_for_transfer);
+        std::mem::forget(matching_section);
         unsafe { __buffer.add(56).cast::<UPtr<UGroomBindingAsset>>().read() }
     }
     pub fn create_new_geometry_cache_groom_binding_asset(
@@ -3310,6 +3347,11 @@ impl UGroomBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(groom_asset);
+        std::mem::forget(geometry_cache);
+        std::mem::forget(num_interpolation_points);
+        std::mem::forget(source_geometry_cache_for_transfer);
+        std::mem::forget(matching_section);
         unsafe { __buffer.add(40).cast::<UPtr<UGroomBindingAsset>>().read() }
     }
 }
@@ -3439,6 +3481,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_physics_asset);
     }
     pub fn set_mesh_deformer(
         &mut self,
@@ -3474,6 +3517,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_mesh_deformer);
     }
     pub fn set_hair_length_scale_enable(&mut self, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3502,6 +3546,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn set_hair_length_scale(&mut self, scale: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3530,6 +3575,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(scale);
     }
     pub fn set_groom_cache(&mut self, in_groom_cache: UPtr<UGroomCache>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3562,6 +3608,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_groom_cache);
     }
     pub fn set_groom_asset(&mut self, asset: UPtr<UGroomAsset>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3594,6 +3641,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
     }
     pub fn set_enable_simulation(&mut self, b_in_enable_simulation: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3626,6 +3674,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_enable_simulation);
     }
     pub fn set_binding_asset(&mut self, in_binding: UPtr<UGroomBindingAsset>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3658,6 +3707,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_binding);
     }
     pub fn reset_simulation(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3743,6 +3793,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(group_index);
         unsafe {
             __buffer
                 .add(8)
@@ -3812,6 +3863,7 @@ impl UGroomComponent {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh_component);
     }
 }
 #[repr(C, align(8))]

@@ -12,3 +12,15 @@ UObject* URustExtension_Core::NewObject(UObject* Outer, TSubclassOf<UObject> Cla
 {
 	return ::NewObject<UObject>(Outer, Class.Get(), Name);
 }
+
+FName URustExtension_Core::FNameNone()
+{
+	return NAME_None;
+}
+
+void URustExtension_RustTypeDef::AddNumeric(FRustTypeDef& Def, FRustTypeInfo TypeInfo)
+{
+	auto Numeric = MakeUnique<FRustType_Numeric>();
+	Numeric->TypeInfo = TypeInfo;
+	Def.Types.Add(MoveTemp(Numeric));
+}

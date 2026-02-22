@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -329,6 +330,9 @@ impl UJsonObjectGraphFunctionLibrary {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(out_filename);
         }
+        std::mem::forget(object);
+        std::mem::forget(label);
+        std::mem::forget(options);
     }
     pub fn write_blueprint_class_to_temp_file(
         bp: UPtr<crate::bindings::engine::UBlueprint>,
@@ -388,6 +392,9 @@ impl UJsonObjectGraphFunctionLibrary {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(out_filename);
         }
+        std::mem::forget(bp);
+        std::mem::forget(label);
+        std::mem::forget(options);
     }
     pub fn stringify(
         root_objects: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
@@ -445,6 +452,7 @@ impl UJsonObjectGraphFunctionLibrary {
         unsafe {
             __buffer.add(24).cast::<FString>().swap(result_string);
         }
+        std::mem::forget(options);
     }
 }
 #[repr(C, align(8))]

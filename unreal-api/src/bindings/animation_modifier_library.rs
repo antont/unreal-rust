@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -364,6 +365,9 @@ impl UMotionExtractorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_sequence);
+        std::mem::forget(stop_speed_threshold);
+        std::mem::forget(sample_rate);
         unsafe {
             __buffer
                 .add(16)
@@ -420,6 +424,9 @@ impl UMotionExtractorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_sequence);
+        std::mem::forget(stop_speed_threshold);
+        std::mem::forget(sample_rate);
         unsafe {
             __buffer
                 .add(16)
@@ -492,6 +499,9 @@ impl UMotionExtractorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
+        std::mem::forget(motion_type);
+        std::mem::forget(axis);
         unsafe { __buffer.add(200).cast::<f32>().read() }
     }
     pub fn generate_curve_name(
@@ -543,6 +553,9 @@ impl UMotionExtractorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(motion_type);
+        std::mem::forget(axis);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
 }

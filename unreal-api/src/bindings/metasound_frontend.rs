@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -430,6 +431,8 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(only_if_exists);
         unsafe { __buffer.add(13).cast::<ESetParamResult>().read() }
     }
     pub fn set_string(
@@ -482,6 +485,9 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(in_value);
+        std::mem::forget(only_if_exists);
         unsafe { __buffer.add(33).cast::<ESetParamResult>().read() }
     }
     pub fn set_int(
@@ -530,6 +536,9 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(in_value);
+        std::mem::forget(only_if_exists);
         unsafe { __buffer.add(17).cast::<ESetParamResult>().read() }
     }
     pub fn set_float(
@@ -578,6 +587,9 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(in_value);
+        std::mem::forget(only_if_exists);
         unsafe { __buffer.add(17).cast::<ESetParamResult>().read() }
     }
     pub fn set_bool(
@@ -626,6 +638,9 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(in_value);
+        std::mem::forget(only_if_exists);
         unsafe { __buffer.add(14).cast::<ESetParamResult>().read() }
     }
     pub fn make_metasound_parameter_pack() -> UPtr<UMetasoundParameterPack> {
@@ -685,6 +700,7 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_string(&self, parameter_name: FName) -> bool {
@@ -718,6 +734,7 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_int(&self, parameter_name: FName) -> bool {
@@ -751,6 +768,7 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_float(&self, parameter_name: FName) -> bool {
@@ -784,6 +802,7 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_bool(&self, parameter_name: FName) -> bool {
@@ -817,6 +836,7 @@ impl UMetasoundParameterPack {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_trigger(
@@ -864,6 +884,7 @@ impl UMetasoundParameterPack {
         unsafe {
             __buffer.add(12).cast::<ESetParamResult>().swap(result);
         }
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn get_string(
@@ -911,6 +932,7 @@ impl UMetasoundParameterPack {
         unsafe {
             __buffer.add(12).cast::<ESetParamResult>().swap(result);
         }
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_int(&self, parameter_name: FName, result: &mut ESetParamResult) -> i32 {
@@ -954,6 +976,7 @@ impl UMetasoundParameterPack {
         unsafe {
             __buffer.add(12).cast::<ESetParamResult>().swap(result);
         }
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_float(&self, parameter_name: FName, result: &mut ESetParamResult) -> f32 {
@@ -997,6 +1020,7 @@ impl UMetasoundParameterPack {
         unsafe {
             __buffer.add(12).cast::<ESetParamResult>().swap(result);
         }
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_bool(&self, parameter_name: FName, result: &mut ESetParamResult) -> bool {
@@ -1040,6 +1064,7 @@ impl UMetasoundParameterPack {
         unsafe {
             __buffer.add(12).cast::<ESetParamResult>().swap(result);
         }
+        std::mem::forget(parameter_name);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
 }

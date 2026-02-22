@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -4423,6 +4424,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_vector(
         &mut self,
@@ -4474,6 +4476,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_transform(
         &mut self,
@@ -4525,6 +4528,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_string(
         &mut self,
@@ -4576,6 +4580,8 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_quat(
         &mut self,
@@ -4627,6 +4633,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_name(
         &mut self,
@@ -4674,6 +4681,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_int(
         &mut self,
@@ -4721,6 +4729,8 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_float(
         &mut self,
@@ -4768,6 +4778,8 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_double(
         &mut self,
@@ -4815,6 +4827,8 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
+        std::mem::forget(in_array_index);
     }
     pub fn set_parameter_value_bool(
         &mut self,
@@ -4862,6 +4876,8 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
+        std::mem::forget(in_array_index);
     }
     pub fn get_statistics(&self) -> FRigVMStatistics {
         let mut __stack = crate::core_data::StackAlloc::<56>::new();
@@ -4929,6 +4945,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -4975,6 +4992,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -5021,6 +5039,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -5067,6 +5086,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_parameter_value_quat(
@@ -5111,6 +5131,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -5157,6 +5178,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn get_parameter_value_int(
@@ -5201,6 +5223,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_parameter_value_float(
@@ -5245,6 +5268,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_parameter_value_double(
@@ -5289,6 +5313,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe { __buffer.add(16).cast::<f64>().read() }
     }
     pub fn get_parameter_value_bool(
@@ -5333,6 +5358,7 @@ impl URigVM {
                 __buffer,
             )
         };
+        std::mem::forget(in_array_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn execute(
@@ -5489,6 +5515,7 @@ impl UDataAssetLink {
                 __buffer,
             )
         };
+        std::mem::forget(in_data_asset);
     }
     pub fn get_data_asset(&self) -> TSoftObjectPtr<crate::bindings::engine::UDataAsset> {
         let mut __stack = crate::core_data::StackAlloc::<48>::new();
@@ -5758,6 +5785,7 @@ impl URigVMUserWorkflowOptions {
                 __buffer,
             )
         };
+        std::mem::forget(in_message);
     }
     pub fn report_info(&mut self, in_message: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5790,6 +5818,7 @@ impl URigVMUserWorkflowOptions {
                 __buffer,
             )
         };
+        std::mem::forget(in_message);
     }
     pub fn report_error(&mut self, in_message: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5822,6 +5851,7 @@ impl URigVMUserWorkflowOptions {
                 __buffer,
             )
         };
+        std::mem::forget(in_message);
     }
     pub fn is_valid(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5957,6 +5987,7 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_frames_per_second(&mut self, in_frames_per_second: f32) {
@@ -5990,6 +6021,7 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(in_frames_per_second);
     }
     pub fn set_delta_time(&mut self, in_delta_time: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -6020,6 +6052,7 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(in_delta_time);
     }
     pub fn set_absolute_time(
         &mut self,
@@ -6061,6 +6094,8 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(in_absolute_time);
+        std::mem::forget(in_set_delta_time_zero);
     }
     pub fn set_absolute_and_delta_time(
         &mut self,
@@ -6104,6 +6139,8 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(in_absolute_time);
+        std::mem::forget(in_delta_time);
     }
     pub fn request_run_once_event(
         &mut self,
@@ -6147,6 +6184,7 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(in_event_index);
     }
     pub fn request_init(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6507,6 +6545,8 @@ impl URigVMHost {
                 __buffer,
             )
         };
+        std::mem::forget(outer);
+        std::mem::forget(optional_class);
         unsafe { __buffer.add(16).cast::<TArray<UPtr<URigVMHost>>>().read() }
     }
     pub fn execute_event(&mut self, in_event_name: &FName) -> bool {
@@ -6696,6 +6736,7 @@ impl URigVMProjectSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_tag_name);
         unsafe { __buffer.add(16).cast::<FRigVMTag>().read() }
     }
 }

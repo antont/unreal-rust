@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -702,6 +703,7 @@ impl AVREditorTeleporter {
                 __buffer,
             )
         };
+        std::mem::forget(interactor);
     }
     pub fn shutdown(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -755,6 +757,7 @@ impl AVREditorTeleporter {
                 __buffer,
             )
         };
+        std::mem::forget(b_visible);
     }
     pub fn set_color(&mut self, color: &crate::bindings::core_u_object::FLinearColor) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -869,6 +872,7 @@ impl AVREditorTeleporter {
                 __buffer,
             )
         };
+        std::mem::forget(in_mode);
     }
     pub fn get_vr_mode(&self) -> UPtr<UVREditorMode> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -934,6 +938,8 @@ impl AVREditorTeleporter {
                 __buffer,
             )
         };
+        std::mem::forget(interactor);
+        std::mem::forget(axis);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_interactor_trying_teleport(
@@ -1583,6 +1589,7 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(in_controller_type);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn setup_component(
@@ -1619,6 +1626,7 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(owning_actor);
     }
     pub fn set_force_show_laser(&mut self, b_in_force_show: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1651,6 +1659,7 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_force_show);
     }
     pub fn set_force_laser_color(
         &mut self,
@@ -1718,6 +1727,7 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(in_controller_type);
     }
     pub fn set_controller_hand_side(&mut self, in_controller_hand_side: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -1750,6 +1760,7 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(in_controller_hand_side);
     }
     pub fn replace_hand_mesh_component(
         &mut self,
@@ -1793,6 +1804,8 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(new_mesh);
+        std::mem::forget(mesh_scale);
     }
     pub fn is_touching_trackpad(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1901,6 +1914,7 @@ impl UVREditorInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(in_vr_mode);
     }
     pub fn get_trackpad_position(&self) -> crate::bindings::core_u_object::FVector2D {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2342,6 +2356,7 @@ impl UVREditorMode {
                 __buffer,
             )
         };
+        std::mem::forget(b_game_view);
     }
     pub fn is_in_game_view(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2536,6 +2551,7 @@ impl UVRScoutingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_value);
     }
     pub fn set_gizmo_mode(
         &mut self,
@@ -2573,6 +2589,7 @@ impl UVRScoutingInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(in_gizmo_mode);
     }
     pub fn get_selected_actors() -> TArray<UPtr<crate::bindings::engine::AActor>> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();

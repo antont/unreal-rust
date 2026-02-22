@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -3395,6 +3396,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn set_up_direction_override(
         &mut self,
@@ -3438,6 +3440,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_override_up_direction);
+        std::mem::forget(up_direction);
     }
     pub fn set_updated_component(
         &mut self,
@@ -3473,6 +3477,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_updated_component);
     }
     pub fn set_primary_visual_component(
         &mut self,
@@ -3508,6 +3513,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(scene_component);
     }
     pub fn set_planar_constraint(&mut self, in_constraint: &FPlanarConstraint) {
         let mut __stack = crate::core_data::StackAlloc::<56>::new();
@@ -3583,6 +3589,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_override_gravity);
+        std::mem::forget(gravity_acceleration);
     }
     pub fn set_base_visual_component_transform(
         &mut self,
@@ -3650,6 +3658,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(mode_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_gameplay_tags(
@@ -3723,6 +3732,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_remove);
     }
     pub fn queue_next_mode(&mut self, desired_mode_name: FName, b_should_reenter: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -3762,6 +3772,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(desired_mode_name);
+        std::mem::forget(b_should_reenter);
     }
     pub fn queue_layered_move_activation(
         &mut self,
@@ -3797,6 +3809,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(move_logic_class);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn k2_unregister_move(&mut self, move_class: TSubclassOf<ULayeredMoveLogic>) {
@@ -3830,6 +3843,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(move_class);
     }
     pub fn k2_schedule_instant_movement_effect(&mut self, effect_as_raw_data: &i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3897,6 +3911,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(move_classes);
     }
     pub fn k2_register_move(&mut self, move_class: TSubclassOf<ULayeredMoveLogic>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3929,6 +3944,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(move_class);
     }
     pub fn k2_queue_movement_modifier(
         &mut self,
@@ -4008,6 +4024,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(move_logic_class);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn k2_queue_layered_move(&mut self, move_as_raw_data: &i32) {
@@ -4130,6 +4147,7 @@ impl UMoverComponent {
         unsafe {
             __buffer.add(4).cast::<i32>().swap(target_as_raw_bytes);
         }
+        std::mem::forget(modifier_handle);
     }
     pub fn k2_find_active_layered_move(
         &self,
@@ -4344,6 +4362,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_find);
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(237).cast::<bool>().read() }
     }
     pub fn has_gameplay_tag(
@@ -4388,6 +4408,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_find);
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn handle_impact(&mut self, impact_params: &mut FMoverOnImpactParams) {
@@ -4655,6 +4677,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(prediction_params);
         unsafe { __buffer.add(288).cast::<TArray<FTrajectorySampleInfo>>().read() }
     }
     pub fn get_planar_constraint(&self) -> FPlanarConstraint {
@@ -4944,6 +4967,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(future_seconds);
+        std::mem::forget(samples_per_second);
         unsafe { __buffer.add(8).cast::<TArray<FTrajectorySampleInfo>>().read() }
     }
     pub fn get_base_visual_component_transform(
@@ -5012,6 +5037,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(shared_setting);
         unsafe {
             __buffer
                 .add(8)
@@ -5055,6 +5081,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(shared_setting);
         unsafe {
             __buffer
                 .add(8)
@@ -5096,6 +5123,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(movement_mode_name);
         unsafe { __buffer.add(16).cast::<UPtr<UBaseMovementMode>>().read() }
     }
     pub fn find_movement_mode(
@@ -5132,6 +5160,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(movement_mode);
         unsafe { __buffer.add(8).cast::<UPtr<UBaseMovementMode>>().read() }
     }
     pub fn cancel_modifier_from_handle(
@@ -5168,6 +5197,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(modifier_handle);
     }
     pub fn cancel_features_with_tag(
         &mut self,
@@ -5211,6 +5241,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_cancel);
+        std::mem::forget(b_require_exact_match);
     }
     pub fn bind_process_generated_movement(
         &mut self,
@@ -5250,6 +5282,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(process_generated_movement_event);
     }
     pub fn add_movement_mode_from_object(
         &mut self,
@@ -5293,6 +5326,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(mode_name);
+        std::mem::forget(movement_mode);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_movement_mode_from_class(
@@ -5337,6 +5372,8 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(mode_name);
+        std::mem::forget(movement_mode);
         unsafe { __buffer.add(24).cast::<UPtr<UBaseMovementMode>>().read() }
     }
     pub fn add_gameplay_tags(
@@ -5410,6 +5447,7 @@ impl UMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_add);
     }
 }
 #[repr(C, align(8))]
@@ -5586,6 +5624,7 @@ impl UPathedPhysicsMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_play_forward);
     }
     pub fn set_path_origin_transform(
         &mut self,
@@ -5653,6 +5692,7 @@ impl UPathedPhysicsMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_should_move);
     }
     pub fn set_default_playback_behavior(
         &mut self,
@@ -5688,6 +5728,7 @@ impl UPathedPhysicsMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(playback_behavior);
     }
     pub fn is_moving(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5924,6 +5965,7 @@ impl UMoverStandaloneLiaisonComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_use_async_input_production);
     }
     pub fn set_use_async_movement_simulation_tick(
         &mut self,
@@ -5959,6 +6001,7 @@ impl UMoverStandaloneLiaisonComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_use_async_movement_sim);
     }
     pub fn set_enable_produce_input(&mut self, b_enable_input_production: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5991,6 +6034,7 @@ impl UMoverStandaloneLiaisonComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable_input_production);
     }
     pub fn get_use_async_produce_input(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6120,6 +6164,9 @@ impl UMoverStandaloneLiaisonComponent {
                 __buffer,
             )
         };
+        std::mem::forget(other_component);
+        std::mem::forget(tick_order);
+        std::mem::forget(tick_phase);
     }
 }
 #[repr(C, align(8))]
@@ -6207,6 +6254,8 @@ impl UMoverDebugComponent {
                 __buffer,
             )
         };
+        std::mem::forget(seconds_to_track);
+        std::mem::forget(samples_per_second);
     }
     pub fn get_past_trajectory(&self) -> TArray<FTrajectorySampleInfo> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -6328,6 +6377,7 @@ impl UCharacterMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_handle_stance_changes);
     }
     pub fn set_handle_jump(&mut self, b_in_handle_jump: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6360,6 +6410,7 @@ impl UCharacterMoverComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_handle_jump);
     }
     pub fn jump(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6778,6 +6829,7 @@ impl ULayeredMoveLogic {
                 __buffer,
             )
         };
+        std::mem::forget(sim_blackboard);
     }
     pub fn on_end(
         &mut self,
@@ -6819,6 +6871,7 @@ impl ULayeredMoveLogic {
                 __buffer,
             )
         };
+        std::mem::forget(sim_blackboard);
     }
     pub fn k2_set_active_move_data(
         move_logic: UPtr<ULayeredMoveLogic>,
@@ -6861,6 +6914,7 @@ impl ULayeredMoveLogic {
                 __buffer,
             )
         };
+        std::mem::forget(move_logic);
     }
     pub fn k2_get_active_move_data(
         move_logic: UPtr<ULayeredMoveLogic>,
@@ -6906,6 +6960,7 @@ impl ULayeredMoveLogic {
         unsafe {
             __buffer.add(8).cast::<FLayeredMoveInstancedData>().swap(out_move_data);
         }
+        std::mem::forget(move_logic);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn is_finished(
@@ -6948,6 +7003,7 @@ impl ULayeredMoveLogic {
                 __buffer,
             )
         };
+        std::mem::forget(sim_blackboard);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn generate_move(
@@ -7011,6 +7067,7 @@ impl ULayeredMoveLogic {
         unsafe {
             __buffer.add(288).cast::<FProposedMove>().swap(out_proposed_move);
         }
+        std::mem::forget(sim_blackboard);
         unsafe { __buffer.add(384).cast::<bool>().read() }
     }
 }
@@ -7193,6 +7250,7 @@ impl UBaseMovementMode {
                 __buffer,
             )
         };
+        std::mem::forget(mode_name);
     }
     pub fn on_deactivated(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -7562,6 +7620,7 @@ impl UAsyncNavWalkingMode {
                 __buffer,
             )
         };
+        std::mem::forget(turn_generator_class);
     }
     pub fn get_turn_generator(
         &mut self,
@@ -7670,6 +7729,7 @@ impl UAsyncWalkingMode {
                 __buffer,
             )
         };
+        std::mem::forget(turn_generator_class);
     }
     pub fn get_turn_generator(
         &mut self,
@@ -7944,6 +8004,7 @@ impl UNavWalkingMode {
                 __buffer,
             )
         };
+        std::mem::forget(turn_generator_class);
     }
     pub fn get_turn_generator(
         &mut self,
@@ -8052,6 +8113,7 @@ impl UWalkingMode {
                 __buffer,
             )
         };
+        std::mem::forget(turn_generator_class);
     }
     pub fn get_turn_generator(
         &mut self,
@@ -8220,6 +8282,7 @@ impl USimpleWalkingMode {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(in_out_velocity);
         }
+        std::mem::forget(delta_seconds);
     }
 }
 #[repr(C, align(8))]
@@ -8725,6 +8788,12 @@ impl UAirMovementUtils {
         unsafe {
             __buffer.add(680).cast::<FMovementRecord>().swap(move_record);
         }
+        std::mem::forget(pct_of_delta_to_move);
+        std::mem::forget(rotation);
+        std::mem::forget(b_handle_impact);
+        std::mem::forget(floor_sweep_distance);
+        std::mem::forget(max_walk_slope_cosine);
+        std::mem::forget(b_use_flat_base_for_floor_checks);
         unsafe { __buffer.add(752).cast::<f32>().read() }
     }
     pub fn test_falling_move_along_hit_surface(
@@ -8852,6 +8921,10 @@ impl UAirMovementUtils {
         unsafe {
             __buffer.add(672).cast::<FMovementRecord>().swap(in_out_move_record);
         }
+        std::mem::forget(b_handle_impact);
+        std::mem::forget(floor_sweep_distance);
+        std::mem::forget(max_walk_slope_cosine);
+        std::mem::forget(b_use_flat_base_for_floor_checks);
         unsafe { __buffer.add(744).cast::<f32>().read() }
     }
     pub fn is_valid_landing_spot(
@@ -8938,6 +9011,9 @@ impl UAirMovementUtils {
         unsafe {
             __buffer.add(328).cast::<FFloorCheckResult>().swap(out_floor_result);
         }
+        std::mem::forget(floor_sweep_distance);
+        std::mem::forget(max_walk_slope_cosine);
+        std::mem::forget(b_use_flat_base_for_floor_checks);
         unsafe { __buffer.add(608).cast::<bool>().read() }
     }
     pub fn compute_controlled_free_move(in_params: &FFreeMoveParams) -> FProposedMove {
@@ -9190,6 +9266,7 @@ impl UAsyncMovementUtils {
         unsafe {
             __buffer.add(416).cast::<FMovementRecord>().swap(in_out_move_record);
         }
+        std::mem::forget(b_should_sweep);
         unsafe { __buffer.add(488).cast::<bool>().read() }
     }
 }
@@ -9292,6 +9369,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FRotator>()
                 .swap(out_local_rotator);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(world_space_rotator);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn transform_world_location_to_based(
@@ -9359,6 +9439,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_local_location);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(world_space_location);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn transform_world_direction_to_based(
@@ -9426,6 +9509,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_local_direction);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(world_space_direction);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn transform_rotator_to_world(
@@ -9483,6 +9569,8 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FRotator>()
                 .swap(out_world_space_rotator);
         }
+        std::mem::forget(base_quat);
+        std::mem::forget(local_rotator);
     }
     pub fn transform_rotator_to_local(
         base_quat: crate::bindings::core_u_object::FQuat,
@@ -9539,6 +9627,8 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FRotator>()
                 .swap(out_local_rotator);
         }
+        std::mem::forget(base_quat);
+        std::mem::forget(world_space_rotator);
     }
     pub fn transform_location_to_world(
         base_pos: crate::bindings::core_u_object::FVector,
@@ -9603,6 +9693,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_location_world_space);
         }
+        std::mem::forget(base_pos);
+        std::mem::forget(base_quat);
+        std::mem::forget(local_location);
     }
     pub fn transform_location_to_local(
         base_pos: crate::bindings::core_u_object::FVector,
@@ -9667,6 +9760,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_local_location);
         }
+        std::mem::forget(base_pos);
+        std::mem::forget(base_quat);
+        std::mem::forget(world_space_location);
     }
     pub fn transform_direction_to_world(
         base_quat: crate::bindings::core_u_object::FQuat,
@@ -9723,6 +9819,8 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_direction_world_space);
         }
+        std::mem::forget(base_quat);
+        std::mem::forget(local_direction);
     }
     pub fn transform_direction_to_local(
         base_quat: crate::bindings::core_u_object::FQuat,
@@ -9779,6 +9877,8 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_local_direction);
         }
+        std::mem::forget(base_quat);
+        std::mem::forget(world_space_direction);
     }
     pub fn transform_based_rotator_to_world(
         movement_base: UPtr<crate::bindings::engine::UPrimitiveComponent>,
@@ -9845,6 +9945,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FRotator>()
                 .swap(out_world_space_rotator);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(local_rotator);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn transform_based_location_to_world(
@@ -9912,6 +10015,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_location_world_space);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(local_location);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn transform_based_direction_to_world(
@@ -9979,6 +10085,9 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_direction_world_space);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(local_direction);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn is_base_simulating_physics(
@@ -10016,6 +10125,7 @@ impl UBasedMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(movement_base);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_a_dynamic_base(
@@ -10053,6 +10163,7 @@ impl UBasedMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(movement_base);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_movement_base_transform(
@@ -10126,6 +10237,8 @@ impl UBasedMovementUtils {
                 .cast::<crate::bindings::core_u_object::FQuat>()
                 .swap(out_quat);
         }
+        std::mem::forget(movement_base);
+        std::mem::forget(bone_name);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
 }
@@ -10207,6 +10320,7 @@ impl UPlanarConstraintUtils {
         unsafe {
             __buffer.add(0).cast::<FPlanarConstraint>().swap(constraint);
         }
+        std::mem::forget(plane_origin);
     }
     pub fn set_planar_constraint_normal(
         constraint: &mut FPlanarConstraint,
@@ -10252,6 +10366,7 @@ impl UPlanarConstraintUtils {
         unsafe {
             __buffer.add(0).cast::<FPlanarConstraint>().swap(constraint);
         }
+        std::mem::forget(plane_normal);
     }
     pub fn set_planar_constraint_enabled(
         constraint: &mut FPlanarConstraint,
@@ -10297,6 +10412,7 @@ impl UPlanarConstraintUtils {
         unsafe {
             __buffer.add(0).cast::<FPlanarConstraint>().swap(constraint);
         }
+        std::mem::forget(b_enabled);
     }
     pub fn constrain_normal_to_plane(
         constraint: &FPlanarConstraint,
@@ -10339,6 +10455,7 @@ impl UPlanarConstraintUtils {
                 __buffer,
             )
         };
+        std::mem::forget(normal);
         unsafe {
             __buffer.add(80).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10384,6 +10501,7 @@ impl UPlanarConstraintUtils {
                 __buffer,
             )
         };
+        std::mem::forget(location);
         unsafe {
             __buffer.add(80).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10437,6 +10555,8 @@ impl UPlanarConstraintUtils {
                 __buffer,
             )
         };
+        std::mem::forget(direction);
+        std::mem::forget(b_maintain_magnitude);
         unsafe {
             __buffer.add(88).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10525,6 +10645,7 @@ impl UFloorQueryUtils {
                 __buffer,
             )
         };
+        std::mem::forget(max_walk_slope_cosine);
         unsafe { __buffer.add(292).cast::<bool>().read() }
     }
 }
@@ -10673,6 +10794,11 @@ impl UGroundMovementUtils {
         unsafe {
             __buffer.add(392).cast::<FMovementRecord>().swap(move_record);
         }
+        std::mem::forget(pct_of_delta_to_move);
+        std::mem::forget(rotation);
+        std::mem::forget(b_handle_impact);
+        std::mem::forget(max_walk_slope_cosine);
+        std::mem::forget(max_step_height);
         unsafe { __buffer.add(472).cast::<f32>().read() }
     }
     pub fn test_move_to_keep_min_height_above_floor(
@@ -10754,6 +10880,7 @@ impl UGroundMovementUtils {
         unsafe {
             __buffer.add(368).cast::<FMovementRecord>().swap(in_out_move_record);
         }
+        std::mem::forget(max_walk_slope_cosine);
         unsafe {
             __buffer.add(440).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10837,6 +10964,7 @@ impl UGroundMovementUtils {
         unsafe {
             __buffer.add(368).cast::<FMovementRecord>().swap(in_out_move_record);
         }
+        std::mem::forget(max_walk_slope_cosine);
         unsafe {
             __buffer.add(440).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -10947,6 +11075,9 @@ impl UGroundMovementUtils {
         unsafe {
             __buffer.add(392).cast::<FMovementRecord>().swap(in_out_move_record);
         }
+        std::mem::forget(b_handle_impact);
+        std::mem::forget(max_step_height);
+        std::mem::forget(max_walk_slope_cosine);
         unsafe { __buffer.add(464).cast::<f32>().read() }
     }
     pub fn compute_deflected_move_onto_ramp(
@@ -11014,6 +11145,8 @@ impl UGroundMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(max_walk_slope_cosine);
+        std::mem::forget(b_hit_from_line_trace);
         unsafe {
             __buffer.add(320).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -11198,6 +11331,8 @@ impl UTurnGeneratorInterface {
                 __buffer,
             )
         };
+        std::mem::forget(target_orientation);
+        std::mem::forget(sim_blackboard);
         unsafe {
             __buffer.add(624).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -11427,6 +11562,7 @@ impl UMovementRecordUtils {
         unsafe {
             __buffer.add(0).cast::<FMovementRecord>().swap(out_movement_record);
         }
+        std::mem::forget(delta_seconds);
     }
     pub fn k2_get_total_move_delta(
         movement_record: &FMovementRecord,
@@ -11646,6 +11782,8 @@ impl UMovementUtils {
         unsafe {
             __buffer.add(88).cast::<crate::bindings::engine::FHitResult>().swap(out_hit);
         }
+        std::mem::forget(b_sweep);
+        std::mem::forget(teleport);
         unsafe { __buffer.add(353).cast::<bool>().read() }
     }
     pub fn try_safe_move_updated_component(
@@ -11731,6 +11869,8 @@ impl UMovementUtils {
         unsafe {
             __buffer.add(360).cast::<FMovementRecord>().swap(move_record);
         }
+        std::mem::forget(b_sweep);
+        std::mem::forget(teleport);
         unsafe { __buffer.add(432).cast::<bool>().read() }
     }
     pub fn try_safe_move_and_slide_updated_component_no_movement_record(
@@ -11813,6 +11953,9 @@ impl UMovementUtils {
         unsafe {
             __buffer.add(88).cast::<crate::bindings::engine::FHitResult>().swap(out_hit);
         }
+        std::mem::forget(b_sweep);
+        std::mem::forget(teleport);
+        std::mem::forget(b_slide_along_surface);
         unsafe { __buffer.add(356).cast::<f32>().read() }
     }
     pub fn try_safe_move_and_slide_updated_component(
@@ -11906,6 +12049,9 @@ impl UMovementUtils {
         unsafe {
             __buffer.add(360).cast::<FMovementRecord>().swap(move_record);
         }
+        std::mem::forget(b_sweep);
+        std::mem::forget(teleport);
+        std::mem::forget(b_slide_along_surface);
         unsafe { __buffer.add(436).cast::<f32>().read() }
     }
     pub fn try_move_to_slide_along_surface_no_movement_record(
@@ -11992,6 +12138,9 @@ impl UMovementUtils {
         unsafe {
             __buffer.add(120).cast::<crate::bindings::engine::FHitResult>().swap(hit);
         }
+        std::mem::forget(pct_of_delta_to_move);
+        std::mem::forget(rotation);
+        std::mem::forget(b_handle_impact);
         unsafe { __buffer.add(388).cast::<f32>().read() }
     }
     pub fn try_move_to_slide_along_surface(
@@ -12089,6 +12238,9 @@ impl UMovementUtils {
         unsafe {
             __buffer.add(392).cast::<FMovementRecord>().swap(move_record);
         }
+        std::mem::forget(pct_of_delta_to_move);
+        std::mem::forget(rotation);
+        std::mem::forget(b_handle_impact);
         unsafe { __buffer.add(464).cast::<f32>().read() }
     }
     pub fn test_encroachment_and_adjust(
@@ -12154,6 +12306,9 @@ impl UMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_proposed_adjustment);
         }
+        std::mem::forget(mover_comp);
+        std::mem::forget(test_location);
+        std::mem::forget(test_rotation);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn test_encroachment(
@@ -12205,6 +12360,9 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(mover_comp);
+        std::mem::forget(test_location);
+        std::mem::forget(test_rotation);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn project_to_gravity_floor(
@@ -12293,6 +12451,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(in_max_speed);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn is_angular_velocity_zero(
@@ -12430,6 +12589,8 @@ impl UMovementUtils {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(test_location);
         }
+        std::mem::forget(mover_comp);
+        std::mem::forget(test_rotation);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn deduce_up_direction_from_gravity(
@@ -12518,6 +12679,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_maintain_magnitude);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -12571,6 +12733,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -12616,6 +12779,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -12722,6 +12886,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(pct_of_delta_to_move);
         unsafe {
             __buffer.add(344).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -12771,6 +12936,8 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(move_input_type);
+        std::mem::forget(max_speed);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -12869,6 +13036,8 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
+        std::mem::forget(turning_rate_limit);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -12938,6 +13107,8 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
+        std::mem::forget(turning_rate_limit);
         unsafe {
             __buffer.add(88).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -12999,6 +13170,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
         unsafe { __buffer.add(76).cast::<bool>().read() }
     }
     pub fn apply_gravity_to_orientation_intent(
@@ -13050,6 +13222,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_stay_vertical);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -13103,6 +13276,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -13156,6 +13330,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
         unsafe {
             __buffer.add(64).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -13209,6 +13384,7 @@ impl UMovementUtils {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
         unsafe {
             __buffer.add(56).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -13344,6 +13520,11 @@ impl UPlayMoverMontageCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_mover_component);
+        std::mem::forget(montage_to_play);
+        std::mem::forget(play_rate);
+        std::mem::forget(starting_position);
+        std::mem::forget(starting_section);
         unsafe { __buffer.add(40).cast::<UPtr<UPlayMoverMontageCallbackProxy>>().read() }
     }
 }
@@ -14300,6 +14481,7 @@ impl UMoverTrajectoryPredictor {
                 __buffer,
             )
         };
+        std::mem::forget(in_mover_component);
     }
 }
 #[repr(C, align(8))]
@@ -14507,6 +14689,7 @@ impl UMoverSimulation {
         unsafe {
             __buffer.add(136).cast::<FMoverSyncState>().swap(output_state);
         }
+        std::mem::forget(b_use_actor_rotation);
     }
 }
 pub struct IMoverInputProducerInterface {}
@@ -14589,6 +14772,7 @@ impl UMoverInputProducerInterface {
         unsafe {
             __buffer.add(8).cast::<FMoverInputCmdContext>().swap(input_cmd_result);
         }
+        std::mem::forget(sim_time_ms);
     }
 }
 #[repr(C, align(8))]
@@ -14977,6 +15161,7 @@ impl UPathedPhysicsMovementMode {
                 __buffer,
             )
         };
+        std::mem::forget(b_use_joint);
     }
     pub fn set_path_duration_begin_play_only(&mut self, new_duration: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -15009,6 +15194,7 @@ impl UPathedPhysicsMovementMode {
                 __buffer,
             )
         };
+        std::mem::forget(new_duration);
     }
     pub fn bp_find_pattern(
         &self,
@@ -15044,6 +15230,7 @@ impl UPathedPhysicsMovementMode {
                 __buffer,
             )
         };
+        std::mem::forget(pattern_type);
         unsafe { __buffer.add(8).cast::<UPtr<UPathedMovementPatternBase>>().read() }
     }
 }

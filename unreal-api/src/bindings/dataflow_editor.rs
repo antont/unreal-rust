@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1244,6 +1245,10 @@ impl UDataflowEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(dataflow);
+        std::mem::forget(node_name);
+        std::mem::forget(property_name);
+        std::mem::forget(propertyvalue);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn connect_dataflow_nodes(
@@ -1313,6 +1318,11 @@ impl UDataflowEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(dataflow);
+        std::mem::forget(from_node_name);
+        std::mem::forget(output_name);
+        std::mem::forget(to_node_name);
+        std::mem::forget(input_name);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn add_dataflow_node(
@@ -1374,6 +1384,10 @@ impl UDataflowEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(dataflow);
+        std::mem::forget(node_type_name);
+        std::mem::forget(base_name);
+        std::mem::forget(location);
         unsafe { __buffer.add(48).cast::<FName>().read() }
     }
     pub fn add_dataflow_from_clipboard_content(
@@ -1427,6 +1441,9 @@ impl UDataflowEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(dataflow);
+        std::mem::forget(clipboard_content);
+        std::mem::forget(location);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
 }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -543,6 +544,7 @@ impl UBlueprintGameplayTagLibrary {
         unsafe {
             __buffer.add(0).cast::<FGameplayTagContainer>().swap(tag_container);
         }
+        std::mem::forget(tag);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn not_equal_tag_tag(a: FGameplayTag, b: FString) -> bool {
@@ -575,6 +577,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn not_equal_tag_container_tag_container(
@@ -614,6 +618,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn not_equal_gameplay_tag_container(
@@ -693,6 +699,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn matches_tag(
@@ -744,6 +752,9 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_one);
+        std::mem::forget(tag_two);
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn matches_any_tags(
@@ -795,6 +806,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_one);
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn make_literal_gameplay_tag_container(
@@ -830,6 +843,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe { __buffer.add(32).cast::<FGameplayTagContainer>().read() }
     }
     pub fn make_literal_gameplay_tag(value: FGameplayTag) -> FGameplayTag {
@@ -863,6 +877,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
         unsafe { __buffer.add(12).cast::<FGameplayTag>().read() }
     }
     pub fn make_gameplay_tag_query_match_no_tags(
@@ -1001,6 +1016,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_query);
         unsafe { __buffer.add(72).cast::<FGameplayTagQuery>().read() }
     }
     pub fn make_gameplay_tag_container_from_tag(
@@ -1036,6 +1052,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(single_tag);
         unsafe { __buffer.add(16).cast::<FGameplayTagContainer>().read() }
     }
     pub fn make_gameplay_tag_container_from_array(
@@ -1137,6 +1154,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_tag);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_tag(
@@ -1188,6 +1206,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(45).cast::<bool>().read() }
     }
     pub fn has_any_tags(
@@ -1239,6 +1259,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(65).cast::<bool>().read() }
     }
     pub fn has_any_matching_gameplay_tags(
@@ -1282,6 +1303,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_container_interface);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn has_all_tags(
@@ -1333,6 +1355,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(65).cast::<bool>().read() }
     }
     pub fn has_all_matching_gameplay_tags(
@@ -1376,6 +1399,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_container_interface);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn get_tag_name(gameplay_tag: &FGameplayTag) -> FName {
@@ -1444,6 +1468,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_container_interface);
         unsafe { __buffer.add(16).cast::<FGameplayTagContainer>().read() }
     }
     pub fn get_num_gameplay_tags_in_container(
@@ -1547,6 +1572,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_tag);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_all_actors_of_class_matching_tag_query(
@@ -1612,6 +1638,8 @@ impl UBlueprintGameplayTagLibrary {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(out_actors);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(actor_class);
     }
     pub fn filter(
         tag_container: &FGameplayTagContainer,
@@ -1662,6 +1690,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_exact_match);
         unsafe { __buffer.add(72).cast::<FGameplayTagContainer>().read() }
     }
     pub fn equal_equal_gameplay_tag_container(
@@ -1741,6 +1770,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn does_tag_asset_interface_have_tag(
@@ -1784,6 +1815,8 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_container_interface);
+        std::mem::forget(tag);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn does_container_match_tag_query(
@@ -1862,6 +1895,7 @@ impl UBlueprintGameplayTagLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_object);
         unsafe {
             __buffer.add(8).cast::<TScriptInterface<UGameplayTagAssetInterface>>().read()
         }
@@ -2000,6 +2034,7 @@ impl UBlueprintGameplayTagLibrary {
         unsafe {
             __buffer.add(0).cast::<FGameplayTagContainer>().swap(tag_container);
         }
+        std::mem::forget(tag);
     }
 }
 pub struct IGameplayTagAssetInterface {}
@@ -2068,6 +2103,7 @@ impl UGameplayTagAssetInterface {
                 __buffer,
             )
         };
+        std::mem::forget(tag_to_check);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn has_any_matching_gameplay_tags(

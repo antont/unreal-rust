@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1303,6 +1304,7 @@ impl UMediaSource {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn set_media_option_int64(&mut self, key: &FName, value: i64) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -1334,6 +1336,7 @@ impl UMediaSource {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn set_media_option_float(&mut self, key: &FName, value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1365,6 +1368,7 @@ impl UMediaSource {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn set_media_option_bool(&mut self, key: &FName, value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -1396,6 +1400,7 @@ impl UMediaSource {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn get_url(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1525,6 +1530,7 @@ impl UFileMediaSource {
                 __buffer,
             )
         };
+        std::mem::forget(path);
     }
 }
 #[repr(C, align(8))]
@@ -1786,6 +1792,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(rate);
+        std::mem::forget(unthinned);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn supports_playback_time_range(&self) -> bool {
@@ -1852,6 +1860,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(absolute);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn set_view_field(
@@ -1892,6 +1901,9 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(horizontal);
+        std::mem::forget(vertical);
+        std::mem::forget(absolute);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_video_track_frame_rate(
@@ -1940,6 +1952,9 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
+        std::mem::forget(frame_rate);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_track_format(
@@ -1992,6 +2007,9 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_time_delay(
@@ -2028,6 +2046,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(time_delay);
     }
     pub fn set_rate(&mut self, rate: f32) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -2054,6 +2073,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(rate);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn set_playback_time_range(
@@ -2090,6 +2110,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_time_range);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_native_volume(&mut self, volume: f32) -> bool {
@@ -2119,6 +2140,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(volume);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn set_media_options(&mut self, options: UPtr<UMediaSource>) {
@@ -2152,6 +2174,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(options);
     }
     pub fn set_looping(&mut self, looping: bool) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<2>::new();
@@ -2180,6 +2203,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(looping);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_desired_player_name(&mut self, player_name: FName) {
@@ -2213,6 +2237,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(player_name);
     }
     pub fn set_block_on_time(
         &mut self,
@@ -2291,6 +2316,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
+        std::mem::forget(track_index);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn seek(&mut self, time: &crate::bindings::core_u_object::FTimespan) -> bool {
@@ -2525,6 +2552,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(url);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn open_source_with_options(
@@ -2571,6 +2599,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(media_source);
         unsafe { __buffer.add(208).cast::<bool>().read() }
     }
     pub fn open_source_latent(
@@ -2644,6 +2673,9 @@ impl UMediaPlayer {
         unsafe {
             __buffer.add(248).cast::<bool>().swap(b_success);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(latent_info);
+        std::mem::forget(media_source);
     }
     pub fn open_source(&mut self, media_source: UPtr<UMediaSource>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -2676,6 +2708,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(media_source);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn open_playlist_index(
@@ -2716,6 +2749,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_playlist);
+        std::mem::forget(index);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn open_playlist(&mut self, in_playlist: UPtr<UMediaPlaylist>) -> bool {
@@ -2749,6 +2784,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_playlist);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn open_file(&mut self, file_path: FString) -> bool {
@@ -2780,6 +2816,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(file_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn next(&mut self) -> bool {
@@ -3094,6 +3131,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_video_track_frame_rates(
@@ -3138,6 +3177,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFloatRange>().read()
         }
@@ -3184,6 +3225,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_video_track_dimensions(
@@ -3228,6 +3271,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FIntPoint>().read()
         }
@@ -3274,6 +3319,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_vertical_field_of_view(&self) -> f32 {
@@ -3368,6 +3415,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
+        std::mem::forget(track_index);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_track_format(
@@ -3412,6 +3461,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
+        std::mem::forget(track_index);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_track_display_name(
@@ -3456,6 +3507,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
+        std::mem::forget(track_index);
         unsafe { __buffer.add(8).cast::<FText>().read() }
     }
     pub fn get_time_stamp(&self) -> UPtr<UMediaTimeStampInfo> {
@@ -3588,6 +3641,7 @@ impl UMediaPlayer {
                 .cast::<TArray<crate::bindings::core_u_object::FFloatRange>>()
                 .swap(out_rates);
         }
+        std::mem::forget(unthinned);
     }
     pub fn get_selected_track(&self, track_type: EMediaPlayerTrack) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3620,6 +3674,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_rate(&self) -> f32 {
@@ -3758,6 +3813,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_range_to_get);
         unsafe {
             __buffer
                 .add(4)
@@ -3796,6 +3852,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_track_formats(
@@ -3840,6 +3897,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
+        std::mem::forget(track_index);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_media_name(&self) -> FText {
@@ -4066,6 +4125,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_audio_track_sample_rate(
@@ -4110,6 +4171,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_audio_track_channels(&self, track_index: i32, format_index: i32) -> i32 {
@@ -4150,6 +4213,8 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(track_index);
+        std::mem::forget(format_index);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn close(&mut self) {
@@ -4202,6 +4267,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(url);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn can_play_source(&mut self, media_source: UPtr<UMediaSource>) -> bool {
@@ -4235,6 +4301,7 @@ impl UMediaPlayer {
                 __buffer,
             )
         };
+        std::mem::forget(media_source);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn can_pause(&self) -> bool {
@@ -4364,6 +4431,8 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(replacement);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_at(&mut self, index: i32) -> bool {
@@ -4393,6 +4462,7 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn remove(&mut self, media_source: UPtr<UMediaSource>) -> bool {
@@ -4424,6 +4494,7 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(media_source);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn num(&mut self) -> i32 {
@@ -4482,6 +4553,8 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(media_source);
+        std::mem::forget(index);
     }
     pub fn get_random(&mut self, out_index: &mut i32) -> UPtr<UMediaSource> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -4610,6 +4683,7 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<UPtr<UMediaSource>>().read() }
     }
     pub fn add_url(&mut self, url: FString) -> bool {
@@ -4637,6 +4711,7 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(url);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_file(&mut self, file_path: FString) -> bool {
@@ -4668,6 +4743,7 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(file_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add(&mut self, media_source: UPtr<UMediaSource>) -> bool {
@@ -4699,6 +4775,7 @@ impl UMediaPlaylist {
                 __buffer,
             )
         };
+        std::mem::forget(media_source);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -4778,6 +4855,8 @@ impl UMediaSoundComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_frequencies_to_analyze);
+        std::mem::forget(in_fft_size);
     }
     pub fn set_media_player(&mut self, new_media_player: UPtr<UMediaPlayer>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4810,6 +4889,7 @@ impl UMediaSoundComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_media_player);
     }
     pub fn set_envelope_followingsettings(
         &mut self,
@@ -4853,6 +4933,8 @@ impl UMediaSoundComponent {
                 __buffer,
             )
         };
+        std::mem::forget(attack_time_msec);
+        std::mem::forget(release_time_msec);
     }
     pub fn set_enable_spectral_analysis(
         &mut self,
@@ -4888,6 +4970,7 @@ impl UMediaSoundComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_spectral_analysis_enabled);
     }
     pub fn set_enable_envelope_following(&mut self, b_in_envelope_following: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4920,6 +5003,7 @@ impl UMediaSoundComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_envelope_following);
     }
     pub fn get_spectral_data(&mut self) -> TArray<FMediaSoundComponentSpectralData> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5178,6 +5262,7 @@ impl UMediaTexture {
                 __buffer,
             )
         };
+        std::mem::forget(new_media_player);
     }
     pub fn get_width(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5492,6 +5577,7 @@ impl UMediaBlueprintFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<TArray<FMediaCaptureDevice>>().swap(out_devices);
         }
+        std::mem::forget(filter);
     }
     pub fn enumerate_video_capture_devices(
         out_devices: &mut TArray<FMediaCaptureDevice>,
@@ -5533,6 +5619,7 @@ impl UMediaBlueprintFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<TArray<FMediaCaptureDevice>>().swap(out_devices);
         }
+        std::mem::forget(filter);
     }
     pub fn enumerate_audio_capture_devices(
         out_devices: &mut TArray<FMediaCaptureDevice>,
@@ -5574,6 +5661,7 @@ impl UMediaBlueprintFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<TArray<FMediaCaptureDevice>>().swap(out_devices);
         }
+        std::mem::forget(filter);
     }
 }
 #[repr(C, align(8))]

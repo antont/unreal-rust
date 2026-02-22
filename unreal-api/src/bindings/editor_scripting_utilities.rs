@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1504,6 +1505,9 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(tag);
+        std::mem::forget(value);
     }
     pub fn save_loaded_assets(
         assets_to_save: &TArray<UPtr<crate::bindings::core_u_object::UObject>>,
@@ -1548,6 +1552,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_if_is_dirty);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn save_loaded_asset(
@@ -1591,6 +1596,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_save);
+        std::mem::forget(b_only_if_is_dirty);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn save_directory(
@@ -1642,6 +1649,9 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_only_if_is_dirty);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn save_asset(asset_to_save: FString, b_only_if_is_dirty: bool) -> bool {
@@ -1682,6 +1692,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_save);
+        std::mem::forget(b_only_if_is_dirty);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn rename_loaded_asset(
@@ -1725,6 +1737,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset);
+        std::mem::forget(destination_asset_path);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn rename_directory(
@@ -1768,6 +1782,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_directory_path);
+        std::mem::forget(destination_directory_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn rename_asset(
@@ -1811,6 +1827,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset_path);
+        std::mem::forget(destination_asset_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_metadata_tag(
@@ -1850,6 +1868,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(tag);
     }
     pub fn make_directory(directory_path: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -1882,6 +1902,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn load_blueprint_class(
@@ -1917,6 +1938,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe {
             __buffer
                 .add(16)
@@ -1957,6 +1979,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe {
             __buffer
                 .add(16)
@@ -2013,6 +2036,9 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_recursive);
+        std::mem::forget(b_include_folder);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn list_asset_by_tag_value(
@@ -2052,6 +2078,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag_name);
+        std::mem::forget(tag_value);
         unsafe { __buffer.add(32).cast::<TArray<FString>>().read() }
     }
     pub fn get_tag_values(asset_path: FString) -> TMap<FName, FString> {
@@ -2085,6 +2113,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<TMap<FName, FString>>().read() }
     }
     pub fn get_project_root_asset_directory() -> FString {
@@ -2146,6 +2175,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(loaded_asset);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_package_for_object(
@@ -2181,6 +2211,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
         unsafe {
             __buffer
                 .add(8)
@@ -2221,6 +2252,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
         unsafe { __buffer.add(8).cast::<TMap<FName, FString>>().read() }
     }
     pub fn get_metadata_tag(
@@ -2260,6 +2292,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(tag);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn find_package_referencers_for_asset(
@@ -2303,6 +2337,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
+        std::mem::forget(b_load_assets_to_confirm);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn find_asset_data(
@@ -2338,6 +2374,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FAssetData>().read()
         }
@@ -2383,6 +2420,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset);
+        std::mem::forget(destination_asset_path);
         unsafe {
             __buffer
                 .add(24)
@@ -2431,6 +2470,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_directory_path);
+        std::mem::forget(destination_directory_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn duplicate_asset(
@@ -2474,6 +2515,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset_path);
+        std::mem::forget(destination_asset_path);
         unsafe {
             __buffer
                 .add(32)
@@ -2522,6 +2565,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn does_directory_exist(directory_path: FString) -> bool {
@@ -2555,6 +2600,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn does_asset_exist(asset_path: FString) -> bool {
@@ -2588,6 +2634,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn do_assets_exist(asset_paths: &TArray<FString>) -> bool {
@@ -2693,6 +2740,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_delete);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn delete_directory(directory_path: FString) -> bool {
@@ -2726,6 +2774,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn delete_asset(asset_path_to_delete: FString) -> bool {
@@ -2759,6 +2808,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path_to_delete);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn consolidate_assets(
@@ -2804,6 +2854,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_consolidate_to);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn checkout_loaded_assets(
@@ -2876,6 +2927,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_checkout);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn checkout_directory(directory_path: FString, b_recursive: bool) -> bool {
@@ -2916,6 +2968,8 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn checkout_asset(asset_to_checkout: FString) -> bool {
@@ -2949,6 +3003,7 @@ impl UEditorAssetLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_checkout);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -3043,6 +3098,9 @@ impl UEditorDialogLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_ini_setting_name);
+        std::mem::forget(in_ini_setting_file_name_override);
+        std::mem::forget(b_default_value);
         unsafe { __buffer.add(65).cast::<bool>().read() }
     }
     pub fn show_objects_details_view(
@@ -3139,6 +3197,7 @@ impl UEditorDialogLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_out_object);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn show_message(
@@ -3202,6 +3261,9 @@ impl UEditorDialogLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(message_type);
+        std::mem::forget(default_value);
+        std::mem::forget(message_category);
         unsafe {
             __buffer
                 .add(35)
@@ -3285,6 +3347,7 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(filter_type);
         unsafe {
             __buffer
                 .add(24)
@@ -3341,6 +3404,8 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_name);
+        std::mem::forget(filter_type);
         unsafe {
             __buffer
                 .add(32)
@@ -3397,6 +3462,8 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(layer_name);
+        std::mem::forget(filter_type);
         unsafe {
             __buffer
                 .add(32)
@@ -3463,6 +3530,9 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name_sub_string);
+        std::mem::forget(string_match);
+        std::mem::forget(filter_type);
         unsafe {
             __buffer
                 .add(40)
@@ -3523,6 +3593,8 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object_class);
+        std::mem::forget(filter_type);
         unsafe {
             __buffer
                 .add(32)
@@ -3575,6 +3647,8 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
+        std::mem::forget(filter_type);
         unsafe {
             __buffer
                 .add(32)
@@ -3647,6 +3721,10 @@ impl UEditorFilterLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(name_sub_string);
+        std::mem::forget(string_match);
+        std::mem::forget(filter_type);
+        std::mem::forget(b_ignore_case);
         unsafe {
             __buffer
                 .add(40)
@@ -3746,6 +3824,10 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object_to_use);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(b_transient);
         unsafe {
             __buffer.add(64).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -3807,6 +3889,10 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(b_transient);
         unsafe {
             __buffer.add(64).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -3886,6 +3972,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_location);
+        std::mem::forget(camera_rotation);
     }
     pub fn set_current_level_by_name(level_name: FName) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -3918,6 +4006,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_actor_selection_state(
@@ -3961,6 +4050,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_should_be_selected);
     }
     pub fn select_nothing() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4070,6 +4161,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset_path);
     }
     pub fn replace_mesh_components_meshes_on_actors(
         actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
@@ -4120,6 +4212,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_to_be_replaced);
+        std::mem::forget(new_mesh);
     }
     pub fn replace_mesh_components_meshes(
         mesh_components: &TArray<UPtr<crate::bindings::engine::UStaticMeshComponent>>,
@@ -4174,6 +4268,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_to_be_replaced);
+        std::mem::forget(new_mesh);
     }
     pub fn replace_mesh_components_materials_on_actors(
         actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
@@ -4228,6 +4324,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_to_be_replaced);
+        std::mem::forget(new_material);
     }
     pub fn replace_mesh_components_materials(
         mesh_components: &TArray<UPtr<crate::bindings::engine::UMeshComponent>>,
@@ -4284,6 +4382,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material_to_be_replaced);
+        std::mem::forget(new_material);
     }
     pub fn pilot_level_actor(actor_to_pilot: UPtr<crate::bindings::engine::AActor>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4316,6 +4416,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_pilot);
     }
     pub fn new_level_from_template(
         asset_path: FString,
@@ -4358,6 +4459,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
+        std::mem::forget(template_asset_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn new_level(asset_path: FString) -> bool {
@@ -4391,6 +4494,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn merge_static_mesh_actors(
@@ -4489,6 +4593,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn join_static_mesh_actors(
@@ -4606,6 +4711,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_dedicated_server);
         unsafe {
             __buffer
                 .add(8)
@@ -4817,6 +4923,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_actor);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -4877,6 +4984,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_game_view);
     }
     pub fn editor_play_simulate() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4986,6 +5094,7 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_destroy);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn create_proxy_mesh_actor(
@@ -5102,6 +5211,8 @@ impl UEditorLevelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
+        std::mem::forget(static_mesh_package_path);
         unsafe {
             __buffer
                 .add(40)
@@ -5218,6 +5329,10 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(texture_mask);
+        std::mem::forget(threshold);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn set_lod_build_settings(
@@ -5267,6 +5382,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn rename_socket(
         skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
@@ -5313,6 +5430,9 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(old_name);
+        std::mem::forget(new_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_lods_remove_lo_ds(
@@ -5356,6 +5476,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(to_remove_lo_ds);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn reimport_all_custom_lods_reimport_all_custom_lo_ds(
@@ -5391,6 +5513,7 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn regenerate_lod(
@@ -5450,6 +5573,10 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(new_lod_count);
+        std::mem::forget(b_regenerate_even_if_imported);
+        std::mem::forget(b_generate_base_lod);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn import_lod(
@@ -5497,6 +5624,9 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(base_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(source_filename);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn get_num_verts(
@@ -5536,6 +5666,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_lod_count(
@@ -5571,6 +5703,7 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_lod_build_settings(
@@ -5626,6 +5759,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .cast::<crate::bindings::engine::FSkeletalMeshBuildSettings>()
                 .swap(out_build_options);
         }
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn create_physics_asset(
         skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
@@ -5660,6 +5795,7 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe {
             __buffer.add(8).cast::<UPtr<crate::bindings::engine::UPhysicsAsset>>().read()
         }
@@ -5752,6 +5888,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(36).cast::<i32>().read() }
     }
     pub fn set_lods(
@@ -5799,6 +5937,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn set_lod_reduction_settings(
@@ -5848,6 +5987,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn set_lod_from_static_mesh(
         destination_static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -5914,6 +6055,11 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(destination_static_mesh);
+        std::mem::forget(destination_lod_index);
+        std::mem::forget(source_static_mesh);
+        std::mem::forget(source_lod_index);
+        std::mem::forget(b_reuse_existing_material_slots);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn set_lod_build_settings(
@@ -5961,6 +6107,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn set_generate_lightmap_uv(
         static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -6003,6 +6151,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_generate_lightmap_u_vs);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_convex_decomposition_collisions_with_notification(
@@ -6066,6 +6216,11 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn set_convex_decomposition_collisions(
@@ -6121,6 +6276,10 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn set_allow_cpu_access(
@@ -6164,6 +6323,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_allow_cpu_access);
     }
     pub fn remove_uv_channel(
         static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -6210,6 +6371,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_lods(static_mesh: UPtr<crate::bindings::engine::UStaticMesh>) -> bool {
@@ -6243,6 +6407,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn remove_collisions_with_notification(
@@ -6286,6 +6451,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn remove_collisions(
@@ -6321,6 +6488,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn reimport_all_custom_lods_reimport_all_custom_lo_ds(
@@ -6356,6 +6524,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_section_collision_enabled(
@@ -6403,6 +6572,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn insert_uv_channel(
@@ -6450,6 +6622,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn import_lod(
@@ -6497,6 +6672,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(base_static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(source_filename);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn has_vertex_colors(
@@ -6532,6 +6710,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_instance_vertex_colors(
@@ -6569,6 +6748,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh_component);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_simple_collision_count(
@@ -6604,6 +6784,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_num_uv_channels(
@@ -6643,6 +6824,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_number_verts(
@@ -6682,6 +6865,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_number_materials(
@@ -6717,6 +6902,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_lod_screen_sizes(
@@ -6752,6 +6938,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<TArray<f32>>().read() }
     }
     pub fn get_lod_reduction_settings(
@@ -6807,6 +6994,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .cast::<crate::bindings::engine::FMeshReductionSettings>()
                 .swap(out_reduction_options);
         }
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn get_lod_count(
         static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -6841,6 +7030,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_lod_build_settings(
@@ -6894,6 +7084,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .cast::<crate::bindings::engine::FMeshBuildSettings>()
                 .swap(out_build_options);
         }
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn get_convex_collision_count(
         static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -6928,6 +7120,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_collision_complexity(
@@ -6963,6 +7156,7 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe {
             __buffer
                 .add(8)
@@ -7039,6 +7233,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn generate_cylindrical_uv_channel(
@@ -7110,6 +7307,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn generate_box_uv_channel(
@@ -7181,6 +7381,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn enable_section_collision(
@@ -7236,6 +7439,10 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_collision_enabled);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn enable_section_cast_shadow(
         static_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -7290,6 +7497,10 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_cast_shadow);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn bulk_set_convex_decomposition_collisions_with_notification(
         static_meshes: &TArray<UPtr<crate::bindings::engine::UStaticMesh>>,
@@ -7358,6 +7569,10 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(29).cast::<bool>().read() }
     }
     pub fn bulk_set_convex_decomposition_collisions(
@@ -7419,6 +7634,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn add_uv_channel(
@@ -7458,6 +7676,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn add_simple_collisions_with_notification(
@@ -7513,6 +7733,9 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(shape_type);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn add_simple_collisions(
@@ -7560,6 +7783,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(shape_type);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
 }

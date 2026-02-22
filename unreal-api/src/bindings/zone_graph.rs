@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -377,6 +378,7 @@ impl UZoneShapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_tags);
     }
     pub fn set_shape_type(&mut self, ty: FZoneShapeType) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -409,6 +411,7 @@ impl UZoneShapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(ty);
     }
     pub fn set_reverse_lane_profile(&mut self, b_reverse: bool) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<2>::new();
@@ -437,6 +440,7 @@ impl UZoneShapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_reverse);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_polygon_routing_type(&mut self, new_type: EZoneShapePolygonRoutingType) {
@@ -470,6 +474,7 @@ impl UZoneShapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_type);
     }
     pub fn is_lane_profile_reversed(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();

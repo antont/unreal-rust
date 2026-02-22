@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -207,6 +208,9 @@ impl UAnimationSharingStateProcessor {
         unsafe {
             __buffer.add(18).cast::<bool>().swap(b_should_process);
         }
+        std::mem::forget(in_actor);
+        std::mem::forget(current_state);
+        std::mem::forget(on_demand_state);
     }
     pub fn get_animation_state_enum(
         &mut self,
@@ -512,6 +516,8 @@ impl UAnimationSharingManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(sharing_skeleton);
     }
     pub fn get_animation_sharing_manager(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -546,6 +552,7 @@ impl UAnimationSharingManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<UPtr<UAnimationSharingManager>>().read() }
     }
     pub fn create_animation_sharing_manager(
@@ -589,6 +596,8 @@ impl UAnimationSharingManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(setup);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn animation_sharing_enabled() -> bool {

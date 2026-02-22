@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -987,6 +988,7 @@ impl UTakeRecorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_seconds);
     }
     pub fn get_state(&self) -> ETakeRecorderState {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1194,6 +1196,9 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(sources);
+        std::mem::forget(meta_data);
         unsafe { __buffer.add(160).cast::<UPtr<UTakeRecorder>>().read() }
     }
     pub fn set_on_take_recorder_stopped(
@@ -1231,6 +1236,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_stopped);
     }
     pub fn set_on_take_recorder_started(
         on_take_recorder_started: FSetOnTakeRecorderStarted_OnTakeRecorderStarted,
@@ -1267,6 +1273,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_started);
     }
     pub fn set_on_take_recorder_pre_initialize(
         on_take_recorder_pre_initialize: FSetOnTakeRecorderPreInitialize_OnTakeRecorderPreInitialize,
@@ -1305,6 +1312,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_pre_initialize);
     }
     pub fn set_on_take_recorder_panel_changed(
         on_take_recorder_panel_changed: FSetOnTakeRecorderPanelChanged_OnTakeRecorderPanelChanged,
@@ -1341,6 +1349,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_panel_changed);
     }
     pub fn set_on_take_recorder_marked_frame_added(
         on_take_recorder_marked_frame_added: FSetOnTakeRecorderMarkedFrameAdded_OnTakeRecorderMarkedFrameAdded,
@@ -1379,6 +1388,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_marked_frame_added);
     }
     pub fn set_on_take_recorder_finished(
         on_take_recorder_finished: FSetOnTakeRecorderFinished_OnTakeRecorderFinished,
@@ -1415,6 +1425,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_finished);
     }
     pub fn set_on_take_recorder_cancelled(
         on_take_recorder_cancelled: FSetOnTakeRecorderCancelled_OnTakeRecorderCancelled,
@@ -1451,6 +1462,7 @@ impl UTakeRecorderBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_cancelled);
     }
     pub fn set_default_parameters(default_parameters: &FTakeRecorderParameters) {
         let mut __stack = crate::core_data::StackAlloc::<136>::new();
@@ -1786,6 +1798,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence_asset);
     }
     pub fn setup_for_recording_into_level_sequence(
         &mut self,
@@ -1823,6 +1836,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence_asset);
     }
     pub fn setup_for_recording_take_preset(
         &mut self,
@@ -1858,6 +1872,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(take_preset_asset);
     }
     pub fn setup_for_recording_level_sequence(
         &mut self,
@@ -1895,6 +1910,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence_asset);
     }
     pub fn setup_for_editing(
         &mut self,
@@ -1930,6 +1946,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(take_preset);
     }
     pub fn set_frame_rate_from_timecode(&mut self, b_in_from_timecode: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1962,6 +1979,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_from_timecode);
     }
     pub fn set_frame_rate(
         &mut self,
@@ -1997,6 +2015,7 @@ impl UTakeRecorderPanel {
                 __buffer,
             )
         };
+        std::mem::forget(in_frame_rate);
     }
     pub fn get_take_meta_data(
         &self,
@@ -2379,6 +2398,8 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_open_sequencer);
+        std::mem::forget(b_show_error_message);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_target_sequence(&mut self, in_data: &FTakeRecorderSequenceParameters) {
@@ -2451,6 +2472,8 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_take_number);
+        std::mem::forget(b_emit_changed);
     }
     pub fn set_slate_name(&mut self, in_slate_name: FString, b_emit_changed: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -2490,6 +2513,8 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_slate_name);
+        std::mem::forget(b_emit_changed);
     }
     pub fn set_sequence_countdown(&mut self, in_seconds: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2518,6 +2543,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_seconds);
     }
     pub fn set_global_record_settings(
         &mut self,
@@ -2613,6 +2639,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_frame_rate);
     }
     pub fn review_last_recording(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2726,6 +2753,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_source);
     }
     pub fn remove_actor_from_sources(
         &mut self,
@@ -2761,6 +2789,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
     }
     pub fn mark_frame(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2994,6 +3023,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_source);
         unsafe {
             __buffer
                 .add(8)
@@ -3039,6 +3069,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_class);
         unsafe {
             __buffer
                 .add(8)
@@ -3082,6 +3113,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_source);
         unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
     pub fn get_slates(
@@ -3118,6 +3150,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_package_path);
         unsafe {
             __buffer
                 .add(16)
@@ -3212,6 +3245,7 @@ impl UTakeRecorderSubsystem {
         unsafe {
             __buffer.add(20).cast::<i32>().swap(out_num_takes);
         }
+        std::mem::forget(in_slate);
     }
     pub fn get_next_take_number(&self, in_slate: FString) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -3244,6 +3278,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_slate);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_level_sequence(
@@ -3506,6 +3541,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_show_confirm_message);
     }
     pub fn add_source_for_actor(
         &mut self,
@@ -3557,6 +3593,9 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(b_reduce_keys);
+        std::mem::forget(b_show_progress);
     }
     pub fn add_source(
         &mut self,
@@ -3596,6 +3635,7 @@ impl UTakeRecorderSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_class);
         unsafe {
             __buffer
                 .add(8)

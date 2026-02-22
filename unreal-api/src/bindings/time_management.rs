@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -818,6 +819,8 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
         }
@@ -863,6 +866,8 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
         }
@@ -961,6 +966,7 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time_in_seconds);
         unsafe {
             __buffer.add(12).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -1002,6 +1008,8 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
         }
@@ -1177,6 +1185,8 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
         }
@@ -1222,6 +1232,7 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_force_sign_display);
         unsafe { __buffer.add(32).cast::<FString>().read() }
     }
     pub fn conv_qualified_frame_time_to_seconds(
@@ -1329,6 +1340,7 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_frame_rate);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn frame_number_to_integer(
@@ -1403,6 +1415,8 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
         }
@@ -1448,6 +1462,8 @@ impl UTimeManagementBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameNumber>().read()
         }

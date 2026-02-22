@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1387,6 +1388,11 @@ impl UAsyncCaptureScene {
                 __buffer,
             )
         };
+        std::mem::forget(view_camera);
+        std::mem::forget(scene_capture_class);
+        std::mem::forget(res_x);
+        std::mem::forget(res_y);
+        std::mem::forget(warm_up_frames);
         unsafe { __buffer.add(32).cast::<UPtr<UAsyncCaptureScene>>().read() }
     }
     pub fn capture_scene_async(
@@ -1442,6 +1448,10 @@ impl UAsyncCaptureScene {
                 __buffer,
             )
         };
+        std::mem::forget(view_camera);
+        std::mem::forget(scene_capture_class);
+        std::mem::forget(res_x);
+        std::mem::forget(res_y);
         unsafe { __buffer.add(24).cast::<UPtr<UAsyncCaptureScene>>().read() }
     }
 }
@@ -1524,6 +1534,9 @@ impl UAsyncImageExport {
                 __buffer,
             )
         };
+        std::mem::forget(texture);
+        std::mem::forget(output_file);
+        std::mem::forget(quality);
         unsafe { __buffer.add(32).cast::<UPtr<UAsyncImageExport>>().read() }
     }
 }
@@ -1602,6 +1615,8 @@ impl UAsyncRegisterAndExecuteTask {
                 __buffer,
             )
         };
+        std::mem::forget(task);
+        std::mem::forget(optional_parent_task);
         unsafe { __buffer.add(16).cast::<UPtr<UAsyncRegisterAndExecuteTask>>().read() }
     }
 }
@@ -1672,6 +1687,7 @@ impl AEditorUtilityActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_value);
     }
     pub fn run(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -2000,6 +2016,8 @@ impl UAsyncEditorDelay {
                 __buffer,
             )
         };
+        std::mem::forget(seconds);
+        std::mem::forget(minimum_frames);
         unsafe { __buffer.add(8).cast::<UPtr<UAsyncEditorDelay>>().read() }
     }
 }
@@ -2070,6 +2088,8 @@ impl UAsyncEditorWaitForGameWorld {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(server);
         unsafe { __buffer.add(8).cast::<UPtr<UAsyncEditorWaitForGameWorld>>().read() }
     }
 }
@@ -2150,6 +2170,8 @@ impl UAsyncEditorOpenMapAndFocusActor {
                 __buffer,
             )
         };
+        std::mem::forget(map);
+        std::mem::forget(focus_actor_name);
         unsafe {
             __buffer.add(56).cast::<UPtr<UAsyncEditorOpenMapAndFocusActor>>().read()
         }
@@ -2262,6 +2284,8 @@ impl UEditorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(new_name);
     }
     pub fn get_selection_set() -> TArray<UPtr<crate::bindings::engine::AActor>> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2479,6 +2503,7 @@ impl UEditorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_class);
         unsafe {
             __buffer
                 .add(8)
@@ -2653,6 +2678,7 @@ impl UEditorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_actor);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -2700,6 +2726,8 @@ impl UEditorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget_blueprint);
+        std::mem::forget(widget_name);
         unsafe { __buffer.add(24).cast::<UPtr<crate::bindings::umg::UWidget>>().read() }
     }
     pub fn convert_to_editor_utility_widget(
@@ -2737,6 +2765,7 @@ impl UEditorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget_bp);
     }
     pub fn cast_to_widget_blueprint(
         object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2798,6 +2827,7 @@ impl UEditorUtilityLibrary {
                 .cast::<UPtr<crate::bindings::umg_editor::UWidgetBlueprint>>()
                 .swap(as_widget_blueprint);
         }
+        std::mem::forget(object);
     }
     pub fn add_source_widget(
         widget_blueprint: UPtr<crate::bindings::umg_editor::UWidgetBlueprint>,
@@ -2858,6 +2888,10 @@ impl UEditorUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget_blueprint);
+        std::mem::forget(widget_class);
+        std::mem::forget(widget_name);
+        std::mem::forget(widget_parent_name);
         unsafe { __buffer.add(40).cast::<UPtr<crate::bindings::umg::UWidget>>().read() }
     }
 }
@@ -2922,6 +2956,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(tab_id);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn try_run_class(
@@ -2960,6 +2995,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object_class);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn try_run(
@@ -2996,6 +3032,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn spawn_registered_tab_by_id(&mut self, new_tab_id: FName) -> bool {
@@ -3029,6 +3066,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_tab_id);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn spawn_and_register_tab_with_id_generated_class(
@@ -3077,6 +3115,8 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_generated_widget_blueprint);
+        std::mem::forget(in_tab_id);
         unsafe { __buffer.add(24).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn spawn_and_register_tab_with_id(
@@ -3121,6 +3161,8 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
+        std::mem::forget(in_tab_id);
         unsafe { __buffer.add(24).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn spawn_and_register_tab_generated_class(
@@ -3161,6 +3203,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_generated_widget_blueprint);
         unsafe { __buffer.add(8).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn spawn_and_register_tab_and_get_id_generated_class(
@@ -3212,6 +3255,7 @@ impl UEditorUtilitySubsystem {
         unsafe {
             __buffer.add(8).cast::<FName>().swap(new_tab_id);
         }
+        std::mem::forget(in_generated_widget_blueprint);
         unsafe { __buffer.add(24).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn spawn_and_register_tab_and_get_id(
@@ -3259,6 +3303,7 @@ impl UEditorUtilitySubsystem {
         unsafe {
             __buffer.add(8).cast::<FName>().swap(new_tab_id);
         }
+        std::mem::forget(in_blueprint);
         unsafe { __buffer.add(24).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn spawn_and_register_tab(
@@ -3295,6 +3340,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
         unsafe { __buffer.add(8).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn release_instance_of_asset(
@@ -3331,6 +3377,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
     }
     pub fn register_tab_and_get_id_generated_class(
         &mut self,
@@ -3381,6 +3428,7 @@ impl UEditorUtilitySubsystem {
         unsafe {
             __buffer.add(8).cast::<FName>().swap(new_tab_id);
         }
+        std::mem::forget(in_generated_widget_blueprint);
     }
     pub fn register_tab_and_get_id(
         &mut self,
@@ -3427,6 +3475,7 @@ impl UEditorUtilitySubsystem {
         unsafe {
             __buffer.add(8).cast::<FName>().swap(new_tab_id);
         }
+        std::mem::forget(in_blueprint);
     }
     pub fn register_and_execute_task(
         &mut self,
@@ -3470,6 +3519,8 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_task);
+        std::mem::forget(optional_parent_task);
     }
     pub fn find_utility_widget_from_blueprint(
         &mut self,
@@ -3505,6 +3556,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
         unsafe { __buffer.add(8).cast::<UPtr<UEditorUtilityWidget>>().read() }
     }
     pub fn does_tab_exist(&mut self, new_tab_id: FName) -> bool {
@@ -3538,6 +3590,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_tab_id);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn close_tab_by_id(&mut self, new_tab_id: FName) -> bool {
@@ -3571,6 +3624,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_tab_id);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn can_run(&self, asset: UPtr<crate::bindings::core_u_object::UObject>) -> bool {
@@ -3604,6 +3658,7 @@ impl UEditorUtilitySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -3798,6 +3853,7 @@ impl UEditorUtilityTask {
                 __buffer,
             )
         };
+        std::mem::forget(b_success);
     }
 }
 #[repr(C, align(8))]
@@ -3897,6 +3953,7 @@ impl UEditorUtilityWidget {
                 __buffer,
             )
         };
+        std::mem::forget(widget_name);
         unsafe { __buffer.add(16).cast::<UPtr<crate::bindings::umg::UWidget>>().read() }
     }
 }
@@ -4752,6 +4809,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_should_be_selected);
     }
     pub fn select_nothing(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4820,6 +4879,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(new_name);
     }
     pub fn on_default_action_clicked(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5047,6 +5108,7 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_actor);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -5205,6 +5267,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 __buffer,
             )
         };
+        std::mem::forget(camera_location);
+        std::mem::forget(camera_rotation);
     }
     pub fn set_actor_selection_state(
         &mut self,
@@ -5248,6 +5312,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_should_be_selected);
     }
     pub fn select_nothing(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5397,6 +5463,7 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_actor);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -209,6 +210,8 @@ impl UCableComponent {
                 __buffer,
             )
         };
+        std::mem::forget(component);
+        std::mem::forget(socket_name);
     }
     pub fn set_attach_end_to(
         &mut self,
@@ -260,6 +263,9 @@ impl UCableComponent {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(component_property);
+        std::mem::forget(socket_name);
     }
     pub fn get_cable_particle_locations(
         &self,

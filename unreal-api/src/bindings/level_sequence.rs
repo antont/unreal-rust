@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -977,6 +978,7 @@ impl ULevelSequence {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
     }
     pub fn find_or_add_meta_data_by_class(
         &mut self,
@@ -1014,6 +1016,7 @@ impl ULevelSequence {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
         unsafe {
             __buffer
                 .add(8)
@@ -1057,6 +1060,7 @@ impl ULevelSequence {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
         unsafe {
             __buffer
                 .add(8)
@@ -1098,6 +1102,7 @@ impl ULevelSequence {
                 __buffer,
             )
         };
+        std::mem::forget(in_meta_data);
         unsafe {
             __buffer
                 .add(8)
@@ -1213,6 +1218,7 @@ impl ULevelSequenceBurnInOptions {
                 __buffer,
             )
         };
+        std::mem::forget(in_burn_in_class);
     }
 }
 #[repr(C, align(8))]
@@ -1319,6 +1325,7 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
     }
     pub fn set_replicate_playback(&mut self, replicate_playback: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1351,6 +1358,7 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(replicate_playback);
     }
     pub fn set_binding_by_tag(
         &mut self,
@@ -1402,6 +1410,8 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(binding_tag);
+        std::mem::forget(b_allow_bindings_from_asset);
     }
     pub fn set_binding(
         &mut self,
@@ -1455,6 +1465,8 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(binding);
+        std::mem::forget(b_allow_bindings_from_asset);
     }
     pub fn reset_bindings(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1517,6 +1529,7 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(binding);
     }
     pub fn remove_binding_by_tag(
         &mut self,
@@ -1556,6 +1569,8 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
+        std::mem::forget(actor);
     }
     pub fn remove_binding(
         &mut self,
@@ -1601,6 +1616,8 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(binding);
+        std::mem::forget(actor);
     }
     pub fn hide_burnin(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1709,6 +1726,7 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
         unsafe {
             __buffer
                 .add(16)
@@ -1748,6 +1766,7 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
         unsafe {
             __buffer
                 .add(12)
@@ -1805,6 +1824,9 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(binding_tag);
+        std::mem::forget(actor);
+        std::mem::forget(b_allow_bindings_from_asset);
     }
     pub fn add_binding(
         &mut self,
@@ -1858,6 +1880,9 @@ impl ALevelSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(binding);
+        std::mem::forget(actor);
+        std::mem::forget(b_allow_bindings_from_asset);
     }
 }
 #[repr(C, align(8))]
@@ -2003,6 +2028,7 @@ impl ULevelSequenceBurnIn {
                 __buffer,
             )
         };
+        std::mem::forget(in_settings);
     }
     pub fn get_settings_class(&self) -> TSubclassOf<ULevelSequenceBurnInInitSettings> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2299,6 +2325,7 @@ impl ULevelSequenceDirector {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
         unsafe {
             __buffer
                 .add(32)
@@ -2342,6 +2369,7 @@ impl ULevelSequenceDirector {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
         unsafe {
             __buffer
                 .add(32)
@@ -2385,6 +2413,7 @@ impl ULevelSequenceDirector {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
         unsafe {
             __buffer
                 .add(32)
@@ -2428,6 +2457,7 @@ impl ULevelSequenceDirector {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
         unsafe {
             __buffer.add(32).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -2599,6 +2629,9 @@ impl ULevelSequencePlayer {
         unsafe {
             __buffer.add(56).cast::<UPtr<ALevelSequenceActor>>().swap(out_actor);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(level_sequence);
+        std::mem::forget(settings);
         unsafe { __buffer.add(64).cast::<UPtr<ULevelSequencePlayer>>().read() }
     }
 }
@@ -2712,6 +2745,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
+        std::mem::forget(b_in_is_sub_sequence);
     }
     pub fn set_is_recorded(
         in_level_sequence: UPtr<ULevelSequence>,
@@ -2754,6 +2789,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
+        std::mem::forget(b_in_is_recorded);
     }
     pub fn set_is_no_good(
         in_level_sequence: UPtr<ULevelSequence>,
@@ -2796,6 +2833,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
+        std::mem::forget(b_in_is_no_good);
     }
     pub fn set_is_flagged(
         in_level_sequence: UPtr<ULevelSequence>,
@@ -2838,6 +2877,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
+        std::mem::forget(b_in_is_flagged);
     }
     pub fn set_favorite_rating(
         in_level_sequence: UPtr<ULevelSequence>,
@@ -2880,6 +2921,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
+        std::mem::forget(in_favorite_rating);
     }
     pub fn has_is_sub_sequence_by_asset_data(
         in_asset_data: &crate::bindings::core_u_object::FAssetData,
@@ -2947,6 +2990,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_is_recorded_by_asset_data(
@@ -3015,6 +3059,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_is_no_good_by_asset_data(
@@ -3083,6 +3128,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_is_flagged_by_asset_data(
@@ -3151,6 +3197,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_favorite_rating_by_asset_data(
@@ -3219,6 +3266,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_is_sub_sequence_by_asset_data(
@@ -3337,6 +3385,7 @@ impl ULevelSequenceShotMetaDataLibrary {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_out_is_sub_sequence);
         }
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn get_is_recorded_by_asset_data(
@@ -3455,6 +3504,7 @@ impl ULevelSequenceShotMetaDataLibrary {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_out_is_recorded);
         }
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn get_is_no_good_by_asset_data(
@@ -3573,6 +3623,7 @@ impl ULevelSequenceShotMetaDataLibrary {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_out_no_good);
         }
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn get_is_flagged_by_asset_data(
@@ -3691,6 +3742,7 @@ impl ULevelSequenceShotMetaDataLibrary {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_out_is_flagged);
         }
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn get_favorite_rating_by_asset_data(
@@ -3809,6 +3861,7 @@ impl ULevelSequenceShotMetaDataLibrary {
         unsafe {
             __buffer.add(8).cast::<i32>().swap(out_favorite_rating);
         }
+        std::mem::forget(in_level_sequence);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn clear_is_sub_sequence(in_level_sequence: UPtr<ULevelSequence>) {
@@ -3842,6 +3895,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
     }
     pub fn clear_is_recorded(in_level_sequence: UPtr<ULevelSequence>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3874,6 +3928,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
     }
     pub fn clear_is_no_good(in_level_sequence: UPtr<ULevelSequence>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3906,6 +3961,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
     }
     pub fn clear_is_flagged(in_level_sequence: UPtr<ULevelSequence>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3938,6 +3994,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
     }
     pub fn clear_favorite_rating(in_level_sequence: UPtr<ULevelSequence>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3970,6 +4027,7 @@ impl ULevelSequenceShotMetaDataLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_sequence);
     }
 }
 #[repr(C, align(8))]
@@ -4042,6 +4100,7 @@ impl ALevelSequenceMediaController {
                 __buffer,
             )
         };
+        std::mem::forget(desync_threshold_seconds);
     }
     pub fn play(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

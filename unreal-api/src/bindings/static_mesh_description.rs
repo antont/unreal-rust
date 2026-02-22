@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -153,6 +154,9 @@ impl UStaticMeshDescription {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
+        std::mem::forget(uv);
+        std::mem::forget(uv_index);
     }
     pub fn set_polygon_group_material_slot_name(
         &mut self,
@@ -194,6 +198,7 @@ impl UStaticMeshDescription {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_group_id);
     }
     pub fn get_vertex_instance_uv(
         &self,
@@ -235,6 +240,8 @@ impl UStaticMeshDescription {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
+        std::mem::forget(uv_index);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -375,5 +382,8 @@ impl UStaticMeshDescription {
                 .cast::<crate::bindings::mesh_description::FPolygonID>()
                 .swap(polygon_id_minus_z);
         }
+        std::mem::forget(center);
+        std::mem::forget(half_extents);
+        std::mem::forget(polygon_group);
     }
 }

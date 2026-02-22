@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -566,6 +567,8 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn not_equal_data_registry_id(a: FDataRegistryId, b: FDataRegistryId) -> bool {
@@ -606,6 +609,8 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn is_valid_data_registry_type(data_registry_type: FDataRegistryType) -> bool {
@@ -639,6 +644,7 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_registry_type);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn is_valid_data_registry_id(data_registry_id: FDataRegistryId) -> bool {
@@ -672,6 +678,7 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_registry_id);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_possible_data_registry_id_list(
@@ -718,6 +725,7 @@ impl UDataRegistrySubsystem {
         unsafe {
             __buffer.add(16).cast::<TArray<FDataRegistryId>>().swap(out_id_list);
         }
+        std::mem::forget(registry_type);
     }
     pub fn get_cached_item_from_lookup_bp(
         item_id: FDataRegistryId,
@@ -774,6 +782,7 @@ impl UDataRegistrySubsystem {
                 .cast::<crate::bindings::engine::FTableRowBase>()
                 .swap(out_item);
         }
+        std::mem::forget(item_id);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_cached_item_bp(
@@ -823,6 +832,7 @@ impl UDataRegistrySubsystem {
                 .cast::<crate::bindings::engine::FTableRowBase>()
                 .swap(out_item);
         }
+        std::mem::forget(item_id);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn find_cached_item_from_lookup_bp(
@@ -894,6 +904,7 @@ impl UDataRegistrySubsystem {
                 .cast::<crate::bindings::engine::FTableRowBase>()
                 .swap(out_item);
         }
+        std::mem::forget(item_id);
     }
     pub fn find_cached_item_bp(
         item_id: FDataRegistryId,
@@ -956,6 +967,7 @@ impl UDataRegistrySubsystem {
                 .cast::<crate::bindings::engine::FTableRowBase>()
                 .swap(out_item);
         }
+        std::mem::forget(item_id);
     }
     pub fn evaluate_data_registry_curve(
         item_id: FDataRegistryId,
@@ -1027,6 +1039,9 @@ impl UDataRegistrySubsystem {
         unsafe {
             __buffer.add(36).cast::<f32>().swap(out_value);
         }
+        std::mem::forget(item_id);
+        std::mem::forget(input_value);
+        std::mem::forget(default_value);
     }
     pub fn equal_equal_data_registry_type(
         a: FDataRegistryType,
@@ -1069,6 +1084,8 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn equal_equal_data_registry_id(a: FDataRegistryId, b: FDataRegistryId) -> bool {
@@ -1109,6 +1126,8 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn conv_data_registry_type_to_string(
@@ -1144,6 +1163,7 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_registry_type);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn conv_data_registry_id_to_string(
@@ -1179,6 +1199,7 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(data_registry_id);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn acquire_item_bp(
@@ -1222,6 +1243,8 @@ impl UDataRegistrySubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(item_id);
+        std::mem::forget(acquire_callback);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
 }

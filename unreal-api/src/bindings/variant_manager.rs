@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -622,6 +623,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_vector2_d(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -668,6 +671,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_vector(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -714,6 +719,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_string(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -760,6 +767,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_rotator(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -806,6 +815,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_quat(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -852,6 +863,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_object(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -898,6 +911,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_linear_color(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -944,6 +959,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_int_point(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -990,6 +1007,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_int(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -1032,6 +1051,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_float(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -1074,6 +1095,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_color(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -1120,6 +1143,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_value_bool(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -1162,6 +1187,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
+        std::mem::forget(in_value);
     }
     pub fn set_dependency(
         variant: UPtr<crate::bindings::variant_manager_content::UVariant>,
@@ -1220,6 +1247,8 @@ impl UVariantManagerBlueprintLibrary {
                 .cast::<crate::bindings::variant_manager_content::FVariantDependency>()
                 .swap(dependency);
         }
+        std::mem::forget(variant);
+        std::mem::forget(index);
     }
     pub fn remove_variant_set_by_name(
         level_variant_sets: UPtr<
@@ -1268,6 +1297,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_variant_sets);
+        std::mem::forget(variant_set_name);
     }
     pub fn remove_variant_set(
         level_variant_sets: UPtr<
@@ -1320,6 +1351,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_variant_sets);
+        std::mem::forget(variant_set);
     }
     pub fn remove_variant_by_name(
         variant_set: UPtr<crate::bindings::variant_manager_content::UVariantSet>,
@@ -1366,6 +1399,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set);
+        std::mem::forget(variant_name);
     }
     pub fn remove_variant(
         variant_set: UPtr<crate::bindings::variant_manager_content::UVariantSet>,
@@ -1414,6 +1449,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set);
+        std::mem::forget(variant);
     }
     pub fn remove_captured_property_by_name(
         variant: UPtr<crate::bindings::variant_manager_content::UVariant>,
@@ -1466,6 +1503,9 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor);
+        std::mem::forget(property_path);
     }
     pub fn remove_captured_property(
         variant: UPtr<crate::bindings::variant_manager_content::UVariant>,
@@ -1522,6 +1562,9 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor);
+        std::mem::forget(property);
     }
     pub fn remove_actor_binding_by_name(
         variant: UPtr<crate::bindings::variant_manager_content::UVariant>,
@@ -1566,6 +1609,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor_name);
     }
     pub fn remove_actor_binding(
         variant: UPtr<crate::bindings::variant_manager_content::UVariant>,
@@ -1610,6 +1655,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor);
     }
     pub fn record(
         prop_val: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -1648,6 +1695,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(prop_val);
     }
     pub fn get_value_vector4(
         property: UPtr<crate::bindings::variant_manager_content::UPropertyValue>,
@@ -1686,6 +1734,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>().read()
         }
@@ -1727,6 +1776,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -1768,6 +1818,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -1809,6 +1860,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_value_rotator(
@@ -1848,6 +1900,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -1889,6 +1942,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -1930,6 +1984,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer
                 .add(8)
@@ -1974,6 +2029,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FLinearColor>().read()
         }
@@ -2015,6 +2071,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FIntPoint>().read()
         }
@@ -2056,6 +2113,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_value_float(
@@ -2095,6 +2153,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_value_color(
@@ -2134,6 +2193,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FColor>().read()
         }
@@ -2175,6 +2235,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_property_type_string(
@@ -2214,6 +2275,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(prop_val);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_captured_properties(
@@ -2259,6 +2321,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor);
         unsafe {
             __buffer
                 .add(16)
@@ -2303,6 +2367,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor_or_class);
         unsafe { __buffer.add(8).cast::<TArray<FString>>().read() }
     }
     pub fn delete_dependency(
@@ -2344,6 +2409,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(index);
     }
     pub fn create_level_variant_sets_asset(
         asset_name: FString,
@@ -2386,6 +2453,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(asset_path);
         unsafe {
             __buffer
                 .add(32)
@@ -2434,6 +2503,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_variant_sets_asset);
         unsafe {
             __buffer
                 .add(8)
@@ -2496,6 +2566,9 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor);
+        std::mem::forget(property_path);
         unsafe {
             __buffer
                 .add(32)
@@ -2540,6 +2613,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(prop_val);
     }
     pub fn add_variant_set(
         level_variant_sets: UPtr<
@@ -2592,6 +2666,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_variant_sets);
+        std::mem::forget(variant_set);
     }
     pub fn add_variant(
         variant_set: UPtr<crate::bindings::variant_manager_content::UVariantSet>,
@@ -2640,6 +2716,8 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set);
+        std::mem::forget(variant);
     }
     pub fn add_dependency(
         variant: UPtr<crate::bindings::variant_manager_content::UVariant>,
@@ -2694,6 +2772,7 @@ impl UVariantManagerBlueprintLibrary {
                 .cast::<crate::bindings::variant_manager_content::FVariantDependency>()
                 .swap(dependency);
         }
+        std::mem::forget(variant);
         unsafe { __buffer.add(112).cast::<i32>().read() }
     }
     pub fn add_actor_binding(
@@ -2739,5 +2818,7 @@ impl UVariantManagerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(variant);
+        std::mem::forget(actor);
     }
 }

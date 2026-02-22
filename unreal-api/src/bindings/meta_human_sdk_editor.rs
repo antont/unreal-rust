@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -323,7 +324,7 @@ pub struct FMetaHumanVerificationOptions {
 impl FMetaHumanVerificationOptions {}
 #[repr(C, align(8))]
 pub struct UMetaHumanPackageFactory {
-    __padding_end: [u8; 136],
+    __padding_end: [u8; 144],
 }
 impl UMetaHumanPackageFactory {
     pub fn static_class() -> crate::core_data::UPtr<
@@ -417,6 +418,7 @@ impl UMetaHumanAssetReport {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn set_verbose(&mut self, value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -445,6 +447,7 @@ impl UMetaHumanAssetReport {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn set_subject(&mut self, in_subject: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -477,6 +480,7 @@ impl UMetaHumanAssetReport {
                 __buffer,
             )
         };
+        std::mem::forget(in_subject);
     }
     pub fn set_silent(&mut self, value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -505,6 +509,7 @@ impl UMetaHumanAssetReport {
                 __buffer,
             )
         };
+        std::mem::forget(value);
     }
     pub fn has_warnings(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -942,6 +947,7 @@ impl UMetaHumanAssetManager {
                 __buffer,
             )
         };
+        std::mem::forget(asset_type);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn find_assets_for_packaging(
@@ -977,6 +983,7 @@ impl UMetaHumanAssetManager {
                 __buffer,
             )
         };
+        std::mem::forget(asset_type);
         unsafe { __buffer.add(8).cast::<TArray<FMetaHumanAssetDescription>>().read() }
     }
     pub fn create_archive(
@@ -1020,6 +1027,7 @@ impl UMetaHumanAssetManager {
                 __buffer,
             )
         };
+        std::mem::forget(archive_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
@@ -1212,6 +1220,8 @@ impl UMetaHumanVerificationRuleBase {
                 __buffer,
             )
         };
+        std::mem::forget(to_verify);
+        std::mem::forget(report);
     }
 }
 #[repr(C, align(8))]
@@ -1298,6 +1308,8 @@ impl UMetaHumanVerificationRuleCollection {
                 __buffer,
             )
         };
+        std::mem::forget(target);
+        std::mem::forget(report);
         unsafe { __buffer.add(24).cast::<UPtr<UMetaHumanAssetReport>>().read() }
     }
     pub fn add_verification_rule(&mut self, rule: UPtr<UMetaHumanVerificationRuleBase>) {
@@ -1331,6 +1343,7 @@ impl UMetaHumanVerificationRuleCollection {
                 __buffer,
             )
         };
+        std::mem::forget(rule);
     }
 }
 #[repr(C, align(8))]

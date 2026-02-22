@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1762,6 +1763,7 @@ impl UOctreeDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_mesh);
     }
 }
 #[repr(C, align(16))]
@@ -1834,6 +1836,7 @@ impl ULineSetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_line_material);
     }
     pub fn clear(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1930,6 +1933,8 @@ impl ULineSetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_thickness);
+        std::mem::forget(in_depth_bias);
         unsafe { __buffer.add(44).cast::<i32>().read() }
     }
 }
@@ -2143,6 +2148,7 @@ impl UPointSetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_point_material);
     }
     pub fn clear(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -2225,6 +2231,8 @@ impl UPointSetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_size);
+        std::mem::forget(in_depth_bias);
         unsafe { __buffer.add(28).cast::<i32>().read() }
     }
 }

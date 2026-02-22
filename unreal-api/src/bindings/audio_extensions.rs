@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -305,6 +306,7 @@ impl UAudioPropertiesSheetAssetBase {
                 __buffer,
             )
         };
+        std::mem::forget(target_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -510,6 +512,7 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn set_string_parameter(&mut self, in_name: FName, in_value: FString) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -545,6 +548,8 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_value);
     }
     pub fn set_string_array_parameter(
         &mut self,
@@ -584,6 +589,7 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn set_parameters_blueprint(&mut self, in_parameters: &TArray<FAudioParameter>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -655,6 +661,8 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_value);
     }
     pub fn set_object_array_parameter(
         &mut self,
@@ -696,6 +704,7 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn set_int_parameter(&mut self, in_name: FName, in_int: i32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -727,6 +736,8 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_int);
     }
     pub fn set_int_array_parameter(&mut self, in_name: FName, in_value: &TArray<i32>) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -762,6 +773,7 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn set_float_parameter(&mut self, in_name: FName, in_float: f32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -793,6 +805,8 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_float);
     }
     pub fn set_float_array_parameter(&mut self, in_name: FName, in_value: &TArray<f32>) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -828,6 +842,7 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn set_bool_parameter(&mut self, in_name: FName, in_bool: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -859,6 +874,8 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_bool);
     }
     pub fn set_bool_array_parameter(&mut self, in_name: FName, in_value: &TArray<bool>) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -894,6 +911,7 @@ impl UAudioParameterControllerInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn reset_parameters(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

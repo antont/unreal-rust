@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -245,6 +246,8 @@ impl UProxyTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(proxy);
+        std::mem::forget(proxy_table);
         unsafe {
             __buffer
                 .add(16)
@@ -285,6 +288,7 @@ impl UProxyTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(proxy);
         unsafe {
             __buffer
                 .add(8)
@@ -337,6 +341,9 @@ impl UProxyTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context_object);
+        std::mem::forget(proxy_table);
+        std::mem::forget(key);
         unsafe {
             __buffer
                 .add(32)
@@ -395,6 +402,9 @@ impl UProxyTableFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context_object);
+        std::mem::forget(proxy);
+        std::mem::forget(object_class);
         unsafe {
             __buffer
                 .add(24)

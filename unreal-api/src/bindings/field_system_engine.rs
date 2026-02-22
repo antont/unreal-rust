@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -618,6 +619,11 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(position);
+        std::mem::forget(direction);
+        std::mem::forget(radius);
+        std::mem::forget(magnitude);
     }
     pub fn apply_strain_field(
         &mut self,
@@ -673,6 +679,11 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(position);
+        std::mem::forget(radius);
+        std::mem::forget(magnitude);
+        std::mem::forget(iterations);
     }
     pub fn apply_stay_dynamic_field(
         &mut self,
@@ -716,6 +727,9 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(position);
+        std::mem::forget(radius);
     }
     pub fn apply_radial_vector_falloff_force(
         &mut self,
@@ -763,6 +777,10 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(position);
+        std::mem::forget(radius);
+        std::mem::forget(magnitude);
     }
     pub fn apply_radial_force(
         &mut self,
@@ -806,6 +824,9 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(position);
+        std::mem::forget(magnitude);
     }
     pub fn apply_physics_field(
         &mut self,
@@ -861,6 +882,10 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(target);
+        std::mem::forget(meta_data);
+        std::mem::forget(field);
     }
     pub fn apply_linear_force(
         &mut self,
@@ -904,6 +929,9 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(direction);
+        std::mem::forget(magnitude);
     }
     pub fn add_persistent_field(
         &mut self,
@@ -959,6 +987,10 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(target);
+        std::mem::forget(meta_data);
+        std::mem::forget(field);
     }
     pub fn add_field_command(
         &mut self,
@@ -1014,6 +1046,10 @@ impl UFieldSystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(target);
+        std::mem::forget(meta_data);
+        std::mem::forget(field);
     }
 }
 #[repr(C, align(8))]
@@ -1117,6 +1153,7 @@ impl UFieldSystemMetaDataIteration {
                 __buffer,
             )
         };
+        std::mem::forget(iterations);
         unsafe { __buffer.add(8).cast::<UPtr<UFieldSystemMetaDataIteration>>().read() }
     }
 }
@@ -1190,6 +1227,7 @@ impl UFieldSystemMetaDataProcessingResolution {
                 __buffer,
             )
         };
+        std::mem::forget(resolution_type);
         unsafe {
             __buffer
                 .add(8)
@@ -1286,6 +1324,9 @@ impl UFieldSystemMetaDataFilter {
                 __buffer,
             )
         };
+        std::mem::forget(filter_type);
+        std::mem::forget(object_type);
+        std::mem::forget(position_type);
         unsafe { __buffer.add(8).cast::<UPtr<UFieldSystemMetaDataFilter>>().read() }
     }
 }
@@ -1492,6 +1533,7 @@ impl UUniformInteger {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
         unsafe { __buffer.add(8).cast::<UPtr<UUniformInteger>>().read() }
     }
 }
@@ -1597,6 +1639,11 @@ impl URadialIntMask {
                 __buffer,
             )
         };
+        std::mem::forget(radius);
+        std::mem::forget(position);
+        std::mem::forget(interior_value);
+        std::mem::forget(exterior_value);
+        std::mem::forget(set_mask_condition_in);
         unsafe { __buffer.add(48).cast::<UPtr<URadialIntMask>>().read() }
     }
 }
@@ -1663,6 +1710,7 @@ impl UUniformScalar {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
         unsafe { __buffer.add(8).cast::<UPtr<UUniformScalar>>().read() }
     }
 }
@@ -1777,6 +1825,13 @@ impl UWaveScalar {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(position);
+        std::mem::forget(wavelength);
+        std::mem::forget(period);
+        std::mem::forget(time);
+        std::mem::forget(function);
+        std::mem::forget(falloff);
         unsafe { __buffer.add(48).cast::<UPtr<UWaveScalar>>().read() }
     }
 }
@@ -1884,6 +1939,13 @@ impl URadialFalloff {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(min_range);
+        std::mem::forget(max_range);
+        std::mem::forget(default);
+        std::mem::forget(radius);
+        std::mem::forget(position);
+        std::mem::forget(falloff);
         unsafe { __buffer.add(56).cast::<UPtr<URadialFalloff>>().read() }
     }
 }
@@ -2000,6 +2062,14 @@ impl UPlaneFalloff {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(min_range);
+        std::mem::forget(max_range);
+        std::mem::forget(default);
+        std::mem::forget(distance);
+        std::mem::forget(position);
+        std::mem::forget(normal);
+        std::mem::forget(falloff);
         unsafe { __buffer.add(80).cast::<UPtr<UPlaneFalloff>>().read() }
     }
 }
@@ -2102,6 +2172,12 @@ impl UBoxFalloff {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(min_range);
+        std::mem::forget(max_range);
+        std::mem::forget(default);
+        std::mem::forget(transform);
+        std::mem::forget(falloff);
         unsafe { __buffer.add(120).cast::<UPtr<UBoxFalloff>>().read() }
     }
 }
@@ -2185,6 +2261,9 @@ impl UNoiseField {
                 __buffer,
             )
         };
+        std::mem::forget(min_range);
+        std::mem::forget(max_range);
+        std::mem::forget(transform);
         unsafe { __buffer.add(112).cast::<UPtr<UNoiseField>>().read() }
     }
 }
@@ -2263,6 +2342,8 @@ impl UUniformVector {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(direction);
         unsafe { __buffer.add(32).cast::<UPtr<UUniformVector>>().read() }
     }
 }
@@ -2341,6 +2422,8 @@ impl URadialVector {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(position);
         unsafe { __buffer.add(32).cast::<UPtr<URadialVector>>().read() }
     }
 }
@@ -2407,6 +2490,7 @@ impl URandomVector {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
         unsafe { __buffer.add(8).cast::<UPtr<URandomVector>>().read() }
     }
 }
@@ -2503,6 +2587,10 @@ impl UOperatorField {
                 __buffer,
             )
         };
+        std::mem::forget(magnitude);
+        std::mem::forget(left_field);
+        std::mem::forget(right_field);
+        std::mem::forget(operation);
         unsafe { __buffer.add(32).cast::<UPtr<UOperatorField>>().read() }
     }
 }
@@ -2576,6 +2664,7 @@ impl UToIntegerField {
                 __buffer,
             )
         };
+        std::mem::forget(float_field);
         unsafe { __buffer.add(8).cast::<UPtr<UToIntegerField>>().read() }
     }
 }
@@ -2649,6 +2738,7 @@ impl UToFloatField {
                 __buffer,
             )
         };
+        std::mem::forget(integer_field);
         unsafe { __buffer.add(8).cast::<UPtr<UToFloatField>>().read() }
     }
 }
@@ -2742,6 +2832,9 @@ impl UCullingField {
                 __buffer,
             )
         };
+        std::mem::forget(culling);
+        std::mem::forget(field);
+        std::mem::forget(operation);
         unsafe { __buffer.add(24).cast::<UPtr<UCullingField>>().read() }
     }
 }

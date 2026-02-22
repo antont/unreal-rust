@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -839,6 +840,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_static_mesh(&mut self, attribute_value: FString) -> bool {
@@ -872,6 +875,7 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_scaling(
@@ -916,6 +920,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_scale_z(
@@ -1068,6 +1074,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_random_pitch_angle(
@@ -1112,6 +1120,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_align_to_normal(
@@ -1156,6 +1166,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_affect_distance_field_lighting(
@@ -1200,6 +1212,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn get_custom_world_position_offset_disable_distance(

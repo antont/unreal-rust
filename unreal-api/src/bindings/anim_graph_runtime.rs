@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -2098,6 +2099,12 @@ impl UAnimationStateMachineLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target_state);
+        std::mem::forget(duration);
+        std::mem::forget(blend_type);
+        std::mem::forget(blend_profile);
+        std::mem::forget(alpha_blend_option);
+        std::mem::forget(custom_blend_curve);
     }
     pub fn is_state_blending_out(
         update_context: &crate::bindings::engine::FAnimUpdateContext,
@@ -2729,6 +2736,8 @@ impl UAnimExecutionContextLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(instance);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::engine::FAnimNodeReference>().read()
         }
@@ -3304,6 +3313,7 @@ impl UBlendSpaceLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_position);
     }
     pub fn get_position(
         blend_space: &FBlendSpaceReference,
@@ -3560,6 +3570,7 @@ impl UBlendSpacePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(new_position);
     }
     pub fn should_reset_play_time_when_blend_space_changes(
         blend_space_player: &FBlendSpacePlayerReference,
@@ -3633,6 +3644,7 @@ impl UBlendSpacePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_reset);
         unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
     }
     pub fn set_play_rate(
@@ -3672,6 +3684,7 @@ impl UBlendSpacePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(play_rate);
         unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
     }
     pub fn set_loop(
@@ -3711,6 +3724,7 @@ impl UBlendSpacePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_loop);
         unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
     }
     pub fn set_blend_space_with_inertial_blending(
@@ -3770,6 +3784,8 @@ impl UBlendSpacePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blend_space);
+        std::mem::forget(blend_time);
         unsafe { __buffer.add(48).cast::<FBlendSpacePlayerReference>().read() }
     }
     pub fn set_blend_space(
@@ -3813,6 +3829,7 @@ impl UBlendSpacePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blend_space);
         unsafe { __buffer.add(24).cast::<FBlendSpacePlayerReference>().read() }
     }
     pub fn get_start_position(blend_space_player: &FBlendSpacePlayerReference) -> f32 {
@@ -4172,6 +4189,7 @@ impl UAnimNodeRigidBodyLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(physics_asset);
         unsafe { __buffer.add(24).cast::<FRigidBodyAnimNodeReference>().read() }
     }
     pub fn convert_to_rigid_body_anim_node_pure(
@@ -4434,6 +4452,9 @@ impl UKismetAnimationLibrary {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_end_pos);
         }
+        std::mem::forget(b_allow_stretching);
+        std::mem::forget(start_stretch_ratio);
+        std::mem::forget(max_stretch_scale);
     }
     pub fn k2_start_profiling_timer() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4545,6 +4566,15 @@ impl UKismetAnimationLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(x);
+        std::mem::forget(y);
+        std::mem::forget(z);
+        std::mem::forget(range_out_min_x);
+        std::mem::forget(range_out_max_x);
+        std::mem::forget(range_out_min_y);
+        std::mem::forget(range_out_max_y);
+        std::mem::forget(range_out_min_z);
+        std::mem::forget(range_out_max_z);
         unsafe {
             __buffer.add(40).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -4594,6 +4624,9 @@ impl UKismetAnimationLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(value);
+        std::mem::forget(range_out_min);
+        std::mem::forget(range_out_max);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn look_at(
@@ -4669,6 +4702,10 @@ impl UKismetAnimationLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(look_at_vector);
+        std::mem::forget(b_use_up_vector);
+        std::mem::forget(up_vector);
+        std::mem::forget(clamp_cone_in_degree);
         unsafe {
             __buffer.add(192).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -4707,6 +4744,8 @@ impl UKismetAnimationLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_log);
+        std::mem::forget(log_prefix);
         unsafe { __buffer.add(24).cast::<f32>().read() }
     }
     pub fn distance_between_sockets(
@@ -4820,6 +4859,16 @@ impl UKismetAnimationLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(component);
+        std::mem::forget(socket_or_bone_name_a);
+        std::mem::forget(socket_space_a);
+        std::mem::forget(socket_or_bone_name_b);
+        std::mem::forget(socket_space_b);
+        std::mem::forget(b_remap_range);
+        std::mem::forget(in_range_min);
+        std::mem::forget(in_range_max);
+        std::mem::forget(out_range_min);
+        std::mem::forget(out_range_max);
         unsafe { __buffer.add(56).cast::<f32>().read() }
     }
     pub fn direction_between_sockets(
@@ -4873,6 +4922,9 @@ impl UKismetAnimationLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(component);
+        std::mem::forget(socket_or_bone_name_from);
+        std::mem::forget(socket_or_bone_name_to);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -5005,6 +5057,16 @@ impl UKismetAnimationLibrary {
         unsafe {
             __buffer.add(72).cast::<FPositionHistory>().swap(history);
         }
+        std::mem::forget(delta_seconds);
+        std::mem::forget(component);
+        std::mem::forget(socket_or_bone_name);
+        std::mem::forget(reference_socket_or_bone);
+        std::mem::forget(socket_space);
+        std::mem::forget(offset_in_bone_space);
+        std::mem::forget(number_of_samples);
+        std::mem::forget(velocity_min);
+        std::mem::forget(velocity_max);
+        std::mem::forget(easing_type);
         unsafe { __buffer.add(272).cast::<f32>().read() }
     }
     pub fn calculate_velocity_from_position_history(
@@ -5083,6 +5145,11 @@ impl UKismetAnimationLibrary {
         unsafe {
             __buffer.add(32).cast::<FPositionHistory>().swap(history);
         }
+        std::mem::forget(delta_seconds);
+        std::mem::forget(position);
+        std::mem::forget(number_of_samples);
+        std::mem::forget(velocity_min);
+        std::mem::forget(velocity_max);
         unsafe { __buffer.add(92).cast::<f32>().read() }
     }
     pub fn calculate_direction(
@@ -5220,6 +5287,8 @@ impl ULayeredBoneBlendLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(pose_index);
+        std::mem::forget(blend_mask_name);
         unsafe { __buffer.add(48).cast::<FLayeredBoneBlendReference>().read() }
     }
     pub fn get_num_poses(layered_bone_blend: &FLayeredBoneBlendReference) -> i32 {
@@ -5652,6 +5721,7 @@ impl UMirrorAnimLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_blend_time);
         unsafe { __buffer.add(24).cast::<FMirrorAnimNodeReference>().read() }
     }
     pub fn set_mirror(
@@ -5695,6 +5765,7 @@ impl UMirrorAnimLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_mirror);
         unsafe { __buffer.add(24).cast::<FMirrorAnimNodeReference>().read() }
     }
     pub fn get_mirror_transition_blend_time(
@@ -6029,6 +6100,7 @@ impl UModifyCurveAnimLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_mode);
         unsafe { __buffer.add(24).cast::<FModifyCurveAnimNodeReference>().read() }
     }
     pub fn set_alpha(
@@ -6068,6 +6140,7 @@ impl UModifyCurveAnimLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_alpha);
         unsafe { __buffer.add(24).cast::<FModifyCurveAnimNodeReference>().read() }
     }
     pub fn get_apply_mode(
@@ -6354,6 +6427,12 @@ impl UPlayMontageCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh_component);
+        std::mem::forget(montage_to_play);
+        std::mem::forget(play_rate);
+        std::mem::forget(starting_position);
+        std::mem::forget(starting_section);
+        std::mem::forget(b_should_stop_all_montages);
         unsafe { __buffer.add(40).cast::<UPtr<UPlayMontageCallbackProxy>>().read() }
     }
 }
@@ -6450,6 +6529,8 @@ impl USequenceEvaluatorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(blend_time);
         unsafe { __buffer.add(48).cast::<FSequenceEvaluatorReference>().read() }
     }
     pub fn set_sequence(
@@ -6495,6 +6576,7 @@ impl USequenceEvaluatorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
     }
     pub fn set_explicit_time(
@@ -6534,6 +6616,7 @@ impl USequenceEvaluatorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time);
         unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
     }
     pub fn set_explicit_frame(
@@ -6573,6 +6656,7 @@ impl USequenceEvaluatorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(frame);
         unsafe { __buffer.add(24).cast::<FSequenceEvaluatorReference>().read() }
     }
     pub fn get_sequence(
@@ -6803,6 +6887,7 @@ impl USequenceEvaluatorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(play_rate);
         unsafe { __buffer.add(40).cast::<FSequenceEvaluatorReference>().read() }
     }
 }
@@ -6881,6 +6966,7 @@ impl USequencePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(start_position);
         unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
     }
     pub fn set_sequence_with_inertial_blending(
@@ -6942,6 +7028,8 @@ impl USequencePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(blend_time);
         unsafe { __buffer.add(48).cast::<FSequencePlayerReference>().read() }
     }
     pub fn set_sequence(
@@ -6987,6 +7075,7 @@ impl USequencePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
     }
     pub fn set_play_rate(
@@ -7026,6 +7115,7 @@ impl USequencePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(play_rate);
         unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
     }
     pub fn set_accumulated_time(
@@ -7065,6 +7155,7 @@ impl USequencePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(time);
         unsafe { __buffer.add(24).cast::<FSequencePlayerReference>().read() }
     }
     pub fn get_start_position(sequence_player: &FSequencePlayerReference) -> f32 {
@@ -7432,6 +7523,7 @@ impl USequencePlayerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(duration);
         unsafe { __buffer.add(20).cast::<f32>().read() }
     }
 }
@@ -7542,6 +7634,7 @@ impl USkeletalControlLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(alpha);
         unsafe { __buffer.add(24).cast::<FSkeletalControlReference>().read() }
     }
     pub fn get_alpha(skeletal_control: &FSkeletalControlReference) -> f32 {

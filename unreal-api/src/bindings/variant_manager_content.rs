@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -507,6 +508,7 @@ impl ULevelVariantSets {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set_name);
         unsafe { __buffer.add(16).cast::<UPtr<UVariantSet>>().read() }
     }
     pub fn get_variant_set(&mut self, variant_set_index: i32) -> UPtr<UVariantSet> {
@@ -540,6 +542,7 @@ impl ULevelVariantSets {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set_index);
         unsafe { __buffer.add(8).cast::<UPtr<UVariantSet>>().read() }
     }
     pub fn get_num_variant_sets(&mut self) -> i32 {
@@ -648,6 +651,8 @@ impl ALevelVariantSetsActor {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set_name);
+        std::mem::forget(variant_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn switch_on_variant_by_index(
@@ -692,6 +697,8 @@ impl ALevelVariantSetsActor {
                 __buffer,
             )
         };
+        std::mem::forget(variant_set_index);
+        std::mem::forget(variant_index);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_level_variant_sets(&mut self, in_variant_sets: UPtr<ULevelVariantSets>) {
@@ -725,6 +732,7 @@ impl ALevelVariantSetsActor {
                 __buffer,
             )
         };
+        std::mem::forget(in_variant_sets);
     }
     pub fn get_level_variant_sets(&mut self, b_load: bool) -> UPtr<ULevelVariantSets> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -753,6 +761,7 @@ impl ALevelVariantSetsActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_load);
         unsafe { __buffer.add(8).cast::<UPtr<ULevelVariantSets>>().read() }
     }
 }
@@ -1179,6 +1188,7 @@ impl ASwitchActor {
                 __buffer,
             )
         };
+        std::mem::forget(option_index);
     }
     pub fn get_selected_option(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1327,6 +1337,7 @@ impl UVariant {
                 __buffer,
             )
         };
+        std::mem::forget(new_thumbnail);
     }
     pub fn set_thumbnail_from_file(&mut self, file_path: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1359,6 +1370,7 @@ impl UVariant {
                 __buffer,
             )
         };
+        std::mem::forget(file_path);
     }
     pub fn set_thumbnail_from_editor_viewport(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1443,6 +1455,10 @@ impl UVariant {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(fov_degrees);
+        std::mem::forget(min_z);
+        std::mem::forget(gamma);
     }
     pub fn set_display_text(&mut self, new_display_text: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1676,6 +1692,8 @@ impl UVariant {
                 __buffer,
             )
         };
+        std::mem::forget(level_variant_sets);
+        std::mem::forget(b_only_enabled_dependencies);
         unsafe { __buffer.add(16).cast::<TArray<UPtr<UVariant>>>().read() }
     }
     pub fn get_dependency(&mut self, index: i32) -> FVariantDependency {
@@ -1705,6 +1723,7 @@ impl UVariant {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<FVariantDependency>().read() }
     }
     pub fn get_actor(
@@ -1741,6 +1760,7 @@ impl UVariant {
                 __buffer,
             )
         };
+        std::mem::forget(actor_index);
         unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
 }
@@ -1847,6 +1867,7 @@ impl UVariantSet {
                 __buffer,
             )
         };
+        std::mem::forget(new_thumbnail);
     }
     pub fn set_thumbnail_from_file(&mut self, file_path: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1879,6 +1900,7 @@ impl UVariantSet {
                 __buffer,
             )
         };
+        std::mem::forget(file_path);
     }
     pub fn set_thumbnail_from_editor_viewport(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1963,6 +1985,10 @@ impl UVariantSet {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(fov_degrees);
+        std::mem::forget(min_z);
+        std::mem::forget(gamma);
     }
     pub fn set_display_text(&mut self, new_display_text: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2027,6 +2053,7 @@ impl UVariantSet {
                 __buffer,
             )
         };
+        std::mem::forget(variant_name);
         unsafe { __buffer.add(16).cast::<UPtr<UVariant>>().read() }
     }
     pub fn get_variant(&mut self, variant_index: i32) -> UPtr<UVariant> {
@@ -2060,6 +2087,7 @@ impl UVariantSet {
                 __buffer,
             )
         };
+        std::mem::forget(variant_index);
         unsafe { __buffer.add(8).cast::<UPtr<UVariant>>().read() }
     }
     pub fn get_thumbnail(&mut self) -> UPtr<crate::bindings::engine::UTexture2D> {

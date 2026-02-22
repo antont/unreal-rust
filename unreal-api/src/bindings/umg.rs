@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -8696,6 +8697,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_visibility);
     }
     pub fn set_user_focus(
         &mut self,
@@ -8731,6 +8733,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
     }
     pub fn set_tool_tip_text(&mut self, in_tool_tip_text: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -8791,6 +8794,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
     }
     pub fn set_render_translation(
         &mut self,
@@ -8824,6 +8828,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(translation);
     }
     pub fn set_render_transform_pivot(
         &mut self,
@@ -8859,6 +8864,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(pivot);
     }
     pub fn set_render_transform_angle(&mut self, angle: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8887,6 +8893,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(angle);
     }
     pub fn set_render_transform(&mut self, in_transform: FWidgetTransform) {
         let mut __stack = crate::core_data::StackAlloc::<56>::new();
@@ -8917,6 +8924,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_transform);
     }
     pub fn set_render_shear(
         &mut self,
@@ -8950,6 +8958,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(shear);
     }
     pub fn set_render_scale(
         &mut self,
@@ -8983,6 +8992,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(scale);
     }
     pub fn set_render_opacity(&mut self, in_opacity: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9009,6 +9019,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_opacity);
     }
     pub fn set_navigation_rule_explicit(
         &mut self,
@@ -9052,6 +9063,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(direction);
+        std::mem::forget(in_widget);
     }
     pub fn set_navigation_rule_custom_boundary(
         &mut self,
@@ -9097,6 +9110,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(direction);
+        std::mem::forget(in_custom_delegate);
     }
     pub fn set_navigation_rule_custom(
         &mut self,
@@ -9140,6 +9155,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(direction);
+        std::mem::forget(in_custom_delegate);
     }
     pub fn set_navigation_rule_base(
         &mut self,
@@ -9181,6 +9198,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(direction);
+        std::mem::forget(rule);
     }
     pub fn set_navigation_rule(
         &mut self,
@@ -9230,6 +9249,9 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(direction);
+        std::mem::forget(rule);
+        std::mem::forget(widget_to_focus);
     }
     pub fn set_keyboard_focus(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -9283,6 +9305,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_enabled);
     }
     pub fn set_focus(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -9339,6 +9362,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_cursor);
     }
     pub fn set_clipping(
         &mut self,
@@ -9372,6 +9396,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_clipping);
     }
     pub fn set_all_navigation_rules(
         &mut self,
@@ -9413,6 +9438,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(rule);
+        std::mem::forget(widget_to_focus);
     }
     pub fn reset_cursor(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -9504,6 +9531,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(field_id);
+        std::mem::forget(delegate);
     }
     pub fn broadcast_field_value_changed(
         &mut self,
@@ -9541,6 +9570,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(field_id);
     }
     pub fn add_field_value_changed_delegate(
         &mut self,
@@ -9586,6 +9616,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(field_id);
+        std::mem::forget(delegate);
     }
     pub fn is_visible(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9744,6 +9776,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_user_focus(
@@ -9780,6 +9813,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_mouse_capture_by_user(
@@ -9818,6 +9852,8 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(user_index);
+        std::mem::forget(pointer_index);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_mouse_capture(&self) -> bool {
@@ -10326,6 +10362,7 @@ impl UWidget {
                 __buffer,
             )
         };
+        std::mem::forget(b_force);
     }
     pub fn force_layout_prepass(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10466,6 +10503,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
+        std::mem::forget(delegate);
     }
     pub fn unbind_from_animation_finished(
         &mut self,
@@ -10509,6 +10548,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
+        std::mem::forget(delegate);
     }
     pub fn unbind_all_from_animation_started(
         &mut self,
@@ -10544,6 +10585,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
     }
     pub fn unbind_all_from_animation_finished(
         &mut self,
@@ -10579,6 +10621,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
     }
     pub fn tick(
         &mut self,
@@ -10620,6 +10663,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_delta_time);
     }
     pub fn stop_listening_for_input_action(
         &mut self,
@@ -10663,6 +10708,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(action_name);
+        std::mem::forget(event_type);
     }
     pub fn stop_listening_for_all_input_actions(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10743,6 +10790,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
     }
     pub fn stop_all_animations(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10809,6 +10857,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(position);
+        std::mem::forget(b_remove_dpi_scale);
     }
     pub fn set_playback_speed(
         &mut self,
@@ -10850,6 +10900,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(playback_speed);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -10880,6 +10932,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_owning_player(
         &mut self,
@@ -10915,6 +10968,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(local_player_controller);
     }
     pub fn set_num_loops_to_play(
         &mut self,
@@ -10958,6 +11012,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(num_loops_to_play);
     }
     pub fn set_input_action_priority(&mut self, new_priority: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10990,6 +11046,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(new_priority);
     }
     pub fn set_input_action_blocking(&mut self, b_should_block: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11022,6 +11079,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(b_should_block);
     }
     pub fn set_foreground_color(
         &mut self,
@@ -11055,6 +11113,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_foreground_color);
     }
     pub fn set_desired_size_in_viewport(
         &mut self,
@@ -11090,6 +11149,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(size);
     }
     pub fn set_desired_focus_widget(&mut self, widget: UPtr<UWidget>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -11122,6 +11182,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_color_and_opacity(
@@ -11158,6 +11219,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_color_and_opacity);
     }
     pub fn set_animation_current_time(
         &mut self,
@@ -11197,6 +11259,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(in_time);
     }
     pub fn set_anchors_in_viewport(
         &mut self,
@@ -11232,6 +11296,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(anchors);
     }
     pub fn set_alignment_in_viewport(
         &mut self,
@@ -11267,6 +11332,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(alignment);
     }
     pub fn reverse_animation(&mut self, in_animation: UPtr<UWidgetAnimation>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -11297,6 +11363,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
     }
     pub fn remove_from_viewport(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -11353,6 +11420,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_extension_type);
     }
     pub fn remove_extension(&mut self, in_extension: UPtr<UUserWidgetExtension>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -11383,6 +11451,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_extension);
     }
     pub fn register_input_component(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -11438,6 +11507,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
     }
     pub fn queue_stop_all_animations(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -11546,6 +11616,13 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(end_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
     }
     pub fn queue_play_animation_reverse(
         &mut self,
@@ -11597,6 +11674,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
     }
     pub fn queue_play_animation_forward(
         &mut self,
@@ -11648,6 +11728,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
     }
     pub fn queue_play_animation(
         &mut self,
@@ -11721,6 +11804,12 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
     }
     pub fn queue_pause_animation(
         &mut self,
@@ -11756,6 +11845,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn pre_construct(&mut self, is_design_time: bool) {
@@ -11787,6 +11877,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(is_design_time);
     }
     pub fn play_sound(
         &mut self,
@@ -11820,6 +11911,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(sound_to_play);
     }
     pub fn play_animation_time_range(
         &mut self,
@@ -11903,6 +11995,13 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(end_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
         unsafe { __buffer.add(32).cast::<FWidgetAnimationHandle>().read() }
     }
     pub fn play_animation_reverse(
@@ -11955,6 +12054,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
         unsafe { __buffer.add(16).cast::<FWidgetAnimationHandle>().read() }
     }
     pub fn play_animation_forward(
@@ -12007,6 +12109,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
         unsafe { __buffer.add(16).cast::<FWidgetAnimationHandle>().read() }
     }
     pub fn play_animation(
@@ -12081,6 +12186,12 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
+        std::mem::forget(b_restore_state);
         unsafe { __buffer.add(32).cast::<FWidgetAnimationHandle>().read() }
     }
     pub fn pause_animation(&mut self, in_animation: UPtr<UWidgetAnimation>) -> f32 {
@@ -12112,6 +12223,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn on_touch_started(
@@ -12154,6 +12266,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_touch_moved(
@@ -12196,6 +12309,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_touch_gesture(
@@ -12238,6 +12352,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_touch_force_changed(
@@ -12282,6 +12397,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_touch_first_move(
@@ -12324,6 +12440,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_touch_ended(
@@ -12366,6 +12483,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_removed_from_focus_path(
@@ -12402,6 +12520,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_focus_event);
     }
     pub fn on_preview_mouse_button_down(
         &mut self,
@@ -12445,6 +12564,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_preview_key_down(
@@ -12487,6 +12607,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_key_event);
         unsafe { __buffer.add(136).cast::<FEventReply>().read() }
     }
     pub fn on_paint(&self, context: &mut FPaintContext) {
@@ -12562,6 +12684,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_mouse_move(
@@ -12604,6 +12727,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_mouse_leave(
@@ -12679,6 +12803,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
     }
     pub fn on_mouse_capture_lost(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -12745,6 +12870,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_mouse_button_down(
@@ -12787,6 +12913,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_mouse_button_double_click(
@@ -12831,6 +12958,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_my_geometry);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_motion_detected(
@@ -12873,6 +13001,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_motion_event);
         unsafe { __buffer.add(192).cast::<FEventReply>().read() }
     }
     pub fn on_key_up(
@@ -12915,6 +13045,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_key_event);
         unsafe { __buffer.add(136).cast::<FEventReply>().read() }
     }
     pub fn on_key_down(
@@ -12957,6 +13089,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_key_event);
         unsafe { __buffer.add(136).cast::<FEventReply>().read() }
     }
     pub fn on_key_char(
@@ -12999,6 +13133,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_character_event);
         unsafe { __buffer.add(104).cast::<FEventReply>().read() }
     }
     pub fn on_initialized(&mut self) {
@@ -13064,6 +13200,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_focus_event);
         unsafe { __buffer.add(64).cast::<FEventReply>().read() }
     }
     pub fn on_focus_lost(
@@ -13098,6 +13236,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_focus_event);
     }
     pub fn on_drop(
         &mut self,
@@ -13147,6 +13286,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(pointer_event);
+        std::mem::forget(operation);
         unsafe { __buffer.add(200).cast::<bool>().read() }
     }
     pub fn on_drag_over(
@@ -13197,6 +13339,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(pointer_event);
+        std::mem::forget(operation);
         unsafe { __buffer.add(200).cast::<bool>().read() }
     }
     pub fn on_drag_leave(
@@ -13239,6 +13384,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(pointer_event);
+        std::mem::forget(operation);
     }
     pub fn on_drag_enter(
         &mut self,
@@ -13288,6 +13435,9 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(pointer_event);
+        std::mem::forget(operation);
     }
     pub fn on_drag_detected(
         &mut self,
@@ -13340,6 +13490,7 @@ impl UUserWidget {
         unsafe {
             __buffer.add(192).cast::<UPtr<UDragDropOperation>>().swap(operation);
         }
+        std::mem::forget(my_geometry);
     }
     pub fn on_drag_cancelled(
         &mut self,
@@ -13381,6 +13532,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(operation);
     }
     pub fn on_animation_started(&mut self, animation: UPtr<UWidgetAnimation>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -13411,6 +13563,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
     }
     pub fn on_animation_finished(&mut self, animation: UPtr<UWidgetAnimation>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -13443,6 +13596,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
     }
     pub fn on_analog_value_changed(
         &mut self,
@@ -13488,6 +13642,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(my_geometry);
+        std::mem::forget(in_analog_input_event);
         unsafe { __buffer.add(144).cast::<FEventReply>().read() }
     }
     pub fn on_added_to_focus_path(
@@ -13524,6 +13680,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_focus_event);
     }
     pub fn listen_for_input_action(
         &mut self,
@@ -13583,6 +13740,10 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(action_name);
+        std::mem::forget(event_type);
+        std::mem::forget(b_consume);
+        std::mem::forget(callback);
     }
     pub fn is_playing_animation(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -13639,6 +13800,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(action_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn is_interactable(&self) -> bool {
@@ -13725,6 +13887,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_animation_playing(&self, in_animation: UPtr<UWidgetAnimation>) -> bool {
@@ -13756,6 +13919,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_owning_player_pawn(&self) -> UPtr<crate::bindings::engine::APawn> {
@@ -13873,6 +14037,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(extension_type);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<UUserWidgetExtension>>>().read() }
     }
     pub fn get_extension(
@@ -13907,6 +14072,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(extension_type);
         unsafe { __buffer.add(8).cast::<UPtr<UUserWidgetExtension>>().read() }
     }
     pub fn get_animation_current_time(
@@ -13943,6 +14109,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_anchors_in_viewport(&self) -> crate::bindings::slate::FAnchors {
@@ -14137,6 +14304,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
+        std::mem::forget(delegate);
     }
     pub fn bind_to_animation_finished(
         &mut self,
@@ -14180,6 +14349,8 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
+        std::mem::forget(delegate);
     }
     pub fn bind_to_animation_event(
         &mut self,
@@ -14239,6 +14410,10 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(animation);
+        std::mem::forget(delegate);
+        std::mem::forget(animation_event);
+        std::mem::forget(user_tag);
     }
     pub fn add_to_viewport(&mut self, z_order: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -14265,6 +14440,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(z_order);
     }
     pub fn add_to_player_screen(&mut self, z_order: i32) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -14291,6 +14467,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(z_order);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn add_extension(
@@ -14325,6 +14502,7 @@ impl UUserWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_extension_type);
         unsafe { __buffer.add(8).cast::<UPtr<UUserWidgetExtension>>().read() }
     }
 }
@@ -14393,6 +14571,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_visibility);
     }
     pub fn set_window_focusable(&mut self, b_in_window_focusable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14425,6 +14604,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_window_focusable);
     }
     pub fn set_widget_space(&mut self, new_space: EWidgetSpace) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14457,6 +14637,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_space);
     }
     pub fn set_widget(&mut self, widget: UPtr<UUserWidget>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -14487,6 +14668,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
     }
     pub fn set_two_sided(&mut self, b_want_two_sided: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14517,6 +14699,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_want_two_sided);
     }
     pub fn set_tint_color_and_opacity(
         &mut self,
@@ -14552,6 +14735,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_tint_color_and_opacity);
     }
     pub fn set_tick_when_offscreen(&mut self, b_want_tick_when_offscreen: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14584,6 +14768,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_want_tick_when_offscreen);
     }
     pub fn set_tick_mode(&mut self, in_tick_mode: ETickMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14614,6 +14799,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_tick_mode);
     }
     pub fn set_redraw_time(&mut self, in_redraw_time: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -14644,6 +14830,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_redraw_time);
     }
     pub fn set_pivot(&mut self, in_pivot: &crate::bindings::core_u_object::FVector2D) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -14709,6 +14896,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(local_player);
     }
     pub fn set_manually_redraw(&mut self, b_use_manual_redraw: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14741,6 +14929,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_use_manual_redraw);
     }
     pub fn set_geometry_mode(&mut self, in_geometry_mode: EWidgetGeometryMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14773,6 +14962,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_geometry_mode);
     }
     pub fn set_draw_size(&mut self, size: crate::bindings::core_u_object::FVector2D) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -14803,6 +14993,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(size);
     }
     pub fn set_draw_at_desired_size(&mut self, b_in_draw_at_desired_size: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -14835,6 +15026,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_draw_at_desired_size);
     }
     pub fn set_cylinder_arc_angle(&mut self, in_cylinder_arc_angle: f64) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -14867,6 +15059,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_cylinder_arc_angle);
     }
     pub fn set_background_color(
         &mut self,
@@ -14902,6 +15095,7 @@ impl UWidgetComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_background_color);
     }
     pub fn request_render_update(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -15552,6 +15746,7 @@ impl UPanelWidget {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn remove_child(&mut self, content: UPtr<UWidget>) -> bool {
@@ -15583,6 +15778,7 @@ impl UPanelWidget {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_child(&self, content: UPtr<UWidget>) -> bool {
@@ -15614,6 +15810,7 @@ impl UPanelWidget {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_any_children(&self) -> bool {
@@ -15693,6 +15890,7 @@ impl UPanelWidget {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_child_at(&self, index: i32) -> UPtr<UWidget> {
@@ -15720,6 +15918,7 @@ impl UPanelWidget {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<UPtr<UWidget>>().read() }
     }
     pub fn get_all_children(&self) -> TArray<UPtr<UWidget>> {
@@ -15798,6 +15997,7 @@ impl UPanelWidget {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UPanelSlot>>().read() }
     }
 }
@@ -15864,6 +16064,7 @@ impl UContentWidget {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UPanelSlot>>().read() }
     }
     pub fn get_content_slot(&self) -> UPtr<UPanelSlot> {
@@ -15990,6 +16191,7 @@ impl UButton {
                 __buffer,
             )
         };
+        std::mem::forget(in_touch_method);
     }
     pub fn set_style(&mut self, in_style: &crate::bindings::slate_core::FButtonStyle) {
         let mut __stack = crate::core_data::StackAlloc::<1088>::new();
@@ -16055,6 +16257,7 @@ impl UButton {
                 __buffer,
             )
         };
+        std::mem::forget(in_press_method);
     }
     pub fn set_color_and_opacity(
         &mut self,
@@ -16088,6 +16291,7 @@ impl UButton {
                 __buffer,
             )
         };
+        std::mem::forget(in_color_and_opacity);
     }
     pub fn set_click_method(
         &mut self,
@@ -16123,6 +16327,7 @@ impl UButton {
                 __buffer,
             )
         };
+        std::mem::forget(in_click_method);
     }
     pub fn set_background_color(
         &mut self,
@@ -16156,6 +16361,7 @@ impl UButton {
                 __buffer,
             )
         };
+        std::mem::forget(in_background_color);
     }
     pub fn set_allow_drag_drop(&mut self, b_in_allow_drag_drop: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -16186,6 +16392,7 @@ impl UButton {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_allow_drag_drop);
     }
     pub fn is_pressed(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -16287,6 +16494,7 @@ impl UCheckBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_touch_method);
     }
     pub fn set_press_method(
         &mut self,
@@ -16322,6 +16530,7 @@ impl UCheckBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_press_method);
     }
     pub fn set_is_checked(&mut self, in_is_checked: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -16352,6 +16561,7 @@ impl UCheckBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_is_checked);
     }
     pub fn set_click_method(
         &mut self,
@@ -16387,6 +16597,7 @@ impl UCheckBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_click_method);
     }
     pub fn set_checked_state(
         &mut self,
@@ -16420,6 +16631,7 @@ impl UCheckBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_checked_state);
     }
     pub fn is_pressed(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -16561,6 +16773,7 @@ impl UCircularThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(in_radius);
     }
     pub fn set_period(&mut self, in_period: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -16587,6 +16800,7 @@ impl UCircularThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(in_period);
     }
     pub fn set_number_of_pieces(&mut self, in_number_of_pieces: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -16619,6 +16833,7 @@ impl UCircularThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(in_number_of_pieces);
     }
 }
 #[repr(C, align(16))]
@@ -16693,6 +16908,7 @@ impl UComboBoxKey {
                 __buffer,
             )
         };
+        std::mem::forget(option);
     }
     pub fn remove_option(&mut self, option: FName) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -16719,6 +16935,7 @@ impl UComboBoxKey {
                 __buffer,
             )
         };
+        std::mem::forget(option);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn is_open(&self) -> bool {
@@ -16842,6 +17059,7 @@ impl UComboBoxKey {
                 __buffer,
             )
         };
+        std::mem::forget(option);
     }
 }
 #[repr(C, align(16))]
@@ -16917,6 +17135,7 @@ impl UComboBoxString {
                 __buffer,
             )
         };
+        std::mem::forget(option);
     }
     pub fn set_selected_index(&mut self, index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -16945,6 +17164,7 @@ impl UComboBoxString {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn remove_option(&mut self, option: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -16971,6 +17191,7 @@ impl UComboBoxString {
                 __buffer,
             )
         };
+        std::mem::forget(option);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn refresh_options(&mut self) {
@@ -17125,6 +17346,7 @@ impl UComboBoxString {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn find_option_index(&self, option: FString) -> i32 {
@@ -17154,6 +17376,7 @@ impl UComboBoxString {
                 __buffer,
             )
         };
+        std::mem::forget(option);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn clear_selection(&mut self) {
@@ -17227,6 +17450,7 @@ impl UComboBoxString {
                 __buffer,
             )
         };
+        std::mem::forget(option);
     }
 }
 #[repr(C, align(16))]
@@ -17314,6 +17538,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(b_show);
     }
     pub fn set_text_overflow_policy(
         &mut self,
@@ -17351,6 +17576,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_overflow_policy);
     }
     pub fn set_text(&mut self, in_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -17377,6 +17603,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
     }
     pub fn set_minimum_desired_width(&mut self, in_min_desired_width: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -17409,6 +17636,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_width);
     }
     pub fn set_justification(
         &mut self,
@@ -17442,6 +17670,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_justification);
     }
     pub fn set_is_read_only(&mut self, inb_is_ready_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -17472,6 +17701,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(inb_is_ready_only);
     }
     pub fn set_is_password(&mut self, inb_is_password: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -17502,6 +17732,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(inb_is_password);
     }
     pub fn set_hint_text(&mut self, in_hint_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -17532,6 +17763,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_hint_text);
     }
     pub fn set_font_outline_material(
         &mut self,
@@ -17569,6 +17801,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_font_material(
         &mut self,
@@ -17604,6 +17837,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_font(
         &mut self,
@@ -17637,6 +17871,7 @@ impl UEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_font_info);
     }
     pub fn get_text(&self) -> FText {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -17829,6 +18064,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_overflow_policy);
     }
     pub fn set_text(&mut self, in_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -17855,6 +18091,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
     }
     pub fn set_justification(
         &mut self,
@@ -17890,6 +18127,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_justification);
     }
     pub fn set_is_read_only(&mut self, b_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -17922,6 +18160,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_read_only);
     }
     pub fn set_is_password(&mut self, b_is_password: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -17954,6 +18193,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_password);
     }
     pub fn set_hint_text(&mut self, in_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -17980,6 +18220,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
     }
     pub fn set_foreground_color(
         &mut self,
@@ -18015,6 +18256,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(color);
     }
     pub fn set_error(&mut self, in_error: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -18041,6 +18283,7 @@ impl UEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_error);
     }
     pub fn has_error(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18187,6 +18430,7 @@ impl UExpandableArea {
                 __buffer,
             )
         };
+        std::mem::forget(is_expanded);
     }
     pub fn set_is_expanded(&mut self, is_expanded: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18217,6 +18461,7 @@ impl UExpandableArea {
                 __buffer,
             )
         };
+        std::mem::forget(is_expanded);
     }
     pub fn get_is_expanded(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18319,6 +18564,7 @@ impl UInputKeySelector {
                 __buffer,
             )
         };
+        std::mem::forget(in_visibility);
     }
     pub fn set_selected_key(
         &mut self,
@@ -18386,6 +18632,7 @@ impl UInputKeySelector {
                 __buffer,
             )
         };
+        std::mem::forget(in_no_key_specified_text);
     }
     pub fn set_key_selection_text(&mut self, in_key_selection_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -18418,6 +18665,7 @@ impl UInputKeySelector {
                 __buffer,
             )
         };
+        std::mem::forget(in_key_selection_text);
     }
     pub fn set_escape_keys(
         &mut self,
@@ -18485,6 +18733,7 @@ impl UInputKeySelector {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_allow_modifier_keys);
     }
     pub fn set_allow_gamepad_keys(&mut self, b_in_allow_gamepad_keys: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18517,6 +18766,7 @@ impl UInputKeySelector {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_allow_gamepad_keys);
     }
     pub fn get_is_selecting_key(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18629,6 +18879,7 @@ impl UListViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(new_wheel_scroll_multiplier);
     }
     pub fn set_scroll_offset(&mut self, in_scroll_offset: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -18659,6 +18910,7 @@ impl UListViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_scroll_offset);
     }
     pub fn set_scrollbar_visibility(&mut self, in_visibility: ESlateVisibility) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18691,6 +18943,7 @@ impl UListViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_visibility);
     }
     pub fn set_is_pointer_scrolling_enabled(
         &mut self,
@@ -18726,6 +18979,7 @@ impl UListViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_pointer_scrolling_enabled);
     }
     pub fn set_is_gamepad_scrolling_enabled(
         &mut self,
@@ -18761,6 +19015,7 @@ impl UListViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_gamepad_scrolling_enabled);
     }
     pub fn set_allow_over_scroll(&mut self, new_allow_overscroll: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -18793,6 +19048,7 @@ impl UListViewBase {
                 __buffer,
             )
         };
+        std::mem::forget(new_allow_overscroll);
     }
     pub fn scroll_to_top(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -19099,6 +19355,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(selection_mode);
     }
     pub fn set_selected_index(&mut self, index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -19125,6 +19382,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn set_scroll_into_view_alignment(
         &mut self,
@@ -19162,6 +19420,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(new_scroll_into_view_alignment);
     }
     pub fn scroll_index_into_view(&mut self, index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -19188,6 +19447,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn remove_item(&mut self, item: UPtr<crate::bindings::core_u_object::UObject>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -19218,6 +19478,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
     }
     pub fn navigate_to_index(&mut self, index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -19244,6 +19505,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn is_refresh_pending(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -19378,6 +19640,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer
                 .add(8)
@@ -19417,6 +19680,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_horizontal_entry_spacing(&self) -> f32 {
@@ -19500,6 +19764,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
     }
     pub fn bp_set_list_items(
         &mut self,
@@ -19576,6 +19841,8 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
+        std::mem::forget(b_selected);
     }
     pub fn bp_scroll_item_into_view(
         &mut self,
@@ -19611,6 +19878,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
     }
     pub fn bp_navigate_to_item(
         &mut self,
@@ -19644,6 +19912,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
     }
     pub fn bp_is_item_visible(
         &self,
@@ -19677,6 +19946,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn bp_get_selected_items(
@@ -19853,6 +20123,7 @@ impl UListView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
     }
 }
 #[repr(C, align(8))]
@@ -19932,6 +20203,7 @@ impl UTextLayoutWidget {
                 __buffer,
             )
         };
+        std::mem::forget(in_justification);
     }
 }
 #[repr(C, align(16))]
@@ -20043,6 +20315,7 @@ impl UMultiLineEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
     }
     pub fn set_is_read_only(&mut self, b_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -20075,6 +20348,7 @@ impl UMultiLineEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(b_read_only);
     }
     pub fn set_hint_text(&mut self, in_hint_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -20107,6 +20381,7 @@ impl UMultiLineEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_hint_text);
     }
     pub fn set_font_outline_material(
         &mut self,
@@ -20144,6 +20419,7 @@ impl UMultiLineEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_font_material(
         &mut self,
@@ -20181,6 +20457,7 @@ impl UMultiLineEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_font(
         &mut self,
@@ -20216,6 +20493,7 @@ impl UMultiLineEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(in_font_info);
     }
     pub fn get_text(&self) -> FText {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -20404,6 +20682,7 @@ impl UMultiLineEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
     }
     pub fn set_is_read_only(&mut self, b_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -20436,6 +20715,7 @@ impl UMultiLineEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_read_only);
     }
     pub fn set_hint_text(&mut self, in_hint_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -20468,6 +20748,7 @@ impl UMultiLineEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_hint_text);
     }
     pub fn set_foreground_color(
         &mut self,
@@ -20503,6 +20784,7 @@ impl UMultiLineEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(color);
     }
     pub fn set_error(&mut self, in_error: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -20531,6 +20813,7 @@ impl UMultiLineEditableTextBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_error);
     }
     pub fn get_text(&self) -> FText {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -20655,6 +20938,7 @@ impl UProgressBar {
                 __buffer,
             )
         };
+        std::mem::forget(in_percent);
     }
     pub fn set_is_marquee(&mut self, inb_is_marquee: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -20685,6 +20969,7 @@ impl UProgressBar {
                 __buffer,
             )
         };
+        std::mem::forget(inb_is_marquee);
     }
     pub fn set_fill_color_and_opacity(
         &mut self,
@@ -20720,6 +21005,7 @@ impl UProgressBar {
                 __buffer,
             )
         };
+        std::mem::forget(in_color);
     }
 }
 #[repr(C, align(16))]
@@ -20800,6 +21086,8 @@ impl UScrollBar {
                 __buffer,
             )
         };
+        std::mem::forget(in_offset_fraction);
+        std::mem::forget(in_thumb_size_fraction);
     }
 }
 #[repr(C, align(16))]
@@ -20892,6 +21180,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_wheel_scroll_multiplier);
     }
     pub fn set_scroll_when_focus_changes(
         &mut self,
@@ -20929,6 +21218,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_scroll_when_focus_changes);
     }
     pub fn set_scroll_offset(&mut self, new_scroll_offset: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -20959,6 +21249,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_scroll_offset);
     }
     pub fn set_scroll_bar_visibility(
         &mut self,
@@ -20994,6 +21285,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_scroll_bar_visibility);
     }
     pub fn set_scrollbar_thickness(
         &mut self,
@@ -21097,6 +21389,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_scroll_animation_interpolation_speed);
     }
     pub fn set_orientation(
         &mut self,
@@ -21130,6 +21423,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_orientation);
     }
     pub fn set_navigation_destination(
         &mut self,
@@ -21167,6 +21461,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_navigation_destination);
     }
     pub fn set_is_focusable(&mut self, b_in_is_focusable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -21197,6 +21492,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_focusable);
     }
     pub fn set_consume_pointer_input(&mut self, b_in_consume_pointer_input: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -21229,6 +21525,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_consume_pointer_input);
     }
     pub fn set_consume_mouse_wheel(
         &mut self,
@@ -21266,6 +21563,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_consume_mouse_wheel);
     }
     pub fn set_animate_wheel_scrolling(
         &mut self,
@@ -21301,6 +21599,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_should_animate_wheel_scrolling);
     }
     pub fn set_analog_mouse_wheel_key(
         &mut self,
@@ -21336,6 +21635,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_mouse_wheel_key);
     }
     pub fn set_always_show_scrollbar(&mut self, new_always_show_scrollbar: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -21368,6 +21668,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_always_show_scrollbar);
     }
     pub fn set_allow_overscroll(&mut self, new_allow_overscroll: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -21398,6 +21699,7 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_allow_overscroll);
     }
     pub fn scroll_widget_into_view(
         &mut self,
@@ -21455,6 +21757,10 @@ impl UScrollBox {
                 __buffer,
             )
         };
+        std::mem::forget(widget_to_find);
+        std::mem::forget(animate_scroll);
+        std::mem::forget(scroll_destination);
+        std::mem::forget(padding);
     }
     pub fn scroll_to_start(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -21851,6 +22157,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_step_size(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -21877,6 +22184,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_handle_color(
         &mut self,
@@ -21910,6 +22218,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_bar_color(
         &mut self,
@@ -21943,6 +22252,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_min_value(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -21969,6 +22279,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_max_value(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -21995,6 +22306,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_locked(&mut self, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -22021,6 +22333,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_indent_handle(&mut self, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -22047,6 +22360,7 @@ impl USlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22178,6 +22492,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_min_value(&mut self, new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22204,6 +22519,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_min_slider_value(&mut self, new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22230,6 +22546,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_min_fractional_digits(&mut self, new_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22258,6 +22575,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_max_value(&mut self, new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22284,6 +22602,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_max_slider_value(&mut self, new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22310,6 +22629,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_max_fractional_digits(&mut self, new_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22338,6 +22658,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_foreground_color(
         &mut self,
@@ -22371,6 +22692,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_foreground_color);
     }
     pub fn set_delta(&mut self, new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22397,6 +22719,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
     }
     pub fn set_always_uses_delta_snap(&mut self, b_new_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -22429,6 +22752,7 @@ impl USpinBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_value);
     }
     pub fn get_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -22811,6 +23135,7 @@ impl UThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(in_number_of_pieces);
     }
     pub fn set_animate_vertically(&mut self, b_in_animate_vertically: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -22841,6 +23166,7 @@ impl UThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_animate_vertically);
     }
     pub fn set_animate_opacity(&mut self, b_in_animate_opacity: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -22871,6 +23197,7 @@ impl UThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_animate_opacity);
     }
     pub fn set_animate_horizontally(&mut self, b_in_animate_horizontally: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -22903,6 +23230,7 @@ impl UThrobber {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_animate_horizontally);
     }
 }
 #[repr(C, align(16))]
@@ -22975,6 +23303,8 @@ impl UTreeView {
                 __buffer,
             )
         };
+        std::mem::forget(item);
+        std::mem::forget(b_expand_item);
     }
     pub fn expand_all(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -23585,6 +23915,7 @@ impl UUMGSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_user_tag);
     }
     pub fn get_user_tag(&self) -> FName {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -23722,6 +24053,8 @@ impl UWidgetAnimation {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(delegate);
     }
     pub fn unbind_from_animation_finished(
         &mut self,
@@ -23765,6 +24098,8 @@ impl UWidgetAnimation {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(delegate);
     }
     pub fn unbind_all_from_animation_started(&mut self, widget: UPtr<UUserWidget>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -23797,6 +24132,7 @@ impl UWidgetAnimation {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
     }
     pub fn unbind_all_from_animation_finished(&mut self, widget: UPtr<UUserWidget>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -23829,6 +24165,7 @@ impl UWidgetAnimation {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
     }
     pub fn get_start_time(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -23920,6 +24257,8 @@ impl UWidgetAnimation {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(delegate);
     }
     pub fn bind_to_animation_finished(
         &mut self,
@@ -23963,6 +24302,8 @@ impl UWidgetAnimation {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(delegate);
     }
 }
 #[repr(C, align(8))]
@@ -24075,6 +24416,7 @@ impl UWidgetAnimationHandleFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FWidgetAnimationHandle>().swap(target);
         }
+        std::mem::forget(in_user_tag);
     }
     pub fn get_user_tag(target: &FWidgetAnimationHandle) -> FName {
         let mut __stack = crate::core_data::StackAlloc::<28>::new();
@@ -24236,6 +24578,13 @@ impl UWidgetAnimationPlayCallbackProxy {
         unsafe {
             __buffer.add(0).cast::<FWidgetAnimationHandle>().swap(result);
         }
+        std::mem::forget(widget);
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(end_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
         unsafe {
             __buffer.add(56).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
         }
@@ -24324,6 +24673,12 @@ impl UWidgetAnimationPlayCallbackProxy {
         unsafe {
             __buffer.add(0).cast::<FWidgetAnimationHandle>().swap(result);
         }
+        std::mem::forget(widget);
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
         unsafe {
             __buffer.add(48).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
         }
@@ -24420,6 +24775,13 @@ impl UWidgetAnimationPlayCallbackProxy {
         unsafe {
             __buffer.add(0).cast::<UPtr<UUMGSequencePlayer>>().swap(result);
         }
+        std::mem::forget(widget);
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(end_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
         unsafe {
             __buffer.add(48).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
         }
@@ -24508,6 +24870,12 @@ impl UWidgetAnimationPlayCallbackProxy {
         unsafe {
             __buffer.add(0).cast::<UPtr<UUMGSequencePlayer>>().swap(result);
         }
+        std::mem::forget(widget);
+        std::mem::forget(in_animation);
+        std::mem::forget(start_at_time);
+        std::mem::forget(num_loops_to_play);
+        std::mem::forget(play_mode);
+        std::mem::forget(playback_speed);
         unsafe {
             __buffer.add(40).cast::<UPtr<UWidgetAnimationPlayCallbackProxy>>().read()
         }
@@ -25204,6 +25572,7 @@ impl UAsyncTaskDownloadImage {
                 __buffer,
             )
         };
+        std::mem::forget(url);
         unsafe { __buffer.add(16).cast::<UPtr<UAsyncTaskDownloadImage>>().read() }
     }
 }
@@ -25298,6 +25667,10 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot);
+        std::mem::forget(widget);
+        std::mem::forget(position);
+        std::mem::forget(b_remove_dpi_scale);
         unsafe { __buffer.add(104).cast::<FGameViewportWidgetSlot>().read() }
     }
     pub fn set_widget_slot_desired_size(
@@ -25341,6 +25714,8 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(slot);
+        std::mem::forget(size);
         unsafe { __buffer.add(88).cast::<FGameViewportWidgetSlot>().read() }
     }
     pub fn set_widget_slot(
@@ -25385,6 +25760,8 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(slot);
     }
     pub fn remove_widget(&mut self, widget: UPtr<UWidget>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -25417,6 +25794,7 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
     }
     pub fn is_widget_added(&self, widget: UPtr<UWidget>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -25449,6 +25827,7 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_widget_slot(&self, widget: UPtr<UWidget>) -> FGameViewportWidgetSlot {
@@ -25482,6 +25861,7 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<FGameViewportWidgetSlot>().read() }
     }
     pub fn add_widget_for_player(
@@ -25534,6 +25914,9 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(player);
+        std::mem::forget(slot);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn add_widget(
@@ -25578,6 +25961,8 @@ impl UGameViewportSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
+        std::mem::forget(slot);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
 }
@@ -25647,6 +26032,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(drop_zone);
     }
     pub fn bp_on_item_selection_changed(&mut self, b_is_selected: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -25679,6 +26065,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_selected);
     }
     pub fn bp_on_item_expansion_changed(&mut self, b_is_expanded: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -25711,6 +26098,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_expanded);
     }
     pub fn bp_on_entry_released(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -25768,6 +26156,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(operation);
     }
     pub fn bp_on_entry_drag_over_changed(&mut self, b_is_dragging_over: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -25800,6 +26189,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_dragging_over);
     }
     pub fn bp_on_entry_dragged(&mut self, operation: UPtr<UDragDropOperation>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -25832,6 +26222,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(operation);
     }
     pub fn bp_on_end_entry_drop_operation(&mut self, b_success: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -25860,6 +26251,7 @@ impl UUserListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(b_success);
     }
 }
 #[repr(C, align(8))]
@@ -25929,6 +26321,7 @@ impl UUserListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_list_entry);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_list_item_expanded(
@@ -25964,6 +26357,7 @@ impl UUserListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_list_entry);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_owning_list_view(
@@ -25999,6 +26393,7 @@ impl UUserListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_list_entry);
         unsafe { __buffer.add(16).cast::<UPtr<UListViewBase>>().read() }
     }
 }
@@ -26071,6 +26466,7 @@ impl UUserObjectListEntry {
                 __buffer,
             )
         };
+        std::mem::forget(list_item_object);
     }
 }
 #[repr(C, align(8))]
@@ -26140,6 +26536,7 @@ impl UUserObjectListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_object_list_entry);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_first_widget(
@@ -26175,6 +26572,7 @@ impl UUserObjectListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_object_list_entry);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_list_item_object(
@@ -26210,6 +26608,7 @@ impl UUserObjectListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_object_list_entry);
         unsafe {
             __buffer
                 .add(16)
@@ -26250,6 +26649,7 @@ impl UUserObjectListEntryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(user_object_list_entry);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
 }
@@ -26335,6 +26735,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -26365,6 +26766,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_low_quality_fallback_brush(
         &mut self,
@@ -26437,6 +26839,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
     pub fn set_corner_radius(
         &mut self,
@@ -26472,6 +26875,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(in_corner_radius);
     }
     pub fn set_blur_strength(&mut self, in_strength: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -26504,6 +26908,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(in_strength);
     }
     pub fn set_blur_radius(&mut self, in_blur_radius: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -26534,6 +26939,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(in_blur_radius);
     }
     pub fn set_apply_alpha_to_blur(&mut self, b_in_apply_alpha_to_blur: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -26566,6 +26972,7 @@ impl UBackgroundBlur {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_apply_alpha_to_blur);
     }
 }
 #[repr(C, align(8))]
@@ -26702,6 +27109,7 @@ impl UBackgroundBlurSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -26732,6 +27140,7 @@ impl UBackgroundBlurSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -26769,6 +27178,7 @@ impl UBackgroundBlurSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(16))]
@@ -26851,6 +27261,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_show_effect_when_disabled(
         &mut self,
@@ -26886,6 +27297,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_show_effect_when_disabled);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -26916,6 +27328,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -26951,6 +27364,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
     pub fn set_desired_size_scale(
         &mut self,
@@ -26984,6 +27398,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_scale);
     }
     pub fn set_content_color_and_opacity(
         &mut self,
@@ -27019,6 +27434,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_content_color_and_opacity);
     }
     pub fn set_brush_from_texture(
         &mut self,
@@ -27052,6 +27468,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(texture);
     }
     pub fn set_brush_from_material(
         &mut self,
@@ -27087,6 +27504,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_brush_from_asset(
         &mut self,
@@ -27122,6 +27540,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
     }
     pub fn set_brush_color(
         &mut self,
@@ -27155,6 +27574,7 @@ impl UBorder {
                 __buffer,
             )
         };
+        std::mem::forget(in_brush_color);
     }
     pub fn set_brush(&mut self, in_brush: &crate::bindings::slate_core::FSlateBrush) {
         let mut __stack = crate::core_data::StackAlloc::<208>::new();
@@ -27293,6 +27713,7 @@ impl UBorderSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -27323,6 +27744,7 @@ impl UBorderSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -27360,6 +27782,7 @@ impl UBorderSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -27437,6 +27860,7 @@ impl UButtonSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -27467,6 +27891,7 @@ impl UButtonSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -27504,6 +27929,7 @@ impl UButtonSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -27572,6 +27998,7 @@ impl UCanvasPanel {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UCanvasPanelSlot>>().read() }
     }
 }
@@ -27639,6 +28066,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_z_order);
     }
     pub fn set_size(&mut self, in_size: crate::bindings::core_u_object::FVector2D) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -27669,6 +28097,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_size);
     }
     pub fn set_position(
         &mut self,
@@ -27702,6 +28131,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_position);
     }
     pub fn set_offsets(&mut self, in_offset: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -27732,6 +28162,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_offset);
     }
     pub fn set_layout(&mut self, in_layout_data: &FAnchorData) {
         let mut __stack = crate::core_data::StackAlloc::<64>::new();
@@ -27792,6 +28223,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(inb_auto_size);
     }
     pub fn set_anchors(&mut self, in_anchors: crate::bindings::slate::FAnchors) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -27822,6 +28254,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_anchors);
     }
     pub fn set_alignment(
         &mut self,
@@ -27855,6 +28288,7 @@ impl UCanvasPanelSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_alignment);
     }
     pub fn get_z_order(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -28357,6 +28791,7 @@ impl UDynamicEntryBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_delete_widgets);
     }
     pub fn remove_entry(&mut self, entry_widget: UPtr<UUserWidget>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -28387,6 +28822,7 @@ impl UDynamicEntryBox {
                 __buffer,
             )
         };
+        std::mem::forget(entry_widget);
     }
     pub fn bp_create_entry_of_class(
         &mut self,
@@ -28422,6 +28858,7 @@ impl UDynamicEntryBox {
                 __buffer,
             )
         };
+        std::mem::forget(entry_class);
         unsafe { __buffer.add(8).cast::<UPtr<UUserWidget>>().read() }
     }
     pub fn bp_create_entry(&mut self) -> UPtr<UUserWidget> {
@@ -28521,6 +28958,8 @@ impl UGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(row_index);
+        std::mem::forget(coefficient);
     }
     pub fn set_column_fill(&mut self, column_index: i32, coefficient: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -28558,6 +28997,8 @@ impl UGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(column_index);
+        std::mem::forget(coefficient);
     }
     pub fn clear_fill(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -28622,6 +29063,9 @@ impl UGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(content);
+        std::mem::forget(in_row);
+        std::mem::forget(in_column);
         unsafe { __buffer.add(16).cast::<UPtr<UGridSlot>>().read() }
     }
 }
@@ -28700,6 +29144,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_row_span(&mut self, in_row_span: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -28730,6 +29175,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_row_span);
     }
     pub fn set_row(&mut self, in_row: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -28756,6 +29202,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_row);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -28786,6 +29233,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_nudge(&mut self, in_nudge: crate::bindings::core_u_object::FVector2D) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -28816,6 +29264,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_nudge);
     }
     pub fn set_layer(&mut self, in_layer: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -28842,6 +29291,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_layer);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -28879,6 +29329,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
     pub fn set_column_span(&mut self, in_column_span: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -28909,6 +29360,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_column_span);
     }
     pub fn set_column(&mut self, in_column: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -28935,6 +29387,7 @@ impl UGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_column);
     }
 }
 #[repr(C, align(8))]
@@ -29005,6 +29458,7 @@ impl UHorizontalBox {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UHorizontalBoxSlot>>().read() }
     }
 }
@@ -29083,6 +29537,7 @@ impl UHorizontalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_size(&mut self, in_size: FSlateChildSize) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -29113,6 +29568,7 @@ impl UHorizontalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_size);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -29143,6 +29599,7 @@ impl UHorizontalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -29180,6 +29637,7 @@ impl UHorizontalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(16))]
@@ -29246,6 +29704,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(in_opacity);
     }
     pub fn set_desired_size_override(
         &mut self,
@@ -29279,6 +29738,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(desired_size);
     }
     pub fn set_color_and_opacity(
         &mut self,
@@ -29312,6 +29772,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(in_color_and_opacity);
     }
     pub fn set_brush_tint_color(
         &mut self,
@@ -29345,6 +29806,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(tint_color);
     }
     pub fn set_brush_resource_object(
         &mut self,
@@ -29378,6 +29840,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(resource_object);
     }
     pub fn set_brush_from_texture_dynamic(
         &mut self,
@@ -29423,6 +29886,8 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(texture);
+        std::mem::forget(b_match_size);
     }
     pub fn set_brush_from_texture(
         &mut self,
@@ -29464,6 +29929,8 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(texture);
+        std::mem::forget(b_match_size);
     }
     pub fn set_brush_from_soft_texture(
         &mut self,
@@ -29509,6 +29976,8 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(soft_texture);
+        std::mem::forget(b_match_size);
     }
     pub fn set_brush_from_soft_material(
         &mut self,
@@ -29548,6 +30017,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(soft_material);
     }
     pub fn set_brush_from_material(
         &mut self,
@@ -29583,6 +30053,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_brush_from_atlas_interface(
         &mut self,
@@ -29634,6 +30105,8 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(atlas_region);
+        std::mem::forget(b_match_size);
     }
     pub fn set_brush_from_asset(
         &mut self,
@@ -29669,6 +30142,7 @@ impl UImage {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
     }
     pub fn set_brush(&mut self, in_brush: &crate::bindings::slate_core::FSlateBrush) {
         let mut __stack = crate::core_data::StackAlloc::<208>::new();
@@ -29794,6 +30268,7 @@ impl UInvalidationBox {
                 __buffer,
             )
         };
+        std::mem::forget(can_cache);
     }
     pub fn invalidate_cache(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -29918,6 +30393,7 @@ impl UMenuAnchor {
                 __buffer,
             )
         };
+        std::mem::forget(b_focus_on_open);
     }
     pub fn should_open_due_to_click(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -29977,6 +30453,7 @@ impl UMenuAnchor {
                 __buffer,
             )
         };
+        std::mem::forget(in_placement);
     }
     pub fn open(&mut self, b_focus_menu: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -30007,6 +30484,7 @@ impl UMenuAnchor {
                 __buffer,
             )
         };
+        std::mem::forget(b_focus_menu);
     }
     pub fn is_open(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -30107,6 +30585,7 @@ impl UMenuAnchor {
                 __buffer,
             )
         };
+        std::mem::forget(b_fit);
     }
     pub fn close(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -30376,6 +30855,8 @@ impl UOverlay {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(content);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_child_to_overlay(
@@ -30410,6 +30891,7 @@ impl UOverlay {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UOverlaySlot>>().read() }
     }
 }
@@ -30487,6 +30969,7 @@ impl UOverlaySlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -30517,6 +31000,7 @@ impl UOverlaySlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -30554,6 +31038,7 @@ impl UOverlaySlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -30740,6 +31225,7 @@ impl URetainerBox {
                 __buffer,
             )
         };
+        std::mem::forget(texture_parameter);
     }
     pub fn set_retain_rendering(&mut self, b_in_retain_rendering: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -30772,6 +31258,7 @@ impl URetainerBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_retain_rendering);
     }
     pub fn set_rendering_phase(&mut self, render_phase: i32, total_phases: i32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -30809,6 +31296,8 @@ impl URetainerBox {
                 __buffer,
             )
         };
+        std::mem::forget(render_phase);
+        std::mem::forget(total_phases);
     }
     pub fn set_effect_material(
         &mut self,
@@ -30844,6 +31333,7 @@ impl URetainerBox {
                 __buffer,
             )
         };
+        std::mem::forget(effect_material);
     }
     pub fn request_render(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -30982,6 +31472,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_transform_policy);
     }
     pub fn set_text_style_set(
         &mut self,
@@ -31017,6 +31508,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(new_text_style_set);
     }
     pub fn set_text_overflow_policy(
         &mut self,
@@ -31054,6 +31546,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_overflow_policy);
     }
     pub fn set_text(&mut self, in_text: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -31112,6 +31605,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_width);
     }
     pub fn set_default_text_style(
         &mut self,
@@ -31217,6 +31711,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_shadow_offset);
     }
     pub fn set_default_shadow_color_and_opacity(
         &mut self,
@@ -31252,6 +31747,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_shadow_color_and_opacity);
     }
     pub fn set_default_material(
         &mut self,
@@ -31289,6 +31785,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_default_font(
         &mut self,
@@ -31322,6 +31819,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_font_info);
     }
     pub fn set_default_color_and_opacity(
         &mut self,
@@ -31357,6 +31855,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_color_and_opacity);
     }
     pub fn set_decorators(
         &mut self,
@@ -31422,6 +31921,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_auto_text_wrap);
     }
     pub fn refresh_text_layout(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -31567,6 +32067,7 @@ impl URichTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(decorator_class);
         unsafe { __buffer.add(8).cast::<UPtr<URichTextBlockDecorator>>().read() }
     }
     pub fn clear_all_default_style_overrides(&mut self) {
@@ -31757,6 +32258,10 @@ impl USafeZone {
                 __buffer,
             )
         };
+        std::mem::forget(in_pad_left);
+        std::mem::forget(in_pad_right);
+        std::mem::forget(in_pad_top);
+        std::mem::forget(in_pad_bottom);
     }
 }
 #[repr(C, align(8))]
@@ -31868,6 +32373,7 @@ impl UScaleBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_user_specified_scale);
     }
     pub fn set_stretch_direction(
         &mut self,
@@ -31901,6 +32407,7 @@ impl UScaleBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_stretch_direction);
     }
     pub fn set_stretch(&mut self, in_stretch: crate::bindings::slate::EStretch) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -31931,6 +32438,7 @@ impl UScaleBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_stretch);
     }
     pub fn set_ignore_inherited_scale(&mut self, b_in_ignore_inherited_scale: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -31963,6 +32471,7 @@ impl UScaleBox {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_ignore_inherited_scale);
     }
 }
 #[repr(C, align(8))]
@@ -32082,6 +32591,7 @@ impl UScaleBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -32112,6 +32622,7 @@ impl UScaleBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -32149,6 +32660,7 @@ impl UScaleBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -32227,6 +32739,7 @@ impl UScrollBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -32257,6 +32770,7 @@ impl UScrollBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -32294,6 +32808,7 @@ impl UScrollBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -32365,6 +32880,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_width_override);
     }
     pub fn set_min_desired_width(&mut self, in_min_desired_width: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32395,6 +32911,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_width);
     }
     pub fn set_min_desired_height(&mut self, in_min_desired_height: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32425,6 +32942,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_height);
     }
     pub fn set_min_aspect_ratio(&mut self, in_min_aspect_ratio: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32455,6 +32973,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_aspect_ratio);
     }
     pub fn set_max_desired_width(&mut self, in_max_desired_width: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32485,6 +33004,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_max_desired_width);
     }
     pub fn set_max_desired_height(&mut self, in_max_desired_height: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32515,6 +33035,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_max_desired_height);
     }
     pub fn set_max_aspect_ratio(&mut self, in_max_aspect_ratio: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32545,6 +33066,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_max_aspect_ratio);
     }
     pub fn set_height_override(&mut self, in_height_override: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -32575,6 +33097,7 @@ impl USizeBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_height_override);
     }
     pub fn clear_width_override(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -33089,6 +33612,7 @@ impl USizeBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -33119,6 +33643,7 @@ impl USizeBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -33156,6 +33681,7 @@ impl USizeBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -33220,6 +33746,7 @@ impl USpacer {
                 __buffer,
             )
         };
+        std::mem::forget(in_size);
     }
 }
 #[repr(C, align(8))]
@@ -33293,6 +33820,8 @@ impl UStackBox {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(content);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_child_to_stack_box(
@@ -33327,6 +33856,7 @@ impl UStackBox {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UStackBoxSlot>>().read() }
     }
 }
@@ -33460,6 +33990,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_transform_policy);
     }
     pub fn set_text_overflow_policy(
         &mut self,
@@ -33497,6 +34028,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_overflow_policy);
     }
     pub fn set_text(&mut self, in_text: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -33523,6 +34055,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_text);
     }
     pub fn set_strike_brush(
         &mut self,
@@ -33556,6 +34089,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_strike_brush);
     }
     pub fn set_shadow_offset(
         &mut self,
@@ -33589,6 +34123,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_shadow_offset);
     }
     pub fn set_shadow_color_and_opacity(
         &mut self,
@@ -33624,6 +34159,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_shadow_color_and_opacity);
     }
     pub fn set_opacity(&mut self, in_opacity: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -33650,6 +34186,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_opacity);
     }
     pub fn set_min_desired_width(&mut self, in_min_desired_width: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -33680,6 +34217,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_width);
     }
     pub fn set_font_outline_material(
         &mut self,
@@ -33717,6 +34255,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_font_material(
         &mut self,
@@ -33752,6 +34291,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_material);
     }
     pub fn set_font(
         &mut self,
@@ -33785,6 +34325,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_font_info);
     }
     pub fn set_color_and_opacity(
         &mut self,
@@ -33818,6 +34359,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_color_and_opacity);
     }
     pub fn set_auto_wrap_text(&mut self, in_auto_text_wrap: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -33848,6 +34390,7 @@ impl UTextBlock {
                 __buffer,
             )
         };
+        std::mem::forget(in_auto_text_wrap);
     }
     pub fn get_text(&self) -> FText {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -33995,6 +34538,7 @@ impl UTileView {
                 __buffer,
             )
         };
+        std::mem::forget(new_width);
     }
     pub fn set_entry_height(&mut self, new_height: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34021,6 +34565,7 @@ impl UTileView {
                 __buffer,
             )
         };
+        std::mem::forget(new_height);
     }
     pub fn get_entry_width(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34144,6 +34689,7 @@ impl UUniformGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(in_slot_padding);
     }
     pub fn set_min_desired_slot_width(&mut self, in_min_desired_slot_width: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34176,6 +34722,7 @@ impl UUniformGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_slot_width);
     }
     pub fn set_min_desired_slot_height(&mut self, in_min_desired_slot_height: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34208,6 +34755,7 @@ impl UUniformGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(in_min_desired_slot_height);
     }
     pub fn add_child_to_uniform_grid(
         &mut self,
@@ -34251,6 +34799,9 @@ impl UUniformGridPanel {
                 __buffer,
             )
         };
+        std::mem::forget(content);
+        std::mem::forget(in_row);
+        std::mem::forget(in_column);
         unsafe { __buffer.add(16).cast::<UPtr<UUniformGridSlot>>().read() }
     }
 }
@@ -34330,6 +34881,7 @@ impl UUniformGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_row(&mut self, in_row: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34356,6 +34908,7 @@ impl UUniformGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_row);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -34393,6 +34946,7 @@ impl UUniformGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
     pub fn set_column(&mut self, in_column: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34419,6 +34973,7 @@ impl UUniformGridSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_column);
     }
 }
 #[repr(C, align(8))]
@@ -34489,6 +35044,7 @@ impl UVerticalBox {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UVerticalBoxSlot>>().read() }
     }
 }
@@ -34568,6 +35124,7 @@ impl UVerticalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_size(&mut self, in_size: FSlateChildSize) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -34598,6 +35155,7 @@ impl UVerticalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_size);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -34628,6 +35186,7 @@ impl UVerticalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -34665,6 +35224,7 @@ impl UVerticalBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -34732,6 +35292,7 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
         unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>().read() }
     }
     pub fn set_view_rotation(
@@ -34766,6 +35327,7 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(rotation);
     }
     pub fn set_view_location(
         &mut self,
@@ -34799,6 +35361,7 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(location);
     }
     pub fn set_sky_intensity(&mut self, light_intensity: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34829,6 +35392,7 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(light_intensity);
     }
     pub fn set_show_flag(&mut self, in_show_flag_name: FString, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -34862,6 +35426,8 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(in_show_flag_name);
+        std::mem::forget(in_value);
     }
     pub fn set_light_intensity(&mut self, light_intensity: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -34892,6 +35458,7 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(light_intensity);
     }
     pub fn set_enable_advanced_features(&mut self, in_enable_advanced_features: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -34924,6 +35491,7 @@ impl UViewport {
                 __buffer,
             )
         };
+        std::mem::forget(in_enable_advanced_features);
     }
     pub fn get_view_rotation(&self) -> crate::bindings::core_u_object::FRotator {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -35107,6 +35675,7 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(focus_widget);
     }
     pub fn set_custom_hit_result(
         &mut self,
@@ -35177,6 +35746,8 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(characters);
+        std::mem::forget(b_repeat);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn scroll_wheel(&mut self, scroll_delta: f32) {
@@ -35210,6 +35781,7 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(scroll_delta);
     }
     pub fn release_pointer_key(&mut self, key: crate::bindings::input_core::FKey) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -35242,6 +35814,7 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn release_key(&mut self, key: crate::bindings::input_core::FKey) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<33>::new();
@@ -35274,6 +35847,7 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn press_pointer_key(&mut self, key: crate::bindings::input_core::FKey) {
@@ -35307,6 +35881,7 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn press_key(
         &mut self,
@@ -35346,6 +35921,8 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(key);
+        std::mem::forget(b_repeat);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn press_and_release_key(
@@ -35382,6 +35959,7 @@ impl UWidgetInteractionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn is_over_interactable_widget(&self) -> bool {
@@ -35607,6 +36185,7 @@ impl UWidgetSwitcher {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn set_active_widget(&mut self, widget: UPtr<UWidget>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -35639,6 +36218,7 @@ impl UWidgetSwitcher {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
     }
     pub fn get_widget_at_index(&self, index: i32) -> UPtr<UWidget> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -35667,6 +36247,7 @@ impl UWidgetSwitcher {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<UPtr<UWidget>>().read() }
     }
     pub fn get_num_widgets(&self) -> i32 {
@@ -35820,6 +36401,7 @@ impl UWidgetSwitcherSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -35850,6 +36432,7 @@ impl UWidgetSwitcherSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -35887,6 +36470,7 @@ impl UWidgetSwitcherSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -35963,6 +36547,7 @@ impl UWindowTitleBarArea {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -35995,6 +36580,7 @@ impl UWindowTitleBarArea {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -36032,6 +36618,7 @@ impl UWindowTitleBarArea {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -36109,6 +36696,7 @@ impl UWindowTitleBarAreaSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -36141,6 +36729,7 @@ impl UWindowTitleBarAreaSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -36178,6 +36767,7 @@ impl UWindowTitleBarAreaSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
 }
 #[repr(C, align(8))]
@@ -36249,6 +36839,7 @@ impl UWrapBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -36286,6 +36877,7 @@ impl UWrapBox {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
     pub fn add_child_to_wrap_box(
         &mut self,
@@ -36319,6 +36911,7 @@ impl UWrapBox {
                 __buffer,
             )
         };
+        std::mem::forget(content);
         unsafe { __buffer.add(8).cast::<UPtr<UWrapBoxSlot>>().read() }
     }
 }
@@ -36400,6 +36993,7 @@ impl UWrapBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_vertical_alignment);
     }
     pub fn set_padding(&mut self, in_padding: crate::bindings::slate_core::FMargin) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -36430,6 +37024,7 @@ impl UWrapBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_padding);
     }
     pub fn set_new_line(&mut self, in_force_new_line: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -36460,6 +37055,7 @@ impl UWrapBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_force_new_line);
     }
     pub fn set_horizontal_alignment(
         &mut self,
@@ -36497,6 +37093,7 @@ impl UWrapBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_horizontal_alignment);
     }
     pub fn set_fill_span_when_less_than(&mut self, in_fill_span_when_less_than: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -36529,6 +37126,7 @@ impl UWrapBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(in_fill_span_when_less_than);
     }
     pub fn set_fill_empty_space(&mut self, inb_fill_empty_space: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -36561,6 +37159,7 @@ impl UWrapBoxSlot {
                 __buffer,
             )
         };
+        std::mem::forget(inb_fill_empty_space);
     }
 }
 #[repr(C, align(8))]
@@ -36918,6 +37517,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(local_vector);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -36963,6 +37563,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(absolute_vector);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -37008,6 +37609,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(local_vector);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -37053,6 +37655,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(absolute_vector);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -37098,6 +37701,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(local_scalar);
         unsafe { __buffer.add(60).cast::<f32>().read() }
     }
     pub fn transform_scalar_absolute_to_local(
@@ -37141,6 +37745,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(absolute_scalar);
         unsafe { __buffer.add(60).cast::<f32>().read() }
     }
     pub fn screen_to_widget_local(
@@ -37214,6 +37819,9 @@ impl USlateBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(local_coordinate);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(screen_position);
+        std::mem::forget(b_include_window_position);
     }
     pub fn screen_to_widget_absolute(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -37278,6 +37886,9 @@ impl USlateBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(absolute_coordinate);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(screen_position);
+        std::mem::forget(b_include_window_position);
     }
     pub fn screen_to_viewport(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -37334,6 +37945,8 @@ impl USlateBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(viewport_position);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(screen_position);
     }
     pub fn scalar_local_to_absolute(
         geometry: &crate::bindings::slate_core::FGeometry,
@@ -37376,6 +37989,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(local_scalar);
         unsafe { __buffer.add(60).cast::<f32>().read() }
     }
     pub fn scalar_absolute_to_local(
@@ -37419,6 +38033,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(absolute_scalar);
         unsafe { __buffer.add(60).cast::<f32>().read() }
     }
     pub fn local_to_viewport(
@@ -37498,6 +38113,8 @@ impl USlateBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(viewport_position);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(local_coordinate);
     }
     pub fn local_to_absolute(
         geometry: &crate::bindings::slate_core::FGeometry,
@@ -37540,6 +38157,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(local_coordinate);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -37810,6 +38428,8 @@ impl USlateBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(viewport_position);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(absolute_desktop_coordinate);
     }
     pub fn absolute_to_local(
         geometry: &crate::bindings::slate_core::FGeometry,
@@ -37852,6 +38472,7 @@ impl USlateBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(absolute_coordinate);
         unsafe {
             __buffer.add(72).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -37957,6 +38578,7 @@ impl UUserWidgetFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UUserWidget>>().read() }
     }
     pub fn conv_umg_sequence_player(
@@ -38191,6 +38813,11 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(title_bar_content);
+        std::mem::forget(mode);
+        std::mem::forget(b_title_bar_drag_enabled);
+        std::mem::forget(b_window_buttons_visible);
+        std::mem::forget(b_title_bar_visible);
     }
     pub fn set_window_title_bar_on_close_clicked_delegate(
         delegate: FSetWindowTitleBarOnCloseClickedDelegate_Delegate,
@@ -38227,6 +38854,7 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(delegate);
     }
     pub fn set_window_title_bar_close_button_active(b_active: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -38255,6 +38883,7 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_active);
     }
     pub fn set_user_focus(
         reply: &mut FEventReply,
@@ -38308,6 +38937,8 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(focus_widget);
+        std::mem::forget(b_in_all_users);
         unsafe { __buffer.add(208).cast::<FEventReply>().read() }
     }
     pub fn set_mouse_position(
@@ -38354,6 +38985,7 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(new_mouse_position);
         unsafe { __buffer.add(208).cast::<FEventReply>().read() }
     }
     pub fn set_input_mode_ui_only_ex(
@@ -38415,6 +39047,10 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(in_widget_to_focus);
+        std::mem::forget(in_mouse_lock_mode);
+        std::mem::forget(b_flush_input);
     }
     pub fn set_input_mode_game_only(
         player_controller: UPtr<crate::bindings::engine::APlayerController>,
@@ -38459,6 +39095,8 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(b_flush_input);
     }
     pub fn set_input_mode_game_and_ui_ex(
         player_controller: UPtr<crate::bindings::engine::APlayerController>,
@@ -38527,6 +39165,11 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(in_widget_to_focus);
+        std::mem::forget(in_mouse_lock_mode);
+        std::mem::forget(b_hide_cursor_during_capture);
+        std::mem::forget(b_flush_input);
     }
     pub fn set_hardware_cursor(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -38585,6 +39228,10 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(cursor_shape);
+        std::mem::forget(cursor_name);
+        std::mem::forget(hot_spot);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_focus_to_game_viewport() {
@@ -38667,6 +39314,10 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(ty);
+        std::mem::forget(severity);
+        std::mem::forget(correct_deficiency);
+        std::mem::forget(show_correction_with_deficiency);
     }
     pub fn set_brush_resource_to_texture(
         brush: &mut crate::bindings::slate_core::FSlateBrush,
@@ -38715,6 +39366,7 @@ impl UWidgetBlueprintLibrary {
                 .cast::<crate::bindings::slate_core::FSlateBrush>()
                 .swap(brush);
         }
+        std::mem::forget(texture);
     }
     pub fn set_brush_resource_to_material(
         brush: &mut crate::bindings::slate_core::FSlateBrush,
@@ -38765,6 +39417,7 @@ impl UWidgetBlueprintLibrary {
                 .cast::<crate::bindings::slate_core::FSlateBrush>()
                 .swap(brush);
         }
+        std::mem::forget(material);
     }
     pub fn restore_previous_window_title_bar_state() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -38871,6 +39524,7 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(b_in_all_joysticks);
         unsafe { __buffer.add(200).cast::<FEventReply>().read() }
     }
     pub fn no_resource_brush() -> crate::bindings::slate_core::FSlateBrush {
@@ -38942,6 +39596,9 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(texture);
+        std::mem::forget(width);
+        std::mem::forget(height);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
         }
@@ -38989,6 +39646,9 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(width);
+        std::mem::forget(height);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
         }
@@ -39028,6 +39688,7 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(brush_asset);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::slate_core::FSlateBrush>().read()
         }
@@ -39076,6 +39737,7 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(capturing_widget);
         unsafe { __buffer.add(200).cast::<FEventReply>().read() }
     }
     pub fn is_drag_dropping() -> bool {
@@ -39203,6 +39865,7 @@ impl UWidgetBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector4>()
                 .swap(spill_over_padding);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn get_key_event_from_analog_input_event(
         event: &crate::bindings::slate_core::FAnalogInputEvent,
@@ -39640,6 +40303,9 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<UPtr<UUserWidget>>>().swap(found_widgets);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(interface);
+        std::mem::forget(top_level_only);
     }
     pub fn get_all_widgets_of_class(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -39701,6 +40367,9 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<UPtr<UUserWidget>>>().swap(found_widgets);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(widget_class);
+        std::mem::forget(top_level_only);
     }
     pub fn end_drag_drop(reply: &mut FEventReply) -> FEventReply {
         let mut __stack = crate::core_data::StackAlloc::<384>::new();
@@ -39814,6 +40483,11 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FPaintContext>().swap(context);
         }
+        std::mem::forget(position);
+        std::mem::forget(font);
+        std::mem::forget(font_size);
+        std::mem::forget(font_type_face);
+        std::mem::forget(tint);
     }
     pub fn draw_text(
         context: &mut FPaintContext,
@@ -39875,6 +40549,9 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FPaintContext>().swap(context);
         }
+        std::mem::forget(in_string);
+        std::mem::forget(position);
+        std::mem::forget(tint);
     }
     pub fn draw_spline(
         context: &mut FPaintContext,
@@ -39960,6 +40637,12 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FPaintContext>().swap(context);
         }
+        std::mem::forget(start);
+        std::mem::forget(start_dir);
+        std::mem::forget(end);
+        std::mem::forget(end_dir);
+        std::mem::forget(tint);
+        std::mem::forget(thickness);
     }
     pub fn draw_lines(
         context: &mut FPaintContext,
@@ -40027,6 +40710,9 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FPaintContext>().swap(context);
         }
+        std::mem::forget(tint);
+        std::mem::forget(b_anti_alias);
+        std::mem::forget(thickness);
     }
     pub fn draw_line(
         context: &mut FPaintContext,
@@ -40104,6 +40790,11 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FPaintContext>().swap(context);
         }
+        std::mem::forget(position_a);
+        std::mem::forget(position_b);
+        std::mem::forget(tint);
+        std::mem::forget(b_anti_alias);
+        std::mem::forget(thickness);
     }
     pub fn draw_box(
         context: &mut FPaintContext,
@@ -40175,6 +40866,10 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FPaintContext>().swap(context);
         }
+        std::mem::forget(position);
+        std::mem::forget(size);
+        std::mem::forget(brush);
+        std::mem::forget(tint);
     }
     pub fn dismiss_all_menus() {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -40250,6 +40945,8 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget_detecting_drag);
+        std::mem::forget(drag_key);
         unsafe { __buffer.add(176).cast::<FEventReply>().read() }
     }
     pub fn detect_drag(
@@ -40304,6 +41001,8 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(widget_detecting_drag);
+        std::mem::forget(drag_key);
         unsafe { __buffer.add(232).cast::<FEventReply>().read() }
     }
     pub fn create_drag_drop_operation(
@@ -40339,6 +41038,7 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(operation_class);
         unsafe { __buffer.add(8).cast::<UPtr<UDragDropOperation>>().read() }
     }
     pub fn create(
@@ -40390,6 +41090,9 @@ impl UWidgetBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(widget_type);
+        std::mem::forget(owning_player);
         unsafe { __buffer.add(24).cast::<UPtr<UUserWidget>>().read() }
     }
     pub fn clear_user_focus(
@@ -40436,6 +41139,7 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(b_in_all_users);
         unsafe { __buffer.add(200).cast::<FEventReply>().read() }
     }
     pub fn capture_mouse(
@@ -40482,6 +41186,7 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(capturing_widget);
         unsafe { __buffer.add(200).cast::<FEventReply>().read() }
     }
     pub fn capture_joystick(
@@ -40536,6 +41241,8 @@ impl UWidgetBlueprintLibrary {
         unsafe {
             __buffer.add(0).cast::<FEventReply>().swap(reply);
         }
+        std::mem::forget(capturing_widget);
+        std::mem::forget(b_in_all_joysticks);
         unsafe { __buffer.add(208).cast::<FEventReply>().read() }
     }
     pub fn cancel_drag_drop() {
@@ -40629,6 +41336,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UWrapBoxSlot>>().read() }
     }
     pub fn slot_as_widget_switcher_slot(
@@ -40664,6 +41372,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UWidgetSwitcherSlot>>().read() }
     }
     pub fn slot_as_vertical_box_slot(widget: UPtr<UWidget>) -> UPtr<UVerticalBoxSlot> {
@@ -40697,6 +41406,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UVerticalBoxSlot>>().read() }
     }
     pub fn slot_as_uniform_grid_slot(widget: UPtr<UWidget>) -> UPtr<UUniformGridSlot> {
@@ -40730,6 +41440,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UUniformGridSlot>>().read() }
     }
     pub fn slot_as_stack_box_slot(widget: UPtr<UWidget>) -> UPtr<UStackBoxSlot> {
@@ -40763,6 +41474,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UStackBoxSlot>>().read() }
     }
     pub fn slot_as_size_box_slot(widget: UPtr<UWidget>) -> UPtr<USizeBoxSlot> {
@@ -40796,6 +41508,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<USizeBoxSlot>>().read() }
     }
     pub fn slot_as_scroll_box_slot(widget: UPtr<UWidget>) -> UPtr<UScrollBoxSlot> {
@@ -40829,6 +41542,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UScrollBoxSlot>>().read() }
     }
     pub fn slot_as_scale_box_slot(widget: UPtr<UWidget>) -> UPtr<UScaleBoxSlot> {
@@ -40862,6 +41576,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UScaleBoxSlot>>().read() }
     }
     pub fn slot_as_safe_box_slot(widget: UPtr<UWidget>) -> UPtr<USafeZoneSlot> {
@@ -40895,6 +41610,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<USafeZoneSlot>>().read() }
     }
     pub fn slot_as_overlay_slot(widget: UPtr<UWidget>) -> UPtr<UOverlaySlot> {
@@ -40928,6 +41644,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UOverlaySlot>>().read() }
     }
     pub fn slot_as_horizontal_box_slot(
@@ -40963,6 +41680,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UHorizontalBoxSlot>>().read() }
     }
     pub fn slot_as_grid_slot(widget: UPtr<UWidget>) -> UPtr<UGridSlot> {
@@ -40996,6 +41714,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UGridSlot>>().read() }
     }
     pub fn slot_as_canvas_slot(widget: UPtr<UWidget>) -> UPtr<UCanvasPanelSlot> {
@@ -41029,6 +41748,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UCanvasPanelSlot>>().read() }
     }
     pub fn slot_as_border_slot(widget: UPtr<UWidget>) -> UPtr<UBorderSlot> {
@@ -41062,6 +41782,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(widget);
         unsafe { __buffer.add(8).cast::<UPtr<UBorderSlot>>().read() }
     }
     pub fn remove_all_widgets(
@@ -41097,6 +41818,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn project_world_location_to_widget_position(
         player_controller: UPtr<crate::bindings::engine::APlayerController>,
@@ -41163,6 +41885,9 @@ impl UWidgetLayoutLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(screen_position);
         }
+        std::mem::forget(player_controller);
+        std::mem::forget(world_location);
+        std::mem::forget(b_player_viewport_relative);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn get_viewport_widget_geometry(
@@ -41198,6 +41923,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::slate_core::FGeometry>().read()
         }
@@ -41235,6 +41961,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -41272,6 +41999,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_player_screen_widget_geometry(
@@ -41309,6 +42037,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::slate_core::FGeometry>().read()
         }
@@ -41362,6 +42091,7 @@ impl UWidgetLayoutLibrary {
         unsafe {
             __buffer.add(12).cast::<f32>().swap(location_y);
         }
+        std::mem::forget(player);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_mouse_position_on_viewport(
@@ -41397,6 +42127,7 @@ impl UWidgetLayoutLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }

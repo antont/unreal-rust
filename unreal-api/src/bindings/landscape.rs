@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -808,6 +809,7 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_type);
     }
     pub fn set_landscape_material_vector_parameter_value(
         &mut self,
@@ -851,6 +853,8 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
     }
     pub fn set_landscape_material_texture_parameter_value(
         &mut self,
@@ -894,6 +898,8 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
     }
     pub fn set_landscape_material_scalar_parameter_value(
         &mut self,
@@ -933,6 +939,8 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(parameter_name);
+        std::mem::forget(value);
     }
     pub fn landscape_import_weightmap_from_render_target(
         &mut self,
@@ -986,6 +994,9 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_render_target);
+        std::mem::forget(in_layer_name);
+        std::mem::forget(in_edit_layer_index);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn landscape_import_heightmap_from_render_target(
@@ -1040,6 +1051,9 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_render_target);
+        std::mem::forget(in_import_height_from_rg_channel);
+        std::mem::forget(in_edit_layer_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn landscape_export_heightmap_to_render_target(
@@ -1094,6 +1108,9 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_render_target);
+        std::mem::forget(in_export_height_into_rg_channel);
+        std::mem::forget(in_export_landscape_proxies);
         unsafe { __buffer.add(10).cast::<bool>().read() }
     }
     pub fn get_landscape_actor(&mut self) -> UPtr<ALandscape> {
@@ -1158,6 +1175,7 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(new_landscape_material);
     }
     pub fn editor_apply_spline(
         &mut self,
@@ -1275,6 +1293,18 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_spline_component);
+        std::mem::forget(start_width);
+        std::mem::forget(end_width);
+        std::mem::forget(start_side_falloff);
+        std::mem::forget(end_side_falloff);
+        std::mem::forget(start_roll);
+        std::mem::forget(end_roll);
+        std::mem::forget(num_subdivisions);
+        std::mem::forget(b_raise_heights);
+        std::mem::forget(b_lower_heights);
+        std::mem::forget(paint_layer);
+        std::mem::forget(edit_layer_name);
     }
     pub fn delete_unused_layers(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1332,6 +1362,7 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_lod_distance_factor);
     }
     pub fn change_component_screen_size_to_use_sub_sections(
         &mut self,
@@ -1367,6 +1398,7 @@ impl ALandscapeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(in_component_screen_size_to_use_sub_sections);
     }
 }
 #[repr(C, align(16))]
@@ -1952,6 +1984,9 @@ impl ALandscape {
                 __buffer,
             )
         };
+        std::mem::forget(in_world_transform);
+        std::mem::forget(in_extents);
+        std::mem::forget(out_render_target);
         unsafe { __buffer.add(160).cast::<bool>().read() }
     }
     pub fn render_weightmap(
@@ -2012,6 +2047,10 @@ impl ALandscape {
                 __buffer,
             )
         };
+        std::mem::forget(in_world_transform);
+        std::mem::forget(in_extents);
+        std::mem::forget(in_weightmap_layer_name);
+        std::mem::forget(out_render_target);
         unsafe { __buffer.add(160).cast::<bool>().read() }
     }
     pub fn render_heightmap(
@@ -2064,6 +2103,9 @@ impl ALandscape {
                 __buffer,
             )
         };
+        std::mem::forget(in_world_transform);
+        std::mem::forget(in_extents);
+        std::mem::forget(out_render_target);
         unsafe { __buffer.add(144).cast::<bool>().read() }
     }
     pub fn get_target_layer_names(
@@ -2100,6 +2142,7 @@ impl ALandscape {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_include_visibility_layer);
         unsafe { __buffer.add(8).cast::<TArray<FName>>().read() }
     }
     pub fn force_layers_full_update(&mut self) {
@@ -2201,6 +2244,7 @@ impl ALandscapeBlueprintBrushBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_user_triggered);
     }
     pub fn render_layer(
         &mut self,
@@ -2295,6 +2339,8 @@ impl ALandscapeBlueprintBrushBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_is_heightmap);
+        std::mem::forget(in_combined_result);
         unsafe {
             __buffer
                 .add(32)
@@ -2509,6 +2555,7 @@ impl ULandscapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_lod_bias);
     }
     pub fn set_forced_lod(&mut self, in_forced_lod: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2541,6 +2588,7 @@ impl ULandscapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_forced_lod);
     }
     pub fn get_material_instance_dynamic(
         &self,
@@ -2572,6 +2620,7 @@ impl ULandscapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_index);
         unsafe {
             __buffer
                 .add(8)
@@ -2647,6 +2696,7 @@ impl ULandscapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_paint_layer_name);
         unsafe { __buffer.add(36).cast::<f32>().read() }
     }
     pub fn editor_get_paint_layer_weight_at_location(
@@ -2691,6 +2741,7 @@ impl ULandscapeComponent {
                 __buffer,
             )
         };
+        std::mem::forget(paint_layer);
         unsafe { __buffer.add(32).cast::<f32>().read() }
     }
 }

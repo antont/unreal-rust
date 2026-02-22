@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -846,6 +847,9 @@ impl UDatasmithContentBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(key);
+        std::mem::forget(b_partial_match_key);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn get_datasmith_user_data_value_for_key(
@@ -893,6 +897,9 @@ impl UDatasmithContentBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(key);
+        std::mem::forget(b_partial_match_key);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn get_datasmith_user_data_keys_and_values_for_value(
@@ -958,6 +965,8 @@ impl UDatasmithContentBlueprintLibrary {
         unsafe {
             __buffer.add(40).cast::<TArray<FString>>().swap(out_values);
         }
+        std::mem::forget(object);
+        std::mem::forget(string_to_match);
     }
     pub fn get_datasmith_user_data(
         object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -992,6 +1001,7 @@ impl UDatasmithContentBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
         unsafe { __buffer.add(8).cast::<UPtr<UDatasmithAssetUserData>>().read() }
     }
     pub fn get_all_objects_and_values_for_key(
@@ -1060,6 +1070,8 @@ impl UDatasmithContentBlueprintLibrary {
         unsafe {
             __buffer.add(40).cast::<TArray<FString>>().swap(out_values);
         }
+        std::mem::forget(key);
+        std::mem::forget(object_class);
     }
     pub fn get_all_datasmith_user_data(
         object_class: TSubclassOf<crate::bindings::core_u_object::UObject>,
@@ -1110,6 +1122,7 @@ impl UDatasmithContentBlueprintLibrary {
                 .cast::<TArray<UPtr<UDatasmithAssetUserData>>>()
                 .swap(out_user_data);
         }
+        std::mem::forget(object_class);
     }
 }
 #[repr(C, align(8))]
@@ -1221,6 +1234,7 @@ impl ADatasmithImportedSequencesActor {
                 __buffer,
             )
         };
+        std::mem::forget(sequence_to_play);
     }
 }
 #[repr(C, align(8))]

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1234,6 +1235,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(new_row_index);
     }
     pub fn set_pre_roll_frames(&mut self, in_pre_roll_frames: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1266,6 +1268,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_pre_roll_frames);
     }
     pub fn set_post_roll_frames(&mut self, in_post_roll_frames: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1298,6 +1301,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_post_roll_frames);
     }
     pub fn set_overlap_priority(&mut self, new_priority: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1330,6 +1334,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(new_priority);
     }
     pub fn set_is_locked(&mut self, b_in_is_locked: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1362,6 +1367,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_locked);
     }
     pub fn set_is_active(&mut self, b_in_is_active: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1394,6 +1400,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_active);
     }
     pub fn set_completion_mode(
         &mut self,
@@ -1429,6 +1436,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_completion_mode);
     }
     pub fn set_color_tint(
         &mut self,
@@ -1496,6 +1504,7 @@ impl UMovieSceneSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_blend_type);
     }
     pub fn is_locked(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1898,6 +1907,7 @@ impl UMovieSceneSequence {
                 __buffer,
             )
         };
+        std::mem::forget(in_binding_name);
         unsafe { __buffer.add(16).cast::<TArray<FMovieSceneObjectBindingID>>().read() }
     }
     pub fn find_binding_by_tag(
@@ -1934,6 +1944,7 @@ impl UMovieSceneSequence {
                 __buffer,
             )
         };
+        std::mem::forget(in_binding_name);
         unsafe { __buffer.add(12).cast::<FMovieSceneObjectBindingID>().read() }
     }
 }
@@ -2363,6 +2374,7 @@ impl UMovieSceneSubSection {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
     }
     pub fn get_sequence(&self) -> UPtr<UMovieSceneSequence> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2636,6 +2648,7 @@ impl UMovieSceneBoundObjectProxy {
                 __buffer,
             )
         };
+        std::mem::forget(resolved_object);
         unsafe {
             __buffer
                 .add(8)
@@ -3153,6 +3166,8 @@ impl UMovieSceneBindingEventReceiverInterface {
                 __buffer,
             )
         };
+        std::mem::forget(player);
+        std::mem::forget(binding_id);
     }
     pub fn on_object_bound_by_sequencer(
         &mut self,
@@ -3196,6 +3211,8 @@ impl UMovieSceneBindingEventReceiverInterface {
                 __buffer,
             )
         };
+        std::mem::forget(player);
+        std::mem::forget(binding_id);
     }
 }
 pub struct IMovieSceneBindingOwnerInterface {}
@@ -3332,6 +3349,7 @@ impl UMovieSceneEasingFunction {
                 __buffer,
             )
         };
+        std::mem::forget(interp);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -5069,6 +5087,8 @@ impl UBuiltInDynamicBindingResolverLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller_index);
         unsafe {
             __buffer.add(16).cast::<FMovieSceneDynamicBindingResolveResult>().read()
         }
@@ -5174,6 +5194,7 @@ impl UMovieSceneMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_notes);
     }
     pub fn set_created(
         &mut self,
@@ -5209,6 +5230,7 @@ impl UMovieSceneMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_created);
     }
     pub fn set_author(&mut self, in_author: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5241,6 +5263,7 @@ impl UMovieSceneMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_author);
     }
     pub fn get_notes(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5434,6 +5457,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_weight);
     }
     pub fn set_time_range(&mut self, start_time: f32, duration: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -5465,6 +5489,8 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(start_time);
+        std::mem::forget(duration);
     }
     pub fn set_play_rate(&mut self, play_rate: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5493,6 +5519,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(play_rate);
     }
     pub fn set_playback_position(
         &mut self,
@@ -5528,6 +5555,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(playback_params);
     }
     pub fn set_hide_hud(&mut self, hide_hud: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5556,6 +5584,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(hide_hud);
     }
     pub fn set_frame_rate(
         &mut self,
@@ -5591,6 +5620,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(frame_rate);
     }
     pub fn set_frame_range(&mut self, start_frame: i32, duration: i32, sub_frames: f32) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -5629,6 +5659,9 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(start_frame);
+        std::mem::forget(duration);
+        std::mem::forget(sub_frames);
     }
     pub fn set_disable_camera_cuts(&mut self, b_in_disable_camera_cuts: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5661,6 +5694,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_disable_camera_cuts);
     }
     pub fn set_completion_mode_override(
         &mut self,
@@ -5696,6 +5730,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(completion_mode_override);
     }
     pub fn scrub(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5781,6 +5816,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
     }
     pub fn remove_weight(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5849,6 +5885,8 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(playback_params);
+        std::mem::forget(play_to_params);
     }
     pub fn play_reverse(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5902,6 +5940,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(num_loops);
     }
     pub fn play(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6118,6 +6157,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_client_info);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_sequence(&self) -> UPtr<UMovieSceneSequence> {
@@ -6206,6 +6246,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_object);
         unsafe { __buffer.add(8).cast::<TArray<FMovieSceneObjectBindingID>>().read() }
     }
     pub fn get_hide_hud(&self) -> bool {
@@ -6469,6 +6510,7 @@ impl UMovieSceneSequencePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(object_binding);
         unsafe {
             __buffer
                 .add(32)
@@ -7032,6 +7074,7 @@ impl ATestMovieSceneArrayPropertiesActor {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
 }
 #[repr(C, align(8))]

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -388,6 +389,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(packages_to_check);
     }
     pub fn rename_assets_with_dialog(
         &mut self,
@@ -431,6 +433,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(b_auto_checkout);
         unsafe { __buffer.add(17).cast::<EAssetRenameResult>().read() }
     }
     pub fn rename_assets(
@@ -556,6 +559,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(destination_path);
     }
     pub fn is_asset_read_only(
         &self,
@@ -666,6 +670,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(destination_path);
         unsafe {
             __buffer
                 .add(16)
@@ -711,6 +716,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(import_data);
         unsafe {
             __buffer
                 .add(8)
@@ -770,6 +776,7 @@ impl UAssetTools {
                 .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
                 .swap(referencing_objects);
         }
+        std::mem::forget(target_object);
     }
     pub fn export_assets_with_dialog(
         &mut self,
@@ -813,6 +820,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(b_prompt_for_individual_filenames);
     }
     pub fn export_assets(
         &mut self,
@@ -856,6 +864,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(export_path);
     }
     pub fn duplicate_asset_with_dialog_and_title(
         &mut self,
@@ -915,6 +924,10 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(original_object);
+        std::mem::forget(dialog_title);
         unsafe {
             __buffer
                 .add(56)
@@ -972,6 +985,9 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(original_object);
         unsafe {
             __buffer
                 .add(40)
@@ -1029,6 +1045,9 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(original_object);
         unsafe {
             __buffer
                 .add(40)
@@ -1096,6 +1115,8 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(old_asset);
+        std::mem::forget(new_asset);
     }
     pub fn diff_against_depot(
         &self,
@@ -1147,6 +1168,9 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(in_object);
+        std::mem::forget(in_package_path);
+        std::mem::forget(in_package_name);
     }
     pub fn create_unique_asset_name(
         &mut self,
@@ -1212,6 +1236,8 @@ impl UAssetTools {
         unsafe {
             __buffer.add(48).cast::<FString>().swap(out_asset_name);
         }
+        std::mem::forget(in_base_package_name);
+        std::mem::forget(in_suffix);
     }
     pub fn create_asset_with_dialog_async(
         &mut self,
@@ -1297,6 +1323,13 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(asset_class);
+        std::mem::forget(factory);
+        std::mem::forget(on_complete);
+        std::mem::forget(on_cancelled);
+        std::mem::forget(calling_context);
         unsafe { __buffer.add(124).cast::<bool>().read() }
     }
     pub fn create_asset_with_dialog(
@@ -1375,6 +1408,12 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(asset_class);
+        std::mem::forget(factory);
+        std::mem::forget(calling_context);
+        std::mem::forget(b_call_configure_properties);
         unsafe {
             __buffer
                 .add(64)
@@ -1466,6 +1505,13 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(asset_class);
+        std::mem::forget(factory);
+        std::mem::forget(on_complete);
+        std::mem::forget(on_cancelled);
+        std::mem::forget(calling_context);
         unsafe { __buffer.add(124).cast::<bool>().read() }
     }
     pub fn create_asset(
@@ -1534,6 +1580,11 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(asset_name);
+        std::mem::forget(package_path);
+        std::mem::forget(asset_class);
+        std::mem::forget(factory);
+        std::mem::forget(calling_context);
         unsafe {
             __buffer
                 .add(64)
@@ -1591,6 +1642,7 @@ impl UAssetTools {
                 __buffer,
             )
         };
+        std::mem::forget(target_path);
     }
 }
 #[repr(C, align(8))]

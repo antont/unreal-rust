@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -675,6 +676,10 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(time);
+        std::mem::forget(b_in_is_running);
+        std::mem::forget(b_in_backwards);
+        std::mem::forget(b_in_is_looping);
     }
     pub fn stop(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -735,6 +740,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(color);
     }
     pub fn set_start_time_offset(&mut self, new_start_time_offset: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -767,6 +773,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_start_time_offset);
     }
     pub fn set_playback_speed(&mut self, new_playback_speed: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -799,6 +806,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_playback_speed);
     }
     pub fn set_override_wireframe_color(&mut self, b_override: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -831,6 +839,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_override);
     }
     pub fn set_motion_vector_scale(&mut self, new_motion_vector_scale: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -863,6 +872,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_motion_vector_scale);
     }
     pub fn set_looping(&mut self, b_new_looping: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -895,6 +905,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_looping);
     }
     pub fn set_geometry_cache(&mut self, new_geom_cache: UPtr<UGeometryCache>) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -927,6 +938,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_geom_cache);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_extrapolate_frames(&mut self, b_new_extrapolating: bool) {
@@ -960,6 +972,7 @@ impl UGeometryCacheComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_extrapolating);
     }
     pub fn play_reversed_from_end(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

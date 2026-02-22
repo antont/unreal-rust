@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -749,6 +750,7 @@ impl UCineCameraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_preset_name);
     }
     pub fn set_focus_settings(&mut self, new_focus_settings: &FCameraFocusSettings) {
         let mut __stack = crate::core_data::StackAlloc::<112>::new();
@@ -813,6 +815,7 @@ impl UCineCameraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_preset_name);
     }
     pub fn set_filmback(&mut self, new_filmback: &FCameraFilmbackSettings) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -880,6 +883,7 @@ impl UCineCameraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_custom_near_clipping_plane);
     }
     pub fn set_current_focal_length(&mut self, in_focal_length: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -912,6 +916,7 @@ impl UCineCameraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_focal_length);
     }
     pub fn set_current_aperture(&mut self, new_current_aperture: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -944,6 +949,7 @@ impl UCineCameraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_current_aperture);
     }
     pub fn set_crop_settings(&mut self, new_crop_settings: &FPlateCropSettings) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1008,6 +1014,7 @@ impl UCineCameraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_preset_name);
     }
     pub fn get_vertical_projection_offset(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1415,6 +1422,7 @@ impl UCineCameraSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_lens_preset_name);
     }
     pub fn set_default_lens_f_stop(&mut self, in_default_lens_f_stop: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1447,6 +1455,7 @@ impl UCineCameraSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_lens_f_stop);
     }
     pub fn set_default_lens_focal_length(&mut self, in_default_lens_focal_length: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1479,6 +1488,7 @@ impl UCineCameraSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_lens_focal_length);
     }
     pub fn set_default_filmback_preset(&mut self, in_default_filmback_preset: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1511,6 +1521,7 @@ impl UCineCameraSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_filmback_preset);
     }
     pub fn set_default_crop_preset_name(
         &mut self,
@@ -1546,6 +1557,7 @@ impl UCineCameraSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_crop_preset_name);
     }
     pub fn set_crop_presets(&mut self, in_crop_presets: &TArray<FNamedPlateCropPreset>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1624,6 +1636,7 @@ impl UCineCameraSettings {
         unsafe {
             __buffer.add(16).cast::<FCameraLensSettings>().swap(lens_settings);
         }
+        std::mem::forget(preset_name);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn get_filmback_preset_by_name(
@@ -1671,6 +1684,7 @@ impl UCineCameraSettings {
         unsafe {
             __buffer.add(16).cast::<FCameraFilmbackSettings>().swap(filmback_settings);
         }
+        std::mem::forget(preset_name);
         unsafe { __buffer.add(36).cast::<bool>().read() }
     }
     pub fn get_crop_preset_by_name(
@@ -1718,6 +1732,7 @@ impl UCineCameraSettings {
         unsafe {
             __buffer.add(16).cast::<FPlateCropSettings>().swap(crop_settings);
         }
+        std::mem::forget(preset_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_cine_camera_settings() -> UPtr<UCineCameraSettings> {

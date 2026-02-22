@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1189,6 +1190,7 @@ impl UChaosDestructionListener {
                 .cast::<TArray<FChaosTrailingEventData>>()
                 .swap(trailing_events);
         }
+        std::mem::forget(sort_method);
     }
     pub fn sort_removal_events(
         &mut self,
@@ -1238,6 +1240,7 @@ impl UChaosDestructionListener {
                 .cast::<TArray<FChaosRemovalEventData>>()
                 .swap(removal_events);
         }
+        std::mem::forget(sort_method);
     }
     pub fn sort_collision_events(
         &mut self,
@@ -1287,6 +1290,7 @@ impl UChaosDestructionListener {
                 .cast::<TArray<FChaosCollisionEventData>>()
                 .swap(collision_events);
         }
+        std::mem::forget(sort_method);
     }
     pub fn sort_breaking_events(
         &mut self,
@@ -1336,6 +1340,7 @@ impl UChaosDestructionListener {
                 .cast::<TArray<FChaosBreakingEventData>>()
                 .swap(breaking_events);
         }
+        std::mem::forget(sort_method);
     }
     pub fn set_trailing_event_request_settings(
         &mut self,
@@ -1403,6 +1408,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
     }
     pub fn set_removal_event_request_settings(
         &mut self,
@@ -1470,6 +1476,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
     }
     pub fn set_collision_event_request_settings(
         &mut self,
@@ -1537,6 +1544,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
     }
     pub fn set_breaking_event_request_settings(
         &mut self,
@@ -1604,6 +1612,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_enabled);
     }
     pub fn remove_geometry_collection_actor(
         &mut self,
@@ -1639,6 +1648,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(geometry_collection_actor);
     }
     pub fn remove_chaos_solver_actor(
         &mut self,
@@ -1678,6 +1688,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(chaos_solver_actor);
     }
     pub fn is_event_listening(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1739,6 +1750,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(geometry_collection_actor);
     }
     pub fn add_chaos_solver_actor(
         &mut self,
@@ -1778,6 +1790,7 @@ impl UChaosDestructionListener {
                 __buffer,
             )
         };
+        std::mem::forget(chaos_solver_actor);
     }
 }
 #[repr(C, align(8))]
@@ -1870,6 +1883,8 @@ impl AGeometryCollectionActor {
         unsafe {
             __buffer.add(48).cast::<crate::bindings::engine::FHitResult>().swap(out_hit);
         }
+        std::mem::forget(start);
+        std::mem::forget(end);
         unsafe { __buffer.add(312).cast::<bool>().read() }
     }
 }
@@ -1956,6 +1971,9 @@ impl UGeometryCollectionBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(geometry_collection_component);
+        std::mem::forget(custom_data_index);
+        std::mem::forget(custom_data_value);
     }
     pub fn set_custom_instance_data_by_name(
         geometry_collection_component: UPtr<UGeometryCollectionComponent>,
@@ -2006,6 +2024,9 @@ impl UGeometryCollectionBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(geometry_collection_component);
+        std::mem::forget(custom_data_name);
+        std::mem::forget(custom_data_value);
     }
     pub fn set_custom_instance_data_by_index(
         geometry_collection_component: UPtr<UGeometryCollectionComponent>,
@@ -2056,6 +2077,9 @@ impl UGeometryCollectionBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(geometry_collection_component);
+        std::mem::forget(custom_data_index);
+        std::mem::forget(custom_data_value);
     }
 }
 #[repr(C, align(8))]
@@ -2243,6 +2267,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_use_static_mesh_collision_for_traces);
     }
     pub fn set_use_material_damage_modifiers(
         &mut self,
@@ -2278,6 +2303,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_use_material_damage_modifiers);
     }
     pub fn set_solver_actor(
         &mut self,
@@ -2317,6 +2343,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_solver_actor);
     }
     pub fn set_root_proxy_component_space_transform(
         &mut self,
@@ -2356,6 +2383,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn set_rest_collection(
         &mut self,
@@ -2399,6 +2427,8 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(rest_collection_in);
+        std::mem::forget(b_apply_asset_defaults);
     }
     pub fn set_per_particle_collision_profile_name(
         &mut self,
@@ -2442,6 +2472,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(profile_name);
     }
     pub fn set_per_level_collision_profile_names(
         &mut self,
@@ -2509,6 +2540,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_one_way_interaction_level);
     }
     pub fn set_notify_removals(&mut self, b_new_notify_removals: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2541,6 +2573,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_removals);
     }
     pub fn set_notify_global_removals(&mut self, b_new_notify_global_removals: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2573,6 +2606,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_global_removals);
     }
     pub fn set_notify_global_crumblings(
         &mut self,
@@ -2616,6 +2650,8 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_global_crumblings);
+        std::mem::forget(b_global_new_crumbling_event_includes_children);
     }
     pub fn set_notify_global_collision(&mut self, b_new_notify_global_collisions: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2648,6 +2684,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_global_collisions);
     }
     pub fn set_notify_global_breaks(&mut self, b_new_notify_global_breaks: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2680,6 +2717,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_global_breaks);
     }
     pub fn set_notify_crumblings(
         &mut self,
@@ -2723,6 +2761,8 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_crumblings);
+        std::mem::forget(b_new_crumbling_event_includes_children);
     }
     pub fn set_notify_breaks(&mut self, b_new_notify_breaks: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2755,6 +2795,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_notify_breaks);
     }
     pub fn set_local_rest_transforms(
         &mut self,
@@ -2800,6 +2841,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_leaves);
     }
     pub fn set_gravity_group_index(&mut self, in_gravity_group_index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2832,6 +2874,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_gravity_group_index);
     }
     pub fn set_enable_damage_from_collision(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2860,6 +2903,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_density_from_physics_material(
         &mut self,
@@ -2895,6 +2939,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_density_from_physics_material);
     }
     pub fn set_damage_threshold(&mut self, in_damage_threshold: &TArray<f32>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2997,6 +3042,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_damage_model);
     }
     pub fn set_anchored_by_transformed_box(
         &mut self,
@@ -3056,6 +3102,10 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(box_);
+        std::mem::forget(transform);
+        std::mem::forget(b_anchored);
+        std::mem::forget(max_level);
     }
     pub fn set_anchored_by_index(&mut self, index: i32, b_anchored: bool) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -3091,6 +3141,8 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(b_anchored);
     }
     pub fn set_anchored_by_box(
         &mut self,
@@ -3138,6 +3190,9 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(world_space_box);
+        std::mem::forget(b_anchored);
+        std::mem::forget(max_level);
     }
     pub fn set_abandoned_particle_collision_profile_name(
         &mut self,
@@ -3173,6 +3228,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(collision_profile);
     }
     pub fn reset_state(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3485,6 +3541,7 @@ impl UGeometryCollectionComponent {
                 .cast::<crate::bindings::core_u_object::FBox>()
                 .swap(out_extents);
         }
+        std::mem::forget(item_index);
     }
     pub fn get_local_rest_transforms(
         &self,
@@ -3520,6 +3577,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_initial_transforms);
         unsafe {
             __buffer
                 .add(8)
@@ -3613,6 +3671,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_debug_info(&mut self) -> FString {
@@ -3698,6 +3757,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_force_broken);
     }
     pub fn find_leaf_transform_by_line_trace(
         &self,
@@ -3763,6 +3823,8 @@ impl UGeometryCollectionComponent {
         unsafe {
             __buffer.add(52).cast::<FName>().swap(leaf_transform_name);
         }
+        std::mem::forget(start);
+        std::mem::forget(end);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn enable_root_proxy_for_custom_renderer(&mut self, b_enable: bool) {
@@ -3792,6 +3854,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn crumble_cluster(&mut self, item_index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3820,6 +3883,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
     }
     pub fn crumble_active_clusters(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3912,6 +3976,10 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enabled);
+        std::mem::forget(target);
+        std::mem::forget(meta_data);
+        std::mem::forget(field);
     }
     pub fn apply_linear_velocity(
         &mut self,
@@ -3951,6 +4019,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
     }
     pub fn apply_kinematic_field(
         &mut self,
@@ -3990,6 +4059,8 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(radius);
+        std::mem::forget(position);
     }
     pub fn apply_internal_strain(
         &mut self,
@@ -4053,6 +4124,11 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
+        std::mem::forget(radius);
+        std::mem::forget(propagation_depth);
+        std::mem::forget(propagation_factor);
+        std::mem::forget(strain);
     }
     pub fn apply_external_strain(
         &mut self,
@@ -4116,6 +4192,11 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
+        std::mem::forget(radius);
+        std::mem::forget(propagation_depth);
+        std::mem::forget(propagation_factor);
+        std::mem::forget(strain);
     }
     pub fn apply_breaking_linear_velocity(
         &mut self,
@@ -4155,6 +4236,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
     }
     pub fn apply_breaking_angular_velocity(
         &mut self,
@@ -4194,6 +4276,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
     }
     pub fn apply_asset_defaults(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4258,6 +4341,7 @@ impl UGeometryCollectionComponent {
                 __buffer,
             )
         };
+        std::mem::forget(item_index);
     }
 }
 #[repr(C, align(8))]
@@ -4584,6 +4668,7 @@ impl UGeometryCollection {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_dataflow_asset(
         &mut self,
@@ -4621,6 +4706,7 @@ impl UGeometryCollection {
                 __buffer,
             )
         };
+        std::mem::forget(in_dataflow_asset);
     }
     pub fn set_convert_vertex_colors_to_srgb(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4649,6 +4735,7 @@ impl UGeometryCollection {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn get_dataflow_asset(
         &self,

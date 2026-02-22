@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1631,6 +1632,9 @@ impl UNiagaraBakerFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(component_to_capture);
+        std::mem::forget(static_mesh_output);
+        std::mem::forget(readback_parameters);
     }
 }
 #[repr(C, align(8))]
@@ -1898,6 +1902,9 @@ impl UNiagaraClipboardEditorScriptingUtilities {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_out_succeeded);
         }
+        std::mem::forget(in_input);
+        std::mem::forget(in_value);
+        std::mem::forget(b_loose_typing);
     }
     pub fn try_get_local_value_as_int(
         in_input: UPtr<UNiagaraClipboardFunctionInput>,
@@ -1950,6 +1957,7 @@ impl UNiagaraClipboardEditorScriptingUtilities {
         unsafe {
             __buffer.add(12).cast::<i32>().swap(out_value);
         }
+        std::mem::forget(in_input);
     }
     pub fn try_get_local_value_as_float(
         in_input: UPtr<UNiagaraClipboardFunctionInput>,
@@ -2002,6 +2010,7 @@ impl UNiagaraClipboardEditorScriptingUtilities {
         unsafe {
             __buffer.add(12).cast::<f32>().swap(out_value);
         }
+        std::mem::forget(in_input);
     }
     pub fn try_get_input_by_name(
         in_inputs: &TArray<UPtr<UNiagaraClipboardFunctionInput>>,
@@ -2069,6 +2078,7 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .cast::<UPtr<UNiagaraClipboardFunctionInput>>()
                 .swap(out_input);
         }
+        std::mem::forget(in_input_name);
     }
     pub fn get_type_name(in_input: UPtr<UNiagaraClipboardFunctionInput>) -> FName {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -2101,6 +2111,7 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_input);
         unsafe { __buffer.add(8).cast::<FName>().read() }
     }
     pub fn create_vec4_local_value_input(
@@ -2168,6 +2179,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_vec4_value);
         unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_vec3_local_value_input(
@@ -2235,6 +2251,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_vec3_value);
         unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_vec2_local_value_input(
@@ -2302,6 +2323,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_vec2_value);
         unsafe { __buffer.add(40).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_struct_local_value_input(
@@ -2371,6 +2397,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_struct_value);
         unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_quat_local_value_input(
@@ -2438,6 +2469,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_quat_value);
         unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_matrix_local_value_input(
@@ -2505,6 +2541,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_matrix_value);
         unsafe { __buffer.add(96).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_linked_value_input(
@@ -2580,6 +2621,12 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(in_input_type_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_linked_value);
         unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_int_local_value_input(
@@ -2647,6 +2694,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_local_value);
         unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_float_local_value_input(
@@ -2714,6 +2766,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_local_value);
         unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_expression_value_input(
@@ -2789,6 +2846,12 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(in_input_type_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_expression_value);
         unsafe { __buffer.add(56).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_enum_local_value_input(
@@ -2866,6 +2929,12 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_codition_value);
+        std::mem::forget(in_enum_type);
+        std::mem::forget(in_enum_value);
         unsafe { __buffer.add(40).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_enum_linked_value_input(
@@ -2943,6 +3012,12 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_codition_value);
+        std::mem::forget(in_enum_type);
+        std::mem::forget(in_linked_value);
         unsafe { __buffer.add(48).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_dynamic_value_input(
@@ -3028,6 +3103,13 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(in_input_type_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_dynamic_value_name);
+        std::mem::forget(in_dynamic_value);
         unsafe { __buffer.add(64).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_data_value_input(
@@ -3097,6 +3179,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_data_value);
         unsafe { __buffer.add(32).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_color_local_value_input(
@@ -3164,6 +3251,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_color_value);
         unsafe { __buffer.add(40).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
     pub fn create_bool_local_value_input(
@@ -3231,6 +3323,11 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(in_outer);
+        std::mem::forget(in_input_name);
+        std::mem::forget(b_in_has_edit_condition);
+        std::mem::forget(b_in_edit_condition_value);
+        std::mem::forget(in_bool_value);
         unsafe { __buffer.add(24).cast::<UPtr<UNiagaraClipboardFunctionInput>>().read() }
     }
 }
@@ -6671,6 +6768,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_vec3_input(
         &mut self,
@@ -6714,6 +6813,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_vec2_input(
         &mut self,
@@ -6757,6 +6858,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_quat_input(
         &mut self,
@@ -6800,6 +6903,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_new_input(
         &mut self,
@@ -6843,6 +6948,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_linked_input(&mut self, input_name: FString, value: FString) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -6878,6 +6985,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_int_input(&mut self, input_name: FString, value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -6913,6 +7022,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_float_input(&mut self, input_name: FString, value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -6948,6 +7059,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_enum_input_from_int(&mut self, input_name: FString, value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -6983,6 +7096,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_enum_input(&mut self, input_name: FString, value: FString) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -7018,6 +7133,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_color_input(
         &mut self,
@@ -7061,6 +7178,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn set_bool_input(&mut self, input_name: FString, value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -7096,6 +7215,8 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
+        std::mem::forget(value);
     }
     pub fn reset_to_default(&mut self, input_name: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -7128,6 +7249,7 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
     }
     pub fn get_old_input(
         &mut self,
@@ -7163,6 +7285,7 @@ impl UUpgradeNiagaraScriptResults {
                 __buffer,
             )
         };
+        std::mem::forget(input_name);
         unsafe {
             __buffer.add(16).cast::<UPtr<UNiagaraPythonScriptModuleInput>>().read()
         }
@@ -7299,6 +7422,7 @@ impl UNiagaraPythonEmitter {
                 __buffer,
             )
         };
+        std::mem::forget(data);
     }
     pub fn has_module(&self, module_name: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -7331,6 +7455,7 @@ impl UNiagaraPythonEmitter {
                 __buffer,
             )
         };
+        std::mem::forget(module_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_properties(
@@ -7454,6 +7579,7 @@ impl UNiagaraPythonEmitter {
                 __buffer,
             )
         };
+        std::mem::forget(module_name);
         unsafe { __buffer.add(16).cast::<UPtr<UNiagaraPythonModule>>().read() }
     }
 }

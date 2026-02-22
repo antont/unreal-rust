@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -877,6 +878,9 @@ impl UAchievementBlueprintLibrary {
         unsafe {
             __buffer.add(32).cast::<f32>().swap(progress);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(achievement_id);
     }
     pub fn get_cached_achievement_description(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -976,6 +980,9 @@ impl UAchievementBlueprintLibrary {
         unsafe {
             __buffer.add(80).cast::<bool>().swap(b_hidden);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(achievement_id);
     }
 }
 #[repr(C, align(8))]
@@ -1055,6 +1062,8 @@ impl UAchievementQueryCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(16).cast::<UPtr<UAchievementQueryCallbackProxy>>().read() }
     }
     pub fn cache_achievement_descriptions(
@@ -1100,6 +1109,8 @@ impl UAchievementQueryCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(16).cast::<UPtr<UAchievementQueryCallbackProxy>>().read() }
     }
 }
@@ -1196,6 +1207,11 @@ impl UAchievementWriteCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(achievement_name);
+        std::mem::forget(progress);
+        std::mem::forget(user_tag);
         unsafe { __buffer.add(40).cast::<UPtr<UAchievementWriteCallbackProxy>>().read() }
     }
 }
@@ -1276,6 +1292,8 @@ impl UConnectionCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(16).cast::<UPtr<UConnectionCallbackProxy>>().read() }
     }
 }
@@ -1380,6 +1398,11 @@ impl UCreateSessionCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(public_connections);
+        std::mem::forget(b_use_lan);
+        std::mem::forget(b_use_lobbies_if_available);
         unsafe { __buffer.add(24).cast::<UPtr<UCreateSessionCallbackProxy>>().read() }
     }
 }
@@ -1460,6 +1483,8 @@ impl UDestroySessionCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(16).cast::<UPtr<UDestroySessionCallbackProxy>>().read() }
     }
 }
@@ -1584,6 +1609,12 @@ impl UEndMatchCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_actor);
+        std::mem::forget(match_id);
+        std::mem::forget(local_player_outcome);
+        std::mem::forget(other_players_outcome);
         unsafe { __buffer.add(56).cast::<UPtr<UEndMatchCallbackProxy>>().read() }
     }
 }
@@ -1688,6 +1719,10 @@ impl UEndTurnCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_id);
+        std::mem::forget(turn_based_match_interface);
         unsafe { __buffer.add(48).cast::<UPtr<UEndTurnCallbackProxy>>().read() }
     }
 }
@@ -1924,6 +1959,11 @@ impl UFindSessionsCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(max_results);
+        std::mem::forget(b_use_lan);
+        std::mem::forget(b_use_lobbies);
         unsafe { __buffer.add(24).cast::<UPtr<UFindSessionsCallbackProxy>>().read() }
     }
 }
@@ -2052,6 +2092,13 @@ impl UFindTurnBasedMatchCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_actor);
+        std::mem::forget(min_players);
+        std::mem::forget(max_players);
+        std::mem::forget(player_group);
+        std::mem::forget(show_existing_matches);
         unsafe {
             __buffer.add(48).cast::<UPtr<UFindTurnBasedMatchCallbackProxy>>().read()
         }
@@ -2126,6 +2173,7 @@ impl UInAppPurchaseCallbackProxy2 {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(8).cast::<UPtr<UInAppPurchaseCallbackProxy2>>().read() }
     }
     pub fn create_proxy_object_for_in_app_purchase_query_owned(
@@ -2163,6 +2211,7 @@ impl UInAppPurchaseCallbackProxy2 {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(8).cast::<UPtr<UInAppPurchaseCallbackProxy2>>().read() }
     }
     pub fn create_proxy_object_for_in_app_purchase(
@@ -2208,6 +2257,7 @@ impl UInAppPurchaseCallbackProxy2 {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(32).cast::<UPtr<UInAppPurchaseCallbackProxy2>>().read() }
     }
 }
@@ -2288,6 +2338,7 @@ impl UInAppPurchaseCheckoutCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(32).cast::<UPtr<UInAppPurchaseCheckoutCallbackProxy>>().read()
         }
@@ -2370,6 +2421,7 @@ impl UInAppPurchaseFinalizeProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(72).cast::<UPtr<UInAppPurchaseFinalizeProxy>>().read() }
     }
 }
@@ -2450,6 +2502,7 @@ impl UInAppPurchaseQueryCallbackProxy2 {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(24).cast::<UPtr<UInAppPurchaseQueryCallbackProxy2>>().read()
         }
@@ -2524,6 +2577,7 @@ impl UInAppPurchaseReceiptsCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(8).cast::<UPtr<UInAppPurchaseReceiptsCallbackProxy>>().read()
         }
@@ -2563,6 +2617,7 @@ impl UInAppPurchaseReceiptsCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(8).cast::<UPtr<UInAppPurchaseReceiptsCallbackProxy>>().read()
         }
@@ -2602,6 +2657,7 @@ impl UInAppPurchaseReceiptsCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(8).cast::<UPtr<UInAppPurchaseReceiptsCallbackProxy>>().read()
         }
@@ -2684,6 +2740,7 @@ impl UInAppPurchaseRestoreCallbackProxy2 {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(24).cast::<UPtr<UInAppPurchaseRestoreCallbackProxy2>>().read()
         }
@@ -2844,6 +2901,8 @@ impl UJoinSessionCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(304).cast::<UPtr<UJoinSessionCallbackProxy>>().read() }
     }
 }
@@ -2932,6 +2991,9 @@ impl ULeaderboardBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(stat_name);
+        std::mem::forget(stat_value);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
@@ -3012,6 +3074,8 @@ impl ULeaderboardFlushCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(session_name);
         unsafe { __buffer.add(24).cast::<UPtr<ULeaderboardFlushCallbackProxy>>().read() }
     }
 }
@@ -3092,6 +3156,8 @@ impl ULeaderboardQueryCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(stat_name);
         unsafe { __buffer.add(24).cast::<UPtr<ULeaderboardQueryCallbackProxy>>().read() }
     }
 }
@@ -3172,6 +3238,8 @@ impl ULogoutCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(16).cast::<UPtr<ULogoutCallbackProxy>>().read() }
     }
 }
@@ -3698,6 +3766,11 @@ impl UQuitMatchCallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_id);
+        std::mem::forget(outcome);
+        std::mem::forget(turn_timeout_in_seconds);
         unsafe { __buffer.add(40).cast::<UPtr<UQuitMatchCallbackProxy>>().read() }
     }
 }
@@ -3778,6 +3851,8 @@ impl UShowLoginUICallbackProxy {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_player_controller);
         unsafe { __buffer.add(16).cast::<UPtr<UShowLoginUICallbackProxy>>().read() }
     }
 }
@@ -4216,6 +4291,9 @@ impl UTurnBasedBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(object);
     }
     pub fn get_player_display_name(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4287,6 +4365,10 @@ impl UTurnBasedBlueprintLibrary {
         unsafe {
             __buffer.add(40).cast::<FString>().swap(player_display_name);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_id);
+        std::mem::forget(player_index);
     }
     pub fn get_my_player_index(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4350,6 +4432,9 @@ impl UTurnBasedBlueprintLibrary {
         unsafe {
             __buffer.add(32).cast::<i32>().swap(player_index);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_id);
     }
     pub fn get_is_my_turn(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4413,6 +4498,9 @@ impl UTurnBasedBlueprintLibrary {
         unsafe {
             __buffer.add(32).cast::<bool>().swap(b_is_my_turn);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_controller);
+        std::mem::forget(match_id);
     }
 }
 #[repr(C, align(16))]

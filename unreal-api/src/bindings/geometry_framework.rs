@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -760,6 +761,7 @@ impl UDynamicMeshProcessorBlueprint {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_failed);
         }
+        std::mem::forget(target_mesh);
     }
 }
 pub struct IMeshCommandChangeTarget {}
@@ -946,6 +948,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn set_vertex_color_space_transform_mode(
         &mut self,
@@ -981,6 +984,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_mode);
     }
     pub fn set_shadows_enabled(&mut self, b_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1009,6 +1013,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn set_secondary_render_material(
         &mut self,
@@ -1046,6 +1051,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_secondary_buffers_visibility(&mut self, b_set_visible: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1078,6 +1084,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_set_visible);
     }
     pub fn set_override_wireframe_render_material(
         &mut self,
@@ -1115,6 +1122,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_override_secondary_wireframe_render_material(
         &mut self,
@@ -1152,6 +1160,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_override_render_material(
         &mut self,
@@ -1189,6 +1198,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_mesh_draw_path(&mut self, new_draw_path: EDynamicMeshDrawPath) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1221,6 +1231,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_draw_path);
     }
     pub fn set_enable_wireframe_render_pass(&mut self, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1249,6 +1260,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn set_enable_raytracing(&mut self, b_set_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1281,6 +1293,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_set_enabled);
     }
     pub fn set_enable_flat_shading(&mut self, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1309,6 +1322,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable);
     }
     pub fn set_constant_override_color(
         &mut self,
@@ -1344,6 +1358,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_color);
     }
     pub fn set_color_override_mode(
         &mut self,
@@ -1379,6 +1394,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_mode);
     }
     pub fn has_override_render_material(&self, k: i32) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -1407,6 +1423,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(k);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_view_mode_overrides_enabled(&self) -> bool {
@@ -1648,6 +1665,7 @@ impl UBaseDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(material_index);
         unsafe {
             __buffer
                 .add(8)
@@ -2028,6 +2046,8 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_create_if_missing);
+        std::mem::forget(b_delete_extra_slots);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn update_collision(&mut self, b_only_if_pending: bool) {
@@ -2061,6 +2081,7 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_if_pending);
     }
     pub fn set_tangents_type(
         &mut self,
@@ -2096,6 +2117,7 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_tangents_type);
     }
     pub fn set_dynamic_mesh(&mut self, new_mesh: UPtr<UDynamicMesh>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2128,6 +2150,7 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_mesh);
     }
     pub fn set_deferred_collision_updates_enabled(
         &mut self,
@@ -2167,6 +2190,8 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
+        std::mem::forget(b_immediate_update);
     }
     pub fn set_complex_as_simple_collision_enabled(
         &mut self,
@@ -2206,6 +2231,8 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
+        std::mem::forget(b_immediate_update);
     }
     pub fn set_allows_geometry_selection(
         &mut self,
@@ -2241,6 +2268,7 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_allows_geometry_selection);
     }
     pub fn notify_mesh_vertex_attributes_modified(
         &mut self,
@@ -2288,6 +2316,10 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_positions);
+        std::mem::forget(b_normals);
+        std::mem::forget(b_u_vs);
+        std::mem::forget(b_colors);
     }
     pub fn notify_mesh_modified(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -2435,6 +2467,7 @@ impl UDynamicMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_delete_extra_slots);
     }
     pub fn allows_geometry_selection(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2532,6 +2565,7 @@ impl ADynamicMeshActor {
                 __buffer,
             )
         };
+        std::mem::forget(mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn release_all_compute_meshes(&mut self) {
@@ -2902,6 +2936,7 @@ impl UDynamicMeshPool {
                 __buffer,
             )
         };
+        std::mem::forget(mesh);
     }
     pub fn return_all_meshes(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

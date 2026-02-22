@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -581,6 +582,7 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
     }
     pub fn recompile_vm_if_required(
         in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
@@ -617,6 +619,7 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
     }
     pub fn recompile_vm(
         in_blueprint: UPtr<crate::bindings::rig_vm_developer::URigVMBlueprint>,
@@ -653,6 +656,7 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
     }
     pub fn load_assets_with_node_filter(
         in_class: TSubclassOf<crate::bindings::rig_vm_developer::URigVMBlueprint>,
@@ -701,6 +705,8 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(in_node_filter);
         unsafe {
             __buffer
                 .add(40)
@@ -759,6 +765,8 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(in_blueprint_filter);
         unsafe {
             __buffer
                 .add(40)
@@ -817,6 +825,8 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(in_asset_data_filter);
         unsafe {
             __buffer
                 .add(40)
@@ -887,6 +897,9 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(in_asset_data_filter);
+        std::mem::forget(in_node_filter);
         unsafe {
             __buffer
                 .add(72)
@@ -957,6 +970,9 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(in_asset_data_filter);
+        std::mem::forget(in_blueprint_filter);
         unsafe {
             __buffer
                 .add(72)
@@ -1003,6 +1019,7 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
         unsafe {
             __buffer
                 .add(8)
@@ -1082,6 +1099,7 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
         unsafe {
             __buffer
                 .add(8)
@@ -1124,6 +1142,7 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_blueprint);
         unsafe {
             __buffer
                 .add(8)
@@ -1178,6 +1197,8 @@ impl URigVMEditorBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_class);
+        std::mem::forget(in_asset_data_filter);
         unsafe {
             __buffer
                 .add(40)

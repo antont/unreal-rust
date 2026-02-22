@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1038,6 +1039,9 @@ impl UPoseSearchTrajectoryPredictorInterface {
                 .cast::<crate::bindings::engine::FTransformTrajectory>()
                 .swap(in_out_trajectory);
         }
+        std::mem::forget(num_prediction_samples);
+        std::mem::forget(seconds_per_prediction_sample);
+        std::mem::forget(num_history_samples);
     }
     pub fn get_velocity(
         &mut self,
@@ -1266,6 +1270,7 @@ impl UMotionMatchingAnimNodeLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(interrupt_mode);
     }
     pub fn set_database_to_search(
         motion_matching_node: &FMotionMatchingAnimNodeReference,
@@ -1316,6 +1321,8 @@ impl UMotionMatchingAnimNodeLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(database);
+        std::mem::forget(interrupt_mode);
     }
     pub fn set_databases_to_search(
         motion_matching_node: &FMotionMatchingAnimNodeReference,
@@ -1366,6 +1373,7 @@ impl UMotionMatchingAnimNodeLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(interrupt_mode);
     }
     pub fn reset_databases_to_search(
         motion_matching_node: &FMotionMatchingAnimNodeReference,
@@ -1408,6 +1416,7 @@ impl UMotionMatchingAnimNodeLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(interrupt_mode);
     }
     pub fn override_motion_matching_blend_settings(
         motion_matching_node: &FMotionMatchingAnimNodeReference,
@@ -2368,6 +2377,8 @@ impl UPoseSearchAssetSamplerLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
+        std::mem::forget(input);
         unsafe { __buffer.add(176).cast::<FPoseSearchAssetSamplerPose>().read() }
     }
     pub fn get_transform_by_name(
@@ -2425,6 +2436,8 @@ impl UPoseSearchAssetSamplerLibrary {
                 .cast::<FPoseSearchAssetSamplerPose>()
                 .swap(asset_sampler_pose);
         }
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(240).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -2476,6 +2489,7 @@ impl UPoseSearchAssetSamplerLibrary {
                 .cast::<FPoseSearchAssetSamplerPose>()
                 .swap(asset_sampler_pose);
         }
+        std::mem::forget(anim_instance);
     }
 }
 #[repr(C, align(8))]
@@ -2575,6 +2589,7 @@ impl UPoseSearchDatabase {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer
                 .add(8)
@@ -2677,6 +2692,8 @@ impl UPoseSearchEventLibrary {
         unsafe {
             __buffer.add(36).cast::<FPoseSearchEvent>().swap(in_out_current_event);
         }
+        std::mem::forget(b_is_new_event_valid);
+        std::mem::forget(delta_seconds);
     }
 }
 #[repr(C, align(8))]
@@ -2785,6 +2802,7 @@ impl UPoseSearchFeatureChannel_Curve {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
 }
@@ -3042,6 +3060,7 @@ impl UPoseSearchFeatureChannel_Heading {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -3255,6 +3274,7 @@ impl UPoseSearchFeatureChannel_Position {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -3363,6 +3383,7 @@ impl UPoseSearchFeatureChannel_TimeToEvent {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
 }
@@ -3469,6 +3490,7 @@ impl UPoseSearchFeatureChannel_Velocity {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -3873,6 +3895,10 @@ impl UPoseSearchInteractionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(availabilities);
+        std::mem::forget(anim_context);
+        std::mem::forget(pose_history_name);
+        std::mem::forget(b_validate_result_against_availabilities);
         unsafe { __buffer.add(40).cast::<FPoseSearchBlueprintResult>().read() }
     }
     pub fn motion_match_interaction(
@@ -3932,6 +3958,10 @@ impl UPoseSearchInteractionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(availabilities);
+        std::mem::forget(anim_context);
+        std::mem::forget(pose_history_name);
+        std::mem::forget(b_validate_result_against_availabilities);
         unsafe { __buffer.add(40).cast::<FPoseSearchBlueprintResult>().read() }
     }
     pub fn get_montage_continuing_properties(
@@ -3967,6 +3997,7 @@ impl UPoseSearchInteractionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_instance);
         unsafe { __buffer.add(8).cast::<FPoseSearchContinuingProperties>().read() }
     }
 }
@@ -4117,6 +4148,11 @@ impl UPoseSearchLibrary {
         unsafe {
             __buffer.add(112).cast::<FPoseSearchBlueprintResult>().swap(result);
         }
+        std::mem::forget(anim_instance);
+        std::mem::forget(assets_to_search);
+        std::mem::forget(pose_history_name);
+        std::mem::forget(continuing_properties);
+        std::mem::forget(future);
     }
     pub fn is_animation_asset_looping(
         asset: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4162,6 +4198,7 @@ impl UPoseSearchLibrary {
         unsafe {
             __buffer.add(8).cast::<bool>().swap(b_is_asset_looping);
         }
+        std::mem::forget(asset);
     }
     pub fn get_database_tags(
         database: UPtr<UPoseSearchDatabase>,
@@ -4207,6 +4244,7 @@ impl UPoseSearchLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(tags);
         }
+        std::mem::forget(database);
     }
 }
 #[repr(C, align(8))]
@@ -4432,6 +4470,12 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<crate::bindings::engine::FTransformTrajectory>()
                 .swap(out_trajectory);
         }
+        std::mem::forget(in_predictor);
+        std::mem::forget(in_delta_time);
+        std::mem::forget(in_history_sampling_interval);
+        std::mem::forget(in_trajectory_history_count);
+        std::mem::forget(in_prediction_sampling_interval);
+        std::mem::forget(in_trajectory_prediction_count);
     }
     pub fn pose_search_generate_transform_trajectory(
         in_anim_instance: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4560,6 +4604,12 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<crate::bindings::engine::FTransformTrajectory>()
                 .swap(out_trajectory);
         }
+        std::mem::forget(in_anim_instance);
+        std::mem::forget(in_delta_time);
+        std::mem::forget(in_history_sampling_interval);
+        std::mem::forget(in_trajectory_history_count);
+        std::mem::forget(in_prediction_sampling_interval);
+        std::mem::forget(in_trajectory_prediction_count);
     }
     pub fn pose_search_generate_predictor_transform_trajectory(
         in_predictor: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4688,6 +4738,12 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<crate::bindings::engine::FTransformTrajectory>()
                 .swap(out_trajectory);
         }
+        std::mem::forget(in_predictor);
+        std::mem::forget(in_delta_time);
+        std::mem::forget(in_history_sampling_interval);
+        std::mem::forget(in_trajectory_history_count);
+        std::mem::forget(in_prediction_sampling_interval);
+        std::mem::forget(in_trajectory_prediction_count);
     }
     pub fn handle_transform_trajectory_world_collisions_with_gravity(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -4864,6 +4920,19 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<FPoseSearchTrajectory_WorldCollisionResults>()
                 .swap(collision_result);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(starting_velocity);
+        std::mem::forget(b_apply_gravity);
+        std::mem::forget(gravity_accel);
+        std::mem::forget(floor_collisions_offset);
+        std::mem::forget(trace_channel);
+        std::mem::forget(b_trace_complex);
+        std::mem::forget(draw_debug_type);
+        std::mem::forget(b_ignore_self);
+        std::mem::forget(max_obstacle_height);
+        std::mem::forget(trace_color);
+        std::mem::forget(trace_hit_color);
+        std::mem::forget(draw_time);
     }
     pub fn handle_transform_trajectory_world_collisions(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -5030,6 +5099,18 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<FPoseSearchTrajectory_WorldCollisionResults>()
                 .swap(collision_result);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(anim_instance);
+        std::mem::forget(b_apply_gravity);
+        std::mem::forget(floor_collisions_offset);
+        std::mem::forget(trace_channel);
+        std::mem::forget(b_trace_complex);
+        std::mem::forget(draw_debug_type);
+        std::mem::forget(b_ignore_self);
+        std::mem::forget(max_obstacle_height);
+        std::mem::forget(trace_color);
+        std::mem::forget(trace_hit_color);
+        std::mem::forget(draw_time);
     }
     pub fn get_transform_trajectory_velocity(
         in_trajectory: &crate::bindings::engine::FTransformTrajectory,
@@ -5094,6 +5175,9 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_velocity);
         }
+        std::mem::forget(time1);
+        std::mem::forget(time2);
+        std::mem::forget(b_extrapolate);
     }
     pub fn get_transform_trajectory_sample_transform(
         in_trajectory_sample: &crate::bindings::engine::FTransformTrajectorySample,
@@ -5195,6 +5279,8 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<crate::bindings::engine::FTransformTrajectorySample>()
                 .swap(out_trajectory_sample);
         }
+        std::mem::forget(time);
+        std::mem::forget(b_extrapolate);
     }
     pub fn get_transform_trajectory_angular_velocity(
         in_trajectory: &crate::bindings::engine::FTransformTrajectory,
@@ -5259,6 +5345,9 @@ impl UPoseSearchTrajectoryLibrary {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_angular_velocity);
         }
+        std::mem::forget(time1);
+        std::mem::forget(time2);
+        std::mem::forget(b_extrapolate);
     }
     pub fn draw_transform_trajectory(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -5317,6 +5406,9 @@ impl UPoseSearchTrajectoryLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(debug_thickness);
+        std::mem::forget(height_offset);
     }
 }
 #[repr(transparent)]

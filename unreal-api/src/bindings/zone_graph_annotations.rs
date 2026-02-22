@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -280,6 +281,11 @@ impl UZoneGraphDisturbanceAnnotationBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(instigator);
+        std::mem::forget(position);
+        std::mem::forget(radius);
+        std::mem::forget(duration);
     }
 }
 #[repr(C, align(8))]

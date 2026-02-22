@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -272,6 +273,8 @@ impl UAnimationWarpingLibrary {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_value);
         }
+        std::mem::forget(in_curve);
+        std::mem::forget(time);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_offset_root_transform(
@@ -355,6 +358,8 @@ impl UAnimationWarpingLibrary {
         unsafe {
             __buffer.add(12).cast::<f32>().swap(out_value);
         }
+        std::mem::forget(in_curve);
+        std::mem::forget(time);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_curve_value_from_animation(
@@ -411,6 +416,9 @@ impl UAnimationWarpingLibrary {
         unsafe {
             __buffer.add(24).cast::<f32>().swap(out_value);
         }
+        std::mem::forget(animation);
+        std::mem::forget(curve_name);
+        std::mem::forget(time);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
 }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -287,6 +288,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_cache_name);
     }
     pub fn trigger_component(
         &mut self,
@@ -324,6 +326,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_component);
     }
     pub fn trigger_all(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -406,6 +409,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_start_time);
     }
     pub fn set_current_time(&mut self, current_time: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -438,6 +442,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(current_time);
     }
     pub fn set_cache_collection(
         &mut self,
@@ -473,6 +478,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_cache_collection);
     }
     pub fn reset_single_transform(&mut self, in_index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -501,6 +507,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_index);
     }
     pub fn reset_all_component_transforms(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -563,6 +570,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_component);
     }
     pub fn is_recording(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -642,6 +650,8 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_component);
+        std::mem::forget(b_transfer_simulation_flag);
     }
     pub fn enable_playback_by_cache(&mut self, in_cache_name: FName, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -677,6 +687,8 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_cache_name);
+        std::mem::forget(b_enable);
     }
     pub fn enable_playback(&mut self, index: i32, b_enable: bool) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -708,6 +720,8 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(b_enable);
     }
     pub fn clear_observed_components(&mut self, b_destroy_components: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -740,6 +754,7 @@ impl AChaosCacheManager {
                 __buffer,
             )
         };
+        std::mem::forget(b_destroy_components);
     }
 }
 #[repr(C, align(8))]

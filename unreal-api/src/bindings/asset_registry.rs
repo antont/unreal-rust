@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -623,6 +624,8 @@ impl UAssetRegistryHelpers {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(assets);
         }
+        std::mem::forget(sorting_predicate);
+        std::mem::forget(sort_order);
     }
     pub fn sort_by_asset_name(
         assets: &mut TArray<crate::bindings::core_u_object::FAssetData>,
@@ -673,6 +676,7 @@ impl UAssetRegistryHelpers {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(assets);
         }
+        std::mem::forget(sort_order);
     }
     pub fn set_filter_tags_and_values(
         in_filter: &crate::bindings::core_u_object::FARFilter,
@@ -1309,6 +1313,8 @@ impl UAssetRegistryHelpers {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
+        std::mem::forget(b_allow_blueprint_class);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FAssetData>().read()
         }
@@ -1415,6 +1421,7 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(package_name);
     }
     pub fn wait_for_completion(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1523,6 +1530,7 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(b_synchronous_search);
     }
     pub fn scan_paths_synchronous(
         &mut self,
@@ -1574,6 +1582,8 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(b_force_rescan);
+        std::mem::forget(b_ignore_deny_list_scan_filters);
     }
     pub fn scan_modified_asset_files(&mut self, in_file_paths: &TArray<FString>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1649,6 +1659,7 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(b_force_rescan);
     }
     pub fn run_assets_through_filter(
         &self,
@@ -1732,6 +1743,7 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_prioritize);
     }
     pub fn get_referencers(
         &self,
@@ -1786,6 +1798,7 @@ impl UAssetRegistry {
         unsafe {
             __buffer.add(24).cast::<TArray<FName>>().swap(out_referencers);
         }
+        std::mem::forget(package_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_dependencies(
@@ -1841,6 +1854,7 @@ impl UAssetRegistry {
         unsafe {
             __buffer.add(24).cast::<TArray<FName>>().swap(out_dependencies);
         }
+        std::mem::forget(package_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn k2_get_asset_by_object_path(
@@ -1895,6 +1909,8 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(b_include_only_on_disk_assets);
+        std::mem::forget(b_skip_ar_filtered_assets);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FAssetData>().read()
         }
@@ -2015,6 +2031,8 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(package_path);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn get_sub_paths(
@@ -2070,6 +2088,8 @@ impl UAssetRegistry {
         unsafe {
             __buffer.add(16).cast::<TArray<FString>>().swap(out_path_list);
         }
+        std::mem::forget(in_base_path);
+        std::mem::forget(b_in_recurse);
     }
     pub fn get_in_memory_assets(
         &self,
@@ -2129,6 +2149,7 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(b_skip_ar_filtered_assets);
         unsafe { __buffer.add(369).cast::<bool>().read() }
     }
     pub fn get_derived_class_names(
@@ -2264,6 +2285,9 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(package_paths);
+        std::mem::forget(b_recursive);
+        std::mem::forget(b_include_only_on_disk_assets);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn get_assets_by_path(
@@ -2332,6 +2356,9 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(package_path);
+        std::mem::forget(b_recursive);
+        std::mem::forget(b_include_only_on_disk_assets);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn get_assets_by_package_name(
@@ -2400,6 +2427,9 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(package_name);
+        std::mem::forget(b_include_only_on_disk_assets);
+        std::mem::forget(b_skip_ar_filtered_assets);
         unsafe { __buffer.add(34).cast::<bool>().read() }
     }
     pub fn get_assets_by_class(
@@ -2462,6 +2492,8 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(class_path_name);
+        std::mem::forget(b_search_sub_classes);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn get_assets(
@@ -2522,6 +2554,7 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(b_skip_ar_filtered_assets);
         unsafe { __buffer.add(369).cast::<bool>().read() }
     }
     pub fn get_asset_by_object_path(
@@ -2566,6 +2599,8 @@ impl UAssetRegistry {
                 __buffer,
             )
         };
+        std::mem::forget(object_path);
+        std::mem::forget(b_include_only_on_disk_assets);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FAssetData>().read()
         }
@@ -2626,6 +2661,7 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FTopLevelAssetPath>>()
                 .swap(out_ancestor_class_names);
         }
+        std::mem::forget(class_path_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_all_cached_paths(&self, out_path_list: &mut TArray<FString>) {
@@ -2713,6 +2749,7 @@ impl UAssetRegistry {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(out_asset_data);
         }
+        std::mem::forget(b_include_only_on_disk_assets);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
 }

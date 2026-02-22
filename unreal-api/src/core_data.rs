@@ -1,8 +1,12 @@
 use std::ffi::c_void;
 
 use glam::DVec3;
+use unreal_ffi::{FRustScriptArray, FRustString};
 
-use crate::bindings::core_u_object::{FQuat, FTransform, FVector, UClass};
+use crate::{
+    bindings::core_u_object::{FQuat, FTransform, FVector, UClass},
+    module::bindings,
+};
 
 // TODO: This whole file is extremely handwavy and needs to be done properly by getting the correct
 // layout from the reflection. Right now most of the layout is just guess work based on my machine
@@ -20,6 +24,14 @@ pub struct UPtr<T> {
     pub ptr: *mut T,
 }
 
+impl<T> UPtr<T> {
+    pub fn null() -> Self {
+        Self {
+            ptr: std::ptr::null_mut(),
+        }
+    }
+}
+
 #[repr(C)]
 pub struct FWeakObject {
     pub object_index: i32,
@@ -32,17 +44,86 @@ pub struct TWeakObjectPtr<T> {
     _marker: std::marker::PhantomData<T>,
 }
 
-#[repr(C, align(8))]
-pub struct FScriptArray {
-    pub data: *mut c_void,
-    pub num: i32,
-    pub max: i32,
-}
 #[repr(transparent)]
 pub struct TArray<T> {
-    script_array: FScriptArray,
-    // TODO: Layout
+    script_array: FRustScriptArray,
     _marker: std::marker::PhantomData<T>,
+}
+
+impl<T> Drop for TArray<T> {
+    fn drop(&mut self) {
+        unsafe {
+            (bindings().fscript_array_fns.dtor)(&mut self.script_array);
+        }
+    }
+}
+
+impl<T> TArray<T> {
+    const ALIGN: u32 = std::mem::align_of::<T>() as u32;
+    const SIZE: i32 = std::mem::size_of::<T>() as i32;
+
+    pub fn new() -> Self {
+        let mut script_array = FRustScriptArray::uninit();
+        unsafe {
+            (bindings().fscript_array_fns.ctor)(&mut script_array);
+        }
+        Self {
+            script_array,
+            _marker: std::marker::PhantomData,
+        }
+    }
+
+    pub fn iter(&self) -> impl Iterator<Item = &T> {
+        // TODO: impl non bounds check access
+        (0..self.num()).flat_map(|idx| self.get(idx))
+    }
+
+    pub fn get(&self, index: usize) -> Option<&T> {
+        if self.num() <= index {
+            return None;
+        }
+
+        unsafe {
+            let mut data_ptr: *mut c_void = std::ptr::null_mut();
+
+            (bindings().fscript_array_fns.get_data)(
+                &self.script_array as *const _ as *mut _,
+                &mut data_ptr,
+            );
+            data_ptr.cast::<T>().add(index).as_ref()
+        }
+    }
+
+    pub fn num(&self) -> usize {
+        unsafe {
+            let mut num = 0;
+            (bindings().fscript_array_fns.num)(&self.script_array, &mut num);
+            num as usize
+        }
+    }
+
+    pub fn add(&mut self, value: T) {
+        unsafe {
+            let mut index = 0;
+            (bindings().fscript_array_fns.add)(
+                &mut self.script_array,
+                1,
+                Self::SIZE,
+                Self::ALIGN,
+                &mut index,
+            );
+
+            let mut data_ptr: *mut c_void = std::ptr::null_mut();
+            (bindings().fscript_array_fns.get_data)(&mut self.script_array, &mut data_ptr);
+            *data_ptr.cast::<T>().add(index as usize) = value;
+        }
+    }
+}
+
+impl<T> Default for TArray<T> {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 // TODO: Generate
@@ -69,11 +150,42 @@ pub struct TMap<Key, Value> {
     _value_marker: std::marker::PhantomData<Value>,
 }
 
-#[repr(C)]
+#[repr(transparent)]
 pub struct FString {
-    pub data: *mut u16,
-    pub num: i32,
-    pub max: i32,
+    ffi: FRustString,
+}
+
+impl<'a> From<&'a str> for FString {
+    fn from(value: &'a str) -> Self {
+        unsafe {
+            let mut rust_fstring = FRustString::uninit();
+            (bindings().core_fns.new_fstring_from_utf8)(
+                unreal_ffi::Utf8Str::from(value),
+                &mut rust_fstring,
+            );
+            FString { ffi: rust_fstring }
+        }
+    }
+}
+
+impl Drop for FString {
+    fn drop(&mut self) {
+        unsafe {
+            (bindings().core_fns.delete_fstring)(&mut self.ffi);
+        }
+    }
+}
+
+impl Clone for FString {
+    fn clone(&self) -> Self {
+        let mut cloned = FRustString::uninit();
+
+        unsafe {
+            (bindings().core_fns.copy_from_fstring)(&self.ffi, &mut cloned);
+        }
+
+        FString { ffi: cloned }
+    }
 }
 
 // TODO: Layout

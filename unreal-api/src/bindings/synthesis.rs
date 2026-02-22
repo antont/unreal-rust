@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -2896,6 +2897,8 @@ impl UModularSynthLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_bank);
+        std::mem::forget(preset_name);
     }
 }
 #[repr(C, align(16))]
@@ -2998,6 +3001,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sustain_gain);
     }
     pub fn set_stereo_delay_wetlevel(&mut self, delay_wetlevel: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3030,6 +3034,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(delay_wetlevel);
     }
     pub fn set_stereo_delay_time(&mut self, delay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3062,6 +3067,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(delay_time_msec);
     }
     pub fn set_stereo_delay_ratio(&mut self, delay_ratio: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3094,6 +3100,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(delay_ratio);
     }
     pub fn set_stereo_delay_mode(&mut self, stereo_delay_mode: ESynthStereoDelayMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3126,6 +3133,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(stereo_delay_mode);
     }
     pub fn set_stereo_delay_is_enabled(&mut self, stereo_delay_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3158,6 +3166,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(stereo_delay_enabled);
     }
     pub fn set_stereo_delay_feedback(&mut self, delay_feedback: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3190,6 +3199,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(delay_feedback);
     }
     pub fn set_spread(&mut self, spread: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3218,6 +3228,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(spread);
     }
     pub fn set_release_time(&mut self, release_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3250,6 +3261,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(release_time_msec);
     }
     pub fn set_portamento(&mut self, portamento: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3278,6 +3290,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(portamento);
     }
     pub fn set_pitch_bend(&mut self, pitch_bend: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3306,6 +3319,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(pitch_bend);
     }
     pub fn set_pan(&mut self, pan: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3334,6 +3348,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(pan);
     }
     pub fn set_osc_type(&mut self, osc_index: i32, osc_type: ESynth1OscType) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -3369,6 +3384,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(osc_type);
     }
     pub fn set_osc_sync(&mut self, b_is_synced: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3401,6 +3418,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_synced);
     }
     pub fn set_osc_semitones(&mut self, osc_index: i32, semitones: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3432,6 +3450,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(semitones);
     }
     pub fn set_osc_pulsewidth(&mut self, osc_index: i32, pulsewidth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3463,6 +3483,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(pulsewidth);
     }
     pub fn set_osc_octave(&mut self, osc_index: i32, octave: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3494,6 +3516,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(octave);
     }
     pub fn set_osc_gain_mod(&mut self, osc_index: i32, osc_gain_mod: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3529,6 +3553,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(osc_gain_mod);
     }
     pub fn set_osc_gain(&mut self, osc_index: i32, osc_gain: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3560,6 +3586,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(osc_gain);
     }
     pub fn set_osc_frequency_mod(&mut self, osc_index: i32, osc_freq_mod: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3595,6 +3623,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(osc_freq_mod);
     }
     pub fn set_osc_cents(&mut self, osc_index: i32, cents: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3626,6 +3656,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(osc_index);
+        std::mem::forget(cents);
     }
     pub fn set_mod_env_sustain_gain(&mut self, sustain_gain: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3658,6 +3690,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sustain_gain);
     }
     pub fn set_mod_env_release_time(&mut self, release: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3686,6 +3719,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(release);
     }
     pub fn set_mod_env_patch(&mut self, in_patch_type: ESynthModEnvPatch) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3718,6 +3752,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_patch_type);
     }
     pub fn set_mod_env_invert(&mut self, b_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3746,6 +3781,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_invert);
     }
     pub fn set_mod_env_depth(&mut self, depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3774,6 +3810,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(depth);
     }
     pub fn set_mod_env_decay_time(&mut self, decay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3806,6 +3843,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(decay_time_msec);
     }
     pub fn set_mod_env_bias_patch(&mut self, in_patch_type: ESynthModEnvBiasPatch) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3838,6 +3876,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_patch_type);
     }
     pub fn set_mod_env_bias_invert(&mut self, b_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3866,6 +3905,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_invert);
     }
     pub fn set_mod_env_attack_time(&mut self, attack_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3898,6 +3938,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(attack_time_msec);
     }
     pub fn set_lfo_type(&mut self, lfo_index: i32, lfo_type: ESynthLFOType) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -3933,6 +3974,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(lfo_type);
     }
     pub fn set_lfo_patch(&mut self, lfo_index: i32, lfo_patch_type: ESynthLFOPatchType) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -3968,6 +4011,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(lfo_patch_type);
     }
     pub fn set_lfo_mode(&mut self, lfo_index: i32, lfo_mode: ESynthLFOMode) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -4003,6 +4048,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(lfo_mode);
     }
     pub fn set_lfo_gain_mod(&mut self, lfo_index: i32, gain_mod: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4034,6 +4081,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(gain_mod);
     }
     pub fn set_lfo_gain(&mut self, lfo_index: i32, gain: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4065,6 +4114,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(gain);
     }
     pub fn set_lfo_frequency_mod(&mut self, lfo_index: i32, frequency_mod_hz: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4100,6 +4151,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(frequency_mod_hz);
     }
     pub fn set_lfo_frequency(&mut self, lfo_index: i32, frequency_hz: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4135,6 +4188,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(lfo_index);
+        std::mem::forget(frequency_hz);
     }
     pub fn set_gain_db(&mut self, gain_db: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4163,6 +4218,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gain_db);
     }
     pub fn set_filter_type(&mut self, filter_type: ESynthFilterType) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4195,6 +4251,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(filter_type);
     }
     pub fn set_filter_q_mod(&mut self, filter_q: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4223,6 +4280,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(filter_q);
     }
     pub fn set_filter_q(&mut self, filter_q: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4251,6 +4309,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(filter_q);
     }
     pub fn set_filter_frequency_mod(&mut self, filter_frequency_hz: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4283,6 +4342,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(filter_frequency_hz);
     }
     pub fn set_filter_frequency(&mut self, filter_frequency_hz: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4315,6 +4375,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(filter_frequency_hz);
     }
     pub fn set_filter_algorithm(&mut self, filter_algorithm: ESynthFilterAlgorithm) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4347,6 +4408,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(filter_algorithm);
     }
     pub fn set_enable_unison(&mut self, enable_unison: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4379,6 +4441,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enable_unison);
     }
     pub fn set_enable_retrigger(&mut self, retrigger_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4411,6 +4474,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(retrigger_enabled);
     }
     pub fn set_enable_polyphony(&mut self, b_enable_polyphony: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4443,6 +4507,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable_polyphony);
     }
     pub fn set_enable_patch(&mut self, patch_id: FPatchId, b_is_enabled: bool) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<6>::new();
@@ -4482,6 +4547,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(patch_id);
+        std::mem::forget(b_is_enabled);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_enable_legato(&mut self, legato_enabled: bool) {
@@ -4515,6 +4582,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(legato_enabled);
     }
     pub fn set_decay_time(&mut self, decay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4547,6 +4615,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(decay_time_msec);
     }
     pub fn set_chorus_frequency(&mut self, frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4575,6 +4644,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(frequency);
     }
     pub fn set_chorus_feedback(&mut self, feedback: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4603,6 +4673,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(feedback);
     }
     pub fn set_chorus_enabled(&mut self, enable_chorus: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4635,6 +4706,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(enable_chorus);
     }
     pub fn set_chorus_depth(&mut self, depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4663,6 +4735,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(depth);
     }
     pub fn set_attack_time(&mut self, attack_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4695,6 +4768,7 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(attack_time_msec);
     }
     pub fn note_on(&mut self, note: f32, velocity: i32, duration: f32) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -4729,6 +4803,9 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(note);
+        std::mem::forget(velocity);
+        std::mem::forget(duration);
     }
     pub fn note_off(
         &mut self,
@@ -4776,6 +4853,9 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(note);
+        std::mem::forget(b_all_notes_off);
+        std::mem::forget(b_kill_all_notes);
     }
     pub fn create_patch(
         &mut self,
@@ -4827,6 +4907,8 @@ impl UModularSynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(patch_source);
+        std::mem::forget(b_enable_by_default);
         unsafe { __buffer.add(28).cast::<FPatchId>().read() }
     }
 }
@@ -4979,6 +5061,7 @@ impl USourceEffectBitCrusherPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_sample_rate(&mut self, sample_rate: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5011,6 +5094,7 @@ impl USourceEffectBitCrusherPreset {
                 __buffer,
             )
         };
+        std::mem::forget(sample_rate);
     }
     pub fn set_modulation_settings(
         &mut self,
@@ -5074,6 +5158,7 @@ impl USourceEffectBitCrusherPreset {
                 __buffer,
             )
         };
+        std::mem::forget(bits);
     }
     pub fn set_bit_modulators(
         &mut self,
@@ -5156,6 +5241,7 @@ impl USourceEffectBitCrusherPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
 }
 #[repr(C, align(8))]
@@ -5273,6 +5359,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_wet(&mut self, wet_amount: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5301,6 +5388,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(wet_amount);
     }
     pub fn set_spread_modulators(
         &mut self,
@@ -5381,6 +5469,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_spread(&mut self, spread: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5409,6 +5498,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(spread);
     }
     pub fn set_settings(&mut self, settings: &FSourceEffectChorusBaseSettings) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -5556,6 +5646,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_frequency(&mut self, frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5584,6 +5675,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(frequency);
     }
     pub fn set_feedback_modulators(
         &mut self,
@@ -5664,6 +5756,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_feedback(&mut self, feedback: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5692,6 +5785,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(feedback);
     }
     pub fn set_dry_modulators(
         &mut self,
@@ -5772,6 +5866,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_dry(&mut self, dry_amount: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5800,6 +5895,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(dry_amount);
     }
     pub fn set_depth_modulators(
         &mut self,
@@ -5880,6 +5976,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(modulator);
     }
     pub fn set_depth(&mut self, depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5908,6 +6005,7 @@ impl USourceEffectChorusPreset {
                 __buffer,
             )
         };
+        std::mem::forget(depth);
     }
 }
 #[repr(C, align(8))]
@@ -6019,6 +6117,7 @@ impl USourceEffectConvolutionReverbPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_impulse_response);
     }
 }
 #[repr(C, align(8))]
@@ -6198,6 +6297,7 @@ impl USourceEffectEnvelopeFollowerPreset {
                 __buffer,
             )
         };
+        std::mem::forget(envelope_follower_listener);
     }
     pub fn set_settings(&mut self, in_settings: &FSourceEffectEnvelopeFollowerSettings) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -6265,6 +6365,7 @@ impl USourceEffectEnvelopeFollowerPreset {
                 __buffer,
             )
         };
+        std::mem::forget(envelope_follower_listener);
     }
 }
 #[repr(C, align(8))]
@@ -7138,6 +7239,7 @@ impl USubmixEffectConvolutionReverbPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_impulse_response);
     }
 }
 #[repr(C, align(8))]
@@ -7218,6 +7320,7 @@ impl USubmixEffectDelayStatics {
         unsafe {
             __buffer.add(0).cast::<FSubmixEffectDelaySettings>().swap(delay_settings);
         }
+        std::mem::forget(maximum_delay_length);
         unsafe { __buffer.add(16).cast::<FSubmixEffectDelaySettings>().read() }
     }
     pub fn set_interpolation_time(
@@ -7264,6 +7367,7 @@ impl USubmixEffectDelayStatics {
         unsafe {
             __buffer.add(0).cast::<FSubmixEffectDelaySettings>().swap(delay_settings);
         }
+        std::mem::forget(interpolation_time);
         unsafe { __buffer.add(16).cast::<FSubmixEffectDelaySettings>().read() }
     }
     pub fn set_delay_length(
@@ -7310,6 +7414,7 @@ impl USubmixEffectDelayStatics {
         unsafe {
             __buffer.add(0).cast::<FSubmixEffectDelaySettings>().swap(delay_settings);
         }
+        std::mem::forget(delay_length);
         unsafe { __buffer.add(16).cast::<FSubmixEffectDelaySettings>().read() }
     }
 }
@@ -7409,6 +7514,7 @@ impl USubmixEffectDelayPreset {
                 __buffer,
             )
         };
+        std::mem::forget(time);
     }
     pub fn set_delay(&mut self, length: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7437,6 +7543,7 @@ impl USubmixEffectDelayPreset {
                 __buffer,
             )
         };
+        std::mem::forget(length);
     }
     pub fn set_default_settings(&mut self, in_settings: &FSubmixEffectDelaySettings) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -7596,6 +7703,7 @@ impl USubmixEffectFilterPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_type);
     }
     pub fn set_filter_q_mod(&mut self, in_q: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7624,6 +7732,7 @@ impl USubmixEffectFilterPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_q);
     }
     pub fn set_filter_q(&mut self, in_q: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7652,6 +7761,7 @@ impl USubmixEffectFilterPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_q);
     }
     pub fn set_filter_cutoff_frequency_mod(&mut self, in_frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7684,6 +7794,7 @@ impl USubmixEffectFilterPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_frequency);
     }
     pub fn set_filter_cutoff_frequency(&mut self, in_frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7716,6 +7827,7 @@ impl USubmixEffectFilterPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_frequency);
     }
     pub fn set_filter_algorithm(&mut self, in_algorithm: ESubmixFilterAlgorithm) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7748,6 +7860,7 @@ impl USubmixEffectFilterPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_algorithm);
     }
 }
 #[repr(C, align(8))]
@@ -7924,6 +8037,7 @@ impl USubmixEffectMultibandCompressorPreset {
                 __buffer,
             )
         };
+        std::mem::forget(submix);
     }
     pub fn set_audio_bus(
         &mut self,
@@ -7959,6 +8073,7 @@ impl USubmixEffectMultibandCompressorPreset {
                 __buffer,
             )
         };
+        std::mem::forget(audio_bus);
     }
     pub fn reset_key(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -8195,6 +8310,7 @@ impl USubmixEffectTapDelayPreset {
                 __buffer,
             )
         };
+        std::mem::forget(tap_id);
     }
     pub fn set_settings(&mut self, in_settings: &FSubmixEffectTapDelaySettings) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -8255,6 +8371,7 @@ impl USubmixEffectTapDelayPreset {
                 __buffer,
             )
         };
+        std::mem::forget(time);
     }
     pub fn remove_tap(&mut self, tap_id: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8283,6 +8400,7 @@ impl USubmixEffectTapDelayPreset {
                 __buffer,
             )
         };
+        std::mem::forget(tap_id);
     }
     pub fn get_tap_ids(&mut self, tap_ids: &mut TArray<i32>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -8356,6 +8474,7 @@ impl USubmixEffectTapDelayPreset {
         unsafe {
             __buffer.add(4).cast::<FTapDelayInfo>().swap(tap_info);
         }
+        std::mem::forget(tap_id);
     }
     pub fn get_max_delay_in_milliseconds(&mut self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8480,6 +8599,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(sustain_gain);
     }
     pub fn set_sound_wave(
         &mut self,
@@ -8515,6 +8635,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(in_sound_wave);
     }
     pub fn set_scrub_mode(&mut self, b_scrub_mode: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -8547,6 +8668,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(b_scrub_mode);
     }
     pub fn set_release_time_msec(&mut self, release_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8579,6 +8701,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(release_time_msec);
     }
     pub fn set_playhead_time(
         &mut self,
@@ -8630,6 +8753,9 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(in_position_sec);
+        std::mem::forget(lerp_time_sec);
+        std::mem::forget(seek_type);
     }
     pub fn set_playback_speed(&mut self, in_playhead_rate: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8662,6 +8788,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(in_playhead_rate);
     }
     pub fn set_grain_volume(
         &mut self,
@@ -8705,6 +8832,8 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(base_volume);
+        std::mem::forget(volume_range);
     }
     pub fn set_grains_per_second(&mut self, in_grains_per_second: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8737,6 +8866,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(in_grains_per_second);
     }
     pub fn set_grain_probability(&mut self, in_grain_probability: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8769,6 +8899,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(in_grain_probability);
     }
     pub fn set_grain_pitch(
         &mut self,
@@ -8808,6 +8939,8 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(base_pitch);
+        std::mem::forget(pitch_range);
     }
     pub fn set_grain_pan(
         &mut self,
@@ -8847,6 +8980,8 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(base_pan);
+        std::mem::forget(pan_range);
     }
     pub fn set_grain_envelope_type(
         &mut self,
@@ -8882,6 +9017,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(envelope_type);
     }
     pub fn set_grain_duration(
         &mut self,
@@ -8925,6 +9061,8 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(base_duration_msec);
+        std::mem::forget(duration_range);
     }
     pub fn set_decay_time(&mut self, decay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8957,6 +9095,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(decay_time_msec);
     }
     pub fn set_attack_time(&mut self, attack_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8989,6 +9128,7 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(attack_time_msec);
     }
     pub fn note_on(&mut self, note: f32, velocity: i32, duration: f32) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -9021,6 +9161,9 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(note);
+        std::mem::forget(velocity);
+        std::mem::forget(duration);
     }
     pub fn note_off(&mut self, note: f32, b_kill: bool) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -9050,6 +9193,8 @@ impl UGranularSynth {
                 __buffer,
             )
         };
+        std::mem::forget(note);
+        std::mem::forget(b_kill);
     }
     pub fn is_loaded(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9236,6 +9381,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_position);
     }
     pub fn set_sustain_pedal_state(&mut self, in_sustain_pedal_state: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9268,6 +9414,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_sustain_pedal_state);
     }
     pub fn set_pos_lfo_type(&mut self, in_lfo_type: ESynthLFOType) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9300,6 +9447,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_lfo_type);
     }
     pub fn set_pos_lfo_frequency(&mut self, in_lfo_frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9332,6 +9480,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_lfo_frequency);
     }
     pub fn set_pos_lfo_depth(&mut self, in_lfo_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9364,6 +9513,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_lfo_depth);
     }
     pub fn set_position_envelope_sustain_gain(&mut self, in_sustain_gain: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9396,6 +9546,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_sustain_gain);
     }
     pub fn set_position_envelope_release_time(&mut self, in_release_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9428,6 +9579,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_release_time_msec);
     }
     pub fn set_position_envelope_invert(&mut self, b_in_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9460,6 +9612,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_invert);
     }
     pub fn set_position_envelope_depth(&mut self, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9488,6 +9641,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_depth);
     }
     pub fn set_position_envelope_decay_time(&mut self, in_decay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9520,6 +9674,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_decay_time_msec);
     }
     pub fn set_position_envelope_bias_invert(&mut self, b_in_bias_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9552,6 +9707,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_bias_invert);
     }
     pub fn set_position_envelope_bias_depth(&mut self, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9580,6 +9736,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_depth);
     }
     pub fn set_position_envelope_attack_time(&mut self, in_attack_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9612,6 +9769,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_attack_time_msec);
     }
     pub fn set_low_pass_filter_resonance(&mut self, in_new_q: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9640,6 +9798,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_q);
     }
     pub fn set_frequency_with_midi_note(&mut self, in_midi_note: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9672,6 +9831,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_midi_note);
     }
     pub fn set_frequency_pitch_bend(&mut self, frequency_offset_cents: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9704,6 +9864,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(frequency_offset_cents);
     }
     pub fn set_frequency(&mut self, frequency_hz: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9736,6 +9897,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(frequency_hz);
     }
     pub fn set_filter_envelope_sustain_gain(&mut self, in_sustain_gain: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9768,6 +9930,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_sustain_gain);
     }
     pub fn set_filter_envelope_release_time(&mut self, in_release_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9800,6 +9963,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_release_time_msec);
     }
     pub fn set_filter_envelopen_decay_time(&mut self, in_decay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9832,6 +9996,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_decay_time_msec);
     }
     pub fn set_filter_envelope_invert(&mut self, b_in_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9864,6 +10029,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_invert);
     }
     pub fn set_filter_envelope_depth(&mut self, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9892,6 +10058,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_depth);
     }
     pub fn set_filter_envelope_bias_invert(&mut self, b_in_bias_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -9924,6 +10091,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_bias_invert);
     }
     pub fn set_filter_envelope_bias_depth(&mut self, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9952,6 +10120,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_depth);
     }
     pub fn set_filter_envelope_attack_time(&mut self, in_attack_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -9984,6 +10153,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_attack_time_msec);
     }
     pub fn set_curve_value(
         &mut self,
@@ -10031,6 +10201,9 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(table_index);
+        std::mem::forget(keyframe_index);
+        std::mem::forget(new_value);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_curve_tangent(&mut self, table_index: i32, in_new_tangent: f32) -> bool {
@@ -10071,6 +10244,8 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(table_index);
+        std::mem::forget(in_new_tangent);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_curve_interpolation_type(
@@ -10115,6 +10290,8 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(interpolation_type);
+        std::mem::forget(table_index);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_amp_envelope_sustain_gain(&mut self, in_sustain_gain: f32) {
@@ -10148,6 +10325,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_sustain_gain);
     }
     pub fn set_amp_envelope_release_time(&mut self, in_release_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10180,6 +10358,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_release_time_msec);
     }
     pub fn set_amp_envelope_invert(&mut self, b_in_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -10212,6 +10391,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_invert);
     }
     pub fn set_amp_envelope_depth(&mut self, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10240,6 +10420,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_depth);
     }
     pub fn set_amp_envelope_decay_time(&mut self, in_decay_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10272,6 +10453,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_decay_time_msec);
     }
     pub fn set_amp_envelope_bias_invert(&mut self, b_in_bias_invert: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -10304,6 +10486,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_bias_invert);
     }
     pub fn set_amp_envelope_bias_depth(&mut self, in_depth: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10332,6 +10515,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_depth);
     }
     pub fn set_amp_envelope_attack_time(&mut self, in_attack_time_msec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10364,6 +10548,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_attack_time_msec);
     }
     pub fn refresh_wave_table(&mut self, index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10392,6 +10577,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn refresh_all_wave_tables(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10456,6 +10642,8 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_midi_note);
+        std::mem::forget(in_velocity);
     }
     pub fn note_off(&mut self, in_midi_note: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10488,6 +10676,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(in_midi_note);
     }
     pub fn get_num_table_entries(&mut self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10572,6 +10761,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(table_index);
         unsafe { __buffer.add(8).cast::<TArray<f32>>().read() }
     }
     pub fn get_curve_tangent(&mut self, table_index: i32) -> f32 {
@@ -10605,6 +10795,7 @@ impl USynthComponentMonoWaveTable {
                 __buffer,
             )
         };
+        std::mem::forget(table_index);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -10676,6 +10867,7 @@ impl USynthComponentToneGenerator {
                 __buffer,
             )
         };
+        std::mem::forget(in_volume);
     }
     pub fn set_frequency(&mut self, in_frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10708,6 +10900,7 @@ impl USynthComponentToneGenerator {
                 __buffer,
             )
         };
+        std::mem::forget(in_frequency);
     }
 }
 #[repr(C, align(16))]
@@ -10781,6 +10974,7 @@ impl USynthSamplePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_sound_wave);
     }
     pub fn set_scrub_time_width(&mut self, in_scrub_time_width_sec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10813,6 +11007,7 @@ impl USynthSamplePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_scrub_time_width_sec);
     }
     pub fn set_scrub_mode(&mut self, b_scrub_mode: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -10845,6 +11040,7 @@ impl USynthSamplePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(b_scrub_mode);
     }
     pub fn set_pitch(&mut self, in_pitch: f32, time_sec: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10876,6 +11072,8 @@ impl USynthSamplePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_pitch);
+        std::mem::forget(time_sec);
     }
     pub fn seek_to_time(
         &mut self,
@@ -10919,6 +11117,9 @@ impl USynthSamplePlayer {
                 __buffer,
             )
         };
+        std::mem::forget(time_sec);
+        std::mem::forget(seek_type);
+        std::mem::forget(b_wrap);
     }
     pub fn is_loaded(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11124,6 +11325,11 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_linear_value);
+        std::mem::forget(in_domain_min);
+        std::mem::forget(in_domain_max);
+        std::mem::forget(in_range_min);
+        std::mem::forget(in_range_max);
         unsafe { __buffer.add(20).cast::<f32>().read() }
     }
     pub fn get_linear_frequency(
@@ -11191,6 +11397,11 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_log_frequency_value);
+        std::mem::forget(in_domain_min);
+        std::mem::forget(in_domain_max);
+        std::mem::forget(in_range_min);
+        std::mem::forget(in_range_max);
         unsafe { __buffer.add(20).cast::<f32>().read() }
     }
 }
@@ -11265,6 +11476,7 @@ impl USynth2DSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_step_size(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -11293,6 +11505,7 @@ impl USynth2DSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_handle_color(
         &mut self,
@@ -11328,6 +11541,7 @@ impl USynth2DSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_locked(&mut self, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11354,6 +11568,7 @@ impl USynth2DSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_indent_handle(&mut self, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11382,6 +11597,7 @@ impl USynth2DSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_value(&self) -> crate::bindings::core_u_object::FVector2D {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -11482,6 +11698,7 @@ impl USynthKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_step_size(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -11508,6 +11725,7 @@ impl USynthKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_locked(&mut self, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -11534,6 +11752,7 @@ impl USynthKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();

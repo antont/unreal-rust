@@ -1,5 +1,17 @@
+use std::{collections::btree_map::Values, os::raw::c_void};
+
 use bevy_app::App;
 use bevy_ecs::prelude::*;
+use unreal_api::{
+    bindings::{
+        core_u_object::{FLinearColor, UObject},
+        engine::{ESplineCoordinateSpace, UKismetSystemLibrary, USaveGame, USplineComponent},
+        rust_gameplay::URustExtension_Core,
+    },
+    core_data::{FString, TArray, TSubclassOf, UPtr},
+    ffi::{self, FRustString, Utf8Str},
+    module::bindings,
+};
 use unreal_module::UserModule;
 
 // fn begin(query: Query<(Entity, &ActorComponent)>) {
@@ -171,16 +183,80 @@ pub struct Frame {
     pub dt: f32,
 }
 
+#[derive(Debug)]
+struct Foo {
+    pub i: u32,
+}
+
+trait IFoo {
+    fn foo(&self) -> u32;
+}
+
+impl IFoo for Foo {
+    fn foo(&self) -> u32 {
+        self.i
+    }
+}
+
 impl UserModule for UnrealEcs {
     fn initialize(&mut self) {
-
         self.app.world_mut().register_resource::<Frame>();
     }
 
-    fn tick(&mut self, dt: f32) {
-        let s = String::from("FooBar");
-        let v = vec![1,2,3,4];
-        log::warn!("Hello Foo {} {v:?} ", s);
+    fn tick(&mut self, _dt: f32) {
+        let mut arr: TArray<i32> = TArray::new();
+        // for i in 0..10 {
+        //     arr.add(i * 2);
+        // }
+        //
+        // for val in arr.iter() {
+        //     log::warn!("{}", val);
+        // }
+
+        // URustExtension_Core::test_array(&arr);
+        // let arr1 = URustExtension_Core::create_test_array();
+        // for val in arr1.iter() {
+        //     log::warn!("{}", val);
+        // }
+
+        let str = FString::from("Bar");
+        URustExtension_Core::test_f_string(str);
+        let str = FString::from("Foo");
+        URustExtension_Core::test_f_string_copy("Foo".into());
+
+        // UKismetSystemLibrary::print_string(
+        //     UPtr::null(),
+        //     str,
+        //     true,
+        //     true,
+        //     FLinearColor {
+        //         r: 1.0,
+        //         g: 1.0,
+        //         b: 1.0,
+        //         a: 1.0,
+        //     },
+        //     0.0,
+        //     URustExtension_Core::f_name_none(),
+        // );
+
+        // let s = String::from("FooBar");
+        // let v: Vec<Box<dyn IFoo>> = vec![Box::new(Foo { i: 42 })];
+        // for f in v {
+        //     let i = f.foo();
+        //     log::warn!("Hello Foo {}", i);
+        // }
+
+        // let spline : USplineComponent = todo();
+        // let class: TSubclassOf<UObject> = TSubclassOf::from(USaveGame::static_class());
+
+        // URustExtension_Core::new_object()
+
+        // for i in [0,1,2,3]
+        // {
+        //     log::warn!("Hello Foo {}", i);
+
+        // }
+        // log::warn!("Hello Foo {}", s);
         // self.app
         //     .world_mut()
         //     .resource_scope::<Frame, _>(|_, mut frame| {

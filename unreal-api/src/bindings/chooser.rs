@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -736,6 +737,7 @@ impl UChooserFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(chooser);
         unsafe {
             __buffer
                 .add(8)
@@ -816,6 +818,7 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(140).cast::<i32>().swap(value);
         }
+        std::mem::forget(index);
     }
     pub fn get_chooser_object_input(
         context: &mut FChooserEvaluationContext,
@@ -867,6 +870,8 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(index);
+        std::mem::forget(object_class);
         unsafe {
             __buffer
                 .add(152)
@@ -938,6 +943,8 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(object_class);
+        std::mem::forget(b_result_is_class);
         unsafe {
             __buffer
                 .add(168)
@@ -1009,6 +1016,8 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(object_class);
+        std::mem::forget(b_result_is_class);
         unsafe {
             __buffer
                 .add(168)
@@ -1082,6 +1091,8 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(object_class);
+        std::mem::forget(b_result_is_class);
         unsafe {
             __buffer
                 .add(168)
@@ -1153,6 +1164,8 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(object_class);
+        std::mem::forget(b_result_is_class);
         unsafe {
             __buffer
                 .add(168)
@@ -1211,6 +1224,9 @@ impl UChooserFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context_object);
+        std::mem::forget(chooser_table);
+        std::mem::forget(object_class);
         unsafe {
             __buffer
                 .add(24)
@@ -1269,6 +1285,9 @@ impl UChooserFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context_object);
+        std::mem::forget(chooser_table);
+        std::mem::forget(object_class);
         unsafe {
             __buffer
                 .add(24)
@@ -1316,6 +1335,7 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(value);
     }
     pub fn add_chooser_object_input(
         context: &mut FChooserEvaluationContext,
@@ -1363,6 +1383,7 @@ impl UChooserFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FChooserEvaluationContext>().swap(context);
         }
+        std::mem::forget(object);
     }
 }
 #[repr(C, align(8))]

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -834,6 +835,7 @@ impl UInterchangeFilePickerBase {
         unsafe {
             __buffer.add(72).cast::<TArray<FString>>().swap(out_filenames);
         }
+        std::mem::forget(translator_type);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn scripted_file_picker_for_translator_asset_type(
@@ -896,6 +898,7 @@ impl UInterchangeFilePickerBase {
         unsafe {
             __buffer.add(72).cast::<TArray<FString>>().swap(out_filenames);
         }
+        std::mem::forget(translator_asset_type);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
 }
@@ -1067,6 +1070,12 @@ impl UInterchangePipelineConfigurationBase {
                 >()
                 .swap(out_pipelines);
         }
+        std::mem::forget(source_data);
+        std::mem::forget(translator);
+        std::mem::forget(base_node_container);
+        std::mem::forget(reimport_asset);
+        std::mem::forget(b_scene_import);
+        std::mem::forget(b_reimport);
         unsafe {
             __buffer
                 .add(66)
@@ -1184,6 +1193,9 @@ impl UInterchangePipelineConfigurationBase {
                 >()
                 .swap(out_pipelines);
         }
+        std::mem::forget(source_data);
+        std::mem::forget(translator);
+        std::mem::forget(base_node_container);
         unsafe {
             __buffer
                 .add(56)
@@ -1317,6 +1329,11 @@ impl UInterchangePipelineConfigurationBase {
                 >()
                 .swap(out_pipelines);
         }
+        std::mem::forget(source_data);
+        std::mem::forget(translator);
+        std::mem::forget(base_node_container);
+        std::mem::forget(reimport_asset);
+        std::mem::forget(b_scene_import);
         unsafe {
             __buffer
                 .add(65)
@@ -1434,6 +1451,9 @@ impl UInterchangePipelineConfigurationBase {
                 >()
                 .swap(out_pipelines);
         }
+        std::mem::forget(source_data);
+        std::mem::forget(translator);
+        std::mem::forget(base_node_container);
         unsafe {
             __buffer
                 .add(56)
@@ -1518,6 +1538,7 @@ impl UInterchangeAssetImportData {
                 __buffer,
             )
         };
+        std::mem::forget(translator_settings);
     }
     pub fn set_pipelines(
         &mut self,
@@ -1598,6 +1619,7 @@ impl UInterchangeAssetImportData {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_container);
     }
     pub fn script_get_first_filename(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1748,6 +1770,7 @@ impl UInterchangeAssetImportData {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_unique_id);
         unsafe {
             __buffer
                 .add(16)
@@ -1789,6 +1812,7 @@ impl UInterchangeAssetImportData {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_unique_id);
         unsafe {
             __buffer
                 .add(16)
@@ -2000,6 +2024,7 @@ impl UInterchangePipelineStackOverride {
                 __buffer,
             )
         };
+        std::mem::forget(pipeline_base);
     }
     pub fn add_pipeline(
         &mut self,
@@ -2039,6 +2064,7 @@ impl UInterchangePipelineStackOverride {
                 __buffer,
             )
         };
+        std::mem::forget(pipeline_base);
     }
     pub fn add_blueprint_pipeline(
         &mut self,
@@ -2074,6 +2100,7 @@ impl UInterchangePipelineStackOverride {
                 __buffer,
             )
         };
+        std::mem::forget(pipeline_base);
     }
 }
 #[repr(C, align(16))]
@@ -2163,6 +2190,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(b_cancel);
     }
     pub fn scripted_reimport_asset_async(
         &mut self,
@@ -2206,6 +2234,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(object_to_reimport);
         unsafe { __buffer.add(304).cast::<bool>().read() }
     }
     pub fn scripted_import_scene_async(
@@ -2262,6 +2291,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(content_path);
+        std::mem::forget(source_data);
         unsafe { __buffer.add(320).cast::<bool>().read() }
     }
     pub fn scripted_import_asset_async(
@@ -2318,6 +2349,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(content_path);
+        std::mem::forget(source_data);
         unsafe { __buffer.add(320).cast::<bool>().read() }
     }
     pub fn reimport_asset(
@@ -2378,6 +2411,7 @@ impl UInterchangeManager {
                 .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
                 .swap(out_imported_objects);
         }
+        std::mem::forget(object_to_reimport);
         unsafe { __buffer.add(320).cast::<bool>().read() }
     }
     pub fn is_object_being_imported(
@@ -2414,6 +2448,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_interchange_active(&mut self) -> bool {
@@ -2496,6 +2531,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(content_path);
+        std::mem::forget(source_data);
         unsafe { __buffer.add(320).cast::<bool>().read() }
     }
     pub fn import_asset(
@@ -2568,6 +2605,8 @@ impl UInterchangeManager {
                 .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
                 .swap(out_imported_objects);
         }
+        std::mem::forget(content_path);
+        std::mem::forget(source_data);
         unsafe { __buffer.add(336).cast::<bool>().read() }
     }
     pub fn get_translator_for_source_data(
@@ -2608,6 +2647,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(source_data);
         unsafe {
             __buffer
                 .add(8)
@@ -2659,6 +2699,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(source_file_index);
         unsafe { __buffer.add(16).cast::<TArray<FString>>().read() }
     }
     pub fn get_supported_formats(
@@ -2699,6 +2741,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(for_translator_type);
         unsafe { __buffer.add(8).cast::<TArray<FString>>().read() }
     }
     pub fn get_supported_asset_type_formats(
@@ -2759,6 +2802,9 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(for_translator_asset_type);
+        std::mem::forget(for_translator_type);
+        std::mem::forget(b_strict_match_translator_type);
         unsafe { __buffer.add(8).cast::<TArray<FString>>().read() }
     }
     pub fn get_registered_factory_class(
@@ -2797,6 +2843,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(class_to_make);
         unsafe {
             __buffer
                 .add(8)
@@ -2864,6 +2911,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
         unsafe { __buffer.add(8).cast::<UPtr<UInterchangeAssetImportData>>().read() }
     }
     pub fn export_scene(
@@ -2908,6 +2956,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(b_is_automated);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn export_asset(
@@ -2952,6 +3002,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(b_is_automated);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn create_source_data(
@@ -2987,6 +3039,7 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(in_file_name);
         unsafe {
             __buffer
                 .add(16)
@@ -3042,6 +3095,8 @@ impl UInterchangeManager {
                 __buffer,
             )
         };
+        std::mem::forget(source_data);
+        std::mem::forget(b_scene_import_only);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn can_reimport(
@@ -3089,6 +3144,7 @@ impl UInterchangeManager {
         unsafe {
             __buffer.add(8).cast::<TArray<FString>>().swap(out_filenames);
         }
+        std::mem::forget(object);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn cancel_all_tasks(&mut self) {
@@ -3209,6 +3265,10 @@ impl UInterchangeMeshUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(source_data);
+        std::mem::forget(morph_target_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
 }
@@ -3334,6 +3394,8 @@ impl UInterchangeProjectSettingsScript {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_scene_import);
+        std::mem::forget(source_data);
         unsafe {
             __buffer
                 .add(16)

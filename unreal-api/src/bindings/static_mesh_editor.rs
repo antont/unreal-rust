@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -795,6 +796,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(new_source_filename);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_nanite_settings(
@@ -847,6 +850,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(nanite_settings);
+        std::mem::forget(b_apply_changes);
     }
     pub fn set_lods_with_notification(
         &mut self,
@@ -898,6 +904,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(36).cast::<i32>().read() }
     }
     pub fn set_lod_screen_sizes(
@@ -942,6 +950,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_lods(
@@ -986,6 +995,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn set_lod_reduction_settings(
@@ -1036,6 +1046,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn set_lod_material_slot(
         &mut self,
@@ -1091,6 +1103,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(material_slot_index);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn set_lod_group(
         &mut self,
@@ -1142,6 +1158,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_group);
+        std::mem::forget(b_rebuild_immediately);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn set_lod_from_static_mesh(
@@ -1210,6 +1229,11 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(destination_static_mesh);
+        std::mem::forget(destination_lod_index);
+        std::mem::forget(source_static_mesh);
+        std::mem::forget(source_lod_index);
+        std::mem::forget(b_reuse_existing_material_slots);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn set_lod_build_settings(
@@ -1258,6 +1282,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn set_generate_lightmap_uv(
         &mut self,
@@ -1301,6 +1327,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_generate_lightmap_u_vs);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_convex_decomposition_collisions_with_notification(
@@ -1365,6 +1393,11 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn set_convex_decomposition_collisions(
@@ -1421,6 +1454,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn set_allow_cpu_access(
@@ -1465,6 +1502,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_allow_cpu_access);
     }
     pub fn replace_mesh_components_meshes_on_actors(
         &mut self,
@@ -1516,6 +1555,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_to_be_replaced);
+        std::mem::forget(new_mesh);
     }
     pub fn replace_mesh_components_meshes(
         &mut self,
@@ -1571,6 +1612,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_to_be_replaced);
+        std::mem::forget(new_mesh);
     }
     pub fn replace_mesh_components_materials_on_actors(
         &mut self,
@@ -1626,6 +1669,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(material_to_be_replaced);
+        std::mem::forget(new_material);
     }
     pub fn replace_mesh_components_materials(
         &mut self,
@@ -1683,6 +1728,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(material_to_be_replaced);
+        std::mem::forget(new_material);
     }
     pub fn remove_uv_channel(
         &mut self,
@@ -1730,6 +1777,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_lods(
@@ -1766,6 +1816,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn remove_collisions_with_notification(
@@ -1810,6 +1861,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn remove_collisions(
@@ -1846,6 +1899,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn reimport_all_custom_lods_reimport_all_custom_lo_ds(
@@ -1882,6 +1936,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn merge_static_mesh_actors(
@@ -2040,6 +2095,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_section_force_opaque_enabled(
@@ -2088,6 +2146,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_section_collision_enabled(
@@ -2136,6 +2197,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_section_cast_shadow_enabled(
@@ -2184,6 +2248,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_section_affect_distance_field_lighting_enabled(
@@ -2232,6 +2299,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn insert_uv_channel(
@@ -2280,6 +2350,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn import_nanite_hi_res_mesh(
@@ -2332,6 +2405,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(source_filename);
+        std::mem::forget(b_show_dialog_when_file_missing);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn import_lod(
@@ -2380,6 +2456,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(base_static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(source_filename);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn has_vertex_colors(
@@ -2416,6 +2495,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_instance_vertex_colors(
@@ -2454,6 +2534,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh_component);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_simple_collision_count(
@@ -2490,6 +2571,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_num_uv_channels(
@@ -2530,6 +2612,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_number_verts(
@@ -2570,6 +2654,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_number_materials(
@@ -2606,6 +2692,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_nanite_source_filename(
@@ -2642,6 +2729,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_nanite_settings(
@@ -2678,6 +2766,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::engine::FMeshNaniteSettings>().read()
         }
@@ -2716,6 +2805,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<TArray<f32>>().read() }
     }
     pub fn get_lod_reduction_settings(
@@ -2772,6 +2862,8 @@ impl UStaticMeshEditorSubsystem {
                 .cast::<crate::bindings::engine::FMeshReductionSettings>()
                 .swap(out_reduction_options);
         }
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn get_lod_material_slot(
         &mut self,
@@ -2819,6 +2911,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_lod_group(
@@ -2855,6 +2950,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<FName>().read() }
     }
     pub fn get_lod_count(
@@ -2891,6 +2987,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_lod_build_settings(
@@ -2945,6 +3042,8 @@ impl UStaticMeshEditorSubsystem {
                 .cast::<crate::bindings::engine::FMeshBuildSettings>()
                 .swap(out_build_options);
         }
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn get_convex_collision_count(
         &mut self,
@@ -2980,6 +3079,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_collision_complexity(
@@ -3016,6 +3116,7 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
         unsafe {
             __buffer
                 .add(8)
@@ -3093,6 +3194,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn generate_cylindrical_uv_channel(
@@ -3165,6 +3269,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn generate_box_uv_channel(
@@ -3237,6 +3344,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(uv_channel_index);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn enable_section_visible_in_ray_tracing(
@@ -3293,6 +3403,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_visible_in_ray_tracing);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn enable_section_force_opaque(
         &mut self,
@@ -3348,6 +3462,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_force_opaque);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn enable_section_collision(
         &mut self,
@@ -3403,6 +3521,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_collision_enabled);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn enable_section_cast_shadow(
         &mut self,
@@ -3458,6 +3580,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_cast_shadow);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn enable_section_affect_distance_field_lighting(
         &mut self,
@@ -3513,6 +3639,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(b_affect_distance_field_lighting);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn create_proxy_mesh_actor(
         &mut self,
@@ -3644,6 +3774,10 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(29).cast::<bool>().read() }
     }
     pub fn bulk_set_convex_decomposition_collisions(
@@ -3706,6 +3840,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(hull_count);
+        std::mem::forget(max_hull_verts);
+        std::mem::forget(hull_precision);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn add_uv_channel(
@@ -3746,6 +3883,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn add_simple_collisions_with_notification(
@@ -3798,6 +3937,9 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(shape_type);
+        std::mem::forget(b_apply_changes);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn add_simple_collisions(
@@ -3842,6 +3984,8 @@ impl UStaticMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh);
+        std::mem::forget(shape_type);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
 }

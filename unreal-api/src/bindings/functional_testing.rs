@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1598,6 +1599,16 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(res_x);
+        std::mem::forget(res_y);
+        std::mem::forget(filename);
+        std::mem::forget(camera);
+        std::mem::forget(b_mask_enabled);
+        std::mem::forget(b_capture_hdr);
+        std::mem::forget(comparison_tolerance);
+        std::mem::forget(comparison_notes);
+        std::mem::forget(delay);
+        std::mem::forget(b_force_game_view);
         unsafe { __buffer.add(64).cast::<UPtr<UAutomationEditorTask>>().read() }
     }
     pub fn take_automation_screenshot_of_ui(
@@ -1653,6 +1664,9 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(latent_info);
+        std::mem::forget(name);
     }
     pub fn take_automation_screenshot_at_camera(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1723,6 +1737,11 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(latent_info);
+        std::mem::forget(camera);
+        std::mem::forget(name_override);
+        std::mem::forget(notes);
     }
     pub fn take_automation_screenshot(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1781,6 +1800,10 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(latent_info);
+        std::mem::forget(name);
+        std::mem::forget(notes);
     }
     pub fn set_test_telemetry_storage(storage_name: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1813,6 +1836,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(storage_name);
     }
     pub fn set_scalability_quality_to_low(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1847,6 +1871,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn set_scalability_quality_to_epic(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1881,6 +1906,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn set_scalability_quality_level_relative_to_max(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1919,6 +1945,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(value);
     }
     pub fn set_editor_viewport_visualize_buffer(buffer_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -1951,6 +1979,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(buffer_name);
     }
     pub fn set_editor_viewport_view_mode(
         index: crate::bindings::engine::EViewModeIndex,
@@ -1985,6 +2014,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn set_editor_active_viewport_wireframe_opacity(opacity: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2013,6 +2043,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(opacity);
     }
     pub fn set_editor_active_viewport_view_mode(
         index: crate::bindings::engine::EViewModeIndex,
@@ -2047,6 +2078,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
     }
     pub fn get_stat_inc_max(stat_name: FName) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2079,6 +2111,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(stat_name);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_stat_inc_average(stat_name: FName) -> f32 {
@@ -2112,6 +2145,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(stat_name);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_stat_exc_max(stat_name: FName) -> f32 {
@@ -2145,6 +2179,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(stat_name);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_stat_exc_average(stat_name: FName) -> f32 {
@@ -2178,6 +2213,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(stat_name);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_stat_call_count(stat_name: FName) -> f32 {
@@ -2211,6 +2247,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(stat_name);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_editor_active_viewport_wireframe_opacity() -> f32 {
@@ -2304,6 +2341,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tolerance);
+        std::mem::forget(delay);
         unsafe { __buffer.add(8).cast::<FAutomationScreenshotOptions>().read() }
     }
     pub fn get_default_screenshot_options_for_gameplay(
@@ -2343,6 +2382,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tolerance);
+        std::mem::forget(delay);
         unsafe { __buffer.add(8).cast::<FAutomationScreenshotOptions>().read() }
     }
     pub fn finish_loading_before_screenshot() {
@@ -2411,6 +2452,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(group_name);
     }
     pub fn disable_stat_group(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2453,6 +2496,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(group_name);
     }
     pub fn compare_image_against_reference(
         image_file_path: FString,
@@ -2519,6 +2564,11 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(image_file_path);
+        std::mem::forget(comparison_name);
+        std::mem::forget(comparison_tolerance);
+        std::mem::forget(comparison_notes);
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn automation_wait_for_loading(
@@ -2570,6 +2620,9 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(latent_info);
+        std::mem::forget(options);
     }
     pub fn are_automated_tests_running() -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2628,6 +2681,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_log_item);
     }
     pub fn add_test_telemetry_data(
         data_point: FString,
@@ -2678,6 +2732,9 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_point);
+        std::mem::forget(measurement);
+        std::mem::forget(context);
     }
     pub fn add_test_info(in_log_item: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2710,6 +2767,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_log_item);
     }
     pub fn add_test_error(in_log_item: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2742,6 +2800,7 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_log_item);
     }
     pub fn add_expected_plain_log_message(
         expected_string: FString,
@@ -2792,6 +2851,9 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(expected_string);
+        std::mem::forget(occurrences);
+        std::mem::forget(exact_match);
     }
     pub fn add_expected_plain_log_error(
         expected_string: FString,
@@ -2842,6 +2904,9 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(expected_string);
+        std::mem::forget(occurrences);
+        std::mem::forget(exact_match);
     }
     pub fn add_expected_log_message(
         expected_pattern_string: FString,
@@ -2896,6 +2961,10 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(expected_pattern_string);
+        std::mem::forget(occurrences);
+        std::mem::forget(exact_match);
+        std::mem::forget(is_regex);
     }
     pub fn add_expected_log_error(
         expected_pattern_string: FString,
@@ -2950,6 +3019,10 @@ impl UAutomationBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(expected_pattern_string);
+        std::mem::forget(occurrences);
+        std::mem::forget(exact_match);
+        std::mem::forget(is_regex);
     }
 }
 #[repr(C, align(16))]
@@ -3086,6 +3159,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(new_time_limit);
+        std::mem::forget(result_when_time_runs_out);
     }
     pub fn set_console_variable_from_integer(&mut self, name: FString, in_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -3117,6 +3192,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(in_value);
     }
     pub fn set_console_variable_from_float(&mut self, name: FString, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -3148,6 +3225,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(in_value);
     }
     pub fn set_console_variable_from_boolean(&mut self, name: FString, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -3179,6 +3258,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(in_value);
     }
     pub fn set_console_variable(&mut self, name: FString, in_value: FString) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -3214,6 +3295,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(name);
+        std::mem::forget(in_value);
     }
     pub fn register_auto_destroy_actor(
         &mut self,
@@ -3249,6 +3332,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_auto_destroy);
     }
     pub fn receive_test_finished(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3385,6 +3469,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(test_result);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn log_message(&mut self, message: FString) {
@@ -3418,6 +3503,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(message);
     }
     pub fn is_running(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3505,6 +3591,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(world);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_enabled(&self) -> bool {
@@ -3597,6 +3684,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(test_result);
+        std::mem::forget(message);
     }
     pub fn debug_gather_relevant_actors(
         &self,
@@ -3685,6 +3774,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(should_be);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn assert_value_float(
@@ -3741,6 +3835,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(should_be);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn assert_value_double(
@@ -3797,6 +3896,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(should_be);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn assert_value_date_time(
@@ -3861,6 +3965,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(should_be);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn assert_true(
@@ -3909,6 +4018,9 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(condition);
+        std::mem::forget(message);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn assert_not_equal_vector4(
@@ -3965,6 +4077,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn assert_not_equal_vector2_d(
@@ -4021,6 +4137,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn assert_not_equal_vector(
@@ -4077,6 +4197,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn assert_not_equal_transform(
@@ -4135,6 +4259,8 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(216).cast::<bool>().read() }
     }
     pub fn assert_not_equal_string(
@@ -4187,6 +4313,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn assert_not_equal_rotator(
@@ -4243,6 +4373,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn assert_not_equal_quat(
@@ -4299,6 +4433,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn assert_not_equal_plane(
@@ -4355,6 +4493,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn assert_not_equal_matrix(
@@ -4413,6 +4555,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(280).cast::<bool>().read() }
     }
     pub fn assert_not_equal_box2_d(
@@ -4469,6 +4615,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(not_expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(104).cast::<bool>().read() }
     }
     pub fn assert_is_valid(
@@ -4521,6 +4671,9 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(message);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn assert_false(
@@ -4569,6 +4722,9 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(condition);
+        std::mem::forget(message);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn assert_equal_vector4(
@@ -4629,6 +4785,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(96).cast::<bool>().read() }
     }
     pub fn assert_equal_vector2_d(
@@ -4689,6 +4850,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn assert_equal_vector(
@@ -4749,6 +4915,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn assert_equal_transform(
@@ -4815,6 +4986,9 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(224).cast::<bool>().read() }
     }
     pub fn assert_equal_trace_query_results(
@@ -4871,6 +5045,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn assert_equal_string(
@@ -4923,6 +5101,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn assert_equal_rotator_orientation(
@@ -4983,6 +5165,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn assert_equal_rotator(
@@ -5043,6 +5230,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn assert_equal_quat(
@@ -5103,6 +5295,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(96).cast::<bool>().read() }
     }
     pub fn assert_equal_plane(
@@ -5163,6 +5360,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(96).cast::<bool>().read() }
     }
     pub fn assert_equal_object(
@@ -5219,6 +5421,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn assert_equal_name(
@@ -5271,6 +5477,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn assert_equal_matrix(
@@ -5337,6 +5547,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(288).cast::<bool>().read() }
     }
     pub fn assert_equal_int(
@@ -5385,6 +5600,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn assert_equal_float(
@@ -5437,6 +5656,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn assert_equal_double(
@@ -5489,6 +5713,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn assert_equal_box2_d(
@@ -5551,6 +5780,11 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(tolerance);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(112).cast::<bool>().read() }
     }
     pub fn assert_equal_bool(
@@ -5599,6 +5833,10 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(actual);
+        std::mem::forget(expected);
+        std::mem::forget(what);
+        std::mem::forget(context_object);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_warning(&mut self, message: FString) {
@@ -5632,6 +5870,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(message);
     }
     pub fn add_rerun(&mut self, reason: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -5660,6 +5899,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(reason);
     }
     pub fn add_info(&mut self, message: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5692,6 +5932,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(message);
     }
     pub fn add_error(&mut self, message: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -5724,6 +5965,7 @@ impl AFunctionalTest {
                 __buffer,
             )
         };
+        std::mem::forget(message);
     }
 }
 #[repr(C, align(8))]
@@ -5804,6 +6046,7 @@ impl AFunctionalAITestBase {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }
@@ -5916,6 +6159,8 @@ impl UAutomationPerformaceHelper {
                 __buffer,
             )
         };
+        std::mem::forget(capture_dir);
+        std::mem::forget(capture_extension);
     }
     pub fn trigger_gpu_trace_if_record_falls_below_budget(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5973,6 +6218,7 @@ impl UAutomationPerformaceHelper {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
     }
     pub fn stop_cpu_profiling(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6055,6 +6301,7 @@ impl UAutomationPerformaceHelper {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
     }
     pub fn on_begin_tests(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6316,6 +6563,7 @@ impl UAutomationPerformaceHelper {
                 __buffer,
             )
         };
+        std::mem::forget(record_name);
     }
     pub fn begin_recording_baseline(&mut self, record_name: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -6348,6 +6596,7 @@ impl UAutomationPerformaceHelper {
                 __buffer,
             )
         };
+        std::mem::forget(record_name);
     }
     pub fn begin_recording(
         &mut self,
@@ -6407,6 +6656,10 @@ impl UAutomationPerformaceHelper {
                 __buffer,
             )
         };
+        std::mem::forget(record_name);
+        std::mem::forget(in_gpu_budget);
+        std::mem::forget(in_render_thread_budget);
+        std::mem::forget(in_game_thread_budget);
     }
 }
 #[repr(C, align(8))]
@@ -6531,6 +6784,10 @@ impl UFunctionalTestingManager {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(b_new_log);
+        std::mem::forget(b_run_looped);
+        std::mem::forget(failed_tests_repro_string);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
@@ -6861,6 +7118,22 @@ impl UFunctionalTestUtilityLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(start);
+        std::mem::forget(end);
+        std::mem::forget(sphere_capsule_radius);
+        std::mem::forget(capsule_half_height);
+        std::mem::forget(box_half_size);
+        std::mem::forget(orientation);
+        std::mem::forget(trace_channel);
+        std::mem::forget(object_types);
+        std::mem::forget(profile_name);
+        std::mem::forget(b_trace_complex);
+        std::mem::forget(b_ignore_self);
+        std::mem::forget(draw_debug_type);
+        std::mem::forget(trace_color);
+        std::mem::forget(trace_hit_color);
+        std::mem::forget(draw_time);
         unsafe { __buffer.add(216).cast::<UPtr<UTraceQueryTestResults>>().read() }
     }
 }
@@ -7007,6 +7280,7 @@ impl UGroundTruthData {
                 __buffer,
             )
         };
+        std::mem::forget(ground_truth);
     }
     pub fn reset_object(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();

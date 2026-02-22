@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -415,6 +416,7 @@ impl UEditorValidatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
         unsafe {
             __buffer
                 .add(8)
@@ -456,6 +458,7 @@ impl UEditorValidatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn k2_can_validate(
@@ -494,6 +497,7 @@ impl UEditorValidatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_usecase);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn get_validation_result(
@@ -571,6 +575,7 @@ impl UEditorValidatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
     }
     pub fn asset_passes(
         &mut self,
@@ -606,6 +611,7 @@ impl UEditorValidatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
     }
     pub fn asset_fails(
         &mut self,
@@ -649,6 +655,7 @@ impl UEditorValidatorBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
     }
 }
 #[repr(C, align(8))]
@@ -773,6 +780,7 @@ impl UEditorValidatorSubsystem {
         unsafe {
             __buffer.add(80).cast::<FValidateAssetsResults>().swap(out_results);
         }
+        std::mem::forget(in_changelists);
         unsafe {
             __buffer
                 .add(280)
@@ -833,6 +841,7 @@ impl UEditorValidatorSubsystem {
         unsafe {
             __buffer.add(72).cast::<FValidateAssetsResults>().swap(out_results);
         }
+        std::mem::forget(in_changelist);
         unsafe {
             __buffer
                 .add(272)
@@ -928,6 +937,7 @@ impl UEditorValidatorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_validator);
     }
     pub fn is_object_valid(
         &self,
@@ -995,6 +1005,8 @@ impl UEditorValidatorSubsystem {
         unsafe {
             __buffer.add(24).cast::<TArray<FText>>().swap(validation_warnings);
         }
+        std::mem::forget(in_object);
+        std::mem::forget(in_validation_usecase);
         unsafe {
             __buffer
                 .add(41)
@@ -1068,6 +1080,7 @@ impl UEditorValidatorSubsystem {
         unsafe {
             __buffer.add(168).cast::<TArray<FText>>().swap(validation_warnings);
         }
+        std::mem::forget(in_validation_usecase);
         unsafe {
             __buffer
                 .add(185)
@@ -1106,6 +1119,7 @@ impl UEditorValidatorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_validator);
     }
 }
 #[repr(C, align(8))]

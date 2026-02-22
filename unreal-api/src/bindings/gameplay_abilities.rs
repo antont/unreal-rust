@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -5008,6 +5009,7 @@ impl UGameplayCueNotify_Static {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn on_remove(
@@ -5052,6 +5054,7 @@ impl UGameplayCueNotify_Static {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn on_execute(
@@ -5096,6 +5099,7 @@ impl UGameplayCueNotify_Static {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn on_active(
@@ -5140,6 +5144,7 @@ impl UGameplayCueNotify_Static {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn handle_gameplay_cue(
@@ -5192,6 +5197,8 @@ impl UGameplayCueNotify_Static {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
+        std::mem::forget(event_type);
     }
 }
 #[repr(C, align(8))]
@@ -5556,6 +5563,9 @@ impl UAbilityAsync_WaitAttributeChanged {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(attribute);
+        std::mem::forget(only_trigger_once);
         unsafe {
             __buffer.add(88).cast::<UPtr<UAbilityAsync_WaitAttributeChanged>>().read()
         }
@@ -5684,6 +5694,14 @@ impl UAbilityAsync_WaitGameplayEffectApplied {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(source_filter);
+        std::mem::forget(source_tag_requirements);
+        std::mem::forget(target_tag_requirements);
+        std::mem::forget(asset_tag_requirements);
+        std::mem::forget(granted_tag_requirements);
+        std::mem::forget(trigger_once);
+        std::mem::forget(listen_for_periodic_effect);
         unsafe {
             __buffer
                 .add(576)
@@ -5783,6 +5801,10 @@ impl UAbilityAsync_WaitGameplayEvent {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(event_tag);
+        std::mem::forget(only_trigger_once);
+        std::mem::forget(only_match_exact);
         unsafe {
             __buffer.add(24).cast::<UPtr<UAbilityAsync_WaitGameplayEvent>>().read()
         }
@@ -5906,6 +5928,9 @@ impl UAbilityAsync_WaitGameplayTagAdded {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(tag);
+        std::mem::forget(only_trigger_once);
         unsafe {
             __buffer.add(24).cast::<UPtr<UAbilityAsync_WaitGameplayTagAdded>>().read()
         }
@@ -5994,6 +6019,9 @@ impl UAbilityAsync_WaitGameplayTagRemoved {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(tag);
+        std::mem::forget(only_trigger_once);
         unsafe {
             __buffer.add(24).cast::<UPtr<UAbilityAsync_WaitGameplayTagRemoved>>().read()
         }
@@ -6074,6 +6102,8 @@ impl UAbilityAsync_WaitGameplayTagCountChanged {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(tag);
         unsafe {
             __buffer
                 .add(24)
@@ -6175,6 +6205,10 @@ impl UAbilityAsync_WaitGameplayTagQuery {
                 __buffer,
             )
         };
+        std::mem::forget(target_actor);
+        std::mem::forget(tag_query);
+        std::mem::forget(trigger_condition);
+        std::mem::forget(b_only_trigger_once);
         unsafe {
             __buffer.add(88).cast::<UPtr<UAbilityAsync_WaitGameplayTagQuery>>().read()
         }
@@ -6251,6 +6285,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(b_should_block_abilities);
     }
     pub fn set_can_be_canceled(&mut self, b_can_be_canceled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6283,6 +6318,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(b_can_be_canceled);
     }
     pub fn send_gameplay_event(
         &mut self,
@@ -6326,6 +6362,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(event_tag);
+        std::mem::forget(payload);
     }
     pub fn remove_granted_by_effect(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6383,6 +6421,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(override_blend_out_time);
     }
     pub fn montage_set_next_section_name(
         &mut self,
@@ -6426,6 +6465,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(from_section_name);
+        std::mem::forget(to_section_name);
     }
     pub fn montage_jump_to_section(&mut self, section_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -6458,6 +6499,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(section_name);
     }
     pub fn make_target_location_info_from_owner_skeletal_mesh_component(
         &mut self,
@@ -6493,6 +6535,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(socket_name);
         unsafe {
             __buffer.add(16).cast::<FGameplayAbilityTargetingLocationInfo>().read()
         }
@@ -6563,6 +6606,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect_class);
+        std::mem::forget(level);
         unsafe { __buffer.add(16).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn should_ability_respond_to_event(
@@ -6607,6 +6652,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(actor_info);
+        std::mem::forget(payload);
         unsafe { __buffer.add(264).cast::<bool>().read() }
     }
     pub fn remove_gameplay_cue(
@@ -6643,6 +6690,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_cue_tag);
     }
     pub fn on_end_ability(&mut self, b_was_cancelled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6675,6 +6723,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(b_was_cancelled);
     }
     pub fn k2_has_authority(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6744,6 +6793,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_cue_tag);
     }
     pub fn execute_gameplay_cue(
         &mut self,
@@ -6787,6 +6837,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_cue_tag);
+        std::mem::forget(context);
     }
     pub fn end_ability_locally(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6894,6 +6946,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(broadcast_commit_event);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn commit_ability_cooldown(
@@ -6938,6 +6991,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(broadcast_commit_event);
+        std::mem::forget(force_cooldown);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn commit_ability(&mut self) -> bool {
@@ -7101,6 +7156,8 @@ impl UGameplayAbility {
                 .cast::<crate::bindings::gameplay_tags::FGameplayTagContainer>()
                 .swap(relevant_tags);
         }
+        std::mem::forget(actor_info);
+        std::mem::forget(handle);
         unsafe { __buffer.add(120).cast::<bool>().read() }
     }
     pub fn apply_gameplay_effect_spec_to_target(
@@ -7145,6 +7202,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(effect_spec_handle);
+        std::mem::forget(target_data);
         unsafe { __buffer.add(56).cast::<TArray<FActiveGameplayEffectHandle>>().read() }
     }
     pub fn apply_gameplay_effect_spec_to_owner(
@@ -7181,6 +7240,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(effect_spec_handle);
         unsafe { __buffer.add(16).cast::<FActiveGameplayEffectHandle>().read() }
     }
     pub fn add_gameplay_cue_with_params(
@@ -7233,6 +7293,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_cue_tag);
+        std::mem::forget(b_remove_on_ability_end);
     }
     pub fn add_gameplay_cue(
         &mut self,
@@ -7284,6 +7346,9 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_cue_tag);
+        std::mem::forget(context);
+        std::mem::forget(b_remove_on_ability_end);
     }
     pub fn activate_ability_from_event(&mut self, event_data: &FGameplayEventData) {
         let mut __stack = crate::core_data::StackAlloc::<184>::new();
@@ -7435,6 +7500,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe {
             __buffer
                 .add(88)
@@ -7650,6 +7716,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(optional_target_data);
         unsafe { __buffer.add(40).cast::<FGameplayEffectContextHandle>().read() }
     }
     pub fn get_avatar_actor_from_actor_info(
@@ -7776,6 +7843,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(88).cast::<i32>().read() }
     }
     pub fn get_ability_level(&self) -> i32 {
@@ -7835,6 +7903,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(instance_name);
     }
     pub fn end_ability_state(&mut self, optional_state_name_to_end: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -7867,6 +7936,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(optional_state_name_to_end);
     }
     pub fn confirm_task_by_instance_name(
         &mut self,
@@ -7910,6 +7980,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(instance_name);
+        std::mem::forget(b_end_task);
     }
     pub fn cancel_task_by_instance_name(&mut self, instance_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -7942,6 +8014,7 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(instance_name);
     }
     pub fn remove_gameplay_effect_from_owner_with_handle(
         &mut self,
@@ -7985,6 +8058,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
+        std::mem::forget(stacks_to_remove);
     }
     pub fn remove_gameplay_effect_from_owner_with_granted_tags(
         &mut self,
@@ -8030,6 +8105,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(with_granted_tags);
+        std::mem::forget(stacks_to_remove);
     }
     pub fn remove_gameplay_effect_from_owner_with_asset_tags(
         &mut self,
@@ -8075,6 +8152,8 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(with_asset_tags);
+        std::mem::forget(stacks_to_remove);
     }
     pub fn apply_gameplay_effect_to_target(
         &mut self,
@@ -8130,6 +8209,10 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(target_data);
+        std::mem::forget(gameplay_effect_class);
+        std::mem::forget(gameplay_effect_level);
+        std::mem::forget(stacks);
         unsafe { __buffer.add(56).cast::<TArray<FActiveGameplayEffectHandle>>().read() }
     }
     pub fn apply_gameplay_effect_to_owner(
@@ -8178,6 +8261,9 @@ impl UGameplayAbility {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect_class);
+        std::mem::forget(gameplay_effect_level);
+        std::mem::forget(stacks);
         unsafe { __buffer.add(16).cast::<FActiveGameplayEffectHandle>().read() }
     }
 }
@@ -8540,6 +8626,8 @@ impl AGameplayAbilityWorldReticle {
                 __buffer,
             )
         };
+        std::mem::forget(param_name);
+        std::mem::forget(value);
     }
     pub fn set_reticle_material_param_float(&mut self, param_name: FName, value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -8575,6 +8663,8 @@ impl AGameplayAbilityWorldReticle {
                 __buffer,
             )
         };
+        std::mem::forget(param_name);
+        std::mem::forget(value);
     }
     pub fn on_valid_target_changed(&mut self, b_new_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -8607,6 +8697,7 @@ impl AGameplayAbilityWorldReticle {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_value);
     }
     pub fn on_targeting_an_actor(&mut self, b_new_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -8639,6 +8730,7 @@ impl AGameplayAbilityWorldReticle {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_value);
     }
     pub fn on_parameters_initialized(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -8696,6 +8788,7 @@ impl AGameplayAbilityWorldReticle {
                 __buffer,
             )
         };
+        std::mem::forget(b_face_in2_d);
     }
 }
 #[repr(C, align(8))]
@@ -9014,6 +9107,17 @@ impl UAbilityTask_ApplyRootMotionConstantForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(world_direction);
+        std::mem::forget(strength);
+        std::mem::forget(duration);
+        std::mem::forget(b_is_additive);
+        std::mem::forget(strength_over_time);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
+        std::mem::forget(b_enable_gravity);
         unsafe {
             __buffer
                 .add(112)
@@ -9200,6 +9304,19 @@ impl UAbilityTask_ApplyRootMotionJumpForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(rotation);
+        std::mem::forget(distance);
+        std::mem::forget(height);
+        std::mem::forget(duration);
+        std::mem::forget(minimum_landed_trigger_time);
+        std::mem::forget(b_finish_on_landed);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
+        std::mem::forget(path_offset_curve);
+        std::mem::forget(time_mapping_curve);
         unsafe {
             __buffer
                 .add(120)
@@ -9425,6 +9542,26 @@ impl UAbilityTask_ApplyRootMotionMoveToActorForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(target_data_handle);
+        std::mem::forget(target_data_index);
+        std::mem::forget(target_actor_index);
+        std::mem::forget(target_location_offset);
+        std::mem::forget(offset_alignment);
+        std::mem::forget(duration);
+        std::mem::forget(target_lerp_speed_horizontal);
+        std::mem::forget(target_lerp_speed_vertical);
+        std::mem::forget(b_set_new_movement_mode);
+        std::mem::forget(movement_mode);
+        std::mem::forget(b_restrict_speed_to_expected);
+        std::mem::forget(path_offset_curve);
+        std::mem::forget(time_mapping_curve);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
+        std::mem::forget(b_disable_destination_reached_interrupt);
+        std::mem::forget(reached_destination_distance);
         unsafe {
             __buffer
                 .add(192)
@@ -9609,6 +9746,25 @@ impl UAbilityTask_ApplyRootMotionMoveToActorForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(target_component);
+        std::mem::forget(target_component_relative_location);
+        std::mem::forget(target_location_offset);
+        std::mem::forget(offset_alignment);
+        std::mem::forget(duration);
+        std::mem::forget(target_lerp_speed_horizontal);
+        std::mem::forget(target_lerp_speed_vertical);
+        std::mem::forget(b_set_new_movement_mode);
+        std::mem::forget(movement_mode);
+        std::mem::forget(b_restrict_speed_to_expected);
+        std::mem::forget(path_offset_curve);
+        std::mem::forget(time_mapping_curve);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
+        std::mem::forget(b_disable_destination_reached_interrupt);
+        std::mem::forget(reached_destination_distance);
         unsafe {
             __buffer
                 .add(176)
@@ -9783,6 +9939,24 @@ impl UAbilityTask_ApplyRootMotionMoveToActorForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(target_actor);
+        std::mem::forget(target_location_offset);
+        std::mem::forget(offset_alignment);
+        std::mem::forget(duration);
+        std::mem::forget(target_lerp_speed_horizontal);
+        std::mem::forget(target_lerp_speed_vertical);
+        std::mem::forget(b_set_new_movement_mode);
+        std::mem::forget(movement_mode);
+        std::mem::forget(b_restrict_speed_to_expected);
+        std::mem::forget(path_offset_curve);
+        std::mem::forget(time_mapping_curve);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
+        std::mem::forget(b_disable_destination_reached_interrupt);
+        std::mem::forget(reached_destination_distance);
         unsafe {
             __buffer
                 .add(152)
@@ -9936,6 +10110,17 @@ impl UAbilityTask_ApplyRootMotionMoveToForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(target_location);
+        std::mem::forget(duration);
+        std::mem::forget(b_set_new_movement_mode);
+        std::mem::forget(movement_mode);
+        std::mem::forget(b_restrict_speed_to_expected);
+        std::mem::forget(path_offset_curve);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
         unsafe {
             __buffer
                 .add(104)
@@ -10129,6 +10314,23 @@ impl UAbilityTask_ApplyRootMotionRadialForce {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(location);
+        std::mem::forget(location_actor);
+        std::mem::forget(strength);
+        std::mem::forget(duration);
+        std::mem::forget(radius);
+        std::mem::forget(b_is_push);
+        std::mem::forget(b_is_additive);
+        std::mem::forget(b_no_z_force);
+        std::mem::forget(strength_distance_falloff);
+        std::mem::forget(strength_over_time);
+        std::mem::forget(b_use_fixed_world_direction);
+        std::mem::forget(fixed_world_direction);
+        std::mem::forget(velocity_on_finish_mode);
+        std::mem::forget(set_velocity_on_finish);
+        std::mem::forget(clamp_velocity_on_finish);
         unsafe {
             __buffer
                 .add(160)
@@ -10240,6 +10442,12 @@ impl UAbilityTask_MoveToLocation {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(location);
+        std::mem::forget(duration);
+        std::mem::forget(optional_interpolation_curve);
+        std::mem::forget(optional_vector_interpolation_curve);
         unsafe { __buffer.add(72).cast::<UPtr<UAbilityTask_MoveToLocation>>().read() }
     }
 }
@@ -10318,6 +10526,8 @@ impl UAbilityTask_NetworkSyncPoint {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(sync_type);
         unsafe { __buffer.add(16).cast::<UPtr<UAbilityTask_NetworkSyncPoint>>().read() }
     }
 }
@@ -10468,6 +10678,17 @@ impl UAbilityTask_PlayAnimAndWait {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(anim_sequence);
+        std::mem::forget(slot_name);
+        std::mem::forget(blend_in_time);
+        std::mem::forget(blend_out_time);
+        std::mem::forget(in_play_rate);
+        std::mem::forget(start_time_seconds);
+        std::mem::forget(b_stop_when_ability_ends);
+        std::mem::forget(anim_root_motion_translation_scale);
+        std::mem::forget(in_play_count);
         unsafe { __buffer.add(72).cast::<UPtr<UAbilityTask_PlayAnimAndWait>>().read() }
     }
 }
@@ -10598,6 +10819,15 @@ impl UAbilityTask_PlayMontageAndWait {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(montage_to_play);
+        std::mem::forget(rate);
+        std::mem::forget(start_section);
+        std::mem::forget(b_stop_when_ability_ends);
+        std::mem::forget(anim_root_motion_translation_scale);
+        std::mem::forget(start_time_seconds);
+        std::mem::forget(b_allow_interrupt_after_blend_out);
         unsafe {
             __buffer.add(64).cast::<UPtr<UAbilityTask_PlayMontageAndWait>>().read()
         }
@@ -10686,6 +10916,9 @@ impl UAbilityTask_Repeat {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(time_between_actions);
+        std::mem::forget(total_action_count);
         unsafe { __buffer.add(16).cast::<UPtr<UAbilityTask_Repeat>>().read() }
     }
 }
@@ -10772,6 +11005,9 @@ impl UAbilityTask_SpawnActor {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(target_data);
+        std::mem::forget(class);
         unsafe { __buffer.add(56).cast::<UPtr<UAbilityTask_SpawnActor>>().read() }
     }
     pub fn finish_spawning_actor(
@@ -10824,6 +11060,9 @@ impl UAbilityTask_SpawnActor {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(target_data);
+        std::mem::forget(spawned_actor);
     }
     pub fn begin_spawning_actor(
         &mut self,
@@ -10889,6 +11128,9 @@ impl UAbilityTask_SpawnActor {
                 .cast::<UPtr<crate::bindings::engine::AActor>>()
                 .swap(spawned_actor);
         }
+        std::mem::forget(owning_ability);
+        std::mem::forget(target_data);
+        std::mem::forget(class);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
 }
@@ -10975,6 +11217,9 @@ impl UAbilityTask_StartAbilityState {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(state_name);
+        std::mem::forget(b_end_current_state);
         unsafe { __buffer.add(24).cast::<UPtr<UAbilityTask_StartAbilityState>>().read() }
     }
 }
@@ -11065,6 +11310,10 @@ impl UAbilityTask_VisualizeTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(target_actor);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(duration);
         unsafe {
             __buffer.add(32).cast::<UPtr<UAbilityTask_VisualizeTargeting>>().read()
         }
@@ -11122,6 +11371,10 @@ impl UAbilityTask_VisualizeTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(class);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(duration);
         unsafe {
             __buffer.add(32).cast::<UPtr<UAbilityTask_VisualizeTargeting>>().read()
         }
@@ -11168,6 +11421,8 @@ impl UAbilityTask_VisualizeTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(spawned_actor);
     }
     pub fn begin_spawning_actor(
         &mut self,
@@ -11225,6 +11480,8 @@ impl UAbilityTask_VisualizeTargeting {
                 .cast::<UPtr<AGameplayAbilityTargetActor>>()
                 .swap(spawned_actor);
         }
+        std::mem::forget(owning_ability);
+        std::mem::forget(class);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
@@ -11319,6 +11576,10 @@ impl UAbilityTask_WaitAbilityActivate {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(tag_requirements);
+        std::mem::forget(include_triggered_abilities);
+        std::mem::forget(trigger_once);
         unsafe {
             __buffer.add(152).cast::<UPtr<UAbilityTask_WaitAbilityActivate>>().read()
         }
@@ -11382,6 +11643,10 @@ impl UAbilityTask_WaitAbilityActivate {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(query);
+        std::mem::forget(include_triggered_abilities);
+        std::mem::forget(trigger_once);
         unsafe {
             __buffer.add(88).cast::<UPtr<UAbilityTask_WaitAbilityActivate>>().read()
         }
@@ -11451,6 +11716,11 @@ impl UAbilityTask_WaitAbilityActivate {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(with_tag);
+        std::mem::forget(without_tag);
+        std::mem::forget(include_triggered_abilities);
+        std::mem::forget(trigger_once);
         unsafe {
             __buffer.add(40).cast::<UPtr<UAbilityTask_WaitAbilityActivate>>().read()
         }
@@ -11541,6 +11811,9 @@ impl UAbilityTask_WaitAbilityCommit {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(query);
+        std::mem::forget(trigger_once);
         unsafe { __buffer.add(88).cast::<UPtr<UAbilityTask_WaitAbilityCommit>>().read() }
     }
     pub fn wait_for_ability_commit(
@@ -11600,6 +11873,10 @@ impl UAbilityTask_WaitAbilityCommit {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(with_tag);
+        std::mem::forget(without_tage);
+        std::mem::forget(trigger_once);
         unsafe { __buffer.add(40).cast::<UPtr<UAbilityTask_WaitAbilityCommit>>().read() }
     }
 }
@@ -11726,6 +12003,14 @@ impl UAbilityTask_WaitAttributeChange {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(in_attribute);
+        std::mem::forget(in_with_tag);
+        std::mem::forget(in_without_tag);
+        std::mem::forget(in_comparison_type);
+        std::mem::forget(in_comparison_value);
+        std::mem::forget(trigger_once);
+        std::mem::forget(optional_external_owner);
         unsafe {
             __buffer.add(128).cast::<UPtr<UAbilityTask_WaitAttributeChange>>().read()
         }
@@ -11803,6 +12088,12 @@ impl UAbilityTask_WaitAttributeChange {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(attribute);
+        std::mem::forget(with_src_tag);
+        std::mem::forget(without_src_tag);
+        std::mem::forget(trigger_once);
+        std::mem::forget(optional_external_owner);
         unsafe {
             __buffer.add(120).cast::<UPtr<UAbilityTask_WaitAttributeChange>>().read()
         }
@@ -11923,6 +12214,13 @@ impl UAbilityTask_WaitAttributeChangeRatioThreshold {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(attribute_numerator);
+        std::mem::forget(attribute_denominator);
+        std::mem::forget(comparison_type);
+        std::mem::forget(comparison_value);
+        std::mem::forget(b_trigger_once);
+        std::mem::forget(optional_external_owner);
         unsafe {
             __buffer
                 .add(176)
@@ -12038,6 +12336,12 @@ impl UAbilityTask_WaitAttributeChangeThreshold {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(attribute);
+        std::mem::forget(comparison_type);
+        std::mem::forget(comparison_value);
+        std::mem::forget(b_trigger_once);
+        std::mem::forget(optional_external_owner);
         unsafe {
             __buffer
                 .add(104)
@@ -12113,6 +12417,7 @@ impl UAbilityTask_WaitCancel {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
         unsafe { __buffer.add(8).cast::<UPtr<UAbilityTask_WaitCancel>>().read() }
     }
 }
@@ -12183,6 +12488,7 @@ impl UAbilityTask_WaitConfirm {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
         unsafe { __buffer.add(8).cast::<UPtr<UAbilityTask_WaitConfirm>>().read() }
     }
 }
@@ -12253,6 +12559,7 @@ impl UAbilityTask_WaitConfirmCancel {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
         unsafe { __buffer.add(8).cast::<UPtr<UAbilityTask_WaitConfirmCancel>>().read() }
     }
 }
@@ -12327,6 +12634,8 @@ impl UAbilityTask_WaitDelay {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(time);
         unsafe { __buffer.add(16).cast::<UPtr<UAbilityTask_WaitDelay>>().read() }
     }
 }
@@ -12504,6 +12813,15 @@ impl UAbilityTask_WaitGameplayEffectApplied_Self {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(source_filter);
+        std::mem::forget(source_tag_query);
+        std::mem::forget(target_tag_query);
+        std::mem::forget(asset_tag_query);
+        std::mem::forget(granted_tag_query);
+        std::mem::forget(trigger_once);
+        std::mem::forget(optional_external_owner);
+        std::mem::forget(listen_for_periodic_effect);
         unsafe {
             __buffer
                 .add(336)
@@ -12608,6 +12926,15 @@ impl UAbilityTask_WaitGameplayEffectApplied_Self {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(source_filter);
+        std::mem::forget(source_tag_requirements);
+        std::mem::forget(target_tag_requirements);
+        std::mem::forget(asset_tag_requirements);
+        std::mem::forget(granted_tag_requirements);
+        std::mem::forget(trigger_once);
+        std::mem::forget(optional_external_owner);
+        std::mem::forget(listen_for_periodic_effect);
         unsafe {
             __buffer
                 .add(592)
@@ -12755,6 +13082,15 @@ impl UAbilityTask_WaitGameplayEffectApplied_Target {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(source_filter);
+        std::mem::forget(source_tag_query);
+        std::mem::forget(target_tag_query);
+        std::mem::forget(asset_tag_query);
+        std::mem::forget(granted_tag_query);
+        std::mem::forget(trigger_once);
+        std::mem::forget(optional_external_owner);
+        std::mem::forget(listen_for_periodic_effect);
         unsafe {
             __buffer
                 .add(336)
@@ -12859,6 +13195,15 @@ impl UAbilityTask_WaitGameplayEffectApplied_Target {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(target_filter);
+        std::mem::forget(source_tag_requirements);
+        std::mem::forget(target_tag_requirements);
+        std::mem::forget(asset_tag_requirements);
+        std::mem::forget(granted_tag_requirements);
+        std::mem::forget(trigger_once);
+        std::mem::forget(optional_external_owner);
+        std::mem::forget(listen_for_periodic_effects);
         unsafe {
             __buffer
                 .add(592)
@@ -12966,6 +13311,11 @@ impl UAbilityTask_WaitGameplayEffectBlockedImmunity {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(source_tag_requirements);
+        std::mem::forget(target_tag_requirements);
+        std::mem::forget(optional_external_target);
+        std::mem::forget(only_trigger_once);
         unsafe {
             __buffer
                 .add(296)
@@ -13049,6 +13399,8 @@ impl UAbilityTask_WaitGameplayEffectRemoved {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(handle);
         unsafe {
             __buffer
                 .add(16)
@@ -13132,6 +13484,8 @@ impl UAbilityTask_WaitGameplayEffectStackChange {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(handle);
         unsafe {
             __buffer
                 .add(16)
@@ -13239,6 +13593,11 @@ impl UAbilityTask_WaitGameplayEvent {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(event_tag);
+        std::mem::forget(optional_external_target);
+        std::mem::forget(only_trigger_once);
+        std::mem::forget(only_match_exact);
         unsafe { __buffer.add(40).cast::<UPtr<UAbilityTask_WaitGameplayEvent>>().read() }
     }
 }
@@ -13368,6 +13727,10 @@ impl UAbilityTask_WaitGameplayTagAdded {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(tag);
+        std::mem::forget(in_optional_external_target);
+        std::mem::forget(only_trigger_once);
         unsafe {
             __buffer.add(40).cast::<UPtr<UAbilityTask_WaitGameplayTagAdded>>().read()
         }
@@ -13464,6 +13827,10 @@ impl UAbilityTask_WaitGameplayTagRemoved {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(tag);
+        std::mem::forget(in_optional_external_target);
+        std::mem::forget(only_trigger_once);
         unsafe {
             __buffer.add(40).cast::<UPtr<UAbilityTask_WaitGameplayTagRemoved>>().read()
         }
@@ -13552,6 +13919,9 @@ impl UAbilityTask_WaitGameplayTagCountChanged {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(tag);
+        std::mem::forget(in_optional_external_target);
         unsafe {
             __buffer
                 .add(32)
@@ -13661,6 +14031,11 @@ impl UAbilityTask_WaitGameplayTagQuery {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(tag_query);
+        std::mem::forget(in_optional_external_target);
+        std::mem::forget(trigger_condition);
+        std::mem::forget(b_only_trigger_once);
         unsafe {
             __buffer.add(96).cast::<UPtr<UAbilityTask_WaitGameplayTagQuery>>().read()
         }
@@ -13741,6 +14116,8 @@ impl UAbilityTask_WaitInputPress {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(b_test_already_pressed);
         unsafe { __buffer.add(16).cast::<UPtr<UAbilityTask_WaitInputPress>>().read() }
     }
 }
@@ -13819,6 +14196,8 @@ impl UAbilityTask_WaitInputRelease {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(b_test_already_released);
         unsafe { __buffer.add(16).cast::<UPtr<UAbilityTask_WaitInputRelease>>().read() }
     }
 }
@@ -13897,6 +14276,8 @@ impl UAbilityTask_WaitMovementModeChange {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(new_mode);
         unsafe {
             __buffer.add(16).cast::<UPtr<UAbilityTask_WaitMovementModeChange>>().read()
         }
@@ -13969,6 +14350,7 @@ impl UAbilityTask_WaitOverlap {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
         unsafe { __buffer.add(8).cast::<UPtr<UAbilityTask_WaitOverlap>>().read() }
     }
 }
@@ -14063,6 +14445,10 @@ impl UAbilityTask_WaitTargetData {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(confirmation_type);
+        std::mem::forget(target_actor);
         unsafe { __buffer.add(32).cast::<UPtr<UAbilityTask_WaitTargetData>>().read() }
     }
     pub fn wait_target_data(
@@ -14122,6 +14508,10 @@ impl UAbilityTask_WaitTargetData {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(task_instance_name);
+        std::mem::forget(confirmation_type);
+        std::mem::forget(class);
         unsafe { __buffer.add(32).cast::<UPtr<UAbilityTask_WaitTargetData>>().read() }
     }
     pub fn finish_spawning_actor(
@@ -14166,6 +14556,8 @@ impl UAbilityTask_WaitTargetData {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(spawned_actor);
     }
     pub fn begin_spawning_actor(
         &mut self,
@@ -14223,6 +14615,8 @@ impl UAbilityTask_WaitTargetData {
                 .cast::<UPtr<AGameplayAbilityTargetActor>>()
                 .swap(spawned_actor);
         }
+        std::mem::forget(owning_ability);
+        std::mem::forget(class);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
@@ -14309,6 +14703,9 @@ impl UAbilityTask_WaitVelocityChange {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(direction);
+        std::mem::forget(minimum_magnitude);
         unsafe {
             __buffer.add(40).cast::<UPtr<UAbilityTask_WaitVelocityChange>>().read()
         }
@@ -14389,6 +14786,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(tag);
+        std::mem::forget(handle);
     }
     pub fn unbind_all_gameplay_tag_changed_event_wrappers_for_handle(
         handle: FGameplayTagChangedEventWrapperSpecHandle,
@@ -14423,6 +14822,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
     }
     pub fn target_data_has_origin(
         target_data: &FGameplayAbilityTargetDataHandle,
@@ -14461,6 +14861,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn target_data_has_hit_result(
@@ -14500,6 +14901,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn target_data_has_end_point(
@@ -14539,6 +14941,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn target_data_has_actor(
@@ -14578,6 +14981,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn set_stack_count_to_max(
@@ -14613,6 +15017,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
         unsafe { __buffer.add(16).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn set_stack_count(
@@ -14656,6 +15061,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(stack_count);
         unsafe { __buffer.add(24).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn set_duration(
@@ -14695,6 +15102,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(duration);
         unsafe { __buffer.add(24).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn send_gameplay_event_to_actor(
@@ -14746,6 +15155,9 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(event_tag);
+        std::mem::forget(payload);
     }
     pub fn remove_loose_gameplay_tags(
         actor: UPtr<crate::bindings::engine::AActor>,
@@ -14798,6 +15210,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_should_replicate);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn remove_gameplay_tags(
@@ -14851,6 +15265,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(replication_rule);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn not_equal_gameplay_attribute_gameplay_attribute(
@@ -14894,6 +15310,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_a);
+        std::mem::forget(attribute_b);
         unsafe { __buffer.add(144).cast::<bool>().read() }
     }
     pub fn not_equal_gameplay_ability_spec_handle(
@@ -15035,6 +15453,10 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect);
+        std::mem::forget(instigator);
+        std::mem::forget(effect_causer);
+        std::mem::forget(level);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn make_spec_handle(
@@ -15090,6 +15512,10 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_gameplay_effect);
+        std::mem::forget(in_instigator);
+        std::mem::forget(in_effect_causer);
+        std::mem::forget(in_level);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn make_gameplay_cue_parameters(
@@ -15263,6 +15689,23 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(normalized_magnitude);
+        std::mem::forget(raw_magnitude);
+        std::mem::forget(effect_context);
+        std::mem::forget(matched_tag_name);
+        std::mem::forget(original_tag);
+        std::mem::forget(aggregated_source_tags);
+        std::mem::forget(aggregated_target_tags);
+        std::mem::forget(location);
+        std::mem::forget(normal);
+        std::mem::forget(instigator);
+        std::mem::forget(effect_causer);
+        std::mem::forget(source_object);
+        std::mem::forget(physical_material);
+        std::mem::forget(gameplay_effect_level);
+        std::mem::forget(ability_level);
+        std::mem::forget(target_attach_component);
+        std::mem::forget(b_replicate_location_when_using_minimal_rep_proxy);
         unsafe { __buffer.add(224).cast::<FGameplayCueParameters>().read() }
     }
     pub fn make_filter_handle(
@@ -15306,6 +15749,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(filter);
+        std::mem::forget(filter_actor);
         unsafe { __buffer.add(40).cast::<FGameplayTargetDataFilterHandle>().read() }
     }
     pub fn is_valid(attribute: FGameplayAttribute) -> bool {
@@ -15339,6 +15784,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(attribute);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn is_instigator_locally_controlled_player(
@@ -15374,6 +15820,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe { __buffer.add(224).cast::<bool>().read() }
     }
     pub fn is_instigator_locally_controlled(parameters: FGameplayCueParameters) -> bool {
@@ -15407,6 +15854,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe { __buffer.add(224).cast::<bool>().read() }
     }
     pub fn is_gameplay_ability_active(gameplay_ability: UPtr<UGameplayAbility>) -> bool {
@@ -15440,6 +15888,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_ability);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_duration_gameplay_effect_spec_handle(
@@ -15475,6 +15924,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_active_gameplay_effect_handle_valid(
@@ -15510,6 +15960,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_active_gameplay_effect_handle_active(
@@ -15545,6 +15996,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_hit_result(parameters: FGameplayCueParameters) -> bool {
@@ -15578,6 +16030,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe { __buffer.add(224).cast::<bool>().read() }
     }
     pub fn has_any_abilities_with_asset_tag(
@@ -15621,6 +16074,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(ability_system_component);
+        std::mem::forget(asset_tag);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_target_data_origin(
@@ -15660,6 +16115,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -15701,6 +16157,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -15742,6 +16199,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -15779,6 +16237,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe {
             __buffer.add(224).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -15824,6 +16283,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(88).cast::<f32>().read() }
     }
     pub fn get_instigator_transform(
@@ -15859,6 +16320,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe {
             __buffer.add(224).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -15896,6 +16358,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe {
             __buffer.add(224).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -15937,6 +16400,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(48).cast::<crate::bindings::engine::FHitResult>().read() }
     }
     pub fn get_hit_result(
@@ -15972,6 +16436,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe { __buffer.add(224).cast::<crate::bindings::engine::FHitResult>().read() }
     }
     pub fn get_granted_tags(
@@ -16007,6 +16472,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
         unsafe {
             __buffer
                 .add(16)
@@ -16055,6 +16521,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_class);
+        std::mem::forget(data_type);
         unsafe { __buffer.add(16).cast::<UPtr<UGameplayEffectUIData>>().read() }
     }
     pub fn get_gameplay_effect_granted_tags(
@@ -16090,6 +16558,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_class);
         unsafe {
             __buffer
                 .add(8)
@@ -16130,6 +16599,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(16).cast::<UPtr<UGameplayEffect>>().read() }
     }
     pub fn get_gameplay_effect_from_active_effect_handle(
@@ -16200,6 +16670,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_class);
         unsafe {
             __buffer
                 .add(8)
@@ -16276,6 +16747,8 @@ impl UAbilitySystemBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(normal);
         }
+        std::mem::forget(target_actor);
+        std::mem::forget(parameters);
         unsafe { __buffer.add(280).cast::<bool>().read() }
     }
     pub fn get_gameplay_cue_direction(
@@ -16333,6 +16806,8 @@ impl UAbilitySystemBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(direction);
         }
+        std::mem::forget(target_actor);
+        std::mem::forget(parameters);
         unsafe { __buffer.add(256).cast::<bool>().read() }
     }
     pub fn get_gameplay_ability_from_spec_handle(
@@ -16387,6 +16862,7 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_instance);
         }
+        std::mem::forget(ability_system);
         unsafe { __buffer.add(16).cast::<UPtr<UGameplayAbility>>().read() }
     }
     pub fn get_float_attribute_from_ability_system_component(
@@ -16441,6 +16917,8 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(80).cast::<bool>().swap(b_successfully_found_attribute);
         }
+        std::mem::forget(ability_system);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(84).cast::<f32>().read() }
     }
     pub fn get_float_attribute_base_from_ability_system_component(
@@ -16495,6 +16973,8 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(80).cast::<bool>().swap(b_successfully_found_attribute);
         }
+        std::mem::forget(ability_system_component);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(84).cast::<f32>().read() }
     }
     pub fn get_float_attribute_base(
@@ -16549,6 +17029,8 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(80).cast::<bool>().swap(b_successfully_found_attribute);
         }
+        std::mem::forget(actor);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(84).cast::<f32>().read() }
     }
     pub fn get_float_attribute(
@@ -16603,6 +17085,8 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(80).cast::<bool>().swap(b_successfully_found_attribute);
         }
+        std::mem::forget(actor);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(84).cast::<f32>().read() }
     }
     pub fn get_effect_context(
@@ -16638,6 +17122,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
         unsafe { __buffer.add(16).cast::<FGameplayEffectContextHandle>().read() }
     }
     pub fn get_duration_policy_from_gameplay_effect_spec_handle(
@@ -16673,6 +17158,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(16).cast::<EGameplayEffectDurationType>().read() }
     }
     pub fn get_debug_string_from_gameplay_attribute(
@@ -16778,6 +17264,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
         unsafe {
             __buffer
                 .add(16)
@@ -16818,6 +17305,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
         unsafe { __buffer.add(16).cast::<TArray<FGameplayEffectSpecHandle>>().read() }
     }
     pub fn get_all_actors_from_target_data(
@@ -16897,6 +17385,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer
                 .add(48)
@@ -16935,6 +17424,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe { __buffer.add(224).cast::<i32>().read() }
     }
     pub fn get_actor_by_index(
@@ -16974,6 +17464,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(232).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -17011,6 +17503,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_active_gameplay_effect_start_time(
@@ -17046,6 +17539,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_active_gameplay_effect_stack_limit_count(
@@ -17081,6 +17575,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_active_gameplay_effect_stack_count(
@@ -17116,6 +17611,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_active_gameplay_effect_remaining_duration(
@@ -17159,6 +17655,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_active_gameplay_effect_expected_end_time(
@@ -17194,6 +17692,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_active_gameplay_effect_debug_string(
@@ -17229,6 +17728,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_ability_system_component_from_active_gameplay_effect_handle(
@@ -17264,6 +17764,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
         unsafe { __buffer.add(8).cast::<UPtr<UAbilitySystemComponent>>().read() }
     }
     pub fn get_ability_system_component(
@@ -17299,6 +17800,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<UPtr<UAbilitySystemComponent>>().read() }
     }
     pub fn forward_gameplay_cue_to_target(
@@ -17350,6 +17852,9 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target_cue_interface);
+        std::mem::forget(event_type);
+        std::mem::forget(parameters);
     }
     pub fn filter_target_data(
         target_data_handle: &FGameplayAbilityTargetDataHandle,
@@ -17392,6 +17897,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor_filter_class);
         unsafe { __buffer.add(56).cast::<FGameplayAbilityTargetDataHandle>().read() }
     }
     pub fn evaluate_attribute_value_with_tags_and_base(
@@ -17474,6 +17980,9 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(148).cast::<bool>().swap(b_success);
         }
+        std::mem::forget(ability_system);
+        std::mem::forget(attribute);
+        std::mem::forget(base_value);
         unsafe { __buffer.add(152).cast::<f32>().read() }
     }
     pub fn evaluate_attribute_value_with_tags(
@@ -17548,6 +18057,8 @@ impl UAbilitySystemBlueprintLibrary {
         unsafe {
             __buffer.add(144).cast::<bool>().swap(b_success);
         }
+        std::mem::forget(ability_system);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(148).cast::<f32>().read() }
     }
     pub fn equal_equal_gameplay_attribute_gameplay_attribute(
@@ -17591,6 +18102,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_a);
+        std::mem::forget(attribute_b);
         unsafe { __buffer.add(144).cast::<bool>().read() }
     }
     pub fn equal_equal_gameplay_ability_spec_handle(
@@ -17720,6 +18233,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
+        std::mem::forget(origin);
     }
     pub fn effect_context_is_valid(
         effect_context: FGameplayEffectContextHandle,
@@ -17754,6 +18269,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn effect_context_is_instigator_locally_controlled(
@@ -17789,6 +18305,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn effect_context_has_hit_result(
@@ -17824,6 +18341,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn effect_context_get_source_object(
@@ -17859,6 +18377,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe {
             __buffer
                 .add(24)
@@ -17899,6 +18418,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -17936,6 +18456,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -17973,6 +18494,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -18010,6 +18532,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe { __buffer.add(24).cast::<crate::bindings::engine::FHitResult>().read() }
     }
     pub fn effect_context_get_effect_causer(
@@ -18045,6 +18568,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -18094,6 +18618,9 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(effect_context);
+        std::mem::forget(hit_result);
+        std::mem::forget(b_reset);
     }
     pub fn does_target_data_contain_actor(
         target_data: &FGameplayAbilityTargetDataHandle,
@@ -18140,6 +18667,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
+        std::mem::forget(actor);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn does_gameplay_cue_meet_tag_requirements(
@@ -18191,6 +18720,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(parameters);
         unsafe { __buffer.add(496).cast::<bool>().read() }
     }
     pub fn conv_scalable_float_to_float(input: &FScalableFloat, level: f32) -> f32 {
@@ -18227,6 +18757,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level);
         unsafe { __buffer.add(60).cast::<f32>().read() }
     }
     pub fn conv_scalable_float_to_double(input: &FScalableFloat, level: f32) -> f64 {
@@ -18263,6 +18794,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level);
         unsafe { __buffer.add(64).cast::<f64>().read() }
     }
     pub fn clone_spec_handle(
@@ -18314,6 +18846,9 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_instigator);
+        std::mem::forget(in_effect_causer);
+        std::mem::forget(gameplay_effect_spec_handle_clone);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn break_gameplay_cue_parameters(
@@ -18655,6 +19190,11 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(ability_system_component);
+        std::mem::forget(tag);
+        std::mem::forget(gameplay_tag_changed_event_wrapper_delegate);
+        std::mem::forget(b_execute_immediately_if_tag_applied);
+        std::mem::forget(tag_listening_policy);
         unsafe {
             __buffer.add(64).cast::<FGameplayTagChangedEventWrapperSpecHandle>().read()
         }
@@ -18730,6 +19270,10 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(ability_system_component);
+        std::mem::forget(gameplay_tag_changed_event_wrapper_delegate);
+        std::mem::forget(b_execute_immediately_if_tag_applied);
+        std::mem::forget(tag_listening_policy);
         unsafe {
             __buffer.add(64).cast::<FGameplayTagChangedEventWrapperSpecHandle>().read()
         }
@@ -18805,6 +19349,11 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(ability_system_component);
+        std::mem::forget(tag_container);
+        std::mem::forget(gameplay_tag_changed_event_wrapper_delegate);
+        std::mem::forget(b_execute_immediately_if_tag_applied);
+        std::mem::forget(tag_listening_policy);
         unsafe {
             __buffer.add(80).cast::<FGameplayTagChangedEventWrapperSpecHandle>().read()
         }
@@ -18854,6 +19403,9 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(data_tag);
+        std::mem::forget(magnitude);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn assign_set_by_caller_magnitude(
@@ -18901,6 +19453,9 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(data_name);
+        std::mem::forget(magnitude);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn append_target_data_handle(
@@ -18944,6 +19499,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target_handle);
         unsafe { __buffer.add(80).cast::<FGameplayAbilityTargetDataHandle>().read() }
     }
     pub fn add_loose_gameplay_tags(
@@ -18997,6 +19553,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_should_replicate);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn add_linked_gameplay_effect_spec(
@@ -19040,6 +19598,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(linked_gameplay_effect_spec);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn add_linked_gameplay_effect(
@@ -19083,6 +19643,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(linked_gameplay_effect);
         unsafe { __buffer.add(24).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn add_granted_tags(
@@ -19128,6 +19690,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(new_gameplay_tags);
         unsafe { __buffer.add(48).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn add_granted_tag(
@@ -19171,6 +19735,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(new_gameplay_tag);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn add_gameplay_tags(
@@ -19224,6 +19790,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(replication_rule);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn add_asset_tags(
@@ -19269,6 +19837,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(new_gameplay_tags);
         unsafe { __buffer.add(48).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn add_asset_tag(
@@ -19312,6 +19882,8 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(spec_handle);
+        std::mem::forget(new_gameplay_tag);
         unsafe { __buffer.add(32).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn ability_target_data_from_locations(
@@ -19433,6 +20005,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(one_target_per_handle);
         unsafe { __buffer.add(24).cast::<FGameplayAbilityTargetDataHandle>().read() }
     }
     pub fn ability_target_data_from_actor(
@@ -19468,6 +20041,7 @@ impl UAbilitySystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<FGameplayAbilityTargetDataHandle>().read() }
     }
 }
@@ -19593,6 +20167,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
     }
     pub fn update_active_gameplay_effect_set_by_caller_magnitude(
         &mut self,
@@ -19640,6 +20215,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
+        std::mem::forget(set_by_caller_tag);
+        std::mem::forget(new_value);
     }
     pub fn try_activate_ability_by_class(
         &mut self,
@@ -19683,6 +20261,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_ability_to_activate);
+        std::mem::forget(b_allow_remote_activation);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn try_activate_ability(
@@ -19727,6 +20307,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(ability_to_activate);
+        std::mem::forget(b_allow_remote_activation);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn try_activate_abilities_by_tag(
@@ -19773,6 +20355,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_allow_remote_activation);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn target_confirm(&mut self) {
@@ -19856,6 +20439,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_inhibit);
     }
     pub fn set_active_gameplay_effect_level_using_query(
         &mut self,
@@ -19899,6 +20483,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(query);
+        std::mem::forget(new_level);
     }
     pub fn set_active_gameplay_effect_level(
         &mut self,
@@ -19938,6 +20524,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(active_handle);
+        std::mem::forget(new_level);
     }
     pub fn remove_active_gameplay_effect_by_source_effect(
         &mut self,
@@ -19989,6 +20577,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect);
+        std::mem::forget(instigator_ability_system_component);
+        std::mem::forget(stacks_to_remove);
     }
     pub fn remove_active_gameplay_effect(
         &mut self,
@@ -20032,6 +20623,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
+        std::mem::forget(stacks_to_remove);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_active_effects_with_tags(
@@ -20070,6 +20663,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tags);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn remove_active_effects_with_source_tags(
@@ -20108,6 +20702,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tags);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn remove_active_effects_with_granted_tags(
@@ -20146,6 +20741,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tags);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn remove_active_effects_with_applied_tags(
@@ -20184,6 +20780,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tags);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn release_input_id(&mut self, input_id: i32) {
@@ -20213,6 +20810,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(input_id);
     }
     pub fn press_input_id(&mut self, input_id: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -20241,6 +20839,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(input_id);
     }
     pub fn make_outgoing_spec(
         &self,
@@ -20288,6 +20887,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect_class);
+        std::mem::forget(level);
+        std::mem::forget(context);
         unsafe { __buffer.add(40).cast::<FGameplayEffectSpecHandle>().read() }
     }
     pub fn make_effect_context(&self) -> FGameplayEffectContextHandle {
@@ -20358,6 +20960,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(attributes);
+        std::mem::forget(data_table);
     }
     pub fn give_ability_and_activate_once(
         &mut self,
@@ -20401,6 +21005,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(ability_class);
+        std::mem::forget(level);
+        std::mem::forget(input_id);
         unsafe { __buffer.add(16).cast::<FGameplayAbilitySpecHandle>().read() }
     }
     pub fn give_ability(
@@ -20445,6 +21052,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(ability_class);
+        std::mem::forget(level);
+        std::mem::forget(input_id);
         unsafe { __buffer.add(16).cast::<FGameplayAbilitySpecHandle>().read() }
     }
     pub fn is_gameplay_cue_active(
@@ -20481,6 +21091,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_cue_tag);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn input_confirm(&mut self) {
@@ -20593,6 +21204,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_tag);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_gameplay_effect_magnitude(
@@ -20637,6 +21249,8 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(handle);
+        std::mem::forget(attribute);
         unsafe { __buffer.add(80).cast::<f32>().read() }
     }
     pub fn get_gameplay_effect_count_if_loaded(
@@ -20693,6 +21307,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(soft_source_gameplay_effect);
+        std::mem::forget(optional_instigator_filter_component);
+        std::mem::forget(b_enforce_on_going_check);
         unsafe { __buffer.add(60).cast::<i32>().read() }
     }
     pub fn get_gameplay_effect_count(
@@ -20745,6 +21362,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(source_gameplay_effect);
+        std::mem::forget(optional_instigator_filter_component);
+        std::mem::forget(b_enforce_on_going_check);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn get_gameplay_attribute_value(
@@ -20788,6 +21408,7 @@ impl UAbilitySystemComponent {
         unsafe {
             __buffer.add(72).cast::<bool>().swap(b_found);
         }
+        std::mem::forget(attribute);
         unsafe { __buffer.add(76).cast::<f32>().read() }
     }
     pub fn get_attribute_set(
@@ -20824,6 +21445,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_set_class);
         unsafe { __buffer.add(8).cast::<UPtr<UAttributeSet>>().read() }
     }
     pub fn get_all_attributes(
@@ -20941,6 +21563,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tags);
         unsafe { __buffer.add(32).cast::<TArray<FActiveGameplayEffectHandle>>().read() }
     }
     pub fn get_active_effects(
@@ -21037,6 +21660,8 @@ impl UAbilitySystemComponent {
                 .cast::<TArray<FGameplayAbilitySpecHandle>>()
                 .swap(out_ability_handles);
         }
+        std::mem::forget(tags);
+        std::mem::forget(b_exact_match);
     }
     pub fn find_all_abilities_with_input_id(
         &self,
@@ -21082,6 +21707,7 @@ impl UAbilitySystemComponent {
                 .cast::<TArray<FGameplayAbilitySpecHandle>>()
                 .swap(out_ability_handles);
         }
+        std::mem::forget(input_id);
     }
     pub fn find_all_abilities_matching_query(
         &self,
@@ -21133,6 +21759,7 @@ impl UAbilitySystemComponent {
                 .cast::<TArray<FGameplayAbilitySpecHandle>>()
                 .swap(out_ability_handles);
         }
+        std::mem::forget(query);
     }
     pub fn clear_all_abilities_with_input_id(&mut self, input_id: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -21161,6 +21788,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(input_id);
     }
     pub fn clear_all_abilities(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -21273,6 +21901,10 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect_class);
+        std::mem::forget(target);
+        std::mem::forget(level);
+        std::mem::forget(context);
         unsafe { __buffer.add(48).cast::<FActiveGameplayEffectHandle>().read() }
     }
     pub fn apply_gameplay_effect_to_self(
@@ -21321,6 +21953,9 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect_class);
+        std::mem::forget(level);
+        std::mem::forget(effect_context);
         unsafe { __buffer.add(40).cast::<FActiveGameplayEffectHandle>().read() }
     }
     pub fn apply_gameplay_effect_spec_to_target(
@@ -21365,6 +22000,7 @@ impl UAbilitySystemComponent {
                 __buffer,
             )
         };
+        std::mem::forget(target);
         unsafe { __buffer.add(24).cast::<FActiveGameplayEffectHandle>().read() }
     }
     pub fn apply_gameplay_effect_spec_to_self(
@@ -22038,6 +22674,8 @@ impl UGameplayCueFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target);
+        std::mem::forget(gameplay_cue_tag);
     }
     pub fn make_gameplay_cue_parameters_from_hit_result(
         hit_result: &crate::bindings::engine::FHitResult,
@@ -22123,6 +22761,8 @@ impl UGameplayCueFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target);
+        std::mem::forget(gameplay_cue_tag);
     }
     pub fn add_gameplay_cue_on_actor(
         target: UPtr<crate::bindings::engine::AActor>,
@@ -22173,6 +22813,8 @@ impl UGameplayCueFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(target);
+        std::mem::forget(gameplay_cue_tag);
     }
 }
 pub struct IGameplayCueInterface {}
@@ -22277,6 +22919,7 @@ impl UGameplayCueInterface {
                 __buffer,
             )
         };
+        std::mem::forget(event_type);
     }
 }
 #[repr(C, align(8))]
@@ -22390,6 +23033,7 @@ impl AGameplayCueNotify_Actor {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn on_cease_relevant_on_remove(
@@ -22434,6 +23078,7 @@ impl AGameplayCueNotify_Actor {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn on_execute(
@@ -22478,6 +23123,7 @@ impl AGameplayCueNotify_Actor {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn on_burst_on_active(
@@ -22522,6 +23168,7 @@ impl AGameplayCueNotify_Actor {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
         unsafe { __buffer.add(232).cast::<bool>().read() }
     }
     pub fn handle_gameplay_cue(
@@ -22574,6 +23221,8 @@ impl AGameplayCueNotify_Actor {
                 __buffer,
             )
         };
+        std::mem::forget(my_target);
+        std::mem::forget(event_type);
     }
     pub fn end_gameplay_cue(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -22689,6 +23338,7 @@ impl UGameplayCueNotify_Burst {
                 __buffer,
             )
         };
+        std::mem::forget(target);
     }
 }
 #[repr(C, align(8))]
@@ -22780,6 +23430,7 @@ impl AGameplayCueNotify_BurstLatent {
                 __buffer,
             )
         };
+        std::mem::forget(target);
     }
 }
 #[repr(C, align(8))]
@@ -22916,6 +23567,7 @@ impl AGameplayCueNotify_Looping {
                 __buffer,
             )
         };
+        std::mem::forget(target);
     }
     pub fn on_recurring(
         &mut self,
@@ -22967,6 +23619,7 @@ impl AGameplayCueNotify_Looping {
                 __buffer,
             )
         };
+        std::mem::forget(target);
     }
     pub fn on_looping_start(
         &mut self,
@@ -23018,6 +23671,7 @@ impl AGameplayCueNotify_Looping {
                 __buffer,
             )
         };
+        std::mem::forget(target);
     }
     pub fn on_application(
         &mut self,
@@ -23069,6 +23723,7 @@ impl AGameplayCueNotify_Looping {
                 __buffer,
             )
         };
+        std::mem::forget(target);
     }
 }
 #[repr(C, align(8))]
@@ -23686,6 +24341,8 @@ impl UGameplayEffectCustomApplicationRequirement {
                 __buffer,
             )
         };
+        std::mem::forget(gameplay_effect);
+        std::mem::forget(asc);
         unsafe { __buffer.add(680).cast::<bool>().read() }
     }
 }
@@ -23872,6 +24529,7 @@ impl UGameplayModMagnitudeCalculation {
                 __buffer,
             )
         };
+        std::mem::forget(attribute);
         unsafe { __buffer.add(800).cast::<f32>().read() }
     }
     pub fn get_target_spec_tags(
@@ -24416,6 +25074,7 @@ impl UMovieSceneGameplayCueTrack {
                 __buffer,
             )
         };
+        std::mem::forget(in_gameplay_cue_track_handler);
     }
 }
 pub struct ITickableAttributeSetInterface {}

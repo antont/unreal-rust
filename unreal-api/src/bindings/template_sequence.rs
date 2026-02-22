@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -650,6 +651,7 @@ impl ATemplateSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
     }
     pub fn set_binding(
         &mut self,
@@ -693,6 +695,8 @@ impl ATemplateSequenceActor {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_overrides_default);
     }
     pub fn load_sequence(&self) -> UPtr<UTemplateSequence> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -871,6 +875,9 @@ impl UTemplateSequencePlayer {
         unsafe {
             __buffer.add(56).cast::<UPtr<ATemplateSequenceActor>>().swap(out_actor);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(template_sequence);
+        std::mem::forget(settings);
         unsafe { __buffer.add(64).cast::<UPtr<UTemplateSequencePlayer>>().read() }
     }
 }
@@ -972,6 +979,8 @@ impl USequenceCameraShakeTestUtil {
         unsafe {
             __buffer.add(1968).cast::<f32>().swap(out_pp_blend_weight);
         }
+        std::mem::forget(player_controller);
+        std::mem::forget(pp_index);
         unsafe { __buffer.add(1972).cast::<bool>().read() }
     }
     pub fn get_last_frame_camera_cache_pov(
@@ -1009,6 +1018,7 @@ impl USequenceCameraShakeTestUtil {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::engine::FMinimalViewInfo>().read()
         }
@@ -1048,6 +1058,7 @@ impl USequenceCameraShakeTestUtil {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::engine::FMinimalViewInfo>().read()
         }

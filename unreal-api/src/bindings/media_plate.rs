@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -418,6 +419,7 @@ impl AMediaPlate {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_enabled);
     }
     pub fn is_holdout_composite_enabled(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -564,6 +566,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_play_only_when_visible);
     }
     pub fn set_mesh_range(
         &mut self,
@@ -599,6 +602,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_mesh_range);
     }
     pub fn set_loop(&mut self, b_in_loop: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -627,6 +631,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_loop);
     }
     pub fn set_letterbox_aspect_ratio(&mut self, aspect_ratio: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -659,6 +664,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(aspect_ratio);
     }
     pub fn set_is_aspect_ratio_auto(&mut self, b_in_is_aspect_ratio_auto: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -691,6 +697,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_aspect_ratio_auto);
     }
     pub fn set_enable_audio(&mut self, b_in_enable_audio: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -723,6 +730,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_enable_audio);
     }
     pub fn select_media_source_asset(
         &mut self,
@@ -760,6 +768,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_media_source);
     }
     pub fn select_media_playlist_asset(
         &mut self,
@@ -797,6 +806,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_media_playlist);
     }
     pub fn select_external_media(&mut self, in_file_path: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -829,6 +839,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_file_path);
     }
     pub fn seek(&mut self, time: &crate::bindings::core_u_object::FTimespan) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<9>::new();
@@ -1034,6 +1045,10 @@ impl UMediaPlateComponent {
         unsafe {
             __buffer.add(45).cast::<bool>().swap(b_out_success);
         }
+        std::mem::forget(in_world_context_object);
+        std::mem::forget(in_latent_info);
+        std::mem::forget(in_timeout);
+        std::mem::forget(b_in_wait_for_texture);
     }
     pub fn open(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1146,6 +1161,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_request_event_state);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn get_selected_media_source(
@@ -1239,6 +1255,7 @@ impl UMediaPlateComponent {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe {
             __buffer
                 .add(8)

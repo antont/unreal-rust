@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -244,6 +245,8 @@ impl UMobileInstalledContent {
                 __buffer,
             )
         };
+        std::mem::forget(pak_order);
+        std::mem::forget(mount_point);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_installed_content_size(&mut self) -> f32 {
@@ -375,6 +378,8 @@ impl UMobilePendingContent {
                 __buffer,
             )
         };
+        std::mem::forget(on_succeeded);
+        std::mem::forget(on_failed);
     }
     pub fn get_total_downloaded_size(&mut self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -632,6 +637,11 @@ impl UMobilePatchingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(remote_manifest_url);
+        std::mem::forget(cloud_url);
+        std::mem::forget(install_directory);
+        std::mem::forget(on_succeeded);
+        std::mem::forget(on_failed);
     }
     pub fn has_active_wi_fi_connection() -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -718,6 +728,7 @@ impl UMobilePatchingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(install_directory);
         unsafe { __buffer.add(16).cast::<UPtr<UMobileInstalledContent>>().read() }
     }
     pub fn get_active_device_profile_name() -> FString {

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -447,6 +448,7 @@ impl UNamingTokensEngineSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_namespace);
     }
     pub fn register_global_namespace(&mut self, in_namespace: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -479,6 +481,7 @@ impl UNamingTokensEngineSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_namespace);
     }
     pub fn is_global_namespace_registered(&self, in_namespace: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -511,6 +514,7 @@ impl UNamingTokensEngineSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_namespace);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_naming_tokens_native(
@@ -547,6 +551,7 @@ impl UNamingTokensEngineSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_namespace);
         unsafe { __buffer.add(16).cast::<UPtr<UNamingTokens>>().read() }
     }
     pub fn get_naming_tokens(&self, in_namespace: FString) -> UPtr<UNamingTokens> {
@@ -580,6 +585,7 @@ impl UNamingTokensEngineSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_namespace);
         unsafe { __buffer.add(16).cast::<UPtr<UNamingTokens>>().read() }
     }
     pub fn get_multiple_naming_tokens(
@@ -776,6 +782,7 @@ impl UNamingTokensEngineSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_token_string);
         unsafe { __buffer.add(56).cast::<FNamingTokenResultData>().read() }
     }
     pub fn evaluate_token_list(

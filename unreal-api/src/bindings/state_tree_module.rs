@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -576,6 +577,7 @@ impl UStateTreeNodeBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(priority);
     }
     pub fn receive_get_description(
         &self,
@@ -611,6 +613,7 @@ impl UStateTreeNodeBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(formatting);
         unsafe { __buffer.add(8).cast::<FText>().read() }
     }
     pub fn get_property_description_by_property_name(
@@ -647,6 +650,7 @@ impl UStateTreeNodeBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(property_name);
         unsafe { __buffer.add(16).cast::<FText>().read() }
     }
 }
@@ -883,6 +887,7 @@ impl UStateTreeEvaluatorBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
     }
 }
 #[repr(C, align(8))]
@@ -978,6 +983,7 @@ impl UStateTreeTaskBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
         unsafe { __buffer.add(4).cast::<EStateTreeRunStatus>().read() }
     }
     pub fn receive_state_completed(
@@ -1022,6 +1028,8 @@ impl UStateTreeTaskBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(completion_status);
+        std::mem::forget(completed_active_states);
     }
     pub fn receive_latent_tick(&mut self, delta_time: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1050,6 +1058,7 @@ impl UStateTreeTaskBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
     }
     pub fn receive_latent_enter_state(
         &mut self,
@@ -1185,6 +1194,7 @@ impl UStateTreeTaskBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_succeeded);
     }
     pub fn broadcast_delegate(&mut self, dispatcher: FStateTreeDelegateDispatcher) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1217,6 +1227,7 @@ impl UStateTreeTaskBlueprintBase {
                 __buffer,
             )
         };
+        std::mem::forget(dispatcher);
     }
     pub fn bind_delegate(
         &mut self,
@@ -1330,6 +1341,7 @@ impl UStateTree {
                 __buffer,
             )
         };
+        std::mem::forget(extension_type);
         unsafe { __buffer.add(8).cast::<UPtr<UStateTreeExtension>>().read() }
     }
 }
@@ -1446,6 +1458,7 @@ impl UStateTreeFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FStateTreeReference>().swap(reference);
         }
+        std::mem::forget(state_tree);
     }
     pub fn make_state_tree_reference(
         state_tree: UPtr<UStateTree>,
@@ -1480,6 +1493,7 @@ impl UStateTreeFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(state_tree);
         unsafe { __buffer.add(8).cast::<FStateTreeReference>().read() }
     }
     pub fn k2_set_parameters_property(
@@ -1530,6 +1544,7 @@ impl UStateTreeFunctionLibrary {
         unsafe {
             __buffer.add(0).cast::<FStateTreeReference>().swap(reference);
         }
+        std::mem::forget(property_id);
     }
     pub fn k2_get_parameters_property(
         reference: &FStateTreeReference,
@@ -1580,6 +1595,7 @@ impl UStateTreeFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(property_id);
         unsafe { __buffer.add(56).cast::<i32>().read() }
     }
 }

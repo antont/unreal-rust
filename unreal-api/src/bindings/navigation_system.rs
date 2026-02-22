@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1465,6 +1466,7 @@ impl UNavigationPath {
                 __buffer,
             )
         };
+        std::mem::forget(do_recalculation);
     }
     pub fn enable_debug_drawing(
         &mut self,
@@ -1508,6 +1510,8 @@ impl UNavigationPath {
                 __buffer,
             )
         };
+        std::mem::forget(b_should_draw_debug_data);
+        std::mem::forget(path_color);
     }
 }
 #[repr(C, align(16))]
@@ -1582,6 +1586,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(invoker);
     }
     pub fn set_max_simultaneous_tile_generation_jobs_count(
         &mut self,
@@ -1617,6 +1622,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(max_number_of_jobs);
     }
     pub fn set_geometry_gathering_mode(
         &mut self,
@@ -1654,6 +1660,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(new_mode);
     }
     pub fn reset_max_simultaneous_tile_generation_jobs_count(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1730,6 +1737,9 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(invoker);
+        std::mem::forget(tile_generation_radius);
+        std::mem::forget(tile_removal_radius);
     }
     pub fn on_navigation_bounds_updated(
         &mut self,
@@ -1765,6 +1775,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(nav_volume);
     }
     pub fn navigation_raycast(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1845,6 +1856,9 @@ impl UNavigationSystemV1 {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(hit_location);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(filter_class);
+        std::mem::forget(querier);
         unsafe { __buffer.add(96).cast::<bool>().read() }
     }
     pub fn k2_replace_area_in_octree_data(
@@ -1897,6 +1911,9 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(old_area);
+        std::mem::forget(new_area);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn project_point_to_navigation(
@@ -1978,6 +1995,10 @@ impl UNavigationSystemV1 {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(projected_location);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(nav_data);
+        std::mem::forget(filter_class);
+        std::mem::forget(query_extent);
         unsafe { __buffer.add(96).cast::<bool>().read() }
     }
     pub fn get_random_reachable_point_in_radius(
@@ -2055,6 +2076,10 @@ impl UNavigationSystemV1 {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(random_location);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(radius);
+        std::mem::forget(nav_data);
+        std::mem::forget(filter_class);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn get_random_point_in_navigable_radius(
@@ -2132,6 +2157,10 @@ impl UNavigationSystemV1 {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(random_location);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(radius);
+        std::mem::forget(nav_data);
+        std::mem::forget(filter_class);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn get_random_location_in_navigable_radius(
@@ -2209,6 +2238,10 @@ impl UNavigationSystemV1 {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(random_location);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(radius);
+        std::mem::forget(nav_data);
+        std::mem::forget(filter_class);
         unsafe { __buffer.add(80).cast::<bool>().read() }
     }
     pub fn is_navigation_being_built_or_locked(
@@ -2244,6 +2277,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_navigation_being_built(
@@ -2279,6 +2313,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_path_length(
@@ -2357,6 +2392,9 @@ impl UNavigationSystemV1 {
         unsafe {
             __buffer.add(56).cast::<f64>().swap(path_length);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(nav_data);
+        std::mem::forget(filter_class);
         unsafe {
             __buffer
                 .add(80)
@@ -2436,6 +2474,9 @@ impl UNavigationSystemV1 {
         unsafe {
             __buffer.add(56).cast::<f64>().swap(path_cost);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(nav_data);
+        std::mem::forget(filter_class);
         unsafe {
             __buffer
                 .add(80)
@@ -2476,6 +2517,7 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<UPtr<UNavigationSystemV1>>().read() }
     }
     pub fn find_path_to_location_synchronously(
@@ -2543,6 +2585,9 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(pathfinding_context);
+        std::mem::forget(filter_class);
         unsafe { __buffer.add(72).cast::<UPtr<UNavigationPath>>().read() }
     }
     pub fn find_path_to_actor_synchronously(
@@ -2618,6 +2663,11 @@ impl UNavigationSystemV1 {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(goal_actor);
+        std::mem::forget(tether_distance);
+        std::mem::forget(pathfinding_context);
+        std::mem::forget(filter_class);
         unsafe { __buffer.add(64).cast::<UPtr<UNavigationPath>>().read() }
     }
 }
@@ -2803,6 +2853,7 @@ impl UNavRelevantComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_relevant);
     }
 }
 #[repr(C, align(8))]
@@ -3072,6 +3123,10 @@ impl ARecastNavMesh {
                 __buffer,
             )
         };
+        std::mem::forget(bounds);
+        std::mem::forget(old_area);
+        std::mem::forget(new_area);
+        std::mem::forget(replace_links);
         unsafe { __buffer.add(73).cast::<bool>().read() }
     }
 }
@@ -3182,6 +3237,7 @@ impl UNavModifierComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_area_class_to_replace);
     }
     pub fn set_area_class(&mut self, new_area_class: TSubclassOf<UNavArea>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3214,6 +3270,7 @@ impl UNavModifierComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_area_class);
     }
 }
 #[repr(C, align(8))]
@@ -3288,6 +3345,7 @@ impl ANavModifierVolume {
                 __buffer,
             )
         };
+        std::mem::forget(new_area_class_to_replace);
     }
     pub fn set_area_class(&mut self, new_area_class: TSubclassOf<UNavArea>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3320,6 +3378,7 @@ impl ANavModifierVolume {
                 __buffer,
             )
         };
+        std::mem::forget(new_area_class);
     }
 }
 #[repr(C, align(8))]

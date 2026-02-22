@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -414,6 +415,7 @@ impl UClothingSimulationInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(num_substeps);
     }
     pub fn set_num_iterations(&mut self, num_iterations: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -446,6 +448,7 @@ impl UClothingSimulationInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(num_iterations);
     }
     pub fn set_max_num_iterations(&mut self, max_num_iterations: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -478,6 +481,7 @@ impl UClothingSimulationInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(max_num_iterations);
     }
     pub fn set_anim_drive_spring_stiffness(&mut self, in_stiffness: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -510,6 +514,7 @@ impl UClothingSimulationInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(in_stiffness);
     }
     pub fn physics_asset_updated(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -726,6 +731,7 @@ impl UClothingSimulationInteractor {
                 __buffer,
             )
         };
+        std::mem::forget(clothing_asset_name);
         unsafe { __buffer.add(16).cast::<UPtr<UClothingInteractor>>().read() }
     }
     pub fn enable_gravity_override(

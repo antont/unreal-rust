@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -230,6 +231,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(texture);
+        std::mem::forget(uv);
         unsafe {
             __buffer
                 .add(24)
@@ -288,6 +291,9 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(param_name);
+        std::mem::forget(value);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_mic_two_sided_editor_only(
@@ -329,6 +335,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(two_sided);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_mic_texture_param_editor_only(
@@ -382,6 +390,9 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(param_name);
+        std::mem::forget(texture);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_mic_shading_model_editor_only(
@@ -427,6 +438,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(shading_model);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_mic_scalar_param_editor_only(
@@ -476,6 +489,9 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(param_name);
+        std::mem::forget(value);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn set_mic_is_thin_surface_editor_only(
@@ -521,6 +537,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(b_is_thin_surface);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_mic_dithered_lod_transition_editor_only(
@@ -566,6 +584,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(dithered_lod_transition);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_mic_blend_mode_editor_only(
@@ -611,6 +631,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(blend_mode);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn render_target_sample_uv_editor_only(
@@ -656,6 +678,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_render_target);
+        std::mem::forget(uv);
         unsafe {
             __buffer
                 .add(24)
@@ -706,6 +730,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_render_target);
+        std::mem::forget(in_rect);
         unsafe {
             __buffer
                 .add(24)
@@ -752,6 +778,8 @@ impl UBlueprintMaterialTextureNodesBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(material);
+        std::mem::forget(name);
         unsafe {
             __buffer
                 .add(24)

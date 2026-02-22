@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -791,6 +792,7 @@ impl UPyTestInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
@@ -856,6 +858,7 @@ impl UPyTestChildInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
@@ -921,6 +924,7 @@ impl UPyTestOtherInterface {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
@@ -989,6 +993,7 @@ impl UEditorPythonScriptingLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_new_keep_alive);
     }
     pub fn get_keep_python_script_alive() -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1350,6 +1355,7 @@ impl UPyTestStructLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(360).cast::<FPyTestStruct>().read() }
     }
     pub fn add_int(in_struct: &FPyTestStruct, in_value: i32) -> FPyTestStruct {
@@ -1386,6 +1392,7 @@ impl UPyTestStructLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(352).cast::<FPyTestStruct>().read() }
     }
     pub fn add_float(in_struct: &FPyTestStruct, in_value: f32) -> FPyTestStruct {
@@ -1422,6 +1429,7 @@ impl UPyTestStructLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(352).cast::<FPyTestStruct>().read() }
     }
 }
@@ -1610,6 +1618,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_str);
     }
     pub fn legacy_func_taking_py_test_struct(&self, in_struct: &FPyTestStruct) {
         let mut __stack = crate::core_data::StackAlloc::<344>::new();
@@ -1771,6 +1780,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(36).cast::<i32>().read() }
     }
     pub fn func_taking_py_test_child_struct(&self, in_struct: &FPyTestChildStruct) {
@@ -1899,6 +1909,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn func_blueprint_implementable_packed_getter(
@@ -1963,6 +1974,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn emit_script_warning() {
@@ -2042,6 +2054,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn call_func_blueprint_native_ref(&self, in_out_struct: &mut FPyTestStruct) {
@@ -2106,6 +2119,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn call_func_blueprint_implementable_packed_getter(
@@ -2170,6 +2184,7 @@ impl UPyTestObject {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
 }
@@ -2308,6 +2323,7 @@ impl UPyTestObjectLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_obj);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_other_constant_value() -> i32 {
@@ -2664,6 +2680,8 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
+        std::mem::forget(param2);
         unsafe { __buffer.add(32).cast::<FString>().read() }
     }
     pub fn check_static_function(
@@ -2711,6 +2729,10 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
+        std::mem::forget(param2);
+        std::mem::forget(param3);
+        std::mem::forget(param4);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn check_set_type_hints(
@@ -2809,6 +2831,8 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
+        std::mem::forget(param4);
         unsafe { __buffer.add(16).cast::<UPtr<UPyTestObject>>().read() }
     }
     pub fn check_name_type_hints(&mut self, param1: &FName, param2: &FName) -> FName {
@@ -2948,6 +2972,9 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
+        std::mem::forget(param2);
+        std::mem::forget(param3);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn check_float_type_hints(
@@ -2992,6 +3019,10 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
+        std::mem::forget(param2);
+        std::mem::forget(param3);
+        std::mem::forget(param4);
         unsafe { __buffer.add(32).cast::<f64>().read() }
     }
     pub fn check_field_path_type_hints(
@@ -3028,6 +3059,7 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
         unsafe { __buffer.add(48).cast::<TFieldPath<FProperty>>().read() }
     }
     pub fn check_enum_type_hints(
@@ -3072,6 +3104,8 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(param1);
+        std::mem::forget(param2);
         unsafe { __buffer.add(2).cast::<EPyTestEnum>().read() }
     }
     pub fn check_delegate_type_hints(
@@ -3148,6 +3182,9 @@ impl UPyTestTypeHint {
                 __buffer,
             )
         };
+        std::mem::forget(b_param1);
+        std::mem::forget(b_param2);
+        std::mem::forget(b_param3);
         unsafe { __buffer.add(3).cast::<bool>().read() }
     }
     pub fn check_array_type_hints(
@@ -3470,6 +3507,7 @@ impl UPythonScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(python_script);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn execute_python_command_ex(
@@ -3543,6 +3581,9 @@ impl UPythonScriptLibrary {
         unsafe {
             __buffer.add(32).cast::<TArray<FPythonLogOutputEntry>>().swap(log_output);
         }
+        std::mem::forget(python_command);
+        std::mem::forget(execution_mode);
+        std::mem::forget(file_execution_scope);
         unsafe { __buffer.add(50).cast::<bool>().read() }
     }
     pub fn execute_python_command(python_command: FString) -> bool {
@@ -3576,6 +3617,7 @@ impl UPythonScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(python_command);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }

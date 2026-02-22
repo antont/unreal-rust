@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -488,6 +489,10 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(texture_mask);
+        std::mem::forget(threshold);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn set_skeletal_mesh_overlay_material(
@@ -534,6 +539,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(new_overlay_material);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_section_visible_in_ray_tracing(
@@ -590,6 +597,10 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
+        std::mem::forget(b_visible_in_ray_tracing);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn set_section_recompute_tangents_vertex_mask_channel(
@@ -646,6 +657,10 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
+        std::mem::forget(recompute_tangents_vertex_mask_channel);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn set_section_recompute_tangent(
@@ -702,6 +717,10 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
+        std::mem::forget(b_recompute_tangent);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn set_section_cast_shadow(
@@ -758,6 +777,10 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
+        std::mem::forget(b_cast_shadow);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh(
@@ -843,6 +866,7 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(target_mesh);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_material_slot_overlay_material(
@@ -893,6 +917,9 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(slot_index);
+        std::mem::forget(new_section_overlay_material);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_lod_build_settings(
@@ -942,6 +969,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn rename_socket(
         skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
@@ -988,6 +1017,9 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(old_name);
+        std::mem::forget(new_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_lods_remove_lo_ds(
@@ -1031,6 +1063,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(base_mesh);
+        std::mem::forget(to_remove_lo_ds);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn reimport_all_custom_lods_reimport_all_custom_lo_ds(
@@ -1066,6 +1100,7 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn regenerate_lod(
@@ -1125,6 +1160,10 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(new_lod_count);
+        std::mem::forget(b_regenerate_even_if_imported);
+        std::mem::forget(b_generate_base_lod);
         unsafe { __buffer.add(14).cast::<bool>().read() }
     }
     pub fn is_physics_asset_compatible(
@@ -1168,6 +1207,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(target_mesh);
+        std::mem::forget(physics_asset);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn import_lod(
@@ -1215,6 +1256,9 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(base_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(source_filename);
         unsafe { __buffer.add(32).cast::<i32>().read() }
     }
     pub fn get_skeleton_curve_meta_data_names(
@@ -1269,6 +1313,8 @@ impl USkeletalMeshEditorSubsystem {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(out_names);
         }
+        std::mem::forget(target_skeleton);
+        std::mem::forget(filter);
     }
     pub fn get_skeletal_mesh_overlay_material(
         &mut self,
@@ -1304,6 +1350,7 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe {
             __buffer
                 .add(8)
@@ -1368,6 +1415,9 @@ impl USkeletalMeshEditorSubsystem {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(b_out_visible_in_ray_tracing);
         }
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_section_recompute_tangents_vertex_mask_channel(
@@ -1430,6 +1480,9 @@ impl USkeletalMeshEditorSubsystem {
                 .cast::<u8>()
                 .swap(out_recompute_tangents_vertex_mask_channel);
         }
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_section_recompute_tangent(
@@ -1489,6 +1542,9 @@ impl USkeletalMeshEditorSubsystem {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(b_out_recompute_tangent);
         }
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_section_cast_shadow(
@@ -1548,6 +1604,9 @@ impl USkeletalMeshEditorSubsystem {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(b_out_cast_shadow);
         }
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_num_verts(
@@ -1588,6 +1647,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_num_sections(
@@ -1628,6 +1689,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_morph_targets_generated_by_engine(
@@ -1674,6 +1737,7 @@ impl USkeletalMeshEditorSubsystem {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(out_names);
         }
+        std::mem::forget(target_mesh);
     }
     pub fn get_material_slot_overlay_material(
         &mut self,
@@ -1713,6 +1777,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(slot_index);
         unsafe {
             __buffer
                 .add(16)
@@ -1766,6 +1832,9 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_lod_count(
@@ -1801,6 +1870,7 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_lod_build_settings(
@@ -1856,6 +1926,8 @@ impl USkeletalMeshEditorSubsystem {
                 .cast::<crate::bindings::engine::FSkeletalMeshBuildSettings>()
                 .swap(out_build_options);
         }
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(lod_index);
     }
     pub fn create_physics_asset(
         skeletal_mesh: UPtr<crate::bindings::engine::USkeletalMesh>,
@@ -1902,6 +1974,9 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
+        std::mem::forget(b_set_to_mesh);
+        std::mem::forget(lod_index);
         unsafe {
             __buffer
                 .add(16)
@@ -1950,6 +2025,8 @@ impl USkeletalMeshEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(target_mesh);
+        std::mem::forget(physics_asset);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -2122,6 +2123,8 @@ impl UAIESelectionSets {
                 __buffer,
             )
         };
+        std::mem::forget(b_show);
+        std::mem::forget(b_do_mirror);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn show_all_controls(
@@ -2191,6 +2194,7 @@ impl UAIESelectionSets {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_show_selected_only);
     }
     pub fn set_item_row(
         &mut self,
@@ -2230,6 +2234,7 @@ impl UAIESelectionSets {
                 __buffer,
             )
         };
+        std::mem::forget(in_row);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn set_item_color(
@@ -2318,6 +2323,8 @@ impl UAIESelectionSets {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(b_set_active);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn select_item(
@@ -2374,6 +2381,10 @@ impl UAIESelectionSets {
                 __buffer,
             )
         };
+        std::mem::forget(b_do_mirror);
+        std::mem::forget(b_add);
+        std::mem::forget(b_toggle);
+        std::mem::forget(b_select);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn rename_set_item(
@@ -2483,6 +2494,7 @@ impl UAIESelectionSets {
                 __buffer,
             )
         };
+        std::mem::forget(json_string);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn load_from_json_file(
@@ -3730,6 +3742,9 @@ impl UControlRigBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_rig_blueprint);
+        std::mem::forget(preview_mesh);
+        std::mem::forget(b_mark_as_dirty);
     }
     pub fn request_control_rig_init(
         in_rig_blueprint: UPtr<
@@ -3772,6 +3787,7 @@ impl UControlRigBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_rig_blueprint);
     }
     pub fn get_preview_mesh(
         in_rig_blueprint: UPtr<
@@ -3814,6 +3830,7 @@ impl UControlRigBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_rig_blueprint);
         unsafe {
             __buffer.add(8).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
         }
@@ -3859,6 +3876,7 @@ impl UControlRigBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_rig_blueprint);
         unsafe {
             __buffer
                 .add(8)
@@ -3907,6 +3925,7 @@ impl UControlRigBlueprintEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_rig_blueprint);
         unsafe {
             __buffer
                 .add(8)
@@ -4087,6 +4106,7 @@ impl UControlRigBlueprintEditorLibrary {
                 >()
                 .swap(as_control_rig_blueprint);
         }
+        std::mem::forget(object);
     }
 }
 #[repr(C, align(8))]
@@ -4164,6 +4184,8 @@ impl UControlRigBlueprintFactory {
                 __buffer,
             )
         };
+        std::mem::forget(in_desired_package_path);
+        std::mem::forget(b_modular_rig);
         unsafe {
             __buffer
                 .add(24)
@@ -4214,6 +4236,8 @@ impl UControlRigBlueprintFactory {
                 __buffer,
             )
         };
+        std::mem::forget(in_selected_object);
+        std::mem::forget(b_modular_rig);
         unsafe {
             __buffer
                 .add(16)
@@ -4346,6 +4370,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(tween_value);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn space_compensate(
@@ -4401,6 +4428,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn snap_control_rig(
@@ -4488,6 +4518,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(start_frame);
+        std::mem::forget(end_frame);
+        std::mem::forget(snap_settings);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(89).cast::<bool>().read() }
     }
     pub fn smart_reduce(
@@ -4541,6 +4576,7 @@ impl UControlRigSequencerEditorLibrary {
                 .cast::<crate::bindings::curve_editor::FSmartReduceParams>()
                 .swap(reduce_params);
         }
+        std::mem::forget(movie_scene_section);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn show_all_controls(
@@ -4578,6 +4614,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_section);
     }
     pub fn set_local_control_rig_vector2_ds(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -4662,6 +4699,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_vector2_d(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -4750,6 +4792,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_transforms(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -4834,6 +4883,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_transform_no_scales(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -4920,6 +4974,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_transform_no_scale(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5010,6 +5069,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_transform(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5098,6 +5164,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_scales(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5182,6 +5255,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_scale(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5270,6 +5348,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_rotators(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5354,6 +5439,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_rotator(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5442,6 +5532,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_positions(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5526,6 +5623,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_position(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5614,6 +5716,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_ints(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5696,6 +5805,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_int(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5780,6 +5894,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_floats(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5862,6 +5983,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_float(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -5946,6 +6072,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_euler_transforms(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6030,6 +6163,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_euler_transform(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6120,6 +6258,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_local_control_rig_bools(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6202,6 +6347,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(values);
+        std::mem::forget(time_unit);
     }
     pub fn set_local_control_rig_bool(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6286,6 +6436,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(value);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_interaction(b_is_interacting: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6318,6 +6475,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_interacting);
     }
     pub fn set_controls_mask(
         in_section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -6370,6 +6528,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_section);
+        std::mem::forget(b_visible);
     }
     pub fn set_control_rig_world_transforms(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6454,6 +6614,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
     }
     pub fn set_control_rig_world_transform(
         level_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6542,6 +6706,12 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_set_key);
     }
     pub fn set_control_rig_space(
         in_sequence: UPtr<crate::bindings::level_sequence::ULevelSequence>,
@@ -6622,6 +6792,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_control_name);
+        std::mem::forget(in_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn set_control_rig_priority_order(
@@ -6667,6 +6842,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_section);
+        std::mem::forget(priority_order);
     }
     pub fn set_control_rig_layered_mode(
         in_track: UPtr<
@@ -6717,6 +6894,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_track);
+        std::mem::forget(b_set_is_layered);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_control_rig_apply_mode(
@@ -6764,6 +6943,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_apply_mode);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn set_constraint_active_key(
@@ -6823,6 +7004,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_constraint);
+        std::mem::forget(b_active);
+        std::mem::forget(in_frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn rename_control_rig_control_channels(
@@ -6886,6 +7071,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_control_rig);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn move_control_rig_space(
@@ -6967,6 +7154,12 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_control_name);
+        std::mem::forget(in_time);
+        std::mem::forget(in_new_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(37).cast::<bool>().read() }
     }
     pub fn move_constraint_key(
@@ -7040,6 +7233,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(constraint);
+        std::mem::forget(constraint_section);
+        std::mem::forget(in_time);
+        std::mem::forget(in_new_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn merge_anim_layers_with_settings(
@@ -7251,6 +7449,19 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(movie_scene_section);
+        std::mem::forget(anim_sequence);
+        std::mem::forget(skel_mesh_comp);
+        std::mem::forget(in_start_frame);
+        std::mem::forget(b_use_custom_anim_range);
+        std::mem::forget(anim_start_range);
+        std::mem::forget(anim_end_range);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_key_reduce);
+        std::mem::forget(tolerance);
+        std::mem::forget(interpolation);
+        std::mem::forget(b_reset_controls);
+        std::mem::forget(b_onto_selected_controls);
         unsafe { __buffer.add(51).cast::<bool>().read() }
     }
     pub fn load_anim_sequence_into_control_rig_section(
@@ -7354,6 +7565,15 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(movie_scene_section);
+        std::mem::forget(anim_sequence);
+        std::mem::forget(skel_mesh_comp);
+        std::mem::forget(in_start_frame);
+        std::mem::forget(time_unit);
+        std::mem::forget(b_key_reduce);
+        std::mem::forget(tolerance);
+        std::mem::forget(interpolation);
+        std::mem::forget(b_reset_controls);
         unsafe { __buffer.add(38).cast::<bool>().read() }
     }
     pub fn is_layered_control_rig(
@@ -7391,6 +7611,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_fk_control_rig(
@@ -7428,6 +7649,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn import_fbx_to_control_rig_track(
@@ -7537,6 +7759,12 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_track);
+        std::mem::forget(in_section);
+        std::mem::forget(import_fbx_control_rig_settings);
+        std::mem::forget(import_filename);
         unsafe { __buffer.add(72).cast::<bool>().read() }
     }
     pub fn hide_all_controls(
@@ -7574,6 +7802,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_section);
     }
     pub fn get_world_space_reference_key() -> crate::bindings::control_rig::FRigElementKey {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -7709,6 +7938,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(skeletal_mesh_component);
+        std::mem::forget(time_unit);
+        std::mem::forget(reference_name);
         unsafe {
             __buffer
                 .add(48)
@@ -7787,6 +8020,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(skeletal_mesh_component);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
+        std::mem::forget(reference_name);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -7822,6 +8060,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_if_does_not_exist);
         unsafe { __buffer.add(8).cast::<UPtr<UAIESelectionSets>>().read() }
     }
     pub fn get_local_control_rig_vector2_ds(
@@ -7897,6 +8136,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -7975,6 +8218,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(40).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -8052,6 +8300,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -8132,6 +8384,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -8210,6 +8466,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(48)
@@ -8288,6 +8549,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -8365,6 +8631,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -8443,6 +8713,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(40).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -8520,6 +8795,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -8598,6 +8877,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(40).cast::<crate::bindings::core_u_object::FRotator>().read()
         }
@@ -8675,6 +8959,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -8753,6 +9041,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(40).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -8830,6 +9123,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(56).cast::<TArray<i32>>().read() }
     }
     pub fn get_local_control_rig_int(
@@ -8903,6 +9200,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(36).cast::<i32>().read() }
     }
     pub fn get_local_control_rig_floats(
@@ -8978,6 +9280,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(56).cast::<TArray<f32>>().read() }
     }
     pub fn get_local_control_rig_float(
@@ -9051,6 +9357,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(36).cast::<f32>().read() }
     }
     pub fn get_local_control_rig_euler_transforms(
@@ -9126,6 +9437,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -9204,6 +9519,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(40)
@@ -9284,6 +9604,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(56).cast::<TArray<bool>>().read() }
     }
     pub fn get_local_control_rig_bool(
@@ -9357,6 +9681,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn get_fk_control_rig_apply_mode(
@@ -9394,6 +9723,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_control_rig);
         unsafe {
             __buffer
                 .add(8)
@@ -9472,6 +9802,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_section);
+        std::mem::forget(control_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_control_rig_world_transforms(
@@ -9547,6 +9879,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(56)
@@ -9625,6 +9961,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig);
+        std::mem::forget(control_name);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(48).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -9664,6 +10005,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
         unsafe {
             __buffer.add(8).cast::<TArray<FControlRigSequencerBindingProxy>>().read()
         }
@@ -9703,6 +10045,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_section);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_constraints_for_handle(
@@ -9748,6 +10091,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
+        std::mem::forget(in_child);
         unsafe {
             __buffer
                 .add(16)
@@ -9839,6 +10184,9 @@ impl UControlRigSequencerEditorLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FFrameNumber>>()
                 .swap(out_frames);
         }
+        std::mem::forget(in_constraint);
+        std::mem::forget(constraint_section);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(49).cast::<bool>().read() }
     }
     pub fn get_anim_layers(b_add_if_does_not_exist: bool) -> TArray<UPtr<UAnimLayer>> {
@@ -9872,6 +10220,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_if_does_not_exist);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<UAnimLayer>>>().read() }
     }
     pub fn get_anim_layer_index(anim_layer: UPtr<UAnimLayer>) -> i32 {
@@ -9905,6 +10254,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_layer);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_actor_world_transforms(
@@ -9970,6 +10320,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(actor);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(40)
@@ -10038,6 +10391,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(actor);
+        std::mem::forget(frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -10113,6 +10470,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig_class);
+        std::mem::forget(b_is_layered_control_rig);
         unsafe {
             __buffer
                 .add(56)
@@ -10173,6 +10534,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(level_sequence);
         unsafe {
             __buffer
                 .add(40)
@@ -10247,6 +10610,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(section);
+        std::mem::forget(export_fbx_control_rig_settings);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn export_anim_sequence_from_sequencer(
@@ -10310,6 +10676,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_sequence);
+        std::mem::forget(export_option);
+        std::mem::forget(b_create_link);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn duplicate_anim_layer(index: i32) -> i32 {
@@ -10339,6 +10708,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn delete_control_rig_space(
@@ -10412,6 +10782,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_control_name);
+        std::mem::forget(in_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn delete_constraint_key(
@@ -10477,6 +10852,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(constraint);
+        std::mem::forget(constraint_section);
+        std::mem::forget(in_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn delete_anim_layer(index: i32) -> bool {
@@ -10506,6 +10885,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn control_rig_copy_vector_parameter_curves_to_transform(
@@ -10565,6 +10945,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_track);
+        std::mem::forget(in_type);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn compensate_all(
@@ -10602,6 +10984,7 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_constraint);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn compensate(
@@ -10657,6 +11040,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_constraint);
+        std::mem::forget(in_time);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn collapse_control_rig_anim_layers_with_settings(
@@ -10722,6 +11108,8 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_track);
         unsafe { __buffer.add(44).cast::<bool>().read() }
     }
     pub fn collapse_control_rig_anim_layers(
@@ -10787,6 +11175,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_track);
+        std::mem::forget(b_key_reduce);
+        std::mem::forget(tolerance);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn blend_values_on_selected(
@@ -10840,6 +11232,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_sequence);
+        std::mem::forget(blend_operation);
+        std::mem::forget(blend_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn bake_to_control_rig(
@@ -10935,6 +11330,13 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(level_sequence);
+        std::mem::forget(control_rig_class);
+        std::mem::forget(export_options);
+        std::mem::forget(b_reduce_keys);
+        std::mem::forget(tolerance);
+        std::mem::forget(b_reset_controls);
         unsafe { __buffer.add(65).cast::<bool>().read() }
     }
     pub fn bake_control_rig_space(
@@ -11008,6 +11410,10 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_control_rig);
+        std::mem::forget(in_settings);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(93).cast::<bool>().read() }
     }
     pub fn bake_constraints(
@@ -11077,6 +11483,7 @@ impl UControlRigSequencerEditorLibrary {
                 >()
                 .swap(in_constraints);
         }
+        std::mem::forget(world);
         unsafe { __buffer.add(52).cast::<bool>().read() }
     }
     pub fn bake_constraint(
@@ -11142,6 +11549,9 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(constraint);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn add_constraint(
@@ -11215,6 +11625,11 @@ impl UControlRigSequencerEditorLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(in_type);
+        std::mem::forget(in_child);
+        std::mem::forget(in_parent);
+        std::mem::forget(b_maintain_offset);
         unsafe {
             __buffer
                 .add(40)
@@ -11991,6 +12406,7 @@ impl UAnimLayer {
                 __buffer,
             )
         };
+        std::mem::forget(in_weight);
     }
     pub fn set_type(&mut self, layer_type: EAnimLayerType) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -12023,6 +12439,7 @@ impl UAnimLayer {
                 __buffer,
             )
         };
+        std::mem::forget(layer_type);
     }
     pub fn set_selected(&mut self, b_in_selected: bool, b_clear_selection: bool) {
         let mut __stack = crate::core_data::StackAlloc::<2>::new();
@@ -12062,6 +12479,8 @@ impl UAnimLayer {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_selected);
+        std::mem::forget(b_clear_selection);
     }
     pub fn set_name(&mut self, in_name: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -12118,6 +12537,7 @@ impl UAnimLayer {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_lock);
     }
     pub fn set_keyed(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -12175,6 +12595,7 @@ impl UAnimLayer {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_active);
     }
     pub fn remove_selected_in_sequencer(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();

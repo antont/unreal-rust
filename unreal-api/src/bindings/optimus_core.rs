@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -5164,6 +5165,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_vector_array_variable(
@@ -5210,6 +5212,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_vector4_variable(
@@ -5254,6 +5257,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_vector4_array_variable(
@@ -5300,6 +5304,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_vector2_variable(
@@ -5344,6 +5349,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_vector2_array_variable(
@@ -5390,6 +5396,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_transform_variable(
@@ -5434,6 +5441,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(112).cast::<bool>().read() }
     }
     pub fn set_transform_array_variable(
@@ -5480,6 +5488,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_rotator_variable(
@@ -5524,6 +5533,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn set_rotator_array_variable(
@@ -5570,6 +5580,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_quat_variable(
@@ -5614,6 +5625,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn set_quat_array_variable(
@@ -5658,6 +5670,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_name_variable(
@@ -5698,6 +5711,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_name_array_variable(
@@ -5742,6 +5756,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_linear_color_variable(
@@ -5786,6 +5801,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn set_linear_color_array_variable(
@@ -5832,6 +5848,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_int_variable(&mut self, in_variable_name: FName, in_value: i32) -> bool {
@@ -5868,6 +5885,8 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_int_array_variable(
@@ -5912,6 +5931,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_int4_variable(
@@ -5956,6 +5976,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn set_int4_array_variable(
@@ -6002,6 +6023,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_int3_variable(
@@ -6046,6 +6068,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_int3_array_variable(
@@ -6092,6 +6115,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_int2_variable(
@@ -6136,6 +6160,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn set_int2_array_variable(
@@ -6182,6 +6207,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_float_variable(
@@ -6222,6 +6248,8 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_float_array_variable(
@@ -6266,6 +6294,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_bool_variable(
@@ -6306,6 +6335,8 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn set_bool_array_variable(
@@ -6350,6 +6381,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn enqueue_trigger_graph(&mut self, in_trigger_graph_name: FName) -> bool {
@@ -6383,6 +6415,7 @@ impl UOptimusDeformerInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_trigger_graph_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
 }
@@ -6465,6 +6498,8 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
+        std::mem::forget(in_new_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn rename_graph(
@@ -6509,6 +6544,8 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
+        std::mem::forget(in_new_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_nodes(&mut self, in_nodes: &TArray<UPtr<UOptimusNode>>) -> bool {
@@ -6575,6 +6612,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn remove_link(
@@ -6619,6 +6657,8 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_output_pin);
+        std::mem::forget(in_node_input_pin);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_all_links(&mut self, in_node_pin: UPtr<UOptimusNodePin>) -> bool {
@@ -6652,6 +6692,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_pin);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn move_graph_direct(
@@ -6696,6 +6737,8 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph);
+        std::mem::forget(in_insert_before);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn is_sub_graph_reference(&self, in_node: UPtr<UOptimusNode>) -> bool {
@@ -6729,6 +6772,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_kernel_function(&self, in_node: UPtr<UOptimusNode>) -> bool {
@@ -6762,6 +6806,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_function_reference(&self, in_node: UPtr<UOptimusNode>) -> bool {
@@ -6795,6 +6840,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_function_graph(&self) -> bool {
@@ -6880,6 +6926,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_graph_type(&self) -> EOptimusNodeGraphType {
@@ -6994,6 +7041,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_graph_reference_node);
         unsafe { __buffer.add(8).cast::<TArray<UPtr<UOptimusNode>>>().read() }
     }
     pub fn duplicate_nodes(
@@ -7082,6 +7130,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn convert_to_sub_graph(
@@ -7118,6 +7167,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn convert_to_function(
@@ -7154,6 +7204,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_sub_graph_node);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn convert_function_to_custom_kernel(
@@ -7190,6 +7241,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_kernel_function);
         unsafe { __buffer.add(8).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn convert_custom_kernel_to_function(
@@ -7226,6 +7278,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_custom_kernel);
         unsafe { __buffer.add(8).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn collapse_nodes_to_sub_graph(
@@ -7342,6 +7395,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_desc);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_value_node(
@@ -7386,6 +7440,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_data_type_ref);
         unsafe { __buffer.add(80).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_resource_set_node(
@@ -7430,6 +7485,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_resource_desc);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_resource_node(
@@ -7474,6 +7530,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_resource_desc);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_resource_get_node(
@@ -7518,6 +7575,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_resource_desc);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_node(
@@ -7562,6 +7620,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_class);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_loop_terminal_nodes(
@@ -7642,6 +7701,8 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_node_output_pin);
+        std::mem::forget(in_node_input_pin);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_function_reference_node(
@@ -7686,6 +7747,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_function_graph);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_data_interface_node(
@@ -7730,6 +7792,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_data_interface_class);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_component_binding_get_node(
@@ -7774,6 +7837,7 @@ impl UOptimusNodeGraph {
                 __buffer,
             )
         };
+        std::mem::forget(in_component_binding);
         unsafe { __buffer.add(24).cast::<UPtr<UOptimusNode>>().read() }
     }
     pub fn add_comment_node(

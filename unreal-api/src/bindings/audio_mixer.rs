@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1413,6 +1414,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(audio_bus);
     }
     pub fn trim_audio_cache(in_megabytes_to_free: f32) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1445,6 +1449,7 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_megabytes_to_free);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn swap_audio_output_device(
@@ -1496,6 +1501,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(new_device_id);
     }
     pub fn stop_recording_output(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1564,6 +1571,12 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(export_type);
+        std::mem::forget(name);
+        std::mem::forget(path);
+        std::mem::forget(submix_to_record);
+        std::mem::forget(existing_sound_wave_to_overwrite);
         unsafe {
             __buffer.add(64).cast::<UPtr<crate::bindings::engine::USoundWave>>().read()
         }
@@ -1609,6 +1622,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(audio_bus);
     }
     pub fn stop_analyzing_output(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1651,6 +1666,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_to_stop_analyzing);
     }
     pub fn start_recording_output(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1701,6 +1718,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(expected_duration);
+        std::mem::forget(submix_to_record);
     }
     pub fn start_audio_bus(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1743,6 +1763,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(audio_bus);
     }
     pub fn start_analyzing_output(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1823,6 +1845,13 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_to_analyze);
+        std::mem::forget(fft_size);
+        std::mem::forget(interpolation_method);
+        std::mem::forget(window_type);
+        std::mem::forget(hop_size);
+        std::mem::forget(spectrum_type);
     }
     pub fn set_submix_effect_chain_override(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1887,6 +1916,10 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(submix_effect_preset_chain);
+        std::mem::forget(fade_time_sec);
     }
     pub fn set_bypass_source_effect_chain_entry(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1949,6 +1982,10 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(preset_chain);
+        std::mem::forget(entry_index);
+        std::mem::forget(b_bypassed);
     }
     pub fn resume_recording_output(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -1991,6 +2028,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_to_pause);
     }
     pub fn replace_submix_effect(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2051,6 +2090,10 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_sound_submix);
+        std::mem::forget(submix_chain_index);
+        std::mem::forget(submix_effect_preset);
     }
     pub fn replace_sound_effect_submix(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2111,6 +2154,10 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_sound_submix);
+        std::mem::forget(submix_chain_index);
+        std::mem::forget(submix_effect_preset);
     }
     pub fn remove_submix_effect_preset_at_index(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2161,6 +2208,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(submix_chain_index);
     }
     pub fn remove_submix_effect_preset(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2213,6 +2263,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(submix_effect_preset);
     }
     pub fn remove_submix_effect_at_index(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2263,6 +2316,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(submix_chain_index);
     }
     pub fn remove_submix_effect(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2315,6 +2371,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(submix_effect_preset);
     }
     pub fn remove_source_effect_from_preset_chain(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2369,6 +2428,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(preset_chain);
+        std::mem::forget(entry_index);
     }
     pub fn remove_master_submix_effect(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2413,6 +2475,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_effect_preset);
     }
     pub fn register_audio_bus_to_submix(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2463,6 +2527,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(audio_bus);
     }
     pub fn prime_sound_for_playback(
         sound_wave: UPtr<crate::bindings::engine::USoundWave>,
@@ -2505,6 +2572,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sound_wave);
+        std::mem::forget(on_load_completion);
     }
     pub fn prime_sound_cue_for_playback(
         sound_cue: UPtr<crate::bindings::engine::USoundCue>,
@@ -2539,6 +2608,7 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(sound_cue);
     }
     pub fn pause_recording_output(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2581,6 +2651,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_to_pause);
     }
     pub fn make_preset_spectral_analysis_band_settings(
         in_band_preset_type: crate::bindings::engine::EAudioSpectrumBandPresetType,
@@ -2641,6 +2713,10 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_band_preset_type);
+        std::mem::forget(in_num_bands);
+        std::mem::forget(in_attack_time_msec);
+        std::mem::forget(in_release_time_msec);
         unsafe {
             __buffer
                 .add(16)
@@ -2717,6 +2793,11 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_num_semitones);
+        std::mem::forget(in_starting_musical_note);
+        std::mem::forget(in_starting_octave);
+        std::mem::forget(in_attack_time_msec);
+        std::mem::forget(in_release_time_msec);
         unsafe {
             __buffer
                 .add(24)
@@ -2793,6 +2874,11 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_num_bands);
+        std::mem::forget(in_minimum_frequency);
+        std::mem::forget(in_maximum_frequency);
+        std::mem::forget(in_attack_time_msec);
+        std::mem::forget(in_release_time_msec);
         unsafe {
             __buffer
                 .add(24)
@@ -2845,6 +2931,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(audio_bus);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_phase_for_frequencies(
@@ -2907,6 +2995,8 @@ impl UAudioMixerBlueprintLibrary {
         unsafe {
             __buffer.add(24).cast::<TArray<f32>>().swap(phases);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_to_analyze);
     }
     pub fn get_number_of_entries_in_source_effect_chain(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -2953,6 +3043,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(preset_chain);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_magnitude_for_frequencies(
@@ -3015,6 +3107,8 @@ impl UAudioMixerBlueprintLibrary {
         unsafe {
             __buffer.add(24).cast::<TArray<f32>>().swap(magnitudes);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_to_analyze);
     }
     pub fn get_current_audio_output_device_name(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3061,6 +3155,7 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn get_available_audio_output_devices(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3105,6 +3200,7 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn conv_audio_output_device_info_to_string(
         info: &FAudioOutputDeviceInfo,
@@ -3182,6 +3278,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
     }
     pub fn clear_submix_effect_chain_override(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3232,6 +3330,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(fade_time_sec);
     }
     pub fn clear_master_submix_effects(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3266,6 +3367,7 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn add_submix_effect(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3318,6 +3420,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(sound_submix);
+        std::mem::forget(submix_effect_preset);
         unsafe { __buffer.add(24).cast::<i32>().read() }
     }
     pub fn add_source_effect_to_preset_chain(
@@ -3375,6 +3480,9 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(preset_chain);
+        std::mem::forget(entry);
     }
     pub fn add_master_submix_effect(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -3419,6 +3527,8 @@ impl UAudioMixerBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(submix_effect_preset);
     }
 }
 #[repr(C, align(16))]
@@ -3587,6 +3697,7 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(volume_multiplier);
     }
     pub fn set_submix_send(
         &mut self,
@@ -3628,6 +3739,8 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(submix);
+        std::mem::forget(send_level);
     }
     pub fn set_source_bus_send_pre_effect(
         &mut self,
@@ -3671,6 +3784,8 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sound_source_bus);
+        std::mem::forget(source_bus_send_level);
     }
     pub fn set_source_bus_send_post_effect(
         &mut self,
@@ -3714,6 +3829,8 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sound_source_bus);
+        std::mem::forget(source_bus_send_level);
     }
     pub fn set_output_to_bus_only(&mut self, b_in_output_to_bus_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3746,6 +3863,7 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_output_to_bus_only);
     }
     pub fn set_modulation_routing(
         &mut self,
@@ -3805,6 +3923,8 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(destination);
+        std::mem::forget(routing_method);
     }
     pub fn set_low_pass_filter_frequency(&mut self, in_low_pass_filter_frequency: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3837,6 +3957,7 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_low_pass_filter_frequency);
     }
     pub fn set_low_pass_filter_enabled(&mut self, in_low_pass_filter_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3869,6 +3990,7 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_low_pass_filter_enabled);
     }
     pub fn set_audio_bus_send_pre_effect(
         &mut self,
@@ -3912,6 +4034,8 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(audio_bus);
+        std::mem::forget(audio_bus_send_level);
     }
     pub fn set_audio_bus_send_post_effect(
         &mut self,
@@ -3955,6 +4079,8 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(audio_bus);
+        std::mem::forget(audio_bus_send_level);
     }
     pub fn is_playing(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4018,6 +4144,7 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(destination);
         unsafe {
             __buffer
                 .add(8)
@@ -4075,6 +4202,9 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(fade_out_duration);
+        std::mem::forget(fade_volume_level);
+        std::mem::forget(fade_curve);
     }
     pub fn fade_in(
         &self,
@@ -4128,6 +4258,10 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(fade_in_duration);
+        std::mem::forget(fade_volume_level);
+        std::mem::forget(start_time);
+        std::mem::forget(fade_curve);
     }
     pub fn adjust_volume(
         &self,
@@ -4179,6 +4313,9 @@ impl USynthComponent {
                 __buffer,
             )
         };
+        std::mem::forget(adjust_volume_duration);
+        std::mem::forget(adjust_volume_level);
+        std::mem::forget(fade_curve);
     }
 }
 #[repr(C, align(8))]
@@ -4283,6 +4420,7 @@ impl USubmixEffectDynamicsProcessorPreset {
                 __buffer,
             )
         };
+        std::mem::forget(submix);
     }
     pub fn set_audio_bus(
         &mut self,
@@ -4318,6 +4456,7 @@ impl USubmixEffectDynamicsProcessorPreset {
                 __buffer,
             )
         };
+        std::mem::forget(audio_bus);
     }
     pub fn reset_key(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4492,6 +4631,9 @@ impl USubmixEffectReverbPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_reverb_effect);
+        std::mem::forget(wet_level);
+        std::mem::forget(dry_level);
     }
     pub fn set_settings(&mut self, in_settings: &FSubmixEffectReverbSettings) {
         let mut __stack = crate::core_data::StackAlloc::<64>::new();
@@ -4629,6 +4771,7 @@ impl UScrubbedSound {
                 __buffer,
             )
         };
+        std::mem::forget(in_sound_wave);
     }
     pub fn set_playhead_time(&mut self, in_playhead_time_seconds: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4661,6 +4804,7 @@ impl UScrubbedSound {
                 __buffer,
             )
         };
+        std::mem::forget(in_playhead_time_seconds);
     }
     pub fn set_is_scrubbing_while_stationary(
         &mut self,
@@ -4696,6 +4840,7 @@ impl UScrubbedSound {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_scrub_while_stationary);
     }
     pub fn set_is_scrubbing(&mut self, b_in_is_scrubbing: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4728,6 +4873,7 @@ impl UScrubbedSound {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_is_scrubbing);
     }
     pub fn set_grain_duration_range(
         &mut self,
@@ -4880,6 +5026,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(16).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_quantization_boundary);
     }
     pub fn unsubscribe_from_all_time_divisions(
         &mut self,
@@ -4926,6 +5074,7 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(8).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn subscribe_to_quantization_event(
         &mut self,
@@ -4992,6 +5141,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(48).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_quantization_boundary);
     }
     pub fn subscribe_to_all_quantization_events(
         &mut self,
@@ -5048,6 +5199,7 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(40).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn stop_clock(
         &mut self,
@@ -5102,6 +5254,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(16).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(cancel_pending_events);
     }
     pub fn start_other_clock(
         &mut self,
@@ -5163,6 +5317,9 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(other_clock_name);
+        std::mem::forget(in_quantization_boundary);
     }
     pub fn start_clock(
         &mut self,
@@ -5209,6 +5366,7 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(8).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn set_ticks_per_second(
         &mut self,
@@ -5281,6 +5439,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(72).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(ticks_per_second);
     }
     pub fn set_thirty_second_notes_per_minute(
         &mut self,
@@ -5353,6 +5513,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(72).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(thirty_seconds_notes_per_minute);
     }
     pub fn set_seconds_per_tick(
         &mut self,
@@ -5425,6 +5587,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(72).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(seconds_per_tick);
     }
     pub fn set_milliseconds_per_tick(
         &mut self,
@@ -5497,6 +5661,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(72).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(milliseconds_per_tick);
     }
     pub fn set_beats_per_minute(
         &mut self,
@@ -5569,6 +5735,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(72).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(beats_per_minute);
     }
     pub fn resume_clock(
         &mut self,
@@ -5615,6 +5783,7 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(8).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn reset_transport_quantized(
         &mut self,
@@ -5679,6 +5848,8 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(72).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_quantization_boundary);
     }
     pub fn reset_transport(
         &mut self,
@@ -5722,6 +5893,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
     }
     pub fn pause_clock(
         &mut self,
@@ -5768,6 +5940,7 @@ impl UQuartzClockHandle {
         unsafe {
             __buffer.add(8).cast::<UPtr<UQuartzClockHandle>>().swap(clock_handle);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn notify_on_quantization_boundary(
         &mut self,
@@ -5829,6 +6002,9 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(in_quantization_boundary);
+        std::mem::forget(in_ms_offset);
     }
     pub fn is_clock_running(
         &mut self,
@@ -5864,6 +6040,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_ticks_per_second(
@@ -5900,6 +6077,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_thirty_second_notes_per_minute(
@@ -5936,6 +6114,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_seconds_per_tick(
@@ -5972,6 +6151,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_milliseconds_per_tick(
@@ -6008,6 +6188,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_estimated_run_time(
@@ -6044,6 +6225,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_duration_of_quantization_type_in_seconds(
@@ -6098,6 +6280,8 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(multiplier);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_current_timestamp(
@@ -6134,6 +6318,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe {
             __buffer
                 .add(8)
@@ -6175,6 +6360,7 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_beat_progress_percent(
@@ -6225,6 +6411,9 @@ impl UQuartzClockHandle {
                 __buffer,
             )
         };
+        std::mem::forget(quantization_boundary);
+        std::mem::forget(phase_offset);
+        std::mem::forget(ms_offset);
         unsafe { __buffer.add(12).cast::<f32>().read() }
     }
 }
@@ -6296,6 +6485,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_tickable_when_paused);
     }
     pub fn is_quartz_enabled(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6365,6 +6555,8 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(clock_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_round_trip_min_latency(
@@ -6401,6 +6593,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_round_trip_max_latency(
@@ -6437,6 +6630,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_round_trip_average_latency(
@@ -6473,6 +6667,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_handle_for_clock(
@@ -6517,6 +6712,8 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(clock_name);
         unsafe { __buffer.add(24).cast::<UPtr<UQuartzClockHandle>>().read() }
     }
     pub fn get_game_thread_to_audio_render_thread_min_latency(
@@ -6553,6 +6750,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_game_thread_to_audio_render_thread_max_latency(
@@ -6589,6 +6787,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_game_thread_to_audio_render_thread_average_latency(
@@ -6625,6 +6824,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_estimated_clock_run_time(
@@ -6669,6 +6869,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(20).cast::<f32>().read() }
     }
     pub fn get_duration_of_quantization_type_in_seconds(
@@ -6731,6 +6932,9 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(clock_name);
+        std::mem::forget(multiplier);
         unsafe { __buffer.add(28).cast::<f32>().read() }
     }
     pub fn get_current_clock_timestamp(
@@ -6775,6 +6979,7 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe {
             __buffer
                 .add(20)
@@ -6902,6 +7107,8 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(clock_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn delete_clock_by_name(
@@ -6946,6 +7153,8 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(clock_name);
     }
     pub fn delete_clock_by_handle(
         &mut self,
@@ -6992,6 +7201,7 @@ impl UQuartzSubsystem {
         unsafe {
             __buffer.add(8).cast::<UPtr<UQuartzClockHandle>>().swap(in_clock_handle);
         }
+        std::mem::forget(world_context_object);
     }
     pub fn create_new_clock(
         &mut self,
@@ -7059,6 +7269,11 @@ impl UQuartzSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(clock_name);
+        std::mem::forget(in_settings);
+        std::mem::forget(b_override_settings_if_clock_exists);
+        std::mem::forget(b_use_audio_engine_clock_manager);
         unsafe { __buffer.add(64).cast::<UPtr<UQuartzClockHandle>>().read() }
     }
 }

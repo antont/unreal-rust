@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -220,6 +221,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(32).cast::<FText>().read() }
     }
     pub fn get_config_data_text(entry_name: FString, value_out: &mut FText) -> bool {
@@ -263,6 +266,7 @@ impl UGlobalConfigurationDataBlueprintLibrary {
         unsafe {
             __buffer.add(16).cast::<FText>().swap(value_out);
         }
+        std::mem::forget(entry_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_config_data_struct(
@@ -324,6 +328,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FInstancedStruct>()
                 .swap(value_out);
         }
+        std::mem::forget(entry_name);
+        std::mem::forget(struct_type);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn get_config_data_string_with_default(
@@ -367,6 +373,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(32).cast::<FString>().read() }
     }
     pub fn get_config_data_string(entry_name: FString, value_out: &mut FString) -> bool {
@@ -410,6 +418,7 @@ impl UGlobalConfigurationDataBlueprintLibrary {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(value_out);
         }
+        std::mem::forget(entry_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_config_data_object(
@@ -453,6 +462,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(entry_name);
+        std::mem::forget(value_in_out);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_config_data_int_with_default(
@@ -496,6 +507,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn get_config_data_int(entry_name: FString, value_out: &mut i32) -> bool {
@@ -535,6 +548,7 @@ impl UGlobalConfigurationDataBlueprintLibrary {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(value_out);
         }
+        std::mem::forget(entry_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_config_data_float_with_default(
@@ -578,6 +592,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
         unsafe { __buffer.add(20).cast::<f32>().read() }
     }
     pub fn get_config_data_float(entry_name: FString, value_out: &mut f32) -> bool {
@@ -617,6 +633,7 @@ impl UGlobalConfigurationDataBlueprintLibrary {
         unsafe {
             __buffer.add(16).cast::<f32>().swap(value_out);
         }
+        std::mem::forget(entry_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_config_data_bool_with_default(
@@ -660,6 +677,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(entry_name);
+        std::mem::forget(b_default_value);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_config_data_bool(entry_name: FString, b_value_out: &mut bool) -> bool {
@@ -703,6 +722,7 @@ impl UGlobalConfigurationDataBlueprintLibrary {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(b_value_out);
         }
+        std::mem::forget(entry_name);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
 }

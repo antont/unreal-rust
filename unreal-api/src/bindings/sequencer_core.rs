@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -272,6 +273,7 @@ impl USequencerOutlinerScriptingObject {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_soloed);
     }
     pub fn set_selection(
         &mut self,
@@ -350,6 +352,7 @@ impl USequencerOutlinerScriptingObject {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_pinned);
     }
     pub fn set_mute_nodes(
         &mut self,
@@ -393,6 +396,7 @@ impl USequencerOutlinerScriptingObject {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_muted);
     }
     pub fn set_locked_nodes(
         &mut self,
@@ -436,6 +440,7 @@ impl USequencerOutlinerScriptingObject {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_locked);
     }
     pub fn set_deactivated_nodes(
         &mut self,
@@ -479,6 +484,7 @@ impl USequencerOutlinerScriptingObject {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_deactivated);
     }
     pub fn get_solo_nodes(&mut self) -> TArray<FSequencerViewModelScriptingStruct> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -718,6 +724,8 @@ impl USequencerOutlinerScriptingObject {
                 __buffer,
             )
         };
+        std::mem::forget(node);
+        std::mem::forget(type_name);
         unsafe {
             __buffer.add(48).cast::<TArray<FSequencerViewModelScriptingStruct>>().read()
         }

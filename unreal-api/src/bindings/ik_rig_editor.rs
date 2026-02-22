@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1592,6 +1593,15 @@ impl UIKRetargetBatchOperation {
                 __buffer,
             )
         };
+        std::mem::forget(source_mesh);
+        std::mem::forget(target_mesh);
+        std::mem::forget(ik_retarget_asset);
+        std::mem::forget(search);
+        std::mem::forget(replace);
+        std::mem::forget(prefix);
+        std::mem::forget(suffix);
+        std::mem::forget(b_include_referenced_assets);
+        std::mem::forget(b_overwrite_existing_files);
         unsafe {
             __buffer
                 .add(112)
@@ -1713,6 +1723,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(reference_bone);
+        std::mem::forget(source_or_target);
     }
     pub fn set_source_chain(
         &self,
@@ -1764,6 +1776,9 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_chain_name);
+        std::mem::forget(in_target_chain_name);
+        std::mem::forget(in_op_name);
         unsafe { __buffer.add(36).cast::<bool>().read() }
     }
     pub fn set_rotation_offset_for_retarget_pose_bone(
@@ -1814,6 +1829,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton_mode);
     }
     pub fn set_root_settings(
         &self,
@@ -1894,6 +1910,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
     }
     pub fn set_retarget_op_enabled(
         &self,
@@ -1937,6 +1954,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_retarget_op_index);
+        std::mem::forget(b_is_enabled);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_retarget_chain_settings(
@@ -2027,6 +2046,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
+        std::mem::forget(in_preview_mesh);
     }
     pub fn set_parent_op_by_name(
         &self,
@@ -2070,6 +2091,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_child_op_name);
+        std::mem::forget(in_parent_op_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_op_name(&self, in_name: FName, in_op_index: i32) -> FName {
@@ -2106,6 +2129,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
+        std::mem::forget(in_op_index);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn set_ik_rig(
@@ -2154,6 +2179,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
+        std::mem::forget(ik_rig);
     }
     pub fn set_global_settings(
         &self,
@@ -2236,6 +2263,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(current_pose);
+        std::mem::forget(source_or_target);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn run_op_initial_setup(&self, in_op_index: i32) {
@@ -2269,6 +2298,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_index);
     }
     pub fn reset_retarget_pose(
         &self,
@@ -2322,6 +2352,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
     }
     pub fn reset_chain_settings_to_default(
         &self,
@@ -2365,6 +2396,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_chain_name);
+        std::mem::forget(in_op_name);
     }
     pub fn reset_chain_settings_in_all_ops(&self, in_target_chain_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -2397,6 +2430,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_target_chain_name);
     }
     pub fn rename_retarget_pose(
         &self,
@@ -2450,6 +2484,9 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(old_pose_name);
+        std::mem::forget(new_pose_name);
+        std::mem::forget(source_or_target);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn remove_retarget_pose(
@@ -2496,6 +2533,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn remove_retarget_op(&self, in_op_index: i32) -> bool {
@@ -2529,6 +2567,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn remove_all_ops(&self) -> bool {
@@ -2599,6 +2638,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_to_move_index);
+        std::mem::forget(in_target_index);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_target_ik_rig_for_op(
@@ -2635,6 +2676,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_name);
         unsafe {
             __buffer
                 .add(16)
@@ -2684,6 +2726,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_name);
         unsafe { __buffer.add(24).cast::<FName>().read() }
     }
     pub fn get_rotation_offset_for_retarget_pose_bone(
@@ -2726,6 +2769,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -2794,6 +2838,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -2834,6 +2879,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe {
             __buffer
                 .add(8)
@@ -2872,6 +2918,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_retarget_op_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_retarget_chain_settings(
@@ -2951,6 +2998,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe {
             __buffer.add(8).cast::<UPtr<crate::bindings::engine::USkeletalMesh>>().read()
         }
@@ -2986,6 +3034,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_op_name(&self, in_op_index: i32) -> FName {
@@ -3019,6 +3068,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_index);
         unsafe { __buffer.add(4).cast::<FName>().read() }
     }
     pub fn get_op_controller(
@@ -3055,6 +3105,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_index);
         unsafe {
             __buffer
                 .add(8)
@@ -3119,6 +3170,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_op_name);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn get_ik_rig(
@@ -3157,6 +3209,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe {
             __buffer
                 .add(8)
@@ -3233,6 +3286,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe { __buffer.add(4).cast::<FName>().read() }
     }
     pub fn get_current_retarget_pose(
@@ -3271,6 +3325,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::ik_rig::FIKRetargetPose>().read()
         }
@@ -3308,6 +3363,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_retargeter_asset);
         unsafe { __buffer.add(8).cast::<UPtr<UIKRetargeterController>>().read() }
     }
     pub fn get_all_target_ik_rigs(
@@ -3428,6 +3484,9 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(pose_to_duplicate);
+        std::mem::forget(new_name);
+        std::mem::forget(source_or_target);
         unsafe { __buffer.add(28).cast::<FName>().read() }
     }
     pub fn create_retarget_pose(
@@ -3474,6 +3533,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
         unsafe { __buffer.add(16).cast::<FName>().read() }
     }
     pub fn auto_map_chains(
@@ -3526,6 +3586,9 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(auto_map_type);
+        std::mem::forget(b_force_remap);
+        std::mem::forget(in_op_name);
     }
     pub fn auto_align_bones(
         &self,
@@ -3579,6 +3642,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(method);
+        std::mem::forget(source_or_target);
     }
     pub fn auto_align_all_bones(
         &self,
@@ -3624,6 +3689,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(source_or_target);
+        std::mem::forget(method);
     }
     pub fn assign_ik_rig_to_all_ops(
         &self,
@@ -3671,6 +3738,8 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_or_target);
+        std::mem::forget(in_ik_rig);
     }
     pub fn add_retarget_op(&self, in_ik_retarget_op_type: FString) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -3703,6 +3772,7 @@ impl UIKRetargeterController {
                 __buffer,
             )
         };
+        std::mem::forget(in_ik_retarget_op_type);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn add_default_ops(&self) {
@@ -4266,6 +4336,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(root_bone_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_solver_enabled(&self, solver_index: i32, b_is_enabled: bool) -> bool {
@@ -4306,6 +4378,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_index);
+        std::mem::forget(b_is_enabled);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_skeletal_mesh(
@@ -4342,6 +4416,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_retarget_root(&self, root_bone_name: FName) -> bool {
@@ -4375,6 +4450,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(root_bone_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_retarget_chain_start_bone(
@@ -4419,6 +4495,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
+        std::mem::forget(start_bone_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_retarget_chain_goal(&self, chain_name: FName, goal_name: FName) -> bool {
@@ -4459,6 +4537,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
+        std::mem::forget(goal_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_retarget_chain_end_bone(
@@ -4503,6 +4583,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
+        std::mem::forget(end_bone_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_goal_bone(&self, goal_name: FName, new_bone_name: FName) -> bool {
@@ -4543,6 +4625,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(new_bone_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn set_end_bone(&self, end_bone_name: FName, solver_index: i32) -> bool {
@@ -4583,6 +4667,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(end_bone_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_bone_excluded(&self, bone_name: FName, b_exclude: bool) -> bool {
@@ -4623,6 +4709,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(b_exclude);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn rename_retarget_chain(
@@ -4667,6 +4755,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
+        std::mem::forget(new_chain_name);
         unsafe { __buffer.add(24).cast::<FName>().read() }
     }
     pub fn rename_goal(&self, old_name: FName, potential_new_name: FName) -> FName {
@@ -4703,6 +4793,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(old_name);
+        std::mem::forget(potential_new_name);
         unsafe { __buffer.add(24).cast::<FName>().read() }
     }
     pub fn remove_solver(&self, solver_index: i32) -> bool {
@@ -4736,6 +4828,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn remove_retarget_chain(&self, chain_name: FName) -> bool {
@@ -4769,6 +4862,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_goal(&self, goal_name: FName) -> bool {
@@ -4802,6 +4896,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_bone_setting(&self, bone_name: FName, solver_index: i32) -> bool {
@@ -4842,6 +4937,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn move_solver_in_stack(
@@ -4886,6 +4983,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_to_move_index);
+        std::mem::forget(target_solver_index);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_skeletal_mesh_compatible(
@@ -4922,6 +5021,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(skeletal_mesh_to_check);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_goal_connected_to_solver(
@@ -4966,6 +5066,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_goal_connected_to_any_solver(&self, goal_name: FName) -> bool {
@@ -4999,6 +5101,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_start_bone(&self, solver_index: i32) -> FName {
@@ -5032,6 +5135,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(4).cast::<FName>().read() }
     }
     pub fn get_solver_enabled(&self, solver_index: i32) -> bool {
@@ -5065,6 +5169,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_solver_controller(
@@ -5101,6 +5206,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_index);
         unsafe {
             __buffer
                 .add(8)
@@ -5193,6 +5299,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_retarget_chains(&self) -> TArray<crate::bindings::ik_rig::FBoneChain> {
@@ -5254,6 +5361,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_retarget_chain_end_bone(&self, chain_name: FName) -> FName {
@@ -5287,6 +5395,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_ref_pose_transform_of_bone(
@@ -5323,6 +5432,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -5389,6 +5499,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_controller);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_goal_settings_for_solver(
@@ -5433,6 +5544,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(solver_index);
         unsafe {
             __buffer
                 .add(16)
@@ -5471,6 +5584,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_goal(
@@ -5507,6 +5621,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
         unsafe {
             __buffer
                 .add(16)
@@ -5545,6 +5660,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(4).cast::<FName>().read() }
     }
     pub fn get_controller(
@@ -5582,6 +5698,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_ik_rig_definition);
         unsafe { __buffer.add(8).cast::<UPtr<UIKRigController>>().read() }
     }
     pub fn get_bone_settings(
@@ -5626,6 +5743,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(solver_index);
         unsafe {
             __buffer
                 .add(16)
@@ -5664,6 +5783,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_bone_excluded(&self, bone_name: FName) -> bool {
@@ -5697,6 +5817,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_all_goals(
@@ -5774,6 +5895,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn disconnect_goal_from_solver(
@@ -5818,6 +5941,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_to_remove);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_goal_to_solver(&self, goal_name: FName, solver_index: i32) -> bool {
@@ -5858,6 +5983,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn apply_auto_generated_retarget_definition(&mut self) -> bool {
@@ -5943,6 +6070,7 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(in_ik_rig_solver_type);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn add_retarget_chain(
@@ -6003,6 +6131,10 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(chain_name);
+        std::mem::forget(start_bone_name);
+        std::mem::forget(end_bone_name);
+        std::mem::forget(goal_name);
         unsafe { __buffer.add(48).cast::<FName>().read() }
     }
     pub fn add_new_goal(&self, goal_name: FName, bone_name: FName) -> FName {
@@ -6043,6 +6175,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(goal_name);
+        std::mem::forget(bone_name);
         unsafe { __buffer.add(24).cast::<FName>().read() }
     }
     pub fn add_bone_setting(&self, bone_name: FName, solver_index: i32) -> bool {
@@ -6083,6 +6217,8 @@ impl UIKRigController {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(solver_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -6161,6 +6297,8 @@ impl UIKRigDefinitionFactory {
                 __buffer,
             )
         };
+        std::mem::forget(in_package_path);
+        std::mem::forget(in_asset_name);
         unsafe {
             __buffer
                 .add(32)

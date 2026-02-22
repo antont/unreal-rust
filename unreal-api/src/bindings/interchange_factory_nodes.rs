@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -6490,6 +6491,7 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_local_transform(
@@ -6534,6 +6536,7 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(97).cast::<bool>().read() }
     }
     pub fn set_custom_global_transform(
@@ -6578,6 +6581,7 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(97).cast::<bool>().read() }
     }
     pub fn set_custom_component_visibility(
@@ -6622,6 +6626,8 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_actor_visibility(
@@ -6666,6 +6672,8 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_actor_class_name(&mut self, attribute_value: FString) -> bool {
@@ -6699,6 +6707,7 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_mobility(&self, attribute_value: &mut u8) -> bool {
@@ -6995,6 +7004,7 @@ impl UInterchangeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(component_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -7074,6 +7084,7 @@ impl UInterchangePhysicalCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_sensor_height(
@@ -7118,6 +7129,7 @@ impl UInterchangePhysicalCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_focus_method(
@@ -7164,6 +7176,7 @@ impl UInterchangePhysicalCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_focal_length(
@@ -7208,6 +7221,7 @@ impl UInterchangePhysicalCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_sensor_width(&self, attribute_value: &mut f32) -> bool {
@@ -7439,6 +7453,7 @@ impl UInterchangeStandardCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_projection_mode(
@@ -7483,6 +7498,7 @@ impl UInterchangeStandardCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_near_clip_plane(
@@ -7527,6 +7543,7 @@ impl UInterchangeStandardCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_field_of_view(
@@ -7571,6 +7588,7 @@ impl UInterchangeStandardCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_far_clip_plane(
@@ -7615,6 +7633,7 @@ impl UInterchangeStandardCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_aspect_ratio(
@@ -7659,6 +7678,7 @@ impl UInterchangeStandardCameraFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_width(&self, attribute_value: &mut f32) -> bool {
@@ -7949,6 +7969,7 @@ impl UInterchangePhysicsAssetFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn initialize_physics_asset_node(
@@ -8017,6 +8038,10 @@ impl UInterchangePhysicsAssetFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(in_asset_class);
+        std::mem::forget(node_container);
     }
     pub fn get_custom_skeletal_mesh_uid(&self, attribute_value: &mut FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -8159,6 +8184,7 @@ impl UInterchangeSkeletonFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_root_joint_uid(&mut self, attribute_value: FString) -> bool {
@@ -8192,6 +8218,7 @@ impl UInterchangeSkeletonFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn initialize_skeleton_node(
@@ -8260,6 +8287,10 @@ impl UInterchangeSkeletonFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(in_asset_class);
+        std::mem::forget(node_container);
     }
     pub fn get_custom_use_time_zero_for_bind_pose(
         &self,
@@ -8452,6 +8483,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_translated_texture_node_uid(
@@ -8488,6 +8520,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_srgb(
@@ -8532,6 +8565,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_prefer_compressed_source_data(
@@ -8612,6 +8646,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_padding_color(
@@ -8656,6 +8691,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_mip_load_options(
@@ -8700,6 +8736,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_mip_gen_settings(
@@ -8744,6 +8781,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_max_texture_size(
@@ -8788,6 +8826,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_lossy_compression_amount(
@@ -8832,6 +8871,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_lod_group(
@@ -8876,6 +8916,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_lod_bias(
@@ -8920,6 +8961,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_filter(
@@ -8964,6 +9006,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_downscale_options(
@@ -9008,6 +9051,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_downscale(
@@ -9052,6 +9096,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_defer_compression(
@@ -9096,6 +9141,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_compression_settings(
@@ -9140,6 +9186,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_compression_quality(
@@ -9184,6 +9231,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_compression_no_alpha(
@@ -9228,6 +9276,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_composite_texture_mode(
@@ -9272,6 +9321,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_composite_power(
@@ -9316,6 +9366,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_color_space(
@@ -9360,6 +9411,8 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_chroma_key_threshold(
@@ -9404,6 +9457,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_chroma_key_color(
@@ -9448,6 +9502,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_customb_use_legacy_gamma(
@@ -9492,6 +9547,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_customb_preserve_border(
@@ -9536,6 +9592,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_customb_flip_green_channel(
@@ -9580,6 +9637,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_customb_do_scale_mips_for_alpha_coverage(
@@ -9624,6 +9682,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_customb_chroma_key_texture(
@@ -9668,6 +9727,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_alpha_coverage_thresholds(
@@ -9712,6 +9772,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn set_custom_allow_non_power_of_two(&mut self, attribute_value: &bool) -> bool {
@@ -9789,6 +9850,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_saturation(
@@ -9833,6 +9895,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_rgb_curve(
@@ -9877,6 +9940,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_min_alpha(
@@ -9921,6 +9985,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_max_alpha(
@@ -9965,6 +10030,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_hue(
@@ -10009,6 +10075,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_brightness_curve(
@@ -10053,6 +10120,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_adjust_brightness(
@@ -10097,6 +10165,7 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn initialize_texture_node(
@@ -10165,6 +10234,10 @@ impl UInterchangeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(in_asset_name);
+        std::mem::forget(node_container);
     }
     pub fn get_custom_virtual_texture_streaming(
         &self,
@@ -11683,6 +11756,8 @@ impl UInterchangeTexture2DArrayFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn get_custom_address_z(&self, attribute_value: &mut u8) -> bool {
@@ -11902,6 +11977,9 @@ impl UInterchangeTexture2DFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(x);
+        std::mem::forget(y);
+        std::mem::forget(in_source_file);
     }
     pub fn set_source_block(&mut self, block_index: i32, in_source_file: FString) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -11941,6 +12019,8 @@ impl UInterchangeTexture2DFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(block_index);
+        std::mem::forget(in_source_file);
     }
     pub fn set_custom_address_y(
         &mut self,
@@ -11984,6 +12064,8 @@ impl UInterchangeTexture2DFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_address_x(
@@ -12028,6 +12110,8 @@ impl UInterchangeTexture2DFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn get_source_blocks(&self) -> TMap<i32, FString> {
@@ -12101,6 +12185,8 @@ impl UInterchangeTexture2DFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_source_file);
         }
+        std::mem::forget(x);
+        std::mem::forget(y);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_source_block(
@@ -12148,6 +12234,7 @@ impl UInterchangeTexture2DFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_source_file);
         }
+        std::mem::forget(block_index);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_custom_address_y(
@@ -12381,6 +12468,8 @@ impl UInterchangeTextureLightProfileFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_brightness(
@@ -12425,6 +12514,8 @@ impl UInterchangeTextureLightProfileFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_texture_multiplier(&self, attribute_value: &mut f32) -> bool {
@@ -12641,6 +12732,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_remove_curve_redundant_keys(
@@ -13192,6 +13284,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(material_curve_suffixe);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_animated_attribute_step_curve_name(
@@ -13228,6 +13321,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_step_curve_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_animated_attribute_curve_name(
@@ -13264,6 +13358,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_curve_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_animated_material_curve_suffixe(
@@ -13300,6 +13395,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(material_curve_suffixe);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_animated_attribute_step_curve_name(
@@ -13336,6 +13432,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_step_curve_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_animated_attribute_curve_name(
@@ -13372,6 +13469,7 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_curve_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn initialize_anim_sequence_node(
@@ -13432,6 +13530,9 @@ impl UInterchangeAnimSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(node_container);
     }
     pub fn get_scene_node_animation_payload_keys(
         &self,
@@ -14198,6 +14299,7 @@ impl UInterchangeAnimSequenceFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_material_curve_suffixe);
         }
+        std::mem::forget(index);
     }
     pub fn get_animated_attribute_step_curve_names_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -14307,6 +14409,7 @@ impl UInterchangeAnimSequenceFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_attribute_step_curve_name);
         }
+        std::mem::forget(index);
     }
     pub fn get_animated_attribute_curve_names_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -14413,6 +14516,7 @@ impl UInterchangeAnimSequenceFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_attribute_curve_name);
         }
+        std::mem::forget(index);
     }
 }
 #[repr(C, align(8))]
@@ -14499,6 +14603,7 @@ impl UInterchangeCommonPipelineDataFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(node_container);
         unsafe { __buffer.add(112).cast::<bool>().read() }
     }
     pub fn set_bake_pivot_meshes(&mut self, attribute_value: &bool) -> bool {
@@ -14758,6 +14863,7 @@ impl UInterchangeDecalActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_decal_size(
@@ -14802,6 +14908,7 @@ impl UInterchangeDecalActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn set_custom_decal_material_path_name(
@@ -14838,6 +14945,7 @@ impl UInterchangeDecalActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_sort_order(&self, attribute_value: &mut i32) -> bool {
@@ -15133,6 +15241,7 @@ impl UInterchangeDecalMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_diffuse_texture_path(&mut self, attribute_value: FString) -> bool {
@@ -15166,6 +15275,7 @@ impl UInterchangeDecalMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_normal_texture_path(&self, attribute_value: &mut FString) -> bool {
@@ -15320,6 +15430,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(slot_name);
+        std::mem::forget(material_dependency_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_custom_vertex_color_replace(&mut self, attribute_value: &bool) -> bool {
@@ -15466,6 +15578,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_use_high_precision_tangent_basis(
@@ -15510,6 +15623,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_use_full_precision_u_vs(
@@ -15554,6 +15668,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_use_backwards_compatible_f16_trunc_u_vs(
@@ -15598,6 +15713,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_remove_degenerates(
@@ -15642,6 +15758,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_recompute_tangents(
@@ -15686,6 +15803,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_recompute_normals(
@@ -15730,6 +15848,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_lod_group(
@@ -15774,6 +15893,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn set_custom_keep_sections_separate(&mut self, attribute_value: &bool) -> bool {
@@ -15884,6 +16004,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_assembly_part_dependency_uid(
@@ -15928,6 +16049,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_uid);
+        std::mem::forget(assembly_part_dependency_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn reset_slot_material_dependencies(&mut self) -> bool {
@@ -16013,6 +16136,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(slot_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_lod_data_unique_id(&mut self, lod_data_unique_id: FString) -> bool {
@@ -16046,6 +16170,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(lod_data_unique_id);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_assembly_part_dependency_uid(&mut self, mesh_uid: FString) -> bool {
@@ -16079,6 +16204,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_slot_material_dependency_uid(
@@ -16126,6 +16252,7 @@ impl UInterchangeMeshFactoryNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_material_dependency);
         }
+        std::mem::forget(slot_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_slot_material_dependencies(
@@ -16210,6 +16337,7 @@ impl UInterchangeMeshFactoryNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(value);
         }
+        std::mem::forget(payload_attribute_key);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_payload_key_int32_attribute(
@@ -16253,6 +16381,7 @@ impl UInterchangeMeshFactoryNode {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(value);
         }
+        std::mem::forget(payload_attribute_key);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_payload_key_float_attribute(
@@ -16296,6 +16425,7 @@ impl UInterchangeMeshFactoryNode {
         unsafe {
             __buffer.add(16).cast::<f32>().swap(value);
         }
+        std::mem::forget(payload_attribute_key);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_payload_key_double_attribute(
@@ -16339,6 +16469,7 @@ impl UInterchangeMeshFactoryNode {
         unsafe {
             __buffer.add(16).cast::<f64>().swap(value);
         }
+        std::mem::forget(payload_attribute_key);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_payload_key_boolean_attribute(
@@ -16382,6 +16513,7 @@ impl UInterchangeMeshFactoryNode {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(value);
         }
+        std::mem::forget(payload_attribute_key);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn get_lod_data_unique_ids(
@@ -17075,6 +17207,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(payload_attribute_key);
+        std::mem::forget(value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_payload_key_int32_attribute(
@@ -17115,6 +17249,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(payload_attribute_key);
+        std::mem::forget(value);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn add_payload_key_float_attribute(
@@ -17155,6 +17291,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(payload_attribute_key);
+        std::mem::forget(value);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn add_payload_key_double_attribute(
@@ -17195,6 +17333,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(payload_attribute_key);
+        std::mem::forget(value);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_payload_key_boolean_attribute(
@@ -17235,6 +17375,8 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(payload_attribute_key);
+        std::mem::forget(value);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn add_lod_data_unique_id(&mut self, lod_data_unique_id: FString) -> bool {
@@ -17268,6 +17410,7 @@ impl UInterchangeMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(lod_data_unique_id);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -17511,6 +17654,7 @@ impl UInterchangeGeometryCacheFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_custom_flatten_tracks(&mut self, attribute_value: &bool) -> bool {
@@ -17657,6 +17801,8 @@ impl UInterchangeGeometryCacheFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(scene_node_uid);
+        std::mem::forget(in_unique_id);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn initialize_geometry_cache_node(
@@ -17725,6 +17871,10 @@ impl UInterchangeGeometryCacheFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(in_asset_class);
+        std::mem::forget(node_container);
     }
     pub fn get_scene_node_animation_payload_keys(
         &self,
@@ -18858,6 +19008,7 @@ impl UInterchangeHeterogeneousVolumeActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(material_factory_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_volumetric_material_uid(
@@ -19001,6 +19152,7 @@ impl UInterchangeLevelFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_create_world_partition_level(
@@ -19073,6 +19225,7 @@ impl UInterchangeLevelFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(actor_factory_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_should_create_level(&self, attribute_value: &mut bool) -> bool {
@@ -19294,6 +19447,7 @@ impl UInterchangeLevelFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_actor_factory_node_uid);
         }
+        std::mem::forget(index);
     }
     pub fn add_custom_actor_factory_node_uid(
         &mut self,
@@ -19329,6 +19483,7 @@ impl UInterchangeLevelFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(actor_factory_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -19397,6 +19552,7 @@ impl UInterchangeLevelInstanceActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_level_reference(&self, attribute_value: &mut FString) -> bool {
@@ -19537,6 +19693,7 @@ impl UInterchangeLevelSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(animation_track_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_frame_rate(&self, attribute_value: &mut f32) -> bool {
@@ -19680,6 +19837,7 @@ impl UInterchangeLevelSequenceFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_animation_track_uid);
         }
+        std::mem::forget(index);
     }
     pub fn add_custom_animation_track_uid(
         &mut self,
@@ -19715,6 +19873,7 @@ impl UInterchangeLevelSequenceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(animation_track_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -19794,6 +19953,8 @@ impl UInterchangeBaseLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_temperature(
@@ -19838,6 +19999,8 @@ impl UInterchangeBaseLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_light_color(
@@ -19882,6 +20045,7 @@ impl UInterchangeBaseLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_intensity(
@@ -19926,6 +20090,8 @@ impl UInterchangeBaseLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_use_temperature(&self, attribute_value: &mut bool) -> bool {
@@ -20190,6 +20356,7 @@ impl UInterchangeLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_rotation(
@@ -20234,6 +20401,7 @@ impl UInterchangeLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn set_custom_intensity_units(
@@ -20278,6 +20446,8 @@ impl UInterchangeLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_ies_texture(&mut self, attribute_value: FString) -> bool {
@@ -20311,6 +20481,7 @@ impl UInterchangeLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_ies_brightness_scale(
@@ -20355,6 +20526,7 @@ impl UInterchangeLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_attenuation_radius(
@@ -20399,6 +20571,8 @@ impl UInterchangeLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_use_ies_brightness(&self, attribute_value: &mut bool) -> bool {
@@ -20706,6 +20880,8 @@ impl UInterchangeRectLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_source_height(
@@ -20750,6 +20926,8 @@ impl UInterchangeRectLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_source_width(&self, attribute_value: &mut f32) -> bool {
@@ -20901,6 +21079,8 @@ impl UInterchangePointLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_light_falloff_exponent(
@@ -20945,6 +21125,8 @@ impl UInterchangePointLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_use_inverse_squared_falloff(
@@ -21099,6 +21281,8 @@ impl UInterchangeSpotLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_inner_cone_angle(
@@ -21143,6 +21327,8 @@ impl UInterchangeSpotLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn get_custom_outer_cone_angle(&self, attribute_value: &mut f32) -> bool {
@@ -21290,6 +21476,7 @@ impl UInterchangeSkyLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(source_type);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_custom_cubemap_dependency(
@@ -21326,6 +21513,7 @@ impl UInterchangeSkyLightFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(texture_cube_factory_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_source_type(
@@ -21492,6 +21680,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_translucency_lighting_mode(
@@ -21538,6 +21727,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_shading_model(
@@ -21582,6 +21772,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_screen_space_reflections(
@@ -21662,6 +21853,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_opacity_mask_clip_value(
@@ -21706,6 +21898,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_displacement_center(&mut self, attribute_value: f32) -> bool {
@@ -21739,6 +21932,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn set_custom_blend_mode(
@@ -21783,6 +21977,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn get_transmission_color_connection(
@@ -23133,6 +23328,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_tangent(&mut self, expression_node_uid: FString) -> bool {
@@ -23166,6 +23362,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_surface_coverage(&mut self, expression_uid: FString) -> bool {
@@ -23199,6 +23396,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_subsurface(&mut self, expression_node_uid: FString) -> bool {
@@ -23232,6 +23430,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_specular(&mut self, expression_node_uid: FString) -> bool {
@@ -23265,6 +23464,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_roughness(&mut self, expression_node_uid: FString) -> bool {
@@ -23298,6 +23498,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_refraction(&mut self, attribute_value: FString) -> bool {
@@ -23331,6 +23532,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_opacity(&mut self, attribute_value: FString) -> bool {
@@ -23364,6 +23566,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_occlusion(&mut self, attribute_value: FString) -> bool {
@@ -23397,6 +23600,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_normal(&mut self, expression_node_uid: FString) -> bool {
@@ -23430,6 +23634,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_metallic(&mut self, attribute_value: FString) -> bool {
@@ -23463,6 +23668,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_fuzz_color(&mut self, attribute_value: FString) -> bool {
@@ -23496,6 +23702,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_emissive_color(&mut self, expression_node_uid: FString) -> bool {
@@ -23529,6 +23736,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_displacement(&mut self, attribute_value: FString) -> bool {
@@ -23562,6 +23770,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_cloth(&mut self, attribute_value: FString) -> bool {
@@ -23595,6 +23804,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_clear_coat_roughness(&mut self, attribute_value: FString) -> bool {
@@ -23628,6 +23838,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_clear_coat_normal(&mut self, attribute_value: FString) -> bool {
@@ -23661,6 +23872,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_clear_coat(&mut self, attribute_value: FString) -> bool {
@@ -23694,6 +23906,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_base_color(&mut self, attribute_value: FString) -> bool {
@@ -23727,6 +23940,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_to_anisotropy(&mut self, expression_node_uid: FString) -> bool {
@@ -23760,6 +23974,7 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn connect_output_to_transmission_color(
@@ -23804,6 +24019,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_tangent(
@@ -23848,6 +24065,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_surface_coverage(
@@ -23892,6 +24111,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_subsurface(
@@ -23936,6 +24157,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_specular(
@@ -23980,6 +24203,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_roughness(
@@ -24024,6 +24249,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_refraction(
@@ -24068,6 +24295,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_opacity(
@@ -24112,6 +24341,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_occlusion(
@@ -24156,6 +24387,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_normal(
@@ -24200,6 +24433,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_metallic(
@@ -24244,6 +24479,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_fuzz_color(
@@ -24288,6 +24525,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_emissive_color(
@@ -24332,6 +24571,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_displacement(
@@ -24376,6 +24617,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_cloth(
@@ -24420,6 +24663,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_clear_coat_roughness(
@@ -24464,6 +24709,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_clear_coat_normal(
@@ -24508,6 +24755,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_clear_coat(
@@ -24552,6 +24801,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_base_color(
@@ -24596,6 +24847,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn connect_output_to_anisotropy(
@@ -24640,6 +24893,8 @@ impl UInterchangeMaterialFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(expression_node_uid);
+        std::mem::forget(output_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
 }
@@ -24711,6 +24966,7 @@ impl UInterchangeMaterialExpressionFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_expression_class_name(
@@ -24818,6 +25074,7 @@ impl UInterchangeMaterialInstanceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_instance_class_name(&mut self, attribute_value: FString) -> bool {
@@ -24851,6 +25108,7 @@ impl UInterchangeMaterialInstanceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_blend_mode(
@@ -24895,6 +25153,8 @@ impl UInterchangeMaterialInstanceFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn get_custom_parent(&self, attribute_value: &mut FString) -> bool {
@@ -25115,6 +25375,7 @@ impl UInterchangeMaterialFunctionCallExpressionFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_material_function_dependency(
@@ -25247,6 +25508,7 @@ impl UInterchangeMaterialFunctionFactoryNode {
         unsafe {
             __buffer.add(32).cast::<FString>().swap(output_name);
         }
+        std::mem::forget(input_name);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
 }
@@ -25326,6 +25588,8 @@ impl UInterchangeMeshActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(slot_name);
+        std::mem::forget(material_dependency_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn set_custom_instanced_asset_factory_node_uid(
@@ -25362,6 +25626,7 @@ impl UInterchangeMeshActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_geometric_transform(
@@ -25434,6 +25699,7 @@ impl UInterchangeMeshActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_slot_material_dependency_uid(&mut self, slot_name: FString) -> bool {
@@ -25467,6 +25733,7 @@ impl UInterchangeMeshActorFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(slot_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_slot_material_dependency_uid(
@@ -25514,6 +25781,7 @@ impl UInterchangeMeshActorFactoryNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_material_dependency);
         }
+        std::mem::forget(slot_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn get_slot_material_dependencies(
@@ -25925,6 +26193,7 @@ impl UInterchangeSceneComponentFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(component_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -25993,6 +26262,7 @@ impl UInterchangeInstancedStaticMeshComponentFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_hierarchical_ism(&mut self, attribute_value: &bool) -> bool {
@@ -26316,6 +26586,7 @@ impl UInterchangeSceneVariantSetsFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(variant_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_variant_set_uids(&self, out_variant_uids: &mut TArray<FString>) {
@@ -26416,6 +26687,7 @@ impl UInterchangeSceneVariantSetsFactoryNode {
         unsafe {
             __buffer.add(8).cast::<FString>().swap(out_variant_uid);
         }
+        std::mem::forget(index);
     }
     pub fn add_custom_variant_set_uid(&mut self, variant_uid: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -26448,6 +26720,7 @@ impl UInterchangeSceneVariantSetsFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(variant_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -26527,6 +26800,7 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_threshold_uv(
@@ -26571,6 +26845,7 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_threshold_tangent_normal(
@@ -26615,6 +26890,7 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_threshold_position(
@@ -26659,6 +26935,7 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_skeleton_soft_object_path(
@@ -26779,6 +27056,7 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_merge_morph_target_shape_with_same_name(
@@ -26997,6 +27275,7 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_add_curve_metadata_to_skeleton(
@@ -27101,6 +27380,10 @@ impl UInterchangeSkeletalMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(in_asset_class);
+        std::mem::forget(node_container);
     }
     pub fn get_custom_use_high_precision_skin_weights(
         &self,
@@ -27712,6 +27995,7 @@ impl UInterchangeSkeletalMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_mesh_uid(&mut self, mesh_name: FString) -> bool {
@@ -27745,6 +28029,7 @@ impl UInterchangeSkeletalMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_all_meshes(&mut self) -> bool {
@@ -27901,6 +28186,7 @@ impl UInterchangeSkeletalMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -27976,6 +28262,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(format);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_b_channel_z(
@@ -28012,6 +28299,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_b_channel_y(
@@ -28048,6 +28336,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_b_channel_x(
@@ -28084,6 +28373,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_b_channel_w(
@@ -28120,6 +28410,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_a_format(
@@ -28160,6 +28451,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(format);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_a_channel_z(
@@ -28196,6 +28488,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_a_channel_y(
@@ -28232,6 +28525,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_a_channel_x(
@@ -28268,6 +28562,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_attributes_a_channel_w(
@@ -28304,6 +28599,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(grid_name_and_component_index);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_animation_id(&mut self, in_animation_id: FString) -> bool {
@@ -28337,6 +28633,7 @@ impl UInterchangeSparseVolumeTextureFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(in_animation_id);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_custom_attributes_b_format(
@@ -28849,6 +29146,7 @@ impl UInterchangeSpecularProfileFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(texture_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_format(
@@ -28887,6 +29185,7 @@ impl UInterchangeSpecularProfileFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(format);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn get_custom_texture(&self, texture_uid: &mut FString) -> bool {
@@ -29079,6 +29378,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_substitute_uid(&mut self, attribute_value: FString) -> bool {
@@ -29112,6 +29412,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn set_custom_src_lightmap_index(
@@ -29156,6 +29457,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_min_lightmap_resolution(
@@ -29200,6 +29502,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_max_lumen_mesh_cards(
@@ -29244,6 +29547,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_generate_lightmap_u_vs(
@@ -29288,6 +29592,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_generate_distance_field_as_if_two_sided(
@@ -29332,6 +29637,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_dst_lightmap_index(
@@ -29376,6 +29682,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_distance_field_resolution_scale(
@@ -29420,6 +29727,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(5).cast::<bool>().read() }
     }
     pub fn set_custom_distance_field_replacement_mesh(
@@ -29466,6 +29774,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn set_custom_build_scale3_d(
@@ -29510,6 +29819,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn set_custom_build_reversed_index_buffer(
@@ -29554,6 +29864,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_build_nanite(
@@ -29598,6 +29909,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_add_apply_delegate);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn set_custom_auto_compute_lod_screen_sizes(
@@ -29667,6 +29979,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(socket_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn initialize_static_mesh_node(
@@ -29735,6 +30048,10 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(unique_id);
+        std::mem::forget(display_label);
+        std::mem::forget(in_asset_class);
+        std::mem::forget(node_container);
     }
     pub fn get_socket_uids(&self, out_socket_uids: &mut TArray<FString>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -30452,6 +30769,7 @@ impl UInterchangeStaticMeshFactoryNode {
                 __buffer,
             )
         };
+        std::mem::forget(socket_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -30520,6 +30838,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_import_collision_type(
@@ -30560,6 +30879,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_import_collision(&mut self, attribute_value: bool) -> bool {
@@ -30593,6 +30913,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(attribute_value);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn set_force_collision_primitive_generation(
@@ -30629,6 +30950,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(b_generate);
         unsafe { __buffer.add(1).cast::<bool>().read() }
     }
     pub fn remove_sphere_collision_mesh_uid(
@@ -30665,6 +30987,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_mesh_uid(&mut self, mesh_name: FString) -> bool {
@@ -30698,6 +31021,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_convex_collision_mesh_uid(&mut self, mesh_name: FString) -> bool {
@@ -30731,6 +31055,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_capsule_collision_mesh_uid(
@@ -30767,6 +31092,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_box_collision_mesh_uid(&mut self, collider_mesh_uid: FString) -> bool {
@@ -30800,6 +31126,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_all_sphere_collision_meshes(&mut self) -> bool {
@@ -31064,6 +31391,7 @@ impl UInterchangeStaticMeshLodDataNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_render_mesh_uid);
         }
+        std::mem::forget(in_collider_mesh_uid);
     }
     pub fn get_one_convex_hull_per_ucx(&self, attribute_value: &mut bool) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<2>::new();
@@ -31411,6 +31739,7 @@ impl UInterchangeStaticMeshLodDataNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_render_mesh_uid);
         }
+        std::mem::forget(in_collider_mesh_uid);
     }
     pub fn get_capsule_collision_mesh_uids_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -31544,6 +31873,7 @@ impl UInterchangeStaticMeshLodDataNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_render_mesh_uid);
         }
+        std::mem::forget(in_collider_mesh_uid);
     }
     pub fn get_box_collision_mesh_uids_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -31677,6 +32007,7 @@ impl UInterchangeStaticMeshLodDataNode {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_render_mesh_uid);
         }
+        std::mem::forget(in_collider_mesh_uid);
     }
     pub fn add_sphere_collision_mesh_uids(
         &mut self,
@@ -31720,6 +32051,8 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
+        std::mem::forget(render_mesh_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_sphere_collision_mesh_uid(&mut self, collider_mesh_uid: FString) -> bool {
@@ -31753,6 +32086,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_mesh_uid(&mut self, mesh_name: FString) -> bool {
@@ -31786,6 +32120,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_convex_collision_mesh_uids(
@@ -31830,6 +32165,8 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
+        std::mem::forget(render_mesh_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_convex_collision_mesh_uid(&mut self, collider_mesh_uid: FString) -> bool {
@@ -31863,6 +32200,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_capsule_collision_mesh_uids(
@@ -31907,6 +32245,8 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
+        std::mem::forget(render_mesh_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_capsule_collision_mesh_uid(
@@ -31943,6 +32283,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_box_collision_mesh_uids(
@@ -31987,6 +32328,8 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
+        std::mem::forget(render_mesh_uid);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_box_collision_mesh_uid(&mut self, collider_mesh_uid: FString) -> bool {
@@ -32020,6 +32363,7 @@ impl UInterchangeStaticMeshLodDataNode {
                 __buffer,
             )
         };
+        std::mem::forget(collider_mesh_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }

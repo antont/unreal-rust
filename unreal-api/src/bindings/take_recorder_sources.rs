@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -144,6 +145,7 @@ impl UTakeRecorderActorSource {
                 __buffer,
             )
         };
+        std::mem::forget(in_target);
     }
     pub fn remove_actor_from_sources(
         in_actor: UPtr<crate::bindings::engine::AActor>,
@@ -188,6 +190,8 @@ impl UTakeRecorderActorSource {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(in_sources);
     }
     pub fn get_source_actor(&self) -> TSoftObjectPtr<crate::bindings::engine::AActor> {
         let mut __stack = crate::core_data::StackAlloc::<48>::new();
@@ -263,6 +267,8 @@ impl UTakeRecorderActorSource {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
+        std::mem::forget(in_sources);
         unsafe {
             __buffer
                 .add(16)

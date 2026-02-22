@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1207,6 +1208,7 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(blueprint);
         unsafe {
             __buffer
                 .add(96)
@@ -1255,6 +1257,7 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_even_if_pending_kill);
         unsafe {
             __buffer
                 .add(96)
@@ -1826,6 +1829,8 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(bp_context);
+        std::mem::forget(new_name);
     }
     pub fn rename_subobject(
         &mut self,
@@ -1935,6 +1940,7 @@ impl USubobjectDataSubsystem {
                 .cast::<TArray<FSubobjectDataHandle>>()
                 .swap(out_pasted_handles);
         }
+        std::mem::forget(bp_context);
     }
     pub fn make_new_scene_root(
         &mut self,
@@ -1986,6 +1992,7 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(bp_context);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn k2_gather_subobject_data_for_instance(
@@ -2033,6 +2040,7 @@ impl USubobjectDataSubsystem {
         unsafe {
             __buffer.add(8).cast::<TArray<FSubobjectDataHandle>>().swap(out_array);
         }
+        std::mem::forget(context);
     }
     pub fn k2_gather_subobject_data_for_blueprint(
         &mut self,
@@ -2079,6 +2087,7 @@ impl USubobjectDataSubsystem {
         unsafe {
             __buffer.add(8).cast::<TArray<FSubobjectDataHandle>>().swap(out_array);
         }
+        std::mem::forget(context);
     }
     pub fn k2_find_subobject_data_from_handle(
         &self,
@@ -2320,6 +2329,8 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object_to_find);
+        std::mem::forget(bp_context);
         unsafe { __buffer.add(32).cast::<FSubobjectDataHandle>().read() }
     }
     pub fn duplicate_subobjects(
@@ -2386,6 +2397,7 @@ impl USubobjectDataSubsystem {
                 .cast::<TArray<FSubobjectDataHandle>>()
                 .swap(out_new_subobjects);
         }
+        std::mem::forget(bp_context);
     }
     pub fn detach_subobject(
         &mut self,
@@ -2481,6 +2493,7 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(bp_context);
         unsafe { __buffer.add(40).cast::<i32>().read() }
     }
     pub fn delete_subobject(
@@ -2533,6 +2546,7 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(bp_context);
         unsafe { __buffer.add(40).cast::<i32>().read() }
     }
     pub fn create_new_cpp_component(
@@ -2586,6 +2600,9 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(component_class);
+        std::mem::forget(new_class_path);
+        std::mem::forget(new_class_name);
         unsafe {
             __buffer
                 .add(40)
@@ -2644,6 +2661,9 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(component_class);
+        std::mem::forget(new_class_path);
+        std::mem::forget(new_class_name);
         unsafe {
             __buffer
                 .add(40)
@@ -2693,6 +2713,7 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(bp_context);
     }
     pub fn change_subobject_class(
         &mut self,
@@ -2738,6 +2759,7 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_class);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn can_paste_subobjects(
@@ -2782,6 +2804,7 @@ impl USubobjectDataSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(bp_context);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn can_copy_subobjects(&self, handles: &TArray<FSubobjectDataHandle>) -> bool {

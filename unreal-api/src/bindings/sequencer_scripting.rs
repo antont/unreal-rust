@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -3986,6 +3987,8 @@ impl UMovieSceneScriptingActorReferenceKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> crate::bindings::movie_scene::FMovieSceneObjectBindingID {
         let mut __stack = crate::core_data::StackAlloc::<28>::new();
@@ -4054,6 +4057,7 @@ impl UMovieSceneScriptingActorReferenceKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -4194,6 +4198,11 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(
         &mut self,
@@ -4231,6 +4240,7 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4263,6 +4273,7 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -4470,6 +4481,10 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_time);
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(40).cast::<UPtr<UMovieSceneScriptingActorReferenceKey>>().read()
         }
@@ -4540,6 +4555,7 @@ impl UMovieSceneScriptingBoolKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -4589,6 +4605,8 @@ impl UMovieSceneScriptingBoolKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4652,6 +4670,7 @@ impl UMovieSceneScriptingBoolKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -4755,6 +4774,11 @@ impl UMovieSceneScriptingBoolChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(&mut self, in_default_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -4787,6 +4811,7 @@ impl UMovieSceneScriptingBoolChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4819,6 +4844,7 @@ impl UMovieSceneScriptingBoolChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5029,6 +5055,8 @@ impl UMovieSceneScriptingBoolChannel {
                 __buffer,
             )
         };
+        std::mem::forget(range);
+        std::mem::forget(frame_rate);
         unsafe { __buffer.add(32).cast::<TArray<bool>>().read() }
     }
     pub fn compute_effective_range(&self) -> FSequencerScriptingRange {
@@ -5109,6 +5137,9 @@ impl UMovieSceneScriptingBoolChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(16).cast::<UPtr<UMovieSceneScriptingBoolKey>>().read() }
     }
 }
@@ -5177,6 +5208,7 @@ impl UMovieSceneScriptingByteKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -5226,6 +5258,8 @@ impl UMovieSceneScriptingByteKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> u8 {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5289,6 +5323,7 @@ impl UMovieSceneScriptingByteKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -5392,6 +5427,11 @@ impl UMovieSceneScriptingByteChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(&mut self, in_default_value: u8) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5424,6 +5464,7 @@ impl UMovieSceneScriptingByteChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -5456,6 +5497,7 @@ impl UMovieSceneScriptingByteChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -5660,6 +5702,10 @@ impl UMovieSceneScriptingByteChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
+        std::mem::forget(in_interpolation);
         unsafe { __buffer.add(16).cast::<UPtr<UMovieSceneScriptingByteKey>>().read() }
     }
 }
@@ -5728,6 +5774,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -5777,6 +5824,8 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn set_tangent_weight_mode(
         &mut self,
@@ -5814,6 +5863,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_tangent_mode(
         &mut self,
@@ -5849,6 +5899,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_leave_tangent_weight(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5881,6 +5932,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_leave_tangent(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5913,6 +5965,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_interpolation_mode(
         &mut self,
@@ -5948,6 +6001,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_arrive_tangent_weight(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -5980,6 +6034,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_arrive_tangent(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -6012,6 +6067,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn get_value(&self) -> f64 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -6075,6 +6131,7 @@ impl UMovieSceneScriptingDoubleKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -6379,6 +6436,11 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_pre_infinity_extrapolation(
         &mut self,
@@ -6416,6 +6478,7 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_extrapolation);
     }
     pub fn set_post_infinity_extrapolation(
         &mut self,
@@ -6453,6 +6516,7 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_extrapolation);
     }
     pub fn set_default(&mut self, in_default_value: f64) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -6485,6 +6549,7 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -6517,6 +6582,7 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -6793,6 +6859,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(range);
+        std::mem::forget(frame_rate);
         unsafe { __buffer.add(32).cast::<TArray<f64>>().read() }
     }
     pub fn compute_effective_range(&self) -> FSequencerScriptingRange {
@@ -6883,6 +6951,10 @@ impl UMovieSceneScriptingDoubleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
+        std::mem::forget(in_interpolation);
         unsafe { __buffer.add(24).cast::<UPtr<UMovieSceneScriptingDoubleKey>>().read() }
     }
 }
@@ -7005,6 +7077,8 @@ impl UMovieSceneScriptingEventKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> crate::bindings::movie_scene_tracks::FMovieSceneEvent {
         let mut __stack = crate::core_data::StackAlloc::<208>::new();
@@ -7073,6 +7147,7 @@ impl UMovieSceneScriptingEventKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -7176,6 +7251,11 @@ impl UMovieSceneScriptingEventChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -7208,6 +7288,7 @@ impl UMovieSceneScriptingEventChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn get_keys_by_index(
         &self,
@@ -7335,6 +7416,9 @@ impl UMovieSceneScriptingEventChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(224).cast::<UPtr<UMovieSceneScriptingEventKey>>().read() }
     }
 }
@@ -7403,6 +7487,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -7452,6 +7537,8 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn set_tangent_weight_mode(
         &mut self,
@@ -7489,6 +7576,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_tangent_mode(
         &mut self,
@@ -7524,6 +7612,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_leave_tangent_weight(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7556,6 +7645,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_leave_tangent(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7588,6 +7678,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_interpolation_mode(
         &mut self,
@@ -7623,6 +7714,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_arrive_tangent_weight(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7655,6 +7747,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_arrive_tangent(&mut self, in_new_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7687,6 +7780,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn get_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7750,6 +7844,7 @@ impl UMovieSceneScriptingFloatKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -8124,6 +8219,11 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_pre_infinity_extrapolation(
         &mut self,
@@ -8161,6 +8261,7 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_extrapolation);
     }
     pub fn set_post_infinity_extrapolation(
         &mut self,
@@ -8198,6 +8299,7 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_extrapolation);
     }
     pub fn set_default(&mut self, in_default_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8230,6 +8332,7 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -8262,6 +8365,7 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -8538,6 +8642,8 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(range);
+        std::mem::forget(frame_rate);
         unsafe { __buffer.add(32).cast::<TArray<f32>>().read() }
     }
     pub fn compute_effective_range(&self) -> FSequencerScriptingRange {
@@ -8628,6 +8734,10 @@ impl UMovieSceneScriptingFloatChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
+        std::mem::forget(in_interpolation);
         unsafe { __buffer.add(16).cast::<UPtr<UMovieSceneScriptingFloatKey>>().read() }
     }
 }
@@ -8696,6 +8806,7 @@ impl UMovieSceneScriptingIntegerKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -8745,6 +8856,8 @@ impl UMovieSceneScriptingIntegerKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8808,6 +8921,7 @@ impl UMovieSceneScriptingIntegerKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -8911,6 +9025,11 @@ impl UMovieSceneScriptingIntegerChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_interpolate_linear_keys(&mut self, b_in_interpolate_linear_keys: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -8943,6 +9062,7 @@ impl UMovieSceneScriptingIntegerChannel {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_interpolate_linear_keys);
     }
     pub fn set_default(&mut self, in_default_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -8975,6 +9095,7 @@ impl UMovieSceneScriptingIntegerChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -9007,6 +9128,7 @@ impl UMovieSceneScriptingIntegerChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -9243,6 +9365,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 __buffer,
             )
         };
+        std::mem::forget(range);
+        std::mem::forget(frame_rate);
         unsafe { __buffer.add(32).cast::<TArray<i32>>().read() }
     }
     pub fn add_key(
@@ -9297,6 +9421,9 @@ impl UMovieSceneScriptingIntegerChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(16).cast::<UPtr<UMovieSceneScriptingIntegerKey>>().read() }
     }
 }
@@ -9368,6 +9495,7 @@ impl UMovieSceneScriptingObjectPathKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -9417,6 +9545,8 @@ impl UMovieSceneScriptingObjectPathKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> UPtr<crate::bindings::core_u_object::UObject> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -9485,6 +9615,7 @@ impl UMovieSceneScriptingObjectPathKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -9588,6 +9719,11 @@ impl UMovieSceneScriptingObjectPathChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(
         &mut self,
@@ -9623,6 +9759,7 @@ impl UMovieSceneScriptingObjectPathChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -9655,6 +9792,7 @@ impl UMovieSceneScriptingObjectPathChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -9858,6 +9996,10 @@ impl UMovieSceneScriptingObjectPathChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_time);
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(24).cast::<UPtr<UMovieSceneScriptingObjectPathKey>>().read()
         }
@@ -9933,6 +10075,7 @@ impl UMovieSceneScriptingParticleKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -9982,6 +10125,8 @@ impl UMovieSceneScriptingParticleKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> crate::bindings::movie_scene_tracks::EParticleKey {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -10050,6 +10195,7 @@ impl UMovieSceneScriptingParticleKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -10153,6 +10299,11 @@ impl UMovieSceneScriptingParticleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(
         &mut self,
@@ -10190,6 +10341,7 @@ impl UMovieSceneScriptingParticleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10222,6 +10374,7 @@ impl UMovieSceneScriptingParticleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -10437,6 +10590,8 @@ impl UMovieSceneScriptingParticleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(range);
+        std::mem::forget(frame_rate);
         unsafe {
             __buffer
                 .add(32)
@@ -10528,6 +10683,9 @@ impl UMovieSceneScriptingParticleChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_particle_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(16).cast::<UPtr<UMovieSceneScriptingParticleKey>>().read()
         }
@@ -10598,6 +10756,7 @@ impl UMovieSceneScriptingStringKey {
                 __buffer,
             )
         };
+        std::mem::forget(in_new_value);
     }
     pub fn set_time(
         &mut self,
@@ -10647,6 +10806,8 @@ impl UMovieSceneScriptingStringKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -10710,6 +10871,7 @@ impl UMovieSceneScriptingStringKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -10813,6 +10975,11 @@ impl UMovieSceneScriptingStringChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(&mut self, in_default_value: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -10845,6 +11012,7 @@ impl UMovieSceneScriptingStringChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -10877,6 +11045,7 @@ impl UMovieSceneScriptingStringChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -11075,6 +11244,9 @@ impl UMovieSceneScriptingStringChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(32).cast::<UPtr<UMovieSceneScriptingStringKey>>().read() }
     }
 }
@@ -11192,6 +11364,8 @@ impl UMovieSceneScriptingTextKey {
                 __buffer,
             )
         };
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
     }
     pub fn get_value(&self) -> FText {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -11255,6 +11429,7 @@ impl UMovieSceneScriptingTextKey {
                 __buffer,
             )
         };
+        std::mem::forget(time_unit);
         unsafe {
             __buffer.add(4).cast::<crate::bindings::core_u_object::FFrameTime>().read()
         }
@@ -11358,6 +11533,11 @@ impl UMovieSceneScriptingTextChannel {
                 __buffer,
             )
         };
+        std::mem::forget(offset_frame);
+        std::mem::forget(scale);
+        std::mem::forget(pivot_frame);
+        std::mem::forget(scripting_range);
+        std::mem::forget(time_unit);
     }
     pub fn set_default(&mut self, in_default_value: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -11390,6 +11570,7 @@ impl UMovieSceneScriptingTextChannel {
                 __buffer,
             )
         };
+        std::mem::forget(in_default_value);
     }
     pub fn remove_key(&mut self, key: UPtr<UMovieSceneScriptingKey>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -11422,6 +11603,7 @@ impl UMovieSceneScriptingTextChannel {
                 __buffer,
             )
         };
+        std::mem::forget(key);
     }
     pub fn remove_default(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -11620,6 +11802,9 @@ impl UMovieSceneScriptingTextChannel {
                 __buffer,
             )
         };
+        std::mem::forget(new_value);
+        std::mem::forget(sub_frame);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(32).cast::<UPtr<UMovieSceneScriptingTextKey>>().read() }
     }
 }
@@ -11746,6 +11931,7 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sorting_order);
     }
     pub fn set_parent(
         in_binding: &crate::bindings::movie_scene::FMovieSceneBindingProxy,
@@ -11836,6 +12022,7 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_name);
     }
     pub fn set_display_name(
         in_binding: &crate::bindings::movie_scene::FMovieSceneBindingProxy,
@@ -11926,6 +12113,7 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track_to_remove);
     }
     pub fn remove(in_binding: &crate::bindings::movie_scene::FMovieSceneBindingProxy) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -12006,6 +12194,8 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn move_binding_contents(
@@ -12498,6 +12688,7 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
         unsafe {
             __buffer
                 .add(32)
@@ -12552,6 +12743,7 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
         unsafe {
             __buffer
                 .add(32)
@@ -12604,6 +12796,8 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(a);
+        std::mem::forget(b);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn add_track(
@@ -12653,6 +12847,7 @@ impl UMovieSceneBindingExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track_type);
         unsafe {
             __buffer
                 .add(32)
@@ -12774,6 +12969,7 @@ impl UMovieSceneEventTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_track);
         unsafe {
             __buffer
                 .add(8)
@@ -12822,6 +13018,7 @@ impl UMovieSceneEventTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_track);
         unsafe {
             __buffer
                 .add(8)
@@ -12911,6 +13108,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
+        std::mem::forget(in_folder_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn set_folder_color(
@@ -12956,6 +13155,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
+        std::mem::forget(in_folder_color);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_child_track(
@@ -13003,6 +13204,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
+        std::mem::forget(in_track);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_child_object_binding(
@@ -13050,6 +13253,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
+        std::mem::forget(in_object_binding);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_child_folder(
@@ -13097,6 +13302,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(target_folder);
+        std::mem::forget(folder_to_remove);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_folder_name(
@@ -13134,6 +13341,7 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
         unsafe { __buffer.add(8).cast::<FName>().read() }
     }
     pub fn get_folder_color(
@@ -13171,6 +13379,7 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FColor>().read()
         }
@@ -13210,6 +13419,7 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
         unsafe {
             __buffer
                 .add(8)
@@ -13252,6 +13462,7 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
         unsafe {
             __buffer
                 .add(8)
@@ -13294,6 +13505,7 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
         unsafe {
             __buffer
                 .add(8)
@@ -13346,6 +13558,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
+        std::mem::forget(in_track);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_child_object_binding(
@@ -13393,6 +13607,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(folder);
+        std::mem::forget(in_object_binding);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn add_child_folder(
@@ -13440,6 +13656,8 @@ impl UMovieSceneFolderExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(target_folder);
+        std::mem::forget(folder_to_add);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -13530,6 +13748,7 @@ impl UMovieSceneMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
     }
     pub fn set_material_index(
         track: UPtr<
@@ -13580,6 +13799,8 @@ impl UMovieSceneMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(material_index);
     }
     pub fn get_material_info(
         track: UPtr<
@@ -13622,6 +13843,7 @@ impl UMovieSceneMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer
                 .add(8)
@@ -13670,6 +13892,7 @@ impl UMovieSceneMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -13760,6 +13983,7 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
     }
     pub fn set_material_index(
         track: UPtr<
@@ -13810,6 +14034,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(material_index);
     }
     pub fn get_material_info(
         track: UPtr<
@@ -13852,6 +14078,7 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer
                 .add(8)
@@ -13900,6 +14127,7 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -13992,6 +14220,8 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(in_property_path);
     }
     pub fn set_object_property_class(
         track: UPtr<crate::bindings::movie_scene_tracks::UMovieSceneObjectPropertyTrack>,
@@ -14050,6 +14280,9 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(property_class);
+        std::mem::forget(b_in_class_property);
     }
     pub fn set_byte_track_enum(
         track: UPtr<crate::bindings::movie_scene_tracks::UMovieSceneByteTrack>,
@@ -14096,6 +14329,8 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(in_enum);
     }
     pub fn get_unique_track_name(
         track: UPtr<crate::bindings::movie_scene_tracks::UMovieScenePropertyTrack>,
@@ -14136,6 +14371,7 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<FName>().read() }
     }
     pub fn get_property_path(
@@ -14177,6 +14413,7 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_property_name(
@@ -14218,6 +14455,7 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<FName>().read() }
     }
     pub fn get_object_property_class(
@@ -14259,6 +14497,7 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer
                 .add(8)
@@ -14303,6 +14542,7 @@ impl UMovieScenePropertyTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer.add(8).cast::<UPtr<crate::bindings::core_u_object::UEnum>>().read()
         }
@@ -14381,6 +14621,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(start_time);
     }
     pub fn set_start_frame_bounded(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14425,6 +14667,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(b_is_bounded);
     }
     pub fn set_start_frame(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14469,6 +14713,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(start_frame);
     }
     pub fn set_range_seconds(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14513,6 +14759,9 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(start_time);
+        std::mem::forget(end_time);
     }
     pub fn set_range(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14561,6 +14810,9 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(start_frame);
+        std::mem::forget(end_frame);
     }
     pub fn set_end_frame_seconds(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14601,6 +14853,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(end_time);
     }
     pub fn set_end_frame_bounded(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14645,6 +14899,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(b_is_bounded);
     }
     pub fn set_end_frame(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14685,6 +14941,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(end_frame);
     }
     pub fn has_start_frame(
         section: UPtr<crate::bindings::movie_scene::UMovieSceneSection>,
@@ -14721,6 +14979,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn has_end_frame(
@@ -14758,6 +15017,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_start_frame_seconds(
@@ -14795,6 +15055,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_start_frame(
@@ -14832,6 +15093,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_parent_sequence_frame(
@@ -14883,6 +15145,9 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(in_frame);
+        std::mem::forget(parent_sequence);
         unsafe { __buffer.add(24).cast::<i32>().read() }
     }
     pub fn get_end_frame_seconds(
@@ -14920,6 +15185,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_end_frame(
@@ -14957,6 +15223,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_channels_by_type(
@@ -15002,6 +15269,8 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
+        std::mem::forget(channel_type);
         unsafe {
             __buffer.add(16).cast::<TArray<UPtr<UMovieSceneScriptingChannel>>>().read()
         }
@@ -15049,6 +15318,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(24).cast::<UPtr<UMovieSceneScriptingChannel>>().read() }
     }
     pub fn get_auto_size_start_frame_seconds(
@@ -15086,6 +15356,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_auto_size_start_frame(
@@ -15123,6 +15394,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_auto_size_has_start_frame(
@@ -15160,6 +15432,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_auto_size_has_end_frame(
@@ -15197,6 +15470,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_auto_size_end_frame_seconds(
@@ -15234,6 +15508,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_auto_size_end_frame(
@@ -15271,6 +15546,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_all_channels(
@@ -15308,6 +15584,7 @@ impl UMovieSceneSectionExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(section);
         unsafe {
             __buffer.add(8).cast::<TArray<UPtr<UMovieSceneScriptingChannel>>>().read()
         }
@@ -15382,6 +15659,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
     }
     pub fn set_work_range_start(
         in_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15426,6 +15704,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(start_time_in_seconds);
     }
     pub fn set_work_range_end(
         in_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15470,6 +15750,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(end_time_in_seconds);
     }
     pub fn set_view_range_start(
         in_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15514,6 +15796,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(start_time_in_seconds);
     }
     pub fn set_view_range_end(
         in_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15558,6 +15842,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(end_time_in_seconds);
     }
     pub fn set_tick_resolution_directly(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15602,6 +15888,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(tick_resolution);
     }
     pub fn set_tick_resolution(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15646,6 +15934,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(tick_resolution);
     }
     pub fn set_read_only(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15690,6 +15980,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(b_in_read_only);
     }
     pub fn set_playback_start_seconds(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15730,6 +16022,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(start_time);
     }
     pub fn set_playback_start(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15774,6 +16068,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(start_frame);
     }
     pub fn set_playback_range_locked(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15818,6 +16114,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(b_in_locked);
     }
     pub fn set_playback_end_seconds(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15858,6 +16156,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(end_time);
     }
     pub fn set_playback_end(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15898,6 +16198,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(end_frame);
     }
     pub fn set_marked_frames_locked(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -15942,6 +16244,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(b_in_locked);
     }
     pub fn set_marked_frame_in_sequence(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16004,6 +16308,10 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_mark_index);
+        std::mem::forget(in_frame_number);
+        std::mem::forget(time_unit);
     }
     pub fn set_marked_frame(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16056,6 +16364,9 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_mark_index);
+        std::mem::forget(in_frame_number);
     }
     pub fn set_evaluation_type(
         in_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16102,6 +16413,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_evaluation_type);
     }
     pub fn set_display_rate(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16146,6 +16459,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(display_rate);
     }
     pub fn set_clock_source(
         in_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16192,6 +16507,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
+        std::mem::forget(in_clock_source);
     }
     pub fn resolve_binding_id(
         root_sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16238,6 +16555,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(root_sequence);
+        std::mem::forget(in_object_binding_id);
         unsafe {
             __buffer
                 .add(40)
@@ -16290,6 +16609,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(track);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn remove_root_folder_from_sequence(
@@ -16337,6 +16658,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(folder);
     }
     pub fn make_range_seconds(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -16381,6 +16704,9 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(start_time);
+        std::mem::forget(duration);
         unsafe { __buffer.add(16).cast::<FSequencerScriptingRange>().read() }
     }
     pub fn make_range(
@@ -16430,6 +16756,9 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(start_frame);
+        std::mem::forget(duration);
         unsafe { __buffer.add(16).cast::<FSequencerScriptingRange>().read() }
     }
     pub fn locate_bound_objects(
@@ -16485,6 +16814,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(context);
         unsafe {
             __buffer
                 .add(40)
@@ -16527,6 +16858,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_playback_range_locked(
@@ -16564,6 +16896,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_work_range_start(
@@ -16601,6 +16934,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe { __buffer.add(8).cast::<f64>().read() }
     }
     pub fn get_work_range_end(
@@ -16638,6 +16972,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe { __buffer.add(8).cast::<f64>().read() }
     }
     pub fn get_view_range_start(
@@ -16675,6 +17010,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe { __buffer.add(8).cast::<f64>().read() }
     }
     pub fn get_view_range_end(
@@ -16712,6 +17048,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe { __buffer.add(8).cast::<f64>().read() }
     }
     pub fn get_tracks(
@@ -16749,6 +17086,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -16791,6 +17129,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameRate>().read()
         }
@@ -16830,6 +17169,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -16872,6 +17212,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -16914,6 +17255,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -16976,6 +17318,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(root_sequence);
+        std::mem::forget(destination_sequence);
         unsafe {
             __buffer
                 .add(40)
@@ -17018,6 +17362,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_playback_start(
@@ -17055,6 +17400,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_playback_range(
@@ -17092,6 +17438,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<FSequencerScriptingRange>().read() }
     }
     pub fn get_playback_end_seconds(
@@ -17129,6 +17476,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
     pub fn get_playback_end(
@@ -17166,6 +17514,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_movie_scene(
@@ -17203,6 +17552,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -17255,6 +17605,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(time_unit);
         unsafe {
             __buffer
                 .add(16)
@@ -17297,6 +17649,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -17339,6 +17692,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -17381,6 +17735,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FFrameRate>().read()
         }
@@ -17420,6 +17775,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -17462,6 +17818,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(in_sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -17504,6 +17861,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(8)
@@ -17556,6 +17914,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe {
             __buffer
                 .add(32)
@@ -17610,6 +17969,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(track_type);
         unsafe {
             __buffer
                 .add(16)
@@ -17664,6 +18025,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(track_type);
         unsafe {
             __buffer
                 .add(16)
@@ -17732,6 +18095,10 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_frame_number);
+        std::mem::forget(b_forward);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn find_next_marked_frame(
@@ -17785,6 +18152,9 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_frame_number);
+        std::mem::forget(b_forward);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn find_marked_frame_by_label(
@@ -17830,6 +18200,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_label);
         unsafe { __buffer.add(24).cast::<i32>().read() }
     }
     pub fn find_marked_frame_by_frame_number_in_sequence(
@@ -17885,6 +18257,9 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_frame_number);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn find_marked_frame_by_frame_number(
@@ -17930,6 +18305,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(in_frame_number);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn find_binding_by_name(
@@ -17971,6 +18348,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(name);
         unsafe {
             __buffer
                 .add(24)
@@ -18021,6 +18400,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(binding_id);
         unsafe {
             __buffer
                 .add(24)
@@ -18063,6 +18444,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
     }
     pub fn delete_marked_frame(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -18107,6 +18489,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(delete_index);
     }
     pub fn are_marked_frames_locked(
         sequence: UPtr<crate::bindings::movie_scene::UMovieSceneSequence>,
@@ -18143,6 +18527,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn add_track(
@@ -18192,6 +18577,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(track_type);
         unsafe {
             __buffer
                 .add(16)
@@ -18242,6 +18629,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(object_to_spawn);
         unsafe {
             __buffer
                 .add(16)
@@ -18294,6 +18683,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(class_to_spawn);
         unsafe {
             __buffer
                 .add(16)
@@ -18344,6 +18735,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(new_folder_name);
         unsafe {
             __buffer
                 .add(24)
@@ -18394,6 +18787,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(object_to_possess);
         unsafe {
             __buffer
                 .add(16)
@@ -18456,6 +18851,8 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(time_unit);
         unsafe { __buffer.add(92).cast::<i32>().read() }
     }
     pub fn add_marked_frame(
@@ -18503,6 +18900,7 @@ impl UMovieSceneSequenceExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
         unsafe { __buffer.add(88).cast::<i32>().read() }
     }
 }
@@ -18626,6 +19024,7 @@ impl UMovieSceneTimeWarpExtensions {
                 .cast::<crate::bindings::movie_scene::FMovieSceneTimeWarpVariant>()
                 .swap(time_warp);
         }
+        std::mem::forget(fixed_play_rate);
     }
     pub fn make_time_warp(
         fixed_play_rate: f64,
@@ -18660,6 +19059,7 @@ impl UMovieSceneTimeWarpExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(fixed_play_rate);
         unsafe {
             __buffer
                 .add(8)
@@ -18737,6 +19137,7 @@ impl UMovieSceneTimeWarpExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(constant_play_rate);
         unsafe {
             __buffer
                 .add(8)
@@ -18869,6 +19270,8 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(row_index);
     }
     pub fn set_sorting_order(
         track: UPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
@@ -18913,6 +19316,8 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(sorting_order);
     }
     pub fn set_section_to_key(
         track: UPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
@@ -18959,6 +19364,8 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(section);
     }
     pub fn set_display_name(
         track: UPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
@@ -18999,6 +19406,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
     }
     pub fn set_color_tint(
         track: UPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
@@ -19043,6 +19451,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
     }
     pub fn remove_section(
         track: UPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
@@ -19089,6 +19498,8 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(section);
     }
     pub fn get_track_row_display_name(
         track: UPtr<crate::bindings::movie_scene::UMovieSceneTrack>,
@@ -19129,6 +19540,8 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(row_index);
         unsafe { __buffer.add(16).cast::<FText>().read() }
     }
     pub fn get_sorting_order(
@@ -19166,6 +19579,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_section_to_key(
@@ -19203,6 +19617,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer
                 .add(8)
@@ -19245,6 +19660,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer
                 .add(8)
@@ -19287,6 +19703,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<FText>().read() }
     }
     pub fn get_color_tint(
@@ -19324,6 +19741,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FColor>().read()
         }
@@ -19363,6 +19781,7 @@ impl UMovieSceneTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe {
             __buffer
                 .add(8)
@@ -19452,6 +19871,8 @@ impl UMovieSceneFloatVectorTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(in_num_channels_used);
     }
     pub fn get_num_channels_used(
         track: UPtr<crate::bindings::movie_scene_tracks::UMovieSceneFloatVectorTrack>,
@@ -19492,6 +19913,7 @@ impl UMovieSceneFloatVectorTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -19576,6 +19998,8 @@ impl UMovieSceneDoubleVectorTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
+        std::mem::forget(in_num_channels_used);
     }
     pub fn get_num_channels_used(
         track: UPtr<crate::bindings::movie_scene_tracks::UMovieSceneDoubleVectorTrack>,
@@ -19616,6 +20040,7 @@ impl UMovieSceneDoubleVectorTrackExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(track);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -19690,6 +20115,7 @@ impl USequencerScriptingRangeExtensions {
         unsafe {
             __buffer.add(0).cast::<FSequencerScriptingRange>().swap(range);
         }
+        std::mem::forget(start);
     }
     pub fn set_start_frame(range: &mut FSequencerScriptingRange, start: i32) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -19728,6 +20154,7 @@ impl USequencerScriptingRangeExtensions {
         unsafe {
             __buffer.add(0).cast::<FSequencerScriptingRange>().swap(range);
         }
+        std::mem::forget(start);
     }
     pub fn set_end_seconds(range: &mut FSequencerScriptingRange, end: f32) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -19766,6 +20193,7 @@ impl USequencerScriptingRangeExtensions {
         unsafe {
             __buffer.add(0).cast::<FSequencerScriptingRange>().swap(range);
         }
+        std::mem::forget(end);
     }
     pub fn set_end_frame(range: &mut FSequencerScriptingRange, end: i32) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -19804,6 +20232,7 @@ impl USequencerScriptingRangeExtensions {
         unsafe {
             __buffer.add(0).cast::<FSequencerScriptingRange>().swap(range);
         }
+        std::mem::forget(end);
     }
     pub fn remove_start(range: &mut FSequencerScriptingRange) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();

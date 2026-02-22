@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1475,6 +1476,7 @@ impl UAnimationAttributeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_data_controller);
         unsafe { __buffer.add(128).cast::<bool>().read() }
     }
     pub fn set_attribute_key(
@@ -1536,6 +1538,8 @@ impl UAnimationAttributeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_data_controller);
+        std::mem::forget(time);
         unsafe { __buffer.add(104).cast::<bool>().read() }
     }
     pub fn get_attribute_keys(
@@ -1609,6 +1613,7 @@ impl UAnimationAttributeBlueprintLibrary {
         unsafe {
             __buffer.add(112).cast::<TArray<i32>>().swap(values);
         }
+        std::mem::forget(animation_data_model);
         unsafe { __buffer.add(128).cast::<bool>().read() }
     }
     pub fn get_attribute_key(
@@ -1671,6 +1676,8 @@ impl UAnimationAttributeBlueprintLibrary {
         unsafe {
             __buffer.add(100).cast::<i32>().swap(value);
         }
+        std::mem::forget(animation_data_model);
+        std::mem::forget(time);
         unsafe { __buffer.add(104).cast::<bool>().read() }
     }
 }
@@ -1755,6 +1762,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(variable_frame_stripping_settings);
     }
     pub fn set_root_motion_lock_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -1797,6 +1806,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(root_motion_lock_type);
     }
     pub fn set_root_motion_enabled(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -1835,6 +1846,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(b_enabled);
     }
     pub fn set_rate_scale(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -1875,6 +1888,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(rate_scale);
     }
     pub fn set_is_root_motion_lock_forced(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -1913,6 +1928,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(b_forced);
     }
     pub fn set_curve_meta_data_morph_target(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -1963,6 +1980,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(curve_name);
+        std::mem::forget(b_override_morph_target);
     }
     pub fn set_curve_meta_data_material(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -2013,6 +2033,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(curve_name);
+        std::mem::forget(b_override_material);
     }
     pub fn set_curve_compression_settings(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2061,6 +2084,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(compression_settings);
     }
     pub fn set_bone_compression_settings(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2107,6 +2132,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(compression_settings);
     }
     pub fn set_animation_interpolation_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2151,6 +2178,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(interpolation_type);
     }
     pub fn set_additive_base_pose_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2193,6 +2222,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(additive_base_pose_type);
     }
     pub fn set_additive_animation_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2237,6 +2268,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(additive_animation_type);
     }
     pub fn replace_anim_notify_states(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -2303,6 +2336,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(old_notify_class);
+        std::mem::forget(new_notify_class);
+        std::mem::forget(on_notify_state_replaced);
     }
     pub fn replace_anim_notifies(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -2367,6 +2404,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(old_notify_class);
+        std::mem::forget(new_notify_class);
+        std::mem::forget(on_notify_replaced);
     }
     pub fn rename_curve_meta_data(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -2413,6 +2454,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(old_name);
+        std::mem::forget(new_name);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_virtual_bones(
@@ -2456,6 +2500,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(virtual_bone_names);
     }
     pub fn remove_virtual_bone(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2498,6 +2544,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(virtual_bone_name);
     }
     pub fn remove_meta_data_of_class(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -2542,6 +2590,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
+        std::mem::forget(meta_data_class);
     }
     pub fn remove_meta_data(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -2584,6 +2634,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
+        std::mem::forget(meta_data_object);
     }
     pub fn remove_curve_meta_data(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -2626,6 +2678,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(curve_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn remove_curve(
@@ -2679,6 +2733,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(b_remove_name_from_skeleton);
     }
     pub fn remove_bone_selective_animation(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2753,6 +2810,12 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(bone_name);
+        std::mem::forget(children_excluded);
+        std::mem::forget(b_include_children);
+        std::mem::forget(b_exclude_recursively);
+        std::mem::forget(b_finalize);
     }
     pub fn remove_bone_animation(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2811,6 +2874,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(bone_name);
+        std::mem::forget(b_include_children);
+        std::mem::forget(b_finalize);
     }
     pub fn remove_animation_sync_markers_by_track(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -2853,6 +2920,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(notify_track_name);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn remove_animation_sync_markers_by_name(
@@ -2896,6 +2965,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(marker_name);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn remove_animation_notify_track(
@@ -2941,6 +3012,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
     }
     pub fn remove_animation_notify_events_by_track(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -2985,6 +3058,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn remove_animation_notify_events_by_name(
@@ -3030,6 +3105,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_name);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn remove_all_virtual_bones(
@@ -3065,6 +3142,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
     }
     pub fn remove_all_meta_data(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -3099,6 +3177,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
     }
     pub fn remove_all_curve_data(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3135,6 +3214,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
     }
     pub fn remove_all_bone_animation(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -3169,6 +3249,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
     }
     pub fn remove_all_animation_sync_markers(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -3203,6 +3284,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
     }
     pub fn remove_all_animation_notify_tracks(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3239,6 +3321,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
     }
     pub fn is_valid_time(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3286,6 +3369,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(time);
     }
     pub fn is_valid_raw_animation_track_name(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3330,6 +3415,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(track_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn is_valid_anim_notify_track_name(
@@ -3375,6 +3462,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn is_valid_animation_sync_marker_name(
@@ -3418,6 +3507,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(marker_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn is_root_motion_lock_forced(
@@ -3453,6 +3544,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_root_motion_enabled(
@@ -3488,6 +3580,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_vector_keys(
@@ -3560,6 +3653,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(values);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
     }
     pub fn get_variable_frame_stripping_settings(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -3614,6 +3709,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<UPtr<crate::bindings::engine::UVariableFrameStrippingSettings>>()
                 .swap(variable_frame_stripping_settings);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_unique_marker_names(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -3659,6 +3755,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(marker_names);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_transformation_keys(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3730,6 +3827,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
                 .swap(values);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
     }
     pub fn get_time_at_frame(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3777,6 +3876,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(12).cast::<f32>().swap(time);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(frame);
     }
     pub fn get_sequence_length(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3820,6 +3921,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<f32>().swap(length);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_root_motion_lock_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -3868,6 +3970,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::engine::ERootMotionRootLock>()
                 .swap(lock_type);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_raw_track_scale_data(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3928,6 +4031,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(scale_data);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(track_name);
     }
     pub fn get_raw_track_rotation_data(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -3986,6 +4091,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
                 .swap(rotation_data);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(track_name);
     }
     pub fn get_raw_track_position_data(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4046,6 +4153,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(position_data);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(track_name);
     }
     pub fn get_raw_track_data(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4136,6 +4245,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(scaling_keys);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(track_name);
     }
     pub fn get_rate_scale(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4179,6 +4290,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<f32>().swap(rate_scale);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_num_keys(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4222,6 +4334,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<i32>().swap(num_keys);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_num_frames(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4265,6 +4378,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<i32>().swap(num_frames);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_num_curve_meta_data(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -4299,6 +4413,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_nodes_of_class(
@@ -4372,6 +4487,9 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<UPtr<crate::bindings::anim_graph::UAnimGraphNode_Base>>>()
                 .swap(graph_nodes);
         }
+        std::mem::forget(animation_blueprint);
+        std::mem::forget(node_class);
+        std::mem::forget(b_include_child_classes);
     }
     pub fn get_montage_slot_names(
         animation_montage: UPtr<crate::bindings::engine::UAnimMontage>,
@@ -4417,6 +4535,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(slot_names);
         }
+        std::mem::forget(animation_montage);
     }
     pub fn get_meta_data_of_class(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -4477,6 +4596,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<UPtr<crate::bindings::engine::UAnimMetaData>>>()
                 .swap(meta_data_of_class);
         }
+        std::mem::forget(animation_asset);
+        std::mem::forget(meta_data_class);
     }
     pub fn get_meta_data(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -4527,6 +4648,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<UPtr<crate::bindings::engine::UAnimMetaData>>>()
                 .swap(meta_data);
         }
+        std::mem::forget(animation_asset);
     }
     pub fn get_frame_at_time(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4574,6 +4696,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(12).cast::<i32>().swap(frame);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(time);
     }
     pub fn get_float_value_at_time(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4622,6 +4746,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(time);
         unsafe { __buffer.add(24).cast::<f32>().read() }
     }
     pub fn get_float_keys(
@@ -4689,6 +4816,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(40).cast::<TArray<f32>>().swap(values);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
     }
     pub fn get_curve_meta_data_names(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -4734,6 +4863,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(out_names);
         }
+        std::mem::forget(skeleton);
     }
     pub fn get_curve_meta_data_morph_target(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -4776,6 +4906,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(curve_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_curve_meta_data_material(
@@ -4819,6 +4951,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(curve_name);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn get_curve_compression_settings(
@@ -4874,6 +5008,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<UPtr<crate::bindings::engine::UAnimCurveCompressionSettings>>()
                 .swap(compression_settings);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_bone_poses_for_time(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -4954,6 +5089,11 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
                 .swap(poses);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(bone_names);
+        std::mem::forget(time);
+        std::mem::forget(b_extract_root_motion);
+        std::mem::forget(preview_mesh);
     }
     pub fn get_bone_poses_for_frame(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5034,6 +5174,11 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FTransform>>()
                 .swap(poses);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(bone_names);
+        std::mem::forget(frame);
+        std::mem::forget(b_extract_root_motion);
+        std::mem::forget(preview_mesh);
     }
     pub fn get_bone_pose_for_time(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5104,6 +5249,10 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FTransform>()
                 .swap(pose);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(time);
+        std::mem::forget(b_extract_root_motion);
     }
     pub fn get_bone_pose_for_frame(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5174,6 +5323,10 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FTransform>()
                 .swap(pose);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(bone_name);
+        std::mem::forget(frame);
+        std::mem::forget(b_extract_root_motion);
     }
     pub fn get_bone_compression_settings(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -5228,6 +5381,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<UPtr<crate::bindings::engine::UAnimBoneCompressionSettings>>()
                 .swap(compression_settings);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_anim_notify_event_trigger_time(
         notify_event: &crate::bindings::engine::FAnimNotifyEvent,
@@ -5345,6 +5499,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(track_names);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_animation_sync_markers_for_track(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -5403,6 +5558,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::engine::FAnimSyncMarker>>()
                 .swap(markers);
         }
+        std::mem::forget(animation_sequence);
+        std::mem::forget(notify_track_name);
     }
     pub fn get_animation_sync_markers(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -5453,6 +5610,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::engine::FAnimSyncMarker>>()
                 .swap(markers);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_animation_notify_track_names(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5500,6 +5658,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(track_names);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_animation_notify_events_for_track(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5560,6 +5719,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::engine::FAnimNotifyEvent>>()
                 .swap(events);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
     }
     pub fn get_animation_notify_events(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5612,6 +5773,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<crate::bindings::engine::FAnimNotifyEvent>>()
                 .swap(notify_events);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_animation_notify_event_names(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5659,6 +5821,7 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(8).cast::<TArray<FName>>().swap(event_names);
         }
+        std::mem::forget(animation_sequence_base);
     }
     pub fn get_animation_interpolation_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -5709,6 +5872,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::engine::EAnimInterpolationType>()
                 .swap(interpolation_type);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_animation_graphs(
         animation_blueprint: UPtr<crate::bindings::engine::UAnimBlueprint>,
@@ -5761,6 +5925,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<TArray<UPtr<crate::bindings::anim_graph::UAnimationGraph>>>()
                 .swap(animation_graphs);
         }
+        std::mem::forget(animation_blueprint);
     }
     pub fn get_animation_curve_names(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5816,6 +5981,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(16).cast::<TArray<FName>>().swap(curve_names);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_type);
     }
     pub fn get_additive_base_pose_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -5864,6 +6031,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::engine::EAdditiveBasePoseType>()
                 .swap(additive_base_pose_type);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn get_additive_animation_type(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -5914,6 +6082,7 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::engine::EAdditiveAnimationType>()
                 .swap(additive_animation_type);
         }
+        std::mem::forget(animation_sequence);
     }
     pub fn find_bone_path_to_root(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -5969,6 +6138,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(24).cast::<TArray<FName>>().swap(bone_path);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(bone_name);
     }
     pub fn finalize_bone_animation(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -6003,6 +6174,7 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
     }
     pub fn extract_root_track_transform(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -6043,6 +6215,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(time);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -6097,6 +6271,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(12).cast::<f32>().swap(out_subframe);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(eval_time);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn evaluate_root_bone_timecode_attributes_at_time(
@@ -6154,6 +6330,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<crate::bindings::core_u_object::FQualifiedFrameTime>()
                 .swap(out_qualified_frame_time);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(eval_time);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
     pub fn evaluate_bone_timecode_and_slate_attributes_at_time(
@@ -6226,6 +6404,9 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(48).cast::<FString>().swap(slate);
         }
+        std::mem::forget(bone_name);
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(eval_time);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn does_curve_exist(
@@ -6279,6 +6460,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(curve_type);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn does_bone_name_exist(
@@ -6329,6 +6513,8 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(20).cast::<bool>().swap(b_exists);
         }
+        std::mem::forget(animation_sequence);
+        std::mem::forget(bone_name);
     }
     pub fn copy_anim_notifies_from_sequence(
         source_animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -6385,6 +6571,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(source_animation_sequence_base);
+        std::mem::forget(destination_animation_sequence_base);
+        std::mem::forget(b_delete_existing_notifies);
     }
     pub fn copy_animation_curve_names_to_skeleton(
         old_skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -6445,6 +6634,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(old_skeleton);
+        std::mem::forget(new_skeleton);
+        std::mem::forget(sequence_base);
+        std::mem::forget(curve_type);
     }
     pub fn contains_meta_data_of_class(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -6489,6 +6682,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
+        std::mem::forget(meta_data_class);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_virtual_bone(
@@ -6551,6 +6746,9 @@ impl UAnimationBlueprintLibrary {
         unsafe {
             __buffer.add(32).cast::<FName>().swap(virtual_bone_name);
         }
+        std::mem::forget(animation_sequence);
+        std::mem::forget(source_bone_name);
+        std::mem::forget(target_bone_name);
     }
     pub fn add_vector_curve_keys(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -6613,6 +6811,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
     }
     pub fn add_vector_curve_key(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -6669,6 +6869,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(time);
+        std::mem::forget(vector);
     }
     pub fn add_transformation_curve_keys(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -6731,6 +6935,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
     }
     pub fn add_transformation_curve_key(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -6787,6 +6993,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(time);
     }
     pub fn add_node_asset_override(
         anim_blueprint: UPtr<crate::bindings::engine::UAnimBlueprint>,
@@ -6847,6 +7056,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(anim_blueprint);
+        std::mem::forget(target);
+        std::mem::forget(override_);
+        std::mem::forget(b_print_applied_overrides);
     }
     pub fn add_meta_data_object(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -6889,6 +7102,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_asset);
+        std::mem::forget(meta_data_object);
     }
     pub fn add_meta_data(
         animation_asset: UPtr<crate::bindings::engine::UAnimationAsset>,
@@ -6947,6 +7162,8 @@ impl UAnimationBlueprintLibrary {
                 .cast::<UPtr<crate::bindings::engine::UAnimMetaData>>()
                 .swap(meta_data_instance);
         }
+        std::mem::forget(animation_asset);
+        std::mem::forget(meta_data_class);
     }
     pub fn add_float_curve_keys(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -7007,6 +7224,8 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
     }
     pub fn add_float_curve_key(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -7059,6 +7278,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(time);
+        std::mem::forget(value);
     }
     pub fn add_curve_meta_data(
         skeleton: UPtr<crate::bindings::engine::USkeleton>,
@@ -7109,6 +7332,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(skeleton);
+        std::mem::forget(curve_name);
+        std::mem::forget(b_transact);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn add_curve(
@@ -7170,6 +7396,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(curve_name);
+        std::mem::forget(curve_type);
+        std::mem::forget(b_meta_data_curve);
     }
     pub fn add_animation_sync_marker(
         animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
@@ -7224,6 +7454,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence);
+        std::mem::forget(marker_name);
+        std::mem::forget(time);
+        std::mem::forget(notify_track_name);
     }
     pub fn add_animation_notify_track(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -7276,6 +7510,9 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
+        std::mem::forget(track_color);
     }
     pub fn add_animation_notify_state_event_object(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -7338,6 +7575,11 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(start_time);
+        std::mem::forget(duration);
+        std::mem::forget(notify_state);
+        std::mem::forget(notify_track_name);
     }
     pub fn add_animation_notify_state_event(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -7404,6 +7646,11 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
+        std::mem::forget(start_time);
+        std::mem::forget(duration);
+        std::mem::forget(notify_state_class);
         unsafe {
             __buffer
                 .add(40)
@@ -7466,6 +7713,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(start_time);
+        std::mem::forget(notify);
+        std::mem::forget(notify_track_name);
     }
     pub fn add_animation_notify_event_from_source(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -7522,6 +7773,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(start_time);
+        std::mem::forget(notify_event);
+        std::mem::forget(notify_track_name);
         unsafe {
             __buffer.add(256).cast::<UPtr<crate::bindings::engine::UAnimNotify>>().read()
         }
@@ -7587,6 +7842,10 @@ impl UAnimationBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(notify_track_name);
+        std::mem::forget(start_time);
+        std::mem::forget(notify_class);
         unsafe {
             __buffer.add(32).cast::<UPtr<crate::bindings::engine::UAnimNotify>>().read()
         }
@@ -7682,6 +7941,9 @@ impl UAnimPoseExtensions {
         unsafe {
             __buffer.add(0).cast::<FAnimPose>().swap(pose);
         }
+        std::mem::forget(transform);
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
     }
     pub fn is_valid(pose: &FAnimPose) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<193>::new();
@@ -7757,6 +8019,8 @@ impl UAnimPoseExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(socket_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(208).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -7852,6 +8116,9 @@ impl UAnimPoseExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(from_bone_name);
+        std::mem::forget(to_bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(224).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -7901,6 +8168,8 @@ impl UAnimPoseExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(208).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -7958,6 +8227,9 @@ impl UAnimPoseExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(from_bone_name);
+        std::mem::forget(to_bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(224).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -8006,6 +8278,7 @@ impl UAnimPoseExtensions {
         unsafe {
             __buffer.add(8).cast::<FAnimPose>().swap(out_pose);
         }
+        std::mem::forget(skeleton);
     }
     pub fn get_ref_bone_pose(
         pose: &FAnimPose,
@@ -8052,6 +8325,8 @@ impl UAnimPoseExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(208).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -8175,6 +8450,8 @@ impl UAnimPoseExtensions {
                 __buffer,
             )
         };
+        std::mem::forget(bone_name);
+        std::mem::forget(space);
         unsafe {
             __buffer.add(208).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -8271,6 +8548,9 @@ impl UAnimPoseExtensions {
         unsafe {
             __buffer.add(40).cast::<FAnimPose>().swap(pose);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(time);
+        std::mem::forget(evaluation_options);
     }
     pub fn get_anim_pose_at_frame(
         animation_sequence_base: UPtr<crate::bindings::engine::UAnimSequenceBase>,
@@ -8330,6 +8610,9 @@ impl UAnimPoseExtensions {
         unsafe {
             __buffer.add(40).cast::<FAnimPose>().swap(pose);
         }
+        std::mem::forget(animation_sequence_base);
+        std::mem::forget(frame_index);
+        std::mem::forget(evaluation_options);
     }
     pub fn evaluate_animation_blueprint_with_input_pose(
         input_pose: &FAnimPose,
@@ -8393,6 +8676,8 @@ impl UAnimPoseExtensions {
         unsafe {
             __buffer.add(208).cast::<FAnimPose>().swap(out_pose);
         }
+        std::mem::forget(target_skeletal_mesh);
+        std::mem::forget(animation_blueprint);
     }
 }
 #[repr(C, align(8))]

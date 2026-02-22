@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -274,6 +275,7 @@ impl UNamingTokensEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_display_error_message(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -302,6 +304,7 @@ impl UNamingTokensEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_display_border_image(&mut self, b_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -330,6 +333,7 @@ impl UNamingTokensEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_contexts(
         &mut self,
@@ -395,6 +399,7 @@ impl UNamingTokensEditableText {
                 __buffer,
             )
         };
+        std::mem::forget(b_value);
     }
     pub fn set_background_color(
         &mut self,

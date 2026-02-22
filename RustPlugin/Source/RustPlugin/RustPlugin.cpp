@@ -169,7 +169,7 @@ void FRustLoader::RegisterTypes()
 	
 	NewClass->SetPropertiesSize(Align(CurrentSize, 16));
 	NewClass->StaticLink(false);
-	NewClass->AssembleReferenceTokenStream(true);
+	// NewClass->AssembleReferenceTokenStream(true);
 	
 	NotifyRegistrationEvent(TEXT("/Script/Rust"), *NewClass->GetName(), ENotifyRegistrationType::NRT_Class,
 	ENotifyRegistrationPhase::NRP_Finished, nullptr, false, NewClass);

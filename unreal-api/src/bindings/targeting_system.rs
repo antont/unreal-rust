@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -486,6 +487,9 @@ impl UAbilityTask_PerformTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(in_targeting_preset);
+        std::mem::forget(b_allow_async);
         unsafe { __buffer.add(24).cast::<UPtr<UAbilityTask_PerformTargeting>>().read() }
     }
     pub fn perform_filtering_request(
@@ -549,6 +553,10 @@ impl UAbilityTask_PerformTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(owning_ability);
+        std::mem::forget(targeting_preset);
+        std::mem::forget(in_targets);
+        std::mem::forget(b_allow_async);
         unsafe { __buffer.add(40).cast::<UPtr<UAbilityTask_PerformTargeting>>().read() }
     }
 }
@@ -635,6 +643,9 @@ impl UAsyncAction_PerformTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(source_actor);
+        std::mem::forget(targeting_preset);
+        std::mem::forget(b_use_async_targeting);
         unsafe { __buffer.add(24).cast::<UPtr<UAsyncAction_PerformTargeting>>().read() }
     }
     pub fn perform_filtering_request(
@@ -694,6 +705,10 @@ impl UAsyncAction_PerformTargeting {
                 __buffer,
             )
         };
+        std::mem::forget(source_actor);
+        std::mem::forget(targeting_preset);
+        std::mem::forget(b_use_async_targeting);
+        std::mem::forget(in_targets);
         unsafe { __buffer.add(40).cast::<UPtr<UAsyncAction_PerformTargeting>>().read() }
     }
     pub fn get_targeting_handle(&self) -> FTargetingRequestHandle {
@@ -846,6 +861,8 @@ impl UTargetingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(targeting_preset);
+        std::mem::forget(completion_dynamic_delegate);
         unsafe { __buffer.add(104).cast::<FTargetingRequestHandle>().read() }
     }
     pub fn remove_async_targeting_request_with_handle(
@@ -927,6 +944,7 @@ impl UTargetingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(targeting_handle);
     }
     pub fn get_targeting_source_context(
         &self,
@@ -962,6 +980,7 @@ impl UTargetingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(targeting_handle);
         unsafe { __buffer.add(8).cast::<FTargetingSourceContext>().read() }
     }
     pub fn get_targeting_results_actors(
@@ -1012,6 +1031,7 @@ impl UTargetingSubsystem {
                 .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
                 .swap(targets);
         }
+        std::mem::forget(targeting_handle);
     }
     pub fn get_targeting_results(
         &self,
@@ -1061,6 +1081,7 @@ impl UTargetingSubsystem {
                 .cast::<TArray<crate::bindings::engine::FHitResult>>()
                 .swap(out_targets);
         }
+        std::mem::forget(targeting_handle);
     }
     pub fn execute_targeting_request(
         &mut self,
@@ -1114,6 +1135,8 @@ impl UTargetingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(targeting_preset);
+        std::mem::forget(completion_dynamic_delegate);
     }
 }
 #[repr(C, align(8))]
@@ -1420,6 +1443,7 @@ impl USimpleTargetingSelectionTask {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_hit_result(

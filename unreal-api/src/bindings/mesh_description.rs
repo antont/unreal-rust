@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1003,6 +1004,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
     }
     pub fn set_polygon_vertex_instances(
         &mut self,
@@ -1046,6 +1048,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
     }
     pub fn set_polygon_polygon_group(
         &mut self,
@@ -1089,6 +1092,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
+        std::mem::forget(polygon_group_id);
     }
     pub fn reverse_polygon_facing(&mut self, polygon_id: FPolygonID) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1121,6 +1126,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
     }
     pub fn reserve_new_vertices(&mut self, number_of_new_vertices: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1153,6 +1159,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(number_of_new_vertices);
     }
     pub fn reserve_new_vertex_instances(&mut self, number_of_new_vertex_instances: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1185,6 +1192,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(number_of_new_vertex_instances);
     }
     pub fn reserve_new_triangles(&mut self, number_of_new_triangles: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1217,6 +1225,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(number_of_new_triangles);
     }
     pub fn reserve_new_polygons(&mut self, number_of_new_polygons: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1249,6 +1258,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(number_of_new_polygons);
     }
     pub fn reserve_new_polygon_groups(&mut self, number_of_new_polygon_groups: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1281,6 +1291,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(number_of_new_polygon_groups);
     }
     pub fn reserve_new_edges(&mut self, number_of_new_edges: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1313,6 +1324,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(number_of_new_edges);
     }
     pub fn is_vertex_valid(&self, vertex_id: FVertexID) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -1345,6 +1357,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_vertex_orphaned(&self, vertex_id: FVertexID) -> bool {
@@ -1378,6 +1391,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_vertex_instance_valid(
@@ -1414,6 +1428,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_triangle_valid(&self, triangle_id: FTriangleID) -> bool {
@@ -1447,6 +1462,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(triangle_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_triangle_part_of_ngon(&self, triangle_id: FTriangleID) -> bool {
@@ -1480,6 +1496,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(triangle_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_polygon_valid(&self, polygon_id: FPolygonID) -> bool {
@@ -1513,6 +1530,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_polygon_group_valid(&self, polygon_group_id: FPolygonGroupID) -> bool {
@@ -1546,6 +1564,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_group_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_empty(&self) -> bool {
@@ -1605,6 +1624,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn is_edge_internal_to_polygon(
@@ -1649,6 +1669,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
+        std::mem::forget(polygon_id);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_edge_internal(&self, edge_id: FEdgeID) -> bool {
@@ -1682,6 +1704,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_vertex_vertex_instances(
@@ -1732,6 +1755,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FVertexInstanceID>>()
                 .swap(out_vertex_instance_i_ds);
         }
+        std::mem::forget(vertex_id);
     }
     pub fn get_vertex_position(
         &self,
@@ -1767,6 +1791,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe {
             __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -1813,6 +1838,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id0);
+        std::mem::forget(vertex_id1);
         unsafe { __buffer.add(8).cast::<FEdgeID>().read() }
     }
     pub fn get_vertex_instance_vertex(
@@ -1849,6 +1876,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
         unsafe { __buffer.add(4).cast::<FVertexID>().read() }
     }
     pub fn get_vertex_instance_pair_edge(
@@ -1893,6 +1921,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id0);
+        std::mem::forget(vertex_instance_id1);
         unsafe { __buffer.add(8).cast::<FEdgeID>().read() }
     }
     pub fn get_vertex_instance_for_triangle_vertex(
@@ -1937,6 +1967,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(triangle_id);
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(8).cast::<FVertexInstanceID>().read() }
     }
     pub fn get_vertex_instance_for_polygon_vertex(
@@ -1981,6 +2013,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(8).cast::<FVertexInstanceID>().read() }
     }
     pub fn get_vertex_instance_count(&self) -> i32 {
@@ -2057,6 +2091,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FTriangleID>>()
                 .swap(out_connected_triangle_i_ds);
         }
+        std::mem::forget(vertex_instance_id);
     }
     pub fn get_vertex_instance_connected_polygons(
         &self,
@@ -2106,6 +2141,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FPolygonID>>()
                 .swap(out_connected_polygon_i_ds);
         }
+        std::mem::forget(vertex_instance_id);
     }
     pub fn get_vertex_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2181,6 +2217,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FTriangleID>>()
                 .swap(out_connected_triangle_i_ds);
         }
+        std::mem::forget(vertex_id);
     }
     pub fn get_vertex_connected_polygons(
         &self,
@@ -2230,6 +2267,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FPolygonID>>()
                 .swap(out_connected_polygon_i_ds);
         }
+        std::mem::forget(vertex_id);
     }
     pub fn get_vertex_connected_edges(
         &self,
@@ -2276,6 +2314,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FEdgeID>>().swap(out_edge_i_ds);
         }
+        std::mem::forget(vertex_id);
     }
     pub fn get_vertex_adjacent_vertices(
         &self,
@@ -2322,6 +2361,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FVertexID>>().swap(out_adjacent_vertex_i_ds);
         }
+        std::mem::forget(vertex_id);
     }
     pub fn get_triangle_vertices(
         &self,
@@ -2368,6 +2408,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FVertexID>>().swap(out_vertex_i_ds);
         }
+        std::mem::forget(triangle_id);
     }
     pub fn get_triangle_vertex_instances(
         &self,
@@ -2417,6 +2458,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FVertexInstanceID>>()
                 .swap(out_vertex_instance_i_ds);
         }
+        std::mem::forget(triangle_id);
     }
     pub fn get_triangle_vertex_instance(
         &self,
@@ -2456,6 +2498,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(triangle_id);
+        std::mem::forget(index);
         unsafe { __buffer.add(8).cast::<FVertexInstanceID>().read() }
     }
     pub fn get_triangle_polygon_group(
@@ -2492,6 +2536,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(triangle_id);
         unsafe { __buffer.add(4).cast::<FPolygonGroupID>().read() }
     }
     pub fn get_triangle_polygon(&self, triangle_id: FTriangleID) -> FPolygonID {
@@ -2525,6 +2570,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(triangle_id);
         unsafe { __buffer.add(4).cast::<FPolygonID>().read() }
     }
     pub fn get_triangle_edges(
@@ -2572,6 +2618,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FEdgeID>>().swap(out_edge_i_ds);
         }
+        std::mem::forget(triangle_id);
     }
     pub fn get_triangle_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2644,6 +2691,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FTriangleID>>().swap(out_triangle_i_ds);
         }
+        std::mem::forget(triangle_id);
     }
     pub fn get_polygon_vertices(
         &self,
@@ -2690,6 +2738,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FVertexID>>().swap(out_vertex_i_ds);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn get_polygon_vertex_instances(
         &self,
@@ -2739,6 +2788,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FVertexInstanceID>>()
                 .swap(out_vertex_instance_i_ds);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn get_polygon_triangles(
         &self,
@@ -2785,6 +2835,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FTriangleID>>().swap(out_triangle_i_ds);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn get_polygon_polygon_group(&self, polygon_id: FPolygonID) -> FPolygonGroupID {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2817,6 +2868,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
         unsafe { __buffer.add(4).cast::<FPolygonGroupID>().read() }
     }
     pub fn get_polygon_perimeter_edges(
@@ -2864,6 +2916,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FEdgeID>>().swap(out_edge_i_ds);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn get_polygon_internal_edges(
         &self,
@@ -2910,6 +2963,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FEdgeID>>().swap(out_edge_i_ds);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn get_polygon_group_polygons(
         &self,
@@ -2956,6 +3010,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FPolygonID>>().swap(out_polygon_i_ds);
         }
+        std::mem::forget(polygon_group_id);
     }
     pub fn get_polygon_group_count(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3054,6 +3109,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FPolygonID>>().swap(out_polygon_i_ds);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn get_num_vertex_vertex_instances(&self, vertex_id: FVertexID) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3086,6 +3142,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_vertex_instance_connected_triangles(
@@ -3122,6 +3179,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_vertex_instance_connected_polygons(
@@ -3158,6 +3216,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_vertex_connected_triangles(&self, vertex_id: FVertexID) -> i32 {
@@ -3191,6 +3250,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_vertex_connected_polygons(&self, vertex_id: FVertexID) -> i32 {
@@ -3224,6 +3284,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_vertex_connected_edges(&self, vertex_id: FVertexID) -> i32 {
@@ -3257,6 +3318,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_polygon_vertices(&self, polygon_id: FPolygonID) -> i32 {
@@ -3290,6 +3352,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_polygon_triangles(&self, polygon_id: FPolygonID) -> i32 {
@@ -3323,6 +3386,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_polygon_internal_edges(&self, polygon_id: FPolygonID) -> i32 {
@@ -3356,6 +3420,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_polygon_group_polygons(
@@ -3392,6 +3457,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_group_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_edge_connected_triangles(&self, edge_id: FEdgeID) -> i32 {
@@ -3425,6 +3491,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_num_edge_connected_polygons(&self, edge_id: FEdgeID) -> i32 {
@@ -3458,6 +3525,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
         unsafe { __buffer.add(4).cast::<i32>().read() }
     }
     pub fn get_edge_vertices(
@@ -3505,6 +3573,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FVertexID>>().swap(out_vertex_i_ds);
         }
+        std::mem::forget(edge_id);
     }
     pub fn get_edge_vertex(&self, edge_id: FEdgeID, vertex_number: i32) -> FVertexID {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -3544,6 +3613,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
+        std::mem::forget(vertex_number);
         unsafe { __buffer.add(8).cast::<FVertexID>().read() }
     }
     pub fn get_edge_count(&self) -> i32 {
@@ -3620,6 +3691,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FTriangleID>>()
                 .swap(out_connected_triangle_i_ds);
         }
+        std::mem::forget(edge_id);
     }
     pub fn get_edge_connected_polygons(
         &self,
@@ -3669,6 +3741,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FPolygonID>>()
                 .swap(out_connected_polygon_i_ds);
         }
+        std::mem::forget(edge_id);
     }
     pub fn empty(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -3740,6 +3813,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FVertexID>>().swap(orphaned_vertices);
         }
+        std::mem::forget(vertex_instance_id);
     }
     pub fn delete_vertex(&mut self, vertex_id: FVertexID) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3772,6 +3846,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
     }
     pub fn delete_triangle(
         &mut self,
@@ -3846,6 +3921,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FPolygonGroupID>>()
                 .swap(orphaned_polygon_groups_ptr);
         }
+        std::mem::forget(triangle_id);
     }
     pub fn delete_polygon_group(&mut self, polygon_group_id: FPolygonGroupID) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -3878,6 +3954,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_group_id);
     }
     pub fn delete_polygon(
         &mut self,
@@ -3952,6 +4029,7 @@ impl UMeshDescriptionBase {
                 .cast::<TArray<FPolygonGroupID>>()
                 .swap(orphaned_polygon_groups);
         }
+        std::mem::forget(polygon_id);
     }
     pub fn delete_edge(
         &mut self,
@@ -3998,6 +4076,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(8).cast::<TArray<FVertexID>>().swap(orphaned_vertices);
         }
+        std::mem::forget(edge_id);
     }
     pub fn create_vertex_with_id(&mut self, vertex_id: FVertexID) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4030,6 +4109,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
     }
     pub fn create_vertex_instance_with_id(
         &mut self,
@@ -4073,6 +4153,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_instance_id);
+        std::mem::forget(vertex_id);
     }
     pub fn create_vertex_instance(&mut self, vertex_id: FVertexID) -> FVertexInstanceID {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -4105,6 +4187,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<FVertexInstanceID>().read() }
     }
     pub fn create_vertex(&mut self) -> FVertexID {
@@ -4194,6 +4277,8 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(24).cast::<TArray<FEdgeID>>().swap(new_edge_i_ds);
         }
+        std::mem::forget(triangle_id);
+        std::mem::forget(polygon_group_id);
     }
     pub fn create_triangle(
         &mut self,
@@ -4248,6 +4333,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(24).cast::<TArray<FEdgeID>>().swap(new_edge_i_ds);
         }
+        std::mem::forget(polygon_group_id);
         unsafe { __buffer.add(40).cast::<FTriangleID>().read() }
     }
     pub fn create_polygon_with_id(
@@ -4317,6 +4403,8 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(24).cast::<TArray<FEdgeID>>().swap(new_edge_i_ds);
         }
+        std::mem::forget(polygon_id);
+        std::mem::forget(polygon_group_id);
     }
     pub fn create_polygon_group_with_id(&mut self, polygon_group_id: FPolygonGroupID) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4349,6 +4437,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_group_id);
     }
     pub fn create_polygon_group(&mut self) -> FPolygonGroupID {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -4435,6 +4524,7 @@ impl UMeshDescriptionBase {
         unsafe {
             __buffer.add(24).cast::<TArray<FEdgeID>>().swap(new_edge_i_ds);
         }
+        std::mem::forget(polygon_group_id);
         unsafe { __buffer.add(40).cast::<FPolygonID>().read() }
     }
     pub fn create_edge_with_id(
@@ -4487,6 +4577,9 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(edge_id);
+        std::mem::forget(vertex_id0);
+        std::mem::forget(vertex_id1);
     }
     pub fn create_edge(
         &mut self,
@@ -4530,6 +4623,8 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id0);
+        std::mem::forget(vertex_id1);
         unsafe { __buffer.add(8).cast::<FEdgeID>().read() }
     }
     pub fn compute_polygon_triangulation(&mut self, polygon_id: FPolygonID) {
@@ -4563,6 +4658,7 @@ impl UMeshDescriptionBase {
                 __buffer,
             )
         };
+        std::mem::forget(polygon_id);
     }
 }
 #[repr(C, align(8))]

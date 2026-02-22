@@ -137,14 +137,16 @@ pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
     module_to_class
         .into_iter()
         .map(|(module_name, defs)| {
-            let all_fn_pts_idents: Vec<_> = defs.iter()
+            let all_fn_pts_idents: Vec<_> = defs
+                .iter()
                 .flat_map(|&def| {
-                def.functions.iter().map(|f| {
-                    convert_to_fn_field_name(&def.class_name, f)
+                    def.functions
+                        .iter()
+                        .map(|f| convert_to_fn_field_name(&def.class_name, f))
                 })
-            }).collect();
+                .collect();
 
-            let fn_ptr_def = quote!{
+            let fn_ptr_def = quote! {
                 pub struct FunctionPtrs
                 {
                     #(
@@ -165,43 +167,42 @@ pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
                 }
             };
 
-
             let initialize_all_fn_ptrs = defs.iter().flat_map(|&def| {
                 let name = format_ident!("{}", def.class_name);
 
-                let initialize_ptrs_scope: Vec<TokenStream> = def.functions.iter().map(|f| {
-                    let fn_name = &f.function_name;
-                    let ptr_ident = convert_to_fn_field_name(&def.class_name, f);
-                    quote! {
-                        (bindings
-                            .core_fns
-                            .find_function_by_name)(
-                            class_ptr,
-                            unreal_ffi::Utf8Str::from(#fn_name),
-                            &raw mut __FUNCTION_PTRS.#ptr_ident,
-                        );
-                    }
-                }).collect();
+                let initialize_ptrs_scope: Vec<TokenStream> = def
+                    .functions
+                    .iter()
+                    .map(|f| {
+                        let fn_name = &f.function_name;
+                        let ptr_ident = convert_to_fn_field_name(&def.class_name, f);
+                        quote! {
+                            (bindings
+                                .core_fns
+                                .find_function_by_name)(
+                                class_ptr,
+                                unreal_ffi::Utf8Str::from(#fn_name),
+                                &raw mut __FUNCTION_PTRS.#ptr_ident,
+                            );
+                        }
+                    })
+                    .collect();
 
-                if initialize_ptrs_scope.is_empty()
-                {
+                if initialize_ptrs_scope.is_empty() {
                     return None;
-
                 }
 
-                Some(
-                    quote! {
-                        unsafe {
-                            let bindings = crate::module::bindings();
-                            if let Some(class_ptr) = #name::try_static_class()
-                            {
-                                #(
-                                    #initialize_ptrs_scope
-                                )*
-                            }
+                Some(quote! {
+                    unsafe {
+                        let bindings = crate::module::bindings();
+                        if let Some(class_ptr) = #name::try_static_class()
+                        {
+                            #(
+                                #initialize_ptrs_scope
+                            )*
                         }
                     }
-                )
+                })
             });
 
             let q = quote! {
@@ -520,6 +521,22 @@ pub fn generate_function(
         })
     });
 
+    // TODO: Unsure how ownership works in the bpvm. If a value is moved from rust we assume cpp
+    // takes ownership of that value and don't run drop. Need to verify what unreal actually does
+    // here, otherwise we might end up leaking memory
+    let forget_moved_params = function.parameters.iter().filter_map(|param| {
+        if param.property.flags.contains(&PropertyFlag::ReferenceParm)
+            || param.property.flags.contains(&PropertyFlag::OutParm)
+        {
+            return None;
+        }
+        let name = format_ident!("{}", property_name(&param.property));
+
+        Some(quote! {
+            std::mem::forget(#name);
+        })
+    });
+
     let copy_params_to_buffer_tokens = function.parameters.iter().filter_map(|param| {
         if param.property.flags.contains(&PropertyFlag::ReturnParm) {
             return None;
@@ -548,8 +565,7 @@ pub fn generate_function(
         function.function_name.to_snake_case()
     );
 
-    let fn_ptr = quote!
-    {
+    let fn_ptr = quote! {
         __FUNCTION_PTRS.#fn_ptr_ident
     };
 
@@ -571,6 +587,10 @@ pub fn generate_function(
 
             #(
                 #out_tokens
+            )*
+
+            #(
+                #forget_moved_params
             )*
 
             #return_tokens
@@ -1152,6 +1172,7 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
             #![allow(unused_imports)]
             #![allow(unused_variables)]
             #![allow(non_camel_case_types)]
+            #![allow(forgetting_copy_types)]
             #![allow(clippy::too_many_arguments)]
             #![allow(clippy::new_without_default)]
             #![allow(clippy::new_ret_no_self)]

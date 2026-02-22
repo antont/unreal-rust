@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -2238,6 +2239,7 @@ impl UFactory {
                 __buffer,
             )
         };
+        std::mem::forget(in_task);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn script_factory_can_import(&mut self, filename: FString) -> bool {
@@ -2271,6 +2273,7 @@ impl UFactory {
                 __buffer,
             )
         };
+        std::mem::forget(filename);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -10541,6 +10544,9 @@ impl UUDIMTextureFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(output_path_name);
+        std::mem::forget(b_keep_existing_settings);
+        std::mem::forget(b_check_out_and_save);
         unsafe {
             __buffer.add(56).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
         }
@@ -11396,6 +11402,7 @@ impl UActorGroupingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_grouping_active);
     }
     pub fn remove_selected_from_group(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -14956,6 +14963,10 @@ impl UCookFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(for_platform);
+        std::mem::forget(destination_subfolder);
+        std::mem::forget(cook_commandline_args);
     }
 }
 #[repr(C, align(8))]
@@ -15189,6 +15200,10 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(level);
+        std::mem::forget(b_should_be_visible);
+        std::mem::forget(b_force_layers_visible);
+        std::mem::forget(modify_mode);
     }
     pub fn set_levels_visibility(
         levels: &TArray<UPtr<crate::bindings::engine::ULevel>>,
@@ -15247,6 +15262,8 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_force_layers_visible);
+        std::mem::forget(modify_mode);
     }
     pub fn move_selected_actors_to_level(
         dest_level: UPtr<crate::bindings::engine::ULevelStreaming>,
@@ -15289,6 +15306,8 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(dest_level);
+        std::mem::forget(b_warn_about_references);
         unsafe { __buffer.add(12).cast::<i32>().read() }
     }
     pub fn move_actors_to_level(
@@ -15350,6 +15369,9 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(dest_streaming_level);
+        std::mem::forget(b_warn_about_references);
+        std::mem::forget(b_warn_about_renaming);
         unsafe { __buffer.add(28).cast::<i32>().read() }
     }
     pub fn make_level_current(
@@ -15385,6 +15407,7 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(in_streaming_level);
     }
     pub fn remove_level_from_world(
         in_level: UPtr<crate::bindings::engine::ULevel>,
@@ -15435,6 +15458,9 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(in_level);
+        std::mem::forget(b_clear_selection);
+        std::mem::forget(b_reset_transaction_buffer);
         unsafe { __buffer.add(10).cast::<bool>().read() }
     }
     pub fn add_level_to_world_with_transform(
@@ -15496,6 +15522,9 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(level_package_name);
+        std::mem::forget(level_streaming_class);
         unsafe {
             __buffer
                 .add(128)
@@ -15554,6 +15583,9 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(level_package_name);
+        std::mem::forget(level_streaming_class);
         unsafe {
             __buffer
                 .add(32)
@@ -15594,6 +15626,7 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(world);
         unsafe {
             __buffer
                 .add(8)
@@ -15652,6 +15685,9 @@ impl UEditorLevelUtils {
                 __buffer,
             )
         };
+        std::mem::forget(level_streaming_class);
+        std::mem::forget(new_level_path);
+        std::mem::forget(b_move_selected_actors_into_new_level);
         unsafe {
             __buffer
                 .add(32)
@@ -17312,6 +17348,9 @@ impl UMaterialImportHelpers {
         unsafe {
             __buffer.add(40).cast::<FText>().swap(out_error);
         }
+        std::mem::forget(material_full_name);
+        std::mem::forget(base_package_path);
+        std::mem::forget(search_location);
         unsafe {
             __buffer
                 .add(56)
@@ -17379,6 +17418,9 @@ impl UMaterialImportHelpers {
         unsafe {
             __buffer.add(40).cast::<FText>().swap(out_error);
         }
+        std::mem::forget(base_path);
+        std::mem::forget(material_full_name);
+        std::mem::forget(b_recursive_paths);
         unsafe {
             __buffer
                 .add(56)
@@ -18508,6 +18550,7 @@ impl UReimportFbxSceneFactory {
                 __buffer,
             )
         };
+        std::mem::forget(obj);
     }
 }
 #[repr(C, align(8))]
@@ -18645,6 +18688,7 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_dirty);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn save_packages(
@@ -18690,6 +18734,7 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_dirty);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn save_map(
@@ -18733,6 +18778,8 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(world);
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn save_dirty_packages_with_dialog(
@@ -18776,6 +18823,8 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_save_map_packages);
+        std::mem::forget(b_save_content_packages);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn save_dirty_packages(
@@ -18819,6 +18868,8 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_save_map_packages);
+        std::mem::forget(b_save_content_packages);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn save_current_level() -> bool {
@@ -18912,6 +18963,7 @@ impl UEditorLoadingAndSavingUtils {
         unsafe {
             __buffer.add(24).cast::<FText>().swap(out_error_message);
         }
+        std::mem::forget(interaction_mode);
     }
     pub fn new_map_from_template(
         path_to_template_level: FString,
@@ -18954,6 +19006,8 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_template_level);
+        std::mem::forget(b_save_existing_map);
         unsafe {
             __buffer.add(24).cast::<UPtr<crate::bindings::engine::UWorld>>().read()
         }
@@ -18991,6 +19045,7 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_save_existing_map);
         unsafe { __buffer.add(8).cast::<UPtr<crate::bindings::engine::UWorld>>().read() }
     }
     pub fn load_map_with_dialog() -> UPtr<crate::bindings::engine::UWorld> {
@@ -19050,6 +19105,7 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(filename);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::UWorld>>().read()
         }
@@ -19085,6 +19141,7 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(filename);
     }
     pub fn get_dirty_map_packages(
         out_dirty_packages: &mut TArray<UPtr<crate::bindings::core_u_object::UPackage>>,
@@ -19273,6 +19330,7 @@ impl UEditorLoadingAndSavingUtils {
                 __buffer,
             )
         };
+        std::mem::forget(b_export_selected_actors_only);
     }
 }
 #[repr(C, align(8))]
@@ -19523,6 +19581,8 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_notify_selection_change);
+        std::mem::forget(b_redraw_viewports);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn update_actor_visibility(
@@ -19597,6 +19657,9 @@ impl ULayersSubsystem {
         unsafe {
             __buffer.add(9).cast::<bool>().swap(b_out_actor_modified);
         }
+        std::mem::forget(actor);
+        std::mem::forget(b_notify_selection_change);
+        std::mem::forget(b_redraw_viewports);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn update_actor_all_views_visibility(
@@ -19633,6 +19696,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
     }
     pub fn try_get_layer(
         &mut self,
@@ -19786,6 +19850,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_visible);
     }
     pub fn set_layers_visibility(
         &mut self,
@@ -19829,6 +19894,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_visible);
     }
     pub fn select_actors_in_layers(
         &mut self,
@@ -19880,6 +19946,9 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_select);
+        std::mem::forget(b_notify);
+        std::mem::forget(b_select_even_if_hidden);
         unsafe { __buffer.add(19).cast::<bool>().read() }
     }
     pub fn select_actors_in_layer(
@@ -19932,6 +20001,9 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_select);
+        std::mem::forget(b_notify);
+        std::mem::forget(b_select_even_if_hidden);
         unsafe { __buffer.add(15).cast::<bool>().read() }
     }
     pub fn rename_layer(
@@ -20081,6 +20153,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(level);
     }
     pub fn remove_actors_from_layers(
         &mut self,
@@ -20132,6 +20205,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_update_stats);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn remove_actors_from_layer(
@@ -20184,6 +20258,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_update_stats);
         unsafe { __buffer.add(29).cast::<bool>().read() }
     }
     pub fn remove_actor_from_layers(
@@ -20236,6 +20311,8 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_update_stats);
         unsafe { __buffer.add(25).cast::<bool>().read() }
     }
     pub fn remove_actor_from_layer(
@@ -20288,6 +20365,8 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_update_stats);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn make_all_layers_visible(&mut self) {
@@ -20380,6 +20459,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn initialize_new_actor_layers(
@@ -20416,6 +20496,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn get_world(&self) -> UPtr<crate::bindings::engine::UWorld> {
@@ -20711,6 +20792,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn delete_layers(&mut self, layers_to_delete: &TArray<FName>) {
@@ -21016,6 +21098,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(level);
     }
     pub fn add_all_layers_to(
         &self,
@@ -21135,6 +21218,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn add_actor_to_layer(
@@ -21179,6 +21263,7 @@ impl ULayersSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn add_actors_to_layers(
@@ -21860,6 +21945,7 @@ impl UPackageTools {
                 __buffer,
             )
         };
+        std::mem::forget(in_package_name);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn package_name_to_filename(
@@ -21903,6 +21989,8 @@ impl UPackageTools {
                 __buffer,
             )
         };
+        std::mem::forget(package_name);
+        std::mem::forget(extension);
         unsafe { __buffer.add(32).cast::<FString>().read() }
     }
     pub fn filename_to_package_name(filename: FString) -> FString {
@@ -21936,6 +22024,7 @@ impl UPackageTools {
                 __buffer,
             )
         };
+        std::mem::forget(filename);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
 }
@@ -22931,6 +23020,7 @@ impl UAssetEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(opened_method);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn close_all_editors_for_asset(
@@ -22967,6 +23057,7 @@ impl UAssetEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -23116,6 +23207,7 @@ impl UCollectionManagerScriptingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_parent_collection);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn rename_collection(
@@ -23170,6 +23262,8 @@ impl UCollectionManagerScriptingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(new_name);
+        std::mem::forget(new_share_type);
         unsafe { __buffer.add(41).cast::<bool>().read() }
     }
     pub fn remove_assets_from_collection(
@@ -23306,6 +23400,7 @@ impl UCollectionManagerScriptingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_ptr);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn remove_asset_from_collection(
@@ -23500,6 +23595,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .cast::<TArray<FCollectionScriptingRef>>()
                 .swap(out_collections);
         }
+        std::mem::forget(container);
+        std::mem::forget(asset_ptr);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn get_collections_containing_asset_data(
@@ -23558,6 +23655,7 @@ impl UCollectionManagerScriptingSubsystem {
                 .cast::<TArray<FCollectionScriptingRef>>()
                 .swap(out_collections);
         }
+        std::mem::forget(container);
         unsafe { __buffer.add(200).cast::<bool>().read() }
     }
     pub fn get_collections_containing_asset(
@@ -23618,6 +23716,7 @@ impl UCollectionManagerScriptingSubsystem {
                 .cast::<TArray<FCollectionScriptingRef>>()
                 .swap(out_collections);
         }
+        std::mem::forget(container);
         unsafe { __buffer.add(88).cast::<bool>().read() }
     }
     pub fn get_collections_by_name(
@@ -23676,6 +23775,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .cast::<TArray<FCollectionScriptingRef>>()
                 .swap(out_collections);
         }
+        std::mem::forget(container);
+        std::mem::forget(collection);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_collections(
@@ -23726,6 +23827,7 @@ impl UCollectionManagerScriptingSubsystem {
                 .cast::<TArray<FCollectionScriptingRef>>()
                 .swap(out_collections);
         }
+        std::mem::forget(container);
         unsafe { __buffer.add(48).cast::<bool>().read() }
     }
     pub fn get_collection_containers(
@@ -23970,6 +24072,9 @@ impl UCollectionManagerScriptingSubsystem {
                 .cast::<FCollectionScriptingRef>()
                 .swap(out_new_or_empty_collection);
         }
+        std::mem::forget(container);
+        std::mem::forget(collection);
+        std::mem::forget(share_type);
         unsafe { __buffer.add(76).cast::<bool>().read() }
     }
     pub fn create_collection(
@@ -24035,6 +24140,9 @@ impl UCollectionManagerScriptingSubsystem {
         unsafe {
             __buffer.add(48).cast::<FCollectionScriptingRef>().swap(out_new_collection);
         }
+        std::mem::forget(container);
+        std::mem::forget(collection);
+        std::mem::forget(share_type);
         unsafe { __buffer.add(76).cast::<bool>().read() }
     }
     pub fn collection_exists(
@@ -24089,6 +24197,9 @@ impl UCollectionManagerScriptingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(container);
+        std::mem::forget(collection);
+        std::mem::forget(share_type);
         unsafe { __buffer.add(45).cast::<bool>().read() }
     }
     pub fn add_asset_to_collection(
@@ -24225,6 +24336,7 @@ impl UCollectionManagerScriptingSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_ptr);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn add_asset_ptrs_to_collection(
@@ -24456,6 +24568,10 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object_to_use);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(b_transient);
         unsafe {
             __buffer.add(64).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -24518,6 +24634,10 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(b_transient);
         unsafe {
             __buffer.add(64).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -24599,6 +24719,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_scene_component);
         unsafe { __buffer.add(112).cast::<bool>().read() }
     }
     pub fn set_actor_transform(
@@ -24643,6 +24764,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_actor);
         unsafe { __buffer.add(112).cast::<bool>().read() }
     }
     pub fn set_actor_selection_state(
@@ -24687,6 +24809,8 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
+        std::mem::forget(b_should_be_selected);
     }
     pub fn select_nothing(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -24744,6 +24868,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_recurse_children);
     }
     pub fn select_all(&mut self, in_world: UPtr<crate::bindings::engine::UWorld>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -24776,6 +24901,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
     }
     pub fn invert_selection(&mut self, in_world: UPtr<crate::bindings::engine::UWorld>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -24808,6 +24934,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
     }
     pub fn get_selected_level_actors(
         &mut self,
@@ -24942,6 +25069,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(path_to_actor);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -24980,6 +25108,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
     }
     pub fn duplicate_actors(
         &mut self,
@@ -25031,6 +25160,8 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(to_world);
+        std::mem::forget(offset);
         unsafe {
             __buffer
                 .add(48)
@@ -25088,6 +25219,9 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_duplicate);
+        std::mem::forget(to_world);
+        std::mem::forget(offset);
         unsafe {
             __buffer.add(40).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -25162,6 +25296,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_destroy);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn delete_selected_actors(
@@ -25198,6 +25333,7 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(in_world);
     }
     pub fn convert_actors(
         &mut self,
@@ -25249,6 +25385,8 @@ impl UEditorActorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor_class);
+        std::mem::forget(static_mesh_package_path);
         unsafe {
             __buffer
                 .add(40)
@@ -25382,6 +25520,9 @@ impl UEditorAssetSubsystem {
                 .cast::<TArray<crate::bindings::core_u_object::FAssetData>>()
                 .swap(assets);
         }
+        std::mem::forget(meta_data_tag);
+        std::mem::forget(meta_data_type);
+        std::mem::forget(sort_order);
         unsafe { __buffer.add(30).cast::<bool>().read() }
     }
     pub fn set_metadata_tag(
@@ -25426,6 +25567,9 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(tag);
+        std::mem::forget(value);
     }
     pub fn set_dirty_flag(
         &mut self,
@@ -25469,6 +25613,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(b_dirty_state);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn save_loaded_assets(
@@ -25515,6 +25661,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_only_if_is_dirty);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn save_loaded_asset(
@@ -25559,6 +25706,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_save);
+        std::mem::forget(b_only_if_is_dirty);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn save_directory(
@@ -25611,6 +25760,9 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_only_if_is_dirty);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(18).cast::<bool>().read() }
     }
     pub fn save_asset(
@@ -25655,6 +25807,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_save);
+        std::mem::forget(b_only_if_is_dirty);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn rename_loaded_asset(
@@ -25699,6 +25853,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset);
+        std::mem::forget(destination_asset_path);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn rename_directory(
@@ -25743,6 +25899,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(source_directory_path);
+        std::mem::forget(destination_directory_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn rename_asset(
@@ -25787,6 +25945,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset_path);
+        std::mem::forget(destination_asset_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn remove_on_extract_asset_from_file(
@@ -25823,6 +25983,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(delegate);
     }
     pub fn remove_metadata_tag(
         &mut self,
@@ -25862,6 +26023,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(tag);
     }
     pub fn make_directory(&mut self, directory_path: FString) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -25894,6 +26057,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn load_blueprint_class(
@@ -25930,6 +26094,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe {
             __buffer
                 .add(16)
@@ -25971,6 +26136,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe {
             __buffer
                 .add(16)
@@ -26016,6 +26182,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(tag_name);
+        std::mem::forget(tag_value);
         unsafe { __buffer.add(32).cast::<TArray<FString>>().read() }
     }
     pub fn list_assets(
@@ -26068,6 +26236,9 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_recursive);
+        std::mem::forget(b_include_folder);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn get_tag_values(&mut self, asset_path: FString) -> TMap<FName, FString> {
@@ -26101,6 +26272,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<TMap<FName, FString>>().read() }
     }
     pub fn get_path_name_for_loaded_asset(
@@ -26137,6 +26309,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(loaded_asset);
         unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn get_metadata_tag_values(
@@ -26173,6 +26346,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object);
         unsafe { __buffer.add(8).cast::<TMap<FName, FString>>().read() }
     }
     pub fn get_metadata_tag(
@@ -26213,6 +26387,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(object);
+        std::mem::forget(tag);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
     pub fn get_loaded_asset_filename_length_for_cooking(
@@ -26249,6 +26425,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
     pub fn get_asset_filename_length_for_cooking(&mut self, asset_path: FString) -> i32 {
@@ -26282,6 +26459,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_all_assets_by_meta_data_tags(
@@ -26379,6 +26557,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
+        std::mem::forget(b_load_assets_to_confirm);
         unsafe { __buffer.add(24).cast::<TArray<FString>>().read() }
     }
     pub fn find_asset_data(
@@ -26415,6 +26595,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FAssetData>().read()
         }
@@ -26461,6 +26642,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset);
+        std::mem::forget(destination_asset_path);
         unsafe {
             __buffer
                 .add(24)
@@ -26510,6 +26693,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(source_directory_path);
+        std::mem::forget(destination_directory_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn duplicate_asset(
@@ -26554,6 +26739,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(source_asset_path);
+        std::mem::forget(destination_asset_path);
         unsafe {
             __buffer
                 .add(32)
@@ -26592,6 +26779,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn does_directory_contain_assets(
@@ -26636,6 +26824,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn does_asset_exist(&mut self, asset_path: FString) -> bool {
@@ -26669,6 +26859,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn do_assets_exist(&mut self, asset_paths: &TArray<FString>) -> bool {
@@ -26776,6 +26967,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_delete);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn delete_directory(&mut self, directory_path: FString) -> bool {
@@ -26809,6 +27001,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn delete_asset(&mut self, asset_path_to_delete: FString) -> bool {
@@ -26842,6 +27035,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path_to_delete);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn consolidate_assets(
@@ -26888,6 +27082,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_consolidate_to);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn checkout_loaded_assets(
@@ -26962,6 +27157,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_checkout);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn checkout_directory(
@@ -27006,6 +27202,8 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(directory_path);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn checkout_asset(&mut self, asset_to_checkout: FString) -> bool {
@@ -27039,6 +27237,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_checkout);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn add_on_extract_asset_from_file(
@@ -27075,6 +27274,7 @@ impl UEditorAssetSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(delegate);
     }
 }
 #[repr(C, align(8))]
@@ -27167,6 +27367,7 @@ impl UEditorSubsystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(preview_shader_platform_name);
     }
     pub fn get_editor_subsystem(
         class: TSubclassOf<crate::bindings::editor_subsystem::UEditorSubsystem>,
@@ -27205,6 +27406,7 @@ impl UEditorSubsystemBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(class);
         unsafe {
             __buffer
                 .add(8)
@@ -27419,6 +27621,8 @@ impl UUnrealEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(camera_location);
+        std::mem::forget(camera_rotation);
     }
     pub fn get_level_viewport_camera_info(
         &mut self,

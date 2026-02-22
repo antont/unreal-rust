@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -214,6 +215,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(scene_import_asset);
     }
     pub fn reset_level_asset(world: UPtr<crate::bindings::engine::UWorld>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -246,6 +248,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
     }
     pub fn reset_actors(actors: TArray<UPtr<crate::bindings::engine::AActor>>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -278,6 +281,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actors);
     }
     pub fn level_instance_get_editable_actors(
         level_instance: UPtr<crate::bindings::engine::ALevelInstance>,
@@ -312,6 +316,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_instance);
         unsafe {
             __buffer
                 .add(8)
@@ -352,6 +357,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_instance);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn level_instance_commit(
@@ -395,6 +401,8 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(level_instance);
+        std::mem::forget(b_discard_changes);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn can_reset_world(world: UPtr<crate::bindings::engine::UWorld>) -> bool {
@@ -428,6 +436,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn can_reset_actor(actor: UPtr<crate::bindings::engine::AActor>) -> bool {
@@ -461,6 +470,7 @@ impl UInterchangeEditorScriptLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(actor);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
 }

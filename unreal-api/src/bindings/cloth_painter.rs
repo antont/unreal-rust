@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -22,12 +23,17 @@ pub struct UClothPainterSettings {
     __padding_end: [u8; 136],
 }
 impl UClothPainterSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UClothPainterSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -40,7 +46,9 @@ impl UClothPainterSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -50,12 +58,17 @@ pub struct UClothingAssetExporter {
     __padding_end: [u8; 48],
 }
 impl UClothingAssetExporter {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UClothingAssetExporter")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -68,7 +81,9 @@ impl UClothingAssetExporter {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -78,12 +93,17 @@ pub struct UClothPaintTool_BrushSettings {
     __padding_end: [u8; 56],
 }
 impl UClothPaintTool_BrushSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UClothPaintTool_BrushSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -96,7 +116,9 @@ impl UClothPaintTool_BrushSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -106,12 +128,17 @@ pub struct UClothPaintTool_GradientSettings {
     __padding_end: [u8; 64],
 }
 impl UClothPaintTool_GradientSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UClothPaintTool_GradientSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -124,7 +151,9 @@ impl UClothPaintTool_GradientSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -134,12 +163,17 @@ pub struct UClothPaintTool_SmoothSettings {
     __padding_end: [u8; 56],
 }
 impl UClothPaintTool_SmoothSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UClothPaintTool_SmoothSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -152,7 +186,9 @@ impl UClothPaintTool_SmoothSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -162,12 +198,17 @@ pub struct UClothPaintTool_FillSettings {
     __padding_end: [u8; 56],
 }
 impl UClothPaintTool_FillSettings {
-    pub fn static_class() -> *mut crate::ffi::UObjectOpague {
-        *crate::bindings::globals::CLASS_PTRS
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UClothPaintTool_FillSettings")
-            .unwrap()
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -180,7 +221,9 @@ impl UClothPaintTool_FillSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -285,6 +286,7 @@ impl UResonanceAudioBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_preset);
     }
     pub fn get_global_reverb_preset() -> UPtr<UResonanceAudioReverbPluginPreset> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -552,6 +554,7 @@ impl UResonanceAudioReverbPluginPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_reverb_time_modifier);
     }
     pub fn set_reverb_gain(&mut self, in_reverb_gain: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -584,6 +587,7 @@ impl UResonanceAudioReverbPluginPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_reverb_gain);
     }
     pub fn set_reverb_brightness(&mut self, in_reverb_brightness: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -616,6 +620,7 @@ impl UResonanceAudioReverbPluginPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_reverb_brightness);
     }
     pub fn set_reflection_scalar(&mut self, in_reflection_scalar: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -648,6 +653,7 @@ impl UResonanceAudioReverbPluginPreset {
                 __buffer,
             )
         };
+        std::mem::forget(in_reflection_scalar);
     }
     pub fn set_enable_room_effects(&mut self, b_in_enable_room_effects: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -680,6 +686,7 @@ impl UResonanceAudioReverbPluginPreset {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_enable_room_effects);
     }
 }
 #[repr(C, align(8))]
@@ -778,6 +785,7 @@ impl UResonanceAudioSpatializationSourceSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_spread);
     }
     pub fn set_sound_source_directivity(&mut self, in_pattern: f32, in_sharpness: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -813,6 +821,8 @@ impl UResonanceAudioSpatializationSourceSettings {
                 __buffer,
             )
         };
+        std::mem::forget(in_pattern);
+        std::mem::forget(in_sharpness);
     }
 }
 #[repr(transparent)]

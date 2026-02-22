@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -119,6 +120,8 @@ impl UAndroidFileServerBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_usb);
+        std::mem::forget(b_network);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
     pub fn start_file_server(b_usb: bool, b_network: bool, port: i32) -> bool {
@@ -154,6 +157,9 @@ impl UAndroidFileServerBPLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(b_usb);
+        std::mem::forget(b_network);
+        std::mem::forget(port);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn is_file_server_running() -> EAFSActiveType {

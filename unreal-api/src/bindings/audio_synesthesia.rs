@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -661,6 +662,8 @@ impl UConstantQNRT {
         unsafe {
             __buffer.add(8).cast::<TArray<f32>>().swap(out_constant_q);
         }
+        std::mem::forget(in_seconds);
+        std::mem::forget(in_channel);
     }
     pub fn get_channel_constant_q_at_time(
         &self,
@@ -707,6 +710,8 @@ impl UConstantQNRT {
         unsafe {
             __buffer.add(8).cast::<TArray<f32>>().swap(out_constant_q);
         }
+        std::mem::forget(in_seconds);
+        std::mem::forget(in_channel);
     }
 }
 #[repr(C, align(8))]
@@ -893,6 +898,8 @@ impl ULKFSNRT {
                 __buffer,
             )
         };
+        std::mem::forget(in_seconds);
+        std::mem::forget(in_channel);
         unsafe {
             __buffer
                 .add(8)
@@ -930,6 +937,7 @@ impl ULKFSNRT {
                 __buffer,
             )
         };
+        std::mem::forget(in_channel);
         unsafe {
             __buffer
                 .add(8)
@@ -969,6 +977,7 @@ impl ULKFSNRT {
                 __buffer,
             )
         };
+        std::mem::forget(in_seconds);
         unsafe {
             __buffer
                 .add(4)
@@ -1048,6 +1057,7 @@ impl ULKFSNRT {
         unsafe {
             __buffer.add(4).cast::<f32>().swap(out_loudness);
         }
+        std::mem::forget(in_seconds);
     }
     pub fn get_integrated_loudness_for_channel(&self, in_channel: i32) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1076,6 +1086,7 @@ impl ULKFSNRT {
                 __buffer,
             )
         };
+        std::mem::forget(in_channel);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_integrated_loudness(&self) -> f32 {
@@ -1131,6 +1142,7 @@ impl ULKFSNRT {
                 __buffer,
             )
         };
+        std::mem::forget(in_channel);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_gated_loudness(&self) -> f32 {
@@ -1204,6 +1216,8 @@ impl ULKFSNRT {
         unsafe {
             __buffer.add(8).cast::<f32>().swap(out_loudness);
         }
+        std::mem::forget(in_seconds);
+        std::mem::forget(in_channel);
     }
 }
 #[repr(C, align(8))]
@@ -1404,6 +1418,7 @@ impl ULoudnessNRT {
         unsafe {
             __buffer.add(4).cast::<f32>().swap(out_loudness);
         }
+        std::mem::forget(in_seconds);
     }
     pub fn get_normalized_channel_loudness_at_time(
         &self,
@@ -1450,6 +1465,8 @@ impl ULoudnessNRT {
         unsafe {
             __buffer.add(8).cast::<f32>().swap(out_loudness);
         }
+        std::mem::forget(in_seconds);
+        std::mem::forget(in_channel);
     }
     pub fn get_loudness_at_time(&self, in_seconds: f32, out_loudness: &mut f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1488,6 +1505,7 @@ impl ULoudnessNRT {
         unsafe {
             __buffer.add(4).cast::<f32>().swap(out_loudness);
         }
+        std::mem::forget(in_seconds);
     }
     pub fn get_channel_loudness_at_time(
         &self,
@@ -1534,6 +1552,8 @@ impl ULoudnessNRT {
         unsafe {
             __buffer.add(8).cast::<f32>().swap(out_loudness);
         }
+        std::mem::forget(in_seconds);
+        std::mem::forget(in_channel);
     }
 }
 #[repr(C, align(8))]
@@ -1757,6 +1777,9 @@ impl UOnsetNRT {
         unsafe {
             __buffer.add(32).cast::<TArray<f32>>().swap(out_onset_strengths);
         }
+        std::mem::forget(in_start_seconds);
+        std::mem::forget(in_end_seconds);
+        std::mem::forget(in_channel);
     }
     pub fn get_channel_onsets_between_times(
         &self,
@@ -1826,6 +1849,9 @@ impl UOnsetNRT {
         unsafe {
             __buffer.add(32).cast::<TArray<f32>>().swap(out_onset_strengths);
         }
+        std::mem::forget(in_start_seconds);
+        std::mem::forget(in_end_seconds);
+        std::mem::forget(in_channel);
     }
 }
 #[repr(C, align(8))]
@@ -1977,6 +2003,7 @@ impl USynesthesiaSpectrumAnalyzer {
         unsafe {
             __buffer.add(8).cast::<TArray<f32>>().swap(out_center_frequencies);
         }
+        std::mem::forget(in_sample_rate);
     }
 }
 #[repr(C, align(8))]

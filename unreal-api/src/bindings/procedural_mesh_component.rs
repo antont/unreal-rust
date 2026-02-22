@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -377,6 +378,12 @@ impl UKismetProceduralMeshLibrary {
                 .cast::<UPtr<UProceduralMeshComponent>>()
                 .swap(out_other_half_proc_mesh);
         }
+        std::mem::forget(in_proc_mesh);
+        std::mem::forget(plane_position);
+        std::mem::forget(plane_normal);
+        std::mem::forget(b_create_other_half);
+        std::mem::forget(cap_option);
+        std::mem::forget(cap_material);
     }
     pub fn get_section_from_static_mesh(
         in_mesh: UPtr<crate::bindings::engine::UStaticMesh>,
@@ -493,6 +500,9 @@ impl UKismetProceduralMeshLibrary {
         unsafe {
             __buffer.add(80).cast::<TArray<FProcMeshTangent>>().swap(tangents);
         }
+        std::mem::forget(in_mesh);
+        std::mem::forget(lod_index);
+        std::mem::forget(section_index);
     }
     pub fn get_section_from_procedural_mesh(
         in_proc_mesh: UPtr<UProceduralMeshComponent>,
@@ -605,6 +615,8 @@ impl UKismetProceduralMeshLibrary {
         unsafe {
             __buffer.add(80).cast::<TArray<FProcMeshTangent>>().swap(tangents);
         }
+        std::mem::forget(in_proc_mesh);
+        std::mem::forget(section_index);
     }
     pub fn generate_box_mesh(
         box_radius: crate::bindings::core_u_object::FVector,
@@ -709,6 +721,7 @@ impl UKismetProceduralMeshLibrary {
         unsafe {
             __buffer.add(88).cast::<TArray<FProcMeshTangent>>().swap(tangents);
         }
+        std::mem::forget(box_radius);
     }
     pub fn create_grid_mesh_welded(
         num_x: i32,
@@ -794,6 +807,9 @@ impl UKismetProceduralMeshLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
                 .swap(u_vs);
         }
+        std::mem::forget(num_x);
+        std::mem::forget(num_y);
+        std::mem::forget(grid_spacing);
     }
     pub fn create_grid_mesh_triangles(
         num_x: i32,
@@ -843,6 +859,9 @@ impl UKismetProceduralMeshLibrary {
         unsafe {
             __buffer.add(16).cast::<TArray<i32>>().swap(triangles);
         }
+        std::mem::forget(num_x);
+        std::mem::forget(num_y);
+        std::mem::forget(b_winding);
     }
     pub fn create_grid_mesh_split(
         num_x: i32,
@@ -944,6 +963,9 @@ impl UKismetProceduralMeshLibrary {
                 .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
                 .swap(uv1s);
         }
+        std::mem::forget(num_x);
+        std::mem::forget(num_y);
+        std::mem::forget(grid_spacing);
     }
     pub fn copy_procedural_mesh_from_static_mesh_component(
         static_mesh_component: UPtr<crate::bindings::engine::UStaticMeshComponent>,
@@ -1000,6 +1022,10 @@ impl UKismetProceduralMeshLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(static_mesh_component);
+        std::mem::forget(lod_index);
+        std::mem::forget(proc_mesh_component);
+        std::mem::forget(b_create_collision);
     }
     pub fn convert_quad_to_triangles(
         triangles: &mut TArray<i32>,
@@ -1053,6 +1079,10 @@ impl UKismetProceduralMeshLibrary {
         unsafe {
             __buffer.add(0).cast::<TArray<i32>>().swap(triangles);
         }
+        std::mem::forget(vert0);
+        std::mem::forget(vert1);
+        std::mem::forget(vert2);
+        std::mem::forget(vert3);
     }
     pub fn calculate_tangents_for_mesh(
         vertices: &TArray<crate::bindings::core_u_object::FVector>,
@@ -1294,6 +1324,8 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
+        std::mem::forget(b_srgb_conversion);
     }
     pub fn update_mesh_section(
         &mut self,
@@ -1377,6 +1409,7 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
     }
     pub fn set_mesh_section_visible(
         &mut self,
@@ -1420,6 +1453,8 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
+        std::mem::forget(b_new_visibility);
     }
     pub fn is_mesh_section_visible(&self, section_index: i32) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -1452,6 +1487,7 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn get_num_sections(&self) -> i32 {
@@ -1616,6 +1652,9 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
+        std::mem::forget(b_create_collision);
+        std::mem::forget(b_srgb_conversion);
     }
     pub fn create_mesh_section(
         &mut self,
@@ -1715,6 +1754,8 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
+        std::mem::forget(b_create_collision);
     }
     pub fn clear_mesh_section(&mut self, section_index: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1747,6 +1788,7 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(section_index);
     }
     pub fn clear_collision_convex_meshes(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1834,6 +1876,7 @@ impl UProceduralMeshComponent {
                 __buffer,
             )
         };
+        std::mem::forget(convex_verts);
     }
 }
 #[repr(transparent)]

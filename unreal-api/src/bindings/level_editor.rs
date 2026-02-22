@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -617,6 +618,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_exact_camera_view);
+        std::mem::forget(viewport_config_key);
     }
     pub fn set_current_level_by_name(&mut self, level_name: FName) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -649,6 +652,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(level_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn set_allows_cinematic_control(
@@ -689,6 +693,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_allow);
+        std::mem::forget(viewport_config_key);
     }
     pub fn save_current_level(&mut self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -784,6 +790,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(actor_to_pilot);
+        std::mem::forget(viewport_config_key);
     }
     pub fn new_level_from_template(
         &mut self,
@@ -827,6 +835,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
+        std::mem::forget(template_asset_path);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn new_level(
@@ -871,6 +881,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
+        std::mem::forget(b_is_partitioned_world);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn load_level(&mut self, asset_path: FString) -> bool {
@@ -904,6 +916,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(asset_path);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_in_play_in_editor(&self) -> bool {
@@ -1029,6 +1042,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(viewport_config_key);
         unsafe {
             __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>().read()
         }
@@ -1064,6 +1078,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(viewport_config_key);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_current_level(&mut self) -> UPtr<crate::bindings::engine::ULevel> {
@@ -1123,6 +1138,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(viewport_config_key);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_active_viewport_config_key(&mut self) -> FName {
@@ -1182,6 +1198,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(viewport_config_key);
     }
     pub fn editor_set_viewport_realtime(
         &mut self,
@@ -1225,6 +1242,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_realtime);
+        std::mem::forget(viewport_config_key);
     }
     pub fn editor_set_game_view(
         &mut self,
@@ -1268,6 +1287,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(b_game_view);
+        std::mem::forget(viewport_config_key);
     }
     pub fn editor_request_end_play(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1400,6 +1421,7 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(viewport_config_key);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn build_light_maps(
@@ -1444,6 +1466,8 @@ impl ULevelEditorSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(quality);
+        std::mem::forget(b_with_reflection_captures);
         unsafe { __buffer.add(2).cast::<bool>().read() }
     }
 }

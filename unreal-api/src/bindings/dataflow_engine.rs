@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -206,6 +207,8 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset_to_regenerate);
+        std::mem::forget(b_regenerate_dependent_assets);
         unsafe { __buffer.add(9).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_object_array(
@@ -259,6 +262,8 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_object(
@@ -310,6 +315,9 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
+        std::mem::forget(variable_value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_int_array(
@@ -361,6 +369,8 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_int(
@@ -412,6 +422,9 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
+        std::mem::forget(variable_value);
         unsafe { __buffer.add(32).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_float_array(
@@ -463,6 +476,8 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_float(
@@ -514,6 +529,9 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
+        std::mem::forget(variable_value);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_bool_array(
@@ -565,6 +583,8 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
         unsafe { __buffer.add(40).cast::<bool>().read() }
     }
     pub fn override_dataflow_variable_bool(
@@ -616,6 +636,9 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(asset);
+        std::mem::forget(variable_name);
+        std::mem::forget(variable_value);
         unsafe { __buffer.add(21).cast::<bool>().read() }
     }
     pub fn evaluate_terminal_node_by_name(
@@ -667,6 +690,9 @@ impl UDataflowBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(dataflow);
+        std::mem::forget(terminal_node_name);
+        std::mem::forget(result_asset);
     }
 }
 pub struct IDataflowContentOwner {}

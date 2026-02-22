@@ -15,15 +15,18 @@ DEFINE_LOG_CATEGORY(RustVisualLog);
 
 namespace
 {
-static_assert(sizeof(FScriptArrayStorage) == sizeof(FScriptArray), "FFI script array size must match Unreal FScriptArray");
-static_assert(alignof(FScriptArrayStorage) == alignof(FScriptArray), "FFI script array alignment must match Unreal FScriptArray");
+static_assert(sizeof(FRustScriptArray) == sizeof(FScriptArray), "FFI script array size must match Unreal FScriptArray");
+static_assert(alignof(FRustScriptArray) == alignof(FScriptArray), "FFI script array alignment must match Unreal FScriptArray");
+	
+static_assert(sizeof(FRustString) == sizeof(FString), "FFI FRustString alignment must match Unreal FString");
+static_assert(alignof(FRustString) == alignof(FString), "FFI FRustString alignment must match Unreal FString");
 
-FScriptArray* AsNative(FScriptArrayStorage* array)
+FScriptArray* AsNative(FRustScriptArray* array)
 {
 	return reinterpret_cast<FScriptArray*>(array);
 }
 
-const FScriptArray* AsNative(const FScriptArrayStorage* array)
+const FScriptArray* AsNative(const FRustScriptArray* array)
 {
 	return reinterpret_cast<const FScriptArray*>(array);
 }
@@ -154,7 +157,7 @@ uint32_t FindFunctionByName(const UClassOpague* cdo_opague, Utf8Str name, UFunct
 	return 1;
 }
 
-uint32_t FScriptArrayNum(const FScriptArrayStorage* array, int32_t* out_num)
+uint32_t FScriptArrayNum(const FRustScriptArray* array, int32_t* out_num)
 {
 	if (array == nullptr || out_num == nullptr)
 	{
@@ -166,7 +169,7 @@ uint32_t FScriptArrayNum(const FScriptArrayStorage* array, int32_t* out_num)
 	return 1;
 }
 
-uint32_t FScriptArrayCtor(FScriptArrayStorage* array)
+uint32_t FScriptArrayCtor(FRustScriptArray* array)
 {
 	if (array == nullptr)
 	{
@@ -177,7 +180,7 @@ uint32_t FScriptArrayCtor(FScriptArrayStorage* array)
 	return 1;
 }
 
-uint32_t FScriptArrayDtor(FScriptArrayStorage* array)
+uint32_t FScriptArrayDtor(FRustScriptArray* array)
 {
 	if (array == nullptr)
 	{
@@ -189,7 +192,7 @@ uint32_t FScriptArrayDtor(FScriptArrayStorage* array)
 	return 1;
 }
 
-uint32_t FScriptArrayMax(const FScriptArrayStorage* array, int32_t* out_max)
+uint32_t FScriptArrayMax(const FRustScriptArray* array, int32_t* out_max)
 {
 	if (array == nullptr || out_max == nullptr)
 	{
@@ -201,7 +204,7 @@ uint32_t FScriptArrayMax(const FScriptArrayStorage* array, int32_t* out_max)
 	return 1;
 }
 
-uint32_t FScriptArrayGetData(FScriptArrayStorage* array, void** out_data)
+uint32_t FScriptArrayGetData(FRustScriptArray* array, void** out_data)
 {
 	if (array == nullptr || out_data == nullptr)
 	{
@@ -213,7 +216,7 @@ uint32_t FScriptArrayGetData(FScriptArrayStorage* array, void** out_data)
 	return 1;
 }
 
-uint32_t FScriptArrayIsValidIndex(const FScriptArrayStorage* array, int32_t index)
+uint32_t FScriptArrayIsValidIndex(const FRustScriptArray* array, int32_t index)
 {
 	if (array == nullptr)
 	{
@@ -224,7 +227,7 @@ uint32_t FScriptArrayIsValidIndex(const FScriptArrayStorage* array, int32_t inde
 	return ScriptArray->IsValidIndex(index) ? 1 : 0;
 }
 
-uint32_t FScriptArrayReserve(FScriptArrayStorage* array,
+uint32_t FScriptArrayReserve(FRustScriptArray* array,
 	int32_t capacity,
 	int32_t elem_size,
 	uint32_t elem_align)
@@ -248,7 +251,7 @@ uint32_t FScriptArrayReserve(FScriptArrayStorage* array,
 	return 1;
 }
 
-uint32_t FScriptArrayAdd(FScriptArrayStorage* array,
+uint32_t FScriptArrayAdd(FRustScriptArray* array,
 	int32_t count,
 	int32_t elem_size,
 	uint32_t elem_align,
@@ -270,7 +273,7 @@ uint32_t FScriptArrayAdd(FScriptArrayStorage* array,
 	return 1;
 }
 
-uint32_t FScriptArrayInsert(FScriptArrayStorage* array,
+uint32_t FScriptArrayInsert(FRustScriptArray* array,
 	int32_t index,
 	int32_t count,
 	int32_t elem_size,
@@ -291,7 +294,7 @@ uint32_t FScriptArrayInsert(FScriptArrayStorage* array,
 	return 1;
 }
 
-uint32_t FScriptArrayRemove(FScriptArrayStorage* array,
+uint32_t FScriptArrayRemove(FRustScriptArray* array,
 	int32_t index,
 	int32_t count,
 	int32_t elem_size,
@@ -312,7 +315,7 @@ uint32_t FScriptArrayRemove(FScriptArrayStorage* array,
 	return 1;
 }
 
-uint32_t FScriptArrayEmpty(FScriptArrayStorage* array,
+uint32_t FScriptArrayEmpty(FRustScriptArray* array,
 	int32_t slack,
 	int32_t elem_size,
 	uint32_t elem_align)
@@ -327,7 +330,7 @@ uint32_t FScriptArrayEmpty(FScriptArrayStorage* array,
 	return 1;
 }
 
-uint32_t FScriptArrayReset(FScriptArrayStorage* array,
+uint32_t FScriptArrayReset(FRustScriptArray* array,
 	int32_t new_size,
 	int32_t elem_size,
 	uint32_t elem_align)
@@ -342,7 +345,7 @@ uint32_t FScriptArrayReset(FScriptArrayStorage* array,
 	return 1;
 }
 
-uint32_t FScriptArrayShrink(FScriptArrayStorage* array,
+uint32_t FScriptArrayShrink(FRustScriptArray* array,
 	int32_t elem_size,
 	uint32_t elem_align)
 {
@@ -364,4 +367,34 @@ void BeginTrace(const char* name)
 void EndTrace()
 {
 	FCpuProfilerTrace::OutputEndEvent();
+}
+
+void NewFStringFromUtf8(Utf8Str str, FRustString *fstring)
+{
+	FString* Out = reinterpret_cast<FString*>(fstring);
+	// TODO: Avoid allocation
+    new (Out) FString(ToFString(str));
+}
+
+void CopyFromFString(const FRustString* source, FRustString* fstring)
+{
+	if (source == nullptr || fstring == nullptr)
+	{
+		return;
+	}
+
+	const FString* In = reinterpret_cast<const FString*>(source);
+	FString* Out = reinterpret_cast<FString*>(fstring);
+	new (Out) FString(*In);
+}
+
+void DeleteFString(FRustString* fstring)
+{
+	if (fstring == nullptr)
+	{
+		return;
+	}
+
+	FString* InOut = reinterpret_cast<FString*>(fstring);
+	InOut->~FString();
 }

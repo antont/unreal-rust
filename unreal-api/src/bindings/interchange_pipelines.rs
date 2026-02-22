@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -557,6 +558,7 @@ impl UInterchangeGenericAudioPipeline {
                 __buffer,
             )
         };
+        std::mem::forget(sound_wave_node);
         unsafe {
             __buffer
                 .add(8)
@@ -786,6 +788,7 @@ impl UInterchangeGenericMeshPipeline {
                 __buffer,
             )
         };
+        std::mem::forget(inb_combine_skeletal_meshes);
     }
     pub fn get_combine_skeletal_meshes(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1146,6 +1149,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_instance_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn is_valid_mesh_geometry_uid(&self, mesh_geometry_uid: FString) -> bool {
@@ -1179,6 +1183,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_geometry_uid);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
     pub fn get_mesh_instance_skeleton_root_uid(
@@ -1215,6 +1220,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_instance_uid);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_mesh_instance_by_uid(
@@ -1251,6 +1257,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_instance_uid);
         unsafe { __buffer.add(16).cast::<FInterchangeMeshInstance>().read() }
     }
     pub fn get_mesh_geometry_skeleton_root_uid(
@@ -1287,6 +1294,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_geometry_uid);
         unsafe { __buffer.add(16).cast::<FString>().read() }
     }
     pub fn get_mesh_geometry_by_uid(
@@ -1323,6 +1331,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(mesh_geometry_uid);
         unsafe { __buffer.add(16).cast::<FInterchangeMeshGeometry>().read() }
     }
     pub fn get_all_static_mesh_instance(
@@ -1522,6 +1531,7 @@ impl UInterchangePipelineMeshesUtilities {
         unsafe {
             __buffer.add(16).cast::<TArray<FString>>().swap(mesh_instance_uids);
         }
+        std::mem::forget(mesh_geometry_uid);
     }
     pub fn get_all_mesh_instance_uids(&self, mesh_instance_uids: &mut TArray<FString>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1748,6 +1758,7 @@ impl UInterchangePipelineMeshesUtilities {
                 __buffer,
             )
         };
+        std::mem::forget(base_node_container);
         unsafe {
             __buffer.add(8).cast::<UPtr<UInterchangePipelineMeshesUtilities>>().read()
         }

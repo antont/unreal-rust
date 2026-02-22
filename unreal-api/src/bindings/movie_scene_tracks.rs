@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1100,6 +1101,7 @@ impl UMovieSceneReplaceableActorBinding_BPBase {
                 __buffer,
             )
         };
+        std::mem::forget(source_object);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn bp_resolve_runtime_binding(
@@ -1191,6 +1193,8 @@ impl UMovieSceneReplaceableActorBinding_BPBase {
                 __buffer,
             )
         };
+        std::mem::forget(source_object);
+        std::mem::forget(owner_movie_scene);
     }
 }
 #[repr(C, align(8))]
@@ -1950,6 +1954,7 @@ impl UMovieSceneAudioSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_suppress_subtitles);
     }
     pub fn set_start_offset(
         &mut self,
@@ -1985,6 +1990,7 @@ impl UMovieSceneAudioSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_start_offset);
     }
     pub fn set_sound(&mut self, in_sound: UPtr<crate::bindings::engine::USoundBase>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -2017,6 +2023,7 @@ impl UMovieSceneAudioSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_sound);
     }
     pub fn set_override_attenuation(&mut self, b_in_override_attenuation: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2049,6 +2056,7 @@ impl UMovieSceneAudioSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_override_attenuation);
     }
     pub fn set_looping(&mut self, b_in_looping: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2081,6 +2089,7 @@ impl UMovieSceneAudioSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_looping);
     }
     pub fn set_attenuation_settings(
         &mut self,
@@ -2118,6 +2127,7 @@ impl UMovieSceneAudioSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_attenuation_settings);
     }
     pub fn get_suppress_subtitles(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2660,6 +2670,7 @@ impl UMovieSceneCinematicShotSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_shot_display_name);
     }
     pub fn get_shot_display_name(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2907,6 +2918,11 @@ impl UMovieSceneComponentMaterialParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
+        std::mem::forget(in_layer_name);
+        std::mem::forget(in_asset_name);
+        std::mem::forget(default_interpolation);
     }
     pub fn add_color_parameter_key(
         &mut self,
@@ -2996,6 +3012,11 @@ impl UMovieSceneComponentMaterialParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
+        std::mem::forget(in_layer_name);
+        std::mem::forget(in_asset_name);
+        std::mem::forget(default_interpolation);
     }
 }
 pub struct IMovieSceneConstrainedSection {}
@@ -3099,6 +3120,7 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_vector2_d_parameter(&mut self, in_parameter_name: FName) -> bool {
@@ -3132,6 +3154,7 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_transform_parameter(&mut self, in_parameter_name: FName) -> bool {
@@ -3165,6 +3188,7 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_scalar_parameter(&mut self, in_parameter_name: FName) -> bool {
@@ -3198,6 +3222,7 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_color_parameter(&mut self, in_parameter_name: FName) -> bool {
@@ -3231,6 +3256,7 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn remove_bool_parameter(&mut self, in_parameter_name: FName) -> bool {
@@ -3264,6 +3290,7 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
     pub fn get_parameter_names(&self, parameter_names: &mut TSet<FName>) {
@@ -3361,6 +3388,10 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
+        std::mem::forget(default_interpolation);
     }
     pub fn add_vector2_d_parameter_key(
         &mut self,
@@ -3422,6 +3453,10 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
+        std::mem::forget(default_interpolation);
     }
     pub fn add_transform_parameter_key(
         &mut self,
@@ -3483,6 +3518,9 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
+        std::mem::forget(in_time);
+        std::mem::forget(default_interpolation);
     }
     pub fn add_scalar_parameter_key(
         &mut self,
@@ -3540,6 +3578,10 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
+        std::mem::forget(default_interpolation);
     }
     pub fn add_color_parameter_key(
         &mut self,
@@ -3601,6 +3643,10 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
+        std::mem::forget(default_interpolation);
     }
     pub fn add_bool_parameter_key(
         &mut self,
@@ -3648,6 +3694,9 @@ impl UMovieSceneParameterSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_parameter_name);
+        std::mem::forget(in_time);
+        std::mem::forget(in_value);
     }
 }
 #[repr(C, align(8))]
@@ -3750,6 +3799,7 @@ impl UMovieSceneCVarSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_string);
     }
     pub fn get_string(&self) -> FString {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -3848,6 +3898,7 @@ impl UMovieSceneDataLayerSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_preroll_state);
     }
     pub fn set_flush_on_unload(&mut self, b_flush_on_unload: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3880,6 +3931,7 @@ impl UMovieSceneDataLayerSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_flush_on_unload);
     }
     pub fn set_flush_on_activated(&mut self, b_flush_on_activated: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3912,6 +3964,7 @@ impl UMovieSceneDataLayerSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_flush_on_activated);
     }
     pub fn set_desired_state(
         &mut self,
@@ -3949,6 +4002,7 @@ impl UMovieSceneDataLayerSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_desired_state);
     }
     pub fn set_data_layer_assets(
         &mut self,
@@ -4515,6 +4569,7 @@ impl UMovieSceneLevelVisibilitySection {
                 __buffer,
             )
         };
+        std::mem::forget(in_visibility);
     }
     pub fn set_level_names(&mut self, in_level_names: &TArray<FName>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -6731,6 +6786,9 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 __buffer,
             )
         };
+        std::mem::forget(player);
+        std::mem::forget(target_component);
+        std::mem::forget(time_in_seconds);
         unsafe {
             __buffer
                 .add(24)
@@ -6791,6 +6849,9 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 __buffer,
             )
         };
+        std::mem::forget(player);
+        std::mem::forget(target_component);
+        std::mem::forget(frame_time);
         unsafe {
             __buffer
                 .add(24)
@@ -6851,6 +6912,9 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 __buffer,
             )
         };
+        std::mem::forget(player);
+        std::mem::forget(target_component);
+        std::mem::forget(time_in_seconds);
         unsafe {
             __buffer
                 .add(24)
@@ -6911,6 +6975,9 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 __buffer,
             )
         };
+        std::mem::forget(player);
+        std::mem::forget(target_component);
+        std::mem::forget(frame_time);
         unsafe {
             __buffer
                 .add(24)
@@ -7758,6 +7825,7 @@ impl UMovieSceneFadeTrackTestLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_camera_manager);
         unsafe { __buffer.add(8).cast::<f32>().read() }
     }
 }

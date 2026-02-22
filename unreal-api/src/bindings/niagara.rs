@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -3858,6 +3859,8 @@ impl UNiagaraDataInterfaceArrayDistributionInt {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_component);
+        std::mem::forget(override_name);
     }
 }
 #[repr(C, align(8))]
@@ -4018,6 +4021,8 @@ impl UNiagaraDataInterfaceArrayMesh {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_component);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_mesh(
         niagara_component: UPtr<UNiagaraComponent>,
@@ -4070,6 +4075,8 @@ impl UNiagaraDataInterfaceArrayMesh {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_component);
+        std::mem::forget(override_name);
     }
 }
 #[repr(C, align(8))]
@@ -4646,6 +4653,9 @@ impl UNiagaraDataInterfaceSceneCapture2D {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(parameter_name);
+        std::mem::forget(show_only_actors);
     }
 }
 #[repr(C, align(8))]
@@ -4871,6 +4881,9 @@ impl UNiagaraDataInterfaceStaticMesh {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(user_parameter_name);
+        std::mem::forget(new_instance_index);
     }
 }
 #[repr(C, align(8))]
@@ -4964,6 +4977,10 @@ impl UNiagaraDataInterfaceUObjectPropertyReader {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_component);
+        std::mem::forget(user_parameter_name);
+        std::mem::forget(graph_name);
+        std::mem::forget(remap_name);
     }
 }
 #[repr(C, align(8))]
@@ -5069,6 +5086,7 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_behavior);
     }
     pub fn set_section_evaluate_behavior(
         &mut self,
@@ -5104,6 +5122,7 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_behavior);
     }
     pub fn set_section_end_behavior(
         &mut self,
@@ -5139,6 +5158,7 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_behavior);
     }
     pub fn set_allow_scalability(&mut self, b_in_allow_scalability: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5171,6 +5191,7 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_allow_scalability);
     }
     pub fn set_age_update_mode(&mut self, in_mode: ENiagaraAgeUpdateMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5203,6 +5224,7 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 __buffer,
             )
         };
+        std::mem::forget(in_mode);
     }
     pub fn get_section_start_behavior(&self) -> ENiagaraSystemSpawnSectionStartBehavior {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -5692,6 +5714,7 @@ impl ANiagaraActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_should_destroy_on_system_finish);
     }
     pub fn get_destroy_on_system_finish(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6092,6 +6115,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_variable_vec3(
         &mut self,
@@ -6135,6 +6159,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_vec2(
         &mut self,
@@ -6178,6 +6204,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_texture_render_target(
         &mut self,
@@ -6223,6 +6251,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(texture_render_target);
     }
     pub fn set_variable_texture(
         &mut self,
@@ -6266,6 +6296,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(texture);
     }
     pub fn set_variable_static_mesh(
         &mut self,
@@ -6309,6 +6341,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_quat(
         &mut self,
@@ -6352,6 +6386,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_variable_position(
         &mut self,
@@ -6395,6 +6430,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_object(
         &mut self,
@@ -6438,6 +6475,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(object);
     }
     pub fn set_variable_matrix(
         &mut self,
@@ -6481,6 +6520,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_variable_material(
         &mut self,
@@ -6526,6 +6566,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(object);
     }
     pub fn set_variable_linear_color(
         &mut self,
@@ -6569,6 +6611,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_variable_int(&mut self, in_variable_name: FName, in_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -6604,6 +6647,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_float(&mut self, in_variable_name: FName, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -6639,6 +6684,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_bool(&mut self, in_variable_name: FName, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<13>::new();
@@ -6674,6 +6721,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_variable_actor(
         &mut self,
@@ -6717,6 +6766,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(actor);
     }
     pub fn set_tick_behavior(&mut self, new_tick_behavior: ENiagaraTickBehavior) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6749,6 +6800,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_tick_behavior);
     }
     pub fn set_system_fixed_bounds(
         &mut self,
@@ -6784,6 +6836,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(local_bounds);
     }
     pub fn set_sim_cache(
         &mut self,
@@ -6827,6 +6880,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(sim_cache);
+        std::mem::forget(b_reset_system);
     }
     pub fn set_seek_delta(&mut self, in_seek_delta: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -6859,6 +6914,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_seek_delta);
     }
     pub fn set_rendering_enabled(&mut self, b_in_rendering_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -6891,6 +6947,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_rendering_enabled);
     }
     pub fn set_random_seed_offset(&mut self, new_random_seed_offset: i32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -6923,6 +6980,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(new_random_seed_offset);
     }
     pub fn set_preview_lod_distance(
         &mut self,
@@ -6974,6 +7032,9 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable_preview_lod_distance);
+        std::mem::forget(preview_lod_distance);
+        std::mem::forget(preview_max_distance);
     }
     pub fn set_paused(&mut self, b_in_paused: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7004,6 +7065,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_paused);
     }
     pub fn set_occlusion_query_mode(&mut self, mode: ENiagaraOcclusionQueryMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7036,6 +7098,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(mode);
     }
     pub fn set_niagara_variable_vec4(
         &mut self,
@@ -7079,6 +7142,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_niagara_variable_vec3(
         &mut self,
@@ -7122,6 +7186,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_niagara_variable_vec2(
         &mut self,
@@ -7165,6 +7231,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_niagara_variable_quat(
         &mut self,
@@ -7208,6 +7276,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_niagara_variable_position(
         &mut self,
@@ -7251,6 +7320,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_niagara_variable_object(
         &mut self,
@@ -7294,6 +7365,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(object);
     }
     pub fn set_niagara_variable_matrix(
         &mut self,
@@ -7337,6 +7410,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_niagara_variable_linear_color(
         &mut self,
@@ -7380,6 +7454,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_niagara_variable_int(
         &mut self,
@@ -7419,6 +7494,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_niagara_variable_float(
         &mut self,
@@ -7458,6 +7535,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_niagara_variable_bool(
         &mut self,
@@ -7497,6 +7576,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_niagara_variable_actor(
         &mut self,
@@ -7540,6 +7621,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(actor);
     }
     pub fn set_max_sim_time(&mut self, in_max_time: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7572,6 +7655,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_max_time);
     }
     pub fn set_lock_desired_age_delta_time_to_seek_delta(&mut self, b_lock: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7600,6 +7684,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_lock);
     }
     pub fn set_gpu_compute_debug(&mut self, b_enable_debug: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7632,6 +7717,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable_debug);
     }
     pub fn set_force_solo(&mut self, b_in_force_solo: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7664,6 +7750,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_force_solo);
     }
     pub fn set_force_local_player_effect(&mut self, b_is_player_effect: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7696,6 +7783,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_player_effect);
     }
     pub fn set_emitter_fixed_bounds(
         &mut self,
@@ -7739,6 +7827,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(emitter_name);
+        std::mem::forget(local_bounds);
     }
     pub fn set_desired_age(&mut self, in_desired_age: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7771,6 +7861,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_desired_age);
     }
     pub fn set_custom_time_dilation(&mut self, dilation: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7799,6 +7890,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(dilation);
     }
     pub fn set_can_render_while_seeking(&mut self, b_in_can_render_while_seeking: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7831,6 +7923,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_can_render_while_seeking);
     }
     pub fn set_auto_destroy(&mut self, b_in_auto_destroy: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7863,6 +7956,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_auto_destroy);
     }
     pub fn set_asset(
         &mut self,
@@ -7904,6 +7998,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_asset);
+        std::mem::forget(b_reset_existing_override_parameters);
     }
     pub fn set_allow_scalability(&mut self, b_allow: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7932,6 +8028,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_allow);
     }
     pub fn set_age_update_mode(&mut self, in_age_update_mode: ENiagaraAgeUpdateMode) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -7964,6 +8061,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_age_update_mode);
     }
     pub fn seek_to_desired_age(&mut self, in_desired_age: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -7996,6 +8094,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(in_desired_age);
     }
     pub fn reset_system(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -8141,6 +8240,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>().read()
         }
@@ -8190,6 +8290,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -8239,6 +8340,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -8288,6 +8390,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -8337,6 +8440,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -8386,6 +8490,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FMatrix>().read()
         }
@@ -8435,6 +8540,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_variable_float(
@@ -8482,6 +8588,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_variable_color(
@@ -8529,6 +8636,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer
                 .add(16)
@@ -8581,6 +8689,7 @@ impl UNiagaraComponent {
         unsafe {
             __buffer.add(12).cast::<bool>().swap(b_is_valid);
         }
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn get_tick_behavior(&self) -> ENiagaraTickBehavior {
@@ -8929,6 +9038,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(emitter_name);
         unsafe { __buffer.add(16).cast::<crate::bindings::core_u_object::FBox>().read() }
     }
     pub fn get_desired_age(&self) -> f32 {
@@ -8984,6 +9094,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(name);
         unsafe { __buffer.add(16).cast::<UPtr<UNiagaraDataInterface>>().read() }
     }
     pub fn get_custom_time_dilation(&self) -> f32 {
@@ -9144,6 +9255,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(b_reset_system);
     }
     pub fn clear_emitter_fixed_bounds(&mut self, emitter_name: FName) {
         let mut __stack = crate::core_data::StackAlloc::<12>::new();
@@ -9176,6 +9288,7 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(emitter_name);
     }
     pub fn advance_simulation_by_time(
         &mut self,
@@ -9219,6 +9332,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(simulate_time);
+        std::mem::forget(tick_delta_seconds);
     }
     pub fn advance_simulation(&mut self, tick_count: i32, tick_delta_seconds: f32) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -9254,6 +9369,8 @@ impl UNiagaraComponent {
                 __buffer,
             )
         };
+        std::mem::forget(tick_count);
+        std::mem::forget(tick_delta_seconds);
     }
 }
 #[repr(C, align(8))]
@@ -9506,6 +9623,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>().read()
         }
@@ -9551,6 +9670,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -9596,6 +9717,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -9641,6 +9764,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(20).cast::<FNiagaraSpawnInfo>().read() }
     }
     pub fn read_quat(
@@ -9684,6 +9809,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -9729,6 +9856,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -9774,6 +9903,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe {
             __buffer
                 .add(20)
@@ -9817,6 +9948,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(20).cast::<i32>().read() }
     }
     pub fn read_id(
@@ -9860,6 +9993,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(20).cast::<FNiagaraID>().read() }
     }
     pub fn read_float(&self, var_name: FName, index: i32, is_valid: &mut bool) -> f64 {
@@ -9898,6 +10033,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(24).cast::<f64>().read() }
     }
     pub fn read_enum(&self, var_name: FName, index: i32, is_valid: &mut bool) -> u8 {
@@ -9936,6 +10073,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(17).cast::<u8>().read() }
     }
     pub fn read_bool(&self, var_name: FName, index: i32, is_valid: &mut bool) -> bool {
@@ -9974,6 +10113,8 @@ impl UNiagaraDataChannelReader {
         unsafe {
             __buffer.add(16).cast::<bool>().swap(is_valid);
         }
+        std::mem::forget(var_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn num(&self) -> i32 {
@@ -10079,6 +10220,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_vector2_d(
         &mut self,
@@ -10122,6 +10266,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_vector(
         &mut self,
@@ -10165,6 +10312,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_spawn_info(
         &mut self,
@@ -10208,6 +10358,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_quat(
         &mut self,
@@ -10251,6 +10404,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_position(
         &mut self,
@@ -10294,6 +10450,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_linear_color(
         &mut self,
@@ -10337,6 +10496,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_int(&mut self, var_name: FName, index: i32, in_data: i32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -10371,6 +10533,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_id(&mut self, var_name: FName, index: i32, in_data: FNiagaraID) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -10409,6 +10574,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_float(&mut self, var_name: FName, index: i32, in_data: f64) {
         let mut __stack = crate::core_data::StackAlloc::<24>::new();
@@ -10443,6 +10611,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_enum(&mut self, var_name: FName, index: i32, in_data: u8) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -10477,6 +10648,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn write_bool(&mut self, var_name: FName, index: i32, in_data: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -10511,6 +10685,9 @@ impl UNiagaraDataChannelWriter {
                 __buffer,
             )
         };
+        std::mem::forget(var_name);
+        std::mem::forget(index);
+        std::mem::forget(in_data);
     }
     pub fn num(&self) -> i32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -10696,6 +10873,13 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(count);
+        std::mem::forget(b_visible_to_blueprint);
+        std::mem::forget(b_visible_to_niagara_cpu);
+        std::mem::forget(b_visible_to_niagara_gpu);
+        std::mem::forget(debug_source);
         unsafe { __buffer.add(56).cast::<UPtr<UNiagaraDataChannelWriter>>().read() }
     }
     pub fn write_to_niagara_data_channel(
@@ -10783,6 +10967,14 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(search_params);
+        std::mem::forget(count);
+        std::mem::forget(b_visible_to_game);
+        std::mem::forget(b_visible_to_cpu);
+        std::mem::forget(b_visible_to_gpu);
+        std::mem::forget(debug_source);
         unsafe { __buffer.add(80).cast::<UPtr<UNiagaraDataChannelWriter>>().read() }
     }
     pub fn unsubscribe_from_niagara_data_channel(
@@ -10834,6 +11026,8 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
     }
     pub fn subscribe_to_niagara_data_channel_with_context(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -10908,6 +11102,8 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(64).cast::<i32>().swap(unsubscribe_token);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
     }
     pub fn subscribe_to_niagara_data_channel(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -10977,6 +11173,9 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(88).cast::<i32>().swap(unsubscribe_token);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(search_params);
     }
     pub fn set_single_property_in_ndc_access_context_instance(
         access_context: &mut FNDCAccessContextInst,
@@ -11036,6 +11235,8 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(0).cast::<FNDCAccessContextInst>().swap(access_context);
         }
+        std::mem::forget(context_struct);
+        std::mem::forget(property_name);
     }
     pub fn set_members_in_ndc_access_context_instance(
         access_context: &mut FNDCAccessContextInst,
@@ -11083,6 +11284,7 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(0).cast::<FNDCAccessContextInst>().swap(access_context);
         }
+        std::mem::forget(context_struct);
     }
     pub fn read_from_niagara_data_channel_with_context(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -11144,6 +11346,9 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(b_read_previous_frame);
         unsafe { __buffer.add(40).cast::<UPtr<UNiagaraDataChannelReader>>().read() }
     }
     pub fn read_from_niagara_data_channel(
@@ -11203,6 +11408,10 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(search_params);
+        std::mem::forget(b_read_previous_frame);
         unsafe { __buffer.add(64).cast::<UPtr<UNiagaraDataChannelReader>>().read() }
     }
     pub fn prepare_access_context_from_ndc_ref(
@@ -11278,6 +11487,7 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context_struct);
         unsafe { __buffer.add(8).cast::<FNDCAccessContextInst>().read() }
     }
     pub fn get_usable_access_context_from_ndc_ref(
@@ -11348,6 +11558,7 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(data_channel);
         unsafe { __buffer.add(8).cast::<FNDCAccessContextInst>().read() }
     }
     pub fn get_single_property_in_ndc_access_context_instance(
@@ -11408,6 +11619,8 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(36).cast::<i32>().swap(value);
         }
+        std::mem::forget(context_struct);
+        std::mem::forget(property_name);
     }
     pub fn get_members_in_ndc_access_context_instance(
         access_context: &FNDCAccessContextInst,
@@ -11452,6 +11665,7 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(context_struct);
     }
     pub fn get_data_channel_element_count_with_context(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -11513,6 +11727,9 @@ impl UNiagaraDataChannelLibrary {
         unsafe {
             __buffer.add(16).cast::<FNDCAccessContextInst>().swap(access_context);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(b_read_previous_frame);
         unsafe { __buffer.add(36).cast::<i32>().read() }
     }
     pub fn get_data_channel_element_count(
@@ -11572,6 +11789,10 @@ impl UNiagaraDataChannelLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(channel);
+        std::mem::forget(search_params);
+        std::mem::forget(b_read_previous_frame);
         unsafe { __buffer.add(60).cast::<i32>().read() }
     }
 }
@@ -11699,6 +11920,7 @@ impl UNiagaraDataChannelHandler {
         unsafe {
             __buffer.add(48).cast::<i32>().swap(unsubscribe_token);
         }
+        std::mem::forget(update_delegate);
     }
     pub fn subscribe_to_data_channel_updates(
         &mut self,
@@ -11753,6 +11975,8 @@ impl UNiagaraDataChannelHandler {
         unsafe {
             __buffer.add(72).cast::<i32>().swap(unsubscribe_token);
         }
+        std::mem::forget(update_delegate);
+        std::mem::forget(search_params);
     }
     pub fn get_data_channel_writer(&mut self) -> UPtr<UNiagaraDataChannelWriter> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -12553,6 +12777,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_vector4_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12615,6 +12843,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_vector4(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12667,6 +12899,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_vector2_d_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12729,6 +12963,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_vector2_d(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12781,6 +13019,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_vector(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12833,6 +13073,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_u_int8_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12891,6 +13133,11 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(value);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_u_int8(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -12941,6 +13188,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_quat_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13003,6 +13252,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_quat(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13053,6 +13306,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_position_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13115,6 +13370,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_position(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13167,6 +13426,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_matrix_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13237,6 +13498,11 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
+        std::mem::forget(b_apply_lwc_rebase);
     }
     pub fn set_niagara_array_matrix(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13297,6 +13563,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(b_apply_lwc_rebase);
     }
     pub fn set_niagara_array_int32_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13355,6 +13624,11 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(value);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_int32(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13405,6 +13679,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_float_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13463,6 +13739,11 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(value);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_float(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13513,6 +13794,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_color_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13575,6 +13858,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_color(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13627,6 +13914,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_niagara_array_bool_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13685,6 +13974,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_size_to_fit);
     }
     pub fn set_niagara_array_bool(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13735,6 +14028,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn get_niagara_array_vector_value(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -13781,6 +14076,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -13830,6 +14128,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FVector4>().read()
         }
@@ -13875,6 +14176,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe {
             __buffer
                 .add(24)
@@ -13927,6 +14230,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -13972,6 +14278,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe {
             __buffer
                 .add(24)
@@ -14020,6 +14328,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe {
             __buffer
                 .add(24)
@@ -14072,6 +14382,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(24).cast::<i32>().read() }
     }
     pub fn get_niagara_array_u_int8(
@@ -14115,6 +14428,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe { __buffer.add(24).cast::<TArray<i32>>().read() }
     }
     pub fn get_niagara_array_quat_value(
@@ -14162,6 +14477,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -14207,6 +14525,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe {
             __buffer
                 .add(24)
@@ -14259,6 +14579,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe {
             __buffer.add(24).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -14304,6 +14627,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe {
             __buffer
                 .add(24)
@@ -14364,6 +14689,10 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
+        std::mem::forget(b_apply_lwc_rebase);
         unsafe {
             __buffer.add(32).cast::<crate::bindings::core_u_object::FMatrix>().read()
         }
@@ -14417,6 +14746,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(b_apply_lwc_rebase);
         unsafe {
             __buffer
                 .add(24)
@@ -14469,6 +14801,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(24).cast::<i32>().read() }
     }
     pub fn get_niagara_array_int32(
@@ -14512,6 +14847,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe { __buffer.add(24).cast::<TArray<i32>>().read() }
     }
     pub fn get_niagara_array_float_value(
@@ -14559,6 +14896,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(24).cast::<f32>().read() }
     }
     pub fn get_niagara_array_float(
@@ -14602,6 +14942,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe { __buffer.add(24).cast::<TArray<f32>>().read() }
     }
     pub fn get_niagara_array_color_value(
@@ -14649,6 +14991,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe {
             __buffer
                 .add(24)
@@ -14697,6 +15042,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe {
             __buffer
                 .add(24)
@@ -14749,6 +15096,9 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(index);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn get_niagara_array_bool(
@@ -14792,6 +15142,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
         unsafe { __buffer.add(24).cast::<TArray<bool>>().read() }
     }
 }
@@ -15454,6 +15806,7 @@ impl UNiagaraParticleCallbackHandler {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
     }
 }
 #[repr(C, align(8))]
@@ -15608,6 +15961,7 @@ impl UNiagaraDataInterfaceGrid2DCollection {
         unsafe {
             __buffer.add(12).cast::<i32>().swap(size_y);
         }
+        std::mem::forget(component);
     }
     pub fn get_raw_texture_size(
         &mut self,
@@ -15657,6 +16011,7 @@ impl UNiagaraDataInterfaceGrid2DCollection {
         unsafe {
             __buffer.add(12).cast::<i32>().swap(size_y);
         }
+        std::mem::forget(component);
     }
     pub fn fill_texture2_d(
         &mut self,
@@ -15710,6 +16065,9 @@ impl UNiagaraDataInterfaceGrid2DCollection {
                 __buffer,
             )
         };
+        std::mem::forget(component);
+        std::mem::forget(dest);
+        std::mem::forget(attribute_index);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn fill_raw_texture2_d(
@@ -15770,6 +16128,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
         unsafe {
             __buffer.add(20).cast::<i32>().swap(tiles_y);
         }
+        std::mem::forget(component);
+        std::mem::forget(dest);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
 }
@@ -15932,6 +16292,7 @@ impl UNiagaraDataInterfaceGrid3DCollection {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(size_z);
         }
+        std::mem::forget(component);
     }
     pub fn get_raw_texture_size(
         &mut self,
@@ -15988,6 +16349,7 @@ impl UNiagaraDataInterfaceGrid3DCollection {
         unsafe {
             __buffer.add(16).cast::<i32>().swap(size_z);
         }
+        std::mem::forget(component);
     }
     pub fn fill_volume_texture(
         &mut self,
@@ -16039,6 +16401,9 @@ impl UNiagaraDataInterfaceGrid3DCollection {
                 __buffer,
             )
         };
+        std::mem::forget(component);
+        std::mem::forget(dest);
+        std::mem::forget(attribute_index);
         unsafe { __buffer.add(20).cast::<bool>().read() }
     }
     pub fn fill_raw_volume_texture(
@@ -16104,6 +16469,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
         unsafe {
             __buffer.add(24).cast::<i32>().swap(tile_z);
         }
+        std::mem::forget(component);
+        std::mem::forget(dest);
         unsafe { __buffer.add(28).cast::<bool>().read() }
     }
 }
@@ -16750,6 +17117,8 @@ impl UNiagaraDIRigidMeshCollisionFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
 }
 #[repr(C, align(8))]
@@ -17397,6 +17766,7 @@ impl ANiagaraEditorPreviewActor {
                 .cast::<crate::bindings::core_u_object::FQuat>()
                 .swap(out_rotation);
         }
+        std::mem::forget(motion_time);
     }
     pub fn calculate_location(
         &mut self,
@@ -17446,6 +17816,7 @@ impl ANiagaraEditorPreviewActor {
                 .cast::<crate::bindings::core_u_object::FVector>()
                 .swap(out_location);
         }
+        std::mem::forget(motion_time);
     }
 }
 #[repr(C, align(8))]
@@ -17904,6 +18275,16 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(system_template);
+        std::mem::forget(attach_to_component);
+        std::mem::forget(attach_point_name);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(location_type);
+        std::mem::forget(b_auto_destroy);
+        std::mem::forget(b_auto_activate);
+        std::mem::forget(pooling_method);
+        std::mem::forget(b_pre_cull_check);
         unsafe { __buffer.add(88).cast::<UPtr<UNiagaraComponent>>().read() }
     }
     pub fn spawn_system_at_location_with_params(
@@ -18040,6 +18421,15 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(system_template);
+        std::mem::forget(location);
+        std::mem::forget(rotation);
+        std::mem::forget(scale);
+        std::mem::forget(b_auto_destroy);
+        std::mem::forget(b_auto_activate);
+        std::mem::forget(pooling_method);
+        std::mem::forget(b_pre_cull_check);
         unsafe { __buffer.add(96).cast::<UPtr<UNiagaraComponent>>().read() }
     }
     pub fn set_volume_texture_object(
@@ -18091,6 +18481,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(texture);
     }
     pub fn set_texture_object(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18141,6 +18534,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(texture);
     }
     pub fn set_texture2_d_array_object(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18193,6 +18589,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(texture);
     }
     pub fn set_skeletal_mesh_data_interface_sampling_regions(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18243,6 +18642,8 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_skeletal_mesh_data_interface_filtered_sockets(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18293,6 +18694,8 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_skeletal_mesh_data_interface_filtered_bones(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18343,6 +18746,8 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
     }
     pub fn set_scene_capture2_d_data_interface_managed_mode(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18457,6 +18862,15 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(managed_capture_source);
+        std::mem::forget(managed_texture_size);
+        std::mem::forget(managed_texture_format);
+        std::mem::forget(managed_projection_type);
+        std::mem::forget(managed_fov_angle);
+        std::mem::forget(managed_ortho_width);
+        std::mem::forget(b_managed_capture_every_frame);
+        std::mem::forget(b_managed_capture_on_movement);
     }
     pub fn set_component_niagara_gpu_ray_traced_collision_group(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -18509,6 +18923,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(primitive);
+        std::mem::forget(collision_group);
     }
     pub fn set_actor_niagara_gpu_ray_traced_collision_group(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -18559,6 +18976,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(actor);
+        std::mem::forget(collision_group);
     }
     pub fn release_niagara_gpu_ray_traced_collision_group(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -18601,6 +19021,8 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(collision_group);
     }
     pub fn override_system_user_variable_static_mesh_component(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18653,6 +19075,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(static_mesh_component);
     }
     pub fn override_system_user_variable_static_mesh(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18703,6 +19128,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(static_mesh);
     }
     pub fn override_system_user_variable_skeletal_mesh_component(
         niagara_system: UPtr<UNiagaraComponent>,
@@ -18755,6 +19183,9 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(niagara_system);
+        std::mem::forget(override_name);
+        std::mem::forget(skeletal_mesh_component);
     }
     pub fn get_niagara_parameter_collection(
         world_context_object: UPtr<crate::bindings::core_u_object::UObject>,
@@ -18797,6 +19228,8 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(collection);
         unsafe {
             __buffer.add(16).cast::<UPtr<UNiagaraParameterCollectionInstance>>().read()
         }
@@ -18834,6 +19267,7 @@ impl UNiagaraFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<i32>().read() }
     }
 }
@@ -19056,6 +19490,8 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_vector4_parameter(
         &mut self,
@@ -19099,6 +19535,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_vector2_d_parameter(
         &mut self,
@@ -19142,6 +19579,8 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_quat_parameter(
         &mut self,
@@ -19185,6 +19624,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
     }
     pub fn set_int_parameter(&mut self, in_variable_name: FString, in_value: i32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -19220,6 +19660,8 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_float_parameter(&mut self, in_variable_name: FString, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<20>::new();
@@ -19255,6 +19697,8 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_color_parameter(
         &mut self,
@@ -19298,6 +19742,8 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn set_bool_parameter(&mut self, in_variable_name: FString, in_value: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -19333,6 +19779,8 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
+        std::mem::forget(in_value);
     }
     pub fn get_vector_parameter(
         &mut self,
@@ -19368,6 +19816,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>().read()
         }
@@ -19406,6 +19855,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector4>().read()
         }
@@ -19444,6 +19894,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FVector2D>().read()
         }
@@ -19482,6 +19933,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FQuat>().read()
         }
@@ -19517,6 +19969,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
     pub fn get_float_parameter(&mut self, in_variable_name: FString) -> f32 {
@@ -19550,6 +20003,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(16).cast::<f32>().read() }
     }
     pub fn get_color_parameter(
@@ -19586,6 +20040,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe {
             __buffer
                 .add(16)
@@ -19624,6 +20079,7 @@ impl UNiagaraParameterCollectionInstance {
                 __buffer,
             )
         };
+        std::mem::forget(in_variable_name);
         unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
@@ -19754,6 +20210,7 @@ impl UNiagaraBaselineController {
                 __buffer,
             )
         };
+        std::mem::forget(delta_time);
     }
     pub fn on_end_test(&mut self, stats: FNiagaraPerfBaselineStats) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -19786,6 +20243,7 @@ impl UNiagaraBaselineController {
                 __buffer,
             )
         };
+        std::mem::forget(stats);
     }
     pub fn on_begin_test(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -20009,6 +20467,7 @@ impl ANiagaraPreviewBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_system);
     }
     pub fn set_label_text(&mut self, in_x_axis_text: &FText, in_y_axis_text: &FText) {
         let mut __stack = crate::core_data::StackAlloc::<32>::new();
@@ -20169,6 +20628,9 @@ impl UNiagaraPreviewAxis {
         unsafe {
             __buffer.add(16).cast::<FString>().swap(out_label_text);
         }
+        std::mem::forget(preview_component);
+        std::mem::forget(preview_index);
+        std::mem::forget(b_is_x_axis);
     }
 }
 #[repr(C, align(8))]
@@ -20477,6 +20939,7 @@ impl ANiagaraPreviewGrid {
                 __buffer,
             )
         };
+        std::mem::forget(b_paused);
     }
     pub fn get_previews(&mut self, out_previews: &mut TArray<UPtr<UNiagaraComponent>>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -20565,6 +21028,7 @@ impl ANiagaraPreviewGrid {
                 __buffer,
             )
         };
+        std::mem::forget(b_reset);
     }
 }
 #[repr(C, align(8))]
@@ -20811,6 +21275,9 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_vector4_attribute(
         &self,
@@ -20878,6 +21345,9 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FVector4>>()
                 .swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_vector2_attribute(
         &self,
@@ -20945,6 +21415,9 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FVector2D>>()
                 .swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_quat_attribute_with_rebase(
         &self,
@@ -21018,6 +21491,10 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
                 .swap(out_values);
         }
+        std::mem::forget(quat);
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_quat_attribute(
         &self,
@@ -21091,6 +21568,10 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FQuat>>()
                 .swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(b_local_space_to_world);
+        std::mem::forget(frame_index);
     }
     pub fn read_position_attribute_with_rebase(
         &self,
@@ -21166,6 +21647,10 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(out_values);
         }
+        std::mem::forget(transform);
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_position_attribute(
         &self,
@@ -21241,6 +21726,10 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FVector>>()
                 .swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(b_local_space_to_world);
+        std::mem::forget(frame_index);
     }
     pub fn read_int_attribute(
         &self,
@@ -21303,6 +21792,9 @@ impl UNiagaraSimCache {
         unsafe {
             __buffer.add(0).cast::<TArray<i32>>().swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_id_attribute(
         &self,
@@ -21365,6 +21857,9 @@ impl UNiagaraSimCache {
         unsafe {
             __buffer.add(0).cast::<TArray<FNiagaraID>>().swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_float_attribute(
         &self,
@@ -21427,6 +21922,9 @@ impl UNiagaraSimCache {
         unsafe {
             __buffer.add(0).cast::<TArray<f32>>().swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn read_data_interface_as(
         &self,
@@ -21480,6 +21978,9 @@ impl UNiagaraSimCache {
                 __buffer,
             )
         };
+        std::mem::forget(requested_type);
+        std::mem::forget(attribute_name);
+        std::mem::forget(frame_index);
         unsafe {
             __buffer
                 .add(24)
@@ -21553,6 +22054,9 @@ impl UNiagaraSimCache {
                 .cast::<TArray<crate::bindings::core_u_object::FLinearColor>>()
                 .swap(out_values);
         }
+        std::mem::forget(attribute_name);
+        std::mem::forget(emitter_name);
+        std::mem::forget(frame_index);
     }
     pub fn is_empty(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -21739,6 +22243,7 @@ impl UNiagaraSimCache {
                 __buffer,
             )
         };
+        std::mem::forget(emitter_index);
         unsafe { __buffer.add(4).cast::<FName>().read() }
     }
     pub fn get_attribute_capture_mode(&self) -> ENiagaraSimCacheAttributeCaptureMode {
@@ -21921,6 +22426,12 @@ impl UAsyncNiagaraCaptureSimCache {
         unsafe {
             __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
         }
+        std::mem::forget(sim_cache);
+        std::mem::forget(create_parameters);
+        std::mem::forget(niagara_component);
+        std::mem::forget(capture_rate);
+        std::mem::forget(b_advance_simulation);
+        std::mem::forget(advance_delta_time);
         unsafe { __buffer.add(128).cast::<UPtr<UAsyncNiagaraCaptureSimCache>>().read() }
     }
     pub fn capture_niagara_sim_cache_multi_frame(
@@ -22015,6 +22526,13 @@ impl UAsyncNiagaraCaptureSimCache {
         unsafe {
             __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
         }
+        std::mem::forget(sim_cache);
+        std::mem::forget(create_parameters);
+        std::mem::forget(niagara_component);
+        std::mem::forget(num_frames);
+        std::mem::forget(capture_rate);
+        std::mem::forget(b_advance_simulation);
+        std::mem::forget(advance_delta_time);
         unsafe { __buffer.add(128).cast::<UPtr<UAsyncNiagaraCaptureSimCache>>().read() }
     }
     pub fn capture_niagara_sim_cache(
@@ -22085,6 +22603,10 @@ impl UAsyncNiagaraCaptureSimCache {
         unsafe {
             __buffer.add(136).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
         }
+        std::mem::forget(sim_cache);
+        std::mem::forget(create_parameters);
+        std::mem::forget(niagara_component);
+        std::mem::forget(capture_parameters);
         unsafe { __buffer.add(144).cast::<UPtr<UAsyncNiagaraCaptureSimCache>>().read() }
     }
 }
@@ -22155,6 +22677,7 @@ impl UNiagaraSimCacheFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
         unsafe { __buffer.add(8).cast::<UPtr<UNiagaraSimCache>>().read() }
     }
     pub fn capture_niagara_sim_cache_immediate(
@@ -22233,6 +22756,11 @@ impl UNiagaraSimCacheFunctionLibrary {
         unsafe {
             __buffer.add(104).cast::<UPtr<UNiagaraSimCache>>().swap(out_sim_cache);
         }
+        std::mem::forget(sim_cache);
+        std::mem::forget(create_parameters);
+        std::mem::forget(niagara_component);
+        std::mem::forget(b_advance_simulation);
+        std::mem::forget(advance_delta_time);
         unsafe { __buffer.add(120).cast::<bool>().read() }
     }
 }

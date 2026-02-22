@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -1202,6 +1203,7 @@ impl UAudioMaterialButton {
                 __buffer,
             )
         };
+        std::mem::forget(in_pressed);
     }
     pub fn get_is_pressed(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1341,6 +1343,7 @@ impl UAudioMaterialKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_tune_speed(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1369,6 +1372,7 @@ impl UAudioMaterialKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_step_size(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1397,6 +1401,7 @@ impl UAudioMaterialKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_mouse_uses_step(&mut self, in_uses_step: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1429,6 +1434,7 @@ impl UAudioMaterialKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_uses_step);
     }
     pub fn set_locked(&mut self, in_locked: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1457,6 +1463,7 @@ impl UAudioMaterialKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_locked);
     }
     pub fn set_fine_tune_speed(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1485,6 +1492,7 @@ impl UAudioMaterialKnob {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_value(&mut self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1819,6 +1827,7 @@ impl UAudioMaterialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_tune_speed(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1847,6 +1856,7 @@ impl UAudioMaterialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_step_size(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1875,6 +1885,7 @@ impl UAudioMaterialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_mouse_uses_step(&mut self, b_in_uses_step: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1907,6 +1918,7 @@ impl UAudioMaterialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_uses_step);
     }
     pub fn set_locked(&mut self, b_in_locked: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1939,6 +1951,7 @@ impl UAudioMaterialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_locked);
     }
     pub fn set_fine_tune_speed(&mut self, in_value: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1967,6 +1980,7 @@ impl UAudioMaterialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2204,6 +2218,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_meter_scale_label_color(
         &mut self,
@@ -2239,6 +2254,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_meter_scale_color(
         &mut self,
@@ -2274,6 +2290,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_meter_peak_color(
         &mut self,
@@ -2309,6 +2326,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_meter_clipping_color(
         &mut self,
@@ -2344,6 +2362,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_meter_channel_info(
         &mut self,
@@ -2414,6 +2433,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_background_color(
         &mut self,
@@ -2449,6 +2469,7 @@ impl UAudioMeter {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_meter_channel_info(&self) -> TArray<FMeterChannelInfo> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2643,6 +2664,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_layout);
     }
     pub fn set_value_text_read_only(&mut self, b_is_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2675,6 +2697,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_read_only);
     }
     pub fn set_units_text_read_only(&mut self, b_is_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2707,6 +2730,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_read_only);
     }
     pub fn set_units_text(&mut self, units: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -2735,6 +2759,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(units);
     }
     pub fn set_text_label_background_color(
         &mut self,
@@ -2770,6 +2795,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_color);
     }
     pub fn set_slider_thickness(&mut self, in_thickness: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -2802,6 +2828,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_thickness);
     }
     pub fn set_slider_progress_color(
         &mut self,
@@ -2837,6 +2864,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_bar_color(
         &mut self,
@@ -2872,6 +2900,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_show_units_text(&mut self, b_show_units_text: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2904,6 +2933,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(b_show_units_text);
     }
     pub fn set_show_label_only_on_hover(&mut self, b_show_label_only_on_hover: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -2936,6 +2966,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(b_show_label_only_on_hover);
     }
     pub fn set_output_range(
         &mut self,
@@ -2971,6 +3002,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_output_range);
     }
     pub fn set_hand_start_end_ratio(
         &mut self,
@@ -3006,6 +3038,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_hand_start_end_ratio);
     }
     pub fn set_center_background_color(
         &mut self,
@@ -3041,6 +3074,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn get_slider_value(&mut self, output_value: f32) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3073,6 +3107,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(output_value);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_output_value(&mut self, in_slider_value: f32) -> f32 {
@@ -3106,6 +3141,7 @@ impl UAudioRadialSlider {
                 __buffer,
             )
         };
+        std::mem::forget(in_slider_value);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }
@@ -3250,6 +3286,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_value_text_read_only(&mut self, b_is_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3282,6 +3319,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_read_only);
     }
     pub fn set_units_text_read_only(&mut self, b_is_read_only: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3314,6 +3352,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_is_read_only);
     }
     pub fn set_units_text(&mut self, units: FText) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -3342,6 +3381,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(units);
     }
     pub fn set_text_label_background_color(
         &mut self,
@@ -3377,6 +3417,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_color);
     }
     pub fn set_slider_thumb_color(
         &mut self,
@@ -3412,6 +3453,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_bar_color(
         &mut self,
@@ -3447,6 +3489,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_slider_background_color(
         &mut self,
@@ -3482,6 +3525,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_value);
     }
     pub fn set_show_units_text(&mut self, b_show_units_text: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3514,6 +3558,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_show_units_text);
     }
     pub fn set_show_label_only_on_hover(&mut self, b_show_label_only_on_hover: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3546,6 +3591,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_show_label_only_on_hover);
     }
     pub fn get_slider_value(&mut self, output_value: f32) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -3578,6 +3624,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(output_value);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_output_value(&mut self, in_slider_value: f32) -> f32 {
@@ -3611,6 +3658,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_slider_value);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
     pub fn get_lin_value(&mut self, output_value: f32) -> f32 {
@@ -3644,6 +3692,7 @@ impl UAudioSliderBase {
                 __buffer,
             )
         };
+        std::mem::forget(output_value);
         unsafe { __buffer.add(4).cast::<f32>().read() }
     }
 }

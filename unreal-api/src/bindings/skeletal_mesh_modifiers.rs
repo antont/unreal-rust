@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -406,6 +407,7 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_skeletal_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn set_bone_transform(
@@ -458,6 +460,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(b_move_children);
         unsafe { __buffer.add(113).cast::<bool>().read() }
     }
     pub fn set_bones_transforms(
@@ -512,6 +516,7 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(b_move_children);
         unsafe { __buffer.add(33).cast::<bool>().read() }
     }
     pub fn rename_bones(
@@ -600,6 +605,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_old_bone_name);
+        std::mem::forget(in_new_bone_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn remove_bones(
@@ -644,6 +651,7 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(b_remove_children);
         unsafe { __buffer.add(17).cast::<bool>().read() }
     }
     pub fn remove_bone(&mut self, in_bone_name: FName, b_remove_children: bool) -> bool {
@@ -684,6 +692,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(b_remove_children);
         unsafe { __buffer.add(13).cast::<bool>().read() }
     }
     pub fn parent_bones(
@@ -768,6 +778,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(in_parent_name);
         unsafe { __buffer.add(24).cast::<bool>().read() }
     }
     pub fn orient_bones(
@@ -856,6 +868,7 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
         unsafe { __buffer.add(56).cast::<bool>().read() }
     }
     pub fn mirror_bones(
@@ -944,6 +957,7 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
         unsafe { __buffer.add(64).cast::<bool>().read() }
     }
     pub fn get_parent_name(&self, in_bone_name: FName) -> FName {
@@ -977,6 +991,7 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
         unsafe { __buffer.add(12).cast::<FName>().read() }
     }
     pub fn get_children_names(
@@ -1021,6 +1036,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(b_recursive);
         unsafe { __buffer.add(16).cast::<TArray<FName>>().read() }
     }
     pub fn get_bone_transform(
@@ -1061,6 +1078,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(b_global);
         unsafe {
             __buffer.add(16).cast::<crate::bindings::core_u_object::FTransform>().read()
         }
@@ -1221,6 +1240,8 @@ impl USkeletonModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_bone_name);
+        std::mem::forget(in_parent_name);
         unsafe { __buffer.add(128).cast::<bool>().read() }
     }
 }
@@ -1339,6 +1360,8 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
+        std::mem::forget(b_replace_all);
         unsafe { __buffer.add(89).cast::<bool>().read() }
     }
     pub fn set_skeletal_mesh(
@@ -1375,6 +1398,7 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(in_mesh);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn prune_vertex_weights(
@@ -1415,6 +1439,8 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
+        std::mem::forget(weight_threshold);
         unsafe { __buffer.add(8).cast::<bool>().read() }
     }
     pub fn prune_all_weights(&mut self, weight_threshold: f32) -> bool {
@@ -1448,6 +1474,7 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(weight_threshold);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn normalize_vertex_weights(&mut self, vertex_id: i32) -> bool {
@@ -1477,6 +1504,7 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn normalize_all_weights(&mut self) -> bool {
@@ -1532,6 +1560,7 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(vertex_id);
         unsafe { __buffer.add(8).cast::<TMap<FName, f32>>().read() }
     }
     pub fn get_skeletal_mesh(&mut self) -> UPtr<crate::bindings::engine::USkeletalMesh> {
@@ -1645,6 +1674,7 @@ impl USkinWeightModifier {
                 __buffer,
             )
         };
+        std::mem::forget(max_influences);
         unsafe { __buffer.add(4).cast::<bool>().read() }
     }
     pub fn commit_weights_to_skeletal_mesh(&mut self) -> bool {

@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -147,6 +148,10 @@ impl UAnimationCompressionLibraryDatabase {
         unsafe {
             __buffer.add(48).cast::<ACLVisualFidelityChangeResult>().swap(result);
         }
+        std::mem::forget(world_context_object);
+        std::mem::forget(latent_info);
+        std::mem::forget(database_asset);
+        std::mem::forget(visual_fidelity);
     }
     pub fn get_visual_fidelity(
         database_asset: UPtr<UAnimationCompressionLibraryDatabase>,
@@ -181,6 +186,7 @@ impl UAnimationCompressionLibraryDatabase {
                 __buffer,
             )
         };
+        std::mem::forget(database_asset);
         unsafe { __buffer.add(8).cast::<ACLVisualFidelity>().read() }
     }
 }

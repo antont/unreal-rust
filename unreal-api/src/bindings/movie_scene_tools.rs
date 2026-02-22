@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -815,6 +816,7 @@ impl UMovieSceneUserImportFBXControlRigSettings {
                 __buffer,
             )
         };
+        std::mem::forget(b_meta_human_preset);
     }
 }
 #[repr(C, align(8))]
@@ -890,6 +892,7 @@ impl UMovieSceneUserExportFBXControlRigSettings {
                 __buffer,
             )
         };
+        std::mem::forget(b_meta_human_preset);
     }
 }
 #[repr(transparent)]

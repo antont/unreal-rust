@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -541,6 +542,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_timestamp);
     }
     pub fn set_timecode_out(
         &mut self,
@@ -576,6 +578,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_timecode_out);
     }
     pub fn set_timecode_in(
         &mut self,
@@ -611,6 +614,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_timecode_in);
     }
     pub fn set_take_number(&mut self, in_take_number: i32, b_emit_changed: bool) {
         let mut __stack = crate::core_data::StackAlloc::<5>::new();
@@ -650,6 +654,8 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_take_number);
+        std::mem::forget(b_emit_changed);
     }
     pub fn set_slate(&mut self, in_slate: FString, b_emit_changed: bool) {
         let mut __stack = crate::core_data::StackAlloc::<17>::new();
@@ -687,6 +693,8 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_slate);
+        std::mem::forget(b_emit_changed);
     }
     pub fn set_preset_origin(&mut self, in_preset_origin: UPtr<UTakePreset>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -719,6 +727,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_preset_origin);
     }
     pub fn set_level_origin(
         &mut self,
@@ -754,6 +763,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_level_origin);
     }
     pub fn set_frame_rate_from_timecode(&mut self, in_from_timecode: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -786,6 +796,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_from_timecode);
     }
     pub fn set_frame_rate(
         &mut self,
@@ -821,6 +832,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_frame_rate);
     }
     pub fn set_duration(
         &mut self,
@@ -856,6 +868,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_duration);
     }
     pub fn set_description(&mut self, in_description: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -888,6 +901,7 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(in_description);
     }
     pub fn recorded(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1322,6 +1336,8 @@ impl UTakeMetaData {
                 __buffer,
             )
         };
+        std::mem::forget(path_format_string);
+        std::mem::forget(in_context);
         unsafe { __buffer.add(24).cast::<FString>().read() }
     }
 }
@@ -1587,6 +1603,7 @@ impl UTakeRecorderSources {
                 __buffer,
             )
         };
+        std::mem::forget(in_sources);
     }
     pub fn remove_source(&mut self, in_source: UPtr<UTakeRecorderSource>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1619,6 +1636,7 @@ impl UTakeRecorderSources {
                 __buffer,
             )
         };
+        std::mem::forget(in_source);
     }
     pub fn get_sources_copy(&self) -> TArray<UPtr<UTakeRecorderSource>> {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1680,6 +1698,7 @@ impl UTakeRecorderSources {
                 __buffer,
             )
         };
+        std::mem::forget(in_source_type);
         unsafe { __buffer.add(8).cast::<UPtr<UTakeRecorderSource>>().read() }
     }
 }
@@ -1754,6 +1773,7 @@ impl UTakesCoreBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_take_number_changed);
     }
     pub fn set_on_take_recorder_slate_changed(
         on_take_recorder_slate_changed: FSetOnTakeRecorderSlateChanged_OnTakeRecorderSlateChanged,
@@ -1790,6 +1810,7 @@ impl UTakesCoreBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(on_take_recorder_slate_changed);
     }
     pub fn find_takes(
         slate: FString,
@@ -1828,6 +1849,8 @@ impl UTakesCoreBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(slate);
+        std::mem::forget(take_number);
         unsafe {
             __buffer
                 .add(24)
@@ -1862,6 +1885,7 @@ impl UTakesCoreBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(slate);
         unsafe { __buffer.add(16).cast::<i32>().read() }
     }
 }

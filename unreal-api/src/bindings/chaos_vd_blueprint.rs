@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -150,6 +151,7 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context);
     }
     pub fn record_debug_draw_vector(
         world_context: UPtr<crate::bindings::core_u_object::UObject>,
@@ -212,6 +214,9 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context);
+        std::mem::forget(tag);
+        std::mem::forget(color);
     }
     pub fn record_debug_draw_sphere(
         world_context: UPtr<crate::bindings::core_u_object::UObject>,
@@ -270,6 +275,10 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context);
+        std::mem::forget(radius);
+        std::mem::forget(tag);
+        std::mem::forget(color);
     }
     pub fn record_debug_draw_line(
         world_context: UPtr<crate::bindings::core_u_object::UObject>,
@@ -332,6 +341,9 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context);
+        std::mem::forget(tag);
+        std::mem::forget(color);
     }
     pub fn record_debug_draw_box(
         world_context: UPtr<crate::bindings::core_u_object::UObject>,
@@ -386,5 +398,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(world_context);
+        std::mem::forget(tag);
+        std::mem::forget(color);
     }
 }

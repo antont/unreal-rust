@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -526,6 +527,7 @@ impl ALandmassActor {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn set_editor_tick_enabled(&mut self, b_enabled: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -554,6 +556,7 @@ impl ALandmassActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_enabled);
     }
     pub fn restore_landscape_editing(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -815,6 +818,7 @@ impl ALandmassActor {
                 __buffer,
             )
         };
+        std::mem::forget(material);
     }
     pub fn custom_tick(&mut self, delta_seconds: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -847,6 +851,7 @@ impl ALandmassActor {
                 __buffer,
             )
         };
+        std::mem::forget(delta_seconds);
     }
     pub fn actor_selection_changed(&mut self, b_selected: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -879,6 +884,7 @@ impl ALandmassActor {
                 __buffer,
             )
         };
+        std::mem::forget(b_selected);
     }
 }
 #[repr(C, align(8))]
@@ -1012,6 +1018,8 @@ impl ULandmassBlueprintFunctionLibrary {
                 .cast::<crate::bindings::core_u_object::FVector2D>()
                 .swap(coordinate_size);
         }
+        std::mem::forget(world_extents);
+        std::mem::forget(landscape_info);
     }
     pub fn get_cursor_world_ray(
         camera_location: &mut crate::bindings::core_u_object::FVector,
@@ -1113,6 +1121,7 @@ impl ULandmassBlueprintFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(in_texture);
     }
     pub fn combine_world_extents(
         extents_a: crate::bindings::core_u_object::FVector4,
@@ -1169,6 +1178,8 @@ impl ULandmassBlueprintFunctionLibrary {
                 .cast::<crate::bindings::core_u_object::FVector4>()
                 .swap(combined_extents);
         }
+        std::mem::forget(extents_a);
+        std::mem::forget(extents_b);
     }
 }
 #[repr(C, align(16))]
@@ -1239,6 +1250,7 @@ impl ALandmassErosionBrushBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_owning_landscape);
     }
     pub fn get_landscape(&mut self) -> UPtr<crate::bindings::landscape::ALandscape> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1299,6 +1311,7 @@ impl ALandmassErosionBrushBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_selected);
     }
 }
 #[repr(C, align(16))]
@@ -1397,6 +1410,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_enable_preview_mode);
     }
     pub fn sort_brushes(
         &mut self,
@@ -1440,6 +1454,8 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(brush_array_to_match);
+        std::mem::forget(actors_to_sort);
         unsafe { __buffer.add(32).cast::<TArray<UPtr<ALandmassActor>>>().read() }
     }
     pub fn set_target_landscape(
@@ -1476,6 +1492,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(in_owning_landscape);
     }
     pub fn set_capture_boundary_normals(&mut self, b_in_capture_boundary_normals: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1508,6 +1525,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_in_capture_boundary_normals);
     }
     pub fn request_update_from_brush(
         &mut self,
@@ -1543,6 +1561,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(brush_requesting_update);
     }
     pub fn remove_brush_from_tree(
         &mut self,
@@ -1578,6 +1597,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(brush_to_remove);
         unsafe { __buffer.add(8).cast::<TArray<i32>>().read() }
     }
     pub fn populate_node_tree(&mut self) {
@@ -1639,6 +1659,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(brush_requesting_editor);
     }
     pub fn get_nodes_within_extents(
         &mut self,
@@ -1793,6 +1814,8 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(brush);
+        std::mem::forget(brush_material);
     }
     pub fn consolidate_nodes(&mut self, nodes_to_consolidate: &mut TArray<i32>) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1918,6 +1941,9 @@ impl ALandmassManagerBase {
         unsafe {
             __buffer.add(112).cast::<TArray<i32>>().swap(modified_nodes);
         }
+        std::mem::forget(brush_to_add);
+        std::mem::forget(in_extents);
+        std::mem::forget(in_map_to_whole_landscape);
     }
     pub fn add_brush_to_array(&mut self, brush_to_add: UPtr<ALandmassActor>) {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -1950,6 +1976,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(brush_to_add);
     }
     pub fn actor_selection_changed(&mut self, b_selected: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1982,6 +2009,7 @@ impl ALandmassManagerBase {
                 __buffer,
             )
         };
+        std::mem::forget(b_selected);
     }
 }
 #[repr(C, align(8))]

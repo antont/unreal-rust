@@ -3,6 +3,7 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 #![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
@@ -404,6 +405,7 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(b_immediate);
     }
     pub fn stop_all_camera_animations_of(
         &mut self,
@@ -453,6 +455,8 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(b_immediate);
     }
     pub fn stop_all_camera_animations(&mut self, b_immediate: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -485,6 +489,7 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(b_immediate);
     }
     pub fn play_camera_animation(
         &mut self,
@@ -534,6 +539,8 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(sequence);
+        std::mem::forget(params);
         unsafe { __buffer.add(80).cast::<FCameraAnimationHandle>().read() }
     }
     pub fn is_camera_animation_active(&self, handle: &FCameraAnimationHandle) -> bool {
@@ -604,6 +611,7 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(8).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
     }
     pub fn get_camera_animation_camera_modifier_from_id(
@@ -647,6 +655,8 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(controller_id);
         unsafe { __buffer.add(16).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
     }
     pub fn get_camera_animation_camera_modifier(
@@ -690,6 +700,8 @@ impl UCameraAnimationCameraModifier {
                 __buffer,
             )
         };
+        std::mem::forget(world_context_object);
+        std::mem::forget(player_index);
         unsafe { __buffer.add(16).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
     }
 }
@@ -760,6 +772,7 @@ impl UEngineCameraAnimationFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_animation_play_space);
         unsafe {
             __buffer
                 .add(1)
@@ -800,6 +813,7 @@ impl UEngineCameraAnimationFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_shake_play_space);
         unsafe { __buffer.add(1).cast::<ECameraAnimationPlaySpace>().read() }
     }
     pub fn conv_camera_animation_camera_modifier(
@@ -837,6 +851,7 @@ impl UEngineCameraAnimationFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(player_camera_manager);
         unsafe { __buffer.add(8).cast::<UPtr<UCameraAnimationCameraModifier>>().read() }
     }
 }
@@ -926,6 +941,8 @@ impl UEngineCamerasSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(b_immediate);
     }
     pub fn stop_all_camera_animations_of(
         &mut self,
@@ -985,6 +1002,9 @@ impl UEngineCamerasSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(sequence);
+        std::mem::forget(b_immediate);
     }
     pub fn stop_all_camera_animations(
         &mut self,
@@ -1030,6 +1050,8 @@ impl UEngineCamerasSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(b_immediate);
     }
     pub fn play_camera_animation(
         &mut self,
@@ -1089,6 +1111,9 @@ impl UEngineCamerasSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
+        std::mem::forget(sequence);
+        std::mem::forget(params);
         unsafe { __buffer.add(88).cast::<FCameraAnimationHandle>().read() }
     }
     pub fn is_camera_animation_active(
@@ -1135,6 +1160,7 @@ impl UEngineCamerasSubsystem {
                 __buffer,
             )
         };
+        std::mem::forget(player_controller);
         unsafe { __buffer.add(12).cast::<bool>().read() }
     }
 }
@@ -1327,6 +1353,12 @@ impl ULegacyCameraShake {
                 __buffer,
             )
         };
+        std::mem::forget(player_camera_manager);
+        std::mem::forget(shake_class);
+        std::mem::forget(source_component);
+        std::mem::forget(scale);
+        std::mem::forget(play_space);
+        std::mem::forget(user_play_space_rot);
         unsafe { __buffer.add(56).cast::<UPtr<ULegacyCameraShake>>().read() }
     }
     pub fn start_legacy_camera_shake(
@@ -1394,6 +1426,11 @@ impl ULegacyCameraShake {
                 __buffer,
             )
         };
+        std::mem::forget(player_camera_manager);
+        std::mem::forget(shake_class);
+        std::mem::forget(scale);
+        std::mem::forget(play_space);
+        std::mem::forget(user_play_space_rot);
         unsafe { __buffer.add(48).cast::<UPtr<ULegacyCameraShake>>().read() }
     }
     pub fn receive_stop_shake(&mut self, b_immediately: bool) {
@@ -1427,6 +1464,7 @@ impl ULegacyCameraShake {
                 __buffer,
             )
         };
+        std::mem::forget(b_immediately);
     }
     pub fn receive_play_shake(&mut self, scale: f32) {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1455,6 +1493,7 @@ impl ULegacyCameraShake {
                 __buffer,
             )
         };
+        std::mem::forget(scale);
     }
     pub fn receive_is_finished(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1538,6 +1577,8 @@ impl ULegacyCameraShake {
                 .cast::<crate::bindings::engine::FMinimalViewInfo>()
                 .swap(modified_pov);
         }
+        std::mem::forget(delta_time);
+        std::mem::forget(alpha);
     }
 }
 #[repr(C, align(8))]
@@ -1644,6 +1685,7 @@ impl ULegacyCameraShakeFunctionLibrary {
                 __buffer,
             )
         };
+        std::mem::forget(camera_shake);
         unsafe { __buffer.add(8).cast::<UPtr<ULegacyCameraShake>>().read() }
     }
 }
