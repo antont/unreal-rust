@@ -8,6 +8,7 @@
 #include "Modules/ModuleInterface.h"
 #include "EditorSubsystem.h"
 #include "Engine/World.h"
+#include "RustClassDef.h"
 
 #include "RustPlugin.generated.h"
 
@@ -28,6 +29,7 @@ struct FRustLoader
 	TryLoadFn TryLoadFunction;
 	RustBindings Rust;
 
+	TMap<FString, FRustClassDef> Types;
 	bool NeedsInit;
 	bool IsLoaded();
 	bool TryLoad();

@@ -68,12 +68,6 @@ using BeginTraceCoreFn = void(*)(const char *name);
 
 using EndTraceCoreFn = void(*)();
 
-using NewFStringFromUtf8Fn = void(*)(Utf8Str str, FRustString *fstring);
-
-using CopyFromFStringFn = void(*)(const FRustString *source, FRustString *fstring);
-
-using DeleteFStringFn = void(*)(FRustString *fstring);
-
 struct CoreFns {
   GetCDOFromClassCoreFn get_cdo_from_class;
   GetAllUClassesCoreFn get_all_uclasses;
@@ -84,9 +78,18 @@ struct CoreFns {
   ProcessEventsCoreFn process_event;
   BeginTraceCoreFn begin_trace;
   EndTraceCoreFn end_trace;
+};
+
+using NewFStringFromUtf8Fn = void(*)(Utf8Str str, FRustString *fstring);
+
+using CopyFromFStringFn = void(*)(const FRustString *source, FRustString *fstring);
+
+using FStringDtorFn = void(*)(FRustString *fstring);
+
+struct FStringFns {
   NewFStringFromUtf8Fn new_fstring_from_utf8;
   CopyFromFStringFn copy_from_fstring;
-  DeleteFStringFn delete_fstring;
+  FStringDtorFn dtor;
 };
 
 using FScriptArrayNumFn = uint32_t(*)(const FRustScriptArray *array, int32_t *out_num);
@@ -157,6 +160,7 @@ struct FScriptArrayFns {
 struct UnrealBindings {
   LogFn log;
   CoreFns core_fns;
+  FStringFns fstring_fns;
   FScriptArrayFns fscript_array_fns;
 };
 
@@ -212,7 +216,7 @@ extern void NewFStringFromUtf8(Utf8Str str, FRustString *fstring);
 
 extern void CopyFromFString(const FRustString *source, FRustString *fstring);
 
-extern void DeleteFString(FRustString *fstring);
+extern void FStringDtor(FRustString *fstring);
 
 extern uint32_t FScriptArrayNum(const FRustScriptArray *array, int32_t *out_num);
 

@@ -159,7 +159,7 @@ impl<'a> From<&'a str> for FString {
     fn from(value: &'a str) -> Self {
         unsafe {
             let mut rust_fstring = FRustString::uninit();
-            (bindings().core_fns.new_fstring_from_utf8)(
+            (bindings().fstring_fns.new_fstring_from_utf8)(
                 unreal_ffi::Utf8Str::from(value),
                 &mut rust_fstring,
             );
@@ -171,7 +171,7 @@ impl<'a> From<&'a str> for FString {
 impl Drop for FString {
     fn drop(&mut self) {
         unsafe {
-            (bindings().core_fns.delete_fstring)(&mut self.ffi);
+            (bindings().fstring_fns.dtor)(&mut self.ffi);
         }
     }
 }
@@ -181,7 +181,7 @@ impl Clone for FString {
         let mut cloned = FRustString::uninit();
 
         unsafe {
-            (bindings().core_fns.copy_from_fstring)(&self.ffi, &mut cloned);
+            (bindings().fstring_fns.copy_from_fstring)(&self.ffi, &mut cloned);
         }
 
         FString { ffi: cloned }

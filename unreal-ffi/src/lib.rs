@@ -84,6 +84,7 @@ unsafe extern "C" {
 pub struct UnrealBindings {
     pub log: LogFn,
     pub core_fns: CoreFns,
+    pub fstring_fns: FStringFns,
     pub fscript_array_fns: FScriptArrayFns,
 }
 
@@ -299,7 +300,7 @@ pub type FScriptArrayShrinkFn =
 pub type NewFStringFromUtf8Fn = unsafe extern "C" fn(str: Utf8Str, fstring: *mut FRustString);
 pub type CopyFromFStringFn =
     unsafe extern "C" fn(source: *const FRustString, fstring: *mut FRustString);
-pub type DeleteFStringFn = unsafe extern "C" fn(fstring: *mut FRustString);
+pub type FStringDtorFn = unsafe extern "C" fn(fstring: *mut FRustString);
 //
 unsafe extern "C" {
     pub fn GetCDOFromClass(
@@ -331,7 +332,7 @@ unsafe extern "C" {
 
     pub fn NewFStringFromUtf8(str: Utf8Str, fstring: *mut FRustString);
     pub fn CopyFromFString(source: *const FRustString, fstring: *mut FRustString);
-    pub fn DeleteFString(fstring: *mut FRustString);
+    pub fn FStringDtor(fstring: *mut FRustString);
 
     pub fn FScriptArrayNum(array: *const FRustScriptArray, out_num: *mut i32) -> u32;
     pub fn FScriptArrayCtor(array: *mut FRustScriptArray) -> u32;
@@ -384,6 +385,14 @@ unsafe extern "C" {
 
 #[repr(C)]
 #[derive(Clone)]
+pub struct FStringFns {
+    pub new_fstring_from_utf8: NewFStringFromUtf8Fn,
+    pub copy_from_fstring: CopyFromFStringFn,
+    pub dtor: FStringDtorFn,
+}
+
+#[repr(C)]
+#[derive(Clone)]
 pub struct CoreFns {
     pub get_cdo_from_class: GetCDOFromClassCoreFn,
     pub get_all_uclasses: GetAllUClassesCoreFn,
@@ -394,9 +403,6 @@ pub struct CoreFns {
     pub process_event: ProcessEventsCoreFn,
     pub begin_trace: BeginTraceCoreFn,
     pub end_trace: EndTraceCoreFn,
-    pub new_fstring_from_utf8: NewFStringFromUtf8Fn,
-    pub copy_from_fstring: CopyFromFStringFn,
-    pub delete_fstring: DeleteFStringFn,
 }
 
 #[repr(C)]

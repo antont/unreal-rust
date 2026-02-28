@@ -172,6 +172,10 @@ pub unsafe fn initialize_module(
     }
 
     unreal_api::bindings::globals::initialize_modules();
+
+    unsafe {
+        (*MODULE).user_module.initialize();
+    }
 }
 
 #[macro_export]

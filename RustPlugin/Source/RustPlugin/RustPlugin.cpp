@@ -18,6 +18,8 @@
 
 #include <stdint.h>
 
+#include "Kismet2/ReloadUtilities.h"
+
 static const FName RustPluginTabName("RustPlugin");
 
 #define LOCTEXT_NAMESPACE "FRustPluginModule"
@@ -121,6 +123,9 @@ void FRustLoader::CallEntryPoints()
 {
 	if (!IsLoaded())
 		return;
+	
+	// Clear out prevously registered types
+	Types.Reset();
 
 	// Pass unreal function pointers to Rust, and also retrieve function pointers from Rust so we can call into Rust
 	auto UnrealBindings = CreateBindings();
@@ -135,45 +140,65 @@ void FRustLoader::CallEntryPoints()
 }
 
 UE_DISABLE_OPTIMIZATION
+
 void FRustLoader::RegisterTypes()
 {
 	auto& Module = GetRustModule();
 	FArchive ArDummy;
 
-	UClass* NewClass = NewObject<UClass>(
-		Module.GetPackage(),
-		UClass::StaticClass(),
-		FName(TEXT("URustTestDataAsset")),
-		RF_Public | RF_Standalone | RF_MarkAsRootSet
-	);
-	
-	UClass* SuperClass = UDataAsset::StaticClass();
-	NewClass->PropertyLink = SuperClass->PropertyLink;
-	NewClass->SetSuperStruct(SuperClass);
-	NewClass->ClassConstructor = SuperClass->ClassConstructor;
-	
-	int32 CurrentSize = SuperClass->GetPropertiesSize();
-	int32 ClassAlignment = SuperClass->GetMinAlignment();
-	
-	FFloatProperty* MyFloatProp = new FFloatProperty(NewClass, FName("MyFloat"), RF_Public);
-	MyFloatProp->SetPropertyFlags(CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData);
+	TUniquePtr<FReload> Reload(new FReload(EActiveReloadType::Reinstancing, TEXT(""), *GLog));
+	for (auto& It : Types)
+	{
+		UClass* OldClass = FindObject<UClass>(Module.GetPackage(), *It.Key);
+		if (OldClass != nullptr)
+		{
+			FString OldClassName = FString::Printf(TEXT("%s_REPLACED"), *It.Key);
+			OldClass->Rename(*OldClassName, nullptr, REN_DontCreateRedirectors);
+		}
+		
+		UClass* NewClass = NewObject<UClass>(
+			Module.GetPackage(),
+			UClass::StaticClass(),
+			FName(*It.Key),
+			RF_Public | RF_Standalone | RF_MarkAsRootSet
+		);
 
-	int32 PropAlignment = MyFloatProp->GetMinAlignment();
-	int32 PropOffset = Align(CurrentSize, 16);
+		UClass* SuperClass = UDataAsset::StaticClass();
+		NewClass->PropertyLink = SuperClass->PropertyLink;
+		NewClass->SetSuperStruct(SuperClass);
+		NewClass->ClassConstructor = SuperClass->ClassConstructor;
+
+		for (auto& PropertyDefinition : It.Value.PropertyDefinitions)
+		{
+			FProperty* Property = nullptr;
+			if (URustType_Numeric* Numeric = Cast<URustType_Numeric>(PropertyDefinition.Type.Get()))
+			{
+				Property = new FFloatProperty(NewClass, FName(PropertyDefinition.Name), RF_Public);
+			}
+
+			Property->SetPropertyFlags(CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData);
+
+
+			NewClass->AddCppProperty(Property);
+			NewClass->SetPropertiesSize(PropertyDefinition.Offset);
+			Property->Link(ArDummy);
+			check(Property->GetOffset_ForUFunction() == PropertyDefinition.Offset);
+		}
+		
+		NewClass->SetPropertiesSize(It.Value.Size);
+		NewClass->StaticLink(false);
+		NotifyRegistrationEvent(TEXT("/Script/Rust"), *NewClass->GetName(), ENotifyRegistrationType::NRT_Class,
+		                        ENotifyRegistrationPhase::NRP_Finished, nullptr, false, NewClass);
+		
+		if (OldClass != nullptr && NewClass != nullptr)
+		{
+			Reload->NotifyChange(OldClass, NewClass);
+		}
+	}
 	
-	NewClass->AddCppProperty(MyFloatProp);
-	NewClass->SetPropertiesSize(PropOffset);
-	MyFloatProp->Link(ArDummy);
-	
-	CurrentSize = PropOffset + MyFloatProp->GetElementSize();
-	
-	NewClass->SetPropertiesSize(Align(CurrentSize, 16));
-	NewClass->StaticLink(false);
-	// NewClass->AssembleReferenceTokenStream(true);
-	
-	NotifyRegistrationEvent(TEXT("/Script/Rust"), *NewClass->GetName(), ENotifyRegistrationType::NRT_Class,
-	ENotifyRegistrationPhase::NRP_Finished, nullptr, false, NewClass);
+	Reload->Reinstance();
 }
+
 UE_ENABLE_OPTIMIZATION
 
 void FRustPluginModule::StartupModule()

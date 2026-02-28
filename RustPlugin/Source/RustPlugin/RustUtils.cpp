@@ -14,9 +14,11 @@ UnrealBindings CreateBindings()
 	core_fns.process_event = &ProcessEventFromRust;
 	core_fns.end_trace = &EndTrace;
 	core_fns.begin_trace = &BeginTrace;
-	core_fns.new_fstring_from_utf8 = &NewFStringFromUtf8;
-	core_fns.copy_from_fstring = &CopyFromFString;
-	core_fns.delete_fstring = &DeleteFString;
+
+	FStringFns fstring_fns = {};
+	fstring_fns.new_fstring_from_utf8 = &NewFStringFromUtf8;
+	fstring_fns.copy_from_fstring = &CopyFromFString;
+	fstring_fns.dtor = &FStringDtor;
 
 	FScriptArrayFns fscript_array_fns = {};
 	fscript_array_fns.num = &FScriptArrayNum;
@@ -35,6 +37,7 @@ UnrealBindings CreateBindings()
 
 	UnrealBindings b = {};
 	b.core_fns = core_fns;
+	b.fstring_fns = fstring_fns;
 	b.fscript_array_fns = fscript_array_fns;
 	b.log = &Log;
 	return b;

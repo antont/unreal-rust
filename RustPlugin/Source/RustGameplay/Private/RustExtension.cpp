@@ -17,10 +17,3 @@ FName URustExtension_Core::FNameNone()
 {
 	return NAME_None;
 }
-
-void URustExtension_RustTypeDef::AddNumeric(FRustTypeDef& Def, FRustTypeInfo TypeInfo)
-{
-	auto Numeric = MakeUnique<FRustType_Numeric>();
-	Numeric->TypeInfo = TypeInfo;
-	Def.Types.Add(MoveTemp(Numeric));
-}

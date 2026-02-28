@@ -388,7 +388,7 @@ void CopyFromFString(const FRustString* source, FRustString* fstring)
 	new (Out) FString(*In);
 }
 
-void DeleteFString(FRustString* fstring)
+void FStringDtor(FRustString* fstring)
 {
 	if (fstring == nullptr)
 	{
