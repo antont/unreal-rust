@@ -106,17 +106,19 @@ pub type RegisterUnrealBindings =
     extern "C" fn(bindings: UnrealBindings, rust_bindings: *mut RustBindings) -> u32;
 
 pub type EntryUnrealBindingsFn =
-    unsafe extern "C" fn(bindings: UnrealBindings, rust_bindings: *mut RustBindings) -> u32;
+    unsafe extern "C" fn(bindings: UnrealBindings) -> u32;
 
 pub type BeginPlayFn = unsafe extern "C" fn() -> ResultCode;
 pub type TickFn = unsafe extern "C" fn(dt: f32) -> ResultCode;
 pub type TryLoadFn = unsafe extern "C" fn(*mut RustBindings) -> u32;
+pub type IsOutOfDateFn = unsafe extern "C" fn() -> u32;
 
 #[repr(C)]
 pub struct PluginBindings {
     pub tick: TickFn,
     pub begin_play: BeginPlayFn,
     pub try_load: TryLoadFn,
+    pub is_out_of_date: IsOutOfDateFn,
 }
 
 #[repr(C)]

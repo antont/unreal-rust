@@ -15,6 +15,9 @@
 #include "RustUtils.h"
 #include "Bindings.h"
 #include "HAL/PlatformFileManager.h"
+#include "UObject/EnumProperty.h"
+#include "UObject/UnrealType.h"
+#include "RustClassDef.h"
 
 #include <stdint.h>
 
@@ -23,6 +26,208 @@
 static const FName RustPluginTabName("RustPlugin");
 
 #define LOCTEXT_NAMESPACE "FRustPluginModule"
+
+namespace
+{
+	FProperty* CreatePropertyFromRustType(
+		const FFieldVariant Owner,
+		const FName& PropertyName,
+		const EObjectFlags ObjectFlags,
+		URustType* RustType)
+	{
+		check(RustType);
+
+		if (Cast<URustType_Bool>(RustType) != nullptr)
+		{
+			return new FBoolProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_Int8>(RustType) != nullptr)
+		{
+			return new FInt8Property(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_Int16>(RustType) != nullptr)
+		{
+			return new FInt16Property(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_Int32>(RustType) != nullptr)
+		{
+			return new FIntProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_Int64>(RustType) != nullptr)
+		{
+			return new FInt64Property(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_UInt8>(RustType) != nullptr)
+		{
+			return new FByteProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_UInt16>(RustType) != nullptr)
+		{
+			return new FUInt16Property(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_UInt32>(RustType) != nullptr)
+		{
+			return new FUInt32Property(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_UInt64>(RustType) != nullptr)
+		{
+			return new FUInt64Property(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_Float>(RustType) != nullptr)
+		{
+			return new FFloatProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_Double>(RustType) != nullptr)
+		{
+			return new FDoubleProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_FName>(RustType) != nullptr)
+		{
+			return new FNameProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_FString>(RustType) != nullptr)
+		{
+			return new FStrProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (Cast<URustType_FText>(RustType) != nullptr)
+		{
+			return new FTextProperty(Owner, PropertyName, ObjectFlags);
+		}
+
+		if (URustType_UObject* ObjectType = Cast<URustType_UObject>(RustType))
+		{
+			FObjectProperty* ObjectProperty = new FObjectProperty(Owner, PropertyName, ObjectFlags);
+			check(ObjectType->PropertyClass);
+			ObjectProperty->PropertyClass = ObjectType->PropertyClass.Get();
+			return ObjectProperty;
+		}
+
+		if (URustType_UClass* ClassType = Cast<URustType_UClass>(RustType))
+		{
+			FClassProperty* ClassProperty = new FClassProperty(Owner, PropertyName, ObjectFlags);
+			ClassProperty->PropertyClass = UClass::StaticClass();
+			check(ClassType->MetaClass);
+			ClassProperty->SetMetaClass(ClassType->MetaClass.Get());
+			return ClassProperty;
+		}
+
+		if (URustType_SoftObject* SoftObjectType = Cast<URustType_SoftObject>(RustType))
+		{
+			FSoftObjectProperty* SoftObjectProperty = new FSoftObjectProperty(Owner, PropertyName, ObjectFlags);
+			check(SoftObjectType->PropertyClass);
+			SoftObjectProperty->PropertyClass = SoftObjectType->PropertyClass.Get();
+			return SoftObjectProperty;
+		}
+
+		if (URustType_SoftClass* SoftClassType = Cast<URustType_SoftClass>(RustType))
+		{
+			FSoftClassProperty* SoftClassProperty = new FSoftClassProperty(Owner, PropertyName, ObjectFlags);
+			SoftClassProperty->PropertyClass = UClass::StaticClass();
+			check(SoftClassType->MetaClass);
+			SoftClassProperty->SetMetaClass(SoftClassType->MetaClass.Get());
+			return SoftClassProperty;
+		}
+
+		if (URustType_WeakObject* WeakObjectType = Cast<URustType_WeakObject>(RustType))
+		{
+			FWeakObjectProperty* WeakObjectProperty = new FWeakObjectProperty(Owner, PropertyName, ObjectFlags);
+			check(WeakObjectType->PropertyClass);
+			WeakObjectProperty->PropertyClass = WeakObjectType->PropertyClass.Get();
+			return WeakObjectProperty;
+		}
+
+		if (URustType_LazyObject* LazyObjectType = Cast<URustType_LazyObject>(RustType))
+		{
+			FLazyObjectProperty* LazyObjectProperty = new FLazyObjectProperty(Owner, PropertyName, ObjectFlags);
+			check(LazyObjectType->PropertyClass);
+			LazyObjectProperty->PropertyClass = LazyObjectType->PropertyClass.Get();
+			return LazyObjectProperty;
+		}
+
+		if (URustType_Struct* StructType = Cast<URustType_Struct>(RustType))
+		{
+			check(StructType->ScriptStruct);
+			FStructProperty* StructProperty = new FStructProperty(Owner, PropertyName, ObjectFlags);
+			StructProperty->Struct = StructType->ScriptStruct.Get();
+			return StructProperty;
+		}
+
+		if (URustType_Enum* EnumType = Cast<URustType_Enum>(RustType))
+		{
+			check(EnumType->Enum);
+			FEnumProperty* EnumProperty = new FEnumProperty(Owner, PropertyName, ObjectFlags);
+			FByteProperty* UnderlyingProperty = new FByteProperty(EnumProperty, TEXT("UnderlyingType"), ObjectFlags);
+			EnumProperty->AddCppProperty(UnderlyingProperty);
+			EnumProperty->SetEnum(EnumType->Enum.Get());
+			return EnumProperty;
+		}
+
+		if (URustType_Array* ArrayType = Cast<URustType_Array>(RustType))
+		{
+			check(ArrayType->InnerType);
+			FArrayProperty* ArrayProperty = new FArrayProperty(Owner, PropertyName, ObjectFlags);
+			FProperty* InnerProperty = CreatePropertyFromRustType(
+				ArrayProperty,
+				TEXT("Inner"),
+				ObjectFlags,
+				ArrayType->InnerType.Get());
+
+			ArrayProperty->AddCppProperty(InnerProperty);
+			return ArrayProperty;
+		}
+
+		if (URustType_Set* SetType = Cast<URustType_Set>(RustType))
+		{
+			check(SetType->ElementType);
+			FSetProperty* SetProperty = new FSetProperty(Owner, PropertyName, ObjectFlags);
+			FProperty* ElementProperty = CreatePropertyFromRustType(
+				SetProperty,
+				TEXT("Element"),
+				ObjectFlags,
+				SetType->ElementType.Get());
+
+			SetProperty->AddCppProperty(ElementProperty);
+			return SetProperty;
+		}
+
+		if (URustType_Map* MapType = Cast<URustType_Map>(RustType))
+		{
+			check(MapType->KeyType);
+			check(MapType->ValueType);
+			FMapProperty* MapProperty = new FMapProperty(Owner, PropertyName, ObjectFlags);
+			FProperty* KeyProperty = CreatePropertyFromRustType(
+				MapProperty,
+				TEXT("Key"),
+				ObjectFlags,
+				MapType->KeyType.Get());
+			FProperty* ValueProperty = CreatePropertyFromRustType(
+				MapProperty,
+				TEXT("Value"),
+				ObjectFlags,
+				MapType->ValueType.Get());
+
+			MapProperty->AddCppProperty(KeyProperty);
+			MapProperty->AddCppProperty(ValueProperty);
+			return MapProperty;
+		}
+
+		checkf(false, TEXT("Unsupported Rust type '%s'"), *RustType->GetClass()->GetName());
+		return nullptr;
+	}
+}
 
 FString PlatformExtensionName()
 {
@@ -57,7 +262,27 @@ FRustLoader::FRustLoader()
 {
 }
 
-bool FRustLoader::TryLoad()
+bool FRustLoader::IsRustOutOfDate() const
+{
+	return IsOutOfDateFunction() > 0;
+}
+
+void FRustLoader::LoadRust()
+{
+	if (IsLoaded())
+	{
+		// RustModule.Plugin.EditorTick(DeltaTime);
+		TRACE_CPUPROFILER_EVENT_SCOPE(Hotreload);
+		Types.Reset();
+		if (TryLoadFunction(&Rust))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Hotreload"));
+		}
+		RegisterTypes();
+	}
+}
+
+bool FRustLoader::SetupLoader()
 {
 	// Loading ddls is a bit tricky, see https://fasterthanli.me/articles/so-you-want-to-live-reload-rust
 	// The gist is we can't easily hot reload a dll if the dll uses the thread local storage (TLS).
@@ -91,6 +316,8 @@ bool FRustLoader::TryLoad()
 	void* LocalBindings = FPlatformProcess::GetDllExport(LocalHandle, TEXT("register_unreal_bindings\0"));
 	// void* LocalEditorTick = FPlatformProcess::GetDllExport(LocalHandle, TEXT("editor_tick\0"));
 	this->TryLoadFunction = static_cast<TryLoadFn>(FPlatformProcess::GetDllExport(LocalHandle, TEXT("try_load\0")));
+	this->IsOutOfDateFunction = static_cast<IsOutOfDateFn>(FPlatformProcess::GetDllExport(
+		LocalHandle, TEXT("is_out_of_date\0")));
 	ensure(LocalBindings);
 	ensure(this->TryLoadFunction);
 	// ensure(LocalEditorTick);
@@ -102,7 +329,7 @@ bool FRustLoader::TryLoad()
 	this->TargetPath = LocalTargetDllPath;
 	NeedsInit = true;
 	CallEntryPoints();
-	RegisterTypes();
+	LoadRust();
 	return true;
 }
 
@@ -123,13 +350,10 @@ void FRustLoader::CallEntryPoints()
 {
 	if (!IsLoaded())
 		return;
-	
-	// Clear out prevously registered types
-	Types.Reset();
 
 	// Pass unreal function pointers to Rust, and also retrieve function pointers from Rust so we can call into Rust
 	auto UnrealBindings = CreateBindings();
-	if (Bindings(UnrealBindings, &Rust))
+	if (Bindings(UnrealBindings))
 	{
 		//Rust.initialize_modules();
 	}
@@ -147,15 +371,21 @@ void FRustLoader::RegisterTypes()
 	FArchive ArDummy;
 
 	TUniquePtr<FReload> Reload(new FReload(EActiveReloadType::Reinstancing, TEXT(""), *GLog));
+	TSet<UClass*> OldClasses;
 	for (auto& It : Types)
 	{
 		UClass* OldClass = FindObject<UClass>(Module.GetPackage(), *It.Key);
 		if (OldClass != nullptr)
 		{
-			FString OldClassName = FString::Printf(TEXT("%s_REPLACED"), *It.Key);
+			// TODO: We might need to make the name unique. If we fail to delete the replace class later then this will
+			// crash here
+			FString OldClassName = FString::Printf(TEXT("%s_REPLACED_%i"), *It.Key, UniqueClassId);
 			OldClass->Rename(*OldClassName, nullptr, REN_DontCreateRedirectors);
+			OldClass->ClassFlags |= CLASS_NewerVersionExists;
+			OldClasses.Add(OldClass);
+			UniqueClassId += 1;
 		}
-		
+
 		UClass* NewClass = NewObject<UClass>(
 			Module.GetPackage(),
 			UClass::StaticClass(),
@@ -167,36 +397,55 @@ void FRustLoader::RegisterTypes()
 		NewClass->PropertyLink = SuperClass->PropertyLink;
 		NewClass->SetSuperStruct(SuperClass);
 		NewClass->ClassConstructor = SuperClass->ClassConstructor;
+		NewClass->CppClassStaticFunctions = SuperClass->CppClassStaticFunctions;
 
 		for (auto& PropertyDefinition : It.Value.PropertyDefinitions)
 		{
-			FProperty* Property = nullptr;
-			if (URustType_Numeric* Numeric = Cast<URustType_Numeric>(PropertyDefinition.Type.Get()))
+			const FName PropertyName(*PropertyDefinition.Name);
+			FProperty* Property = CreatePropertyFromRustType(
+				NewClass,
+				PropertyName,
+				RF_Public,
+				PropertyDefinition.Type.Get());
+
+			if (Property == nullptr)
 			{
-				Property = new FFloatProperty(NewClass, FName(PropertyDefinition.Name), RF_Public);
+				continue;
 			}
 
-			Property->SetPropertyFlags(CPF_Edit | CPF_BlueprintVisible | CPF_ZeroConstructor | CPF_IsPlainOldData);
+			Property->SetPropertyFlags(CPF_Edit | CPF_BlueprintVisible);
 
-
+			// HACK: We can't set the offset for properties directly for some reason. Instead we trick unreal
+			// by setting the property sizes and then link. Stolen from the angelscript bindings
+			// Later we set the correct property sizes again
 			NewClass->AddCppProperty(Property);
 			NewClass->SetPropertiesSize(PropertyDefinition.Offset);
 			Property->Link(ArDummy);
 			check(Property->GetOffset_ForUFunction() == PropertyDefinition.Offset);
 		}
-		
+
 		NewClass->SetPropertiesSize(It.Value.Size);
 		NewClass->StaticLink(false);
 		NotifyRegistrationEvent(TEXT("/Script/Rust"), *NewClass->GetName(), ENotifyRegistrationType::NRT_Class,
 		                        ENotifyRegistrationPhase::NRP_Finished, nullptr, false, NewClass);
-		
+
 		if (OldClass != nullptr && NewClass != nullptr)
 		{
-			Reload->NotifyChange(OldClass, NewClass);
+			Reload->NotifyChange(NewClass, OldClass);
 		}
 	}
-	
+
 	Reload->Reinstance();
+
+	// // Remove old classes
+	// for (auto Old : OldClasses)
+	// {
+	// 	Old->RemoveFromRoot();
+	// 	Old->ClearFlags(RF_Standalone | RF_Public);
+	// }
+	//
+	// // force the GC to run and remove the fully
+	// CollectGarbage(GARBAGE_COLLECTION_KEEPFLAGS, true);
 }
 
 UE_ENABLE_OPTIMIZATION
@@ -237,7 +486,7 @@ void FRustPluginModule::StartupModule()
 	//	*Plugin.PluginFolderPath(),
 	//	IDirectoryWatcher::FDirectoryChanged::CreateRaw(this, &FRustPluginModule::OnProjectDirectoryChanged),
 	//	WatcherHandle, IDirectoryWatcher::WatchOptions::IgnoreChangesInSubtree);
-	Plugin.TryLoad();
+	Plugin.SetupLoader();
 
 	//TSharedPtr<FUuidGraphPanelPinFactory> UuidFactory = MakeShareable(new FUuidGraphPanelPinFactory());
 	//FEdGraphUtilities::RegisterVisualPinFactory(UuidFactory);
@@ -277,7 +526,7 @@ void FRustPluginModule::OnProjectDirectoryChanged(const TArray<FFileChangeData>&
 			FFileChangeData::FCA_Modified;
 		if (Name == TEXT("rustplugin") && Ext == *PlatformExtensionName() && ChangedOrAdded)
 		{
-			Plugin.TryLoad();
+			Plugin.SetupLoader();
 			// Only show notifications when we are in playmode otherwise notifications are a bit too spamy
 			if (GEditor != nullptr && GEditor->IsPlaySessionInProgress())
 			{
@@ -303,14 +552,9 @@ UWorld* URustEditorSubsystem::GetWorld() const
 void URustEditorSubsystem::Tick(float DeltaTime)
 {
 	auto& RustModule = GetRustModule();
-	if (RustModule.Plugin.IsLoaded())
+	if (RustModule.Plugin.IsLoaded() && RustModule.Plugin.IsRustOutOfDate())
 	{
-		// RustModule.Plugin.EditorTick(DeltaTime);
-		TRACE_CPUPROFILER_EVENT_SCOPE(Hotreload);
-		if (RustModule.Plugin.TryLoadFunction(&RustModule.Plugin.Rust))
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Hotreload"));
-		}
+		RustModule.Plugin.LoadRust();
 	}
 }
 

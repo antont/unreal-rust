@@ -116,22 +116,10 @@ impl Loader {
 
         self.hotreload_id += 1;
     }
-
-    pub fn try_load(&mut self, rust_bindings: &mut RustBindings) -> bool {
-        if self.is_out_of_date() {
-            self.load(rust_bindings);
-            return true;
-        }
-
-        false
-    }
 }
 
 #[unsafe(no_mangle)]
-extern "C" fn register_unreal_bindings(
-    bindings: UnrealBindings,
-    rust_bindings: *mut RustBindings,
-) -> u32 {
+extern "C" fn register_unreal_bindings(bindings: UnrealBindings) -> u32 {
     unsafe {
         if LOADER.is_null() {
             LOADER = Box::leak(Box::new(Loader::new(
@@ -141,8 +129,6 @@ extern "C" fn register_unreal_bindings(
                 ),
             ))) as *mut _;
         }
-        let loader = &mut (*LOADER);
-        loader.load(&mut *rust_bindings);
     }
     1
 }
@@ -157,10 +143,21 @@ extern "C" fn register_unreal_bindings(
 // }
 
 #[unsafe(no_mangle)]
+unsafe extern "C" fn is_out_of_date() -> u32 {
+    unsafe {
+        if !LOADER.is_null() {
+            (*LOADER).is_out_of_date() as u32
+        } else {
+            0
+        }
+    }
+}
+#[unsafe(no_mangle)]
 unsafe extern "C" fn try_load(rust_bindings: *mut RustBindings) -> u32 {
     unsafe {
         if !LOADER.is_null() {
-            (*LOADER).try_load(&mut *rust_bindings) as u32
+            (*LOADER).load(&mut *rust_bindings);
+            1
         } else {
             0
         }

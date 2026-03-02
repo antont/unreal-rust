@@ -24,6 +24,14 @@ pub struct UPtr<T> {
     pub ptr: *mut T,
 }
 
+impl<T> Clone for UPtr<T> {
+    fn clone(&self) -> Self {
+        Self {
+            ptr: self.ptr.clone(),
+        }
+    }
+}
+
 impl<T> UPtr<T> {
     pub fn null() -> Self {
         Self {

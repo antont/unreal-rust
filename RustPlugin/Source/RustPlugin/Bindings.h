@@ -176,14 +176,17 @@ struct RustBindings {
   AllocateFn allocate;
 };
 
-using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings, RustBindings *rust_bindings);
+using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
 
 using TryLoadFn = uint32_t(*)(RustBindings*);
+
+using IsOutOfDateFn = uint32_t(*)();
 
 struct PluginBindings {
   TickFn tick;
   BeginPlayFn begin_play;
   TryLoadFn try_load;
+  IsOutOfDateFn is_out_of_date;
 };
 
 extern "C" {

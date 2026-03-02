@@ -27,12 +27,13 @@ struct FRustLoader
 	EntryUnrealBindingsFn Bindings;
 	TickFn EditorTick;
 	TryLoadFn TryLoadFunction;
+	IsOutOfDateFn IsOutOfDateFunction;
 	RustBindings Rust;
 
 	TMap<FString, FRustClassDef> Types;
 	bool NeedsInit;
 	bool IsLoaded();
-	bool TryLoad();
+	bool SetupLoader();
 	void CallEntryPoints();
 	void RegisterTypes();
 	void RetrieveReflectionData();
@@ -42,6 +43,10 @@ struct FRustLoader
 	FString PluginPdbPath();
 
 	FRustLoader();
+	bool IsRustOutOfDate() const;
+	void LoadRust();
+	
+	int UniqueClassId = 0;
 };
 
 FString PlatformExtensionName();
