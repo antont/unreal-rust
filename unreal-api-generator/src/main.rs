@@ -1,6 +1,6 @@
+mod copy_dll;
 mod generator;
 mod parse_api;
-mod copy_dll;
 
 use std::{error::Error, path::PathBuf};
 
@@ -27,7 +27,7 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    CopyDll{
+    CopyDll {
         #[arg(short, long)]
         path: PathBuf,
         #[arg(short, long)]
@@ -67,9 +67,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // You can check for the existence of subcommands, and if found use their
     // matches just as you would the top level cmd
     match &cli.command {
-        Some(Commands::CopyDll { path, out_dir }) => {
-            copy_dll::parse(path, out_dir)?
-        },
+        Some(Commands::CopyDll { path, out_dir }) => copy_dll::parse(path, out_dir)?,
         Some(Commands::Generate { path, out_dir }) => {
             let raw_json = std::fs::read_to_string(path)?;
             // TODO: From some reason unreal has this in the json and serde is unhappy
@@ -81,5 +79,4 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     Ok(())
-
 }

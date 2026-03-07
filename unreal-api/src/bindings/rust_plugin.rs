@@ -12,6 +12,7 @@ pub use crate::core_data::*;
 #[doc(hidden)]
 pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
 pub struct FunctionPtrs {
+    pub u_rust_extension_rust_class_def_set_property_meta: *mut crate::ffi::UFunctionOpague,
     pub u_rust_extension_rust_class_def_register: *mut crate::ffi::UFunctionOpague,
     pub u_rust_extension_rust_class_def_new: *mut crate::ffi::UFunctionOpague,
     pub u_rust_extension_rust_class_def_create_type_weak_object: *mut crate::ffi::UFunctionOpague,
@@ -44,6 +45,7 @@ pub struct FunctionPtrs {
 impl FunctionPtrs {
     pub const fn empty() -> Self {
         Self {
+            u_rust_extension_rust_class_def_set_property_meta: std::ptr::null_mut(),
             u_rust_extension_rust_class_def_register: std::ptr::null_mut(),
             u_rust_extension_rust_class_def_new: std::ptr::null_mut(),
             u_rust_extension_rust_class_def_create_type_weak_object: std::ptr::null_mut(),
@@ -79,6 +81,14 @@ pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
         if let Some(class_ptr) = URustExtension_RustClassDef::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("SetPropertyMeta"),
+                &raw mut __FUNCTION_PTRS
+                    .u_rust_extension_rust_class_def_set_property_meta,
+            );
             (bindings
                 .core_fns
                 .find_function_by_name)(
@@ -303,6 +313,62 @@ pub struct FRustClassDef {
     pub(crate) __padding_end: [u8; 40],
 }
 impl FRustClassDef {
+    pub fn set_property_meta(
+        def: &mut FRustClassDef,
+        property_name: FString,
+        key: FString,
+        value: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_extension_rust_class_def_set_property_meta,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                def,
+                __buffer.add(0).cast::<FRustClassDef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&key, __buffer.add(56).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(72).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustExtension_RustClassDef::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_extension_rust_class_def_set_property_meta,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRustClassDef>().swap(def);
+        }
+        std::mem::forget(property_name);
+        std::mem::forget(key);
+        std::mem::forget(value);
+    }
     pub fn register(def: &FRustClassDef) {
         let mut __stack = crate::core_data::StackAlloc::<40>::new();
         let __buffer = __stack.buffer_mut();
@@ -1153,9 +1219,9 @@ impl FRustClassDef {
         name: FString,
         offset: i32,
         ty: UPtr<URustType>,
-        flags: i64,
+        specifiers: &TArray<ERustPropertySpecifier>,
     ) {
-        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
@@ -1188,7 +1254,11 @@ impl FRustClassDef {
             );
         }
         unsafe {
-            std::ptr::copy_nonoverlapping(&flags, __buffer.add(72).cast::<i64>(), 1);
+            std::ptr::copy_nonoverlapping(
+                specifiers,
+                __buffer.add(72).cast::<TArray<ERustPropertySpecifier>>(),
+                1,
+            );
         }
         let __object_ptr = crate::bindings::rust_plugin::URustExtension_RustClassDef::cdo();
         unsafe {
@@ -1207,7 +1277,6 @@ impl FRustClassDef {
         std::mem::forget(name);
         std::mem::forget(offset);
         std::mem::forget(ty);
-        std::mem::forget(flags);
     }
 }
 #[repr(C, align(8))]
@@ -2173,6 +2242,62 @@ impl URustExtension_RustClassDef {
             cdo
         }
     }
+    pub fn set_property_meta(
+        def: &mut FRustClassDef,
+        property_name: FString,
+        key: FString,
+        value: FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_extension_rust_class_def_set_property_meta,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                def,
+                __buffer.add(0).cast::<FRustClassDef>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &property_name,
+                __buffer.add(40).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&key, __buffer.add(56).cast::<FString>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&value, __buffer.add(72).cast::<FString>(), 1);
+        }
+        let __object_ptr = crate::bindings::rust_plugin::URustExtension_RustClassDef::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_extension_rust_class_def_set_property_meta,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FRustClassDef>().swap(def);
+        }
+        std::mem::forget(property_name);
+        std::mem::forget(key);
+        std::mem::forget(value);
+    }
     pub fn register(def: &FRustClassDef) {
         let mut __stack = crate::core_data::StackAlloc::<40>::new();
         let __buffer = __stack.buffer_mut();
@@ -3023,9 +3148,9 @@ impl URustExtension_RustClassDef {
         name: FString,
         offset: i32,
         ty: UPtr<URustType>,
-        flags: i64,
+        specifiers: &TArray<ERustPropertySpecifier>,
     ) {
-        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let mut __stack = crate::core_data::StackAlloc::<88>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
@@ -3058,7 +3183,11 @@ impl URustExtension_RustClassDef {
             );
         }
         unsafe {
-            std::ptr::copy_nonoverlapping(&flags, __buffer.add(72).cast::<i64>(), 1);
+            std::ptr::copy_nonoverlapping(
+                specifiers,
+                __buffer.add(72).cast::<TArray<ERustPropertySpecifier>>(),
+                1,
+            );
         }
         let __object_ptr = crate::bindings::rust_plugin::URustExtension_RustClassDef::cdo();
         unsafe {
@@ -3077,7 +3206,6 @@ impl URustExtension_RustClassDef {
         std::mem::forget(name);
         std::mem::forget(offset);
         std::mem::forget(ty);
-        std::mem::forget(flags);
     }
 }
 #[repr(C, align(8))]
@@ -3149,4 +3277,22 @@ impl URustEditorSubsystem {
             cdo
         }
     }
+}
+#[repr(transparent)]
+pub struct ERustPropertySpecifier(pub u8);
+impl ERustPropertySpecifier {
+    pub const EDIT_ANYWHERE: ERustPropertySpecifier = ERustPropertySpecifier(0);
+    pub const EDIT_DEFAULTS_ONLY: ERustPropertySpecifier = ERustPropertySpecifier(1);
+    pub const EDIT_INSTANCE_ONLY: ERustPropertySpecifier = ERustPropertySpecifier(2);
+    pub const VISIBLE_ANYWHERE: ERustPropertySpecifier = ERustPropertySpecifier(3);
+    pub const VISIBLE_DEFAULTS_ONLY: ERustPropertySpecifier = ERustPropertySpecifier(4);
+    pub const VISIBLE_INSTANCE_ONLY: ERustPropertySpecifier = ERustPropertySpecifier(5);
+    pub const BLUEPRINT_READ_ONLY: ERustPropertySpecifier = ERustPropertySpecifier(6);
+    pub const BLUEPRINT_READ_WRITE: ERustPropertySpecifier = ERustPropertySpecifier(7);
+    pub const REPLICATED: ERustPropertySpecifier = ERustPropertySpecifier(8);
+    pub const TRANSIENT: ERustPropertySpecifier = ERustPropertySpecifier(9);
+    pub const SAVE_GAME: ERustPropertySpecifier = ERustPropertySpecifier(10);
+    pub const CONFIG: ERustPropertySpecifier = ERustPropertySpecifier(11);
+    pub const ADVANCED_DISPLAY: ERustPropertySpecifier = ERustPropertySpecifier(12);
+    pub const INTERP: ERustPropertySpecifier = ERustPropertySpecifier(13);
 }

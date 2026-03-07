@@ -22,15 +22,80 @@ TRustType* CreateRustTypeWithMeta(TMetaType* MetaValue, TObjectPtr<TMetaType> TR
 }
 }
 
-void URustExtension_RustClassDef::AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type, int64 Flags)
+EPropertyFlags ResolveSpecifiers(const TArray<ERustPropertySpecifier>& Specifiers)
+{
+	ERustPropertySpecifier EditScope = ERustPropertySpecifier::EditAnywhere;
+	ERustPropertySpecifier BlueprintAccess = ERustPropertySpecifier::BlueprintReadWrite;
+
+	EPropertyFlags Result = CPF_None;
+	for (auto Spec : Specifiers)
+	{
+		switch (Spec)
+		{
+		case ERustPropertySpecifier::EditAnywhere:
+		case ERustPropertySpecifier::EditDefaultsOnly:
+		case ERustPropertySpecifier::EditInstanceOnly:
+		case ERustPropertySpecifier::VisibleAnywhere:
+		case ERustPropertySpecifier::VisibleDefaultsOnly:
+		case ERustPropertySpecifier::VisibleInstanceOnly:
+			EditScope = Spec;
+			break;
+		case ERustPropertySpecifier::BlueprintReadOnly:
+		case ERustPropertySpecifier::BlueprintReadWrite:
+			BlueprintAccess = Spec;
+			break;
+		case ERustPropertySpecifier::Replicated:          Result |= CPF_Net; break;
+		case ERustPropertySpecifier::Transient:           Result |= CPF_Transient; break;
+		case ERustPropertySpecifier::SaveGame:            Result |= CPF_SaveGame; break;
+		case ERustPropertySpecifier::Config:              Result |= CPF_Config; break;
+		case ERustPropertySpecifier::AdvancedDisplay:     Result |= CPF_AdvancedDisplay; break;
+		case ERustPropertySpecifier::Interp:              Result |= CPF_Interp; break;
+		}
+	}
+
+	// Edit and blueprint access are mutually-exclusive groups; last explicit specifier wins.
+	switch (EditScope)
+	{
+	case ERustPropertySpecifier::EditAnywhere:        Result |= CPF_Edit; break;
+	case ERustPropertySpecifier::EditDefaultsOnly:    Result |= CPF_Edit | CPF_DisableEditOnInstance; break;
+	case ERustPropertySpecifier::EditInstanceOnly:    Result |= CPF_Edit | CPF_DisableEditOnTemplate; break;
+	case ERustPropertySpecifier::VisibleAnywhere:     Result |= CPF_Edit | CPF_EditConst; break;
+	case ERustPropertySpecifier::VisibleDefaultsOnly: Result |= CPF_Edit | CPF_EditConst | CPF_DisableEditOnInstance; break;
+	case ERustPropertySpecifier::VisibleInstanceOnly: Result |= CPF_Edit | CPF_EditConst | CPF_DisableEditOnTemplate; break;
+	default:                                          Result |= CPF_Edit; break;
+	}
+
+	switch (BlueprintAccess)
+	{
+	case ERustPropertySpecifier::BlueprintReadOnly:  Result |= CPF_BlueprintVisible | CPF_BlueprintReadOnly; break;
+	case ERustPropertySpecifier::BlueprintReadWrite: Result |= CPF_BlueprintVisible; break;
+	default:                                         Result |= CPF_BlueprintVisible; break;
+	}
+
+	return Result;
+}
+
+void URustExtension_RustClassDef::AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type, const TArray<ERustPropertySpecifier>& Specifiers)
 {
 	check(Type);
 	FRustPropertyDefinition Property;
 	Property.Name = MoveTemp(Name);
 	Property.Offset = Offset;
 	Property.Type = TStrongObjectPtr(Type);
-	Property.Flags = Flags;
+	Property.Specifiers = Specifiers;
 	Def.PropertyDefinitions.Add(MoveTemp(Property));
+}
+
+void URustExtension_RustClassDef::SetPropertyMeta(FRustClassDef& Def, FString PropertyName, FString Key, FString Value)
+{
+	for (auto& Prop : Def.PropertyDefinitions)
+	{
+		if (Prop.Name == PropertyName)
+		{
+			Prop.Metadata.Add(MoveTemp(Key), MoveTemp(Value));
+			return;
+		}
+	}
 }
 
 URustType* URustExtension_RustClassDef::CreateTypeBool()

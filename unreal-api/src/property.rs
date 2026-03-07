@@ -3,6 +3,8 @@ use crate::bindings::opague_definitions::FText;
 use crate::bindings::rust_plugin::{URustExtension_RustClassDef, URustType};
 use crate::core_data::{FName, FString, TArray, TMap, TSet, TSubclassOf, UPtr};
 
+pub use crate::bindings::rust_plugin::ERustPropertySpecifier;
+
 /// Maps a Rust type to its corresponding Unreal property type.
 pub trait UnrealProperty {
     fn create_property_type() -> UPtr<URustType>;
@@ -66,39 +68,6 @@ impl<K: UnrealProperty, V: UnrealProperty> UnrealProperty for TMap<K, V> {
             V::create_property_type(),
         )
     }
-}
-
-/// Unreal property flags (`CPF_*`) for use with `#[uproperty(...)]`.
-///
-/// These map to `EPropertyFlags` values from Unreal's `ObjectMacros.h`.
-pub mod flags {
-    pub type PropertyFlags = u64;
-
-    // Atomic flags (CPF_*)
-    pub const EDIT: PropertyFlags = 0x0000000000000001;
-    pub const BLUEPRINT_VISIBLE: PropertyFlags = 0x0000000000000004;
-    pub const BLUEPRINT_READ_ONLY: PropertyFlags = 0x0000000000000008;
-    pub const NET: PropertyFlags = 0x0000000000000020;
-    pub const DISABLE_EDIT_ON_TEMPLATE: PropertyFlags = 0x0000000000000800;
-    pub const TRANSIENT: PropertyFlags = 0x0000000000002000;
-    pub const CONFIG: PropertyFlags = 0x0000000000004000;
-    pub const DISABLE_EDIT_ON_INSTANCE: PropertyFlags = 0x0000000000010000;
-    pub const EDIT_CONST: PropertyFlags = 0x0000000000020000;
-    pub const SAVE_GAME: PropertyFlags = 0x0001000000000000;
-    pub const SIMPLE_DISPLAY: PropertyFlags = 0x0020000000000000;
-    pub const ADVANCED_DISPLAY: PropertyFlags = 0x0040000000000000;
-    pub const INTERP: PropertyFlags = 0x0200000000000000;
-
-    // Composite specifiers (matching UPROPERTY() names)
-    pub const EDIT_ANYWHERE: PropertyFlags = EDIT;
-    pub const EDIT_DEFAULTS_ONLY: PropertyFlags = EDIT | DISABLE_EDIT_ON_INSTANCE;
-    pub const EDIT_INSTANCE_ONLY: PropertyFlags = EDIT | DISABLE_EDIT_ON_TEMPLATE;
-    pub const VISIBLE_ANYWHERE: PropertyFlags = EDIT | EDIT_CONST;
-    pub const VISIBLE_DEFAULTS_ONLY: PropertyFlags = EDIT | EDIT_CONST | DISABLE_EDIT_ON_INSTANCE;
-    pub const VISIBLE_INSTANCE_ONLY: PropertyFlags = EDIT | EDIT_CONST | DISABLE_EDIT_ON_TEMPLATE;
-    pub const BLUEPRINT_READ_ONLY_ACCESS: PropertyFlags = BLUEPRINT_VISIBLE | BLUEPRINT_READ_ONLY;
-    pub const BLUEPRINT_READ_WRITE: PropertyFlags = BLUEPRINT_VISIBLE;
-    pub const REPLICATED: PropertyFlags = NET;
 }
 
 /// Helper macro to implement `HasStaticClass` for types that already have

@@ -23,17 +23,13 @@ pub struct ULocalTraceFilterPresetContainer {
     __padding_end: [u8; 64],
 }
 impl ULocalTraceFilterPresetContainer {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("ULocalTraceFilterPresetContainer")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -46,9 +42,7 @@ impl ULocalTraceFilterPresetContainer {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -58,17 +52,13 @@ pub struct USharedTraceFilterPresetContainer {
     __padding_end: [u8; 64],
 }
 impl USharedTraceFilterPresetContainer {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("USharedTraceFilterPresetContainer")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -81,9 +71,7 @@ impl USharedTraceFilterPresetContainer {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

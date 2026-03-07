@@ -84,7 +84,7 @@ fn inherit_impl(
             return Err(syn::Error::new_spanned(
                 &input.ident,
                 "#[inherit] requires a struct with named fields",
-            ))
+            ));
         }
     };
 

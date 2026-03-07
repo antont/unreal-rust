@@ -23,17 +23,13 @@ pub struct UCheckForVirtualizedContentCommandlet {
     __padding_end: [u8; 136],
 }
 impl UCheckForVirtualizedContentCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UCheckForVirtualizedContentCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -46,9 +42,7 @@ impl UCheckForVirtualizedContentCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -58,17 +52,13 @@ pub struct UGenerateMountPointPayloadManifestCommandlet {
     __padding_end: [u8; 160],
 }
 impl UGenerateMountPointPayloadManifestCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UGenerateMountPointPayloadManifestCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -81,9 +71,7 @@ impl UGenerateMountPointPayloadManifestCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -93,17 +81,13 @@ pub struct UGeneratePayloadManifestCommandlet {
     __padding_end: [u8; 144],
 }
 impl UGeneratePayloadManifestCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UGeneratePayloadManifestCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -116,9 +100,7 @@ impl UGeneratePayloadManifestCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -128,17 +110,13 @@ pub struct UPrecachePayloadsCommandlet {
     __padding_end: [u8; 136],
 }
 impl UPrecachePayloadsCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UPrecachePayloadsCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -151,9 +129,7 @@ impl UPrecachePayloadsCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -163,17 +139,13 @@ pub struct URehydrateProjectCommandlet {
     __padding_end: [u8; 144],
 }
 impl URehydrateProjectCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("URehydrateProjectCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -186,9 +158,7 @@ impl URehydrateProjectCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -198,17 +168,13 @@ pub struct UValidateVirtualizedContentCommandlet {
     __padding_end: [u8; 136],
 }
 impl UValidateVirtualizedContentCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UValidateVirtualizedContentCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -221,9 +187,7 @@ impl UValidateVirtualizedContentCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -233,17 +197,13 @@ pub struct UVirtualizeProjectCommandlet {
     __padding_end: [u8; 144],
 }
 impl UVirtualizeProjectCommandlet {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UVirtualizeProjectCommandlet")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -256,9 +216,7 @@ impl UVirtualizeProjectCommandlet {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

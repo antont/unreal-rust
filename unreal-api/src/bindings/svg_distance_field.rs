@@ -12,7 +12,8 @@ pub use crate::core_data::*;
 #[doc(hidden)]
 pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
 pub struct FunctionPtrs {
-    pub u_svg_distance_field_generator_generate_texture_from_svg_file: *mut crate::ffi::UFunctionOpague,
+    pub u_svg_distance_field_generator_generate_texture_from_svg_file:
+        *mut crate::ffi::UFunctionOpague,
 }
 impl FunctionPtrs {
     pub const fn empty() -> Self {
@@ -25,9 +26,7 @@ pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
         if let Some(class_ptr) = USvgDistanceFieldGenerator::try_static_class() {
-            (bindings
-                .core_fns
-                .find_function_by_name)(
+            (bindings.core_fns.find_function_by_name)(
                 class_ptr,
                 unreal_ffi::Utf8Str::from("GenerateTextureFromSvgFile"),
                 &raw mut __FUNCTION_PTRS
@@ -56,17 +55,13 @@ pub struct USvgDistanceFieldGenerator {
     __padding_end: [u8; 48],
 }
 impl USvgDistanceFieldGenerator {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("USvgDistanceFieldGenerator")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -79,9 +74,7 @@ impl USvgDistanceFieldGenerator {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -93,20 +86,14 @@ impl USvgDistanceFieldGenerator {
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
-            (__bindings
-                .core_fns
-                .initialize_values_in_param_buffer)(
+            (__bindings.core_fns.initialize_values_in_param_buffer)(
                 crate::bindings::svg_distance_field::__FUNCTION_PTRS
                     .u_svg_distance_field_generator_generate_texture_from_svg_file,
                 __buffer,
             )
         };
         unsafe {
-            std::ptr::copy_nonoverlapping(
-                &svg_file_path,
-                __buffer.add(0).cast::<FString>(),
-                1,
-            );
+            std::ptr::copy_nonoverlapping(&svg_file_path, __buffer.add(0).cast::<FString>(), 1);
         }
         unsafe {
             std::ptr::copy_nonoverlapping(
@@ -117,9 +104,7 @@ impl USvgDistanceFieldGenerator {
         }
         let __object_ptr = crate::bindings::svg_distance_field::USvgDistanceFieldGenerator::cdo();
         unsafe {
-            (__bindings
-                .core_fns
-                .process_event)(
+            (__bindings.core_fns.process_event)(
                 __object_ptr,
                 crate::bindings::svg_distance_field::__FUNCTION_PTRS
                     .u_svg_distance_field_generator_generate_texture_from_svg_file,
@@ -128,7 +113,10 @@ impl USvgDistanceFieldGenerator {
         };
         std::mem::forget(svg_file_path);
         unsafe {
-            __buffer.add(64).cast::<UPtr<crate::bindings::engine::UTexture2D>>().read()
+            __buffer
+                .add(64)
+                .cast::<UPtr<crate::bindings::engine::UTexture2D>>()
+                .read()
         }
     }
 }
@@ -144,35 +132,23 @@ pub struct ESvgDistanceFieldUnits(pub u8);
 impl ESvgDistanceFieldUnits {
     pub const SVG_UNITS: ESvgDistanceFieldUnits = ESvgDistanceFieldUnits(0);
     pub const OUTPUT_PIXELS: ESvgDistanceFieldUnits = ESvgDistanceFieldUnits(1);
-    pub const PROPORTIONAL_TO_MAX_DIMENSION: ESvgDistanceFieldUnits = ESvgDistanceFieldUnits(
-        2,
-    );
+    pub const PROPORTIONAL_TO_MAX_DIMENSION: ESvgDistanceFieldUnits = ESvgDistanceFieldUnits(2);
 }
 #[repr(transparent)]
 pub struct ESvgDistanceFieldScaleMode(pub u8);
 impl ESvgDistanceFieldScaleMode {
     pub const EXPLICIT_SCALE: ESvgDistanceFieldScaleMode = ESvgDistanceFieldScaleMode(0);
     pub const FIT_CANVAS: ESvgDistanceFieldScaleMode = ESvgDistanceFieldScaleMode(1);
-    pub const FIT_PADDED_CANVAS: ESvgDistanceFieldScaleMode = ESvgDistanceFieldScaleMode(
-        2,
-    );
-    pub const FIT_BOUNDING_BOX: ESvgDistanceFieldScaleMode = ESvgDistanceFieldScaleMode(
-        3,
-    );
+    pub const FIT_PADDED_CANVAS: ESvgDistanceFieldScaleMode = ESvgDistanceFieldScaleMode(2);
+    pub const FIT_BOUNDING_BOX: ESvgDistanceFieldScaleMode = ESvgDistanceFieldScaleMode(3);
 }
 #[repr(transparent)]
 pub struct ESvgDistanceFieldPlacementMode(pub u8);
 impl ESvgDistanceFieldPlacementMode {
-    pub const DO_NOT_TRANSLATE: ESvgDistanceFieldPlacementMode = ESvgDistanceFieldPlacementMode(
-        0,
-    );
-    pub const PAD_WITH_OUTER_SPREAD: ESvgDistanceFieldPlacementMode = ESvgDistanceFieldPlacementMode(
-        1,
-    );
-    pub const CENTER_CANVAS: ESvgDistanceFieldPlacementMode = ESvgDistanceFieldPlacementMode(
-        2,
-    );
-    pub const CENTER_BOUNDING_BOX: ESvgDistanceFieldPlacementMode = ESvgDistanceFieldPlacementMode(
-        3,
-    );
+    pub const DO_NOT_TRANSLATE: ESvgDistanceFieldPlacementMode = ESvgDistanceFieldPlacementMode(0);
+    pub const PAD_WITH_OUTER_SPREAD: ESvgDistanceFieldPlacementMode =
+        ESvgDistanceFieldPlacementMode(1);
+    pub const CENTER_CANVAS: ESvgDistanceFieldPlacementMode = ESvgDistanceFieldPlacementMode(2);
+    pub const CENTER_BOUNDING_BOX: ESvgDistanceFieldPlacementMode =
+        ESvgDistanceFieldPlacementMode(3);
 }

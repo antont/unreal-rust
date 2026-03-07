@@ -1,60 +1,73 @@
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::{Data, DeriveInput, Fields, Meta, NestedMeta};
+use syn::{Data, DeriveInput, Fields, Lit, Meta, NestedMeta};
 
-/// Maps a specifier identifier to its flag constant path token stream.
-/// Returns the category ("edit", "blueprint", or "modifier") alongside the path.
-fn specifier_to_flag(specifier: &str) -> Option<(&'static str, TokenStream)> {
-    let (category, path) = match specifier {
-        // Edit scope (mutually exclusive)
-        "edit_anywhere" => ("edit", quote! { ::unreal_api::property::flags::EDIT_ANYWHERE }),
+/// Maps a specifier identifier to its constant token stream.
+fn specifier_to_const(specifier: &str) -> Option<TokenStream> {
+    let path = match specifier {
+        "edit_anywhere" => quote! { ::unreal_api::property::ERustPropertySpecifier::EDIT_ANYWHERE },
         "edit_defaults_only" => {
-            ("edit", quote! { ::unreal_api::property::flags::EDIT_DEFAULTS_ONLY })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::EDIT_DEFAULTS_ONLY }
         }
         "edit_instance_only" => {
-            ("edit", quote! { ::unreal_api::property::flags::EDIT_INSTANCE_ONLY })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::EDIT_INSTANCE_ONLY }
         }
         "visible_anywhere" => {
-            ("edit", quote! { ::unreal_api::property::flags::VISIBLE_ANYWHERE })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::VISIBLE_ANYWHERE }
         }
         "visible_defaults_only" => {
-            ("edit", quote! { ::unreal_api::property::flags::VISIBLE_DEFAULTS_ONLY })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::VISIBLE_DEFAULTS_ONLY }
         }
         "visible_instance_only" => {
-            ("edit", quote! { ::unreal_api::property::flags::VISIBLE_INSTANCE_ONLY })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::VISIBLE_INSTANCE_ONLY }
         }
-        // Blueprint access (mutually exclusive)
-        "blueprint_read_only" => (
-            "blueprint",
-            quote! { ::unreal_api::property::flags::BLUEPRINT_READ_ONLY_ACCESS },
-        ),
+        "blueprint_read_only" => {
+            quote! { ::unreal_api::property::ERustPropertySpecifier::BLUEPRINT_READ_ONLY }
+        }
         "blueprint_read_write" => {
-            ("blueprint", quote! { ::unreal_api::property::flags::BLUEPRINT_READ_WRITE })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::BLUEPRINT_READ_WRITE }
         }
-        // Modifiers (additive)
-        "replicated" => ("modifier", quote! { ::unreal_api::property::flags::REPLICATED }),
-        "transient" => ("modifier", quote! { ::unreal_api::property::flags::TRANSIENT }),
-        "save_game" => ("modifier", quote! { ::unreal_api::property::flags::SAVE_GAME }),
-        "config" => ("modifier", quote! { ::unreal_api::property::flags::CONFIG }),
+        "replicated" => quote! { ::unreal_api::property::ERustPropertySpecifier::REPLICATED },
+        "transient" => quote! { ::unreal_api::property::ERustPropertySpecifier::TRANSIENT },
+        "save_game" => quote! { ::unreal_api::property::ERustPropertySpecifier::SAVE_GAME },
+        "config" => quote! { ::unreal_api::property::ERustPropertySpecifier::CONFIG },
         "advanced_display" => {
-            ("modifier", quote! { ::unreal_api::property::flags::ADVANCED_DISPLAY })
+            quote! { ::unreal_api::property::ERustPropertySpecifier::ADVANCED_DISPLAY }
         }
-        "interp" => ("modifier", quote! { ::unreal_api::property::flags::INTERP }),
+        "interp" => quote! { ::unreal_api::property::ERustPropertySpecifier::INTERP },
         _ => return None,
     };
-    Some((category, path))
+    Some(path)
 }
 
-/// Parses `#[uproperty(...)]` arguments into a flags expression token stream.
-fn parse_uproperty_flags(attr: &syn::Attribute) -> syn::Result<TokenStream> {
+/// Maps known shorthand metadata keys to Unreal metadata key names.
+fn map_metadata_key(key: &str) -> String {
+    match key {
+        "unit" => "Units".to_string(),
+        "clamp_min" => "ClampMin".to_string(),
+        "clamp_max" => "ClampMax".to_string(),
+        "display_name" => "DisplayName".to_string(),
+        "tooltip" => "Tooltip".to_string(),
+        _ => key.to_string(),
+    }
+}
+
+struct UPropertyArgs {
+    specifier_consts: Vec<TokenStream>,
+    metadata: Vec<(String, String)>,
+}
+
+/// Parses `#[uproperty(...)]` arguments into specifier constants and metadata key-value pairs.
+fn parse_uproperty_args(attr: &syn::Attribute) -> syn::Result<UPropertyArgs> {
     let meta = attr.parse_meta()?;
 
     let specifiers = match &meta {
         Meta::Path(_) => {
-            // #[uproperty] with no arguments → defaults
-            return Ok(
-                quote! { (::unreal_api::property::flags::EDIT_ANYWHERE | ::unreal_api::property::flags::BLUEPRINT_READ_WRITE) as i64 },
-            );
+            // #[uproperty] with no arguments -> C++ resolve defaults.
+            return Ok(UPropertyArgs {
+                specifier_consts: Vec::new(),
+                metadata: Vec::new(),
+            });
         }
         Meta::List(list) => &list.nested,
         _ => {
@@ -65,48 +78,58 @@ fn parse_uproperty_flags(attr: &syn::Attribute) -> syn::Result<TokenStream> {
         }
     };
 
-    let mut flag_tokens: Vec<TokenStream> = Vec::new();
-    let mut has_edit = false;
-    let mut has_blueprint = false;
+    let mut consts: Vec<TokenStream> = Vec::new();
+    let mut metadata: Vec<(String, String)> = Vec::new();
 
     for nested in specifiers {
         match nested {
             NestedMeta::Meta(Meta::Path(path)) => {
-                let ident = path.get_ident().ok_or_else(|| {
-                    syn::Error::new_spanned(path, "expected a simple identifier")
-                })?;
+                let ident = path
+                    .get_ident()
+                    .ok_or_else(|| syn::Error::new_spanned(path, "expected a simple identifier"))?;
                 let ident_str = ident.to_string();
-                let (category, flag_path) = specifier_to_flag(&ident_str).ok_or_else(|| {
+                let constant = specifier_to_const(&ident_str).ok_or_else(|| {
                     syn::Error::new_spanned(
                         ident,
                         format!("unknown uproperty specifier `{}`", ident_str),
                     )
                 })?;
-                match category {
-                    "edit" => has_edit = true,
-                    "blueprint" => has_blueprint = true,
-                    _ => {}
-                }
-                flag_tokens.push(flag_path);
+                consts.push(constant);
+            }
+            NestedMeta::Meta(Meta::NameValue(nv)) => {
+                let key = nv.path.get_ident().ok_or_else(|| {
+                    syn::Error::new_spanned(
+                        &nv.path,
+                        "expected a simple identifier for metadata key",
+                    )
+                })?;
+                let value = match &nv.lit {
+                    Lit::Str(s) => s.value(),
+                    Lit::Int(i) => i.to_string(),
+                    Lit::Float(f) => f.to_string(),
+                    _ => {
+                        return Err(syn::Error::new_spanned(
+                            &nv.lit,
+                            "metadata value must be a string or number literal",
+                        ));
+                    }
+                };
+                let mapped_key = map_metadata_key(&key.to_string());
+                metadata.push((mapped_key, value));
             }
             _ => {
                 return Err(syn::Error::new_spanned(
                     nested,
-                    "expected a specifier identifier (e.g. `edit_anywhere`, `replicated`)",
+                    "expected a specifier identifier (e.g. `edit_anywhere`) or metadata (e.g. `unit = \"CM\"`)",
                 ));
             }
         }
     }
 
-    // Apply defaults for missing categories
-    if !has_edit {
-        flag_tokens.push(quote! { ::unreal_api::property::flags::EDIT_ANYWHERE });
-    }
-    if !has_blueprint {
-        flag_tokens.push(quote! { ::unreal_api::property::flags::BLUEPRINT_READ_WRITE });
-    }
-
-    Ok(quote! { (#(#flag_tokens)|*) as i64 })
+    Ok(UPropertyArgs {
+        specifier_consts: consts,
+        metadata,
+    })
 }
 
 pub fn uclass_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
@@ -120,14 +143,14 @@ pub fn uclass_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
                 return Err(syn::Error::new_spanned(
                     struct_name,
                     "UClass can only be derived for structs with named fields",
-                ))
+                ));
             }
         },
         _ => {
             return Err(syn::Error::new_spanned(
                 struct_name,
                 "UClass can only be derived for structs",
-            ))
+            ));
         }
     };
 
@@ -142,18 +165,38 @@ pub fn uclass_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
             let field_name_str = field_name.to_string();
             let field_ty = &f.ty;
 
-            let flags_expr = parse_uproperty_flags(uproperty_attr)?;
+            let args = parse_uproperty_args(uproperty_attr)?;
+            let specifier_consts = &args.specifier_consts;
+
+            let meta_calls: Vec<TokenStream> = args
+                .metadata
+                .iter()
+                .map(|(key, value)| {
+                    quote! {
+                        ::unreal_api::bindings::rust_plugin::FRustClassDef::set_property_meta(
+                            &mut def,
+                            ::unreal_api::core_data::FString::from(#field_name_str),
+                            ::unreal_api::core_data::FString::from(#key),
+                            ::unreal_api::core_data::FString::from(#value),
+                        );
+                    }
+                })
+                .collect();
 
             Ok(quote! {
                 {
                     let ty = <#field_ty as ::unreal_api::property::UnrealProperty>::create_property_type();
+                    let mut specifiers: ::unreal_api::core_data::TArray<::unreal_api::property::ERustPropertySpecifier> =
+                        ::unreal_api::core_data::TArray::new();
+                    #(specifiers.add(#specifier_consts);)*
                     ::unreal_api::bindings::rust_plugin::URustExtension_RustClassDef::add_property(
                         &mut def,
                         ::unreal_api::core_data::FString::from(#field_name_str),
                         std::mem::offset_of!(#struct_name, #field_name) as _,
                         ty,
-                        #flags_expr,
+                        &specifiers,
                     );
+                    #(#meta_calls)*
                 }
             })
         })

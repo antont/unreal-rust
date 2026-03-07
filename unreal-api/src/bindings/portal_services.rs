@@ -13,8 +13,6 @@ pub use crate::core_data::*;
 pub struct EEntitlementCacheLevelRetrieved(pub u8);
 impl EEntitlementCacheLevelRetrieved {
     pub const NONE: EEntitlementCacheLevelRetrieved = EEntitlementCacheLevelRetrieved(0);
-    pub const MEMORY: EEntitlementCacheLevelRetrieved = EEntitlementCacheLevelRetrieved(
-        1,
-    );
+    pub const MEMORY: EEntitlementCacheLevelRetrieved = EEntitlementCacheLevelRetrieved(1);
     pub const DISK: EEntitlementCacheLevelRetrieved = EEntitlementCacheLevelRetrieved(2);
 }

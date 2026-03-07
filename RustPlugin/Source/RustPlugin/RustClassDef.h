@@ -13,6 +13,27 @@ class UEnum;
 class URustType;
 class UScriptStruct;
 
+UENUM(BlueprintType)
+enum class ERustPropertySpecifier : uint8
+{
+	EditAnywhere,
+	EditDefaultsOnly,
+	EditInstanceOnly,
+	VisibleAnywhere,
+	VisibleDefaultsOnly,
+	VisibleInstanceOnly,
+	BlueprintReadOnly,
+	BlueprintReadWrite,
+	Replicated,
+	Transient,
+	SaveGame,
+	Config,
+	AdvancedDisplay,
+	Interp,
+};
+
+EPropertyFlags ResolveSpecifiers(const TArray<ERustPropertySpecifier>& Specifiers);
+
 USTRUCT()
 struct FRustPropertyDefinition
 {
@@ -20,9 +41,10 @@ struct FRustPropertyDefinition
 
 	int Offset = 0;
 	FString Name;
-	int64 Flags = 0;
+	TArray<ERustPropertySpecifier> Specifiers;
 
 	TStrongObjectPtr<URustType> Type;
+	TMap<FString, FString> Metadata;
 };
 
 UCLASS(Abstract, BlueprintType)
@@ -245,7 +267,10 @@ class URustExtension_RustClassDef : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintCallable)
-	static void AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type, int64 Flags);
+	static void AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type, const TArray<ERustPropertySpecifier>& Specifiers);
+
+	UFUNCTION(BlueprintCallable)
+	static void SetPropertyMeta(FRustClassDef& Def, FString PropertyName, FString Key, FString Value);
 
 	UFUNCTION(BlueprintCallable)
 	static URustType* CreateTypeBool();

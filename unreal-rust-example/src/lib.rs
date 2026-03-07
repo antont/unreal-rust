@@ -3,15 +3,20 @@ use std::{collections::btree_map::Values, os::raw::c_void};
 use bevy_app::App;
 use bevy_ecs::prelude::*;
 use unreal_api::{
+    UClass,
     bindings::{
-        core_u_object::{FLinearColor, UObject}, engine::{
+        core_u_object::{FLinearColor, UObject},
+        engine::{
             ESplineCoordinateSpace, UDataAsset, UKismetSystemLibrary, USaveGame, USplineComponent,
-        }, enhanced_input::UInputAction, rust_gameplay::URustExtension_Core, rust_plugin::{FRustClassDef, URustExtension_RustClassDef}
+        },
+        enhanced_input::UInputAction,
+        rust_gameplay::URustExtension_Core,
+        rust_plugin::{FRustClassDef, URustExtension_RustClassDef},
     },
     core_data::{FString, TArray, TSubclassOf, UPtr},
     ffi::{self, FRustString, Utf8Str},
+    inherit,
     module::bindings,
-    inherit, UClass,
 };
 use unreal_module::UserModule;
 

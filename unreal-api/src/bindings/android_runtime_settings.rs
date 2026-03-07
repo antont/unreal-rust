@@ -23,17 +23,13 @@ pub struct UAndroidRuntimeSettings {
     __padding_end: [u8; 944],
 }
 impl UAndroidRuntimeSettings {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UAndroidRuntimeSettings")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -46,9 +42,7 @@ impl UAndroidRuntimeSettings {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -67,9 +61,7 @@ impl EAndroidScreenOrientation {
     pub const REVERSE_PORTRAIT: EAndroidScreenOrientation = EAndroidScreenOrientation(1);
     pub const SENSOR_PORTRAIT: EAndroidScreenOrientation = EAndroidScreenOrientation(2);
     pub const LANDSCAPE: EAndroidScreenOrientation = EAndroidScreenOrientation(3);
-    pub const REVERSE_LANDSCAPE: EAndroidScreenOrientation = EAndroidScreenOrientation(
-        4,
-    );
+    pub const REVERSE_LANDSCAPE: EAndroidScreenOrientation = EAndroidScreenOrientation(4);
     pub const SENSOR_LANDSCAPE: EAndroidScreenOrientation = EAndroidScreenOrientation(5);
     pub const SENSOR: EAndroidScreenOrientation = EAndroidScreenOrientation(6);
     pub const FULL_SENSOR: EAndroidScreenOrientation = EAndroidScreenOrientation(7);
@@ -77,18 +69,12 @@ impl EAndroidScreenOrientation {
 #[repr(transparent)]
 pub struct EAndroidRoundedEdgeSafeZoneDirection(pub u8);
 impl EAndroidRoundedEdgeSafeZoneDirection {
-    pub const NONE: EAndroidRoundedEdgeSafeZoneDirection = EAndroidRoundedEdgeSafeZoneDirection(
-        0,
-    );
-    pub const HORIZONTAL: EAndroidRoundedEdgeSafeZoneDirection = EAndroidRoundedEdgeSafeZoneDirection(
-        1,
-    );
-    pub const VERTICAL: EAndroidRoundedEdgeSafeZoneDirection = EAndroidRoundedEdgeSafeZoneDirection(
-        2,
-    );
-    pub const BOTH: EAndroidRoundedEdgeSafeZoneDirection = EAndroidRoundedEdgeSafeZoneDirection(
-        3,
-    );
+    pub const NONE: EAndroidRoundedEdgeSafeZoneDirection = EAndroidRoundedEdgeSafeZoneDirection(0);
+    pub const HORIZONTAL: EAndroidRoundedEdgeSafeZoneDirection =
+        EAndroidRoundedEdgeSafeZoneDirection(1);
+    pub const VERTICAL: EAndroidRoundedEdgeSafeZoneDirection =
+        EAndroidRoundedEdgeSafeZoneDirection(2);
+    pub const BOTH: EAndroidRoundedEdgeSafeZoneDirection = EAndroidRoundedEdgeSafeZoneDirection(3);
 }
 #[repr(transparent)]
 pub struct EAndroidDepthBufferPreference(pub u8);
@@ -107,28 +93,22 @@ impl EOculusMobileDevice {
 #[repr(transparent)]
 pub struct ETagForChildDirectedTreatment(pub u8);
 impl ETagForChildDirectedTreatment {
-    pub const TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED: ETagForChildDirectedTreatment = ETagForChildDirectedTreatment(
-        0,
-    );
-    pub const TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE: ETagForChildDirectedTreatment = ETagForChildDirectedTreatment(
-        1,
-    );
-    pub const TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE: ETagForChildDirectedTreatment = ETagForChildDirectedTreatment(
-        2,
-    );
+    pub const TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED: ETagForChildDirectedTreatment =
+        ETagForChildDirectedTreatment(0);
+    pub const TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE: ETagForChildDirectedTreatment =
+        ETagForChildDirectedTreatment(1);
+    pub const TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE: ETagForChildDirectedTreatment =
+        ETagForChildDirectedTreatment(2);
 }
 #[repr(transparent)]
 pub struct ETagForUnderAgeOfConsent(pub u8);
 impl ETagForUnderAgeOfConsent {
-    pub const TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED: ETagForUnderAgeOfConsent = ETagForUnderAgeOfConsent(
-        0,
-    );
-    pub const TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE: ETagForUnderAgeOfConsent = ETagForUnderAgeOfConsent(
-        1,
-    );
-    pub const TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE: ETagForUnderAgeOfConsent = ETagForUnderAgeOfConsent(
-        2,
-    );
+    pub const TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED: ETagForUnderAgeOfConsent =
+        ETagForUnderAgeOfConsent(0);
+    pub const TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE: ETagForUnderAgeOfConsent =
+        ETagForUnderAgeOfConsent(1);
+    pub const TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE: ETagForUnderAgeOfConsent =
+        ETagForUnderAgeOfConsent(2);
 }
 #[repr(transparent)]
 pub struct EMaxAdContentRating(pub u8);

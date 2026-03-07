@@ -23,17 +23,13 @@ pub struct UMeshApproximationSettingsObject {
     __padding_end: [u8; 352],
 }
 impl UMeshApproximationSettingsObject {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UMeshApproximationSettingsObject")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -46,9 +42,7 @@ impl UMeshApproximationSettingsObject {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -58,17 +52,13 @@ pub struct UMeshInstancingSettingsObject {
     __padding_end: [u8; 72],
 }
 impl UMeshInstancingSettingsObject {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UMeshInstancingSettingsObject")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -81,9 +71,7 @@ impl UMeshInstancingSettingsObject {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -93,17 +81,13 @@ pub struct UMeshMergingSettingsObject {
     __padding_end: [u8; 376],
 }
 impl UMeshMergingSettingsObject {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UMeshMergingSettingsObject")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -116,9 +100,7 @@ impl UMeshMergingSettingsObject {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }
@@ -128,17 +110,13 @@ pub struct UMeshProxySettingsObject {
     __padding_end: [u8; 368],
 }
 impl UMeshProxySettingsObject {
-    pub fn static_class() -> crate::core_data::UPtr<
-        crate::bindings::core_u_object::UClass,
-    > {
+    pub fn static_class() -> crate::core_data::UPtr<crate::bindings::core_u_object::UClass> {
         let ptr = *crate::bindings::globals::CLASS_PTRS
             .wait()
             .name_to_ptr
             .get("UMeshProxySettingsObject")
             .unwrap();
-        crate::core_data::UPtr {
-            ptr: ptr.cast(),
-        }
+        crate::core_data::UPtr { ptr: ptr.cast() }
     }
     pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
         crate::bindings::globals::CLASS_PTRS
@@ -151,9 +129,7 @@ impl UMeshProxySettingsObject {
         let class = Self::static_class();
         unsafe {
             let mut cdo = std::ptr::null_mut();
-            (crate::module::bindings()
-                .core_fns
-                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            (crate::module::bindings().core_fns.get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
             cdo
         }
     }

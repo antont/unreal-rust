@@ -105,8 +105,7 @@ pub type InitializeUnrealApiFn = extern "C" fn();
 pub type RegisterUnrealBindings =
     extern "C" fn(bindings: UnrealBindings, rust_bindings: *mut RustBindings) -> u32;
 
-pub type EntryUnrealBindingsFn =
-    unsafe extern "C" fn(bindings: UnrealBindings) -> u32;
+pub type EntryUnrealBindingsFn = unsafe extern "C" fn(bindings: UnrealBindings) -> u32;
 
 pub type BeginPlayFn = unsafe extern "C" fn() -> ResultCode;
 pub type TickFn = unsafe extern "C" fn(dt: f32) -> ResultCode;

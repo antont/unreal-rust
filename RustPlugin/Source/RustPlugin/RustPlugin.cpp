@@ -413,7 +413,11 @@ void FRustLoader::RegisterTypes()
 				continue;
 			}
 
-			Property->SetPropertyFlags(static_cast<EPropertyFlags>(PropertyDefinition.Flags));
+			Property->SetPropertyFlags(ResolveSpecifiers(PropertyDefinition.Specifiers));
+			for (auto& Meta : PropertyDefinition.Metadata)
+			{
+				Property->SetMetaData(*Meta.Key, *Meta.Value);
+			}
 
 			// HACK: We can't set the offset for properties directly for some reason. Instead we trick unreal
 			// by setting the property sizes and then link. Stolen from the angelscript bindings
