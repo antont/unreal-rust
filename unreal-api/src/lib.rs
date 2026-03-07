@@ -6,7 +6,9 @@ pub mod core_data;
 pub use unreal_ffi as ffi;
 pub mod log;
 pub mod module;
-pub use unreal_api_derive::{Component, Event};
+pub use unreal_api_derive::{inherit, Component, Event, UClass};
+pub mod property;
+pub mod registration;
 
 // // TODO: Here for the unreal_api_derive macro. Lets restructure this
 // pub use bevy_ecs as ecs;
@@ -22,3 +24,4 @@ pub use uuid;
 
 pub use serde::{Deserialize, Serialize};
 pub use serde_json;
+pub use inventory;

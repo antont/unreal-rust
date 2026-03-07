@@ -1153,8 +1153,9 @@ impl FRustClassDef {
         name: FString,
         offset: i32,
         ty: UPtr<URustType>,
+        flags: i64,
     ) {
-        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
@@ -1186,6 +1187,9 @@ impl FRustClassDef {
                 1,
             );
         }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&flags, __buffer.add(72).cast::<i64>(), 1);
+        }
         let __object_ptr = crate::bindings::rust_plugin::URustExtension_RustClassDef::cdo();
         unsafe {
             (__bindings
@@ -1203,6 +1207,7 @@ impl FRustClassDef {
         std::mem::forget(name);
         std::mem::forget(offset);
         std::mem::forget(ty);
+        std::mem::forget(flags);
     }
 }
 #[repr(C, align(8))]
@@ -3018,8 +3023,9 @@ impl URustExtension_RustClassDef {
         name: FString,
         offset: i32,
         ty: UPtr<URustType>,
+        flags: i64,
     ) {
-        let mut __stack = crate::core_data::StackAlloc::<72>::new();
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
@@ -3051,6 +3057,9 @@ impl URustExtension_RustClassDef {
                 1,
             );
         }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&flags, __buffer.add(72).cast::<i64>(), 1);
+        }
         let __object_ptr = crate::bindings::rust_plugin::URustExtension_RustClassDef::cdo();
         unsafe {
             (__bindings
@@ -3068,6 +3077,7 @@ impl URustExtension_RustClassDef {
         std::mem::forget(name);
         std::mem::forget(offset);
         std::mem::forget(ty);
+        std::mem::forget(flags);
     }
 }
 #[repr(C, align(8))]

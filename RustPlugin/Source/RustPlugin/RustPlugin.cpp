@@ -413,7 +413,7 @@ void FRustLoader::RegisterTypes()
 				continue;
 			}
 
-			Property->SetPropertyFlags(CPF_Edit | CPF_BlueprintVisible);
+			Property->SetPropertyFlags(static_cast<EPropertyFlags>(PropertyDefinition.Flags));
 
 			// HACK: We can't set the offset for properties directly for some reason. Instead we trick unreal
 			// by setting the property sizes and then link. Stolen from the angelscript bindings

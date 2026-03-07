@@ -20,6 +20,7 @@ struct FRustPropertyDefinition
 
 	int Offset = 0;
 	FString Name;
+	int64 Flags = 0;
 
 	TStrongObjectPtr<URustType> Type;
 };
@@ -244,7 +245,7 @@ class URustExtension_RustClassDef : public UBlueprintFunctionLibrary
 
 public:
 	UFUNCTION(BlueprintCallable)
-	static void AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type);
+	static void AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type, int64 Flags);
 
 	UFUNCTION(BlueprintCallable)
 	static URustType* CreateTypeBool();

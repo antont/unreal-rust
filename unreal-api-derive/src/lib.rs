@@ -4,6 +4,7 @@ mod component;
 mod event;
 mod reflect;
 mod type_uuid;
+mod uclass;
 use quote::quote;
 
 #[proc_macro_derive(Component, attributes(uuid, reflect))]
@@ -34,4 +35,101 @@ pub fn event_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
         #event
     }
     .into()
+}
+
+#[proc_macro_derive(UClass, attributes(uproperty))]
+pub fn uclass_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let ast: DeriveInput = syn::parse(input).unwrap();
+    match uclass::uclass_derive(&ast) {
+        Ok(tokens) => tokens.into(),
+        Err(err) => err.to_compile_error().into(),
+    }
+}
+
+/// Attribute macro that prepares a struct for UClass derivation.
+///
+/// Adds `#[repr(C)]` and validates that the first field matches the
+/// specified parent type.
+///
+/// ```ignore
+/// #[derive(UClass)]
+/// #[inherit(UDataAsset)]
+/// struct TestDataAsset {
+///     base: UDataAsset,
+///     #[uproperty]
+///     foo: f32,
+/// }
+/// ```
+#[proc_macro_attribute]
+pub fn inherit(
+    attr: proc_macro::TokenStream,
+    item: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
+    match inherit_impl(attr.into(), item.into()) {
+        Ok(tokens) => tokens.into(),
+        Err(err) => err.to_compile_error().into(),
+    }
+}
+
+fn inherit_impl(
+    attr: proc_macro2::TokenStream,
+    item: proc_macro2::TokenStream,
+) -> syn::Result<proc_macro2::TokenStream> {
+    let parent_ty: syn::Type = syn::parse2(attr)?;
+    let mut input: syn::ItemStruct = syn::parse2(item)?;
+
+    let fields = match &input.fields {
+        syn::Fields::Named(fields) => &fields.named,
+        _ => {
+            return Err(syn::Error::new_spanned(
+                &input.ident,
+                "#[inherit] requires a struct with named fields",
+            ))
+        }
+    };
+
+    let first_field = fields.first().ok_or_else(|| {
+        syn::Error::new_spanned(
+            &input.ident,
+            "#[inherit] struct must have at least one field (the parent type)",
+        )
+    })?;
+
+    let first_field_ty = &first_field.ty;
+    let parent_tokens = quote::quote!(#parent_ty);
+    let field_tokens = quote::quote!(#first_field_ty);
+    if parent_tokens.to_string() != field_tokens.to_string() {
+        let parent_str = parent_tokens.to_string();
+        return Err(syn::Error::new_spanned(
+            first_field_ty,
+            format!(
+                "#[inherit({0})]: first field must be of type `{0}`, but found `{1}`",
+                parent_str,
+                field_tokens.to_string(),
+            ),
+        ));
+    }
+
+    // Add #[repr(C)] if not already present
+    let has_repr_c = input.attrs.iter().any(|attr| {
+        if !attr.path.is_ident("repr") {
+            return false;
+        }
+        if let Ok(meta) = attr.parse_meta() {
+            match meta {
+                syn::Meta::List(list) => list.nested.iter().any(|nested| {
+                    matches!(nested, syn::NestedMeta::Meta(syn::Meta::Path(p)) if p.is_ident("C"))
+                }),
+                _ => false,
+            }
+        } else {
+            false
+        }
+    });
+
+    if !has_repr_c {
+        input.attrs.push(syn::parse_quote!(#[repr(C)]));
+    }
+
+    Ok(quote::quote!(#input))
 }

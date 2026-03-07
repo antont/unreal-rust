@@ -22,13 +22,14 @@ TRustType* CreateRustTypeWithMeta(TMetaType* MetaValue, TObjectPtr<TMetaType> TR
 }
 }
 
-void URustExtension_RustClassDef::AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type)
+void URustExtension_RustClassDef::AddProperty(FRustClassDef& Def, FString Name, int Offset, URustType* Type, int64 Flags)
 {
 	check(Type);
 	FRustPropertyDefinition Property;
 	Property.Name = MoveTemp(Name);
 	Property.Offset = Offset;
 	Property.Type = TStrongObjectPtr(Type);
+	Property.Flags = Flags;
 	Def.PropertyDefinitions.Add(MoveTemp(Property));
 }
 

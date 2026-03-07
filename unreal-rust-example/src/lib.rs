@@ -4,13 +4,14 @@ use bevy_app::App;
 use bevy_ecs::prelude::*;
 use unreal_api::{
     bindings::{
-        core_u_object::{FLinearColor, UObject},
-        engine::{ESplineCoordinateSpace, UKismetSystemLibrary, USaveGame, USplineComponent},
-        rust_gameplay::URustExtension_Core,
+        core_u_object::{FLinearColor, UObject}, engine::{
+            ESplineCoordinateSpace, UDataAsset, UKismetSystemLibrary, USaveGame, USplineComponent,
+        }, enhanced_input::UInputAction, rust_gameplay::URustExtension_Core, rust_plugin::{FRustClassDef, URustExtension_RustClassDef}
     },
     core_data::{FString, TArray, TSubclassOf, UPtr},
     ffi::{self, FRustString, Utf8Str},
     module::bindings,
+    inherit, UClass,
 };
 use unreal_module::UserModule;
 
@@ -198,9 +199,27 @@ impl IFoo for Foo {
     }
 }
 
+#[derive(UClass)]
+#[inherit(UDataAsset)]
+pub struct TestDataAsset {
+    pub base: UDataAsset,
+    #[uproperty(edit_defaults_only, blueprint_read_only)]
+    pub foo: f64,
+    #[uproperty]
+    pub bar: f64,
+    #[uproperty(visible_anywhere)]
+    pub baz: f64,
+    #[uproperty]
+    pub input: UPtr<UInputAction>,
+    #[uproperty(save_game)]
+    pub arr: TArray<f32>,
+}
+
 impl UserModule for UnrealEcs {
     fn initialize(&mut self) {
         self.app.world_mut().register_resource::<Frame>();
+        unreal_api::registration::register_all_uclasses();
+        log::info!("Init");
     }
 
     fn tick(&mut self, _dt: f32) {
@@ -219,10 +238,10 @@ impl UserModule for UnrealEcs {
         //     log::warn!("{}", val);
         // }
 
-        let str = FString::from("Bar");
-        URustExtension_Core::test_f_string(str);
-        let str = FString::from("Foo");
-        URustExtension_Core::test_f_string_copy("Foo".into());
+        // let str = FString::from("Bar");
+        // URustExtension_Core::test_f_string(str);
+        // let str = FString::from("Foo");
+        // URustExtension_Core::test_f_string_copy("Foo".into());
 
         // UKismetSystemLibrary::print_string(
         //     UPtr::null(),
