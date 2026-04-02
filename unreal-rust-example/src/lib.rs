@@ -248,20 +248,21 @@ impl UserModule for UnrealEcs {
         // let str = FString::from("Foo");
         // URustExtension_Core::test_f_string_copy("Foo".into());
 
-        // UKismetSystemLibrary::print_string(
-        //     UPtr::null(),
-        //     str,
-        //     true,
-        //     true,
-        //     FLinearColor {
-        //         r: 1.0,
-        //         g: 1.0,
-        //         b: 1.0,
-        //         a: 1.0,
-        //     },
-        //     0.0,
-        //     URustExtension_Core::f_name_none(),
-        // );
+        let str = FString::from("Hello from Rust!");
+        UKismetSystemLibrary::print_string(
+            UPtr::null(),
+            str,
+            true,
+            true,
+            FLinearColor {
+                r: 0.0,
+                g: 1.0,
+                b: 0.3,
+                a: 1.0,
+            },
+            0.0,
+            URustExtension_Core::f_name_none(),
+        );
 
         // let s = String::from("FooBar");
         // let v: Vec<Box<dyn IFoo>> = vec![Box::new(Foo { i: 42 })];
@@ -288,7 +289,9 @@ impl UserModule for UnrealEcs {
         //     })
     }
 
-    fn begin_play(&mut self) {}
+    fn begin_play(&mut self) {
+        log::info!("Rust begin_play called!");
+    }
 }
 //
 // impl InitUserModule for MyModule {
