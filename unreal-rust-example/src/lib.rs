@@ -5,9 +5,10 @@ use bevy_ecs::prelude::*;
 use unreal_api::{
     UClass,
     bindings::{
-        core_u_object::{FLinearColor, UObject},
+        core_u_object::{FLinearColor, FVector, UObject},
         engine::{
-            ESplineCoordinateSpace, UDataAsset, UKismetSystemLibrary, USaveGame, USplineComponent,
+            AActor, ESplineCoordinateSpace, FHitResult, UDataAsset, UGameplayStatics,
+            UKismetSystemLibrary, USaveGame, USplineComponent,
         },
         enhanced_input::UInputAction,
         rust_gameplay::URustExtension_Core,
@@ -169,12 +170,13 @@ use unreal_module::UserModule;
 
 pub struct UnrealEcs {
     app: App,
+    time: f32,
 }
 
 impl UnrealEcs {
     pub fn new() -> Self {
         let app = App::new();
-        Self { app }
+        Self { app, time: 0.0 }
     }
 }
 
@@ -227,7 +229,8 @@ impl UserModule for UnrealEcs {
         log::info!("Init");
     }
 
-    fn tick(&mut self, _dt: f32) {
+    fn tick(&mut self, dt: f32) {
+        self.time += dt;
         let mut arr: TArray<i32> = TArray::new();
         // for i in 0..10 {
         //     arr.add(i * 2);
@@ -263,6 +266,24 @@ impl UserModule for UnrealEcs {
             0.0,
             URustExtension_Core::f_name_none(),
         );
+
+        // Get all actors and bob the first one up and down
+        let actor_class: TSubclassOf<AActor> = AActor::static_class().into();
+        let mut actors: TArray<UPtr<AActor>> = TArray::new();
+        UGameplayStatics::get_all_actors_of_class(UPtr::null(), actor_class, &mut actors);
+        if let Some(actor_ptr) = actors.iter().next() {
+            let actor = unsafe { &mut *(actor_ptr.ptr) };
+            let loc = actor.get_actor_location();
+            // Apply a delta based on the derivative of sin so it stays centered
+            let bob_delta = (self.time * 2.0).cos() as f64 * 2.0 * dt as f64 * 50.0;
+            let mut hit = unsafe { std::mem::zeroed::<FHitResult>() };
+            actor.set_actor_location(
+                FVector { x: loc.x, y: loc.y, z: loc.z + bob_delta },
+                false,
+                &mut hit,
+                true,
+            );
+        }
 
         // let s = String::from("FooBar");
         // let v: Vec<Box<dyn IFoo>> = vec![Box::new(Foo { i: 42 })];
