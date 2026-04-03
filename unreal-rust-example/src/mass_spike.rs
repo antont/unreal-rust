@@ -12,8 +12,12 @@ use std::ffi::c_void;
 /// # Safety
 /// `data` must point to `count` contiguous BobFragment instances, or be null.
 #[unsafe(no_mangle)]
-pub unsafe extern "C" fn rust_mass_bob_process(_data: *mut c_void, _count: i32, _dt: f32) {
-    // TODO: implement
+pub unsafe extern "C" fn rust_mass_bob_process(data: *mut c_void, count: i32, dt: f32) {
+    if data.is_null() || count <= 0 {
+        return;
+    }
+    let slice = unsafe { std::slice::from_raw_parts_mut(data as *mut BobFragment, count as usize) };
+    bob_movement_system(slice, dt);
 }
 
 #[repr(C)]

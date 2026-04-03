@@ -84,10 +84,18 @@ fn set_custom_panic_hook() {
 }
 
 fn create_rust_bindings() -> RustBindings {
+    unsafe extern "C" fn mass_bob_process_noop(
+        _: *mut std::ffi::c_void,
+        _: i32,
+        _: f32,
+    ) {
+    }
+
     RustBindings {
         tick,
         begin_play,
         allocate,
+        mass_bob_process: mass_bob_process_noop,
     }
 }
 fn debug_break() {
@@ -187,6 +195,17 @@ macro_rules! implement_unreal_module {
             rust_bindings: *mut $crate::ffi::RustBindings,
         ) -> u32 {
             $crate::initialize_module(bindings, rust_bindings, Box::new($module));
+            1
+        }
+    };
+    ($module: expr, mass_bob_process: $mass_bob:expr) => {
+        #[unsafe(no_mangle)]
+        pub unsafe extern "C" fn register_unreal_bindings(
+            bindings: $crate::ffi::UnrealBindings,
+            rust_bindings: *mut $crate::ffi::RustBindings,
+        ) -> u32 {
+            $crate::initialize_module(bindings, rust_bindings, Box::new($module));
+            unsafe { (*rust_bindings).mass_bob_process = $mass_bob; }
             1
         }
     };

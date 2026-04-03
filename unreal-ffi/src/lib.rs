@@ -109,6 +109,7 @@ pub type EntryUnrealBindingsFn = unsafe extern "C" fn(bindings: UnrealBindings) 
 
 pub type BeginPlayFn = unsafe extern "C" fn() -> ResultCode;
 pub type TickFn = unsafe extern "C" fn(dt: f32) -> ResultCode;
+pub type MassBobProcessFn = unsafe extern "C" fn(data: *mut std::ffi::c_void, count: i32, dt: f32);
 pub type TryLoadFn = unsafe extern "C" fn(*mut RustBindings) -> u32;
 pub type IsOutOfDateFn = unsafe extern "C" fn() -> u32;
 
@@ -126,6 +127,7 @@ pub struct RustBindings {
     pub tick: TickFn,
     pub begin_play: BeginPlayFn,
     pub allocate: AllocateFn,
+    pub mass_bob_process: MassBobProcessFn,
 }
 
 impl RustBindings {
@@ -141,10 +143,18 @@ impl RustBindings {
             0
         }
 
+        unsafe extern "C" fn mass_bob_process_stub(
+            _: *mut std::ffi::c_void,
+            _: i32,
+            _: f32,
+        ) {
+        }
+
         Self {
             tick: tick_stub,
             begin_play: begin_play_stub,
             allocate: allocate_stub,
+            mass_bob_process: mass_bob_process_stub,
         }
     }
 }

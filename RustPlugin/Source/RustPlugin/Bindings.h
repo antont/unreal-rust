@@ -170,10 +170,13 @@ using BeginPlayFn = ResultCode(*)();
 
 using AllocateFn = uint32_t(*)(uintptr_t size, uintptr_t align, RustAlloc *ptr);
 
+using MassBobProcessFn = void(*)(void *data, int32_t count, float dt);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
   AllocateFn allocate;
+  MassBobProcessFn mass_bob_process;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
