@@ -2,14 +2,19 @@ use unreal_api::mass::MassQuery;
 use unreal_api::mass_system;
 use crate::fragments::AntFragment;
 
-/// Move ants forward, decrement cooldowns.
+/// Default simulation bounds — Rust owns this, no C++ round-trip needed.
+pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
+pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
+
+/// Move ants forward, reflect at boundaries, decrement cooldowns.
 ///
-/// This is the Bevy-like equivalent of ant_movement_system from gatherers-sim.
-/// Note: boundary clamping requires subsystem context (SimBounds) which is not
-/// yet available through the MassQuery API. A future extension could add shared
-/// fragment or subsystem access to #[mass_system].
+/// Port of ant_movement_system from gatherers-sim using the Bevy-like API.
 #[mass_system]
 fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
+    let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
+    let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
+    let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
+
     for ant in ants.iter_mut() {
         // Decrement cooldown
         ant.pickup_cooldown_remaining_seconds =
@@ -23,10 +28,34 @@ fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
         if is_nearly_zero_f64x3(dir) {
             continue;
         }
-        let step_dist = (ant.movement_speed.max(0.0) * dt.max(0.0)) as f64;
+        let max_dist = (ant.movement_speed.max(0.0) * dt.max(0.0)) as f64;
+        let step_dist = max_dist.min(bounds_max_step.max(0.0));
         ant.position[0] += dir[0] * step_dist;
         ant.position[1] += dir[1] * step_dist;
         ant.position[2] += dir[2] * step_dist;
+
+        // Boundary clamping and reflection
+        let mut inward_normal = [0.0f64; 3];
+
+        if ant.position[0] < SIM_BOUNDS_MIN[0] {
+            ant.position[0] = SIM_BOUNDS_MIN[0];
+            inward_normal[0] += 1.0;
+        } else if ant.position[0] > SIM_BOUNDS_MAX[0] {
+            ant.position[0] = SIM_BOUNDS_MAX[0];
+            inward_normal[0] -= 1.0;
+        }
+
+        if ant.position[1] < SIM_BOUNDS_MIN[1] {
+            ant.position[1] = SIM_BOUNDS_MIN[1];
+            inward_normal[1] += 1.0;
+        } else if ant.position[1] > SIM_BOUNDS_MAX[1] {
+            ant.position[1] = SIM_BOUNDS_MAX[1];
+            inward_normal[1] -= 1.0;
+        }
+
+        if !is_nearly_zero_f64x3(inward_normal) {
+            ant.direction = reflect_direction(ant.direction, inward_normal);
+        }
     }
 }
 
@@ -40,6 +69,25 @@ fn normalize_f64x3(v: [f64; 3]) -> [f64; 3] {
 
 fn is_nearly_zero_f64x3(v: [f64; 3]) -> bool {
     v[0].abs() < 1e-8 && v[1].abs() < 1e-8 && v[2].abs() < 1e-8
+}
+
+fn dot_f64x3(a: [f64; 3], b: [f64; 3]) -> f64 {
+    a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+}
+
+fn reflect_direction(dir: [f64; 3], normal: [f64; 3]) -> [f64; 3] {
+    let safe_dir = normalize_f64x3(dir);
+    let safe_normal = normalize_f64x3(normal);
+    if is_nearly_zero_f64x3(safe_dir) || is_nearly_zero_f64x3(safe_normal) {
+        return [0.0; 3];
+    }
+    let d = dot_f64x3(safe_dir, safe_normal);
+    let reflected = [
+        safe_dir[0] - 2.0 * d * safe_normal[0],
+        safe_dir[1] - 2.0 * d * safe_normal[1],
+        safe_dir[2] - 2.0 * d * safe_normal[2],
+    ];
+    normalize_f64x3(reflected)
 }
 
 #[cfg(test)]
@@ -105,5 +153,39 @@ mod tests {
         let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
         ant_movement(&mut query, 1.0);
         assert_eq!(ants[0].pickup_cooldown_remaining_seconds, 0.0);
+    }
+
+    #[test]
+    fn boundary_clamp_x_max() {
+        let mut ants = [AntFragment {
+            position: [499.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 100.0,
+            ..Default::default()
+        }];
+        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_movement(&mut query, 1.0);
+        assert!(
+            ants[0].position[0] <= 500.0,
+            "X should be clamped to 500, got {}",
+            ants[0].position[0]
+        );
+    }
+
+    #[test]
+    fn direction_reflects_at_boundary() {
+        let mut ants = [AntFragment {
+            position: [499.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 100.0,
+            ..Default::default()
+        }];
+        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_movement(&mut query, 1.0);
+        assert!(
+            ants[0].direction[0] < 0.0,
+            "direction X should reflect negative, got {}",
+            ants[0].direction[0]
+        );
     }
 }
