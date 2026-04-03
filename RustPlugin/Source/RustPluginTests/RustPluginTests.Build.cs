@@ -11,6 +11,8 @@ public class RustPluginTests : ModuleRules
 		// so we need to add its source directory explicitly.
 		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustPlugin"));
 
+		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustMassSpike"));
+
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
 			"Core",
@@ -18,6 +20,8 @@ public class RustPluginTests : ModuleRules
 			"Engine",
 			"UnrealEd",
 			"RustPlugin",
+			"MassEntity",
+			"RustMassSpike",
 		});
 	}
 }
