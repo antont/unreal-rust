@@ -366,4 +366,8 @@ impl UserModule for UnrealEcs {
 //     }
 // }
 
-unreal_module::implement_unreal_module!(UnrealEcs::new(), mass_bob_process: mass_spike::rust_mass_bob_process);
+unreal_module::implement_unreal_module!(
+    UnrealEcs::new(),
+    mass_bob_process: mass_spike::rust_mass_bob_process,
+    mass_ant_movement: gatherers_sim::ffi::rust_mass_ant_movement
+);

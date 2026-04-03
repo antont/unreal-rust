@@ -172,11 +172,18 @@ using AllocateFn = uint32_t(*)(uintptr_t size, uintptr_t align, RustAlloc *ptr);
 
 using MassBobProcessFn = void(*)(void *data, int32_t count, float dt);
 
+using MassAntMovementFn = void(*)(void *ants,
+                                  int32_t count,
+                                  float dt,
+                                  const double *bounds_min,
+                                  const double *bounds_max);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
   AllocateFn allocate;
   MassBobProcessFn mass_bob_process;
+  MassAntMovementFn mass_ant_movement;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);

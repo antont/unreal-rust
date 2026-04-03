@@ -110,6 +110,13 @@ pub type EntryUnrealBindingsFn = unsafe extern "C" fn(bindings: UnrealBindings) 
 pub type BeginPlayFn = unsafe extern "C" fn() -> ResultCode;
 pub type TickFn = unsafe extern "C" fn(dt: f32) -> ResultCode;
 pub type MassBobProcessFn = unsafe extern "C" fn(data: *mut std::ffi::c_void, count: i32, dt: f32);
+pub type MassAntMovementFn = unsafe extern "C" fn(
+    ants: *mut std::ffi::c_void,
+    count: i32,
+    dt: f32,
+    bounds_min: *const f64,
+    bounds_max: *const f64,
+);
 pub type TryLoadFn = unsafe extern "C" fn(*mut RustBindings) -> u32;
 pub type IsOutOfDateFn = unsafe extern "C" fn() -> u32;
 
@@ -128,6 +135,7 @@ pub struct RustBindings {
     pub begin_play: BeginPlayFn,
     pub allocate: AllocateFn,
     pub mass_bob_process: MassBobProcessFn,
+    pub mass_ant_movement: MassAntMovementFn,
 }
 
 impl RustBindings {
@@ -150,11 +158,21 @@ impl RustBindings {
         ) {
         }
 
+        unsafe extern "C" fn mass_ant_movement_stub(
+            _: *mut std::ffi::c_void,
+            _: i32,
+            _: f32,
+            _: *const f64,
+            _: *const f64,
+        ) {
+        }
+
         Self {
             tick: tick_stub,
             begin_play: begin_play_stub,
             allocate: allocate_stub,
             mass_bob_process: mass_bob_process_stub,
+            mass_ant_movement: mass_ant_movement_stub,
         }
     }
 }
@@ -471,9 +489,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 4 function pointers (tick, begin_play, allocate, mass_bob_process)
+        // RustBindings should have 5 function pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 4 * std::mem::size_of::<usize>());
+        assert_eq!(size, 5 * std::mem::size_of::<usize>());
     }
 
     #[test]
