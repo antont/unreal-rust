@@ -25,7 +25,9 @@ public class RustPlugin : ModuleRules
 			new string[]
 			{
 				"Core", "GraphEditor",
-				// ... add other public dependencies that you statically link with here ...
+				"MassEntity",
+				"MassCommon",
+				"StructUtils",
 			}
 			);
 			
