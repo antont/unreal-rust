@@ -12,18 +12,31 @@ URustMassDynamicProcessor::URustMassDynamicProcessor()
 	EntityQuery.RegisterWithProcessor(*this);
 }
 
+static FString Utf8StrToFString(const Utf8Str& Str)
+{
+	FUTF8ToTCHAR Converter(Str.ptr, static_cast<int32>(Str.len));
+	return FString(Converter.Length(), Converter.Get());
+}
+
 void URustMassDynamicProcessor::InitFromDescriptor(const MassSystemDescriptor& Descriptor)
 {
-	SystemName = FString(UTF8_TO_TCHAR(Descriptor.name.ptr));
+	SystemName = Utf8StrToFString(Descriptor.name);
 	CachedExecuteFn = Descriptor.execute_fn;
 
 	for (uint32 i = 0; i < Descriptor.num_requirements; ++i)
 	{
 		const MassFragmentRequirement& Req = Descriptor.requirements[i];
-		FString CppTypeName = FString(UTF8_TO_TCHAR(Req.cpp_type_name.ptr));
+		FString CppTypeName = Utf8StrToFString(Req.cpp_type_name);
+
+		// Strip the F/U prefix — UE reflection registers structs without the prefix
+		FString SearchName = CppTypeName;
+		if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
+		{
+			SearchName.RightChopInline(1);
+		}
 
 		// Find the UScriptStruct by name at runtime
-		UScriptStruct* FoundStruct = FindFirstObject<UScriptStruct>(*CppTypeName, EFindFirstObjectOptions::NativeFirst);
+		UScriptStruct* FoundStruct = FindFirstObject<UScriptStruct>(*SearchName, EFindFirstObjectOptions::NativeFirst);
 		if (FoundStruct == nullptr)
 		{
 			UE_LOG(LogTemp, Error,
