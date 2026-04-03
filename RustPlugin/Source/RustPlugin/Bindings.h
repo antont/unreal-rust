@@ -178,12 +178,15 @@ using MassAntMovementFn = void(*)(void *ants,
                                   const double *bounds_min,
                                   const double *bounds_max);
 
+using MassAntFoodDecisionFn = int32_t(*)(void *ant, const void *encounter, int32_t has_encounter);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
   AllocateFn allocate;
   MassBobProcessFn mass_bob_process;
   MassAntMovementFn mass_ant_movement;
+  MassAntFoodDecisionFn mass_ant_food_decision;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);

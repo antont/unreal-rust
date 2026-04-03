@@ -1,4 +1,5 @@
-use crate::fragments::{AntFragment, SimBounds};
+use crate::fragments::{AntFragment, FoodEncounter, SimBounds};
+use crate::food_decision::ant_food_decision;
 use crate::movement::ant_movement_system;
 use std::ffi::c_void;
 
@@ -38,6 +39,35 @@ pub unsafe extern "C" fn rust_mass_ant_movement(
         };
         ant_movement_system(slice, dt, &bounds);
     }
+}
+
+/// FFI entry point for ant food decision.
+/// Called by C++ UGatherersFoodInteractionProcessor::Execute() per ant.
+///
+/// Returns: 0 = no action, 1 = pick up, 2 = drop.
+/// C++ applies entity operations based on the return code.
+///
+/// # Safety
+/// `ant` must point to a valid AntFragment. If `has_encounter` != 0,
+/// `encounter` must point to a valid FoodEncounter.
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn rust_mass_ant_food_decision(
+    ant: *mut c_void,
+    encounter: *const c_void,
+    has_encounter: i32,
+) -> i32 {
+    if ant.is_null() {
+        return 0;
+    }
+
+    let ant_ref = unsafe { &mut *(ant as *mut AntFragment) };
+    let encounter_ref = if has_encounter != 0 && !encounter.is_null() {
+        Some(unsafe { &*(encounter as *const FoodEncounter) })
+    } else {
+        None
+    };
+
+    ant_food_decision(ant_ref, encounter_ref)
 }
 
 #[cfg(test)]

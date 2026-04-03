@@ -100,9 +100,15 @@ void UGatherersFoodInteractionProcessor::ConfigureQueries(const TSharedRef<FMass
 
 void UGatherersFoodInteractionProcessor::Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context)
 {
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	if (Module.Plugin.Rust.mass_ant_food_decision == nullptr)
+	{
+		return;
+	}
+
 	const UGatherersRustSubsystem& Subsystem = Context.GetSubsystemChecked<UGatherersRustSubsystem>();
 
-	EntityQuery.ForEachEntityChunk(Context, [&EntityManager, &Subsystem](FMassExecutionContext& ChunkContext)
+	EntityQuery.ForEachEntityChunk(Context, [&EntityManager, &Subsystem, &Module](FMassExecutionContext& ChunkContext)
 	{
 		const TArrayView<FGatherersMassAntFragment> AntFragments =
 			ChunkContext.GetMutableFragmentView<FGatherersMassAntFragment>();
@@ -122,32 +128,33 @@ void UGatherersFoodInteractionProcessor::Execute(FMassEntityManager& EntityManag
 				NearbyFood = &NearbyFoodView.GetFragmentData<FGatherersMassFoodFragment>();
 			}
 
-			if (AntFragment.CarriedFoodEntity.IsValid() && NearbyFood != nullptr)
-			{
-				AntFragment.Position = FirstEncounter->EncounterPosition;
-				AntFragment.Direction = ConsumeAntTurnDirection(AntFragment);
+			// Save old carried entity before Rust may clear it
+			const FMassEntityHandle OldCarriedEntity = AntFragment.CarriedFoodEntity;
 
-				if (EntityManager.IsEntityValid(AntFragment.CarriedFoodEntity))
+			// Delegate decision to Rust — it modifies ant fragment (position, direction, cooldown, carried handle)
+			const int32 HasEncounter = (NearbyFood != nullptr && FirstEncounter != nullptr) ? 1 : 0;
+			const int32 Decision = Module.Plugin.Rust.mass_ant_food_decision(
+				&AntFragment.Position.X,  // Zero-copy: fields start at offset 0 (EBO)
+				HasEncounter ? FirstEncounter : nullptr,
+				HasEncounter
+			);
+
+			// C++ applies entity operations based on Rust's decision
+			if (Decision == 2) // Drop
+			{
+				if (EntityManager.IsEntityValid(OldCarriedEntity))
 				{
-					FMassEntityView CarriedFoodView(EntityManager, AntFragment.CarriedFoodEntity);
+					FMassEntityView CarriedFoodView(EntityManager, OldCarriedEntity);
 					FGatherersMassFoodFragment& CarriedFoodFragment =
 						CarriedFoodView.GetFragmentData<FGatherersMassFoodFragment>();
 					CarriedFoodFragment.bIsLoose = true;
 					CarriedFoodFragment.Position = AntFragment.Position;
 				}
-
-				AntFragment.CarriedFoodEntity.Reset();
-				AntFragment.PickupCooldownRemainingSeconds = ComputePickupCooldownForSeparationDistance(
-					GatherersMassPickupSeparationDistance,
-					AntFragment.MovementSpeed);
 			}
-			else if (!AntFragment.CarriedFoodEntity.IsValid() && AntFragment.PickupCooldownRemainingSeconds <= 0.0f)
+			else if (Decision == 1) // PickUp
 			{
 				if (NearbyFood != nullptr)
 				{
-					AntFragment.Position = FirstEncounter->EncounterPosition;
-					AntFragment.Direction = ConsumeAntTurnDirection(AntFragment);
-					AntFragment.CarriedFoodEntity = FirstEncounter->Entity;
 					NearbyFood->bIsLoose = false;
 				}
 			}

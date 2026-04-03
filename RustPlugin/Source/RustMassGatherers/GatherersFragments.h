@@ -56,3 +56,8 @@ struct FGatherersMassFoodEncounter
 	FMassEntityHandle Entity;
 	FVector EncounterPosition = FVector::ZeroVector;
 };
+
+// Verify FGatherersMassFoodEncounter layout matches Rust FoodEncounter #[repr(C)]
+static_assert(offsetof(FGatherersMassFoodEncounter, Entity) == 0, "Entity at offset 0");
+static_assert(offsetof(FGatherersMassFoodEncounter, EncounterPosition) == 8, "EncounterPosition at offset 8");
+static_assert(sizeof(FGatherersMassFoodEncounter) == 32, "FoodEncounter size must be 32");

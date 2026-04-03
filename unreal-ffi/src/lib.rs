@@ -117,6 +117,11 @@ pub type MassAntMovementFn = unsafe extern "C" fn(
     bounds_min: *const f64,
     bounds_max: *const f64,
 );
+pub type MassAntFoodDecisionFn = unsafe extern "C" fn(
+    ant: *mut std::ffi::c_void,
+    encounter: *const std::ffi::c_void,
+    has_encounter: i32,
+) -> i32;
 pub type TryLoadFn = unsafe extern "C" fn(*mut RustBindings) -> u32;
 pub type IsOutOfDateFn = unsafe extern "C" fn() -> u32;
 
@@ -136,6 +141,7 @@ pub struct RustBindings {
     pub allocate: AllocateFn,
     pub mass_bob_process: MassBobProcessFn,
     pub mass_ant_movement: MassAntMovementFn,
+    pub mass_ant_food_decision: MassAntFoodDecisionFn,
 }
 
 impl RustBindings {
@@ -167,12 +173,21 @@ impl RustBindings {
         ) {
         }
 
+        unsafe extern "C" fn mass_ant_food_decision_stub(
+            _: *mut std::ffi::c_void,
+            _: *const std::ffi::c_void,
+            _: i32,
+        ) -> i32 {
+            0
+        }
+
         Self {
             tick: tick_stub,
             begin_play: begin_play_stub,
             allocate: allocate_stub,
             mass_bob_process: mass_bob_process_stub,
             mass_ant_movement: mass_ant_movement_stub,
+            mass_ant_food_decision: mass_ant_food_decision_stub,
         }
     }
 }
@@ -489,9 +504,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 5 function pointers
+        // RustBindings should have 6 function pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 5 * std::mem::size_of::<usize>());
+        assert_eq!(size, 6 * std::mem::size_of::<usize>());
     }
 
     #[test]
