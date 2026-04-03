@@ -3,6 +3,7 @@ use syn::DeriveInput;
 mod component;
 mod event;
 mod mass_fragment;
+mod mass_system;
 mod reflect;
 mod type_uuid;
 mod uclass;
@@ -36,6 +37,29 @@ pub fn event_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
         #event
     }
     .into()
+}
+
+/// Attribute macro that registers a Rust function as a MassEntity system.
+///
+/// Generates an `extern "C"` wrapper function and inventory registration
+/// so C++ can discover and dispatch to this system dynamically.
+///
+/// ```ignore
+/// #[mass_system]
+/// fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
+///     for ant in ants.iter_mut() { /* ... */ }
+/// }
+/// ```
+#[proc_macro_attribute]
+pub fn mass_system(
+    _attr: proc_macro::TokenStream,
+    item: proc_macro::TokenStream,
+) -> proc_macro::TokenStream {
+    let func: syn::ItemFn = syn::parse(item).unwrap();
+    match mass_system::mass_system_impl(&func) {
+        Ok(tokens) => tokens.into(),
+        Err(err) => err.to_compile_error().into(),
+    }
 }
 
 #[proc_macro_derive(MassFragment, attributes(mass))]

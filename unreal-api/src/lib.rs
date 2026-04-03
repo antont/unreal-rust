@@ -7,7 +7,7 @@ pub use unreal_ffi as ffi;
 pub mod log;
 pub mod mass;
 pub mod module;
-pub use unreal_api_derive::{Component, Event, MassFragment, UClass, inherit};
+pub use unreal_api_derive::{Component, Event, MassFragment, UClass, inherit, mass_system};
 pub mod property;
 pub mod registration;
 
