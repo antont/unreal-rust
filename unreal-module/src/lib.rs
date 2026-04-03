@@ -108,6 +108,17 @@ fn create_rust_bindings() -> RustBindings {
         0
     }
 
+    unsafe extern "C" fn get_mass_system_count_noop() -> u32 {
+        0
+    }
+
+    unsafe extern "C" fn get_mass_system_descriptor_noop(
+        _: u32,
+        _: *mut ffi::MassSystemDescriptor,
+    ) -> u32 {
+        0
+    }
+
     RustBindings {
         tick,
         begin_play,
@@ -115,6 +126,8 @@ fn create_rust_bindings() -> RustBindings {
         mass_bob_process: mass_bob_process_noop,
         mass_ant_movement: mass_ant_movement_noop,
         mass_ant_food_decision: mass_ant_food_decision_noop,
+        get_mass_system_count: get_mass_system_count_noop,
+        get_mass_system_descriptor: get_mass_system_descriptor_noop,
     }
 }
 fn debug_break() {

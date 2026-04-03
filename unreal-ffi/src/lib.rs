@@ -122,6 +122,71 @@ pub type MassAntFoodDecisionFn = unsafe extern "C" fn(
     encounter: *const std::ffi::c_void,
     has_encounter: i32,
 ) -> i32;
+// --- Dynamic Mass System Registration ---
+
+/// Data for one fragment slice in a chunk, passed from C++ ForEachEntityChunk to Rust.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MassFragmentSlice {
+    /// Raw pointer to contiguous fragment data in the chunk.
+    pub data: *mut std::ffi::c_void,
+    /// Number of entities in this chunk.
+    pub count: i32,
+    /// Size of each fragment element in bytes.
+    pub stride: u32,
+}
+
+/// Chunk data passed from C++ Execute to a Rust mass system function.
+#[repr(C)]
+pub struct MassChunkData {
+    /// Number of entities in this chunk.
+    pub num_entities: i32,
+    /// Delta time for this simulation step.
+    pub dt: f32,
+    /// Number of fragment slices (matches system's requirement count).
+    pub num_fragments: u32,
+    /// Pointer to array of MassFragmentSlice, one per requirement in declaration order.
+    pub fragments: *const MassFragmentSlice,
+}
+
+/// Describes one fragment/tag requirement for a Rust mass system.
+#[repr(C)]
+pub struct MassFragmentRequirement {
+    /// C++ USTRUCT type name (e.g. "FGatherersMassAntFragment").
+    pub cpp_type_name: Utf8Str,
+    /// Size of the fragment in bytes.
+    pub size: u32,
+    /// Alignment of the fragment.
+    pub alignment: u32,
+    /// Access mode: 0 = ReadOnly, 1 = ReadWrite.
+    pub access_mode: u8,
+    /// Whether this is a tag (1) or fragment (0).
+    pub is_tag: u8,
+}
+
+/// Execute function signature for a dynamically registered mass system.
+pub type MassSystemExecuteFn = unsafe extern "C" fn(chunk: *const MassChunkData);
+
+/// Describes one registered Rust mass system. C++ queries these at init time.
+#[repr(C)]
+pub struct MassSystemDescriptor {
+    /// Unique system name (e.g. "ant_movement").
+    pub name: Utf8Str,
+    /// Number of fragment/tag requirements.
+    pub num_requirements: u32,
+    /// Pointer to array of MassFragmentRequirement.
+    pub requirements: *const MassFragmentRequirement,
+    /// The Rust function to call during Execute.
+    pub execute_fn: MassSystemExecuteFn,
+}
+
+/// Returns the number of dynamically registered mass systems.
+pub type GetMassSystemCountFn = unsafe extern "C" fn() -> u32;
+
+/// Fills a MassSystemDescriptor for the system at `index`. Returns 1 on success, 0 on failure.
+pub type GetMassSystemDescriptorFn =
+    unsafe extern "C" fn(index: u32, out: *mut MassSystemDescriptor) -> u32;
+
 pub type TryLoadFn = unsafe extern "C" fn(*mut RustBindings) -> u32;
 pub type IsOutOfDateFn = unsafe extern "C" fn() -> u32;
 
@@ -142,6 +207,8 @@ pub struct RustBindings {
     pub mass_bob_process: MassBobProcessFn,
     pub mass_ant_movement: MassAntMovementFn,
     pub mass_ant_food_decision: MassAntFoodDecisionFn,
+    pub get_mass_system_count: GetMassSystemCountFn,
+    pub get_mass_system_descriptor: GetMassSystemDescriptorFn,
 }
 
 impl RustBindings {
@@ -181,6 +248,17 @@ impl RustBindings {
             0
         }
 
+        unsafe extern "C" fn get_mass_system_count_stub() -> u32 {
+            0
+        }
+
+        unsafe extern "C" fn get_mass_system_descriptor_stub(
+            _: u32,
+            _: *mut MassSystemDescriptor,
+        ) -> u32 {
+            0
+        }
+
         Self {
             tick: tick_stub,
             begin_play: begin_play_stub,
@@ -188,6 +266,8 @@ impl RustBindings {
             mass_bob_process: mass_bob_process_stub,
             mass_ant_movement: mass_ant_movement_stub,
             mass_ant_food_decision: mass_ant_food_decision_stub,
+            get_mass_system_count: get_mass_system_count_stub,
+            get_mass_system_descriptor: get_mass_system_descriptor_stub,
         }
     }
 }
@@ -504,9 +584,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 6 function pointers
+        // RustBindings should have 8 function pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 6 * std::mem::size_of::<usize>());
+        assert_eq!(size, 8 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -514,6 +594,41 @@ mod tests {
         let alloc = StrRustAlloc::empty();
         assert!(alloc.alloc.ptr.is_null());
         assert_eq!(alloc.alloc.size, 0);
+    }
+
+    #[test]
+    fn mass_fragment_slice_layout() {
+        assert_eq!(std::mem::size_of::<MassFragmentSlice>(), 16);
+        assert_eq!(std::mem::align_of::<MassFragmentSlice>(), 8);
+    }
+
+    #[test]
+    fn mass_chunk_data_layout() {
+        // i32 + f32 + u32 + padding + pointer = 8 + 8 + 8 = 24 on 64-bit
+        let size = std::mem::size_of::<MassChunkData>();
+        assert_eq!(size, 24);
+        assert_eq!(std::mem::align_of::<MassChunkData>(), 8);
+    }
+
+    #[test]
+    fn mass_fragment_requirement_layout() {
+        // Utf8Str (ptr + usize = 16) + u32 + u32 + u8 + u8 + padding
+        let size = std::mem::size_of::<MassFragmentRequirement>();
+        assert_eq!(size, 32);
+    }
+
+    #[test]
+    fn mass_system_descriptor_layout() {
+        // Utf8Str(16) + u32(4) + pad(4) + ptr(8) + fn_ptr(8) = 40
+        let size = std::mem::size_of::<MassSystemDescriptor>();
+        assert_eq!(size, 40);
+    }
+
+    #[test]
+    fn uninit_stubs_return_zero_systems() {
+        let bindings = RustBindings::uninit();
+        let count = unsafe { (bindings.get_mass_system_count)() };
+        assert_eq!(count, 0);
     }
 }
 
