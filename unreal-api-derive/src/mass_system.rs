@@ -86,6 +86,7 @@ fn extract_query_inner_type(
 pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
     let func_name = &func.sig.ident;
     let wrapper_name = format_ident!("__mass_system_{}", func_name);
+    let reg_name = format_ident!("__mass_system_reg_{}", func_name);
     let system_name_str = func_name.to_string();
 
     let query_params = extract_query_params(func)?;
@@ -224,7 +225,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             #func_name(#(#call_args),*);
         }
 
-        static #wrapper_name: () = {
+        static #reg_name: () = {
             const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
                 #(#requirement_entries),*
             ];
