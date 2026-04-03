@@ -21,11 +21,30 @@ pub const PICKUP_SEPARATION_DISTANCE: f32 = 50.0;
 ///
 /// Side effects on `ant`: updates position, direction, cooldown, clears/sets carried handle.
 pub fn ant_food_decision(
-    _ant: &mut AntFragment,
-    _encounter: Option<&FoodEncounter>,
+    ant: &mut AntFragment,
+    encounter: Option<&FoodEncounter>,
 ) -> FoodDecisionCode {
-    // TODO: implement
-    DECISION_NO_ACTION
+    let is_carrying = ant.carried_food_handle[0] != 0 || ant.carried_food_handle[1] != 0;
+
+    match encounter {
+        Some(enc) if is_carrying => {
+            // Drop: ant is carrying and encounters loose food
+            ant.position = enc.encounter_position;
+            ant.direction = consume_ant_turn_direction(ant);
+            ant.carried_food_handle = [0, 0];
+            ant.pickup_cooldown_remaining_seconds =
+                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, ant.movement_speed);
+            DECISION_DROP
+        }
+        Some(enc) if !is_carrying && ant.pickup_cooldown_remaining_seconds <= 0.0 => {
+            // Pick up: ant is not carrying, cooldown expired, food nearby
+            ant.position = enc.encounter_position;
+            ant.direction = consume_ant_turn_direction(ant);
+            ant.carried_food_handle = enc.entity_handle;
+            DECISION_PICK_UP
+        }
+        _ => DECISION_NO_ACTION,
+    }
 }
 
 /// Compute pickup cooldown from separation distance and speed.
