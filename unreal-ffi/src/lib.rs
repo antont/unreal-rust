@@ -460,6 +460,13 @@ mod tests {
     }
 
     #[test]
+    fn rust_bindings_has_mass_bob_process_field() {
+        // RustBindings should have 4 function pointers (tick, begin_play, allocate, mass_bob_process)
+        let size = std::mem::size_of::<RustBindings>();
+        assert_eq!(size, 4 * std::mem::size_of::<usize>());
+    }
+
+    #[test]
     fn str_rust_alloc_empty() {
         let alloc = StrRustAlloc::empty();
         assert!(alloc.alloc.ptr.is_null());

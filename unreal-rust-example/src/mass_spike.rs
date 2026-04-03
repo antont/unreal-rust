@@ -6,6 +6,16 @@
 
 use std::ffi::c_void;
 
+/// extern "C" entry point for the C++ MassEntity processor to call.
+/// Receives a raw pointer to a contiguous array of BobFragment and its count.
+///
+/// # Safety
+/// `data` must point to `count` contiguous BobFragment instances, or be null.
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn rust_mass_bob_process(_data: *mut c_void, _count: i32, _dt: f32) {
+    // TODO: implement
+}
+
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct BobFragment {
@@ -131,6 +141,49 @@ mod tests {
         let mut frags: Vec<BobFragment> = vec![];
         bob_movement_system(&mut frags, 0.016); // should not panic
     }
+
+    // FFI tests (Cycle 2)
+
+    #[test]
+    fn extern_c_bob_process_null_ptr_no_panic() {
+        unsafe { rust_mass_bob_process(std::ptr::null_mut(), 0, 0.016); }
+    }
+
+    #[test]
+    fn extern_c_bob_process_negative_count_no_panic() {
+        unsafe { rust_mass_bob_process(std::ptr::null_mut(), -1, 0.016); }
+    }
+
+    #[test]
+    fn extern_c_bob_process_updates_fragments() {
+        let mut frags = [BobFragment { speed: 2.0, ..Default::default() }];
+        unsafe {
+            rust_mass_bob_process(
+                frags.as_mut_ptr() as *mut c_void,
+                frags.len() as i32,
+                0.016,
+            );
+        }
+        assert!(frags[0].position_z != 0.0, "extern C wrapper should update position_z");
+    }
+
+    #[test]
+    fn extern_c_bob_process_matches_direct_call() {
+        let mut frags_ffi = [BobFragment { speed: 2.0, ..Default::default() }];
+        let mut frags_direct = frags_ffi;
+        unsafe {
+            rust_mass_bob_process(
+                frags_ffi.as_mut_ptr() as *mut c_void,
+                frags_ffi.len() as i32,
+                0.016,
+            );
+        }
+        bob_movement_system(&mut frags_direct, 0.016);
+        assert_eq!(frags_ffi[0].position_z, frags_direct[0].position_z);
+        assert_eq!(frags_ffi[0].time, frags_direct[0].time);
+    }
+
+    // Performance test
 
     #[test]
     fn bob_movement_10k_entities_under_1ms() {
