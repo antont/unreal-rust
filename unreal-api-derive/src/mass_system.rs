@@ -151,10 +151,8 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 (QueryScope::Global, true) => {
                     quote! {
                         let mut #param_name = unsafe {
-                            ::unreal_api::mass::MassQueryAllMut::<#frag_type>::from_raw(
-                                (*chunk).global_fragments.add(#idx).read().data,
-                                (*chunk).global_entity_handles,
-                                (*chunk).global_num_entities as usize,
+                            ::unreal_api::mass::MassQueryAllMut::<#frag_type>::from_chunked(
+                                (*chunk).global_chunked_fragments.add(#idx),
                             )
                         };
                     }
@@ -162,10 +160,8 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 (QueryScope::Global, false) => {
                     quote! {
                         let #param_name = unsafe {
-                            ::unreal_api::mass::MassQueryAllRef::<#frag_type>::from_raw(
-                                (*chunk).global_fragments.add(#idx).read().data as *const ::std::ffi::c_void,
-                                (*chunk).global_entity_handles,
-                                (*chunk).global_num_entities as usize,
+                            ::unreal_api::mass::MassQueryAllRef::<#frag_type>::from_chunked(
+                                (*chunk).global_chunked_fragments.add(#idx),
                             )
                         };
                     }
@@ -415,8 +411,9 @@ mod tests {
         assert!(output.contains("MassQueryMut"), "should use MassQueryMut for &mut primary");
         // Should use MassQueryRef for immutable primary
         assert!(output.contains("MassQueryRef"), "should use MassQueryRef for & primary");
-        // Should use MassQueryAllMut for mutable global
+        // Should use MassQueryAllMut for mutable global via from_chunked
         assert!(output.contains("MassQueryAllMut"), "should use MassQueryAllMut for &mut global");
+        assert!(output.contains("from_chunked"), "should use from_chunked for global query");
         // Should have query_scope: 1 for global
         assert!(output.contains("query_scope : 1"), "should set query_scope=1 for global");
     }

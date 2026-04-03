@@ -57,7 +57,7 @@ FTransform BuildVisualTransform(const FVector& Position, const FVector& VisualSc
 FVector ComputeFoodVisualPosition(
 	FMassEntityManager& EntityManager,
 	const TArray<FMassEntityHandle>& AntEntities,
-	FMassEntityHandle FoodEntity,
+	int32 FoodIndex,
 	const FGatherersMassFoodFragment& FoodFragment)
 {
 	if (FoodFragment.bIsLoose)
@@ -74,7 +74,7 @@ FVector ComputeFoodVisualPosition(
 
 		FMassEntityView AntView(EntityManager, AntEntity);
 		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
-		if (AntFragment.CarriedFoodEntity == FoodEntity)
+		if (AntFragment.CarriedFoodIndex == FoodIndex)
 		{
 			return AntFragment.Position + ComputeCarriedFoodRelativeLocation(GatherersMassCarriedFoodHeight);
 		}
@@ -303,7 +303,7 @@ TArray<FGatherersMassFoodEncounter> UGatherersRustSubsystem::QueryLooseFoodEncou
 			{
 				continue;
 			}
-			Encounters.Add({ FoodEntity, SweepStart });
+			Encounters.Add({ InstanceIndex, 0, SweepStart });
 		}
 		return Encounters;
 	}
@@ -346,9 +346,8 @@ TArray<FGatherersMassFoodEncounter> UGatherersRustSubsystem::QueryLooseFoodEncou
 
 	struct FSweptLooseFoodHit
 	{
-		FMassEntityHandle Entity;
+		int32 FoodIndex = INDEX_NONE;
 		FVector EncounterPosition = FVector::ZeroVector;
-		int32 InstanceIndex = INDEX_NONE;
 		bool bStartsOverlapped = false;
 		float DistanceAlongPathSquared = TNumericLimits<float>::Max();
 	};
@@ -378,9 +377,8 @@ TArray<FGatherersMassFoodEncounter> UGatherersRustSubsystem::QueryLooseFoodEncou
 		}
 
 		Hits.Add({
-			FoodEntity,
-			ClosestPoint,
 			InstanceIndex,
+			ClosestPoint,
 			StartDistanceSquared <= FMath::Square(QueryRadius),
 			FVector::DistSquared(SweepStart, ClosestPoint),
 		});
@@ -395,7 +393,7 @@ TArray<FGatherersMassFoodEncounter> UGatherersRustSubsystem::QueryLooseFoodEncou
 
 		if (A.bStartsOverlapped && B.bStartsOverlapped)
 		{
-			return A.InstanceIndex < B.InstanceIndex;
+			return A.FoodIndex < B.FoodIndex;
 		}
 
 		if (!FMath::IsNearlyEqual(A.DistanceAlongPathSquared, B.DistanceAlongPathSquared))
@@ -403,12 +401,12 @@ TArray<FGatherersMassFoodEncounter> UGatherersRustSubsystem::QueryLooseFoodEncou
 			return A.DistanceAlongPathSquared < B.DistanceAlongPathSquared;
 		}
 
-		return A.InstanceIndex < B.InstanceIndex;
+		return A.FoodIndex < B.FoodIndex;
 	});
 
 	for (const FSweptLooseFoodHit& Hit : Hits)
 	{
-		Encounters.Add({ Hit.Entity, Hit.EncounterPosition });
+		Encounters.Add({ Hit.FoodIndex, 0, Hit.EncounterPosition });
 	}
 
 	return Encounters;
@@ -437,8 +435,9 @@ void UGatherersRustSubsystem::RebuildVisualInstances(UMassEntitySubsystem& MassE
 		AntVisualComponent->AddInstance(BuildVisualTransform(AntFragment.Position, MassAntVisualScale), true);
 	}
 
-	for (const FMassEntityHandle FoodEntity : ManagedFoodEntities)
+	for (int32 FoodIndex = 0; FoodIndex < ManagedFoodEntities.Num(); ++FoodIndex)
 	{
+		const FMassEntityHandle FoodEntity = ManagedFoodEntities[FoodIndex];
 		if (!EntityManager.IsEntityValid(FoodEntity))
 		{
 			continue;
@@ -448,7 +447,7 @@ void UGatherersRustSubsystem::RebuildVisualInstances(UMassEntitySubsystem& MassE
 		const FGatherersMassFoodFragment& FoodFragment = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
 		FoodRepresentationComponent->AddInstance(
 			BuildVisualTransform(
-				ComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodEntity, FoodFragment),
+				ComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodIndex, FoodFragment),
 				MassFoodVisualScale),
 			true);
 	}
@@ -502,7 +501,7 @@ void UGatherersRustSubsystem::SyncVisualInstances(UMassEntitySubsystem& MassEnti
 		FoodRepresentationComponent->UpdateInstanceTransform(
 			FoodIndex,
 			BuildVisualTransform(
-				ComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodEntity, FoodFragment),
+				ComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodIndex, FoodFragment),
 				MassFoodVisualScale),
 			true,
 			FoodIndex == ManagedFoodEntities.Num() - 1,

@@ -31,7 +31,8 @@ struct FGatherersMassAntFragment : public FMassFragment
 	FVector Position = FVector::ZeroVector;
 	FVector PreviousPosition = FVector::ZeroVector;
 	FVector Direction = FVector(1.0f, 0.0f, 0.0f);
-	FMassEntityHandle CarriedFoodEntity;
+	int32 CarriedFoodIndex = -1;
+	int32 _CarriedFoodPad = 0;
 	float PickupCooldownRemainingSeconds = 0.0f;
 	float MovementSpeed = 100.0f;
 	float TurnJitterRadians = PI / 2.0f;
@@ -42,7 +43,7 @@ struct FGatherersMassAntFragment : public FMassFragment
 static_assert(offsetof(FGatherersMassAntFragment, Position) == 0, "Position at offset 0 (EBO)");
 static_assert(offsetof(FGatherersMassAntFragment, PreviousPosition) == 24, "PreviousPosition at offset 24");
 static_assert(offsetof(FGatherersMassAntFragment, Direction) == 48, "Direction at offset 48");
-static_assert(offsetof(FGatherersMassAntFragment, CarriedFoodEntity) == 72, "CarriedFoodEntity at offset 72");
+static_assert(offsetof(FGatherersMassAntFragment, CarriedFoodIndex) == 72, "CarriedFoodIndex at offset 72");
 static_assert(offsetof(FGatherersMassAntFragment, PickupCooldownRemainingSeconds) == 80, "PickupCooldownRemainingSeconds at offset 80");
 static_assert(offsetof(FGatherersMassAntFragment, MovementSpeed) == 84, "MovementSpeed at offset 84");
 static_assert(offsetof(FGatherersMassAntFragment, TurnJitterRadians) == 88, "TurnJitterRadians at offset 88");
@@ -59,12 +60,13 @@ struct FGatherersMassFoodFragment : public FMassFragment
 
 struct FGatherersMassFoodEncounter
 {
-	FMassEntityHandle Entity;
+	int32 FoodIndex = -1;
+	int32 _Pad = 0;
 	FVector EncounterPosition = FVector::ZeroVector;
 };
 
 // Verify FGatherersMassFoodEncounter layout matches Rust FoodEncounter #[repr(C)]
-static_assert(offsetof(FGatherersMassFoodEncounter, Entity) == 0, "Entity at offset 0");
+static_assert(offsetof(FGatherersMassFoodEncounter, FoodIndex) == 0, "FoodIndex at offset 0");
 static_assert(offsetof(FGatherersMassFoodEncounter, EncounterPosition) == 8, "EncounterPosition at offset 8");
 static_assert(sizeof(FGatherersMassFoodEncounter) == 32, "FoodEncounter size must be 32");
 
@@ -74,8 +76,9 @@ struct FGatherersAntEncounterFragment : public FMassFragment
 {
 	GENERATED_BODY()
 
-	/// Entity handle of nearest food (index + serial), or [0,0] if none.
-	FMassEntityHandle NearestFoodEntity;
+	/// Index into the food entities array, or -1 if none.
+	int32 NearestFoodIndex = -1;
+	int32 _NearestFoodPad = 0;
 	/// Position where the encounter occurred.
 	FVector EncounterPosition = FVector::ZeroVector;
 	/// Whether an encounter was detected this frame.
@@ -83,6 +86,6 @@ struct FGatherersAntEncounterFragment : public FMassFragment
 };
 
 // Verify layout matches Rust AntEncounterFragment #[repr(C)]
-static_assert(offsetof(FGatherersAntEncounterFragment, NearestFoodEntity) == 0, "NearestFoodEntity at offset 0");
+static_assert(offsetof(FGatherersAntEncounterFragment, NearestFoodIndex) == 0, "NearestFoodIndex at offset 0");
 static_assert(offsetof(FGatherersAntEncounterFragment, EncounterPosition) == 8, "EncounterPosition at offset 8");
 static_assert(offsetof(FGatherersAntEncounterFragment, bHasEncounter) == 32, "bHasEncounter at offset 32");

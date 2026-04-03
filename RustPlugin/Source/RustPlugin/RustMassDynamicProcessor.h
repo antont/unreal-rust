@@ -57,6 +57,12 @@ private:
 	/// Whether this system has any global queries.
 	bool bHasGlobalQueries = false;
 
+	// --- Cached global chunk descriptors (zero-copy, built on first Execute) ---
+	bool bGlobalCacheValid = false;
+	TArray<TArray<MassGlobalChunkSlice>> CachedChunkSlices;   // [frag_idx][chunk_idx]
+	TArray<MassGlobalFragmentChunks> CachedChunkedFrags;      // [frag_idx]
+	int32 CachedGlobalEntityCount = 0;
+
 	/// Extra tag requirements added by the subsystem for population scoping.
 	TArray<const UScriptStruct*> ExtraTagRequirements;
 

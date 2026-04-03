@@ -6,7 +6,8 @@ pub struct AntFragment {
     pub position: [f64; 3],            // FVector Position (offset 0)
     pub previous_position: [f64; 3],   // FVector PreviousPosition (offset 24)
     pub direction: [f64; 3],           // FVector Direction (offset 48)
-    pub carried_food_handle: [i32; 2], // FMassEntityHandle (offset 72)
+    pub carried_food_index: i32,       // index into food array, -1 if not carrying (offset 72)
+    pub _carried_pad: i32,             // padding to keep layout (offset 76)
     pub pickup_cooldown_remaining_seconds: f32, // (offset 80)
     pub movement_speed: f32,           // (offset 84)
     pub turn_jitter_radians: f32,      // (offset 88)
@@ -19,7 +20,8 @@ impl Default for AntFragment {
             position: [0.0; 3],
             previous_position: [0.0; 3],
             direction: [1.0, 0.0, 0.0],
-            carried_food_handle: [0; 2],
+            carried_food_index: -1,
+            _carried_pad: 0,
             pickup_cooldown_remaining_seconds: 0.0,
             movement_speed: 100.0,
             turn_jitter_radians: std::f32::consts::FRAC_PI_2,
@@ -49,7 +51,8 @@ impl Default for FoodFragment {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct FoodEncounter {
-    pub entity_handle: [i32; 2],
+    pub food_index: i32,
+    pub _pad: i32,
     pub encounter_position: [f64; 3],
 }
 
@@ -80,7 +83,7 @@ mod tests {
         assert_eq!(mem::offset_of!(AntFragment, position), 0);
         assert_eq!(mem::offset_of!(AntFragment, previous_position), 24);
         assert_eq!(mem::offset_of!(AntFragment, direction), 48);
-        assert_eq!(mem::offset_of!(AntFragment, carried_food_handle), 72);
+        assert_eq!(mem::offset_of!(AntFragment, carried_food_index), 72);
         assert_eq!(mem::offset_of!(AntFragment, pickup_cooldown_remaining_seconds), 80);
         assert_eq!(mem::offset_of!(AntFragment, movement_speed), 84);
         assert_eq!(mem::offset_of!(AntFragment, turn_jitter_radians), 88);
@@ -97,7 +100,7 @@ mod tests {
 
     #[test]
     fn food_encounter_size_and_offsets() {
-        assert_eq!(mem::offset_of!(FoodEncounter, entity_handle), 0);
+        assert_eq!(mem::offset_of!(FoodEncounter, food_index), 0);
         assert_eq!(mem::offset_of!(FoodEncounter, encounter_position), 8);
         assert_eq!(mem::size_of::<FoodEncounter>(), 32);
     }
@@ -108,6 +111,6 @@ mod tests {
         assert_eq!(frag.position, [0.0; 3]);
         assert_eq!(frag.direction, [1.0, 0.0, 0.0]);
         assert_eq!(frag.movement_speed, 100.0);
-        assert_eq!(frag.carried_food_handle, [0; 2]);
+        assert_eq!(frag.carried_food_index, -1);
     }
 }

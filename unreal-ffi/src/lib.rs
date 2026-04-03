@@ -136,6 +136,32 @@ pub struct MassFragmentSlice {
     pub stride: u32,
 }
 
+/// One chunk's slice of data for a global query — points directly into Mass Entity chunk memory.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MassGlobalChunkSlice {
+    /// Direct pointer into chunk fragment memory (zero-copy).
+    pub data: *mut std::ffi::c_void,
+    /// Number of entities in this chunk.
+    pub count: i32,
+    /// Size of each fragment element in bytes.
+    pub stride: u32,
+}
+
+/// All chunk slices for one global fragment type.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MassGlobalFragmentChunks {
+    /// Pointer to array of MassGlobalChunkSlice, one per chunk.
+    pub chunks: *const MassGlobalChunkSlice,
+    /// Number of chunks.
+    pub num_chunks: u32,
+    /// Total entity count across all chunks.
+    pub total_count: i32,
+    /// Stride (same for all chunks — same fragment type).
+    pub stride: u32,
+}
+
 /// Chunk data passed from C++ Execute to a Rust mass system function.
 #[repr(C)]
 pub struct MassChunkData {
@@ -151,10 +177,12 @@ pub struct MassChunkData {
     pub global_num_entities: i32,
     /// Number of global fragment slices.
     pub num_global_fragments: u32,
-    /// Pointer to array of MassFragmentSlice for global queries (all matching entities).
+    /// Deprecated: was contiguous-copy global fragments. Set to null for zero-copy path.
     pub global_fragments: *const MassFragmentSlice,
-    /// Entity handles for global query entities: pairs of [index, serial_number] per entity.
+    /// Deprecated: was entity handle pairs. Set to null for index-based access.
     pub global_entity_handles: *const i32,
+    /// Zero-copy chunked global fragments: array of MassGlobalFragmentChunks, one per global fragment type.
+    pub global_chunked_fragments: *const MassGlobalFragmentChunks,
 }
 
 /// Describes one fragment/tag requirement for a Rust mass system.
@@ -615,10 +643,23 @@ mod tests {
 
     #[test]
     fn mass_chunk_data_layout() {
-        // i32 + f32 + u32 + pad + ptr + i32 + u32 + ptr + ptr = 48 on 64-bit
+        // i32 + f32 + u32 + pad + ptr + i32 + u32 + ptr + ptr + ptr = 56 on 64-bit
         let size = std::mem::size_of::<MassChunkData>();
-        assert_eq!(size, 48);
+        assert_eq!(size, 56);
         assert_eq!(std::mem::align_of::<MassChunkData>(), 8);
+    }
+
+    #[test]
+    fn mass_global_chunk_slice_layout() {
+        assert_eq!(std::mem::size_of::<MassGlobalChunkSlice>(), 16);
+        assert_eq!(std::mem::align_of::<MassGlobalChunkSlice>(), 8);
+    }
+
+    #[test]
+    fn mass_global_fragment_chunks_layout() {
+        // ptr(8) + u32(4) + i32(4) + u32(4) + pad(4) = 24
+        assert_eq!(std::mem::size_of::<MassGlobalFragmentChunks>(), 24);
+        assert_eq!(std::mem::align_of::<MassGlobalFragmentChunks>(), 8);
     }
 
     #[test]

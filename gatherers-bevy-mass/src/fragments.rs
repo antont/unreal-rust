@@ -9,7 +9,8 @@ pub struct AntFragment {
     pub position: [f64; 3],
     pub previous_position: [f64; 3],
     pub direction: [f64; 3],
-    pub carried_food_handle: [i32; 2],
+    pub carried_food_index: i32,
+    pub _carried_pad: i32,
     pub pickup_cooldown_remaining_seconds: f32,
     pub movement_speed: f32,
     pub turn_jitter_radians: f32,
@@ -22,7 +23,8 @@ impl Default for AntFragment {
             position: [0.0; 3],
             previous_position: [0.0; 3],
             direction: [1.0, 0.0, 0.0],
-            carried_food_handle: [0; 2],
+            carried_food_index: -1,
+            _carried_pad: 0,
             pickup_cooldown_remaining_seconds: 0.0,
             movement_speed: 100.0,
             turn_jitter_radians: std::f32::consts::FRAC_PI_2,
@@ -37,8 +39,9 @@ impl Default for AntFragment {
 #[repr(C)]
 #[mass(cpp_type = "FGatherersAntEncounterFragment")]
 pub struct AntEncounterFragment {
-    /// Entity handle of nearest food [index, serial_number], or [0,0] if none.
-    pub nearest_food_handle: [i32; 2],
+    /// Index into the food entities array, or -1 if none.
+    pub nearest_food_index: i32,
+    pub _nearest_pad: i32,
     /// Position where the encounter occurred.
     pub encounter_position: [f64; 3],
     /// Whether an encounter was detected this frame.
@@ -49,7 +52,8 @@ pub struct AntEncounterFragment {
 impl Default for AntEncounterFragment {
     fn default() -> Self {
         Self {
-            nearest_food_handle: [0; 2],
+            nearest_food_index: -1,
+            _nearest_pad: 0,
             encounter_position: [0.0; 3],
             has_encounter: false,
             _pad: [0; 7],
@@ -103,7 +107,7 @@ mod tests {
         assert_eq!(mem::offset_of!(AntFragment, position), 0);
         assert_eq!(mem::offset_of!(AntFragment, previous_position), 24);
         assert_eq!(mem::offset_of!(AntFragment, direction), 48);
-        assert_eq!(mem::offset_of!(AntFragment, carried_food_handle), 72);
+        assert_eq!(mem::offset_of!(AntFragment, carried_food_index), 72);
         assert_eq!(mem::offset_of!(AntFragment, pickup_cooldown_remaining_seconds), 80);
         assert_eq!(mem::offset_of!(AntFragment, movement_speed), 84);
         assert_eq!(mem::offset_of!(AntFragment, turn_jitter_radians), 88);
@@ -113,7 +117,7 @@ mod tests {
     #[test]
     fn encounter_fragment_layout() {
         assert_eq!(mem::size_of::<AntEncounterFragment>(), 40);
-        assert_eq!(mem::offset_of!(AntEncounterFragment, nearest_food_handle), 0);
+        assert_eq!(mem::offset_of!(AntEncounterFragment, nearest_food_index), 0);
         assert_eq!(mem::offset_of!(AntEncounterFragment, encounter_position), 8);
         assert_eq!(mem::offset_of!(AntEncounterFragment, has_encounter), 32);
     }

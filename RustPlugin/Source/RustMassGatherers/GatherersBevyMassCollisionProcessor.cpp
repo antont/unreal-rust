@@ -57,7 +57,7 @@ void UGatherersBevyMassCollisionProcessor::Execute(FMassEntityManager& EntityMan
 
 			// Reset encounter
 			Enc.bHasEncounter = false;
-			Enc.NearestFoodEntity = FMassEntityHandle();
+			Enc.NearestFoodIndex = -1;
 			Enc.EncounterPosition = FVector::ZeroVector;
 
 			// Sweep from PreviousPosition to Position
@@ -94,7 +94,7 @@ void UGatherersBevyMassCollisionProcessor::Execute(FMassEntityManager& EntityMan
 					{
 						BestDistSq = DistSq;
 						Enc.bHasEncounter = true;
-						Enc.NearestFoodEntity = FoodEntity;
+						Enc.NearestFoodIndex = InstanceIndex;
 						Enc.EncounterPosition = SweepStart;
 					}
 				}
@@ -141,7 +141,7 @@ void UGatherersBevyMassCollisionProcessor::Execute(FMassEntityManager& EntityMan
 						{
 							BestDistSq = DistSq;
 							Enc.bHasEncounter = true;
-							Enc.NearestFoodEntity = FoodEntity;
+							Enc.NearestFoodIndex = Hit.Item;
 							Enc.EncounterPosition = Hit.ImpactPoint;
 						}
 					}

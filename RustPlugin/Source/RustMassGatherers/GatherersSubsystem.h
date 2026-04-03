@@ -34,6 +34,7 @@ public:
 
 	int32 GetManagedAntCount() const;
 	int32 GetManagedFoodCount() const;
+	const TArray<FMassEntityHandle>& GetManagedFoodEntities() const { return ManagedFoodEntities; }
 	bool HasManagedSimulation() const;
 	float GetAccumulatedSimulationSeconds() const;
 	const FBox& GetSimulationBounds() const;

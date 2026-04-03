@@ -251,8 +251,8 @@ bool FGatherersBevyMassFoodFragmentLayoutTest::RunTest(const FString& Parameters
 	TestEqual(TEXT("FoodFragment bIsLoose offset"), (int32)offsetof(FGatherersMassFoodFragment, bIsLoose), 24);
 
 	// Verify encounter fragment layout
-	TestEqual(TEXT("EncounterFragment NearestFoodEntity offset"),
-		(int32)offsetof(FGatherersAntEncounterFragment, NearestFoodEntity), 0);
+	TestEqual(TEXT("EncounterFragment NearestFoodIndex offset"),
+		(int32)offsetof(FGatherersAntEncounterFragment, NearestFoodIndex), 0);
 	TestEqual(TEXT("EncounterFragment EncounterPosition offset"),
 		(int32)offsetof(FGatherersAntEncounterFragment, EncounterPosition), 8);
 	TestEqual(TEXT("EncounterFragment bHasEncounter offset"),

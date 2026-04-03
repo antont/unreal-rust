@@ -34,7 +34,7 @@ FTransform BevyMassBuildVisualTransform(const FVector& Position, const FVector& 
 FVector BevyMassComputeFoodVisualPosition(
 	FMassEntityManager& EntityManager,
 	const TArray<FMassEntityHandle>& AntEntities,
-	FMassEntityHandle FoodEntity,
+	int32 FoodIndex,
 	const FGatherersMassFoodFragment& FoodFragment)
 {
 	if (FoodFragment.bIsLoose)
@@ -51,7 +51,7 @@ FVector BevyMassComputeFoodVisualPosition(
 
 		FMassEntityView AntView(EntityManager, AntEntity);
 		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
-		if (AntFragment.CarriedFoodEntity == FoodEntity)
+		if (AntFragment.CarriedFoodIndex == FoodIndex)
 		{
 			return AntFragment.Position + ComputeCarriedFoodRelativeLocation(GatherersMassCarriedFoodHeight);
 		}
@@ -495,8 +495,9 @@ void UGatherersBevyMassSubsystem::RebuildVisualInstances(UMassEntitySubsystem& M
 		AntVisualComponent->AddInstance(BevyMassBuildVisualTransform(AntFragment.Position, BevyMassAntVisualScale), true);
 	}
 
-	for (const FMassEntityHandle FoodEntity : ManagedFoodEntities)
+	for (int32 FoodIndex = 0; FoodIndex < ManagedFoodEntities.Num(); ++FoodIndex)
 	{
+		const FMassEntityHandle FoodEntity = ManagedFoodEntities[FoodIndex];
 		if (!EntityManager.IsEntityValid(FoodEntity))
 		{
 			continue;
@@ -506,7 +507,7 @@ void UGatherersBevyMassSubsystem::RebuildVisualInstances(UMassEntitySubsystem& M
 		const FGatherersMassFoodFragment& FoodFragment = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
 		FoodRepresentationComponent->AddInstance(
 			BevyMassBuildVisualTransform(
-				BevyMassComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodEntity, FoodFragment),
+				BevyMassComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodIndex, FoodFragment),
 				BevyMassFoodVisualScale),
 			true);
 	}
@@ -560,7 +561,7 @@ void UGatherersBevyMassSubsystem::SyncVisualInstances(UMassEntitySubsystem& Mass
 		FoodRepresentationComponent->UpdateInstanceTransform(
 			FoodIndex,
 			BevyMassBuildVisualTransform(
-				BevyMassComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodEntity, FoodFragment),
+				BevyMassComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodIndex, FoodFragment),
 				BevyMassFoodVisualScale),
 			true,
 			FoodIndex == ManagedFoodEntities.Num() - 1,

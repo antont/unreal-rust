@@ -122,14 +122,19 @@ void UGatherersFoodInteractionProcessor::Execute(FMassEntityManager& EntityManag
 			const FGatherersMassFoodEncounter* FirstEncounter = NearbyEncounters.IsEmpty() ? nullptr : &NearbyEncounters[0];
 
 			FGatherersMassFoodFragment* NearbyFood = nullptr;
-			if (FirstEncounter != nullptr && FirstEncounter->Entity.IsSet() && EntityManager.IsEntityValid(FirstEncounter->Entity))
+			if (FirstEncounter != nullptr && FirstEncounter->FoodIndex >= 0)
 			{
-				FMassEntityView NearbyFoodView(EntityManager, FirstEncounter->Entity);
-				NearbyFood = &NearbyFoodView.GetFragmentData<FGatherersMassFoodFragment>();
+				const TArray<FMassEntityHandle>& FoodEntities = Subsystem.GetManagedFoodEntities();
+				if (FoodEntities.IsValidIndex(FirstEncounter->FoodIndex)
+					&& EntityManager.IsEntityValid(FoodEntities[FirstEncounter->FoodIndex]))
+				{
+					FMassEntityView NearbyFoodView(EntityManager, FoodEntities[FirstEncounter->FoodIndex]);
+					NearbyFood = &NearbyFoodView.GetFragmentData<FGatherersMassFoodFragment>();
+				}
 			}
 
-			// Save old carried entity before Rust may clear it
-			const FMassEntityHandle OldCarriedEntity = AntFragment.CarriedFoodEntity;
+			// Save old carried index before Rust may clear it
+			const int32 OldCarriedIndex = AntFragment.CarriedFoodIndex;
 
 			// Delegate decision to Rust — it modifies ant fragment (position, direction, cooldown, carried handle)
 			const int32 HasEncounter = (NearbyFood != nullptr && FirstEncounter != nullptr) ? 1 : 0;
@@ -142,9 +147,11 @@ void UGatherersFoodInteractionProcessor::Execute(FMassEntityManager& EntityManag
 			// C++ applies entity operations based on Rust's decision
 			if (Decision == 2) // Drop
 			{
-				if (EntityManager.IsEntityValid(OldCarriedEntity))
+				const TArray<FMassEntityHandle>& FoodEntities = Subsystem.GetManagedFoodEntities();
+				if (OldCarriedIndex >= 0 && FoodEntities.IsValidIndex(OldCarriedIndex)
+					&& EntityManager.IsEntityValid(FoodEntities[OldCarriedIndex]))
 				{
-					FMassEntityView CarriedFoodView(EntityManager, OldCarriedEntity);
+					FMassEntityView CarriedFoodView(EntityManager, FoodEntities[OldCarriedIndex]);
 					FGatherersMassFoodFragment& CarriedFoodFragment =
 						CarriedFoodView.GetFragmentData<FGatherersMassFoodFragment>();
 					CarriedFoodFragment.bIsLoose = true;

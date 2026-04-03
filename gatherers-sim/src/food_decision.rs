@@ -24,14 +24,14 @@ pub fn ant_food_decision(
     ant: &mut AntFragment,
     encounter: Option<&FoodEncounter>,
 ) -> FoodDecisionCode {
-    let is_carrying = ant.carried_food_handle[0] != 0 || ant.carried_food_handle[1] != 0;
+    let is_carrying = ant.carried_food_index >= 0;
 
     match encounter {
         Some(enc) if is_carrying => {
             // Drop: ant is carrying and encounters loose food
             ant.position = enc.encounter_position;
             ant.direction = consume_ant_turn_direction(ant);
-            ant.carried_food_handle = [0, 0];
+            ant.carried_food_index = -1;
             ant.pickup_cooldown_remaining_seconds =
                 compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, ant.movement_speed);
             DECISION_DROP
@@ -40,7 +40,7 @@ pub fn ant_food_decision(
             // Pick up: ant is not carrying, cooldown expired, food nearby
             ant.position = enc.encounter_position;
             ant.direction = consume_ant_turn_direction(ant);
-            ant.carried_food_handle = enc.entity_handle;
+            ant.carried_food_index = enc.food_index;
             DECISION_PICK_UP
         }
         _ => DECISION_NO_ACTION,
@@ -114,14 +114,15 @@ mod tests {
             ..Default::default()
         };
         if carrying {
-            ant.carried_food_handle = [1, 1]; // non-zero = valid
+            ant.carried_food_index = 0; // >= 0 = carrying
         }
         ant
     }
 
     fn make_encounter() -> FoodEncounter {
         FoodEncounter {
-            entity_handle: [5, 10],
+            food_index: 0,
+            _pad: 0,
             encounter_position: [110.0, 105.0, 0.0],
         }
     }
@@ -139,7 +140,7 @@ mod tests {
         let mut ant = make_ant(true);
         let encounter = make_encounter();
         ant_food_decision(&mut ant, Some(&encounter));
-        assert_eq!(ant.carried_food_handle, [0, 0], "carried handle should be cleared");
+        assert_eq!(ant.carried_food_index, -1, "carried index should be cleared");
     }
 
     #[test]
@@ -183,7 +184,7 @@ mod tests {
         let mut ant = make_ant(false);
         let encounter = make_encounter();
         ant_food_decision(&mut ant, Some(&encounter));
-        assert_eq!(ant.carried_food_handle, encounter.entity_handle);
+        assert_eq!(ant.carried_food_index, encounter.food_index);
     }
 
     #[test]

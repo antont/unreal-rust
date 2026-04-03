@@ -210,6 +210,28 @@ struct MassFragmentSlice {
   uint32_t stride;
 };
 
+/// One chunk's slice of data for a global query — points directly into Mass Entity chunk memory.
+struct MassGlobalChunkSlice {
+  /// Direct pointer into chunk fragment memory (zero-copy).
+  void *data;
+  /// Number of entities in this chunk.
+  int32_t count;
+  /// Size of each fragment element in bytes.
+  uint32_t stride;
+};
+
+/// All chunk slices for one global fragment type.
+struct MassGlobalFragmentChunks {
+  /// Pointer to array of MassGlobalChunkSlice, one per chunk.
+  const MassGlobalChunkSlice *chunks;
+  /// Number of chunks.
+  uint32_t num_chunks;
+  /// Total entity count across all chunks.
+  int32_t total_count;
+  /// Stride (same for all chunks — same fragment type).
+  uint32_t stride;
+};
+
 /// Chunk data passed from C++ Execute to a Rust mass system function.
 struct MassChunkData {
   /// Number of entities in this chunk.
@@ -224,10 +246,12 @@ struct MassChunkData {
   int32_t global_num_entities;
   /// Number of global fragment slices.
   uint32_t num_global_fragments;
-  /// Pointer to array of MassFragmentSlice for global queries (all matching entities).
+  /// Deprecated: was contiguous-copy global fragments. Set to null for zero-copy path.
   const MassFragmentSlice *global_fragments;
-  /// Entity handles for global query entities: pairs of [index, serial_number] per entity.
+  /// Deprecated: was entity handle pairs. Set to null for index-based access.
   const int32_t *global_entity_handles;
+  /// Zero-copy chunked global fragments: array of MassGlobalFragmentChunks, one per global fragment type.
+  const MassGlobalFragmentChunks *global_chunked_fragments;
 };
 
 /// Execute function signature for a dynamically registered mass system.
