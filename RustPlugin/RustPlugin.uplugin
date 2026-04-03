@@ -39,6 +39,11 @@
 			"Name": "RustMassSpike",
 			"Type": "Runtime",
 			"LoadingPhase": "PostEngineInit"
+		},
+		{
+			"Name": "RustMassGatherers",
+			"Type": "Runtime",
+			"LoadingPhase": "PostEngineInit"
 		}
 	]
 }
