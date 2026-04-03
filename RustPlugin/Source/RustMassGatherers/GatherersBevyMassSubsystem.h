@@ -22,16 +22,22 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual TStatId GetStatId() const override;
 
-	void InitializeSimulation(int32 AntCount, const FBox& Bounds, int32 RandomSeedBase);
+	void InitializeSimulation(int32 AntCount, int32 FoodCount, const FBox& Bounds, int32 RandomSeedBase);
 	void ResetSimulation();
 	void RunSimulationProcessorsForTesting(float DeltaTime);
 
 	int32 GetManagedAntCount() const;
+	int32 GetManagedFoodCount() const;
 	bool HasManagedSimulation() const;
 
 public:
 	TArray<FMassEntityHandle> ManagedAntEntities;
+	TArray<FMassEntityHandle> ManagedFoodEntities;
 	FBox SimulationBounds = FBox(EForceInit::ForceInit);
+
+	/// Food ISM — public so the collision processor can access it.
+	UPROPERTY(Transient)
+	TObjectPtr<UInstancedStaticMeshComponent> FoodRepresentationComponent = nullptr;
 
 private:
 	bool EnsureProcessorPipelines(UMassEntitySubsystem& MassEntitySubsystem);
@@ -59,6 +65,9 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<UMaterialInstanceDynamic> AntVisualMaterial = nullptr;
+
+	UPROPERTY(Transient)
+	TObjectPtr<UMaterialInstanceDynamic> FoodVisualMaterial = nullptr;
 };
 
 template<>

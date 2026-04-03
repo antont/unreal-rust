@@ -143,10 +143,18 @@ pub struct MassChunkData {
     pub num_entities: i32,
     /// Delta time for this simulation step.
     pub dt: f32,
-    /// Number of fragment slices (matches system's requirement count).
+    /// Number of primary fragment slices (matches system's primary requirement count).
     pub num_fragments: u32,
-    /// Pointer to array of MassFragmentSlice, one per requirement in declaration order.
+    /// Pointer to array of MassFragmentSlice, one per primary requirement in declaration order.
     pub fragments: *const MassFragmentSlice,
+    /// Number of entities across all chunks for global queries.
+    pub global_num_entities: i32,
+    /// Number of global fragment slices.
+    pub num_global_fragments: u32,
+    /// Pointer to array of MassFragmentSlice for global queries (all matching entities).
+    pub global_fragments: *const MassFragmentSlice,
+    /// Entity handles for global query entities: pairs of [index, serial_number] per entity.
+    pub global_entity_handles: *const i32,
 }
 
 /// Describes one fragment/tag requirement for a Rust mass system.
@@ -162,6 +170,9 @@ pub struct MassFragmentRequirement {
     pub access_mode: u8,
     /// Whether this is a tag (1) or fragment (0).
     pub is_tag: u8,
+    /// Query scope: 0 = primary (per-chunk), 1 = global (all matching entities).
+    pub query_scope: u8,
+    pub _padding: u8,
 }
 
 /// Execute function signature for a dynamically registered mass system.
@@ -604,15 +615,15 @@ mod tests {
 
     #[test]
     fn mass_chunk_data_layout() {
-        // i32 + f32 + u32 + padding + pointer = 8 + 8 + 8 = 24 on 64-bit
+        // i32 + f32 + u32 + pad + ptr + i32 + u32 + ptr + ptr = 48 on 64-bit
         let size = std::mem::size_of::<MassChunkData>();
-        assert_eq!(size, 24);
+        assert_eq!(size, 48);
         assert_eq!(std::mem::align_of::<MassChunkData>(), 8);
     }
 
     #[test]
     fn mass_fragment_requirement_layout() {
-        // Utf8Str (ptr + usize = 16) + u32 + u32 + u8 + u8 + padding
+        // Utf8Str (ptr + usize = 16) + u32 + u32 + u8 + u8 + u8 + u8 + padding
         let size = std::mem::size_of::<MassFragmentRequirement>();
         assert_eq!(size, 32);
     }

@@ -35,6 +35,8 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
             alignment: req.align as u32,
             access_mode: req.access_mode,
             is_tag: req.is_tag,
+            query_scope: req.query_scope,
+            _padding: 0,
         })
         .collect();
 

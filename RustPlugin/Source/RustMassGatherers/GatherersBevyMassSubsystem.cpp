@@ -12,14 +12,53 @@
 #include "StructUtils/InstancedStruct.h"
 #include "RustMassDynamicProcessor.h"
 #include "RustPlugin.h"
+#include "GatherersBevyMassCollisionProcessor.h"
+#include "GatherersMassRuntime.h"
 
 namespace
 {
 const FLinearColor BevyMassAntColor(0.2f, 0.8f, 0.8f, 1.0f);
+const FLinearColor BevyMassFoodColor(192.0f / 255.0f, 2.0f / 255.0f, 2.0f / 255.0f, 1.0f);
 const FVector BevyMassAntVisualScale(0.2f, 0.2f, 0.2f);
+const FVector BevyMassFoodVisualScale(0.1f, 0.1f, 0.1f);
 constexpr TCHAR BevyMassSphereMeshPath[] = TEXT("/Engine/BasicShapes/Sphere.Sphere");
 constexpr TCHAR BevyMassBasicMaterialPath[] = TEXT("/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial");
 constexpr TCHAR BevyMassVisualizerActorName[] = TEXT("GatherersBevyMassVisualizer");
+constexpr ECollisionChannel BevyMassFoodQueryChannel = ECC_GameTraceChannel1;
+
+FTransform BevyMassBuildVisualTransform(const FVector& Position, const FVector& VisualScale)
+{
+	return FTransform(FQuat::Identity, Position, VisualScale);
+}
+
+FVector BevyMassComputeFoodVisualPosition(
+	FMassEntityManager& EntityManager,
+	const TArray<FMassEntityHandle>& AntEntities,
+	FMassEntityHandle FoodEntity,
+	const FGatherersMassFoodFragment& FoodFragment)
+{
+	if (FoodFragment.bIsLoose)
+	{
+		return FoodFragment.Position;
+	}
+
+	for (const FMassEntityHandle AntEntity : AntEntities)
+	{
+		if (!EntityManager.IsEntityValid(AntEntity))
+		{
+			continue;
+		}
+
+		FMassEntityView AntView(EntityManager, AntEntity);
+		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
+		if (AntFragment.CarriedFoodEntity == FoodEntity)
+		{
+			return AntFragment.Position + ComputeCarriedFoodRelativeLocation(GatherersMassCarriedFoodHeight);
+		}
+	}
+
+	return FoodFragment.Position;
+}
 }
 
 void UGatherersBevyMassSubsystem::Initialize(FSubsystemCollectionBase& Collection)
@@ -50,9 +89,53 @@ bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem&
 		URustMassDynamicProcessor::CreateAllRustProcessors(Module.Plugin.Rust, this);
 
 	TArray<UMassProcessor*> SimProcessors;
+
+	// Separate Rust systems by name for pipeline ordering
+	URustMassDynamicProcessor* MovementProc = nullptr;
+	URustMassDynamicProcessor* FoodDecisionProc = nullptr;
+	TArray<URustMassDynamicProcessor*> OtherRustProcs;
+
 	for (URustMassDynamicProcessor* Proc : DynamicProcessors)
 	{
 		Proc->AddExtraTagRequirement(FGatherersBevyMassAntTag::StaticStruct());
+
+		// Identify systems by name for ordered pipeline
+		const FString& ProcName = Proc->GetSystemName();
+		if (ProcName.Contains(TEXT("ant_movement")))
+		{
+			MovementProc = Proc;
+		}
+		else if (ProcName.Contains(TEXT("ant_food_decision")))
+		{
+			FoodDecisionProc = Proc;
+		}
+		else
+		{
+			OtherRustProcs.Add(Proc);
+		}
+	}
+
+	// Pipeline order: movement → collision prepass → food decision → others (cooldown, boundary)
+	if (MovementProc)
+	{
+		SimProcessors.Add(MovementProc);
+	}
+
+	// C++ collision pre-pass (between movement and food decision)
+	if (ManagedFoodEntities.Num() > 0)
+	{
+		UGatherersBevyMassCollisionProcessor* CollisionProc =
+			NewObject<UGatherersBevyMassCollisionProcessor>(this);
+		SimProcessors.Add(CollisionProc);
+	}
+
+	if (FoodDecisionProc)
+	{
+		SimProcessors.Add(FoodDecisionProc);
+	}
+
+	for (URustMassDynamicProcessor* Proc : OtherRustProcs)
+	{
 		SimProcessors.Add(Proc);
 	}
 
@@ -143,7 +226,7 @@ TStatId UGatherersBevyMassSubsystem::GetStatId() const
 	RETURN_QUICK_DECLARE_CYCLE_STAT(UGatherersBevyMassSubsystem, STATGROUP_Tickables);
 }
 
-void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, const FBox& Bounds, int32 RandomSeedBase)
+void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, int32 FoodCount, const FBox& Bounds, int32 RandomSeedBase)
 {
 	ResetSimulation();
 
@@ -163,6 +246,24 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, const FBo
 	SimulationBounds = Bounds;
 
 	FRandomStream Random(RandomSeedBase);
+
+	// Spawn food entities
+	for (int32 FoodIndex = 0; FoodIndex < FoodCount; ++FoodIndex)
+	{
+		FGatherersMassFoodFragment FoodFragment;
+		FoodFragment.Position = FVector(
+			Random.FRandRange(Bounds.Min.X, Bounds.Max.X),
+			Random.FRandRange(Bounds.Min.Y, Bounds.Max.Y),
+			50.0);
+
+		TArray<FInstancedStruct, TInlineAllocator<1>> FoodFragments;
+		FoodFragments.Add(FInstancedStruct::Make(FoodFragment));
+		const FMassEntityHandle FoodEntity = EntityManager.CreateEntity(FoodFragments);
+		EntityManager.AddTagToEntity(FoodEntity, FGatherersMassFoodTag::StaticStruct());
+		ManagedFoodEntities.Add(FoodEntity);
+	}
+
+	// Spawn ant entities
 	const FVector BoundsCenter = Bounds.GetCenter();
 	const float AntSpawnStep = 50.0f;
 
@@ -181,16 +282,19 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, const FBo
 		AntFragment.MovementSpeed = 100.0f;
 		AntFragment.TurnJitterRadians = PI / 2.0f;
 
-		TArray<FInstancedStruct, TInlineAllocator<1>> AntFragments;
+		FGatherersAntEncounterFragment EncounterFragment;
+
+		TArray<FInstancedStruct, TInlineAllocator<2>> AntFragments;
 		AntFragments.Add(FInstancedStruct::Make(AntFragment));
+		AntFragments.Add(FInstancedStruct::Make(EncounterFragment));
 		const FMassEntityHandle AntEntity = EntityManager.CreateEntity(AntFragments);
 		EntityManager.AddTagToEntity(AntEntity, FGatherersBevyMassAntTag::StaticStruct());
 		ManagedAntEntities.Add(AntEntity);
 	}
 
 	RebuildVisualInstances(*MassEntitySubsystem);
-	UE_LOG(LogTemp, Log, TEXT("GatherersBevyMass: Spawned %d ants (dynamic Rust systems)"),
-		ManagedAntEntities.Num());
+	UE_LOG(LogTemp, Log, TEXT("GatherersBevyMass: Spawned %d ants and %d food (dynamic Rust systems)"),
+		ManagedAntEntities.Num(), ManagedFoodEntities.Num());
 }
 
 void UGatherersBevyMassSubsystem::ResetSimulation()
@@ -205,11 +309,16 @@ void UGatherersBevyMassSubsystem::ResetSimulation()
 		{
 			AntVisualComponent->ClearInstances();
 		}
+		if (FoodRepresentationComponent != nullptr)
+		{
+			FoodRepresentationComponent->ClearInstances();
+		}
 		if (VisualizerActor != nullptr)
 		{
 			VisualizerActor->Destroy();
 			VisualizerActor = nullptr;
 			AntVisualComponent = nullptr;
+			FoodRepresentationComponent = nullptr;
 		}
 
 		for (const FMassEntityHandle Entity : ManagedAntEntities)
@@ -219,9 +328,17 @@ void UGatherersBevyMassSubsystem::ResetSimulation()
 				EntityManager.DestroyEntity(Entity);
 			}
 		}
+		for (const FMassEntityHandle Entity : ManagedFoodEntities)
+		{
+			if (EntityManager.IsEntityValid(Entity))
+			{
+				EntityManager.DestroyEntity(Entity);
+			}
+		}
 	}
 
 	ManagedAntEntities.Reset();
+	ManagedFoodEntities.Reset();
 	SimulationBounds = FBox(EForceInit::ForceInit);
 	SimulationTimeAccumulatorSeconds = 0.0f;
 	SimulationProcessorPipeline.Reset();
@@ -233,9 +350,14 @@ int32 UGatherersBevyMassSubsystem::GetManagedAntCount() const
 	return ManagedAntEntities.Num();
 }
 
+int32 UGatherersBevyMassSubsystem::GetManagedFoodCount() const
+{
+	return ManagedFoodEntities.Num();
+}
+
 bool UGatherersBevyMassSubsystem::HasManagedSimulation() const
 {
-	return ManagedAntEntities.Num() > 0;
+	return ManagedAntEntities.Num() > 0 || ManagedFoodEntities.Num() > 0;
 }
 
 void UGatherersBevyMassSubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
@@ -265,7 +387,16 @@ bool UGatherersBevyMassSubsystem::EnsureVisualComponents()
 		}
 	}
 
-	if (AntVisualMaterial == nullptr)
+	if (!FoodVisualMaterial)
+	{
+		FoodVisualMaterial = UMaterialInstanceDynamic::Create(BaseMaterial, this);
+		if (FoodVisualMaterial)
+		{
+			FoodVisualMaterial->SetVectorParameterValue(TEXT("Color"), BevyMassFoodColor);
+		}
+	}
+
+	if (AntVisualMaterial == nullptr || FoodVisualMaterial == nullptr)
 	{
 		return false;
 	}
@@ -317,6 +448,27 @@ bool UGatherersBevyMassSubsystem::EnsureVisualComponents()
 		AntVisualComponent->SetCanEverAffectNavigation(false);
 	}
 
+	if (!FoodRepresentationComponent)
+	{
+		FoodRepresentationComponent = NewObject<UInstancedStaticMeshComponent>(VisualizerActor, TEXT("BevyMassFood"));
+		VisualizerActor->AddInstanceComponent(FoodRepresentationComponent);
+
+		if (!FoodRepresentationComponent->IsRegistered())
+		{
+			FoodRepresentationComponent->SetupAttachment(RootComponent);
+			FoodRepresentationComponent->RegisterComponent();
+		}
+
+		FoodRepresentationComponent->SetStaticMesh(VisualSphereMesh);
+		FoodRepresentationComponent->SetMaterial(0, FoodVisualMaterial);
+		FoodRepresentationComponent->SetMobility(EComponentMobility::Movable);
+		FoodRepresentationComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+		FoodRepresentationComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
+		FoodRepresentationComponent->SetCollisionResponseToChannel(BevyMassFoodQueryChannel, ECR_Block);
+		FoodRepresentationComponent->SetCastShadow(false);
+		FoodRepresentationComponent->SetCanEverAffectNavigation(false);
+	}
+
 	return true;
 }
 
@@ -328,6 +480,7 @@ void UGatherersBevyMassSubsystem::RebuildVisualInstances(UMassEntitySubsystem& M
 	}
 
 	AntVisualComponent->ClearInstances();
+	FoodRepresentationComponent->ClearInstances();
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem.GetMutableEntityManager();
 	for (const FMassEntityHandle AntEntity : ManagedAntEntities)
@@ -339,8 +492,23 @@ void UGatherersBevyMassSubsystem::RebuildVisualInstances(UMassEntitySubsystem& M
 
 		FMassEntityView AntView(EntityManager, AntEntity);
 		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
-		AntVisualComponent->AddInstance(
-			FTransform(FQuat::Identity, AntFragment.Position, BevyMassAntVisualScale), true);
+		AntVisualComponent->AddInstance(BevyMassBuildVisualTransform(AntFragment.Position, BevyMassAntVisualScale), true);
+	}
+
+	for (const FMassEntityHandle FoodEntity : ManagedFoodEntities)
+	{
+		if (!EntityManager.IsEntityValid(FoodEntity))
+		{
+			continue;
+		}
+
+		FMassEntityView FoodView(EntityManager, FoodEntity);
+		const FGatherersMassFoodFragment& FoodFragment = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+		FoodRepresentationComponent->AddInstance(
+			BevyMassBuildVisualTransform(
+				BevyMassComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodEntity, FoodFragment),
+				BevyMassFoodVisualScale),
+			true);
 	}
 }
 
@@ -351,7 +519,8 @@ void UGatherersBevyMassSubsystem::SyncVisualInstances(UMassEntitySubsystem& Mass
 		return;
 	}
 
-	if (AntVisualComponent->GetInstanceCount() != ManagedAntEntities.Num())
+	if (AntVisualComponent->GetInstanceCount() != ManagedAntEntities.Num()
+		|| FoodRepresentationComponent->GetInstanceCount() != ManagedFoodEntities.Num())
 	{
 		RebuildVisualInstances(MassEntitySubsystem);
 		return;
@@ -371,9 +540,30 @@ void UGatherersBevyMassSubsystem::SyncVisualInstances(UMassEntitySubsystem& Mass
 		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
 		AntVisualComponent->UpdateInstanceTransform(
 			AntIndex,
-			FTransform(FQuat::Identity, AntFragment.Position, BevyMassAntVisualScale),
+			BevyMassBuildVisualTransform(AntFragment.Position, BevyMassAntVisualScale),
 			true,
-			AntIndex == ManagedAntEntities.Num() - 1,
+			AntIndex == ManagedAntEntities.Num() - 1 && ManagedFoodEntities.Num() == 0,
+			true);
+	}
+
+	for (int32 FoodIndex = 0; FoodIndex < ManagedFoodEntities.Num(); ++FoodIndex)
+	{
+		const FMassEntityHandle FoodEntity = ManagedFoodEntities[FoodIndex];
+		if (!EntityManager.IsEntityValid(FoodEntity))
+		{
+			RebuildVisualInstances(MassEntitySubsystem);
+			return;
+		}
+
+		FMassEntityView FoodView(EntityManager, FoodEntity);
+		const FGatherersMassFoodFragment& FoodFragment = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+		FoodRepresentationComponent->UpdateInstanceTransform(
+			FoodIndex,
+			BevyMassBuildVisualTransform(
+				BevyMassComputeFoodVisualPosition(EntityManager, ManagedAntEntities, FoodEntity, FoodFragment),
+				BevyMassFoodVisualScale),
+			true,
+			FoodIndex == ManagedFoodEntities.Num() - 1,
 			true);
 	}
 }

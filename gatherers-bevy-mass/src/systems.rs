@@ -1,14 +1,15 @@
-use unreal_api::mass::MassQuery;
+use unreal_api::mass::{MassQuery, MassQueryAll, MassQueryMut};
 use unreal_api::mass_system;
-use crate::fragments::AntFragment;
+use crate::fragments::{AntEncounterFragment, AntFragment, FoodFragment};
 
 /// Default simulation bounds — Rust owns this, no C++ round-trip needed.
 pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
 pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 
-/// Move ants forward, reflect at boundaries, decrement cooldowns.
-///
-/// Port of ant_movement_system from gatherers-sim using the Bevy-like API.
+// ---------------------------------------------------------------------------
+// System 1: Movement — position += velocity * dt
+// ---------------------------------------------------------------------------
+
 #[mass_system]
 fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
     let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
@@ -16,14 +17,8 @@ fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
     let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
 
     for ant in ants.iter_mut() {
-        // Decrement cooldown
-        ant.pickup_cooldown_remaining_seconds =
-            (ant.pickup_cooldown_remaining_seconds - dt.max(0.0)).max(0.0);
-
-        // Store previous position
         ant.previous_position = ant.position;
 
-        // Compute movement step
         let dir = normalize_f64x3(ant.direction);
         if is_nearly_zero_f64x3(dir) {
             continue;
@@ -33,8 +28,30 @@ fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
         ant.position[0] += dir[0] * step_dist;
         ant.position[1] += dir[1] * step_dist;
         ant.position[2] += dir[2] * step_dist;
+    }
+}
 
-        // Boundary clamping and reflection
+// ---------------------------------------------------------------------------
+// System 4: Cooldown — decrement pickup cooldown timers
+// ---------------------------------------------------------------------------
+
+#[mass_system]
+fn ant_cooldown(ants: MassQuery<&mut AntFragment>, dt: f32) {
+    for ant in ants.iter_mut() {
+        ant.pickup_cooldown_remaining_seconds =
+            (ant.pickup_cooldown_remaining_seconds - dt.max(0.0)).max(0.0);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// System 5: Boundary reflection — clamp position, reflect direction
+// ---------------------------------------------------------------------------
+
+#[mass_system]
+fn ant_boundary_reflect(ants: MassQuery<&mut AntFragment>, dt: f32) {
+    let _ = dt; // unused but required by macro signature
+
+    for ant in ants.iter_mut() {
         let mut inward_normal = [0.0f64; 3];
 
         if ant.position[0] < SIM_BOUNDS_MIN[0] {
@@ -58,6 +75,81 @@ fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
         }
     }
 }
+
+// ---------------------------------------------------------------------------
+// System 3: Food decision — pickup/drop logic from pre-computed encounters
+// ---------------------------------------------------------------------------
+
+/// Cooldown applied after picking up or dropping food, in seconds.
+const PICKUP_COOLDOWN_SECONDS: f32 = 0.5;
+
+#[mass_system]
+fn ant_food_decision(
+    ants: MassQuery<&mut AntFragment>,
+    encounters: MassQuery<&AntEncounterFragment>,
+    foods: MassQueryAll<&mut FoodFragment>,
+    dt: f32,
+) {
+    let _ = dt;
+    let (food_data, food_handles) = foods.split_mut();
+
+    for (ant, encounter) in ants.iter_mut().zip(encounters.iter()) {
+        if !encounter.has_encounter {
+            continue;
+        }
+        if ant.pickup_cooldown_remaining_seconds > 0.0 {
+            continue;
+        }
+
+        let is_carrying = ant.carried_food_handle != [0, 0];
+
+        if is_carrying {
+            // Drop carried food at ant's current position
+            if let Some(food) = find_food_by_handle(food_data, food_handles, ant.carried_food_handle) {
+                food.is_loose = true;
+                food.position = ant.position;
+            }
+            ant.carried_food_handle = [0, 0];
+            ant.direction = reverse_direction(ant.direction);
+            ant.pickup_cooldown_remaining_seconds = PICKUP_COOLDOWN_SECONDS;
+        } else {
+            // Pick up nearest food
+            let food_handle = encounter.nearest_food_handle;
+            if let Some(food) = find_food_by_handle(food_data, food_handles, food_handle) {
+                if food.is_loose {
+                    food.is_loose = false;
+                    ant.carried_food_handle = food_handle;
+                    ant.direction = reverse_direction(ant.direction);
+                    ant.pickup_cooldown_remaining_seconds = PICKUP_COOLDOWN_SECONDS;
+                }
+            }
+        }
+    }
+}
+
+fn find_food_by_handle<'a>(
+    foods: &'a mut [FoodFragment],
+    entity_handles: &[[i32; 2]],
+    target_handle: [i32; 2],
+) -> Option<&'a mut FoodFragment> {
+    if target_handle == [0, 0] {
+        return None;
+    }
+    for (i, handle) in entity_handles.iter().enumerate() {
+        if *handle == target_handle {
+            return Some(&mut foods[i]);
+        }
+    }
+    None
+}
+
+fn reverse_direction(dir: [f64; 3]) -> [f64; 3] {
+    [-dir[0], -dir[1], -dir[2]]
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
 
 fn normalize_f64x3(v: [f64; 3]) -> [f64; 3] {
     let len = (v[0] * v[0] + v[1] * v[1] + v[2] * v[2]).sqrt();
@@ -93,8 +185,8 @@ fn reflect_direction(dir: [f64; 3], normal: [f64; 3]) -> [f64; 3] {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::fragments::AntFragment;
-    use unreal_api::mass::MassQuery;
+    use crate::fragments::{AntEncounterFragment, AntFragment, FoodFragment};
+    use unreal_api::mass::{MassQueryAllMut, MassQueryMut, MassQueryRef};
 
     #[test]
     fn ant_movement_moves_forward() {
@@ -103,7 +195,7 @@ mod tests {
             movement_speed: 100.0,
             ..Default::default()
         }];
-        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        let mut query = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
         ant_movement(&mut query, 0.1);
         assert!(
             (ants[0].position[0] - 10.0).abs() < 1e-6,
@@ -120,21 +212,21 @@ mod tests {
             movement_speed: 50.0,
             ..Default::default()
         }];
-        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        let mut query = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
         ant_movement(&mut query, 0.1);
         assert_eq!(ants[0].previous_position, [100.0, 200.0, 0.0]);
     }
 
     #[test]
-    fn ant_movement_decrements_cooldown() {
+    fn ant_cooldown_decrements() {
         let mut ants = [AntFragment {
             pickup_cooldown_remaining_seconds: 1.0,
             movement_speed: 100.0,
             direction: [1.0, 0.0, 0.0],
             ..Default::default()
         }];
-        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
-        ant_movement(&mut query, 0.3);
+        let mut query = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_cooldown(&mut query, 0.3);
         assert!(
             (ants[0].pickup_cooldown_remaining_seconds - 0.7).abs() < 1e-5,
             "cooldown should be ~0.7, got {}",
@@ -143,28 +235,28 @@ mod tests {
     }
 
     #[test]
-    fn ant_movement_cooldown_floors_at_zero() {
+    fn ant_cooldown_floors_at_zero() {
         let mut ants = [AntFragment {
             pickup_cooldown_remaining_seconds: 0.1,
             movement_speed: 100.0,
             direction: [1.0, 0.0, 0.0],
             ..Default::default()
         }];
-        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
-        ant_movement(&mut query, 1.0);
+        let mut query = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_cooldown(&mut query, 1.0);
         assert_eq!(ants[0].pickup_cooldown_remaining_seconds, 0.0);
     }
 
     #[test]
     fn boundary_clamp_x_max() {
         let mut ants = [AntFragment {
-            position: [499.0, 0.0, 0.0],
+            position: [600.0, 0.0, 0.0],
             direction: [1.0, 0.0, 0.0],
             movement_speed: 100.0,
             ..Default::default()
         }];
-        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
-        ant_movement(&mut query, 1.0);
+        let mut query = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_boundary_reflect(&mut query, 0.0);
         assert!(
             ants[0].position[0] <= 500.0,
             "X should be clamped to 500, got {}",
@@ -175,17 +267,205 @@ mod tests {
     #[test]
     fn direction_reflects_at_boundary() {
         let mut ants = [AntFragment {
-            position: [499.0, 0.0, 0.0],
+            position: [600.0, 0.0, 0.0],
             direction: [1.0, 0.0, 0.0],
             movement_speed: 100.0,
             ..Default::default()
         }];
-        let mut query = unsafe { MassQuery::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
-        ant_movement(&mut query, 1.0);
+        let mut query = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_boundary_reflect(&mut query, 0.0);
         assert!(
             ants[0].direction[0] < 0.0,
             "direction X should reflect negative, got {}",
             ants[0].direction[0]
         );
+    }
+
+    #[test]
+    fn combined_systems_match_original_behavior() {
+        // Run all 3 systems in sequence, verify same result as original combined system
+        let mut ants = [AntFragment {
+            position: [499.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 100.0,
+            pickup_cooldown_remaining_seconds: 1.0,
+            ..Default::default()
+        }];
+
+        // Step 1: movement
+        let mut q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_movement(&mut q, 1.0);
+        assert!(ants[0].position[0] > 500.0, "should overshoot");
+        assert_eq!(ants[0].previous_position, [499.0, 0.0, 0.0]);
+
+        // Step 2: boundary reflect
+        let mut q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_boundary_reflect(&mut q, 1.0);
+        assert!(ants[0].position[0] <= 500.0, "should be clamped");
+        assert!(ants[0].direction[0] < 0.0, "should reflect");
+
+        // Step 3: cooldown
+        let mut q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        ant_cooldown(&mut q, 1.0);
+        assert_eq!(ants[0].pickup_cooldown_remaining_seconds, 0.0);
+    }
+
+    // -----------------------------------------------------------------------
+    // Food decision tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn food_decision_pickup_when_encounter() {
+        let food_handle = [7, 42];
+        let mut ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            carried_food_handle: [0, 0],
+            pickup_cooldown_remaining_seconds: 0.0,
+            ..Default::default()
+        }];
+        let encounters = [AntEncounterFragment {
+            nearest_food_handle: food_handle,
+            encounter_position: [100.0, 0.0, 0.0],
+            has_encounter: true,
+            _pad: [0; 7],
+        }];
+        let mut foods = [FoodFragment {
+            position: [101.0, 0.0, 0.0],
+            is_loose: true,
+            _pad: [0; 7],
+        }];
+        let handles: [[i32; 2]; 1] = [food_handle];
+
+        let mut ant_q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let mut food_q = unsafe {
+            MassQueryAllMut::from_raw(
+                foods.as_mut_ptr() as *mut _,
+                handles.as_ptr() as *const i32,
+                foods.len(),
+            )
+        };
+
+        ant_food_decision(&mut ant_q, &enc_q, &mut food_q, 0.1);
+
+        // Ant should now be carrying the food
+        assert_eq!(ants[0].carried_food_handle, food_handle);
+        assert!(!foods[0].is_loose, "food should no longer be loose");
+        // Direction should reverse
+        assert!(ants[0].direction[0] < 0.0, "direction should reverse");
+        // Cooldown should be set
+        assert!(ants[0].pickup_cooldown_remaining_seconds > 0.0);
+    }
+
+    #[test]
+    fn food_decision_drop_when_carrying_and_encounter() {
+        let food_handle = [3, 99];
+        let mut ants = [AntFragment {
+            position: [200.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            carried_food_handle: food_handle,
+            pickup_cooldown_remaining_seconds: 0.0,
+            ..Default::default()
+        }];
+        let encounters = [AntEncounterFragment {
+            nearest_food_handle: [5, 50], // different food nearby
+            encounter_position: [200.0, 0.0, 0.0],
+            has_encounter: true,
+            _pad: [0; 7],
+        }];
+        let mut foods = [
+            FoodFragment { position: [0.0; 3], is_loose: false, _pad: [0; 7] }, // carried food
+            FoodFragment { position: [201.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] }, // nearby food
+        ];
+        let handles: [[i32; 2]; 2] = [food_handle, [5, 50]];
+
+        let mut ant_q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let mut food_q = unsafe {
+            MassQueryAllMut::from_raw(
+                foods.as_mut_ptr() as *mut _,
+                handles.as_ptr() as *const i32,
+                foods.len(),
+            )
+        };
+
+        ant_food_decision(&mut ant_q, &enc_q, &mut food_q, 0.1);
+
+        // Ant should have dropped the food
+        assert_eq!(ants[0].carried_food_handle, [0, 0]);
+        // Dropped food should be loose at ant's position
+        assert!(foods[0].is_loose, "dropped food should be loose");
+        assert_eq!(foods[0].position, [200.0, 0.0, 0.0]);
+        // Direction should reverse
+        assert!(ants[0].direction[0] < 0.0);
+    }
+
+    #[test]
+    fn food_decision_skips_when_cooldown_active() {
+        let mut ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            carried_food_handle: [0, 0],
+            pickup_cooldown_remaining_seconds: 1.0,
+            ..Default::default()
+        }];
+        let encounters = [AntEncounterFragment {
+            nearest_food_handle: [1, 1],
+            encounter_position: [100.0, 0.0, 0.0],
+            has_encounter: true,
+            _pad: [0; 7],
+        }];
+        let mut foods = [FoodFragment {
+            position: [101.0, 0.0, 0.0],
+            is_loose: true,
+            _pad: [0; 7],
+        }];
+        let handles: [[i32; 2]; 1] = [[1, 1]];
+
+        let mut ant_q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let mut food_q = unsafe {
+            MassQueryAllMut::from_raw(
+                foods.as_mut_ptr() as *mut _,
+                handles.as_ptr() as *const i32,
+                foods.len(),
+            )
+        };
+
+        ant_food_decision(&mut ant_q, &enc_q, &mut food_q, 0.1);
+
+        // Nothing should change
+        assert_eq!(ants[0].carried_food_handle, [0, 0]);
+        assert!(foods[0].is_loose);
+        assert_eq!(ants[0].direction, [1.0, 0.0, 0.0]);
+    }
+
+    #[test]
+    fn food_decision_skips_when_no_encounter() {
+        let mut ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+        let encounters = [AntEncounterFragment::default()]; // has_encounter = false
+
+        let mut foods = [FoodFragment { position: [101.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] }];
+        let handles: [[i32; 2]; 1] = [[1, 1]];
+
+        let mut ant_q = unsafe { MassQueryMut::from_raw(ants.as_mut_ptr() as *mut _, ants.len()) };
+        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let mut food_q = unsafe {
+            MassQueryAllMut::from_raw(
+                foods.as_mut_ptr() as *mut _,
+                handles.as_ptr() as *const i32,
+                foods.len(),
+            )
+        };
+
+        ant_food_decision(&mut ant_q, &enc_q, &mut food_q, 0.1);
+
+        assert_eq!(ants[0].carried_food_handle, [0, 0]);
+        assert!(foods[0].is_loose);
     }
 }

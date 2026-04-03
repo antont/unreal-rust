@@ -31,6 +31,52 @@ impl Default for AntFragment {
     }
 }
 
+/// Matches C++ FGatherersAntEncounterFragment layout.
+/// Written by C++ collision pre-pass, read by Rust food decision system.
+#[derive(MassFragment, Clone, Copy, Debug)]
+#[repr(C)]
+#[mass(cpp_type = "FGatherersAntEncounterFragment")]
+pub struct AntEncounterFragment {
+    /// Entity handle of nearest food [index, serial_number], or [0,0] if none.
+    pub nearest_food_handle: [i32; 2],
+    /// Position where the encounter occurred.
+    pub encounter_position: [f64; 3],
+    /// Whether an encounter was detected this frame.
+    pub has_encounter: bool,
+    pub _pad: [u8; 7],
+}
+
+impl Default for AntEncounterFragment {
+    fn default() -> Self {
+        Self {
+            nearest_food_handle: [0; 2],
+            encounter_position: [0.0; 3],
+            has_encounter: false,
+            _pad: [0; 7],
+        }
+    }
+}
+
+/// Matches C++ FGatherersMassFoodFragment layout (32 bytes, align 8).
+#[derive(MassFragment, Clone, Copy, Debug)]
+#[repr(C)]
+#[mass(cpp_type = "FGatherersMassFoodFragment")]
+pub struct FoodFragment {
+    pub position: [f64; 3],
+    pub is_loose: bool,
+    pub _pad: [u8; 7],
+}
+
+impl Default for FoodFragment {
+    fn default() -> Self {
+        Self {
+            position: [0.0; 3],
+            is_loose: true,
+            _pad: [0; 7],
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -62,5 +108,30 @@ mod tests {
         assert_eq!(mem::offset_of!(AntFragment, movement_speed), 84);
         assert_eq!(mem::offset_of!(AntFragment, turn_jitter_radians), 88);
         assert_eq!(mem::offset_of!(AntFragment, random_seed), 92);
+    }
+
+    #[test]
+    fn encounter_fragment_layout() {
+        assert_eq!(mem::size_of::<AntEncounterFragment>(), 40);
+        assert_eq!(mem::offset_of!(AntEncounterFragment, nearest_food_handle), 0);
+        assert_eq!(mem::offset_of!(AntEncounterFragment, encounter_position), 8);
+        assert_eq!(mem::offset_of!(AntEncounterFragment, has_encounter), 32);
+    }
+
+    #[test]
+    fn encounter_fragment_cpp_type_name() {
+        assert_eq!(AntEncounterFragment::CPP_TYPE_NAME, "FGatherersAntEncounterFragment");
+    }
+
+    #[test]
+    fn food_fragment_layout() {
+        assert_eq!(mem::size_of::<FoodFragment>(), 32);
+        assert_eq!(mem::offset_of!(FoodFragment, position), 0);
+        assert_eq!(mem::offset_of!(FoodFragment, is_loose), 24);
+    }
+
+    #[test]
+    fn food_fragment_cpp_type_name() {
+        assert_eq!(FoodFragment::CPP_TYPE_NAME, "FGatherersMassFoodFragment");
     }
 }

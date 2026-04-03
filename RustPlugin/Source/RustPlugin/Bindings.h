@@ -195,6 +195,9 @@ struct MassFragmentRequirement {
   uint8_t access_mode;
   /// Whether this is a tag (1) or fragment (0).
   uint8_t is_tag;
+  /// Query scope: 0 = primary (per-chunk), 1 = global (all matching entities).
+  uint8_t query_scope;
+  uint8_t _padding;
 };
 
 /// Data for one fragment slice in a chunk, passed from C++ ForEachEntityChunk to Rust.
@@ -213,10 +216,18 @@ struct MassChunkData {
   int32_t num_entities;
   /// Delta time for this simulation step.
   float dt;
-  /// Number of fragment slices (matches system's requirement count).
+  /// Number of primary fragment slices (matches system's primary requirement count).
   uint32_t num_fragments;
-  /// Pointer to array of MassFragmentSlice, one per requirement in declaration order.
+  /// Pointer to array of MassFragmentSlice, one per primary requirement in declaration order.
   const MassFragmentSlice *fragments;
+  /// Number of entities across all chunks for global queries.
+  int32_t global_num_entities;
+  /// Number of global fragment slices.
+  uint32_t num_global_fragments;
+  /// Pointer to array of MassFragmentSlice for global queries (all matching entities).
+  const MassFragmentSlice *global_fragments;
+  /// Entity handles for global query entities: pairs of [index, serial_number] per entity.
+  const int32_t *global_entity_handles;
 };
 
 /// Execute function signature for a dynamically registered mass system.

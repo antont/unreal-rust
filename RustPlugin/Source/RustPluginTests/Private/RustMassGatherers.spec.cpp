@@ -150,11 +150,12 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	// Initialize with known parameters
+	// Initialize with known parameters (ants + food)
 	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
-	Subsystem->InitializeSimulation(20, Bounds, 456);
+	Subsystem->InitializeSimulation(20, 10, Bounds, 456);
 
 	TestEqual(TEXT("Should have 20 ants"), Subsystem->GetManagedAntCount(), 20);
+	TestEqual(TEXT("Should have 10 food"), Subsystem->GetManagedFoodCount(), 10);
 	TestTrue(TEXT("HasManagedSimulation should be true"), Subsystem->HasManagedSimulation());
 
 	// Record initial positions
@@ -194,9 +195,68 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 
 	TestTrue(TEXT("At least some ants should have moved (dynamic Rust processors)"), MovedCount > 0);
 
+	// Verify food entities exist and have valid data
+	for (const FMassEntityHandle FoodEntity : Subsystem->ManagedFoodEntities)
+	{
+		if (EntityManager.IsEntityValid(FoodEntity))
+		{
+			FMassEntityView FoodView(EntityManager, FoodEntity);
+			const FGatherersMassFoodFragment& Food = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+			TestTrue(TEXT("Food should start loose"), Food.bIsLoose);
+		}
+	}
+
+	// Verify ants have encounter fragments
+	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersAntEncounterFragment& Encounter =
+				AntView.GetFragmentData<FGatherersAntEncounterFragment>();
+			// Just verifying the fragment exists and is accessible
+			(void)Encounter;
+		}
+	}
+
 	// Clean up
 	Subsystem->ResetSimulation();
 	TestFalse(TEXT("HasManagedSimulation should be false after reset"), Subsystem->HasManagedSimulation());
+
+	return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassCollisionProcessorRegisteredTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassCollisionProcessorRegistered",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassCollisionProcessorRegisteredTest::RunTest(const FString& Parameters)
+{
+	UClass* ProcessorClass = FindObject<UClass>(nullptr,
+		TEXT("/Script/RustMassGatherers.GatherersBevyMassCollisionProcessor"));
+	TestNotNull(TEXT("UGatherersBevyMassCollisionProcessor UClass should be registered"), ProcessorClass);
+	return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassFoodFragmentLayoutTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassFoodFragmentLayout",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassFoodFragmentLayoutTest::RunTest(const FString& Parameters)
+{
+	// Verify layout matches Rust FoodFragment expectations
+	TestEqual(TEXT("FoodFragment Position offset"), (int32)offsetof(FGatherersMassFoodFragment, Position), 0);
+	TestEqual(TEXT("FoodFragment bIsLoose offset"), (int32)offsetof(FGatherersMassFoodFragment, bIsLoose), 24);
+
+	// Verify encounter fragment layout
+	TestEqual(TEXT("EncounterFragment NearestFoodEntity offset"),
+		(int32)offsetof(FGatherersAntEncounterFragment, NearestFoodEntity), 0);
+	TestEqual(TEXT("EncounterFragment EncounterPosition offset"),
+		(int32)offsetof(FGatherersAntEncounterFragment, EncounterPosition), 8);
+	TestEqual(TEXT("EncounterFragment bHasEncounter offset"),
+		(int32)offsetof(FGatherersAntEncounterFragment, bHasEncounter), 32);
 
 	return true;
 }

@@ -67,3 +67,22 @@ struct FGatherersMassFoodEncounter
 static_assert(offsetof(FGatherersMassFoodEncounter, Entity) == 0, "Entity at offset 0");
 static_assert(offsetof(FGatherersMassFoodEncounter, EncounterPosition) == 8, "EncounterPosition at offset 8");
 static_assert(sizeof(FGatherersMassFoodEncounter) == 32, "FoodEncounter size must be 32");
+
+/// Fragment written by C++ collision pre-pass, read by Rust food decision system.
+USTRUCT()
+struct FGatherersAntEncounterFragment : public FMassFragment
+{
+	GENERATED_BODY()
+
+	/// Entity handle of nearest food (index + serial), or [0,0] if none.
+	FMassEntityHandle NearestFoodEntity;
+	/// Position where the encounter occurred.
+	FVector EncounterPosition = FVector::ZeroVector;
+	/// Whether an encounter was detected this frame.
+	bool bHasEncounter = false;
+};
+
+// Verify layout matches Rust AntEncounterFragment #[repr(C)]
+static_assert(offsetof(FGatherersAntEncounterFragment, NearestFoodEntity) == 0, "NearestFoodEntity at offset 0");
+static_assert(offsetof(FGatherersAntEncounterFragment, EncounterPosition) == 8, "EncounterPosition at offset 8");
+static_assert(offsetof(FGatherersAntEncounterFragment, bHasEncounter) == 32, "bHasEncounter at offset 32");
