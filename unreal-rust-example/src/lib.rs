@@ -1,5 +1,8 @@
 pub mod mass_spike;
 
+// Force-link gatherers-bevy-mass so its #[mass_system] inventory registrations are included.
+extern crate gatherers_bevy_mass;
+
 use std::{collections::btree_map::Values, os::raw::c_void};
 
 use bevy_app::App;
