@@ -514,6 +514,14 @@ void UGatherersRustSubsystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// Auto-initialize with defaults on first tick if no simulation running
+	if (!HasManagedSimulation() && !bAutoInitAttempted)
+	{
+		bAutoInitAttempted = true;
+		const FBox DefaultBounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+		InitializeSimulation(100, 50, DefaultBounds, 42);
+	}
+
 	if (!HasManagedSimulation())
 	{
 		return;
@@ -673,6 +681,7 @@ void UGatherersRustSubsystem::ResetSimulation()
 	SimulationProcessorPipeline.Reset();
 	VisualProcessorPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
+	bAutoInitAttempted = false;
 }
 
 int32 UGatherersRustSubsystem::GetManagedAntCount() const

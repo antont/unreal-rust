@@ -13,7 +13,7 @@
 class UMassEntitySubsystem;
 
 UCLASS()
-class UGatherersRustSubsystem : public UTickableWorldSubsystem
+class RUSTMASSGATHERERS_API UGatherersRustSubsystem : public UTickableWorldSubsystem
 {
 	GENERATED_BODY()
 
@@ -63,6 +63,7 @@ private:
 	FMassRuntimePipeline VisualProcessorPipeline;
 
 	bool bProcessorPipelinesInitialized = false;
+	bool bAutoInitAttempted = false;
 
 	UPROPERTY(Transient)
 	TObjectPtr<AActor> VisualizerActor = nullptr;
