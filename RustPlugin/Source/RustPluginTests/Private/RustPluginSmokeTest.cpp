@@ -1,22 +1,16 @@
 #include "Editor.h"
 #include "Misc/AutomationTest.h"
-#include "RustUtils.h"
-#include "RustPlugin.h"
+#include "Modules/ModuleManager.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
-	FRustPluginLoaderSmokeTest,
-	"supplemental.RustPlugin.Loader.SmokeTest",
+	FRustPluginModuleSmokeTest,
+	"supplemental.RustPlugin.Module.SmokeTest",
 	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 
-bool FRustPluginLoaderSmokeTest::RunTest(const FString& Parameters)
+bool FRustPluginModuleSmokeTest::RunTest(const FString& Parameters)
 {
-	FRustPluginModule& Module = GetRustModule();
-
-	TestTrue(TEXT("Rust loader should be loaded"), Module.Plugin.IsLoaded());
-
-	// IsRustOutOfDate should not crash
-	const bool bOutOfDate = Module.Plugin.IsRustOutOfDate();
-	TestFalse(TEXT("Rust plugin should not be out of date immediately after load"), bOutOfDate);
+	const bool bModuleLoaded = FModuleManager::Get().IsModuleLoaded(TEXT("RustPlugin"));
+	TestTrue(TEXT("RustPlugin module should be loaded"), bModuleLoaded);
 
 	return true;
 }

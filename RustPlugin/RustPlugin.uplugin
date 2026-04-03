@@ -33,7 +33,7 @@
 		{
 			"Name": "RustPluginTests",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "PostEngineInit"
 		}
 	]
 }

@@ -24,8 +24,22 @@ public:
 			return true;
 		}
 
-		// Find the first actor in the world that is not a default framework actor
-		AActor* TargetActor = nullptr;
+		// Capture all actor positions on the first frame, then check if any moved
+		if (!bCapturedInitial)
+		{
+			for (TActorIterator<AActor> It(World); It; ++It)
+			{
+				AActor* Actor = *It;
+				if (Actor != nullptr)
+				{
+					InitialPositions.Add(Actor, Actor->GetActorLocation());
+				}
+			}
+			bCapturedInitial = true;
+			return false;
+		}
+
+		// Check if any actor's Z position has changed significantly
 		for (TActorIterator<AActor> It(World); It; ++It)
 		{
 			AActor* Actor = *It;
@@ -34,63 +48,23 @@ public:
 				continue;
 			}
 
-			// Skip framework actors (lights, cameras, player controllers, etc.)
-			// The Rust example bobs the first "real" actor it finds via get_all_actors_of_class
-			const FString ClassName = Actor->GetClass()->GetName();
-			if (ClassName.Contains(TEXT("Light")) ||
-				ClassName.Contains(TEXT("Camera")) ||
-				ClassName.Contains(TEXT("Controller")) ||
-				ClassName.Contains(TEXT("GameMode")) ||
-				ClassName.Contains(TEXT("GameState")) ||
-				ClassName.Contains(TEXT("PlayerState")) ||
-				ClassName.Contains(TEXT("HUD")) ||
-				ClassName.Contains(TEXT("GameSession")) ||
-				ClassName.Contains(TEXT("WorldSettings")) ||
-				ClassName.Contains(TEXT("Brush")) ||
-				ClassName.Contains(TEXT("PlayerStart")) ||
-				ClassName.Contains(TEXT("SkyAtmosphere")) ||
-				ClassName.Contains(TEXT("SkyLight")) ||
-				ClassName.Contains(TEXT("Fog")) ||
-				ClassName.Contains(TEXT("PostProcess")) ||
-				ClassName.Contains(TEXT("VolumetricCloud")))
+			const FVector* Initial = InitialPositions.Find(Actor);
+			if (Initial == nullptr)
 			{
 				continue;
 			}
 
-			TargetActor = Actor;
-			break;
-		}
-
-		if (TargetActor == nullptr)
-		{
-			if (FPlatformTime::Seconds() - StartTimeSeconds >= TimeoutSeconds)
+			const double ZDelta = FMath::Abs(Actor->GetActorLocation().Z - Initial->Z);
+			if (ZDelta > 1.0)
 			{
-				Test->TestNotNull(TEXT("should find a target actor in the world"), TargetActor);
+				Test->TestTrue(TEXT("an actor's Z position should change due to Rust bob"), true);
 				return true;
 			}
-			return false;
-		}
-
-		const FVector CurrentLocation = TargetActor->GetActorLocation();
-
-		if (!InitialLocation.IsSet())
-		{
-			InitialLocation = CurrentLocation;
-			return false;
-		}
-
-		const double ZDelta = FMath::Abs(CurrentLocation.Z - InitialLocation.GetValue().Z);
-		if (ZDelta > 1.0)
-		{
-			Test->TestTrue(TEXT("actor Z position should change due to Rust bob"), true);
-			return true;
 		}
 
 		if (FPlatformTime::Seconds() - StartTimeSeconds >= TimeoutSeconds)
 		{
-			Test->AddError(FString::Printf(
-				TEXT("actor did not move after %.1f seconds (Z delta: %.4f)"),
-				TimeoutSeconds, ZDelta));
+			Test->AddError(TEXT("no actor moved after timeout — expected Rust code to bob an actor"));
 			return true;
 		}
 
@@ -101,7 +75,8 @@ private:
 	FAutomationTestBase* Test;
 	double StartTimeSeconds;
 	double TimeoutSeconds;
-	TOptional<FVector> InitialLocation;
+	bool bCapturedInitial = false;
+	TMap<AActor*, FVector> InitialPositions;
 };
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(

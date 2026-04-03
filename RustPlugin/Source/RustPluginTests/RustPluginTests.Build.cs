@@ -1,10 +1,15 @@
 using UnrealBuildTool;
+using System.IO;
 
 public class RustPluginTests : ModuleRules
 {
 	public RustPluginTests(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
+		// RustPlugin uses a flat source layout (no Public/Private split),
+		// so we need to add its source directory explicitly.
+		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustPlugin"));
 
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
