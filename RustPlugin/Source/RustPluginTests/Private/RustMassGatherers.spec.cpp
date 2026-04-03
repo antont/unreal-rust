@@ -4,6 +4,7 @@
 #include "MassEntityView.h"
 #include "Tests/AutomationCommon.h"
 #include "GatherersSubsystem.h"
+#include "GatherersBevyMassSubsystem.h"
 #include "GatherersFragments.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
@@ -102,6 +103,96 @@ bool FGatherersSpawnAndSimulateTest::RunTest(const FString& Parameters)
 	}
 
 	TestTrue(TEXT("At least some ants should have moved after simulation steps"), MovedCount > 0);
+
+	// Clean up
+	Subsystem->ResetSimulation();
+	TestFalse(TEXT("HasManagedSimulation should be false after reset"), Subsystem->HasManagedSimulation());
+
+	return true;
+}
+
+// --- BevyMass tests ---
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassSubsystemRegisteredTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassSubsystemRegistered",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassSubsystemRegisteredTest::RunTest(const FString& Parameters)
+{
+	UClass* SubsystemClass = FindObject<UClass>(nullptr, TEXT("/Script/RustMassGatherers.GatherersBevyMassSubsystem"));
+	TestNotNull(TEXT("UGatherersBevyMassSubsystem UClass should be registered"), SubsystemClass);
+	return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassSpawnAndSimulateTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassSpawnAndSimulate",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
+	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Initialize with known parameters
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation(20, Bounds, 456);
+
+	TestEqual(TEXT("Should have 20 ants"), Subsystem->GetManagedAntCount(), 20);
+	TestTrue(TEXT("HasManagedSimulation should be true"), Subsystem->HasManagedSimulation());
+
+	// Record initial positions
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	TArray<FVector> InitialPositions;
+	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
+			InitialPositions.Add(Ant.Position);
+		}
+	}
+
+	// Run simulation steps (dynamic Rust processors via #[mass_system])
+	for (int32 Step = 0; Step < 10; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Verify positions changed
+	int32 MovedCount = 0;
+	for (int32 AntIndex = 0; AntIndex < Subsystem->ManagedAntEntities.Num(); ++AntIndex)
+	{
+		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[AntIndex];
+		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(AntIndex))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
+			if (!Ant.Position.Equals(InitialPositions[AntIndex], 0.01))
+			{
+				++MovedCount;
+			}
+		}
+	}
+
+	TestTrue(TEXT("At least some ants should have moved (dynamic Rust processors)"), MovedCount > 0);
 
 	// Clean up
 	Subsystem->ResetSimulation();

@@ -18,6 +18,12 @@ struct FGatherersMassFoodTag : public FMassTag
 };
 
 USTRUCT()
+struct FGatherersBevyMassAntTag : public FMassTag
+{
+	GENERATED_BODY()
+};
+
+USTRUCT()
 struct FGatherersMassAntFragment : public FMassFragment
 {
 	GENERATED_BODY()

@@ -14,8 +14,6 @@
 #include "GatherersAntSimulation.h"
 #include "GatherersMassRuntime.h"
 #include "GatherersProcessors.h"
-#include "RustMassDynamicProcessor.h"
-#include "RustPlugin.h"
 
 namespace
 {
@@ -108,30 +106,17 @@ bool UGatherersRustSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mas
 	}
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem.GetMutableEntityManager();
-	TSharedRef<FMassEntityManager> EntityManagerRef = EntityManager.AsShared();
-
-	// Build simulation processor list: manual processors + dynamically registered Rust systems
-	TArray<UMassProcessor*> SimProcessors;
-	SimProcessors.Add(NewObject<UGatherersTimeAccumulationProcessor>(this));
-	SimProcessors.Add(NewObject<UGatherersAntMovementProcessor>(this));
-	SimProcessors.Add(NewObject<UGatherersFoodInteractionProcessor>(this));
-
-	// Discover and add dynamic Rust mass systems
-	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
-	TArray<URustMassDynamicProcessor*> DynamicProcessors =
-		URustMassDynamicProcessor::CreateAllRustProcessors(Module.Plugin.Rust, this);
-	for (URustMassDynamicProcessor* Proc : DynamicProcessors)
-	{
-		SimProcessors.Add(Proc);
-	}
-
-	SimulationProcessorPipeline.SetProcessors(SimProcessors);
-	SimulationProcessorPipeline.Initialize(*this, EntityManagerRef);
+	const TArray<TSubclassOf<UMassProcessor>> SimulationProcessors = {
+		UGatherersTimeAccumulationProcessor::StaticClass(),
+		UGatherersAntMovementProcessor::StaticClass(),
+		UGatherersFoodInteractionProcessor::StaticClass(),
+	};
+	SimulationProcessorPipeline.InitializeFromClassArray(SimulationProcessors, *this, EntityManager.AsShared());
 
 	const TArray<TSubclassOf<UMassProcessor>> VisualProcessors = {
 		UGatherersVisualSyncProcessor::StaticClass(),
 	};
-	VisualProcessorPipeline.InitializeFromClassArray(VisualProcessors, *this, EntityManagerRef);
+	VisualProcessorPipeline.InitializeFromClassArray(VisualProcessors, *this, EntityManager.AsShared());
 
 	bProcessorPipelinesInitialized = true;
 	return true;
@@ -529,14 +514,6 @@ void UGatherersRustSubsystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Auto-initialize with defaults on first tick if no simulation running
-	if (!HasManagedSimulation() && !bAutoInitAttempted)
-	{
-		bAutoInitAttempted = true;
-		const FBox DefaultBounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
-		InitializeSimulation(100, 50, DefaultBounds, 42);
-	}
-
 	if (!HasManagedSimulation())
 	{
 		return;
@@ -696,7 +673,6 @@ void UGatherersRustSubsystem::ResetSimulation()
 	SimulationProcessorPipeline.Reset();
 	VisualProcessorPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
-	bAutoInitAttempted = false;
 }
 
 int32 UGatherersRustSubsystem::GetManagedAntCount() const

@@ -79,6 +79,14 @@ TArray<URustMassDynamicProcessor*> URustMassDynamicProcessor::CreateAllRustProce
 	return Processors;
 }
 
+void URustMassDynamicProcessor::AddExtraTagRequirement(const UScriptStruct* TagStruct)
+{
+	if (TagStruct != nullptr)
+	{
+		ExtraTagRequirements.AddUnique(TagStruct);
+	}
+}
+
 void URustMassDynamicProcessor::ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager)
 {
 	if (!bInitialized)
@@ -101,6 +109,12 @@ void URustMassDynamicProcessor::ConfigureQueries(const TSharedRef<FMassEntityMan
 				: EMassFragmentAccess::ReadOnly;
 			EntityQuery.AddRequirement(FragStruct, Access);
 		}
+	}
+
+	// Append extra tag requirements added by the subsystem
+	for (const UScriptStruct* ExtraTag : ExtraTagRequirements)
+	{
+		EntityQuery.AddTagRequirement(ExtraTag, EMassFragmentPresence::All);
 	}
 }
 

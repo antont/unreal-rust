@@ -21,8 +21,11 @@ public:
 	/// Must be called before ConfigureQueries.
 	void InitFromDescriptor(const MassSystemDescriptor& Descriptor);
 
+	/// Add an extra tag requirement (e.g. to scope this processor to a specific entity population).
+	/// Must be called before pipeline Initialize.
+	void AddExtraTagRequirement(const UScriptStruct* TagStruct);
+
 	/// Discover all Rust-registered mass systems and create processor instances.
-	/// Returns the processor classes (actually instances cast to classes for pipeline use).
 	static TArray<URustMassDynamicProcessor*> CreateAllRustProcessors(
 		const RustBindings& Bindings,
 		UObject* Outer);
@@ -45,6 +48,9 @@ private:
 
 	/// Whether each requirement is a tag or fragment.
 	TArray<uint8> FragmentIsTags;
+
+	/// Extra tag requirements added by the subsystem for population scoping.
+	TArray<const UScriptStruct*> ExtraTagRequirements;
 
 	/// System name for logging.
 	FString SystemName;
