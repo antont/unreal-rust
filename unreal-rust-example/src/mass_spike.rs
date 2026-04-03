@@ -17,8 +17,12 @@ pub struct BobFragment {
     pub speed: f32,
 }
 
-pub fn bob_movement_system(_fragments: &mut [BobFragment], _dt: f32) {
-    // TODO: implement
+pub fn bob_movement_system(fragments: &mut [BobFragment], dt: f32) {
+    for frag in fragments.iter_mut() {
+        frag.time += dt;
+        let bob_delta = (frag.time * frag.speed).cos() as f64 * dt as f64 * 50.0;
+        frag.position_z += bob_delta;
+    }
 }
 
 #[cfg(test)]
