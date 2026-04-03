@@ -2,6 +2,7 @@ use syn::DeriveInput;
 
 mod component;
 mod event;
+mod mass_fragment;
 mod reflect;
 mod type_uuid;
 mod uclass;
@@ -35,6 +36,15 @@ pub fn event_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
         #event
     }
     .into()
+}
+
+#[proc_macro_derive(MassFragment, attributes(mass))]
+pub fn mass_fragment_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    let ast: DeriveInput = syn::parse(input).unwrap();
+    match mass_fragment::mass_fragment_derive(&ast) {
+        Ok(tokens) => tokens.into(),
+        Err(err) => err.to_compile_error().into(),
+    }
 }
 
 #[proc_macro_derive(UClass, attributes(uproperty))]
