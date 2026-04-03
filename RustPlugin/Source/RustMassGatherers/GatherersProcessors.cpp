@@ -3,6 +3,8 @@
 #include "MassEntityManager.h"
 #include "MassEntityView.h"
 #include "MassExecutionContext.h"
+#include "Modules/ModuleManager.h"
+#include "RustPlugin.h"
 #include "GatherersAntSimulation.h"
 #include "GatherersMassRuntime.h"
 #include "GatherersFragments.h"
@@ -48,65 +50,35 @@ void UGatherersAntMovementProcessor::ConfigureQueries(const TSharedRef<FMassEnti
 
 void UGatherersAntMovementProcessor::Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context)
 {
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	if (Module.Plugin.Rust.mass_ant_movement == nullptr)
+	{
+		return;
+	}
+
 	const FBox SimulationBounds = Context.GetSubsystemChecked<UGatherersRustSubsystem>().GetSimulationBounds();
 	const float DeltaSeconds = Context.GetDeltaTimeSeconds();
 
-	const FVector BoundsSize = SimulationBounds.GetSize();
-	const float BoundsMaxStepDistance = SimulationBounds.IsValid
-		? 0.5f * FMath::Min(BoundsSize.X, BoundsSize.Y)
-		: TNumericLimits<float>::Max();
+	// Pass bounds as raw double[3] arrays matching Rust [f64; 3]
+	const double BoundsMin[3] = { SimulationBounds.Min.X, SimulationBounds.Min.Y, SimulationBounds.Min.Z };
+	const double BoundsMax[3] = { SimulationBounds.Max.X, SimulationBounds.Max.Y, SimulationBounds.Max.Z };
+	const double* BoundsMinPtr = SimulationBounds.IsValid ? BoundsMin : nullptr;
+	const double* BoundsMaxPtr = SimulationBounds.IsValid ? BoundsMax : nullptr;
 
-	EntityQuery.ForEachEntityChunk(Context, [SimulationBounds, DeltaSeconds, BoundsMaxStepDistance](FMassExecutionContext& ChunkContext)
+	EntityQuery.ForEachEntityChunk(Context,
+		[&Module, DeltaSeconds, BoundsMinPtr, BoundsMaxPtr](FMassExecutionContext& ChunkContext)
 	{
-		const TArrayView<FGatherersMassAntFragment> AntFragments =
+		TArrayView<FGatherersMassAntFragment> AntFragments =
 			ChunkContext.GetMutableFragmentView<FGatherersMassAntFragment>();
-		for (int32 EntityIndex = 0; EntityIndex < ChunkContext.GetNumEntities(); ++EntityIndex)
-		{
-			FGatherersMassAntFragment& AntFragment = AntFragments[EntityIndex];
-			AntFragment.PickupCooldownRemainingSeconds = ComputeRemainingPickupCooldown(
-				AntFragment.PickupCooldownRemainingSeconds,
-				DeltaSeconds);
-			AntFragment.PreviousPosition = AntFragment.Position;
-			AntFragment.Position = ComputeAntHeadingMovementStep(
-				AntFragment.Position,
-				AntFragment.Direction,
-				AntFragment.MovementSpeed,
-				BoundsMaxStepDistance,
-				DeltaSeconds);
-
-			if (!SimulationBounds.IsValid)
-			{
-				continue;
-			}
-
-			FVector InwardBoundaryNormal = FVector::ZeroVector;
-			if (AntFragment.Position.X < SimulationBounds.Min.X)
-			{
-				AntFragment.Position.X = SimulationBounds.Min.X;
-				InwardBoundaryNormal += FVector(1.0f, 0.0f, 0.0f);
-			}
-			else if (AntFragment.Position.X > SimulationBounds.Max.X)
-			{
-				AntFragment.Position.X = SimulationBounds.Max.X;
-				InwardBoundaryNormal += FVector(-1.0f, 0.0f, 0.0f);
-			}
-
-			if (AntFragment.Position.Y < SimulationBounds.Min.Y)
-			{
-				AntFragment.Position.Y = SimulationBounds.Min.Y;
-				InwardBoundaryNormal += FVector(0.0f, 1.0f, 0.0f);
-			}
-			else if (AntFragment.Position.Y > SimulationBounds.Max.Y)
-			{
-				AntFragment.Position.Y = SimulationBounds.Max.Y;
-				InwardBoundaryNormal += FVector(0.0f, -1.0f, 0.0f);
-			}
-
-			if (!InwardBoundaryNormal.IsNearlyZero())
-			{
-				AntFragment.Direction = ComputeBoundaryTurnBackDirection(AntFragment.Direction, InwardBoundaryNormal);
-			}
-		}
+		// Zero-copy: pass fragment array directly to Rust.
+		// FGatherersMassAntFragment fields start at offset 0 (EBO) matching Rust AntFragment.
+		Module.Plugin.Rust.mass_ant_movement(
+			&AntFragments[0].Position.X,
+			AntFragments.Num(),
+			DeltaSeconds,
+			BoundsMinPtr,
+			BoundsMaxPtr
+		);
 	});
 }
 
