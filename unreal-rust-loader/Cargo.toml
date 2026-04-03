@@ -11,4 +11,4 @@ libloading = "0.9"
 libc = "0.2"
 
 [lib]
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]

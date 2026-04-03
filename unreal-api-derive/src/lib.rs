@@ -133,3 +133,75 @@ fn inherit_impl(
 
     Ok(quote::quote!(#input))
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use quote::quote;
+
+    #[test]
+    fn inherit_impl_adds_repr_c() {
+        let attr = quote! { Foo };
+        let item = quote! {
+            struct Bar {
+                base: Foo,
+                x: f32,
+            }
+        };
+        let result = inherit_impl(attr, item).unwrap();
+        let output = result.to_string();
+        assert!(output.contains("repr"), "should add #[repr(C)], got: {}", output);
+    }
+
+    #[test]
+    fn inherit_impl_wrong_first_field_type() {
+        let attr = quote! { Foo };
+        let item = quote! {
+            struct Bar {
+                base: Wrong,
+                x: f32,
+            }
+        };
+        let result = inherit_impl(attr, item);
+        assert!(result.is_err());
+        let err = result.unwrap_err().to_string();
+        assert!(err.contains("Foo"), "error should mention expected type, got: {}", err);
+    }
+
+    #[test]
+    fn inherit_impl_empty_struct_errors() {
+        let attr = quote! { Foo };
+        let item = quote! {
+            struct Bar {}
+        };
+        let result = inherit_impl(attr, item);
+        assert!(result.is_err());
+        assert!(result.unwrap_err().to_string().contains("at least one field"));
+    }
+
+    #[test]
+    fn inherit_impl_tuple_struct_errors() {
+        let attr = quote! { Foo };
+        let item = quote! {
+            struct Bar(Foo, f32);
+        };
+        let result = inherit_impl(attr, item);
+        assert!(result.is_err());
+        assert!(result.unwrap_err().to_string().contains("named fields"));
+    }
+
+    #[test]
+    fn inherit_impl_preserves_existing_repr_c() {
+        let attr = quote! { Foo };
+        let item = quote! {
+            #[repr(C)]
+            struct Bar {
+                base: Foo,
+            }
+        };
+        let result = inherit_impl(attr, item).unwrap();
+        let output = result.to_string();
+        // Should have repr(C) exactly once, not duplicated
+        assert_eq!(output.matches("repr").count(), 1, "should not duplicate #[repr(C)], got: {}", output);
+    }
+}

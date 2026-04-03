@@ -241,6 +241,50 @@ extern "C" fn register_unreal_bindings(bindings: UnrealBindings) -> u32 {
     1
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn plugin_lib_name_has_correct_extension() {
+        assert!(
+            PLUGIN_LIB_NAME.ends_with(PLUGIN_EXTENSION),
+            "PLUGIN_LIB_NAME '{}' should end with PLUGIN_EXTENSION '{}'",
+            PLUGIN_LIB_NAME,
+            PLUGIN_EXTENSION,
+        );
+    }
+
+    #[test]
+    fn resolve_plugin_path_with_env_var() {
+        let dir = "/tmp/test-unreal-rust-target";
+        unsafe { std::env::set_var("UNREAL_RUST_TARGET_DIR", dir) };
+        let path = resolve_plugin_path();
+        unsafe { std::env::remove_var("UNREAL_RUST_TARGET_DIR") };
+        assert_eq!(
+            path,
+            PathBuf::from(dir).join(PLUGIN_LIB_NAME),
+        );
+    }
+
+    #[test]
+    fn resolve_plugin_path_fallback() {
+        // Ensure env var is unset so we hit the fallback
+        unsafe { std::env::remove_var("UNREAL_RUST_TARGET_DIR") };
+        let path = resolve_plugin_path();
+        // Without dladdr finding a real path, should fall back to target/release/
+        let fallback = PathBuf::from("target/release").join(PLUGIN_LIB_NAME);
+        // The path might match the fallback or a dladdr-derived path; at minimum
+        // it should end with the plugin lib name
+        assert!(
+            path.file_name().unwrap() == std::ffi::OsStr::new(PLUGIN_LIB_NAME),
+            "resolved path {:?} should end with {}",
+            path,
+            PLUGIN_LIB_NAME,
+        );
+    }
+}
+
 #[unsafe(no_mangle)]
 unsafe extern "C" fn is_out_of_date() -> u32 {
     unsafe {

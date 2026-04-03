@@ -384,6 +384,89 @@ unsafe extern "C" {
     -> u32;
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn utf8str_from_str_roundtrip() {
+        let s = "hello";
+        let utf8 = Utf8Str::from(s);
+        assert_eq!(utf8.len, 5);
+        assert!(!utf8.ptr.is_null());
+        assert_eq!(utf8.as_str(), "hello");
+    }
+
+    #[test]
+    fn utf8str_empty_string() {
+        let utf8 = Utf8Str::from("");
+        assert_eq!(utf8.len, 0);
+        assert_eq!(utf8.as_str(), "");
+    }
+
+    #[test]
+    fn utf8str_unicode() {
+        let s = "héllo wörld 🦀";
+        let utf8 = Utf8Str::from(s);
+        assert_eq!(utf8.len, s.len());
+        assert_eq!(utf8.as_str(), s);
+    }
+
+    #[test]
+    fn frust_string_uninit_is_null() {
+        let s = FRustString::uninit();
+        assert!(s.data.is_null());
+        assert_eq!(s.num, 0);
+        assert_eq!(s.max, 0);
+    }
+
+    #[test]
+    fn frust_script_array_uninit_is_zeroed() {
+        let arr = FRustScriptArray::uninit();
+        assert_eq!(arr.opaque_words, [0, 0]);
+    }
+
+    #[test]
+    fn rust_alloc_empty_is_null() {
+        let alloc = RustAlloc::empty();
+        assert!(alloc.ptr.is_null());
+        assert_eq!(alloc.size, 0);
+        assert_eq!(alloc.align, 0);
+    }
+
+    #[test]
+    fn rust_alloc_free_empty_is_safe() {
+        let alloc = RustAlloc::empty();
+        // Should not panic or crash
+        unsafe { alloc.free() };
+    }
+
+    #[test]
+    fn uuid_default_is_zeroed() {
+        let uuid = Uuid::default();
+        assert_eq!(uuid.a, 0);
+        assert_eq!(uuid.b, 0);
+        assert_eq!(uuid.c, 0);
+        assert_eq!(uuid.d, 0);
+    }
+
+    #[test]
+    fn rust_bindings_uninit_stubs_return_panic() {
+        let bindings = RustBindings::uninit();
+        let result = unsafe { (bindings.tick)(0.016) };
+        assert!(matches!(result, ResultCode::Panic));
+        let result = unsafe { (bindings.begin_play)() };
+        assert!(matches!(result, ResultCode::Panic));
+    }
+
+    #[test]
+    fn str_rust_alloc_empty() {
+        let alloc = StrRustAlloc::empty();
+        assert!(alloc.alloc.ptr.is_null());
+        assert_eq!(alloc.alloc.size, 0);
+    }
+}
+
 #[repr(C)]
 #[derive(Clone)]
 pub struct FStringFns {

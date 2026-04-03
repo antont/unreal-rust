@@ -29,6 +29,11 @@
 			"Name": "RustGameplay",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "RustPluginTests",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
 		}
 	]
 }

@@ -224,3 +224,57 @@ pub fn uclass_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
         }
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn specifier_to_const_known_specifiers() {
+        let known = [
+            "edit_anywhere",
+            "edit_defaults_only",
+            "edit_instance_only",
+            "visible_anywhere",
+            "visible_defaults_only",
+            "visible_instance_only",
+            "blueprint_read_only",
+            "blueprint_read_write",
+            "replicated",
+            "transient",
+            "save_game",
+            "config",
+            "advanced_display",
+            "interp",
+        ];
+        for spec in known {
+            assert!(
+                specifier_to_const(spec).is_some(),
+                "specifier '{}' should be recognized",
+                spec
+            );
+        }
+    }
+
+    #[test]
+    fn specifier_to_const_unknown_returns_none() {
+        assert!(specifier_to_const("not_a_specifier").is_none());
+        assert!(specifier_to_const("").is_none());
+        assert!(specifier_to_const("EditAnywhere").is_none()); // wrong case
+    }
+
+    #[test]
+    fn map_metadata_key_known_keys() {
+        assert_eq!(map_metadata_key("unit"), "Units");
+        assert_eq!(map_metadata_key("clamp_min"), "ClampMin");
+        assert_eq!(map_metadata_key("clamp_max"), "ClampMax");
+        assert_eq!(map_metadata_key("display_name"), "DisplayName");
+        assert_eq!(map_metadata_key("tooltip"), "Tooltip");
+    }
+
+    #[test]
+    fn map_metadata_key_unknown_passes_through() {
+        assert_eq!(map_metadata_key("custom_key"), "custom_key");
+        assert_eq!(map_metadata_key("MyMeta"), "MyMeta");
+    }
+}
