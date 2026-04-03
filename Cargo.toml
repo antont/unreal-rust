@@ -8,6 +8,7 @@ members = [
     "unreal-ffi", "unreal-module",
     "unreal-reflect",
     "unreal-rust-example", "unreal-rust-loader",
+    "gatherers-sim",
 ]
 #[profile.release]
 #debug = true
