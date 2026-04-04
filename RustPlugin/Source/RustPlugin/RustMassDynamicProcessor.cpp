@@ -118,6 +118,19 @@ void URustMassDynamicProcessor::ConfigureQueries(const TSharedRef<FMassEntityMan
 		return;
 	}
 
+	// Invalidate cached global chunk pointers — chunks may have moved since last play session
+	bGlobalCacheValid = false;
+	CachedChunkSlices.Empty();
+	CachedChunkedFrags.Empty();
+	CachedGlobalEntityCount = 0;
+
+	// Requirements only need to be added once; they persist across pipeline re-initializations
+	if (bQueriesConfigured)
+	{
+		return;
+	}
+	bQueriesConfigured = true;
+
 	// Configure primary query
 	for (int32 i = 0; i < FragmentStructs.Num(); ++i)
 	{

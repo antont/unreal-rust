@@ -75,4 +75,7 @@ private:
 
 	/// Whether InitFromDescriptor was called successfully.
 	bool bInitialized = false;
+
+	/// Whether ConfigureQueries has already run (avoid re-adding requirements).
+	bool bQueriesConfigured = false;
 };
