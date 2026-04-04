@@ -236,7 +236,7 @@ fn reflect_direction(dir: [f64; 3], normal: [f64; 3]) -> [f64; 3] {
 mod tests {
     use super::*;
     use crate::fragments::{AntEncounterFragment, AntFragment, FoodFragment};
-    use unreal_api::mass::{MassGlobalChunkStorage, MassQueryAllMut, MassQueryMut, MassQueryRef};
+    use unreal_api::mass::{MassChunks, MassGlobalChunkStorage, MassQueryAllMut, MassQueryMut, MassQueryRef};
 
     #[test]
     fn ant_movement_moves_forward() {
@@ -832,6 +832,195 @@ mod tests {
 
         assert!(encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, 0);
+    }
+
+    // -----------------------------------------------------------------------
+    // Multi-threaded executor tests
+    // -----------------------------------------------------------------------
+
+    // Test-only fragment types with independent MassChunks<T> resources.
+    // Bevy sees these as separate resources and can parallelize systems that
+    // access different types.
+    #[derive(Clone, Copy, Debug)]
+    #[repr(C)]
+    struct TestFragA {
+        value: f64,
+    }
+
+    impl unreal_api::mass::MassFragment for TestFragA {
+        const CPP_TYPE_NAME: &'static str = "TestFragA";
+    }
+
+    #[derive(Clone, Copy, Debug)]
+    #[repr(C)]
+    struct TestFragB {
+        value: f64,
+    }
+
+    impl unreal_api::mass::MassFragment for TestFragB {
+        const CPP_TYPE_NAME: &'static str = "TestFragB";
+    }
+
+    /// Resource to record which thread each system ran on.
+    #[derive(Default)]
+    struct ThreadRecord {
+        ids: std::sync::Mutex<Vec<(String, std::thread::ThreadId)>>,
+    }
+
+    impl unreal_api::ecs::prelude::Resource for ThreadRecord {}
+
+    // Safety: Mutex provides synchronization.
+    unsafe impl Send for ThreadRecord {}
+    unsafe impl Sync for ThreadRecord {}
+
+    fn system_a(
+        mut chunks: unreal_api::ecs::prelude::ResMut<MassChunks<TestFragA>>,
+        record: unreal_api::ecs::prelude::Res<ThreadRecord>,
+    ) {
+        record.ids.lock().unwrap().push(("A".to_string(), std::thread::current().id()));
+        for i in 0..chunks.primary_chunk_count() {
+            let mut q = unsafe { chunks.primary_chunk_mut(i) };
+            for frag in q.iter_mut() {
+                frag.value += 1.0;
+            }
+        }
+    }
+
+    fn system_b(
+        mut chunks: unreal_api::ecs::prelude::ResMut<MassChunks<TestFragB>>,
+        record: unreal_api::ecs::prelude::Res<ThreadRecord>,
+    ) {
+        record.ids.lock().unwrap().push(("B".to_string(), std::thread::current().id()));
+        for i in 0..chunks.primary_chunk_count() {
+            let mut q = unsafe { chunks.primary_chunk_mut(i) };
+            for frag in q.iter_mut() {
+                frag.value += 10.0;
+            }
+        }
+    }
+
+    /// With single-threaded executor, both systems run on the same thread.
+    #[test]
+    fn parallel_systems_single_threaded_same_thread() {
+        use unreal_api::mass::{MassChunks, MassSchedule};
+        use unreal_api::ffi::MassFragmentSlice;
+
+        let mut frags_a = [TestFragA { value: 0.0 }; 4];
+        let mut frags_b = [TestFragB { value: 0.0 }; 4];
+
+        let mut sched = MassSchedule::new(); // SingleThreaded by default
+        sched.world_mut().insert_resource(MassChunks::<TestFragA>::new());
+        sched.world_mut().insert_resource(MassChunks::<TestFragB>::new());
+        sched.world_mut().insert_resource(ThreadRecord::default());
+
+        // Both systems in same stage — no ordering constraint
+        sched.schedule_mut().add_systems((system_a, system_b));
+        sched.set_dt(1.0);
+
+        // Populate chunks
+        {
+            let mut ca = sched.world_mut().resource_mut::<MassChunks<TestFragA>>();
+            unsafe {
+                ca.push_primary_slice(MassFragmentSlice {
+                    data: frags_a.as_mut_ptr() as *mut _,
+                    count: frags_a.len() as i32,
+                    stride: std::mem::size_of::<TestFragA>() as u32,
+                });
+            }
+            let mut cb = sched.world_mut().resource_mut::<MassChunks<TestFragB>>();
+            unsafe {
+                cb.push_primary_slice(MassFragmentSlice {
+                    data: frags_b.as_mut_ptr() as *mut _,
+                    count: frags_b.len() as i32,
+                    stride: std::mem::size_of::<TestFragB>() as u32,
+                });
+            }
+        }
+
+        sched.run();
+
+        // Both systems should have executed
+        assert_eq!(frags_a[0].value, 1.0, "system_a should have incremented");
+        assert_eq!(frags_b[0].value, 10.0, "system_b should have incremented");
+
+        // Single-threaded: both on the same thread
+        let record = sched.world().resource::<ThreadRecord>();
+        let ids = record.ids.lock().unwrap();
+        assert_eq!(ids.len(), 2);
+        assert_eq!(ids[0].1, ids[1].1, "single-threaded: both systems should run on same thread");
+    }
+
+    /// With multi-threaded executor, independent systems CAN run on different threads.
+    /// This test verifies correctness of fragment data under parallel execution.
+    #[test]
+    fn parallel_systems_multi_threaded_correct_results() {
+        use unreal_api::mass::{MassChunks, MassSchedule};
+        use unreal_api::ffi::MassFragmentSlice;
+        use unreal_api::ecs::schedule::ExecutorKind;
+
+        let mut frags_a = [TestFragA { value: 0.0 }; 100];
+        let mut frags_b = [TestFragB { value: 0.0 }; 100];
+
+        let mut sched = MassSchedule::new();
+        // Override to multi-threaded
+        sched.schedule_mut().set_executor_kind(ExecutorKind::MultiThreaded);
+
+        sched.world_mut().insert_resource(MassChunks::<TestFragA>::new());
+        sched.world_mut().insert_resource(MassChunks::<TestFragB>::new());
+        sched.world_mut().insert_resource(ThreadRecord::default());
+
+        sched.schedule_mut().add_systems((system_a, system_b));
+        sched.set_dt(1.0);
+
+        {
+            let mut ca = sched.world_mut().resource_mut::<MassChunks<TestFragA>>();
+            unsafe {
+                ca.push_primary_slice(MassFragmentSlice {
+                    data: frags_a.as_mut_ptr() as *mut _,
+                    count: frags_a.len() as i32,
+                    stride: std::mem::size_of::<TestFragA>() as u32,
+                });
+            }
+            let mut cb = sched.world_mut().resource_mut::<MassChunks<TestFragB>>();
+            unsafe {
+                cb.push_primary_slice(MassFragmentSlice {
+                    data: frags_b.as_mut_ptr() as *mut _,
+                    count: frags_b.len() as i32,
+                    stride: std::mem::size_of::<TestFragB>() as u32,
+                });
+            }
+        }
+
+        // Run multiple times to increase chance of parallel scheduling
+        for i in 0..10 {
+            // Reset data each iteration
+            for f in frags_a.iter_mut() { f.value = 0.0; }
+            for f in frags_b.iter_mut() { f.value = 0.0; }
+
+            sched.run();
+
+            // Verify correctness regardless of thread scheduling
+            for (j, f) in frags_a.iter().enumerate() {
+                assert_eq!(f.value, 1.0,
+                    "frags_a[{}] wrong after iteration {}", j, i);
+            }
+            for (j, f) in frags_b.iter().enumerate() {
+                assert_eq!(f.value, 10.0,
+                    "frags_b[{}] wrong after iteration {}", j, i);
+            }
+        }
+
+        // Check if parallel execution actually happened (informational, not asserted —
+        // the scheduler may choose not to parallelize for small workloads)
+        let record = sched.world().resource::<ThreadRecord>();
+        let ids = record.ids.lock().unwrap();
+        let unique_threads: std::collections::HashSet<_> = ids.iter().map(|(_, id)| id).collect();
+        if unique_threads.len() > 1 {
+            eprintln!("Multi-threaded executor used {} threads across {} system runs",
+                unique_threads.len(), ids.len());
+        } else {
+            eprintln!("Note: multi-threaded executor scheduled all runs on same thread (small workload)");
+        }
     }
 
     #[test]
