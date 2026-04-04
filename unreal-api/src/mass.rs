@@ -198,12 +198,26 @@ pub trait MassFragment: Sized + Copy + 'static {
     const CPP_TYPE_NAME: &'static str;
 }
 
+/// Describes one field in a MassFragment struct, used for C++ codegen.
+pub struct MassFragmentFieldInfo {
+    /// Rust field name (e.g., "carried_food_index").
+    pub name: &'static str,
+    /// Rust type as a string (e.g., "[f64; 3]", "i32", "bool").
+    pub type_name: &'static str,
+    /// Byte offset within the struct.
+    pub offset: usize,
+    /// Size of this field in bytes.
+    pub size: usize,
+}
+
 /// Compile-time registration entry for a MassFragment, collected via inventory.
 pub struct MassFragmentRegistration {
     pub cpp_type_name: &'static str,
     pub rust_type_name: &'static str,
     pub size: usize,
     pub align: usize,
+    /// Field metadata for C++ codegen. Empty slice if not available.
+    pub fields: &'static [MassFragmentFieldInfo],
 }
 
 inventory::collect!(MassFragmentRegistration);
@@ -211,6 +225,125 @@ inventory::collect!(MassFragmentRegistration);
 /// Returns all registered MassFragment types.
 pub fn registered_mass_fragments() -> inventory::iter<MassFragmentRegistration> {
     inventory::iter::<MassFragmentRegistration>
+}
+
+// ---------------------------------------------------------------------------
+// C++ fragment codegen
+// ---------------------------------------------------------------------------
+
+/// Convert a Rust field type string to C++ type.
+/// Returns (cpp_type, is_padding).
+fn rust_type_to_cpp(type_name: &str, field_name: &str) -> (String, bool) {
+    let is_padding = field_name.starts_with('_');
+    // Normalize whitespace: the derive macro emits "[f64; 3]" (no space before ;)
+    // but manual test data may use "[f64 ; 3]". Collapse to canonical form.
+    let normalized: String = type_name.split_whitespace().collect::<Vec<_>>().join(" ");
+    let cpp = match normalized.as_str() {
+        "[f64; 3]" | "[f64 ; 3]" => "FVector".to_string(),
+        "f64" => "double".to_string(),
+        "f32" => "float".to_string(),
+        "i32" => "int32".to_string(),
+        "u32" => "uint32".to_string(),
+        "bool" => "bool".to_string(),
+        s if s.starts_with("[u8;") || s.starts_with("[u8 ;") => {
+            // "[u8; N]" or "[u8 ; N]" → "uint8[N]"
+            let n = s.trim_start_matches("[u8")
+                .trim_start_matches(" ;")
+                .trim_start_matches(';')
+                .trim()
+                .trim_end_matches(']')
+                .trim();
+            format!("uint8 PLACEHOLDER[{}]", n)
+        }
+        other => format!("/* unknown: {} */", other),
+    };
+    (cpp, is_padding)
+}
+
+/// Convert snake_case Rust field name to PascalCase C++ name.
+fn snake_to_pascal(name: &str) -> String {
+    name.split('_')
+        .filter(|s| !s.is_empty())
+        .map(|s| {
+            let mut c = s.chars();
+            match c.next() {
+                None => String::new(),
+                Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
+            }
+        })
+        .collect()
+}
+
+/// Generate a C++ header with USTRUCT definitions and static_assert offset checks
+/// for the given fragment registrations.
+pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration]) -> String {
+    let mut out = String::new();
+    out.push_str("#pragma once\n\n");
+    out.push_str("#include \"CoreMinimal.h\"\n");
+    out.push_str("#include \"MassEntityTypes.h\"\n");
+    out.push_str("#include \"GeneratedFragments.generated.h\"\n\n");
+    out.push_str("// Auto-generated from #[derive(MassFragment)] Rust structs.\n");
+    out.push_str("// Do not edit manually.\n\n");
+
+    for frag in fragments {
+        // USTRUCT definition
+        out.push_str("USTRUCT()\n");
+        out.push_str(&format!("struct {} : public FMassFragment\n", frag.cpp_type_name));
+        out.push_str("{\n");
+        out.push_str("\tGENERATED_BODY()\n\n");
+
+        for field in frag.fields {
+            let (cpp_type, _is_padding) = rust_type_to_cpp(field.type_name, field.name);
+            let cpp_name = if field.name.starts_with('_') {
+                // Padding field: _foo_pad → _FooPad
+                format!("_{}", snake_to_pascal(&field.name[1..]))
+            } else {
+                snake_to_pascal(field.name)
+            };
+
+            // Handle array types specially (PLACEHOLDER replaced with field name)
+            if cpp_type.contains("PLACEHOLDER") {
+                let cpp_type = cpp_type.replace("PLACEHOLDER", &cpp_name);
+                out.push_str(&format!("\t{} = {{}};\n", cpp_type));
+            } else {
+                let default = match cpp_type.as_str() {
+                    "FVector" => " = FVector::ZeroVector",
+                    "double" => " = 0.0",
+                    "float" => " = 0.0f",
+                    "int32" | "uint32" => " = 0",
+                    "bool" => " = false",
+                    _ => "",
+                };
+                out.push_str(&format!("\t{} {}{default};\n", cpp_type, cpp_name));
+            }
+        }
+
+        out.push_str("};\n\n");
+
+        // static_assert offset checks
+        for field in frag.fields {
+            let cpp_name = if field.name.starts_with('_') {
+                format!("_{}", snake_to_pascal(&field.name[1..]))
+            } else {
+                snake_to_pascal(field.name)
+            };
+            // Skip array padding fields in offsetof (need special handling)
+            let (cpp_type, _) = rust_type_to_cpp(field.type_name, field.name);
+            if cpp_type.contains("PLACEHOLDER") {
+                continue;
+            }
+            out.push_str(&format!(
+                "static_assert(offsetof({}, {}) == {}, \"{} at offset {}\");\n",
+                frag.cpp_type_name, cpp_name, field.offset, cpp_name, field.offset
+            ));
+        }
+        out.push_str(&format!(
+            "static_assert(sizeof({}) == {}, \"{} size must be {}\");\n\n",
+            frag.cpp_type_name, frag.size, frag.cpp_type_name, frag.size
+        ));
+    }
+
+    out
 }
 
 // ---------------------------------------------------------------------------
@@ -941,5 +1074,66 @@ mod tests {
         };
         query.iter_mut().for_each(|f| f.x += 1.0);
         assert_eq!(data[0].x, 2.0);
+    }
+
+    // -----------------------------------------------------------------------
+    // C++ codegen tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn snake_to_pascal_basic() {
+        assert_eq!(snake_to_pascal("carried_food_index"), "CarriedFoodIndex");
+        assert_eq!(snake_to_pascal("position"), "Position");
+        assert_eq!(snake_to_pascal("is_loose"), "IsLoose");
+    }
+
+    #[test]
+    fn rust_type_to_cpp_mapping() {
+        assert_eq!(rust_type_to_cpp("[f64 ; 3]", "pos").0, "FVector");
+        assert_eq!(rust_type_to_cpp("f32", "speed").0, "float");
+        assert_eq!(rust_type_to_cpp("i32", "index").0, "int32");
+        assert_eq!(rust_type_to_cpp("bool", "flag").0, "bool");
+        assert!(rust_type_to_cpp("[u8 ; 7]", "_pad").0.contains("7"));
+    }
+
+    #[test]
+    fn generate_cpp_simple_fragment() {
+        static FIELDS: [MassFragmentFieldInfo; 3] = [
+            MassFragmentFieldInfo { name: "position", type_name: "[f64 ; 3]", offset: 0, size: 24 },
+            MassFragmentFieldInfo { name: "is_loose", type_name: "bool", offset: 24, size: 1 },
+            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 7]", offset: 25, size: 7 },
+        ];
+        let reg = MassFragmentRegistration {
+            cpp_type_name: "FTestFood",
+            rust_type_name: "FoodFragment",
+            size: 32,
+            align: 8,
+            fields: &FIELDS,
+        };
+
+        let output = generate_cpp_fragments(&[&reg]);
+        assert!(output.contains("struct FTestFood : public FMassFragment"), "should have USTRUCT def");
+        assert!(output.contains("FVector Position"), "should map [f64;3] to FVector");
+        assert!(output.contains("bool IsLoose"), "should map bool field");
+        assert!(output.contains("offsetof(FTestFood, Position) == 0"), "should have offset assert");
+        assert!(output.contains("sizeof(FTestFood) == 32"), "should have size assert");
+    }
+
+    #[test]
+    fn generate_cpp_padding_fields() {
+        static FIELDS: [MassFragmentFieldInfo; 2] = [
+            MassFragmentFieldInfo { name: "value", type_name: "i32", offset: 0, size: 4 },
+            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 4]", offset: 4, size: 4 },
+        ];
+        let reg = MassFragmentRegistration {
+            cpp_type_name: "FTestPad",
+            rust_type_name: "PadFragment",
+            size: 8,
+            align: 4,
+            fields: &FIELDS,
+        };
+
+        let output = generate_cpp_fragments(&[&reg]);
+        assert!(output.contains("_Pad"), "padding fields should get _ prefix");
     }
 }

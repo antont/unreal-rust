@@ -32,19 +32,59 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
     let cpp_type = extract_cpp_type(ast)?;
     let rust_type_name = name.to_string();
 
+    // Extract field info for C++ codegen
+    let fields = match &ast.data {
+        syn::Data::Struct(data) => match &data.fields {
+            syn::Fields::Named(fields) => fields
+                .named
+                .iter()
+                .map(|f| {
+                    let field_name = f.ident.as_ref().unwrap();
+                    let field_name_str = field_name.to_string();
+                    let field_type = &f.ty;
+                    let type_str = quote!(#field_type).to_string();
+                    quote! {
+                        ::unreal_api::mass::MassFragmentFieldInfo {
+                            name: #field_name_str,
+                            type_name: #type_str,
+                            offset: ::std::mem::offset_of!(#name, #field_name),
+                            size: ::std::mem::size_of::<#field_type>(),
+                        }
+                    }
+                })
+                .collect::<Vec<_>>(),
+            _ => Vec::new(),
+        },
+        _ => Vec::new(),
+    };
+
+    let num_fields = fields.len();
+
+    let fields_const_name = quote::format_ident!("__MASS_FRAGMENT_FIELDS_{}", name);
+    let reg_static_name = quote::format_ident!("__mass_fragment_reg_{}", name);
+
     Ok(quote! {
         impl ::unreal_api::mass::MassFragment for #name {
             const CPP_TYPE_NAME: &'static str = #cpp_type;
         }
 
-        ::unreal_api::inventory::submit! {
-            ::unreal_api::mass::MassFragmentRegistration {
-                cpp_type_name: #cpp_type,
-                rust_type_name: #rust_type_name,
-                size: ::std::mem::size_of::<#name>(),
-                align: ::std::mem::align_of::<#name>(),
+        #[doc(hidden)]
+        const #fields_const_name: [::unreal_api::mass::MassFragmentFieldInfo; #num_fields] = [
+            #(#fields),*
+        ];
+
+        #[doc(hidden)]
+        static #reg_static_name: () = {
+            ::unreal_api::inventory::submit! {
+                ::unreal_api::mass::MassFragmentRegistration {
+                    cpp_type_name: #cpp_type,
+                    rust_type_name: #rust_type_name,
+                    size: ::std::mem::size_of::<#name>(),
+                    align: ::std::mem::align_of::<#name>(),
+                    fields: &#fields_const_name,
+                }
             }
-        }
+        };
     })
 }
 

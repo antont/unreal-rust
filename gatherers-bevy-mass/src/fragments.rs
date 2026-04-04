@@ -138,4 +138,25 @@ mod tests {
     fn food_fragment_cpp_type_name() {
         assert_eq!(FoodFragment::CPP_TYPE_NAME, "FGatherersMassFoodFragment");
     }
+
+    #[test]
+    fn cpp_codegen_produces_valid_output() {
+        // Use registered fragment metadata to generate C++ and verify key patterns
+        let regs: Vec<_> = unreal_api::mass::registered_mass_fragments().into_iter().collect();
+
+        // Find ant fragment registration
+        let ant_reg = regs.iter().find(|r| r.cpp_type_name == "FGatherersMassAntFragment")
+            .expect("AntFragment should be registered");
+        assert!(!ant_reg.fields.is_empty(), "AntFragment should have field metadata");
+        assert_eq!(ant_reg.fields[0].name, "position");
+        assert_eq!(ant_reg.fields[0].offset, 0);
+
+        let output = unreal_api::mass::generate_cpp_fragments(&[ant_reg]);
+        assert!(output.contains("struct FGatherersMassAntFragment : public FMassFragment"));
+        assert!(output.contains("FVector Position"));
+        assert!(output.contains("int32 CarriedFoodIndex"));
+        assert!(output.contains("float MovementSpeed"));
+        assert!(output.contains("offsetof(FGatherersMassAntFragment, Position) == 0"));
+        assert!(output.contains("sizeof(FGatherersMassAntFragment) == 96"));
+    }
 }
