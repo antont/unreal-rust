@@ -10,6 +10,7 @@ URustMassDynamicProcessor::URustMassDynamicProcessor()
 	bAllowMultipleInstances = true;
 	ExecutionFlags = static_cast<uint8>(EProcessorExecutionFlags::All);
 	EntityQuery.RegisterWithProcessor(*this);
+	GlobalEntityQuery.RegisterWithProcessor(*this);
 }
 
 static FString Utf8StrToFString(const Utf8Str& Str)
@@ -166,7 +167,6 @@ void URustMassDynamicProcessor::ConfigureQueries(const TSharedRef<FMassEntityMan
 				: EMassFragmentAccess::ReadOnly;
 			GlobalEntityQuery.AddRequirement(FragStruct, Access);
 		}
-		GlobalEntityQuery.RegisterWithProcessor(*this);
 	}
 }
 
