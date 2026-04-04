@@ -136,10 +136,12 @@ impl MassSchedule {
     pub fn new() -> Self {
         let mut world = bevy_ecs::world::World::new();
         world.insert_resource(MassDeltaTime::default());
-        Self {
-            world,
-            schedule: bevy_ecs::schedule::Schedule::default(),
-        }
+        // Force single-threaded execution: MassChunks<T> holds raw pointers into
+        // C++ Mass Entity chunk memory. Multi-threaded execution requires auditing
+        // pointer safety and ensuring the spatial query callback is thread-safe.
+        let mut schedule = bevy_ecs::schedule::Schedule::default();
+        schedule.set_executor_kind(bevy_ecs::schedule::ExecutorKind::SingleThreaded);
+        Self { world, schedule }
     }
 
     pub fn set_dt(&mut self, dt: f32) {

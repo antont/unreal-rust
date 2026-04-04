@@ -270,6 +270,14 @@ pub type MassSpatialQueryFn = unsafe extern "C" fn(
     out: *mut MassSpatialQueryResult,
 ) -> u32;
 
+// Compile-time check: Option<fn ptr> must be pointer-sized for C FFI compatibility.
+// Rust guarantees niche optimization for Option<extern "C" fn>, but assert to catch
+// any future type changes that would break the C++ nullable function pointer layout.
+const _: () = assert!(
+    std::mem::size_of::<Option<MassSpatialQueryFn>>() == std::mem::size_of::<*const ()>(),
+    "Option<MassSpatialQueryFn> must be pointer-sized for FFI"
+);
+
 /// Describes one registered Rust mass system. C++ queries these at init time.
 #[repr(C)]
 pub struct MassSystemDescriptor {
