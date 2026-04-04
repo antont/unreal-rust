@@ -119,8 +119,10 @@ void URustMassDynamicProcessor::ConfigureQueries(const TSharedRef<FMassEntityMan
 		return;
 	}
 
-	// Invalidate cached global chunk pointers — chunks may have moved since last play session
-	bGlobalCacheValid = false;
+	// Invalidate cached chunk pointers — chunks may have moved since last play session
+	bChunkCacheValid = false;
+	CachedPrimarySlices.Empty();
+	CachedPrimaryChunks.Empty();
 	CachedChunkSlices.Empty();
 	CachedChunkedFrags.Empty();
 	CachedGlobalEntityCount = 0;
@@ -179,119 +181,122 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 
 	const float DeltaSeconds = Context.GetDeltaTimeSeconds();
 
-	// --- Gather primary (per-chunk) fragment info ---
-	TArray<const UScriptStruct*> ChunkFragmentStructs;
-	TArray<uint8> ChunkFragmentAccess;
-	for (int32 i = 0; i < FragmentStructs.Num(); ++i)
+	// --- First frame: cache all chunk pointers (entities are stable, so these never change) ---
+	if (!bChunkCacheValid)
 	{
-		if (!FragmentIsTags[i])
+		// Build filtered primary fragment metadata (non-tag only)
+		PrimaryFragmentStructs.Empty();
+		PrimaryFragmentAccess.Empty();
+		for (int32 i = 0; i < FragmentStructs.Num(); ++i)
 		{
-			ChunkFragmentStructs.Add(FragmentStructs[i]);
-			ChunkFragmentAccess.Add(FragmentAccessModes[i]);
+			if (!FragmentIsTags[i])
+			{
+				PrimaryFragmentStructs.Add(FragmentStructs[i]);
+				PrimaryFragmentAccess.Add(FragmentAccessModes[i]);
+			}
 		}
-	}
 
-	// --- Build global chunk descriptors (zero-copy, cached after first frame) ---
-	if (bHasGlobalQueries && !bGlobalCacheValid)
-	{
-		CachedChunkSlices.SetNum(GlobalFragmentStructs.Num());
-		CachedChunkedFrags.SetNum(GlobalFragmentStructs.Num());
-		CachedGlobalEntityCount = 0;
+		// Cache primary chunk pointers
+		CachedPrimarySlices.Empty();
+		CachedPrimaryChunks.Empty();
 
-		GlobalEntityQuery.ForEachEntityChunk(Context,
+		EntityQuery.ForEachEntityChunk(Context,
 			[this](FMassExecutionContext& ChunkContext)
 		{
 			const int32 NumEntities = ChunkContext.GetNumEntities();
-			CachedGlobalEntityCount += NumEntities;
+			const int32 ChunkIdx = CachedPrimarySlices.Num();
 
-			for (int32 i = 0; i < GlobalFragmentStructs.Num(); ++i)
+			TArray<MassFragmentSlice>& FragSlices = CachedPrimarySlices.AddDefaulted_GetRef();
+			FragSlices.SetNum(PrimaryFragmentStructs.Num());
+
+			for (int32 i = 0; i < PrimaryFragmentStructs.Num(); ++i)
 			{
-				const UScriptStruct* FragStruct = GlobalFragmentStructs[i];
-				const uint32 Stride = FragStruct->GetStructureSize();
-
-				void* ChunkData;
-				if (GlobalFragmentAccessModes[i] == 1)
+				const UScriptStruct* FragStruct = PrimaryFragmentStructs[i];
+				if (PrimaryFragmentAccess[i] == 1)
 				{
 					TArrayView<FMassFragment> View = ChunkContext.GetMutableFragmentView(FragStruct);
-					ChunkData = View.GetData();
+					FragSlices[i].data = View.GetData();
+					FragSlices[i].count = View.Num();
 				}
 				else
 				{
 					TConstArrayView<FMassFragment> View = ChunkContext.GetFragmentView(FragStruct);
-					ChunkData = const_cast<FMassFragment*>(View.GetData());
+					FragSlices[i].data = const_cast<FMassFragment*>(View.GetData());
+					FragSlices[i].count = View.Num();
 				}
-
-				MassGlobalChunkSlice Slice;
-				Slice.data = ChunkData;
-				Slice.count = NumEntities;
-				Slice.stride = Stride;
-				CachedChunkSlices[i].Add(Slice);
+				FragSlices[i].stride = FragStruct->GetStructureSize();
 			}
+
+			MassChunkData& Chunk = CachedPrimaryChunks.AddDefaulted_GetRef();
+			Chunk.num_entities = NumEntities;
+			Chunk.dt = 0.0f; // updated per frame
+			Chunk.num_fragments = FragSlices.Num();
+			Chunk.fragments = FragSlices.GetData();
+			Chunk.global_num_entities = 0;
+			Chunk.num_global_fragments = 0;
+			Chunk.global_fragments = nullptr;
+			Chunk.global_entity_handles = nullptr;
+			Chunk.global_chunked_fragments = nullptr;
 		});
 
-		for (int32 i = 0; i < GlobalFragmentStructs.Num(); ++i)
-		{
-			CachedChunkedFrags[i].chunks = CachedChunkSlices[i].GetData();
-			CachedChunkedFrags[i].num_chunks = CachedChunkSlices[i].Num();
-			CachedChunkedFrags[i].total_count = CachedGlobalEntityCount;
-			CachedChunkedFrags[i].stride = GlobalFragmentStructs[i]->GetStructureSize();
-		}
-
-		bGlobalCacheValid = true;
-	}
-
-	// --- Helper lambda to build primary fragment slices and call Rust ---
-	auto IteratePrimaryChunks = [this, DeltaSeconds, &ChunkFragmentStructs, &ChunkFragmentAccess]
-		(FMassExecutionContext& ChunkContext)
-	{
-		const int32 NumEntities = ChunkContext.GetNumEntities();
-
-		TArray<MassFragmentSlice> FragSlices;
-		FragSlices.SetNum(ChunkFragmentStructs.Num());
-		for (int32 i = 0; i < ChunkFragmentStructs.Num(); ++i)
-		{
-			const UScriptStruct* FragStruct = ChunkFragmentStructs[i];
-			if (ChunkFragmentAccess[i] == 1)
-			{
-				TArrayView<FMassFragment> View = ChunkContext.GetMutableFragmentView(FragStruct);
-				FragSlices[i].data = View.GetData();
-				FragSlices[i].count = View.Num();
-				FragSlices[i].stride = FragStruct->GetStructureSize();
-			}
-			else
-			{
-				TConstArrayView<FMassFragment> View = ChunkContext.GetFragmentView(FragStruct);
-				FragSlices[i].data = const_cast<FMassFragment*>(View.GetData());
-				FragSlices[i].count = View.Num();
-				FragSlices[i].stride = FragStruct->GetStructureSize();
-			}
-		}
-
-		MassChunkData ChunkData;
-		ChunkData.num_entities = NumEntities;
-		ChunkData.dt = DeltaSeconds;
-		ChunkData.num_fragments = FragSlices.Num();
-		ChunkData.fragments = FragSlices.GetData();
-
+		// Cache global chunk pointers (if any)
 		if (bHasGlobalQueries)
 		{
-			ChunkData.global_num_entities = CachedGlobalEntityCount;
-			ChunkData.num_global_fragments = CachedChunkedFrags.Num();
-			ChunkData.global_fragments = nullptr;
-			ChunkData.global_entity_handles = nullptr;
-			ChunkData.global_chunked_fragments = CachedChunkedFrags.GetData();
-		}
-		else
-		{
-			ChunkData.global_num_entities = 0;
-			ChunkData.num_global_fragments = 0;
-			ChunkData.global_fragments = nullptr;
-			ChunkData.global_entity_handles = nullptr;
-			ChunkData.global_chunked_fragments = nullptr;
+			CachedChunkSlices.SetNum(GlobalFragmentStructs.Num());
+			CachedChunkedFrags.SetNum(GlobalFragmentStructs.Num());
+			CachedGlobalEntityCount = 0;
+
+			GlobalEntityQuery.ForEachEntityChunk(Context,
+				[this](FMassExecutionContext& ChunkContext)
+			{
+				const int32 NumEntities = ChunkContext.GetNumEntities();
+				CachedGlobalEntityCount += NumEntities;
+
+				for (int32 i = 0; i < GlobalFragmentStructs.Num(); ++i)
+				{
+					const UScriptStruct* FragStruct = GlobalFragmentStructs[i];
+					void* Data;
+					if (GlobalFragmentAccessModes[i] == 1)
+					{
+						Data = ChunkContext.GetMutableFragmentView(FragStruct).GetData();
+					}
+					else
+					{
+						Data = const_cast<FMassFragment*>(ChunkContext.GetFragmentView(FragStruct).GetData());
+					}
+
+					MassGlobalChunkSlice Slice;
+					Slice.data = Data;
+					Slice.count = NumEntities;
+					Slice.stride = FragStruct->GetStructureSize();
+					CachedChunkSlices[i].Add(Slice);
+				}
+			});
+
+			for (int32 i = 0; i < GlobalFragmentStructs.Num(); ++i)
+			{
+				CachedChunkedFrags[i].chunks = CachedChunkSlices[i].GetData();
+				CachedChunkedFrags[i].num_chunks = CachedChunkSlices[i].Num();
+				CachedChunkedFrags[i].total_count = CachedGlobalEntityCount;
+				CachedChunkedFrags[i].stride = GlobalFragmentStructs[i]->GetStructureSize();
+			}
+
+			// Wire global data into each cached primary chunk
+			for (MassChunkData& Chunk : CachedPrimaryChunks)
+			{
+				Chunk.global_num_entities = CachedGlobalEntityCount;
+				Chunk.num_global_fragments = CachedChunkedFrags.Num();
+				Chunk.global_chunked_fragments = CachedChunkedFrags.GetData();
+			}
 		}
 
-		CachedExecuteFn(&ChunkData);
-	};
+		bChunkCacheValid = true;
+	}
 
-	EntityQuery.ForEachEntityChunk(Context, IteratePrimaryChunks);
+	// --- Every frame: update dt and call Rust per cached chunk ---
+	for (MassChunkData& Chunk : CachedPrimaryChunks)
+	{
+		Chunk.dt = DeltaSeconds;
+		CachedExecuteFn(&Chunk);
+	}
 }

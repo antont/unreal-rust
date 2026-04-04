@@ -57,11 +57,21 @@ private:
 	/// Whether this system has any global queries.
 	bool bHasGlobalQueries = false;
 
-	// --- Cached global chunk descriptors (zero-copy, built on first Execute) ---
-	bool bGlobalCacheValid = false;
+	// --- Cached chunk descriptors (zero-copy, built on first Execute) ---
+	bool bChunkCacheValid = false;
+
+	// Primary: one MassChunkData per primary chunk, with pre-built fragment slices
+	TArray<TArray<MassFragmentSlice>> CachedPrimarySlices;    // [chunk_idx][frag_idx]
+	TArray<MassChunkData> CachedPrimaryChunks;                // [chunk_idx]
+
+	// Global: chunked descriptors across all global chunks
 	TArray<TArray<MassGlobalChunkSlice>> CachedChunkSlices;   // [frag_idx][chunk_idx]
 	TArray<MassGlobalFragmentChunks> CachedChunkedFrags;      // [frag_idx]
 	int32 CachedGlobalEntityCount = 0;
+
+	// Filtered primary fragment metadata (non-tag only), built once
+	TArray<const UScriptStruct*> PrimaryFragmentStructs;
+	TArray<uint8> PrimaryFragmentAccess;
 
 	/// Extra tag requirements added by the subsystem for population scoping.
 	TArray<const UScriptStruct*> ExtraTagRequirements;
