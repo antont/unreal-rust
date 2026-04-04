@@ -1,27 +1,9 @@
 # Global query (MassQueryAll) copies data instead of writing directly
 
-## Status: Known limitation (stepping stone)
+## Status: Resolved
 
-## Problem
+Solved on `global-query-zero-copy` branch by caching direct pointers to Mass Entity chunk memory. Since ant and food entities are stable throughout the simulation (never added/removed), chunk layout is frozen and pointers are cached on first `Execute()`.
 
-`MassQueryAll<&mut T>` requires copying all matching fragment data into a contiguous temp buffer before passing it to Rust, then copying modifications back to the original chunk storage after Rust returns. This is because Mass Entity stores entities across multiple chunks that aren't contiguous in memory, but the Rust API presents them as a single flat `&mut [T]` slice.
+The Rust `MassQueryAllMut<T>` now wraps chunked descriptors (`MassGlobalFragmentChunks`) that point directly into Mass Entity memory. Iteration walks across chunks transparently. `get_mut(index)` provides O(1) indexed access.
 
-Primary queries (`MassQuery`) don't have this problem — they pass chunk memory directly to Rust with zero copy.
-
-## Impact
-
-For small entity counts (e.g. 50-100 food entities) the overhead is negligible. At scale it becomes a problem: every frame copies `N * sizeof(T)` bytes twice (gather + write-back) for each mutable global fragment type.
-
-## Possible solutions
-
-- **Chunk-by-chunk iteration for globals**: Instead of gathering into one buffer, call Rust once per global chunk. The Rust API would need to handle non-contiguous data (e.g. a callback or iterator-of-slices pattern). Breaks the simple flat-slice ergonomics.
-
-- **Stable archetype pointer access**: If we can guarantee a single archetype for a global query (e.g. all food entities share one archetype), we could pass chunk pointers directly. Requires knowing the archetype layout at query time.
-
-- **Shared memory mapping**: Map the chunk data into a Rust-visible address range without copying. Complex and platform-specific.
-
-- **Accept the copy for writes, zero-copy for reads**: `MassQueryAll<&T>` (read-only) could pass chunk pointers without gathering. Only mutable globals pay the copy cost. This is already partially implemented — read-only globals use `GetFragmentView()` — but the data is still copied into the contiguous buffer.
-
-## Current implementation
-
-See `RustMassDynamicProcessor.cpp` `Execute()` — the `bHasGlobalQueries` path with `GlobalBuffers`, `GlobalFragmentSources`, and the write-back loop.
+See `docs/massentity-bridge-design.md` for the current architecture.
