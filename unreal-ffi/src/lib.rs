@@ -206,6 +206,70 @@ pub struct MassFragmentRequirement {
 /// Execute function signature for a dynamically registered mass system.
 pub type MassSystemExecuteFn = unsafe extern "C" fn(chunk: *const MassChunkData);
 
+// --- Bevy-scheduled per-frame dispatch ---
+
+/// One system's cached primary chunk data, passed from C++ coordinator to Rust.
+#[repr(C)]
+pub struct MassSystemChunkBatch {
+    /// Index of the system in registration order.
+    pub system_index: u32,
+    /// Number of primary chunks for this system.
+    pub num_primary_chunks: u32,
+    /// Pointer to array of MassChunkData, one per primary chunk.
+    pub primary_chunks: *const MassChunkData,
+}
+
+/// Per-frame dispatch data: dt + all system chunk batches + spatial query callback.
+#[repr(C)]
+pub struct MassFrameDispatchData {
+    /// Delta time for this frame.
+    pub dt: f32,
+    /// Number of system batches.
+    pub num_systems: u32,
+    /// Pointer to array of MassSystemChunkBatch.
+    pub systems: *const MassSystemChunkBatch,
+    /// Optional spatial query callback for collision detection. Null if not available.
+    pub spatial_query_fn: Option<MassSpatialQueryFn>,
+    /// Pickup radius for spatial queries (Unreal units).
+    pub pickup_radius: f32,
+    pub _pad: u32,
+}
+
+/// Function signature for per-frame Bevy-scheduled dispatch.
+pub type MassFrameDispatchFn = unsafe extern "C" fn(data: *const MassFrameDispatchData);
+
+// --- Spatial query callback for Rust collision processor ---
+
+/// Result of a spatial query for one ant (food encounter detection).
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct MassSpatialQueryResult {
+    /// Index of the nearest food entity, or -1 if none found.
+    pub food_index: i32,
+    pub _pad: i32,
+    /// Position where the encounter occurred.
+    pub encounter_position: [f64; 3],
+    /// Whether a food encounter was found.
+    pub has_encounter: bool,
+    pub _result_pad: [u8; 7],
+}
+
+/// Callback function for spatial queries. C++ implements this using UE physics.
+///
+/// Parameters:
+/// - `previous_pos`: ant's previous position (3 x f64)
+/// - `current_pos`: ant's current position (3 x f64)
+/// - `pickup_radius`: radius for collision detection
+/// - `out`: result written here
+///
+/// Returns 1 on success, 0 on failure.
+pub type MassSpatialQueryFn = unsafe extern "C" fn(
+    previous_pos: *const f64,
+    current_pos: *const f64,
+    pickup_radius: f32,
+    out: *mut MassSpatialQueryResult,
+) -> u32;
+
 /// Describes one registered Rust mass system. C++ queries these at init time.
 #[repr(C)]
 pub struct MassSystemDescriptor {
@@ -248,6 +312,7 @@ pub struct RustBindings {
     pub mass_ant_food_decision: MassAntFoodDecisionFn,
     pub get_mass_system_count: GetMassSystemCountFn,
     pub get_mass_system_descriptor: GetMassSystemDescriptorFn,
+    pub mass_frame_dispatch: MassFrameDispatchFn,
 }
 
 impl RustBindings {
@@ -298,6 +363,11 @@ impl RustBindings {
             0
         }
 
+        unsafe extern "C" fn mass_frame_dispatch_stub(
+            _: *const MassFrameDispatchData,
+        ) {
+        }
+
         Self {
             tick: tick_stub,
             begin_play: begin_play_stub,
@@ -307,6 +377,7 @@ impl RustBindings {
             mass_ant_food_decision: mass_ant_food_decision_stub,
             get_mass_system_count: get_mass_system_count_stub,
             get_mass_system_descriptor: get_mass_system_descriptor_stub,
+            mass_frame_dispatch: mass_frame_dispatch_stub,
         }
     }
 }
@@ -623,9 +694,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 8 function pointers
+        // RustBindings should have 9 function pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 8 * std::mem::size_of::<usize>());
+        assert_eq!(size, 9 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -674,6 +745,27 @@ mod tests {
         // Utf8Str(16) + u32(4) + pad(4) + ptr(8) + fn_ptr(8) = 40
         let size = std::mem::size_of::<MassSystemDescriptor>();
         assert_eq!(size, 40);
+    }
+
+    #[test]
+    fn mass_system_chunk_batch_layout() {
+        // u32(4) + u32(4) + ptr(8) = 16
+        assert_eq!(std::mem::size_of::<MassSystemChunkBatch>(), 16);
+        assert_eq!(std::mem::align_of::<MassSystemChunkBatch>(), 8);
+    }
+
+    #[test]
+    fn mass_frame_dispatch_data_layout() {
+        // f32(4) + u32(4) + ptr(8) + Option<fn>(8) + f32(4) + u32(4) = 32
+        assert_eq!(std::mem::size_of::<MassFrameDispatchData>(), 32);
+        assert_eq!(std::mem::align_of::<MassFrameDispatchData>(), 8);
+    }
+
+    #[test]
+    fn mass_spatial_query_result_layout() {
+        // i32(4) + i32(4) + [f64;3](24) + bool(1) + [u8;7](7) = 40
+        assert_eq!(std::mem::size_of::<MassSpatialQueryResult>(), 40);
+        assert_eq!(std::mem::align_of::<MassSpatialQueryResult>(), 8);
     }
 
     #[test]

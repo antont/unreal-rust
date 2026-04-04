@@ -293,10 +293,19 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 		bChunkCacheValid = true;
 	}
 
-	// --- Every frame: update dt and call Rust per cached chunk ---
+	// --- Every frame: update dt ---
 	for (MassChunkData& Chunk : CachedPrimaryChunks)
 	{
 		Chunk.dt = DeltaSeconds;
-		CachedExecuteFn(&Chunk);
+	}
+
+	// In cache-only mode, the coordinator will dispatch all systems together.
+	// In direct mode, call Rust per cached chunk as before.
+	if (!bCacheOnly)
+	{
+		for (MassChunkData& Chunk : CachedPrimaryChunks)
+		{
+			CachedExecuteFn(&Chunk);
+		}
 	}
 }

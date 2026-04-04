@@ -128,6 +128,71 @@ fn ant_food_decision(
     }
 }
 
+// ---------------------------------------------------------------------------
+// System 2: Collision pre-pass — detect food encounters via spatial query
+// ---------------------------------------------------------------------------
+
+/// Pure logic for collision pre-pass. Testable with mock callbacks.
+pub fn ant_collision_prepass_impl(
+    ants: &unreal_api::mass::MassQueryRef<'_, AntFragment>,
+    encounters: &mut unreal_api::mass::MassQueryMut<'_, AntEncounterFragment>,
+    query_fn: Option<unreal_api::ffi::MassSpatialQueryFn>,
+    pickup_radius: f32,
+) {
+    for (ant, enc) in ants.iter().zip(encounters.iter_mut()) {
+        // Reset encounter
+        enc.has_encounter = false;
+        enc.nearest_food_index = -1;
+        enc.encounter_position = [0.0; 3];
+
+        let Some(callback) = query_fn else {
+            continue;
+        };
+
+        let mut result = unreal_api::ffi::MassSpatialQueryResult {
+            food_index: -1,
+            _pad: 0,
+            encounter_position: [0.0; 3],
+            has_encounter: false,
+            _result_pad: [0; 7],
+        };
+
+        let ok = unsafe {
+            callback(
+                ant.previous_position.as_ptr(),
+                ant.position.as_ptr(),
+                pickup_radius,
+                &mut result,
+            )
+        };
+
+        if ok != 0 && result.has_encounter {
+            enc.has_encounter = true;
+            enc.nearest_food_index = result.food_index;
+            enc.encounter_position = result.encounter_position;
+        }
+    }
+}
+
+/// Bevy system wrapper for collision pre-pass.
+/// Iterates over all primary chunks of ants/encounters and calls the impl.
+pub fn ant_collision_prepass_bevy(
+    ants: unreal_api::ecs::prelude::Res<unreal_api::mass::MassChunks<AntFragment>>,
+    mut encounters: unreal_api::ecs::prelude::ResMut<unreal_api::mass::MassChunks<AntEncounterFragment>>,
+    spatial: unreal_api::ecs::prelude::Res<unreal_api::mass::MassSpatialQueryCallback>,
+) {
+    for chunk_idx in 0..ants.primary_chunk_count() {
+        let ant_query = unsafe { ants.primary_chunk_ref(chunk_idx) };
+        let mut enc_query = unsafe { encounters.primary_chunk_mut(chunk_idx) };
+        ant_collision_prepass_impl(
+            &ant_query,
+            &mut enc_query,
+            spatial.query_fn,
+            spatial.pickup_radius,
+        );
+    }
+}
+
 fn reverse_direction(dir: [f64; 3]) -> [f64; 3] {
     [-dir[0], -dir[1], -dir[2]]
 }
@@ -415,6 +480,358 @@ mod tests {
         assert_eq!(ants[0].carried_food_index, -1);
         assert!(foods[0].is_loose);
         assert_eq!(ants[0].direction, [1.0, 0.0, 0.0]);
+    }
+
+    // -----------------------------------------------------------------------
+    // Bevy schedule integration tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn bevy_schedule_ant_movement_matches_direct() {
+        use unreal_api::mass::{MassChunks, MassSchedule};
+        use unreal_api::ffi::MassFragmentSlice;
+
+        // Prepare identical ant data for both paths
+        let mut ants_direct = [AntFragment {
+            position: [100.0, 200.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 50.0,
+            ..Default::default()
+        }];
+        let mut ants_bevy = ants_direct;
+
+        let dt = 0.1f32;
+
+        // --- Direct path ---
+        {
+            let mut q = unsafe {
+                MassQueryMut::from_raw(ants_direct.as_mut_ptr() as *mut _, ants_direct.len())
+            };
+            ant_movement(&mut q, dt);
+        }
+
+        // --- Bevy schedule path ---
+        {
+            let mut sched = MassSchedule::new();
+            sched.world_mut().insert_resource(MassChunks::<AntFragment>::new());
+            sched.schedule_mut().add_systems(ant_movement_bevy);
+            sched.set_dt(dt);
+
+            // Populate MassChunks with pointer to ants_bevy
+            {
+                let mut chunks = sched.world_mut().resource_mut::<MassChunks<AntFragment>>();
+                unsafe {
+                    chunks.push_primary_slice(MassFragmentSlice {
+                        data: ants_bevy.as_mut_ptr() as *mut _,
+                        count: ants_bevy.len() as i32,
+                        stride: std::mem::size_of::<AntFragment>() as u32,
+                    });
+                }
+            }
+
+            sched.run();
+        }
+
+        // Both paths should produce identical results
+        assert_eq!(ants_direct[0].position, ants_bevy[0].position,
+            "Bevy schedule should produce same position as direct call");
+        assert_eq!(ants_direct[0].previous_position, ants_bevy[0].previous_position,
+            "Bevy schedule should produce same previous_position as direct call");
+    }
+
+    #[test]
+    fn bevy_schedule_cooldown_matches_direct() {
+        use unreal_api::mass::{MassChunks, MassSchedule};
+        use unreal_api::ffi::MassFragmentSlice;
+
+        let mut ants_direct = [AntFragment {
+            pickup_cooldown_remaining_seconds: 1.0,
+            ..Default::default()
+        }];
+        let mut ants_bevy = ants_direct;
+        let dt = 0.3f32;
+
+        // Direct
+        {
+            let mut q = unsafe {
+                MassQueryMut::from_raw(ants_direct.as_mut_ptr() as *mut _, ants_direct.len())
+            };
+            ant_cooldown(&mut q, dt);
+        }
+
+        // Bevy
+        {
+            let mut sched = MassSchedule::new();
+            sched.world_mut().insert_resource(MassChunks::<AntFragment>::new());
+            sched.schedule_mut().add_systems(ant_cooldown_bevy);
+            sched.set_dt(dt);
+
+            {
+                let mut chunks = sched.world_mut().resource_mut::<MassChunks<AntFragment>>();
+                unsafe {
+                    chunks.push_primary_slice(MassFragmentSlice {
+                        data: ants_bevy.as_mut_ptr() as *mut _,
+                        count: ants_bevy.len() as i32,
+                        stride: std::mem::size_of::<AntFragment>() as u32,
+                    });
+                }
+            }
+
+            sched.run();
+        }
+
+        assert!(
+            (ants_direct[0].pickup_cooldown_remaining_seconds
+                - ants_bevy[0].pickup_cooldown_remaining_seconds).abs() < 1e-6,
+            "Cooldown values should match: direct={}, bevy={}",
+            ants_direct[0].pickup_cooldown_remaining_seconds,
+            ants_bevy[0].pickup_cooldown_remaining_seconds
+        );
+    }
+
+    #[test]
+    fn bevy_schedule_boundary_reflect_matches_direct() {
+        use unreal_api::mass::{MassChunks, MassSchedule};
+        use unreal_api::ffi::MassFragmentSlice;
+
+        let mut ants_direct = [AntFragment {
+            position: [600.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+        let mut ants_bevy = ants_direct;
+        let dt = 0.0f32;
+
+        // Direct
+        {
+            let mut q = unsafe {
+                MassQueryMut::from_raw(ants_direct.as_mut_ptr() as *mut _, ants_direct.len())
+            };
+            ant_boundary_reflect(&mut q, dt);
+        }
+
+        // Bevy
+        {
+            let mut sched = MassSchedule::new();
+            sched.world_mut().insert_resource(MassChunks::<AntFragment>::new());
+            sched.schedule_mut().add_systems(ant_boundary_reflect_bevy);
+            sched.set_dt(dt);
+
+            {
+                let mut chunks = sched.world_mut().resource_mut::<MassChunks<AntFragment>>();
+                unsafe {
+                    chunks.push_primary_slice(MassFragmentSlice {
+                        data: ants_bevy.as_mut_ptr() as *mut _,
+                        count: ants_bevy.len() as i32,
+                        stride: std::mem::size_of::<AntFragment>() as u32,
+                    });
+                }
+            }
+
+            sched.run();
+        }
+
+        assert_eq!(ants_direct[0].position, ants_bevy[0].position);
+        assert_eq!(ants_direct[0].direction, ants_bevy[0].direction);
+    }
+
+    #[test]
+    fn bevy_schedule_preserves_ordering() {
+        use unreal_api::mass::{MassChunks, MassSchedule};
+        use unreal_api::ffi::MassFragmentSlice;
+        use unreal_api::ecs::schedule::IntoScheduleConfigs;
+
+        // An ant near the boundary: movement → boundary produces clamped state
+        let mut ants = [AntFragment {
+            position: [499.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 100.0,
+            ..Default::default()
+        }];
+
+        let dt = 1.0f32;
+        let mut sched = MassSchedule::new();
+        sched.world_mut().insert_resource(MassChunks::<AntFragment>::new());
+
+        // Add systems with explicit ordering: movement before boundary
+        sched.schedule_mut().add_systems(
+            (ant_movement_bevy, ant_boundary_reflect_bevy).chain()
+        );
+        sched.set_dt(dt);
+
+        {
+            let mut chunks = sched.world_mut().resource_mut::<MassChunks<AntFragment>>();
+            unsafe {
+                chunks.push_primary_slice(MassFragmentSlice {
+                    data: ants.as_mut_ptr() as *mut _,
+                    count: ants.len() as i32,
+                    stride: std::mem::size_of::<AntFragment>() as u32,
+                });
+            }
+        }
+
+        sched.run();
+
+        assert!(ants[0].position[0] <= 500.0,
+            "Position should be clamped after movement+boundary: got {}", ants[0].position[0]);
+        assert!(ants[0].direction[0] < 0.0,
+            "Direction should reflect after hitting boundary: got {}", ants[0].direction[0]);
+    }
+
+    // -----------------------------------------------------------------------
+    // Collision pre-pass tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn collision_prepass_no_callback_clears_encounters() {
+        let ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            previous_position: [99.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+        let mut encounters = [AntEncounterFragment {
+            has_encounter: true,
+            nearest_food_index: 5,
+            encounter_position: [50.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+
+        let ant_q = unsafe { MassQueryRef::from_raw(ants.as_ptr() as *const _, ants.len()) };
+        let mut enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+
+        ant_collision_prepass_impl(&ant_q, &mut enc_q, None, 15.0);
+
+        assert!(!encounters[0].has_encounter);
+        assert_eq!(encounters[0].nearest_food_index, -1);
+    }
+
+    #[test]
+    fn collision_prepass_finds_nearest_food() {
+        // Mock callback that always returns a hit
+        unsafe extern "C" fn mock_hit(
+            _prev: *const f64,
+            _curr: *const f64,
+            _radius: f32,
+            out: *mut unreal_api::ffi::MassSpatialQueryResult,
+        ) -> u32 {
+            unsafe {
+                (*out).has_encounter = true;
+                (*out).food_index = 3;
+                (*out).encounter_position = [50.0, 50.0, 0.0];
+            }
+            1
+        }
+
+        let ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            previous_position: [90.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+        let mut encounters = [AntEncounterFragment::default()];
+
+        let ant_q = unsafe { MassQueryRef::from_raw(ants.as_ptr() as *const _, ants.len()) };
+        let mut enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+
+        ant_collision_prepass_impl(&ant_q, &mut enc_q, Some(mock_hit), 15.0);
+
+        assert!(encounters[0].has_encounter);
+        assert_eq!(encounters[0].nearest_food_index, 3);
+        assert_eq!(encounters[0].encounter_position, [50.0, 50.0, 0.0]);
+    }
+
+    #[test]
+    fn collision_prepass_no_hit_clears() {
+        // Mock callback that returns no hit
+        unsafe extern "C" fn mock_miss(
+            _prev: *const f64,
+            _curr: *const f64,
+            _radius: f32,
+            out: *mut unreal_api::ffi::MassSpatialQueryResult,
+        ) -> u32 {
+            unsafe {
+                (*out).has_encounter = false;
+                (*out).food_index = -1;
+            }
+            1
+        }
+
+        let ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            previous_position: [90.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+        let mut encounters = [AntEncounterFragment::default()];
+
+        let ant_q = unsafe { MassQueryRef::from_raw(ants.as_ptr() as *const _, ants.len()) };
+        let mut enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+
+        ant_collision_prepass_impl(&ant_q, &mut enc_q, Some(mock_miss), 15.0);
+
+        assert!(!encounters[0].has_encounter);
+        assert_eq!(encounters[0].nearest_food_index, -1);
+    }
+
+    #[test]
+    fn collision_prepass_bevy_integration() {
+        use unreal_api::mass::{MassChunks, MassSchedule, MassSpatialQueryCallback};
+        use unreal_api::ffi::MassFragmentSlice;
+
+        unsafe extern "C" fn mock_hit(
+            _prev: *const f64,
+            _curr: *const f64,
+            _radius: f32,
+            out: *mut unreal_api::ffi::MassSpatialQueryResult,
+        ) -> u32 {
+            unsafe {
+                (*out).has_encounter = true;
+                (*out).food_index = 0;
+                (*out).encounter_position = [100.0, 0.0, 0.0];
+            }
+            1
+        }
+
+        let mut ants = [AntFragment {
+            position: [100.0, 0.0, 0.0],
+            previous_position: [90.0, 0.0, 0.0],
+            ..Default::default()
+        }];
+        let mut encounters = [AntEncounterFragment::default()];
+
+        let mut sched = MassSchedule::new();
+        sched.world_mut().insert_resource(MassChunks::<AntFragment>::new());
+        sched.world_mut().insert_resource(MassChunks::<AntEncounterFragment>::new());
+        sched.world_mut().insert_resource(MassSpatialQueryCallback {
+            query_fn: Some(mock_hit),
+            pickup_radius: 15.0,
+        });
+        sched.schedule_mut().add_systems(ant_collision_prepass_bevy);
+
+        // Populate chunks
+        {
+            let mut ant_chunks = sched.world_mut().resource_mut::<MassChunks<AntFragment>>();
+            unsafe {
+                ant_chunks.push_primary_slice(MassFragmentSlice {
+                    data: ants.as_mut_ptr() as *mut _,
+                    count: ants.len() as i32,
+                    stride: std::mem::size_of::<AntFragment>() as u32,
+                });
+            }
+        }
+        {
+            let mut enc_chunks = sched.world_mut().resource_mut::<MassChunks<AntEncounterFragment>>();
+            unsafe {
+                enc_chunks.push_primary_slice(MassFragmentSlice {
+                    data: encounters.as_mut_ptr() as *mut _,
+                    count: encounters.len() as i32,
+                    stride: std::mem::size_of::<AntEncounterFragment>() as u32,
+                });
+            }
+        }
+
+        sched.run();
+
+        assert!(encounters[0].has_encounter);
+        assert_eq!(encounters[0].nearest_food_index, 0);
     }
 
     #[test]

@@ -30,6 +30,10 @@ public:
 	int32 GetManagedFoodCount() const;
 	bool HasManagedSimulation() const;
 
+	/// When true, uses Bevy scheduling via coordinator. When false, uses direct Rust calls.
+	UPROPERTY(EditAnywhere, Category = "Simulation")
+	bool bUseBevyScheduling = true;
+
 public:
 	TArray<FMassEntityHandle> ManagedAntEntities;
 	TArray<FMassEntityHandle> ManagedFoodEntities;

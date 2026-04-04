@@ -119,6 +119,7 @@ fn create_rust_bindings() -> RustBindings {
         mass_ant_food_decision: mass_ant_food_decision_noop,
         get_mass_system_count: mass_system_registry::get_mass_system_count,
         get_mass_system_descriptor: mass_system_registry::get_mass_system_descriptor,
+        mass_frame_dispatch: mass_system_registry::mass_frame_dispatch,
     }
 }
 fn debug_break() {
@@ -203,6 +204,9 @@ pub unsafe fn initialize_module(
     }
 
     unreal_api::bindings::globals::initialize_modules();
+
+    // Build the Bevy schedule from all registered mass systems
+    mass_system_registry::init_global_schedule();
 
     unsafe {
         (*MODULE).user_module.initialize();

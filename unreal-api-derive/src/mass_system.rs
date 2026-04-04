@@ -280,6 +280,155 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
     let func_vis = &func.vis;
     let func_ret = &func.sig.output;
 
+    // --- Generate Bevy wrapper function ---
+    let bevy_wrapper_name = format_ident!("{}_bevy", func_name);
+    let bevy_reg_name = format_ident!("__mass_bevy_reg_{}", func_name);
+
+    // Bevy system params: one Res/ResMut<MassChunks<T>> per unique fragment type, plus Res<MassDeltaTime>
+    let bevy_params: Vec<TokenStream> = query_params
+        .iter()
+        .map(|p| {
+            let frag_type = &p.fragment_type;
+            let param_name = format_ident!("__mass_{}", p.param_name);
+            if p.is_mutable {
+                quote! { mut #param_name: ::unreal_api::ecs::prelude::ResMut<::unreal_api::mass::MassChunks<#frag_type>> }
+            } else {
+                quote! { #param_name: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassChunks<#frag_type>> }
+            }
+        })
+        .collect();
+
+    // Build the chunk iteration body for the Bevy wrapper
+    let bevy_unpack_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .map(|p| {
+            let param_name = &p.param_name;
+            let res_name = format_ident!("__mass_{}", p.param_name);
+            match (p.scope, p.is_mutable) {
+                (QueryScope::Primary, true) => {
+                    quote! {
+                        let mut #param_name = unsafe { #res_name.primary_chunk_mut(__chunk_idx) };
+                    }
+                }
+                (QueryScope::Primary, false) => {
+                    quote! {
+                        let #param_name = unsafe { #res_name.primary_chunk_ref(__chunk_idx) };
+                    }
+                }
+                (QueryScope::Global, true) => {
+                    quote! {
+                        let mut #param_name = unsafe { #res_name.global_query_mut().expect("global query not set") };
+                    }
+                }
+                (QueryScope::Global, false) => {
+                    quote! {
+                        let #param_name = unsafe { #res_name.global_query_ref().expect("global query not set") };
+                    }
+                }
+            }
+        })
+        .collect();
+
+    // Find the first primary query param to determine chunk count
+    let primary_count_source = query_params
+        .iter()
+        .find(|p| p.scope == QueryScope::Primary)
+        .map(|p| {
+            let res_name = format_ident!("__mass_{}", p.param_name);
+            quote! { #res_name.primary_chunk_count() }
+        })
+        .unwrap_or(quote! { 0 });
+
+    // Bevy call args are the same as regular call args but with local variable names
+    let bevy_call_args: Vec<TokenStream> = func
+        .sig
+        .inputs
+        .iter()
+        .map(|arg| {
+            let FnArg::Typed(pat_type) = arg else {
+                return quote! {};
+            };
+            let param_name = match &*pat_type.pat {
+                Pat::Ident(pat_ident) => &pat_ident.ident,
+                _ => return quote! {},
+            };
+            if let Type::Path(type_path) = &*pat_type.ty {
+                if let Some(seg) = type_path.path.segments.last() {
+                    if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" {
+                        let is_mut = query_params
+                            .iter()
+                            .any(|p| p.param_name == *param_name && p.is_mutable);
+                        if is_mut {
+                            return quote! { &mut #param_name };
+                        } else {
+                            return quote! { &#param_name };
+                        }
+                    }
+                }
+            }
+            let param_str = param_name.to_string();
+            if param_str == "dt" {
+                return quote! { __mass_dt.0 };
+            }
+            quote! { #param_name }
+        })
+        .collect();
+
+    // Resource initializers for MassBevySystemRegistration
+    let init_resource_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .map(|p| {
+            let frag_type = &p.fragment_type;
+            quote! {
+                if !world.contains_resource::<::unreal_api::mass::MassChunks<#frag_type>>() {
+                    world.insert_resource(::unreal_api::mass::MassChunks::<#frag_type>::new());
+                }
+            }
+        })
+        .collect();
+
+    // Clear resources closure — clears all MassChunks<T> this system uses
+    let clear_resource_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .map(|p| {
+            let frag_type = &p.fragment_type;
+            quote! {
+                world.resource_mut::<::unreal_api::mass::MassChunks<#frag_type>>().clear();
+            }
+        })
+        .collect();
+
+    // Populate resources closure — unpacks MassSystemChunkBatch into typed MassChunks<T>
+    // Primary fragments: indexed by scope_index within MassChunkData.fragments
+    // Global fragments: indexed by scope_index within MassChunkData.global_chunked_fragments
+    let populate_primary_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| p.scope == QueryScope::Primary)
+        .map(|p| {
+            let frag_type = &p.fragment_type;
+            let idx = p.scope_index;
+            quote! {
+                world.resource_mut::<::unreal_api::mass::MassChunks<#frag_type>>()
+                    .push_primary_slice(*chunk.fragments.add(#idx));
+            }
+        })
+        .collect();
+
+    let populate_global_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| p.scope == QueryScope::Global)
+        .map(|p| {
+            let frag_type = &p.fragment_type;
+            let idx = p.scope_index;
+            quote! {
+                if world.resource::<::unreal_api::mass::MassChunks<#frag_type>>().global().is_none() {
+                    world.resource_mut::<::unreal_api::mass::MassChunks<#frag_type>>()
+                        .set_global(chunk.global_chunked_fragments.add(#idx));
+                }
+            }
+        })
+        .collect();
+
     Ok(quote! {
         #func_vis fn #func_name(#(#rewritten_params),*) #func_ret
             #func_body
@@ -292,6 +441,16 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             #func_name(#(#call_args),*);
         }
 
+        fn #bevy_wrapper_name(
+            #(#bevy_params,)*
+            __mass_dt: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassDeltaTime>,
+        ) {
+            for __chunk_idx in 0..#primary_count_source {
+                #(#bevy_unpack_stmts)*
+                #func_name(#(#bevy_call_args),*);
+            }
+        }
+
         static #reg_name: () = {
             const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
                 #(#requirement_entries),*
@@ -302,6 +461,40 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                     name: #system_name_str,
                     execute_fn: #wrapper_name,
                     requirements: &REQUIREMENTS,
+                }
+            }
+        };
+
+        static #bevy_reg_name: () = {
+            ::unreal_api::inventory::submit! {
+                ::unreal_api::mass::MassBevySystemRegistration {
+                    name: #system_name_str,
+                    add_to_schedule: |schedule: &mut ::unreal_api::ecs::schedule::Schedule,
+                                      stage: ::unreal_api::mass::MassSystemStage| {
+                        use ::unreal_api::ecs::schedule::IntoScheduleConfigs;
+                        schedule.add_systems(#bevy_wrapper_name.in_set(stage));
+                    },
+                    init_resources: |world: &mut ::unreal_api::ecs::world::World| {
+                        #(#init_resource_stmts)*
+                    },
+                    clear_resources: |world: &mut ::unreal_api::ecs::world::World| {
+                        #(#clear_resource_stmts)*
+                    },
+                    populate_resources: |world: &mut ::unreal_api::ecs::world::World,
+                                         batch: &::unreal_api::ffi::MassSystemChunkBatch| {
+                        unsafe {
+                            let chunks = ::std::slice::from_raw_parts(
+                                batch.primary_chunks,
+                                batch.num_primary_chunks as usize,
+                            );
+                            for chunk in chunks {
+                                #(#populate_primary_stmts)*
+                            }
+                            if let Some(chunk) = chunks.first() {
+                                #(#populate_global_stmts)*
+                            }
+                        }
+                    },
                 }
             }
         };
@@ -395,6 +588,52 @@ mod tests {
     }
 
     #[test]
+    fn generates_bevy_wrapper() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
+                for ant in ants.iter_mut() { ant.x += dt as f64; }
+            }
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        assert!(output.contains("ant_movement_bevy"), "should generate Bevy wrapper fn");
+        assert!(output.contains("ResMut"), "should use ResMut for mutable query");
+        assert!(output.contains("MassChunks"), "should reference MassChunks resource");
+        assert!(output.contains("MassDeltaTime"), "should extract dt from resource");
+        assert!(output.contains("MassSystemStage"), "add_to_schedule should accept MassSystemStage");
+        assert!(output.contains("in_set"), "should add system to stage set");
+    }
+
+    #[test]
+    fn bevy_wrapper_uses_res_for_readonly() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn read_system(enc: MassQuery<&EncounterFragment>, dt: f32) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        // Read-only primary should use Res, not ResMut
+        assert!(output.contains("Res <"), "read-only query should use Res");
+    }
+
+    #[test]
+    fn bevy_wrapper_handles_global_query() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn food_decision(
+                ants: MassQuery<&mut AntFragment>,
+                encounters: MassQuery<&EncounterFragment>,
+                foods: MassQueryAll<&mut FoodFragment>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        assert!(output.contains("MassBevySystemRegistration"), "should register for Bevy scheduling");
+    }
+
+    #[test]
     fn generates_correct_types_for_mixed_queries() {
         let func: ItemFn = syn::parse2(quote! {
             fn food_decision(
@@ -416,5 +655,36 @@ mod tests {
         assert!(output.contains("from_chunked"), "should use from_chunked for global query");
         // Should have query_scope: 1 for global
         assert!(output.contains("query_scope : 1"), "should set query_scope=1 for global");
+    }
+
+    #[test]
+    fn generates_populate_and_clear_resources() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn ant_movement(ants: MassQuery<&mut AntFragment>, dt: f32) {
+                for ant in ants.iter_mut() { ant.x += dt as f64; }
+            }
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        assert!(output.contains("populate_resources"), "should generate populate_resources closure");
+        assert!(output.contains("clear_resources"), "should generate clear_resources closure");
+        assert!(output.contains("push_primary_slice"), "populate should push primary slices");
+    }
+
+    #[test]
+    fn generates_populate_with_global_fragments() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn food_decision(
+                ants: MassQuery<&mut AntFragment>,
+                foods: MassQueryAll<&mut FoodFragment>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        assert!(output.contains("set_global"), "populate should set global descriptor for global queries");
+        assert!(output.contains("global_chunked_fragments"), "should read from global_chunked_fragments");
     }
 }

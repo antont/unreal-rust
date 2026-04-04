@@ -11,6 +11,9 @@ enum class ResultCode : uint8_t {
   Panic = 1,
 };
 
+template<typename T = void>
+struct Option;
+
 struct Utf8Str {
   const char *ptr;
   uintptr_t len;
@@ -272,6 +275,60 @@ struct MassSystemDescriptor {
 /// Fills a MassSystemDescriptor for the system at `index`. Returns 1 on success, 0 on failure.
 using GetMassSystemDescriptorFn = uint32_t(*)(uint32_t index, MassSystemDescriptor *out);
 
+/// One system's cached primary chunk data, passed from C++ coordinator to Rust.
+struct MassSystemChunkBatch {
+  /// Index of the system in registration order.
+  uint32_t system_index;
+  /// Number of primary chunks for this system.
+  uint32_t num_primary_chunks;
+  /// Pointer to array of MassChunkData, one per primary chunk.
+  const MassChunkData *primary_chunks;
+};
+
+/// Result of a spatial query for one ant (food encounter detection).
+struct MassSpatialQueryResult {
+  /// Index of the nearest food entity, or -1 if none found.
+  int32_t food_index;
+  int32_t _pad;
+  /// Position where the encounter occurred.
+  double encounter_position[3];
+  /// Whether a food encounter was found.
+  bool has_encounter;
+  uint8_t _result_pad[7];
+};
+
+/// Callback function for spatial queries. C++ implements this using UE physics.
+///
+/// Parameters:
+/// - `previous_pos`: ant's previous position (3 x f64)
+/// - `current_pos`: ant's current position (3 x f64)
+/// - `pickup_radius`: radius for collision detection
+/// - `out`: result written here
+///
+/// Returns 1 on success, 0 on failure.
+using MassSpatialQueryFn = uint32_t(*)(const double *previous_pos,
+                                       const double *current_pos,
+                                       float pickup_radius,
+                                       MassSpatialQueryResult *out);
+
+/// Per-frame dispatch data: dt + all system chunk batches + spatial query callback.
+struct MassFrameDispatchData {
+  /// Delta time for this frame.
+  float dt;
+  /// Number of system batches.
+  uint32_t num_systems;
+  /// Pointer to array of MassSystemChunkBatch.
+  const MassSystemChunkBatch *systems;
+  /// Optional spatial query callback for collision detection. Null if not available.
+  MassSpatialQueryFn spatial_query_fn;
+  /// Pickup radius for spatial queries (Unreal units).
+  float pickup_radius;
+  uint32_t _pad;
+};
+
+/// Function signature for per-frame Bevy-scheduled dispatch.
+using MassFrameDispatchFn = void(*)(const MassFrameDispatchData *data);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -281,6 +338,7 @@ struct RustBindings {
   MassAntFoodDecisionFn mass_ant_food_decision;
   GetMassSystemCountFn get_mass_system_count;
   GetMassSystemDescriptorFn get_mass_system_descriptor;
+  MassFrameDispatchFn mass_frame_dispatch;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);

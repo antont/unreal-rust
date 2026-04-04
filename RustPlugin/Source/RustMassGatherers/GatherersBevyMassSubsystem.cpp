@@ -11,9 +11,138 @@
 #include "Materials/MaterialInterface.h"
 #include "StructUtils/InstancedStruct.h"
 #include "RustMassDynamicProcessor.h"
+#include "RustMassScheduleCoordinator.h"
 #include "RustPlugin.h"
 #include "GatherersBevyMassCollisionProcessor.h"
 #include "GatherersMassRuntime.h"
+
+constexpr ECollisionChannel BevyMassFoodQueryChannel = ECC_GameTraceChannel1;
+
+// ---------------------------------------------------------------------------
+// Spatial query callback for Rust collision pre-pass
+// ---------------------------------------------------------------------------
+
+namespace BevyMassSpatialQuery
+{
+	// Thread-local state set before each dispatch call.
+	// Safe because bRequiresGameThreadExecution = true on all processors.
+	static UWorld* QueryWorld = nullptr;
+	static UInstancedStaticMeshComponent* FoodISM = nullptr;
+	static const TArray<FMassEntityHandle>* FoodEntities = nullptr;
+	static FMassEntityManager* CachedEntityManager = nullptr;
+
+	uint32_t SpatialQueryCallback(
+		const double* PreviousPos,
+		const double* CurrentPos,
+		float PickupRadius,
+		MassSpatialQueryResult* Out)
+	{
+		if (!Out || !QueryWorld || !FoodISM || !FoodEntities || !CachedEntityManager)
+		{
+			return 0;
+		}
+
+		Out->has_encounter = false;
+		Out->food_index = -1;
+		Out->encounter_position[0] = 0.0;
+		Out->encounter_position[1] = 0.0;
+		Out->encounter_position[2] = 0.0;
+
+		const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
+		const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+		FMassEntityManager& EntityManager = *CachedEntityManager;
+
+		float BestDistSq = TNumericLimits<float>::Max();
+
+		if (SweepStart.Equals(SweepEnd))
+		{
+			// Stationary — overlap query
+			const TArray<int32> OverlappingIndices =
+				FoodISM->GetInstancesOverlappingSphere(SweepStart, PickupRadius, true);
+
+			for (const int32 InstanceIndex : OverlappingIndices)
+			{
+				if (!FoodEntities->IsValidIndex(InstanceIndex))
+				{
+					continue;
+				}
+				const FMassEntityHandle FoodEntity = (*FoodEntities)[InstanceIndex];
+				if (!EntityManager.IsEntityValid(FoodEntity))
+				{
+					continue;
+				}
+				FMassEntityView FoodView(EntityManager, FoodEntity);
+				const FGatherersMassFoodFragment& Food =
+					FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+				if (!Food.bIsLoose)
+				{
+					continue;
+				}
+				const float DistSq = FVector::DistSquared(SweepStart, Food.Position);
+				if (DistSq < BestDistSq)
+				{
+					BestDistSq = DistSq;
+					Out->has_encounter = true;
+					Out->food_index = InstanceIndex;
+					Out->encounter_position[0] = SweepStart.X;
+					Out->encounter_position[1] = SweepStart.Y;
+					Out->encounter_position[2] = SweepStart.Z;
+				}
+			}
+		}
+		else
+		{
+			// Moving — sweep query
+			TArray<FHitResult> SweepHits;
+			FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(BevyMassFoodSweep), false);
+			QueryParams.bTraceComplex = false;
+
+			const bool bHit = QueryWorld->SweepMultiByChannel(
+				SweepHits,
+				SweepStart,
+				SweepEnd,
+				FQuat::Identity,
+				BevyMassFoodQueryChannel,
+				FCollisionShape::MakeSphere(PickupRadius),
+				QueryParams);
+
+			if (bHit)
+			{
+				for (const FHitResult& Hit : SweepHits)
+				{
+					if (Hit.Component.Get() != FoodISM || !FoodEntities->IsValidIndex(Hit.Item))
+					{
+						continue;
+					}
+					const FMassEntityHandle FoodEntity = (*FoodEntities)[Hit.Item];
+					if (!EntityManager.IsEntityValid(FoodEntity))
+					{
+						continue;
+					}
+					FMassEntityView FoodView(EntityManager, FoodEntity);
+					const FGatherersMassFoodFragment& Food =
+						FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+					if (!Food.bIsLoose)
+					{
+						continue;
+					}
+					const float DistSq = FVector::DistSquared(SweepStart, Food.Position);
+					if (DistSq < BestDistSq)
+					{
+						BestDistSq = DistSq;
+						Out->has_encounter = true;
+						Out->food_index = Hit.Item;
+						Out->encounter_position[0] = Hit.ImpactPoint.X;
+						Out->encounter_position[1] = Hit.ImpactPoint.Y;
+						Out->encounter_position[2] = Hit.ImpactPoint.Z;
+					}
+				}
+			}
+		}
+
+		return 1;
+	}
+} // namespace BevyMassSpatialQuery
 
 namespace
 {
@@ -24,7 +153,6 @@ const FVector BevyMassFoodVisualScale(0.1f, 0.1f, 0.1f);
 constexpr TCHAR BevyMassSphereMeshPath[] = TEXT("/Engine/BasicShapes/Sphere.Sphere");
 constexpr TCHAR BevyMassBasicMaterialPath[] = TEXT("/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial");
 constexpr TCHAR BevyMassVisualizerActorName[] = TEXT("GatherersBevyMassVisualizer");
-constexpr ECollisionChannel BevyMassFoodQueryChannel = ECC_GameTraceChannel1;
 
 FTransform BevyMassBuildVisualTransform(const FVector& Position, const FVector& VisualScale)
 {
@@ -115,14 +243,19 @@ bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem&
 		}
 	}
 
+	const bool bCanUseBevy = bUseBevyScheduling
+		&& Module.Plugin.Rust.mass_frame_dispatch != nullptr
+		&& DynamicProcessors.Num() > 0;
+
 	// Pipeline order: movement → collision prepass → food decision → others (cooldown, boundary)
 	if (MovementProc)
 	{
 		SimProcessors.Add(MovementProc);
 	}
 
-	// C++ collision pre-pass (between movement and food decision)
-	if (ManagedFoodEntities.Num() > 0)
+	// C++ collision pre-pass only when NOT using Bevy scheduling
+	// (Bevy schedule has its own Rust collision system)
+	if (!bCanUseBevy && ManagedFoodEntities.Num() > 0)
 	{
 		UGatherersBevyMassCollisionProcessor* CollisionProc =
 			NewObject<UGatherersBevyMassCollisionProcessor>(this);
@@ -137,6 +270,18 @@ bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem&
 	for (URustMassDynamicProcessor* Proc : OtherRustProcs)
 	{
 		SimProcessors.Add(Proc);
+	}
+
+	// Add Bevy schedule coordinator — runs after all dynamic processors, dispatches
+	// all cached chunk data to Rust's Bevy scheduler in a single call.
+	// When active, collision detection is handled by the Rust collision pre-pass
+	// system via the spatial query callback.
+	if (bCanUseBevy)
+	{
+		URustMassScheduleCoordinator* Coordinator = NewObject<URustMassScheduleCoordinator>(this);
+		Coordinator->Initialize(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
+		Coordinator->SetSpatialQueryCallback(BevyMassSpatialQuery::SpatialQueryCallback, GatherersMassPickupRadius);
+		SimProcessors.Add(Coordinator);
 	}
 
 	if (SimProcessors.Num() > 0)
@@ -167,6 +312,12 @@ void UGatherersBevyMassSubsystem::RunSimulationProcessorStep(float SimulatedDelt
 	{
 		return;
 	}
+
+	// Set spatial query context for the Rust collision pre-pass callback
+	BevyMassSpatialQuery::QueryWorld = World;
+	BevyMassSpatialQuery::FoodISM = FoodRepresentationComponent;
+	BevyMassSpatialQuery::FoodEntities = &ManagedFoodEntities;
+	BevyMassSpatialQuery::CachedEntityManager = &MassEntitySubsystem->GetMutableEntityManager();
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 	FMassProcessingContext SimulationContext(EntityManager, SimulatedDeltaTime);

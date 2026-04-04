@@ -79,8 +79,27 @@ private:
 	/// System name (from Rust registration) — used for logging and pipeline ordering.
 	FString SystemName;
 
+	/// When true, Execute() builds/maintains the cache but does NOT call CachedExecuteFn.
+	/// The coordinator processor reads the cache and dispatches via mass_frame_dispatch instead.
+	bool bCacheOnly = false;
+
+	/// Registration index (order in which the system was discovered).
+	uint32 SystemIndex = 0;
+
 public:
 	const FString& GetSystemName() const { return SystemName; }
+
+	/// Enable cache-only mode: cache chunks but don't call Rust directly.
+	void SetCacheOnly(bool bInCacheOnly) { bCacheOnly = bInCacheOnly; }
+
+	/// Set the system index (registration order).
+	void SetSystemIndex(uint32 InIndex) { SystemIndex = InIndex; }
+	uint32 GetSystemIndex() const { return SystemIndex; }
+
+	/// Access cached primary chunks (valid after first Execute).
+	const TArray<MassChunkData>& GetCachedPrimaryChunks() const { return CachedPrimaryChunks; }
+	bool IsChunkCacheValid() const { return bChunkCacheValid; }
+
 private:
 
 	/// Whether InitFromDescriptor was called successfully.
