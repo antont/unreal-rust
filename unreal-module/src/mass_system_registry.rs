@@ -76,57 +76,30 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
 
 static MASS_SCHEDULE: OnceLock<std::sync::Mutex<MassSchedule>> = OnceLock::new();
 
-/// Stage number reserved for the collision pre-pass (between movement and food_decision).
-/// Registered systems use even stages (0, 2, 4, ...), collision uses stage 1.
-const COLLISION_STAGE: u32 = 1;
-
 /// Build a MassSchedule from all Bevy-registered mass systems.
 ///
-/// Stage layout (with 4 registered systems):
-/// - Stage 0: first registered system (ant_movement)
-/// - Stage 1: collision pre-pass (hand-written)
-/// - Stage 2: second registered system (ant_food_decision)
-/// - Stage 4: third registered system (ant_cooldown)
-/// - Stage 6: fourth registered system (ant_boundary_reflect)
+/// All systems (including collision pre-pass) are auto-discovered via inventory.
+/// Each gets a sequential stage (0, 1, 2, ...) in discovery order.
 pub fn build_bevy_schedule() -> MassSchedule {
     let mut sched = MassSchedule::new();
     let regs: Vec<&MassBevySystemRegistration> =
         registered_bevy_mass_systems().into_iter().collect();
 
-    // Assign stages: first system at 0, collision at 1, rest at 2, 4, 6, ...
-    let mut stages: Vec<u32> = Vec::with_capacity(regs.len());
-    for i in 0..regs.len() {
-        if i == 0 {
-            stages.push(0);
-        } else {
-            stages.push(COLLISION_STAGE + 1 + ((i - 1) as u32) * 2);
-        }
-    }
-
-    // Build stage ordering chain
-    let mut all_stages: Vec<u32> = stages.clone();
-    if regs.len() > 1 {
-        // Insert collision stage between first and second
-        all_stages.insert(1, COLLISION_STAGE);
-    }
-    for i in 1..all_stages.len() {
+    // Sequential stage ordering: stage i runs after stage i-1
+    for i in 1..regs.len() {
         sched
             .schedule_mut()
-            .configure_sets(MassSystemStage(all_stages[i]).after(MassSystemStage(all_stages[i - 1])));
+            .configure_sets(MassSystemStage(i as u32).after(MassSystemStage((i - 1) as u32)));
     }
 
-    // Init and add registered systems
+    // Init and add all registered systems
     for (i, reg) in regs.iter().enumerate() {
         (reg.init_resources)(sched.world_mut());
-        (reg.add_to_schedule)(sched.schedule_mut(), MassSystemStage(stages[i]));
+        (reg.add_to_schedule)(sched.schedule_mut(), MassSystemStage(i as u32));
     }
 
-    // Add collision pre-pass system (needs AntFragment + AntEncounterFragment resources + spatial callback)
+    // Resource for collision pre-pass spatial query callback (populated per-frame)
     sched.world_mut().insert_resource(MassSpatialQueryCallback::default());
-    sched.schedule_mut().add_systems(
-        gatherers_bevy_mass::systems::ant_collision_prepass_bevy
-            .in_set(MassSystemStage(COLLISION_STAGE)),
-    );
 
     sched
 }

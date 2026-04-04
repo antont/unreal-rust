@@ -23,6 +23,70 @@ struct QueryParam {
     scope_index: usize,
 }
 
+/// Information about one resource parameter (Res<T> or ResMut<T>).
+struct ResourceParam {
+    /// The parameter name (e.g., `spatial`).
+    param_name: syn::Ident,
+    /// The resource type (e.g., `MassSpatialQueryCallback`).
+    resource_type: syn::Type,
+    /// Whether the resource is mutable (ResMut vs Res).
+    is_mutable: bool,
+}
+
+/// Extracts the inner type from Res<T> or ResMut<T>.
+fn extract_resource_inner_type(seg: &syn::PathSegment) -> syn::Result<syn::Type> {
+    let syn::PathArguments::AngleBracketed(args) = &seg.arguments else {
+        return Err(syn::Error::new_spanned(seg, "Res/ResMut requires type parameter"));
+    };
+    let first_arg = args.args.first().ok_or_else(|| {
+        syn::Error::new_spanned(seg, "Res/ResMut requires one type parameter")
+    })?;
+    let syn::GenericArgument::Type(inner_ty) = first_arg else {
+        return Err(syn::Error::new_spanned(first_arg, "expected type argument"));
+    };
+    Ok(inner_ty.clone())
+}
+
+/// Parses a function signature and extracts Res<T>/ResMut<T> parameters.
+fn extract_resource_params(func: &ItemFn) -> syn::Result<Vec<ResourceParam>> {
+    let mut params = Vec::new();
+
+    for arg in &func.sig.inputs {
+        let FnArg::Typed(pat_type) = arg else {
+            continue;
+        };
+
+        if let Type::Path(type_path) = &*pat_type.ty {
+            if let Some(seg) = type_path.path.segments.last() {
+                let is_res = seg.ident == "Res";
+                let is_resmut = seg.ident == "ResMut";
+
+                if is_res || is_resmut {
+                    let param_name = match &*pat_type.pat {
+                        Pat::Ident(pat_ident) => pat_ident.ident.clone(),
+                        _ => {
+                            return Err(syn::Error::new_spanned(
+                                &pat_type.pat,
+                                "expected identifier pattern",
+                            ));
+                        }
+                    };
+
+                    let resource_type = extract_resource_inner_type(seg)?;
+
+                    params.push(ResourceParam {
+                        param_name,
+                        resource_type,
+                        is_mutable: is_resmut,
+                    });
+                }
+            }
+        }
+    }
+
+    Ok(params)
+}
+
 /// Parses a function signature and extracts MassQuery/MassQueryAll parameters.
 /// Non-query params (like `dt: f32`) are treated as chunk-level data.
 fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
@@ -118,6 +182,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
     let system_name_str = func_name.to_string();
 
     let query_params = extract_query_params(func)?;
+    let resource_params = extract_resource_params(func)?;
 
     // Generate fragment unpacking code
     let unpack_stmts: Vec<TokenStream> = query_params
@@ -200,6 +265,16 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 }
             }
 
+            // Check if it's a resource param (Res<T> / ResMut<T>) — skip in C++ wrapper
+            if let Type::Path(type_path) = &*pat_type.ty {
+                if let Some(seg) = type_path.path.segments.last() {
+                    if seg.ident == "Res" || seg.ident == "ResMut" {
+                        // C++ extern wrapper doesn't have Bevy resources — skip
+                        return quote! {};
+                    }
+                }
+            }
+
             // For `dt: f32`, extract from chunk data
             let param_str = param_name.to_string();
             if param_str == "dt" {
@@ -209,6 +284,9 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             quote! { #param_name }
         })
         .collect();
+
+    // Filter out empty tokens from skipped resource params in C++ call_args
+    let call_args: Vec<TokenStream> = call_args.into_iter().filter(|t| !t.is_empty()).collect();
 
     // Generate requirement descriptors (primary first, then global)
     let requirement_entries: Vec<TokenStream> = query_params
@@ -272,6 +350,16 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 }
             }
 
+            // Check if it's a resource param — rewrite Res<T> → &T, ResMut<T> → &mut T
+            if let Some(rp) = resource_params.iter().find(|r| r.param_name == *param_name) {
+                let res_type = &rp.resource_type;
+                if rp.is_mutable {
+                    return quote! { #param_name: &mut #res_type };
+                } else {
+                    return quote! { #param_name: &#res_type };
+                }
+            }
+
             quote! { #arg }
         })
         .collect();
@@ -283,6 +371,20 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
     // --- Generate Bevy wrapper function ---
     let bevy_wrapper_name = format_ident!("{}_bevy", func_name);
     let bevy_reg_name = format_ident!("__mass_bevy_reg_{}", func_name);
+
+    // Bevy resource params: Res<T> / ResMut<T> pass through to the Bevy wrapper
+    let bevy_resource_params: Vec<TokenStream> = resource_params
+        .iter()
+        .map(|r| {
+            let param_name = &r.param_name;
+            let res_type = &r.resource_type;
+            if r.is_mutable {
+                quote! { mut #param_name: ::unreal_api::ecs::prelude::ResMut<#res_type> }
+            } else {
+                quote! { #param_name: ::unreal_api::ecs::prelude::Res<#res_type> }
+            }
+        })
+        .collect();
 
     // Bevy system params: one Res/ResMut<MassChunks<T>> per unique fragment type, plus Res<MassDeltaTime>
     let bevy_params: Vec<TokenStream> = query_params
@@ -366,6 +468,15 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                     }
                 }
             }
+            // Check if it's a resource param
+            if let Some(rp) = resource_params.iter().find(|r| r.param_name == *param_name) {
+                if rp.is_mutable {
+                    return quote! { &mut #param_name };
+                } else {
+                    return quote! { &#param_name };
+                }
+            }
+
             let param_str = param_name.to_string();
             if param_str == "dt" {
                 return quote! { __mass_dt.0 };
@@ -429,20 +540,47 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
         })
         .collect();
 
+    let has_resource_params = !resource_params.is_empty();
+
+    // C++ extern wrapper — only generated for systems without Res<T> params,
+    // since C++ dispatch can't provide Bevy resources.
+    let cpp_wrapper = if has_resource_params {
+        quote! {}
+    } else {
+        quote! {
+            unsafe extern "C" fn #wrapper_name(chunk: *const ::unreal_api::ffi::MassChunkData) {
+                if chunk.is_null() {
+                    return;
+                }
+                #(#unpack_stmts)*
+                #func_name(#(#call_args),*);
+            }
+
+            static #reg_name: () = {
+                const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
+                    #(#requirement_entries),*
+                ];
+
+                ::unreal_api::inventory::submit! {
+                    ::unreal_api::mass::MassSystemRegistration {
+                        name: #system_name_str,
+                        execute_fn: #wrapper_name,
+                        requirements: &REQUIREMENTS,
+                    }
+                }
+            };
+        }
+    };
+
     Ok(quote! {
         #func_vis fn #func_name(#(#rewritten_params),*) #func_ret
             #func_body
 
-        unsafe extern "C" fn #wrapper_name(chunk: *const ::unreal_api::ffi::MassChunkData) {
-            if chunk.is_null() {
-                return;
-            }
-            #(#unpack_stmts)*
-            #func_name(#(#call_args),*);
-        }
+        #cpp_wrapper
 
         fn #bevy_wrapper_name(
             #(#bevy_params,)*
+            #(#bevy_resource_params,)*
             __mass_dt: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassDeltaTime>,
         ) {
             for __chunk_idx in 0..#primary_count_source {
@@ -450,20 +588,6 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 #func_name(#(#bevy_call_args),*);
             }
         }
-
-        static #reg_name: () = {
-            const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
-                #(#requirement_entries),*
-            ];
-
-            ::unreal_api::inventory::submit! {
-                ::unreal_api::mass::MassSystemRegistration {
-                    name: #system_name_str,
-                    execute_fn: #wrapper_name,
-                    requirements: &REQUIREMENTS,
-                }
-            }
-        };
 
         static #bevy_reg_name: () = {
             ::unreal_api::inventory::submit! {
@@ -686,5 +810,106 @@ mod tests {
         let output = mass_system_impl(&func).unwrap().to_string();
         assert!(output.contains("set_global"), "populate should set global descriptor for global queries");
         assert!(output.contains("global_chunked_fragments"), "should read from global_chunked_fragments");
+    }
+
+    // -----------------------------------------------------------------------
+    // Resource parameter (Res<T> / ResMut<T>) tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn parses_res_parameter() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: MassQuery<&mut AntFragment>,
+                spatial: Res<SpatialCallback>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let resource_params = extract_resource_params(&func).unwrap();
+        assert_eq!(resource_params.len(), 1);
+        assert_eq!(resource_params[0].param_name, "spatial");
+        assert!(!resource_params[0].is_mutable);
+
+        // Query params should not include the Res param
+        let query_params = extract_query_params(&func).unwrap();
+        assert_eq!(query_params.len(), 1);
+    }
+
+    #[test]
+    fn parses_resmut_parameter() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: MassQuery<&mut AntFragment>,
+                state: ResMut<MyState>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let resource_params = extract_resource_params(&func).unwrap();
+        assert_eq!(resource_params.len(), 1);
+        assert_eq!(resource_params[0].param_name, "state");
+        assert!(resource_params[0].is_mutable);
+    }
+
+    #[test]
+    fn bevy_wrapper_includes_res_param() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn collision_prepass(
+                ants: MassQuery<&AntFragment>,
+                encounters: MassQuery<&mut EncounterFragment>,
+                spatial: Res<SpatialCallback>,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        // Bevy wrapper should have Res<SpatialCallback> param
+        assert!(output.contains("Res < SpatialCallback >") || output.contains("Res<SpatialCallback>"),
+            "bevy wrapper should include Res<T> param, got: {}", output);
+        // Rewritten inner fn should have &SpatialCallback
+        assert!(output.contains("& SpatialCallback") || output.contains("&SpatialCallback"),
+            "rewritten fn should have &T for Res<T> param");
+    }
+
+    #[test]
+    fn bevy_wrapper_includes_resmut_param() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: MassQuery<&mut AntFragment>,
+                state: ResMut<MyState>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        assert!(output.contains("ResMut < MyState >") || output.contains("ResMut<MyState>"),
+            "bevy wrapper should include ResMut<T> param");
+        assert!(output.contains("& mut MyState") || output.contains("&mut MyState"),
+            "rewritten fn should have &mut T for ResMut<T> param");
+    }
+
+    #[test]
+    fn res_param_skips_cpp_wrapper() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn collision_prepass(
+                ants: MassQuery<&AntFragment>,
+                spatial: Res<SpatialCallback>,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func).unwrap().to_string();
+        // Systems with Res<T> params are Bevy-only — no C++ extern wrapper
+        assert!(!output.contains("unsafe extern \"C\""),
+            "should NOT generate C++ extern wrapper when Res<T> params present");
+        assert!(!output.contains("MassSystemRegistration"),
+            "should NOT register for C++ dispatch when Res<T> params present");
+        // Should still have Bevy registration
+        assert!(output.contains("MassBevySystemRegistration"),
+            "should still register for Bevy scheduling");
     }
 }

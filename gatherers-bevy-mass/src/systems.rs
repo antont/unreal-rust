@@ -132,12 +132,11 @@ fn ant_food_decision(
 // System 2: Collision pre-pass — detect food encounters via spatial query
 // ---------------------------------------------------------------------------
 
-/// Pure logic for collision pre-pass. Testable with mock callbacks.
-pub fn ant_collision_prepass_impl(
-    ants: &unreal_api::mass::MassQueryRef<'_, AntFragment>,
-    encounters: &mut unreal_api::mass::MassQueryMut<'_, AntEncounterFragment>,
-    query_fn: Option<unreal_api::ffi::MassSpatialQueryFn>,
-    pickup_radius: f32,
+#[mass_system]
+fn ant_collision_prepass(
+    ants: MassQuery<&AntFragment>,
+    encounters: MassQuery<&mut AntEncounterFragment>,
+    spatial: Res<unreal_api::mass::MassSpatialQueryCallback>,
 ) {
     for (ant, enc) in ants.iter().zip(encounters.iter_mut()) {
         // Reset encounter
@@ -145,7 +144,7 @@ pub fn ant_collision_prepass_impl(
         enc.nearest_food_index = -1;
         enc.encounter_position = [0.0; 3];
 
-        let Some(callback) = query_fn else {
+        let Some(callback) = spatial.query_fn else {
             continue;
         };
 
@@ -161,7 +160,7 @@ pub fn ant_collision_prepass_impl(
             callback(
                 ant.previous_position.as_ptr(),
                 ant.position.as_ptr(),
-                pickup_radius,
+                spatial.pickup_radius,
                 &mut result,
             )
         };
@@ -171,25 +170,6 @@ pub fn ant_collision_prepass_impl(
             enc.nearest_food_index = result.food_index;
             enc.encounter_position = result.encounter_position;
         }
-    }
-}
-
-/// Bevy system wrapper for collision pre-pass.
-/// Iterates over all primary chunks of ants/encounters and calls the impl.
-pub fn ant_collision_prepass_bevy(
-    ants: unreal_api::ecs::prelude::Res<unreal_api::mass::MassChunks<AntFragment>>,
-    mut encounters: unreal_api::ecs::prelude::ResMut<unreal_api::mass::MassChunks<AntEncounterFragment>>,
-    spatial: unreal_api::ecs::prelude::Res<unreal_api::mass::MassSpatialQueryCallback>,
-) {
-    for chunk_idx in 0..ants.primary_chunk_count() {
-        let ant_query = unsafe { ants.primary_chunk_ref(chunk_idx) };
-        let mut enc_query = unsafe { encounters.primary_chunk_mut(chunk_idx) };
-        ant_collision_prepass_impl(
-            &ant_query,
-            &mut enc_query,
-            spatial.query_fn,
-            spatial.pickup_radius,
-        );
     }
 }
 
@@ -699,7 +679,11 @@ mod tests {
         let ant_q = unsafe { MassQueryRef::from_raw(ants.as_ptr() as *const _, ants.len()) };
         let mut enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
 
-        ant_collision_prepass_impl(&ant_q, &mut enc_q, None, 15.0);
+        let spatial = unreal_api::mass::MassSpatialQueryCallback {
+            query_fn: None,
+            pickup_radius: 15.0,
+        };
+        ant_collision_prepass(&ant_q, &mut enc_q, &spatial);
 
         assert!(!encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, -1);
@@ -732,7 +716,11 @@ mod tests {
         let ant_q = unsafe { MassQueryRef::from_raw(ants.as_ptr() as *const _, ants.len()) };
         let mut enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
 
-        ant_collision_prepass_impl(&ant_q, &mut enc_q, Some(mock_hit), 15.0);
+        let spatial = unreal_api::mass::MassSpatialQueryCallback {
+            query_fn: Some(mock_hit),
+            pickup_radius: 15.0,
+        };
+        ant_collision_prepass(&ant_q, &mut enc_q, &spatial);
 
         assert!(encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, 3);
@@ -765,7 +753,11 @@ mod tests {
         let ant_q = unsafe { MassQueryRef::from_raw(ants.as_ptr() as *const _, ants.len()) };
         let mut enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
 
-        ant_collision_prepass_impl(&ant_q, &mut enc_q, Some(mock_miss), 15.0);
+        let spatial = unreal_api::mass::MassSpatialQueryCallback {
+            query_fn: Some(mock_miss),
+            pickup_radius: 15.0,
+        };
+        ant_collision_prepass(&ant_q, &mut enc_q, &spatial);
 
         assert!(!encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, -1);
