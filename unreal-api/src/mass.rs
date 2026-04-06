@@ -24,9 +24,10 @@ use std::marker::PhantomData;
 #[derive(bevy_ecs::prelude::Resource, Default, Clone, Copy, Debug)]
 pub struct MassDeltaTime(pub f32);
 
-/// Per-fragment-type resource holding cached chunk pointers.
-/// Bevy's scheduler uses resource access to determine parallelism:
-/// systems accessing different `MassChunks<T>` types run in parallel.
+/// Per-fragment-type chunk storage (implementation detail).
+/// Use `MassSystemChunks<S, T>` as the Bevy resource — the marker type `S`
+/// ensures each system gets its own isolated storage even when multiple
+/// systems use the same fragment type.
 pub struct MassChunks<T: MassFragment> {
     primary_slices: Vec<unreal_ffi::MassFragmentSlice>,
     global_desc: Option<*const unreal_ffi::MassGlobalFragmentChunks>,
@@ -39,6 +40,41 @@ impl<T: MassFragment> bevy_ecs::prelude::Resource for MassChunks<T> {}
 // and Bevy's scheduler serializes conflicting access via Res/ResMut.
 unsafe impl<T: MassFragment> Send for MassChunks<T> {}
 unsafe impl<T: MassFragment> Sync for MassChunks<T> {}
+
+/// Per-system, per-fragment chunk storage as a Bevy resource.
+/// The marker type `S` (a generated zero-sized struct per `#[mass_system]`)
+/// ensures each system gets isolated chunk data, preventing cross-system
+/// contamination when multiple systems use the same fragment type.
+pub struct MassSystemChunks<S: 'static, T: MassFragment> {
+    inner: MassChunks<T>,
+    _marker: PhantomData<S>,
+}
+
+impl<S: 'static, T: MassFragment> bevy_ecs::prelude::Resource for MassSystemChunks<S, T> {}
+unsafe impl<S: 'static, T: MassFragment> Send for MassSystemChunks<S, T> {}
+unsafe impl<S: 'static, T: MassFragment> Sync for MassSystemChunks<S, T> {}
+
+impl<S: 'static, T: MassFragment> MassSystemChunks<S, T> {
+    pub fn new() -> Self {
+        Self {
+            inner: MassChunks::new(),
+            _marker: PhantomData,
+        }
+    }
+}
+
+impl<S: 'static, T: MassFragment> std::ops::Deref for MassSystemChunks<S, T> {
+    type Target = MassChunks<T>;
+    fn deref(&self) -> &MassChunks<T> {
+        &self.inner
+    }
+}
+
+impl<S: 'static, T: MassFragment> std::ops::DerefMut for MassSystemChunks<S, T> {
+    fn deref_mut(&mut self) -> &mut MassChunks<T> {
+        &mut self.inner
+    }
+}
 
 impl<T: MassFragment> MassChunks<T> {
     pub fn new() -> Self {

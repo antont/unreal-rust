@@ -137,23 +137,36 @@ pub unsafe extern "C" fn mass_frame_dispatch(
         spatial.pickup_radius = data.pickup_radius;
     }
 
-    // Collect registrations indexed by discovery order (matches system_index from C++)
-    let regs: Vec<&MassBevySystemRegistration> =
+    // Collect Bevy registrations (may include Bevy-only systems like collision prepass)
+    let bevy_regs: Vec<&MassBevySystemRegistration> =
         registered_bevy_mass_systems().into_iter().collect();
 
+    // Build name→bevy_index lookup so we can map C++ system_index → bevy registration
+    let bevy_name_to_idx: std::collections::HashMap<&str, usize> = bevy_regs
+        .iter()
+        .enumerate()
+        .map(|(i, reg)| (reg.name, i))
+        .collect();
+
+    // C++ registrations in discovery order — system_index i maps to cpp_regs[i].name
+    let cpp_regs: Vec<&MassSystemRegistration> =
+        registered_mass_systems().into_iter().collect();
+
     // Clear all chunk resources
-    for reg in &regs {
+    for reg in &bevy_regs {
         (reg.clear_resources)(sched.world_mut());
     }
 
-    // Populate from dispatch data — each batch's system_index maps to registration order
+    // Populate from dispatch data — map C++ system_index → name → Bevy registration
     let batches = unsafe {
         std::slice::from_raw_parts(data.systems, data.num_systems as usize)
     };
     for batch in batches {
-        let idx = batch.system_index as usize;
-        if let Some(reg) = regs.get(idx) {
-            unsafe { (reg.populate_resources)(sched.world_mut(), batch) };
+        let cpp_idx = batch.system_index as usize;
+        if let Some(cpp_reg) = cpp_regs.get(cpp_idx) {
+            if let Some(&bevy_idx) = bevy_name_to_idx.get(cpp_reg.name) {
+                unsafe { (bevy_regs[bevy_idx].populate_resources)(sched.world_mut(), batch) };
+            }
         }
     }
 

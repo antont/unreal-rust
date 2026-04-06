@@ -2,7 +2,6 @@
 
 #include "GeneratedFragments.h"
 #include "MassEntityHandle.h"
-#include "GatherersFragments.generated.h"
 
 // Manual additions below — structs not covered by #[derive(MassFragment)] codegen.
 

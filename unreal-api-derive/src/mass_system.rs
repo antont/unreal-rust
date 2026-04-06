@@ -371,6 +371,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
     // --- Generate Bevy wrapper function ---
     let bevy_wrapper_name = format_ident!("{}_bevy", func_name);
     let bevy_reg_name = format_ident!("__mass_bevy_reg_{}", func_name);
+    let marker_name = format_ident!("__mass_marker_{}", func_name);
 
     // Bevy resource params: Res<T> / ResMut<T> pass through to the Bevy wrapper
     let bevy_resource_params: Vec<TokenStream> = resource_params
@@ -386,16 +387,16 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
         })
         .collect();
 
-    // Bevy system params: one Res/ResMut<MassChunks<T>> per unique fragment type, plus Res<MassDeltaTime>
+    // Bevy system params: one Res/ResMut<MassSystemChunks<Marker, T>> per unique fragment type, plus Res<MassDeltaTime>
     let bevy_params: Vec<TokenStream> = query_params
         .iter()
         .map(|p| {
             let frag_type = &p.fragment_type;
             let param_name = format_ident!("__mass_{}", p.param_name);
             if p.is_mutable {
-                quote! { mut #param_name: ::unreal_api::ecs::prelude::ResMut<::unreal_api::mass::MassChunks<#frag_type>> }
+                quote! { mut #param_name: ::unreal_api::ecs::prelude::ResMut<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>> }
             } else {
-                quote! { #param_name: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassChunks<#frag_type>> }
+                quote! { #param_name: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>> }
             }
         })
         .collect();
@@ -491,20 +492,20 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
         .map(|p| {
             let frag_type = &p.fragment_type;
             quote! {
-                if !world.contains_resource::<::unreal_api::mass::MassChunks<#frag_type>>() {
-                    world.insert_resource(::unreal_api::mass::MassChunks::<#frag_type>::new());
+                if !world.contains_resource::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>() {
+                    world.insert_resource(::unreal_api::mass::MassSystemChunks::<#marker_name, #frag_type>::new());
                 }
             }
         })
         .collect();
 
-    // Clear resources closure — clears all MassChunks<T> this system uses
+    // Clear resources closure — clears all MassSystemChunks<Marker, T> this system uses
     let clear_resource_stmts: Vec<TokenStream> = query_params
         .iter()
         .map(|p| {
             let frag_type = &p.fragment_type;
             quote! {
-                world.resource_mut::<::unreal_api::mass::MassChunks<#frag_type>>().clear();
+                world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>().clear();
             }
         })
         .collect();
@@ -519,7 +520,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             let frag_type = &p.fragment_type;
             let idx = p.scope_index;
             quote! {
-                world.resource_mut::<::unreal_api::mass::MassChunks<#frag_type>>()
+                world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>()
                     .push_primary_slice(*chunk.fragments.add(#idx));
             }
         })
@@ -532,8 +533,8 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             let frag_type = &p.fragment_type;
             let idx = p.scope_index;
             quote! {
-                if world.resource::<::unreal_api::mass::MassChunks<#frag_type>>().global().is_none() {
-                    world.resource_mut::<::unreal_api::mass::MassChunks<#frag_type>>()
+                if world.resource::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>().global().is_none() {
+                    world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>()
                         .set_global(chunk.global_chunked_fragments.add(#idx));
                 }
             }
@@ -542,10 +543,31 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
 
     let has_resource_params = !resource_params.is_empty();
 
-    // C++ extern wrapper — only generated for systems without Res<T> params,
-    // since C++ dispatch can't provide Bevy resources.
+    // C++ registration — always generated so C++ creates a processor that
+    // collects chunks for Bevy-scheduled dispatch.
+    // For systems with Res<T> params, the execute_fn is a no-op since direct
+    // dispatch can't provide Bevy resources; only Bevy scheduling uses them.
     let cpp_wrapper = if has_resource_params {
-        quote! {}
+        quote! {
+            unsafe extern "C" fn #wrapper_name(_chunk: *const ::unreal_api::ffi::MassChunkData) {
+                // No-op: this system uses Bevy resources and can only run via
+                // the Bevy schedule, not direct C++ dispatch.
+            }
+
+            static #reg_name: () = {
+                const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
+                    #(#requirement_entries),*
+                ];
+
+                ::unreal_api::inventory::submit! {
+                    ::unreal_api::mass::MassSystemRegistration {
+                        name: #system_name_str,
+                        execute_fn: #wrapper_name,
+                        requirements: &REQUIREMENTS,
+                    }
+                }
+            };
+        }
     } else {
         quote! {
             unsafe extern "C" fn #wrapper_name(chunk: *const ::unreal_api::ffi::MassChunkData) {
@@ -577,6 +599,9 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             #func_body
 
         #cpp_wrapper
+
+        /// Zero-sized marker type for per-system chunk isolation.
+        struct #marker_name;
 
         fn #bevy_wrapper_name(
             #(#bevy_params,)*
@@ -723,7 +748,7 @@ mod tests {
         let output = mass_system_impl(&func).unwrap().to_string();
         assert!(output.contains("ant_movement_bevy"), "should generate Bevy wrapper fn");
         assert!(output.contains("ResMut"), "should use ResMut for mutable query");
-        assert!(output.contains("MassChunks"), "should reference MassChunks resource");
+        assert!(output.contains("MassSystemChunks"), "should reference MassSystemChunks resource");
         assert!(output.contains("MassDeltaTime"), "should extract dt from resource");
         assert!(output.contains("MassSystemStage"), "add_to_schedule should accept MassSystemStage");
         assert!(output.contains("in_set"), "should add system to stage set");
@@ -893,7 +918,7 @@ mod tests {
     }
 
     #[test]
-    fn res_param_skips_cpp_wrapper() {
+    fn res_param_generates_noop_cpp_wrapper() {
         let func: ItemFn = syn::parse2(quote! {
             fn collision_prepass(
                 ants: MassQuery<&AntFragment>,
@@ -903,11 +928,12 @@ mod tests {
         .unwrap();
 
         let output = mass_system_impl(&func).unwrap().to_string();
-        // Systems with Res<T> params are Bevy-only — no C++ extern wrapper
-        assert!(!output.contains("unsafe extern \"C\""),
-            "should NOT generate C++ extern wrapper when Res<T> params present");
-        assert!(!output.contains("MassSystemRegistration"),
-            "should NOT register for C++ dispatch when Res<T> params present");
+        // Systems with Res<T> generate a no-op C++ wrapper so C++ creates
+        // a processor that collects chunks for Bevy-scheduled dispatch.
+        assert!(output.contains("unsafe extern \"C\""),
+            "should generate no-op C++ extern wrapper for chunk collection");
+        assert!(output.contains("MassSystemRegistration"),
+            "should register for C++ processor creation");
         // Should still have Bevy registration
         assert!(output.contains("MassBevySystemRegistration"),
             "should still register for Bevy scheduling");

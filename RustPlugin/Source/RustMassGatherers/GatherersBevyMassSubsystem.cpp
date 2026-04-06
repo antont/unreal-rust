@@ -38,6 +38,12 @@ namespace BevyMassSpatialQuery
 	{
 		if (!Out || !QueryWorld || !FoodISM || !FoodEntities || !CachedEntityManager)
 		{
+			static int32 NullCount = 0;
+			if (NullCount++ < 5)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: null state - Out=%d World=%d ISM=%d Food=%d EM=%d"),
+					!!Out, !!QueryWorld, !!FoodISM, !!FoodEntities, !!CachedEntityManager);
+			}
 			return 0;
 		}
 
@@ -137,6 +143,14 @@ namespace BevyMassSpatialQuery
 					}
 				}
 			}
+		}
+
+		static int32 ResultLogCount = 0;
+		if (ResultLogCount++ < 5 && Out->has_encounter)
+		{
+			UE_LOG(LogTemp, Log, TEXT("SpatialQuery: HIT food_index=%d pos=(%.1f,%.1f,%.1f)"),
+				Out->food_index,
+				Out->encounter_position[0], Out->encounter_position[1], Out->encounter_position[2]);
 		}
 
 		return 1;
@@ -264,7 +278,7 @@ bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem&
 	if (Module.Plugin.Rust.mass_frame_dispatch != nullptr && DynamicProcessors.Num() > 0)
 	{
 		URustMassScheduleCoordinator* Coordinator = NewObject<URustMassScheduleCoordinator>(this);
-		Coordinator->Initialize(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
+		Coordinator->InitializeDispatch(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
 		Coordinator->SetSpatialQueryCallback(BevyMassSpatialQuery::SpatialQueryCallback, GatherersMassPickupRadius);
 		SimProcessors.Add(Coordinator);
 	}
@@ -546,7 +560,6 @@ bool UGatherersBevyMassSubsystem::EnsureVisualComponents()
 	if (!VisualizerActor)
 	{
 		FActorSpawnParameters SpawnParameters;
-		SpawnParameters.Name = BevyMassVisualizerActorName;
 		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 		VisualizerActor = World->SpawnActor<AActor>(AActor::StaticClass(), FTransform::Identity, SpawnParameters);
 	}

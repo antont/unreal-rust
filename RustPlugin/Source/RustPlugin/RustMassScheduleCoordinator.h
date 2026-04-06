@@ -18,7 +18,7 @@ public:
 	URustMassScheduleCoordinator();
 
 	/// Set the dispatch function and the processors to coordinate.
-	void Initialize(
+	void InitializeDispatch(
 		MassFrameDispatchFn InDispatchFn,
 		const TArray<URustMassDynamicProcessor*>& InProcessors);
 

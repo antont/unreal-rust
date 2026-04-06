@@ -320,7 +320,7 @@ struct MassFrameDispatchData {
   /// Pointer to array of MassSystemChunkBatch.
   const MassSystemChunkBatch *systems;
   /// Optional spatial query callback for collision detection. Null if not available.
-  MassSpatialQueryFn spatial_query_fn;
+  Option<MassSpatialQueryFn> spatial_query_fn;
   /// Pickup radius for spatial queries (Unreal units).
   float pickup_radius;
   uint32_t _pad;

@@ -7,7 +7,7 @@ URustMassScheduleCoordinator::URustMassScheduleCoordinator()
 	ExecutionFlags = static_cast<uint8>(EProcessorExecutionFlags::All);
 }
 
-void URustMassScheduleCoordinator::Initialize(
+void URustMassScheduleCoordinator::InitializeDispatch(
 	MassFrameDispatchFn InDispatchFn,
 	const TArray<URustMassDynamicProcessor*>& InProcessors)
 {
