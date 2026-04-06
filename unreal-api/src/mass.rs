@@ -208,6 +208,8 @@ pub struct MassFragmentFieldInfo {
     pub offset: usize,
     /// Size of this field in bytes.
     pub size: usize,
+    /// C++ default value expression (empty string = use type default).
+    pub default_value: &'static str,
 }
 
 /// Compile-time registration entry for a MassFragment, collected via inventory.
@@ -218,6 +220,8 @@ pub struct MassFragmentRegistration {
     pub align: usize,
     /// Field metadata for C++ codegen. Empty slice if not available.
     pub fields: &'static [MassFragmentFieldInfo],
+    /// If true, this is a FMassTag (no fields, no UPROPERTY).
+    pub is_tag: bool,
 }
 
 inventory::collect!(MassFragmentRegistration);
@@ -286,17 +290,30 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration]) -> String
     out.push_str("// Do not edit manually.\n\n");
 
     for frag in fragments {
+        let base_class = if frag.is_tag { "FMassTag" } else { "FMassFragment" };
+
         // USTRUCT definition
         out.push_str("USTRUCT()\n");
-        out.push_str(&format!("struct {} : public FMassFragment\n", frag.cpp_type_name));
+        out.push_str(&format!("struct {} : public {}\n", frag.cpp_type_name, base_class));
         out.push_str("{\n");
-        out.push_str("\tGENERATED_BODY()\n\n");
+        out.push_str("\tGENERATED_BODY()\n");
+
+        if frag.is_tag {
+            // Tags have no fields, just close the struct
+            out.push_str("};\n\n");
+            continue;
+        }
+
+        out.push('\n');
 
         for field in frag.fields {
             let (cpp_type, _is_padding) = rust_type_to_cpp(field.type_name, field.name);
             let cpp_name = if field.name.starts_with('_') {
                 // Padding field: _foo_pad → _FooPad
                 format!("_{}", snake_to_pascal(&field.name[1..]))
+            } else if cpp_type == "bool" {
+                // UE convention: prefix bools with 'b'
+                format!("b{}", snake_to_pascal(field.name))
             } else {
                 snake_to_pascal(field.name)
             };
@@ -306,13 +323,17 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration]) -> String
                 let cpp_type = cpp_type.replace("PLACEHOLDER", &cpp_name);
                 out.push_str(&format!("\t{} = {{}};\n", cpp_type));
             } else {
-                let default = match cpp_type.as_str() {
-                    "FVector" => " = FVector::ZeroVector",
-                    "double" => " = 0.0",
-                    "float" => " = 0.0f",
-                    "int32" | "uint32" => " = 0",
-                    "bool" => " = false",
-                    _ => "",
+                let default = if !field.default_value.is_empty() {
+                    format!(" = {}", field.default_value)
+                } else {
+                    match cpp_type.as_str() {
+                        "FVector" => " = FVector::ZeroVector".to_string(),
+                        "double" => " = 0.0".to_string(),
+                        "float" => " = 0.0f".to_string(),
+                        "int32" | "uint32" => " = 0".to_string(),
+                        "bool" => " = false".to_string(),
+                        _ => String::new(),
+                    }
                 };
                 out.push_str(&format!("\t{} {}{default};\n", cpp_type, cpp_name));
             }
@@ -322,13 +343,14 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration]) -> String
 
         // static_assert offset checks
         for field in frag.fields {
+            let (cpp_type, _) = rust_type_to_cpp(field.type_name, field.name);
             let cpp_name = if field.name.starts_with('_') {
                 format!("_{}", snake_to_pascal(&field.name[1..]))
+            } else if cpp_type == "bool" {
+                format!("b{}", snake_to_pascal(field.name))
             } else {
                 snake_to_pascal(field.name)
             };
-            // Skip array padding fields in offsetof (need special handling)
-            let (cpp_type, _) = rust_type_to_cpp(field.type_name, field.name);
             if cpp_type.contains("PLACEHOLDER") {
                 continue;
             }
@@ -1099,9 +1121,9 @@ mod tests {
     #[test]
     fn generate_cpp_simple_fragment() {
         static FIELDS: [MassFragmentFieldInfo; 3] = [
-            MassFragmentFieldInfo { name: "position", type_name: "[f64 ; 3]", offset: 0, size: 24 },
-            MassFragmentFieldInfo { name: "is_loose", type_name: "bool", offset: 24, size: 1 },
-            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 7]", offset: 25, size: 7 },
+            MassFragmentFieldInfo { name: "position", type_name: "[f64 ; 3]", offset: 0, size: 24, default_value: "" },
+            MassFragmentFieldInfo { name: "is_loose", type_name: "bool", offset: 24, size: 1, default_value: "true" },
+            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 7]", offset: 25, size: 7, default_value: "" },
         ];
         let reg = MassFragmentRegistration {
             cpp_type_name: "FTestFood",
@@ -1109,12 +1131,13 @@ mod tests {
             size: 32,
             align: 8,
             fields: &FIELDS,
+            is_tag: false,
         };
 
         let output = generate_cpp_fragments(&[&reg]);
         assert!(output.contains("struct FTestFood : public FMassFragment"), "should have USTRUCT def");
         assert!(output.contains("FVector Position"), "should map [f64;3] to FVector");
-        assert!(output.contains("bool IsLoose"), "should map bool field");
+        assert!(output.contains("bool bIsLoose = true"), "should map bool field with UE b prefix and custom default");
         assert!(output.contains("offsetof(FTestFood, Position) == 0"), "should have offset assert");
         assert!(output.contains("sizeof(FTestFood) == 32"), "should have size assert");
     }
@@ -1122,8 +1145,8 @@ mod tests {
     #[test]
     fn generate_cpp_padding_fields() {
         static FIELDS: [MassFragmentFieldInfo; 2] = [
-            MassFragmentFieldInfo { name: "value", type_name: "i32", offset: 0, size: 4 },
-            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 4]", offset: 4, size: 4 },
+            MassFragmentFieldInfo { name: "value", type_name: "i32", offset: 0, size: 4, default_value: "" },
+            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 4]", offset: 4, size: 4, default_value: "" },
         ];
         let reg = MassFragmentRegistration {
             cpp_type_name: "FTestPad",
@@ -1131,9 +1154,28 @@ mod tests {
             size: 8,
             align: 4,
             fields: &FIELDS,
+            is_tag: false,
         };
 
         let output = generate_cpp_fragments(&[&reg]);
         assert!(output.contains("_Pad"), "padding fields should get _ prefix");
+    }
+
+    #[test]
+    fn generate_cpp_tag() {
+        let reg = MassFragmentRegistration {
+            cpp_type_name: "FMyTag",
+            rust_type_name: "MyTag",
+            size: 0,
+            align: 1,
+            fields: &[],
+            is_tag: true,
+        };
+
+        let output = generate_cpp_fragments(&[&reg]);
+        assert!(output.contains("struct FMyTag : public FMassTag"), "should use FMassTag base");
+        assert!(output.contains("GENERATED_BODY()"), "should have GENERATED_BODY");
+        assert!(!output.contains("offsetof"), "tags should have no offset asserts");
+        assert!(!output.contains("sizeof"), "tags should have no size asserts");
     }
 }

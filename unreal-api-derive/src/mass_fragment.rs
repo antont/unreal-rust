@@ -1,6 +1,6 @@
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::{DeriveInput, Lit, Meta, NestedMeta};
+use syn::{DeriveInput, Field, Lit, Meta, NestedMeta};
 
 /// Extracts the `cpp_type` value from `#[mass(cpp_type = "...")]` attribute.
 fn extract_cpp_type(ast: &DeriveInput) -> syn::Result<String> {
@@ -27,10 +27,52 @@ fn extract_cpp_type(ast: &DeriveInput) -> syn::Result<String> {
     ))
 }
 
+/// Checks if the struct has `#[mass(tag)]` attribute.
+fn is_tag(ast: &DeriveInput) -> bool {
+    for attr in &ast.attrs {
+        if !attr.path.is_ident("mass") {
+            continue;
+        }
+        if let Ok(Meta::List(list)) = attr.parse_meta() {
+            for nested in &list.nested {
+                if let NestedMeta::Meta(Meta::Path(path)) = nested {
+                    if path.is_ident("tag") {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    false
+}
+
+/// Extracts the `default` value from `#[mass(default = "...")]` on a field.
+/// Returns empty string if not present.
+fn extract_field_default(field: &Field) -> String {
+    for attr in &field.attrs {
+        if !attr.path.is_ident("mass") {
+            continue;
+        }
+        if let Ok(Meta::List(list)) = attr.parse_meta() {
+            for nested in &list.nested {
+                if let NestedMeta::Meta(Meta::NameValue(nv)) = nested {
+                    if nv.path.is_ident("default") {
+                        if let Lit::Str(lit_str) = &nv.lit {
+                            return lit_str.value();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    String::new()
+}
+
 pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
     let name = &ast.ident;
     let cpp_type = extract_cpp_type(ast)?;
     let rust_type_name = name.to_string();
+    let tag = is_tag(ast);
 
     // Extract field info for C++ codegen
     let fields = match &ast.data {
@@ -43,12 +85,14 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
                     let field_name_str = field_name.to_string();
                     let field_type = &f.ty;
                     let type_str = quote!(#field_type).to_string();
+                    let default_str = extract_field_default(f);
                     quote! {
                         ::unreal_api::mass::MassFragmentFieldInfo {
                             name: #field_name_str,
                             type_name: #type_str,
                             offset: ::std::mem::offset_of!(#name, #field_name),
                             size: ::std::mem::size_of::<#field_type>(),
+                            default_value: #default_str,
                         }
                     }
                 })
@@ -82,6 +126,7 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
                     size: ::std::mem::size_of::<#name>(),
                     align: ::std::mem::align_of::<#name>(),
                     fields: &#fields_const_name,
+                    is_tag: #tag,
                 }
             }
         };

@@ -3,5 +3,9 @@ name = "gatherers-bevy-mass"
 version = "0.1.0"
 edition.workspace = true
 
+[[bin]]
+name = "gen-fragments"
+path = "src/bin/gen_fragments.rs"
+
 [dependencies]
 unreal-api = { path = "../unreal-api" }
