@@ -13,7 +13,6 @@
 #include "RustMassDynamicProcessor.h"
 #include "RustMassScheduleCoordinator.h"
 #include "RustPlugin.h"
-#include "GatherersBevyMassCollisionProcessor.h"
 #include "GatherersMassRuntime.h"
 
 constexpr ECollisionChannel BevyMassFoodQueryChannel = ECC_GameTraceChannel1;
@@ -243,23 +242,10 @@ bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem&
 		}
 	}
 
-	const bool bCanUseBevy = bUseBevyScheduling
-		&& Module.Plugin.Rust.mass_frame_dispatch != nullptr
-		&& DynamicProcessors.Num() > 0;
-
-	// Pipeline order: movement → collision prepass → food decision → others (cooldown, boundary)
+	// Pipeline order: movement → food decision → others (cooldown, boundary) → coordinator
 	if (MovementProc)
 	{
 		SimProcessors.Add(MovementProc);
-	}
-
-	// C++ collision pre-pass only when NOT using Bevy scheduling
-	// (Bevy schedule has its own Rust collision system)
-	if (!bCanUseBevy && ManagedFoodEntities.Num() > 0)
-	{
-		UGatherersBevyMassCollisionProcessor* CollisionProc =
-			NewObject<UGatherersBevyMassCollisionProcessor>(this);
-		SimProcessors.Add(CollisionProc);
 	}
 
 	if (FoodDecisionProc)
@@ -272,11 +258,10 @@ bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem&
 		SimProcessors.Add(Proc);
 	}
 
-	// Add Bevy schedule coordinator — runs after all dynamic processors, dispatches
-	// all cached chunk data to Rust's Bevy scheduler in a single call.
-	// When active, collision detection is handled by the Rust collision pre-pass
-	// system via the spatial query callback.
-	if (bCanUseBevy)
+	// Bevy schedule coordinator — dispatches all cached chunk data to Rust's
+	// Bevy scheduler in a single call. Collision detection is handled by the
+	// Rust collision pre-pass system via the spatial query callback.
+	if (Module.Plugin.Rust.mass_frame_dispatch != nullptr && DynamicProcessors.Num() > 0)
 	{
 		URustMassScheduleCoordinator* Coordinator = NewObject<URustMassScheduleCoordinator>(this);
 		Coordinator->Initialize(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
