@@ -9,3 +9,7 @@ path = "src/bin/gen_fragments.rs"
 
 [dependencies]
 unreal-api = { path = "../unreal-api" }
+bevy_ecs = "0.18"
+
+[dev-dependencies]
+bevy_mass = { path = "../bevy_mass" }

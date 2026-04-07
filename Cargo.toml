@@ -10,6 +10,7 @@ members = [
     "unreal-rust-example", "unreal-rust-loader",
     "gatherers-sim",
     "gatherers-bevy-mass",
+    "bevy_mass",
 ]
 #[profile.release]
 #debug = true

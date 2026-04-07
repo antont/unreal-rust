@@ -1,18 +1,19 @@
 use unreal_api::MassFragment;
+use bevy_ecs::prelude::Component;
 
 // ---------------------------------------------------------------------------
 // Tags
 // ---------------------------------------------------------------------------
 
-#[derive(MassFragment, Clone, Copy, Debug)]
+#[derive(MassFragment, Component, Clone, Copy, Debug)]
 #[mass(cpp_type = "FGatherersMassAntTag", tag)]
 pub struct AntTag;
 
-#[derive(MassFragment, Clone, Copy, Debug)]
+#[derive(MassFragment, Component, Clone, Copy, Debug)]
 #[mass(cpp_type = "FGatherersMassFoodTag", tag)]
 pub struct FoodTag;
 
-#[derive(MassFragment, Clone, Copy, Debug)]
+#[derive(MassFragment, Component, Clone, Copy, Debug)]
 #[mass(cpp_type = "FGatherersBevyMassAntTag", tag)]
 pub struct BevyMassAntTag;
 
@@ -22,7 +23,7 @@ pub struct BevyMassAntTag;
 
 /// Matches C++ FGatherersMassAntFragment layout (96 bytes, align 8).
 /// FMassFragment base is empty (EBO), fields start at offset 0.
-#[derive(MassFragment, Clone, Copy, Debug)]
+#[derive(MassFragment, Component, Clone, Copy, Debug)]
 #[repr(C)]
 #[mass(cpp_type = "FGatherersMassAntFragment")]
 pub struct AntFragment {
@@ -59,7 +60,7 @@ impl Default for AntFragment {
 
 /// Matches C++ FGatherersAntEncounterFragment layout.
 /// Written by C++ collision pre-pass, read by Rust food decision system.
-#[derive(MassFragment, Clone, Copy, Debug)]
+#[derive(MassFragment, Component, Clone, Copy, Debug)]
 #[repr(C)]
 #[mass(cpp_type = "FGatherersAntEncounterFragment")]
 pub struct AntEncounterFragment {
@@ -87,7 +88,7 @@ impl Default for AntEncounterFragment {
 }
 
 /// Matches C++ FGatherersMassFoodFragment layout (32 bytes, align 8).
-#[derive(MassFragment, Clone, Copy, Debug)]
+#[derive(MassFragment, Component, Clone, Copy, Debug)]
 #[repr(C)]
 #[mass(cpp_type = "FGatherersMassFoodFragment")]
 pub struct FoodFragment {

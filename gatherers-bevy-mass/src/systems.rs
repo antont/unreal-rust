@@ -1043,3 +1043,378 @@ mod tests {
         assert!(foods[0].is_loose);
     }
 }
+
+// ---------------------------------------------------------------------------
+// Pure Bevy facade tests — real fragment types as Components, real entities
+// ---------------------------------------------------------------------------
+
+#[cfg(test)]
+mod facade_tests {
+    use bevy_ecs::prelude::*;
+    use bevy_mass::prelude::{DeltaTime, Query, Res};
+    use crate::fragments::{AntEncounterFragment, AntFragment, FoodFragment};
+    use super::{
+        SIM_BOUNDS_MIN, SIM_BOUNDS_MAX, PICKUP_COOLDOWN_SECONDS,
+        normalize_f64x3, is_nearly_zero_f64x3, reflect_direction, reverse_direction,
+    };
+
+    // Systems written in facade syntax — identical to how a user would author
+    // them with `bevy_mass`. These compile against pure Bevy entities.
+
+    fn ant_movement(mut ants: Query<&mut AntFragment>, time: Res<DeltaTime>) {
+        let dt = time.0;
+        let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
+        let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
+        let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
+
+        for mut ant in &mut ants {
+            ant.previous_position = ant.position;
+            let dir = normalize_f64x3(ant.direction);
+            if is_nearly_zero_f64x3(dir) {
+                continue;
+            }
+            let max_dist = (ant.movement_speed.max(0.0) * dt.max(0.0)) as f64;
+            let step_dist = max_dist.min(bounds_max_step.max(0.0));
+            ant.position[0] += dir[0] * step_dist;
+            ant.position[1] += dir[1] * step_dist;
+            ant.position[2] += dir[2] * step_dist;
+        }
+    }
+
+    fn ant_cooldown(mut ants: Query<&mut AntFragment>, time: Res<DeltaTime>) {
+        let dt = time.0;
+        for mut ant in &mut ants {
+            ant.pickup_cooldown_remaining_seconds =
+                (ant.pickup_cooldown_remaining_seconds - dt.max(0.0)).max(0.0);
+        }
+    }
+
+    fn ant_boundary_reflect(mut ants: Query<&mut AntFragment>) {
+        for mut ant in &mut ants {
+            let mut inward_normal = [0.0f64; 3];
+
+            if ant.position[0] < SIM_BOUNDS_MIN[0] {
+                ant.position[0] = SIM_BOUNDS_MIN[0];
+                inward_normal[0] += 1.0;
+            } else if ant.position[0] > SIM_BOUNDS_MAX[0] {
+                ant.position[0] = SIM_BOUNDS_MAX[0];
+                inward_normal[0] -= 1.0;
+            }
+
+            if ant.position[1] < SIM_BOUNDS_MIN[1] {
+                ant.position[1] = SIM_BOUNDS_MIN[1];
+                inward_normal[1] += 1.0;
+            } else if ant.position[1] > SIM_BOUNDS_MAX[1] {
+                ant.position[1] = SIM_BOUNDS_MAX[1];
+                inward_normal[1] -= 1.0;
+            }
+
+            if !is_nearly_zero_f64x3(inward_normal) {
+                ant.direction = reflect_direction(ant.direction, inward_normal);
+            }
+        }
+    }
+
+    fn ant_food_decision(
+        mut ants: Query<(&mut AntFragment, &AntEncounterFragment)>,
+        mut foods: Query<&mut FoodFragment>,
+    ) {
+        for (mut ant, encounter) in &mut ants {
+            if !encounter.has_encounter {
+                continue;
+            }
+            if ant.pickup_cooldown_remaining_seconds > 0.0 {
+                continue;
+            }
+
+            let is_carrying = ant.carried_food_index >= 0;
+
+            if is_carrying {
+                // Drop: find carried food by iterating (index-based access
+                // requires a different pattern in pure Bevy)
+                let mut idx = 0i32;
+                for mut food in &mut foods {
+                    if idx == ant.carried_food_index {
+                        food.is_loose = true;
+                        food.position = ant.position;
+                        break;
+                    }
+                    idx += 1;
+                }
+                ant.carried_food_index = -1;
+                ant.direction = reverse_direction(ant.direction);
+                ant.pickup_cooldown_remaining_seconds = PICKUP_COOLDOWN_SECONDS;
+            } else {
+                let food_index = encounter.nearest_food_index;
+                if food_index >= 0 {
+                    let mut idx = 0i32;
+                    for mut food in &mut foods {
+                        if idx == food_index && food.is_loose {
+                            food.is_loose = false;
+                            ant.carried_food_index = food_index;
+                            ant.direction = reverse_direction(ant.direction);
+                            ant.pickup_cooldown_remaining_seconds = PICKUP_COOLDOWN_SECONDS;
+                            break;
+                        }
+                        idx += 1;
+                    }
+                }
+            }
+        }
+    }
+
+    // --- Test helpers ---
+
+    fn run_system<M>(world: &mut World, system: impl IntoSystem<(), (), M>) {
+        let mut schedule = Schedule::default();
+        schedule.add_systems(system);
+        schedule.run(world);
+    }
+
+    // --- Tests ---
+
+    #[test]
+    fn facade_ant_movement_moves_forward() {
+        let mut world = World::new();
+        world.insert_resource(DeltaTime(0.1));
+        world.spawn(AntFragment {
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 100.0,
+            ..Default::default()
+        });
+
+        run_system(&mut world, ant_movement);
+
+        let mut q = world.query::<&AntFragment>();
+        let ant = q.single(&world).unwrap();
+        assert!((ant.position[0] - 10.0).abs() < 1e-6, "x: {}", ant.position[0]);
+        assert!(ant.position[1].abs() < 1e-6);
+    }
+
+    #[test]
+    fn facade_ant_movement_stores_previous_position() {
+        let mut world = World::new();
+        world.insert_resource(DeltaTime(0.1));
+        world.spawn(AntFragment {
+            position: [100.0, 200.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 50.0,
+            ..Default::default()
+        });
+
+        run_system(&mut world, ant_movement);
+
+        let mut q = world.query::<&AntFragment>();
+        let ant = q.single(&world).unwrap();
+        assert_eq!(ant.previous_position, [100.0, 200.0, 0.0]);
+    }
+
+    #[test]
+    fn facade_ant_cooldown_decrements() {
+        let mut world = World::new();
+        world.insert_resource(DeltaTime(0.3));
+        world.spawn(AntFragment {
+            pickup_cooldown_remaining_seconds: 1.0,
+            ..Default::default()
+        });
+
+        run_system(&mut world, ant_cooldown);
+
+        let mut q = world.query::<&AntFragment>();
+        let ant = q.single(&world).unwrap();
+        assert!(
+            (ant.pickup_cooldown_remaining_seconds - 0.7).abs() < 1e-5,
+            "cooldown: {}", ant.pickup_cooldown_remaining_seconds
+        );
+    }
+
+    #[test]
+    fn facade_boundary_clamp_and_reflect() {
+        let mut world = World::new();
+        world.insert_resource(DeltaTime(0.0));
+        world.spawn(AntFragment {
+            position: [600.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            ..Default::default()
+        });
+
+        run_system(&mut world, ant_boundary_reflect);
+
+        let mut q = world.query::<&AntFragment>();
+        let ant = q.single(&world).unwrap();
+        assert!(ant.position[0] <= 500.0, "x: {}", ant.position[0]);
+        assert!(ant.direction[0] < 0.0, "dir x: {}", ant.direction[0]);
+    }
+
+    #[test]
+    fn facade_combined_movement_boundary_cooldown() {
+        let mut world = World::new();
+        world.insert_resource(DeltaTime(1.0));
+        world.spawn(AntFragment {
+            position: [499.0, 0.0, 0.0],
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 100.0,
+            pickup_cooldown_remaining_seconds: 1.0,
+            ..Default::default()
+        });
+
+        // Run in sequence: movement → boundary → cooldown
+        let mut schedule = Schedule::default();
+        use bevy_ecs::schedule::IntoScheduleConfigs;
+        schedule.add_systems(
+            (ant_movement, ant_boundary_reflect, ant_cooldown).chain()
+        );
+        schedule.run(&mut world);
+
+        let mut q = world.query::<&AntFragment>();
+        let ant = q.single(&world).unwrap();
+        assert!(ant.position[0] <= 500.0, "should be clamped: {}", ant.position[0]);
+        assert!(ant.direction[0] < 0.0, "should reflect: {}", ant.direction[0]);
+        assert_eq!(ant.pickup_cooldown_remaining_seconds, 0.0);
+    }
+
+    #[test]
+    fn facade_multiple_ants_move_independently() {
+        let mut world = World::new();
+        world.insert_resource(DeltaTime(0.05));
+        world.spawn(AntFragment {
+            direction: [1.0, 0.0, 0.0],
+            movement_speed: 200.0,
+            ..Default::default()
+        });
+        world.spawn(AntFragment {
+            direction: [0.0, 1.0, 0.0],
+            movement_speed: 50.0,
+            ..Default::default()
+        });
+
+        run_system(&mut world, ant_movement);
+
+        let mut q = world.query::<&AntFragment>();
+        let ants: Vec<_> = q.iter(&world).collect();
+        assert_eq!(ants.len(), 2);
+
+        let (ant_x, ant_y) = if ants[0].position[0] > 1.0 {
+            (ants[0], ants[1])
+        } else {
+            (ants[1], ants[0])
+        };
+        assert!((ant_x.position[0] - 10.0).abs() < 1e-6);
+        assert!((ant_y.position[1] - 2.5).abs() < 1e-6);
+    }
+
+    #[test]
+    fn facade_food_pickup() {
+        let mut world = World::new();
+
+        // Spawn food entity first (will be at index 0 in iteration order)
+        let _food_entity = world.spawn(FoodFragment {
+            position: [101.0, 0.0, 0.0],
+            is_loose: true,
+            _pad: [0; 7],
+        }).id();
+
+        // Spawn ant with encounter info bundled as components
+        world.spawn((
+            AntFragment {
+                position: [100.0, 0.0, 0.0],
+                direction: [1.0, 0.0, 0.0],
+                carried_food_index: -1,
+                pickup_cooldown_remaining_seconds: 0.0,
+                ..Default::default()
+            },
+            AntEncounterFragment {
+                nearest_food_index: 0,
+                encounter_position: [100.0, 0.0, 0.0],
+                has_encounter: true,
+                ..Default::default()
+            },
+        ));
+
+        run_system(&mut world, ant_food_decision);
+
+        let mut ant_q = world.query::<&AntFragment>();
+        let ant = ant_q.single(&world).unwrap();
+        assert_eq!(ant.carried_food_index, 0, "should pick up food");
+        assert!(ant.direction[0] < 0.0, "should reverse direction");
+        assert!(ant.pickup_cooldown_remaining_seconds > 0.0);
+
+        let mut food_q = world.query::<&FoodFragment>();
+        let food = food_q.single(&world).unwrap();
+        assert!(!food.is_loose, "food should no longer be loose");
+    }
+
+    #[test]
+    fn facade_food_drop_when_carrying() {
+        let mut world = World::new();
+
+        // Food at index 0 (carried by ant)
+        world.spawn(FoodFragment {
+            position: [0.0; 3],
+            is_loose: false,
+            _pad: [0; 7],
+        });
+
+        world.spawn((
+            AntFragment {
+                position: [200.0, 0.0, 0.0],
+                direction: [1.0, 0.0, 0.0],
+                carried_food_index: 0,
+                pickup_cooldown_remaining_seconds: 0.0,
+                ..Default::default()
+            },
+            AntEncounterFragment {
+                nearest_food_index: 1,
+                encounter_position: [200.0, 0.0, 0.0],
+                has_encounter: true,
+                ..Default::default()
+            },
+        ));
+
+        run_system(&mut world, ant_food_decision);
+
+        let mut ant_q = world.query::<&AntFragment>();
+        let ant = ant_q.single(&world).unwrap();
+        assert_eq!(ant.carried_food_index, -1, "should drop food");
+        assert!(ant.direction[0] < 0.0, "should reverse");
+
+        let mut food_q = world.query::<&FoodFragment>();
+        let food = food_q.single(&world).unwrap();
+        assert!(food.is_loose, "dropped food should be loose");
+        assert_eq!(food.position, [200.0, 0.0, 0.0], "food at ant position");
+    }
+
+    #[test]
+    fn facade_food_decision_skips_cooldown() {
+        let mut world = World::new();
+
+        world.spawn(FoodFragment {
+            position: [101.0, 0.0, 0.0],
+            is_loose: true,
+            _pad: [0; 7],
+        });
+
+        world.spawn((
+            AntFragment {
+                position: [100.0, 0.0, 0.0],
+                direction: [1.0, 0.0, 0.0],
+                carried_food_index: -1,
+                pickup_cooldown_remaining_seconds: 1.0, // on cooldown
+                ..Default::default()
+            },
+            AntEncounterFragment {
+                nearest_food_index: 0,
+                encounter_position: [100.0, 0.0, 0.0],
+                has_encounter: true,
+                ..Default::default()
+            },
+        ));
+
+        run_system(&mut world, ant_food_decision);
+
+        let mut ant_q = world.query::<&AntFragment>();
+        let ant = ant_q.single(&world).unwrap();
+        assert_eq!(ant.carried_food_index, -1, "should not pick up: cooldown");
+        assert_eq!(ant.direction, [1.0, 0.0, 0.0], "direction unchanged");
+    }
+}
