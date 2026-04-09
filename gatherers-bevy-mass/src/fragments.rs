@@ -48,7 +48,7 @@ mod tests {
         assert_eq!(pos_reg.fields[0].name, "position");
         assert_eq!(pos_reg.fields[0].offset, 0);
 
-        let output = unreal_api::mass::generate_cpp_fragments(&[pos_reg]);
+        let output = unreal_api::mass::generate_cpp_fragments(&[pos_reg], "Test.h");
         assert!(output.contains("struct FGatherersPosition : public FMassFragment"));
         assert!(output.contains("FVector Position"));
         assert!(output.contains("offsetof(FGatherersPosition, Position) == 0"));
@@ -69,12 +69,13 @@ mod tests {
         let mut all = tags;
         all.extend(fragments);
 
-        let generated = generate_cpp_fragments(&all);
+        let golden_filename = "GatherersFragments.gen.h";
+        let generated = generate_cpp_fragments(&all, golden_filename);
 
         let golden_path = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
             .parent()
             .unwrap()
-            .join("RustPlugin/Source/RustMassGatherers/GeneratedFragments.h");
+            .join("RustPlugin/Source/RustMassGatherers/GatherersFragments.gen.h");
 
         let golden = std::fs::read_to_string(&golden_path).unwrap_or_else(|e| {
             panic!(

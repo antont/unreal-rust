@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GeneratedFragments.h"
+#include "GatherersFragments.gen.h"
 #include "MassEntityHandle.h"
 
 // Manual additions below — structs not covered by #[derive(MassFragment)] codegen.

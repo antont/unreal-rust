@@ -11,8 +11,21 @@ enum class ResultCode : uint8_t {
   Panic = 1,
 };
 
+// clang-format off
+// NOLINTBEGIN
+/// Rust Option<fn pointer> is ABI-compatible with a nullable pointer.
+/// This minimal definition lets C++ code compile against the FFI types.
 template<typename T = void>
-struct Option;
+struct Option {
+  T value;
+  Option() : value(nullptr) {}
+  Option(T v) : value(v) {} // NOLINT
+  bool IsSome() const { return value != nullptr; }
+  bool IsNone() const { return value == nullptr; }
+  T Unwrap() const { return value; }
+};
+// NOLINTEND
+// clang-format on
 
 struct Utf8Str {
   const char *ptr;

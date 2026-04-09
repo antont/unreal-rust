@@ -316,12 +316,14 @@ fn snake_to_pascal(name: &str) -> String {
 
 /// Generate a C++ header with USTRUCT definitions and static_assert offset checks
 /// for the given fragment registrations.
-pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration]) -> String {
+pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_filename: &str) -> String {
+    // Derive UHT generated header name from output filename (e.g. "Foo.gen.h" -> "Foo.gen.generated.h")
+    let uht_include = output_filename.strip_suffix(".h").unwrap_or(output_filename);
     let mut out = String::new();
     out.push_str("#pragma once\n\n");
     out.push_str("#include \"CoreMinimal.h\"\n");
     out.push_str("#include \"MassEntityTypes.h\"\n");
-    out.push_str("#include \"GeneratedFragments.generated.h\"\n\n");
+    out.push_str(&format!("#include \"{uht_include}.generated.h\"\n\n"));
     out.push_str("// Auto-generated from #[derive(MassFragment)] Rust structs.\n");
     out.push_str("// Do not edit manually.\n\n");
 
@@ -417,11 +419,12 @@ pub fn run_fragment_codegen(default_output: &std::path::Path) {
     fragments.sort_by_key(|r| r.cpp_type_name);
     let mut all = tags;
     all.extend(fragments);
-    let output = generate_cpp_fragments(&all);
     let out_path = std::env::args()
         .nth(1)
         .map(std::path::PathBuf::from)
         .unwrap_or_else(|| default_output.to_path_buf());
+    let filename = out_path.file_name().unwrap_or_default().to_str().unwrap_or("GeneratedFragments.h");
+    let output = generate_cpp_fragments(&all, filename);
     if let Some(parent) = out_path.parent() {
         std::fs::create_dir_all(parent).ok();
     }
@@ -1448,7 +1451,7 @@ mod tests {
             is_tag: false,
         };
 
-        let output = generate_cpp_fragments(&[&reg]);
+        let output = generate_cpp_fragments(&[&reg], "Test.h");
         assert!(output.contains("struct FTestFood : public FMassFragment"), "should have USTRUCT def");
         assert!(output.contains("FVector Position"), "should map [f64;3] to FVector");
         assert!(output.contains("bool bIsLoose = true"), "should map bool field with UE b prefix and custom default");
@@ -1471,7 +1474,7 @@ mod tests {
             is_tag: false,
         };
 
-        let output = generate_cpp_fragments(&[&reg]);
+        let output = generate_cpp_fragments(&[&reg], "Test.h");
         assert!(output.contains("_Pad"), "padding fields should get _ prefix");
     }
 
@@ -1486,7 +1489,7 @@ mod tests {
             is_tag: true,
         };
 
-        let output = generate_cpp_fragments(&[&reg]);
+        let output = generate_cpp_fragments(&[&reg], "Test.h");
         assert!(output.contains("struct FMyTag : public FMassTag"), "should use FMassTag base");
         assert!(output.contains("GENERATED_BODY()"), "should have GENERATED_BODY");
         assert!(!output.contains("offsetof"), "tags should have no offset asserts");

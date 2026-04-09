@@ -2,10 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "MassEntityTypes.h"
-#include "GeneratedFragments.generated.h"
+#include "GatherersFragments.gen.generated.h"
 
 // Auto-generated from #[derive(MassFragment)] Rust structs.
-// Regenerate: cargo run -p gatherers-bevy-mass --bin gen-fragments
 // Do not edit manually.
 
 USTRUCT()
