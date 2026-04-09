@@ -407,6 +407,25 @@ struct MassInitSimulationResult {
 using MassInitSimulationFn = uint32_t(*)(const MassInitSimulationParams *params,
                                          MassInitSimulationResult *result);
 
+/// Describes one visual group (entity type with position data for ISMC rendering).
+struct MassVisualizerGroupDesc {
+  /// Group name (e.g. "ants", "food").
+  Utf8Str name;
+  /// C++ USTRUCT name of the fragment that contains position data.
+  Utf8Str position_fragment_type;
+  /// Byte offset of the position [f64; 3] within the fragment.
+  uint32_t position_offset;
+  /// Uniform scale for the ISMC instances.
+  float scale;
+};
+
+/// Returns the number of registered visualizer groups.
+using GetVisualizerGroupCountFn = uint32_t(*)();
+
+/// Fills a MassVisualizerGroupDesc for the group at `index`.
+/// Returns 1 on success, 0 on failure.
+using GetVisualizerGroupDescFn = uint32_t(*)(uint32_t index, MassVisualizerGroupDesc *out);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -416,6 +435,8 @@ struct RustBindings {
   GetMassSystemDescriptorFn get_mass_system_descriptor;
   MassFrameDispatchFn mass_frame_dispatch;
   Option<MassInitSimulationFn> mass_init_simulation;
+  Option<GetVisualizerGroupCountFn> get_visualizer_group_count;
+  Option<GetVisualizerGroupDescFn> get_visualizer_group_desc;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);

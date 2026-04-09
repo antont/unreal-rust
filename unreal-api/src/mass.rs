@@ -450,6 +450,25 @@ pub fn registered_sim_inits() -> inventory::iter<MassSimInitRegistration> {
 }
 
 // ---------------------------------------------------------------------------
+// Visualizer group registration
+// ---------------------------------------------------------------------------
+
+/// Game crates register visual groups via inventory.
+/// Each group maps an entity type to its position fragment and scale.
+pub struct MassVisualizerGroupRegistration {
+    pub name: &'static str,
+    pub position_fragment_type: &'static str,
+    pub position_offset: usize,
+    pub scale: f32,
+}
+
+inventory::collect!(MassVisualizerGroupRegistration);
+
+pub fn registered_visualizer_groups() -> inventory::iter<MassVisualizerGroupRegistration> {
+    inventory::iter::<MassVisualizerGroupRegistration>
+}
+
+// ---------------------------------------------------------------------------
 // Primary query types (per-chunk)
 // ---------------------------------------------------------------------------
 

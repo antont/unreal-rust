@@ -10,7 +10,7 @@
 #include "GatherersBevyMassSubsystem.generated.h"
 
 class UMassEntitySubsystem;
-class UGatherersBevyMassVisualizer;
+class URustMassGenericVisualizer;
 
 UCLASS()
 class RUSTMASSGATHERERS_API UGatherersBevyMassSubsystem : public UTickableWorldSubsystem
@@ -51,7 +51,7 @@ private:
 	float SimulationTimeAccumulatorSeconds = 0.0f;
 
 	UPROPERTY(Transient)
-	TObjectPtr<UGatherersBevyMassVisualizer> Visualizer = nullptr;
+	TObjectPtr<URustMassGenericVisualizer> Visualizer = nullptr;
 };
 
 template<>

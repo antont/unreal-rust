@@ -11,7 +11,7 @@
 #include "RustPlugin.h"
 #include "RustUtils.h"
 #include "GatherersMassRuntime.h"
-#include "GatherersBevyMassVisualizer.h"
+#include "RustMassGenericVisualizer.h"
 
 
 
@@ -123,7 +123,7 @@ void UGatherersBevyMassSubsystem::Deinitialize()
 
 UInstancedStaticMeshComponent* UGatherersBevyMassSubsystem::GetFoodISMC() const
 {
-	return Visualizer ? Visualizer->GetFoodISMC() : nullptr;
+	return nullptr; // Generic visualizer does not expose individual ISMCs
 }
 
 bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& MassEntitySubsystem)
@@ -248,7 +248,10 @@ void UGatherersBevyMassSubsystem::Tick(float DeltaTime)
 			if (MassEntitySubsystem != nullptr)
 			{
 				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-				Visualizer->SyncInstances(EntityManager, ManagedAntEntities, ManagedFoodEntities);
+				TArray<TArray<FMassEntityHandle>*> GroupEntities;
+				GroupEntities.Add(&ManagedAntEntities);
+				GroupEntities.Add(&ManagedFoodEntities);
+				Visualizer->SyncInstances(EntityManager, GroupEntities);
 			}
 		}
 	}
@@ -303,13 +306,18 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, int32 Foo
 		}
 	}
 
-	// Initialize visualizer
+	// Initialize generic visualizer from Rust visual group registrations
 	if (!Visualizer)
 	{
-		Visualizer = NewObject<UGatherersBevyMassVisualizer>(this);
+		Visualizer = NewObject<URustMassGenericVisualizer>(this);
 	}
-	Visualizer->Initialize(World);
-	Visualizer->RebuildInstances(EntityManager, ManagedAntEntities, ManagedFoodEntities);
+	Visualizer->Initialize(World, Module.Plugin.Rust);
+	{
+		TArray<TArray<FMassEntityHandle>*> GroupEntities;
+		GroupEntities.Add(&ManagedAntEntities);
+		GroupEntities.Add(&ManagedFoodEntities);
+		Visualizer->RebuildInstances(EntityManager, GroupEntities);
+	}
 
 	UE_LOG(LogTemp, Log, TEXT("GatherersBevyMass: Spawned %d ants and %d food (dynamic Rust systems)"),
 		ManagedAntEntities.Num(), ManagedFoodEntities.Num());

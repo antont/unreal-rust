@@ -5,6 +5,7 @@ use unreal_api::mass::{
     MassBevySystemRegistration, MassDeltaTime, MassSchedule, MassSpatialQueryCallback,
     MassSystemRegistration, MassSystemStage,
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
+    registered_visualizer_groups,
 };
 use unreal_api::ecs::schedule::IntoScheduleConfigs;
 
@@ -206,6 +207,35 @@ pub unsafe extern "C" fn mass_init_simulation(
         (*result).num_ants = stored_ants.len() as u32;
         (*result).food_handles = stored_food.as_ptr();
         (*result).num_food = stored_food.len() as u32;
+    }
+    1
+}
+
+// ---------------------------------------------------------------------------
+// Visualizer group descriptors
+// ---------------------------------------------------------------------------
+
+pub unsafe extern "C" fn get_visualizer_group_count() -> u32 {
+    registered_visualizer_groups().into_iter().count() as u32
+}
+
+pub unsafe extern "C" fn get_visualizer_group_desc(
+    index: u32,
+    out: *mut unreal_ffi::MassVisualizerGroupDesc,
+) -> u32 {
+    if out.is_null() {
+        return 0;
+    }
+    let Some(reg) = registered_visualizer_groups().into_iter().nth(index as usize) else {
+        return 0;
+    };
+    unsafe {
+        (*out) = unreal_ffi::MassVisualizerGroupDesc {
+            name: unreal_ffi::Utf8Str::from(reg.name),
+            position_fragment_type: unreal_ffi::Utf8Str::from(reg.position_fragment_type),
+            position_offset: reg.position_offset as u32,
+            scale: reg.scale,
+        };
     }
     1
 }

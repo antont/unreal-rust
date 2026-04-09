@@ -345,6 +345,29 @@ pub type MassInitSimulationFn = unsafe extern "C" fn(
     result: *mut MassInitSimulationResult,
 ) -> u32;
 
+// --- Visualizer group descriptors ---
+
+/// Describes one visual group (entity type with position data for ISMC rendering).
+#[repr(C)]
+pub struct MassVisualizerGroupDesc {
+    /// Group name (e.g. "ants", "food").
+    pub name: Utf8Str,
+    /// C++ USTRUCT name of the fragment that contains position data.
+    pub position_fragment_type: Utf8Str,
+    /// Byte offset of the position [f64; 3] within the fragment.
+    pub position_offset: u32,
+    /// Uniform scale for the ISMC instances.
+    pub scale: f32,
+}
+
+/// Returns the number of registered visualizer groups.
+pub type GetVisualizerGroupCountFn = unsafe extern "C" fn() -> u32;
+
+/// Fills a MassVisualizerGroupDesc for the group at `index`.
+/// Returns 1 on success, 0 on failure.
+pub type GetVisualizerGroupDescFn =
+    unsafe extern "C" fn(index: u32, out: *mut MassVisualizerGroupDesc) -> u32;
+
 // Compile-time check: Option<fn ptr> must be pointer-sized for C FFI compatibility.
 // Rust guarantees niche optimization for Option<extern "C" fn>, but assert to catch
 // any future type changes that would break the C++ nullable function pointer layout.
@@ -397,6 +420,8 @@ pub struct RustBindings {
     pub get_mass_system_descriptor: GetMassSystemDescriptorFn,
     pub mass_frame_dispatch: MassFrameDispatchFn,
     pub mass_init_simulation: Option<MassInitSimulationFn>,
+    pub get_visualizer_group_count: Option<GetVisualizerGroupCountFn>,
+    pub get_visualizer_group_desc: Option<GetVisualizerGroupDescFn>,
 }
 
 impl RustBindings {
@@ -444,6 +469,8 @@ impl RustBindings {
             get_mass_system_descriptor: get_mass_system_descriptor_stub,
             mass_frame_dispatch: mass_frame_dispatch_stub,
             mass_init_simulation: None,
+            get_visualizer_group_count: None,
+            get_visualizer_group_desc: None,
         }
     }
 }
@@ -760,9 +787,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 7 non-optional fn ptrs + 1 Option<fn ptr> = 8 pointers
+        // RustBindings: 7 non-optional fn ptrs + 3 Option<fn ptr> = 10 pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 8 * std::mem::size_of::<usize>());
+        assert_eq!(size, 10 * std::mem::size_of::<usize>());
     }
 
     #[test]
