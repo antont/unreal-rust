@@ -93,30 +93,11 @@ fn create_rust_bindings() -> RustBindings {
     ) {
     }
 
-    unsafe extern "C" fn mass_ant_movement_noop(
-        _: *mut std::ffi::c_void,
-        _: i32,
-        _: f32,
-        _: *const f64,
-        _: *const f64,
-    ) {
-    }
-
-    unsafe extern "C" fn mass_ant_food_decision_noop(
-        _: *mut std::ffi::c_void,
-        _: *const std::ffi::c_void,
-        _: i32,
-    ) -> i32 {
-        0
-    }
-
     RustBindings {
         tick,
         begin_play,
         allocate,
         mass_bob_process: mass_bob_process_noop,
-        mass_ant_movement: mass_ant_movement_noop,
-        mass_ant_food_decision: mass_ant_food_decision_noop,
         get_mass_system_count: mass_system_registry::get_mass_system_count,
         get_mass_system_descriptor: mass_system_registry::get_mass_system_descriptor,
         mass_frame_dispatch: mass_system_registry::mass_frame_dispatch,
@@ -233,21 +214,6 @@ macro_rules! implement_unreal_module {
         ) -> u32 {
             $crate::initialize_module(bindings, rust_bindings, Box::new($module));
             unsafe { (*rust_bindings).mass_bob_process = $mass_bob; }
-            1
-        }
-    };
-    ($module: expr, mass_bob_process: $mass_bob:expr, mass_ant_movement: $mass_ant:expr, mass_ant_food_decision: $mass_food:expr) => {
-        #[unsafe(no_mangle)]
-        pub unsafe extern "C" fn register_unreal_bindings(
-            bindings: $crate::ffi::UnrealBindings,
-            rust_bindings: *mut $crate::ffi::RustBindings,
-        ) -> u32 {
-            $crate::initialize_module(bindings, rust_bindings, Box::new($module));
-            unsafe {
-                (*rust_bindings).mass_bob_process = $mass_bob;
-                (*rust_bindings).mass_ant_movement = $mass_ant;
-                (*rust_bindings).mass_ant_food_decision = $mass_food;
-            }
             1
         }
     };

@@ -3,5 +3,12 @@ name = "gatherers-sim"
 version = "0.1.0"
 edition.workspace = true
 
+[features]
+default = ["bevy-backend"]
+bevy-backend = ["bevy_mass/bevy-backend"]
+unreal = ["bevy_mass/unreal", "dep:unreal-api"]
+
 [dependencies]
-# No engine dependencies — pure simulation logic
+bevy_mass = { path = "../bevy_mass", default-features = false }
+bevy_ecs = "0.18"
+unreal-api = { path = "../unreal-api", optional = true }

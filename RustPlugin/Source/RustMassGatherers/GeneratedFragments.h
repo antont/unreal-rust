@@ -44,31 +44,42 @@ static_assert(offsetof(FGatherersAntEncounterFragment, bHasEncounter) == 32, "bH
 static_assert(sizeof(FGatherersAntEncounterFragment) == 40, "FGatherersAntEncounterFragment size must be 40");
 
 USTRUCT()
-struct FGatherersMassAntFragment : public FMassFragment
+struct FGatherersBehavior : public FMassFragment
 {
 	GENERATED_BODY()
 
-	FVector Position = FVector::ZeroVector;
-	FVector PreviousPosition = FVector::ZeroVector;
-	FVector Direction = FVector(1.0f, 0.0f, 0.0f);
-	int32 CarriedFoodIndex = -1;
-	int32 _CarriedPad = 0;
-	float PickupCooldownRemainingSeconds = 0.0f;
-	float MovementSpeed = 100.0f;
 	float TurnJitterRadians = PI / 2.0f;
 	int32 RandomSeed = 0;
 };
 
-static_assert(offsetof(FGatherersMassAntFragment, Position) == 0, "Position at offset 0");
-static_assert(offsetof(FGatherersMassAntFragment, PreviousPosition) == 24, "PreviousPosition at offset 24");
-static_assert(offsetof(FGatherersMassAntFragment, Direction) == 48, "Direction at offset 48");
-static_assert(offsetof(FGatherersMassAntFragment, CarriedFoodIndex) == 72, "CarriedFoodIndex at offset 72");
-static_assert(offsetof(FGatherersMassAntFragment, _CarriedPad) == 76, "_CarriedPad at offset 76");
-static_assert(offsetof(FGatherersMassAntFragment, PickupCooldownRemainingSeconds) == 80, "PickupCooldownRemainingSeconds at offset 80");
-static_assert(offsetof(FGatherersMassAntFragment, MovementSpeed) == 84, "MovementSpeed at offset 84");
-static_assert(offsetof(FGatherersMassAntFragment, TurnJitterRadians) == 88, "TurnJitterRadians at offset 88");
-static_assert(offsetof(FGatherersMassAntFragment, RandomSeed) == 92, "RandomSeed at offset 92");
-static_assert(sizeof(FGatherersMassAntFragment) == 96, "FGatherersMassAntFragment size must be 96");
+static_assert(offsetof(FGatherersBehavior, TurnJitterRadians) == 0, "TurnJitterRadians at offset 0");
+static_assert(offsetof(FGatherersBehavior, RandomSeed) == 4, "RandomSeed at offset 4");
+static_assert(sizeof(FGatherersBehavior) == 8, "FGatherersBehavior size must be 8");
+
+USTRUCT()
+struct FGatherersCarrying : public FMassFragment
+{
+	GENERATED_BODY()
+
+	int32 FoodIndex = -1;
+	int32 _Pad = 0;
+};
+
+static_assert(offsetof(FGatherersCarrying, FoodIndex) == 0, "FoodIndex at offset 0");
+static_assert(offsetof(FGatherersCarrying, _Pad) == 4, "_Pad at offset 4");
+static_assert(sizeof(FGatherersCarrying) == 8, "FGatherersCarrying size must be 8");
+
+USTRUCT()
+struct FGatherersCooldown : public FMassFragment
+{
+	GENERATED_BODY()
+
+	float RemainingSeconds = 0.0f;
+	uint8 _Pad[4] = {};
+};
+
+static_assert(offsetof(FGatherersCooldown, RemainingSeconds) == 0, "RemainingSeconds at offset 0");
+static_assert(sizeof(FGatherersCooldown) == 8, "FGatherersCooldown size must be 8");
 
 USTRUCT()
 struct FGatherersMassFoodFragment : public FMassFragment
@@ -83,4 +94,31 @@ struct FGatherersMassFoodFragment : public FMassFragment
 static_assert(offsetof(FGatherersMassFoodFragment, Position) == 0, "Position at offset 0");
 static_assert(offsetof(FGatherersMassFoodFragment, bIsLoose) == 24, "bIsLoose at offset 24");
 static_assert(sizeof(FGatherersMassFoodFragment) == 32, "FGatherersMassFoodFragment size must be 32");
+
+USTRUCT()
+struct FGatherersMovement : public FMassFragment
+{
+	GENERATED_BODY()
+
+	FVector Direction = FVector(1.0f, 0.0f, 0.0f);
+	float MovementSpeed = 100.0f;
+	uint8 _Pad[4] = {};
+};
+
+static_assert(offsetof(FGatherersMovement, Direction) == 0, "Direction at offset 0");
+static_assert(offsetof(FGatherersMovement, MovementSpeed) == 24, "MovementSpeed at offset 24");
+static_assert(sizeof(FGatherersMovement) == 32, "FGatherersMovement size must be 32");
+
+USTRUCT()
+struct FGatherersPosition : public FMassFragment
+{
+	GENERATED_BODY()
+
+	FVector Position = FVector::ZeroVector;
+	FVector PreviousPosition = FVector::ZeroVector;
+};
+
+static_assert(offsetof(FGatherersPosition, Position) == 0, "Position at offset 0");
+static_assert(offsetof(FGatherersPosition, PreviousPosition) == 24, "PreviousPosition at offset 24");
+static_assert(sizeof(FGatherersPosition) == 48, "FGatherersPosition size must be 48");
 

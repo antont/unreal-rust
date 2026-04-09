@@ -21,10 +21,10 @@
 //! }
 //! ```
 
-// Ensure exactly one backend is selected
-#[cfg(all(feature = "bevy-backend", feature = "unreal"))]
-compile_error!("Features `bevy-backend` and `unreal` are mutually exclusive. Enable only one.");
-
+// Ensure at least one backend is selected.
+// When both are enabled (e.g., Cargo feature unification in a workspace),
+// `unreal` takes precedence — the bevy-backend types are only used when
+// `unreal` is NOT active.
 #[cfg(not(any(feature = "bevy-backend", feature = "unreal")))]
 compile_error!("Either feature `bevy-backend` or `unreal` must be enabled.");
 
@@ -49,7 +49,7 @@ pub mod prelude {
 pub use time::DeltaTime;
 pub use query::Query;
 
-#[cfg(test)]
+#[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::prelude::*;
     use bevy_ecs::prelude::*;

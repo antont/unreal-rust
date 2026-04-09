@@ -11,8 +11,6 @@ enum class ResultCode : uint8_t {
   Panic = 1,
 };
 
-template<typename T = void>
-struct Option;
 
 struct Utf8Str {
   const char *ptr;
@@ -175,14 +173,6 @@ using AllocateFn = uint32_t(*)(uintptr_t size, uintptr_t align, RustAlloc *ptr);
 
 using MassBobProcessFn = void(*)(void *data, int32_t count, float dt);
 
-using MassAntMovementFn = void(*)(void *ants,
-                                  int32_t count,
-                                  float dt,
-                                  const double *bounds_min,
-                                  const double *bounds_max);
-
-using MassAntFoodDecisionFn = int32_t(*)(void *ant, const void *encounter, int32_t has_encounter);
-
 /// Returns the number of dynamically registered mass systems.
 using GetMassSystemCountFn = uint32_t(*)();
 
@@ -320,7 +310,8 @@ struct MassFrameDispatchData {
   /// Pointer to array of MassSystemChunkBatch.
   const MassSystemChunkBatch *systems;
   /// Optional spatial query callback for collision detection. Null if not available.
-  Option<MassSpatialQueryFn> spatial_query_fn;
+  /// (Option<fn_ptr> in Rust is FFI-safe as a nullable function pointer.)
+  MassSpatialQueryFn spatial_query_fn;
   /// Pickup radius for spatial queries (Unreal units).
   float pickup_radius;
   uint32_t _pad;
@@ -334,8 +325,6 @@ struct RustBindings {
   BeginPlayFn begin_play;
   AllocateFn allocate;
   MassBobProcessFn mass_bob_process;
-  MassAntMovementFn mass_ant_movement;
-  MassAntFoodDecisionFn mass_ant_food_decision;
   GetMassSystemCountFn get_mass_system_count;
   GetMassSystemDescriptorFn get_mass_system_descriptor;
   MassFrameDispatchFn mass_frame_dispatch;

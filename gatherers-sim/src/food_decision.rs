@@ -1,4 +1,4 @@
-use crate::fragments::{AntFragment, FoodEncounter};
+use crate::fragments::{Movement, Behavior, Carrying, Cooldown, FoodEncounter};
 
 /// Result of ant-food interaction decision.
 /// 0 = NoAction, 1 = PickUp, 2 = Drop
@@ -19,28 +19,32 @@ pub const PICKUP_SEPARATION_DISTANCE: f32 = 50.0;
 /// If the ant is not carrying and cooldown expired and encounters food: pick up (return 1).
 /// Otherwise: no action (return 0).
 ///
-/// Side effects on `ant`: updates position, direction, cooldown, clears/sets carried handle.
+/// Side effects: updates position, direction, cooldown, clears/sets carried handle.
 pub fn ant_food_decision(
-    ant: &mut AntFragment,
+    ant_position: &mut [f64; 3],
+    movement: &mut Movement,
+    cooldown: &mut Cooldown,
+    carrying: &mut Carrying,
+    behavior: &mut Behavior,
     encounter: Option<&FoodEncounter>,
 ) -> FoodDecisionCode {
-    let is_carrying = ant.carried_food_index >= 0;
+    let is_carrying = carrying.food_index >= 0;
 
     match encounter {
         Some(enc) if is_carrying => {
             // Drop: ant is carrying and encounters loose food
-            ant.position = enc.encounter_position;
-            ant.direction = consume_ant_turn_direction(ant);
-            ant.carried_food_index = -1;
-            ant.pickup_cooldown_remaining_seconds =
-                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, ant.movement_speed);
+            *ant_position = enc.encounter_position;
+            movement.direction = consume_ant_turn_direction(behavior, movement);
+            carrying.food_index = -1;
+            cooldown.remaining_seconds =
+                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, movement.movement_speed);
             DECISION_DROP
         }
-        Some(enc) if !is_carrying && ant.pickup_cooldown_remaining_seconds <= 0.0 => {
+        Some(enc) if !is_carrying && cooldown.remaining_seconds <= 0.0 => {
             // Pick up: ant is not carrying, cooldown expired, food nearby
-            ant.position = enc.encounter_position;
-            ant.direction = consume_ant_turn_direction(ant);
-            ant.carried_food_index = enc.food_index;
+            *ant_position = enc.encounter_position;
+            movement.direction = consume_ant_turn_direction(behavior, movement);
+            carrying.food_index = enc.food_index;
             DECISION_PICK_UP
         }
         _ => DECISION_NO_ACTION,
@@ -57,16 +61,16 @@ pub fn compute_pickup_cooldown(separation_distance: f32, movement_speed: f32) ->
 
 /// Compute a turn direction (180° + jitter) given current direction and RNG state.
 /// Consumes the random seed and returns new direction.
-fn consume_ant_turn_direction(ant: &mut AntFragment) -> [f64; 3] {
+fn consume_ant_turn_direction(behavior: &mut Behavior, movement: &Movement) -> [f64; 3] {
     // Simple LCG matching FRandomStream behavior:
     // FRandomStream uses: seed = seed * 196314165 + 907633515
     // FRandRange(-1,1) maps to: (seed & 0x7fffff) / 8388607.0 * 2.0 - 1.0
-    let mut seed = ant.random_seed as u32;
+    let mut seed = behavior.random_seed as u32;
     seed = seed.wrapping_mul(196314165).wrapping_add(907633515);
     let jitter_alpha = ((seed & 0x7fffff) as f32 / 8388607.0) * 2.0 - 1.0;
-    ant.random_seed = seed as i32;
+    behavior.random_seed = seed as i32;
 
-    compute_ant_turn_direction(ant.direction, jitter_alpha, ant.turn_jitter_radians)
+    compute_ant_turn_direction(movement.direction, jitter_alpha, behavior.turn_jitter_radians)
 }
 
 /// Compute turn direction: 180° turn + jitter (matches C++ ComputeAntTurnDirection).
@@ -102,21 +106,24 @@ fn compute_ant_retarget_direction(direction: [f64; 3], jitter_radians: f32) -> [
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::fragments::AntFragment;
 
-    fn make_ant(carrying: bool) -> AntFragment {
-        let mut ant = AntFragment {
-            position: [100.0, 100.0, 0.0],
+    fn make_components(carrying_food: bool) -> (Movement, Cooldown, Carrying, Behavior) {
+        let movement = Movement {
             direction: [1.0, 0.0, 0.0],
             movement_speed: 100.0,
+            _pad: [0; 4],
+        };
+        let cooldown = Cooldown::default();
+        let carrying = if carrying_food {
+            Carrying { food_index: 0, _pad: 0 }
+        } else {
+            Carrying::default()
+        };
+        let behavior = Behavior {
             turn_jitter_radians: std::f32::consts::FRAC_PI_2,
             random_seed: 42,
-            ..Default::default()
         };
-        if carrying {
-            ant.carried_food_index = 0; // >= 0 = carrying
-        }
-        ant
+        (movement, cooldown, carrying, behavior)
     }
 
     fn make_encounter() -> FoodEncounter {
@@ -129,92 +136,100 @@ mod tests {
 
     #[test]
     fn carrying_and_encounters_food_drops() {
-        let mut ant = make_ant(true);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        let result = ant_food_decision(&mut ant, Some(&encounter));
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(result, DECISION_DROP);
     }
 
     #[test]
     fn drop_clears_carried_handle() {
-        let mut ant = make_ant(true);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        ant_food_decision(&mut ant, Some(&encounter));
-        assert_eq!(ant.carried_food_index, -1, "carried index should be cleared");
+        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert_eq!(carry.food_index, -1, "carried index should be cleared");
     }
 
     #[test]
     fn drop_sets_cooldown() {
-        let mut ant = make_ant(true);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        ant_food_decision(&mut ant, Some(&encounter));
-        assert!(
-            ant.pickup_cooldown_remaining_seconds > 0.0,
-            "cooldown should be set after drop"
-        );
+        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert!(cd.remaining_seconds > 0.0, "cooldown should be set after drop");
     }
 
     #[test]
     fn drop_snaps_position_to_encounter() {
-        let mut ant = make_ant(true);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        ant_food_decision(&mut ant, Some(&encounter));
-        assert_eq!(ant.position, encounter.encounter_position);
+        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert_eq!(pos, encounter.encounter_position);
     }
 
     #[test]
     fn drop_changes_direction() {
-        let mut ant = make_ant(true);
-        let original_dir = ant.direction;
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
+        let original_dir = mov.direction;
         let encounter = make_encounter();
-        ant_food_decision(&mut ant, Some(&encounter));
-        assert_ne!(ant.direction, original_dir, "direction should change on drop");
+        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert_ne!(mov.direction, original_dir, "direction should change on drop");
     }
 
     #[test]
     fn not_carrying_no_cooldown_encounters_food_picks_up() {
-        let mut ant = make_ant(false);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
         let encounter = make_encounter();
-        let result = ant_food_decision(&mut ant, Some(&encounter));
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(result, DECISION_PICK_UP);
     }
 
     #[test]
     fn pickup_sets_carried_handle() {
-        let mut ant = make_ant(false);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
         let encounter = make_encounter();
-        ant_food_decision(&mut ant, Some(&encounter));
-        assert_eq!(ant.carried_food_index, encounter.food_index);
+        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert_eq!(carry.food_index, encounter.food_index);
     }
 
     #[test]
     fn pickup_snaps_position_to_encounter() {
-        let mut ant = make_ant(false);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
         let encounter = make_encounter();
-        ant_food_decision(&mut ant, Some(&encounter));
-        assert_eq!(ant.position, encounter.encounter_position);
+        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert_eq!(pos, encounter.encounter_position);
     }
 
     #[test]
     fn not_carrying_with_cooldown_no_action() {
-        let mut ant = make_ant(false);
-        ant.pickup_cooldown_remaining_seconds = 0.5;
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        cd.remaining_seconds = 0.5;
         let encounter = make_encounter();
-        let result = ant_food_decision(&mut ant, Some(&encounter));
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(result, DECISION_NO_ACTION);
     }
 
     #[test]
     fn not_carrying_no_encounter_no_action() {
-        let mut ant = make_ant(false);
-        let result = ant_food_decision(&mut ant, None);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, None);
         assert_eq!(result, DECISION_NO_ACTION);
     }
 
     #[test]
     fn carrying_no_encounter_no_action() {
-        let mut ant = make_ant(true);
-        let result = ant_food_decision(&mut ant, None);
+        let mut pos = [100.0, 100.0, 0.0];
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, None);
         assert_eq!(result, DECISION_NO_ACTION);
     }
 

@@ -63,8 +63,8 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
-			InitialPositions.Add(Ant.Position);
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			InitialPositions.Add(Pos.Position);
 		}
 	}
 
@@ -82,8 +82,8 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(AntIndex))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
-			if (!Ant.Position.Equals(InitialPositions[AntIndex], 0.01))
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			if (!Pos.Position.Equals(InitialPositions[AntIndex], 0.01))
 			{
 				++MovedCount;
 			}
@@ -233,11 +233,13 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			const FVector FoodPos = FoodView.GetFragmentData<FGatherersMassFoodFragment>().Position;
 
 			FMassEntityView AntView(EntityManager, AntEntity);
-			FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
-			Ant.Position = FoodPos;
-			Ant.PreviousPosition = FoodPos;
-			Ant.CarriedFoodIndex = -1;
-			Ant.PickupCooldownRemainingSeconds = 0.0f;
+			FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			Pos.Position = FoodPos;
+			Pos.PreviousPosition = FoodPos;
+			FGatherersCarrying& Carry = AntView.GetFragmentData<FGatherersCarrying>();
+			Carry.FoodIndex = -1;
+			FGatherersCooldown& Cd = AntView.GetFragmentData<FGatherersCooldown>();
+			Cd.RemainingSeconds = 0.0f;
 		}
 	}
 
@@ -258,17 +260,18 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity) && EntityManager.IsEntityValid(FoodEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
+			const FGatherersCarrying& Carry = AntView.GetFragmentData<FGatherersCarrying>();
 
 			FMassEntityView FoodView(EntityManager, FoodEntity);
 			const FGatherersMassFoodFragment& Food = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
 
-			if (Ant.CarriedFoodIndex >= 0)
+			if (Carry.FoodIndex >= 0)
 			{
 				// Pickup happened — verify consistency
-				TestEqual(TEXT("Carried food index should be 0"), Ant.CarriedFoodIndex, 0);
+				TestEqual(TEXT("Carried food index should be 0"), Carry.FoodIndex, 0);
 				TestFalse(TEXT("Picked-up food should not be loose"), Food.bIsLoose);
-				TestTrue(TEXT("Pickup cooldown should be active"), Ant.PickupCooldownRemainingSeconds > 0.0f);
+				const FGatherersCooldown& Cd = AntView.GetFragmentData<FGatherersCooldown>();
+				TestTrue(TEXT("Pickup cooldown should be active"), Cd.RemainingSeconds > 0.0f);
 
 				AddInfo(TEXT("Food pickup succeeded — spatial query callback is working"));
 			}
@@ -335,8 +338,8 @@ bool FGatherersBevyMassCooldownTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
-			Ant.PickupCooldownRemainingSeconds = 1.0f;
+			FGatherersCooldown& Cd = AntView.GetFragmentData<FGatherersCooldown>();
+			Cd.RemainingSeconds = 1.0f;
 		}
 	}
 
@@ -350,14 +353,14 @@ bool FGatherersBevyMassCooldownTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
+			const FGatherersCooldown& Cd = AntView.GetFragmentData<FGatherersCooldown>();
 
 			// Cooldown should be approximately 0.7 (1.0 - 0.3)
 			// Allow tolerance for time accumulator substeps
 			TestTrue(TEXT("Cooldown should have decreased"),
-				Ant.PickupCooldownRemainingSeconds < 1.0f);
+				Cd.RemainingSeconds < 1.0f);
 			TestTrue(TEXT("Cooldown should not be negative"),
-				Ant.PickupCooldownRemainingSeconds >= 0.0f);
+				Cd.RemainingSeconds >= 0.0f);
 		}
 	}
 
@@ -406,11 +409,12 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
-			Ant.Position = FVector(490.0, 0.0, 50.0);
-			Ant.PreviousPosition = Ant.Position;
-			Ant.Direction = FVector(1.0, 0.0, 0.0);
-			Ant.MovementSpeed = 200.0f;
+			FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			Pos.Position = FVector(490.0, 0.0, 50.0);
+			Pos.PreviousPosition = Pos.Position;
+			FGatherersMovement& Mov = AntView.GetFragmentData<FGatherersMovement>();
+			Mov.Direction = FVector(1.0, 0.0, 0.0);
+			Mov.MovementSpeed = 200.0f;
 		}
 	}
 
@@ -427,12 +431,13 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersMassAntFragment& Ant = AntView.GetFragmentData<FGatherersMassAntFragment>();
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			const FGatherersMovement& Mov = AntView.GetFragmentData<FGatherersMovement>();
 
 			TestTrue(TEXT("Ant X should be within bounds (<=500)"),
-				Ant.Position.X <= 500.0 + 1.0);  // small tolerance
+				Pos.Position.X <= 500.0 + 1.0);  // small tolerance
 			TestTrue(TEXT("Ant direction X should reflect (become negative)"),
-				Ant.Direction.X < 0.0);
+				Mov.Direction.X < 0.0);
 		}
 	}
 

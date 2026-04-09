@@ -102,7 +102,7 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
         if let Type::Path(type_path) = &*pat_type.ty {
             let last_seg = type_path.path.segments.last();
             if let Some(seg) = last_seg {
-                let scope = if seg.ident == "MassQuery" {
+                let scope = if seg.ident == "MassQuery" || seg.ident == "Query" {
                     Some(QueryScope::Primary)
                 } else if seg.ident == "MassQueryAll" {
                     Some(QueryScope::Global)
@@ -249,18 +249,11 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 _ => return quote! {},
             };
 
-            // Check if it's a query param
+            // Check if it's a query param — pass by value (rewritten fn takes owned types)
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
-                    if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" {
-                        let is_mut = query_params
-                            .iter()
-                            .any(|p| p.param_name == *param_name && p.is_mutable);
-                        if is_mut {
-                            return quote! { &mut #param_name };
-                        } else {
-                            return quote! { &#param_name };
-                        }
+                    if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" || seg.ident == "Query" {
+                        return quote! { #param_name };
                     }
                 }
             }
@@ -333,16 +326,16 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                         let inner = &qp.fragment_type;
                         return match (qp.scope, qp.is_mutable) {
                             (QueryScope::Primary, true) => {
-                                quote! { #param_name: &mut ::unreal_api::mass::MassQueryMut<'_, #inner> }
+                                quote! { mut #param_name: ::unreal_api::mass::MassQueryMut<'_, #inner> }
                             }
                             (QueryScope::Primary, false) => {
-                                quote! { #param_name: &::unreal_api::mass::MassQueryRef<'_, #inner> }
+                                quote! { #param_name: ::unreal_api::mass::MassQueryRef<'_, #inner> }
                             }
                             (QueryScope::Global, true) => {
-                                quote! { #param_name: &mut ::unreal_api::mass::MassQueryAllMut<'_, #inner> }
+                                quote! { mut #param_name: ::unreal_api::mass::MassQueryAllMut<'_, #inner> }
                             }
                             (QueryScope::Global, false) => {
-                                quote! { #param_name: &::unreal_api::mass::MassQueryAllRef<'_, #inner> }
+                                quote! { #param_name: ::unreal_api::mass::MassQueryAllRef<'_, #inner> }
                             }
                         };
                     }
@@ -457,15 +450,8 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
             };
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
-                    if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" {
-                        let is_mut = query_params
-                            .iter()
-                            .any(|p| p.param_name == *param_name && p.is_mutable);
-                        if is_mut {
-                            return quote! { &mut #param_name };
-                        } else {
-                            return quote! { &#param_name };
-                        }
+                    if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" || seg.ident == "Query" {
+                        return quote! { #param_name };
                     }
                 }
             }

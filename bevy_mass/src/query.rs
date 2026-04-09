@@ -3,10 +3,11 @@
 //! In Bevy mode: thin wrapper around `bevy_ecs::system::Query`.
 //! In Unreal mode: iterates over Mass Entity chunk data via `MassSystemChunks`.
 
-#[cfg(feature = "bevy-backend")]
+// Unreal takes precedence when both features are active (Cargo unification).
+#[cfg(not(feature = "unreal"))]
 mod bevy_backend;
 
-#[cfg(feature = "bevy-backend")]
+#[cfg(not(feature = "unreal"))]
 pub use bevy_backend::Query;
 
 #[cfg(feature = "unreal")]

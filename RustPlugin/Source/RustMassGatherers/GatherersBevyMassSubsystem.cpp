@@ -191,10 +191,11 @@ FVector BevyMassComputeFoodVisualPosition(
 		}
 
 		FMassEntityView AntView(EntityManager, AntEntity);
-		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
-		if (AntFragment.CarriedFoodIndex == FoodIndex)
+		const FGatherersCarrying& CarryingFrag = AntView.GetFragmentData<FGatherersCarrying>();
+		if (CarryingFrag.FoodIndex == FoodIndex)
 		{
-			return AntFragment.Position + ComputeCarriedFoodRelativeLocation(GatherersMassCarriedFoodHeight);
+			const FGatherersPosition& PositionFrag = AntView.GetFragmentData<FGatherersPosition>();
+			return PositionFrag.Position + ComputeCarriedFoodRelativeLocation(GatherersMassCarriedFoodHeight);
 		}
 	}
 
@@ -419,24 +420,35 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, int32 Foo
 
 	for (int32 AntIndex = 0; AntIndex < AntCount; ++AntIndex)
 	{
-		FGatherersMassAntFragment AntFragment;
-		AntFragment.Position = FVector(
+		const FVector SpawnPos(
 			BoundsCenter.X + (AntIndex - AntCount / 2) * AntSpawnStep,
 			BoundsCenter.Y + 100.0,
 			50.0);
-		AntFragment.PreviousPosition = AntFragment.Position;
-
 		const float Angle = Random.FRandRange(0.0f, 2.0f * PI);
-		AntFragment.Direction = FVector(FMath::Cos(Angle), FMath::Sin(Angle), 0.0f);
-		AntFragment.RandomSeed = RandomSeedBase + AntIndex;
-		AntFragment.MovementSpeed = 100.0f;
-		AntFragment.TurnJitterRadians = PI / 2.0f;
 
-		FGatherersAntEncounterFragment EncounterFragment;
+		FGatherersPosition PositionFrag;
+		PositionFrag.Position = SpawnPos;
+		PositionFrag.PreviousPosition = SpawnPos;
 
-		TArray<FInstancedStruct, TInlineAllocator<2>> AntFragments;
-		AntFragments.Add(FInstancedStruct::Make(AntFragment));
-		AntFragments.Add(FInstancedStruct::Make(EncounterFragment));
+		FGatherersMovement MovementFrag;
+		MovementFrag.Direction = FVector(FMath::Cos(Angle), FMath::Sin(Angle), 0.0f);
+		MovementFrag.MovementSpeed = 100.0f;
+
+		FGatherersCooldown CooldownFrag;
+		FGatherersCarrying CarryingFrag;
+
+		FGatherersBehavior BehaviorFrag;
+		BehaviorFrag.RandomSeed = RandomSeedBase + AntIndex;
+
+		FGatherersAntEncounterFragment EncounterFrag;
+
+		TArray<FInstancedStruct, TInlineAllocator<6>> AntFragments;
+		AntFragments.Add(FInstancedStruct::Make(PositionFrag));
+		AntFragments.Add(FInstancedStruct::Make(MovementFrag));
+		AntFragments.Add(FInstancedStruct::Make(CooldownFrag));
+		AntFragments.Add(FInstancedStruct::Make(CarryingFrag));
+		AntFragments.Add(FInstancedStruct::Make(BehaviorFrag));
+		AntFragments.Add(FInstancedStruct::Make(EncounterFrag));
 		const FMassEntityHandle AntEntity = EntityManager.CreateEntity(AntFragments);
 		EntityManager.AddTagToEntity(AntEntity, FGatherersBevyMassAntTag::StaticStruct());
 		ManagedAntEntities.Add(AntEntity);
@@ -640,8 +652,8 @@ void UGatherersBevyMassSubsystem::RebuildVisualInstances(UMassEntitySubsystem& M
 		}
 
 		FMassEntityView AntView(EntityManager, AntEntity);
-		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
-		AntVisualComponent->AddInstance(BevyMassBuildVisualTransform(AntFragment.Position, BevyMassAntVisualScale), true);
+		const FGatherersPosition& PositionFrag = AntView.GetFragmentData<FGatherersPosition>();
+		AntVisualComponent->AddInstance(BevyMassBuildVisualTransform(PositionFrag.Position, BevyMassAntVisualScale), true);
 	}
 
 	for (int32 FoodIndex = 0; FoodIndex < ManagedFoodEntities.Num(); ++FoodIndex)
@@ -687,10 +699,10 @@ void UGatherersBevyMassSubsystem::SyncVisualInstances(UMassEntitySubsystem& Mass
 		}
 
 		FMassEntityView AntView(EntityManager, AntEntity);
-		const FGatherersMassAntFragment& AntFragment = AntView.GetFragmentData<FGatherersMassAntFragment>();
+		const FGatherersPosition& PositionFrag = AntView.GetFragmentData<FGatherersPosition>();
 		AntVisualComponent->UpdateInstanceTransform(
 			AntIndex,
-			BevyMassBuildVisualTransform(AntFragment.Position, BevyMassAntVisualScale),
+			BevyMassBuildVisualTransform(PositionFrag.Position, BevyMassAntVisualScale),
 			true,
 			AntIndex == ManagedAntEntities.Num() - 1 && ManagedFoodEntities.Num() == 0,
 			true);

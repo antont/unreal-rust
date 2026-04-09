@@ -110,18 +110,6 @@ pub type EntryUnrealBindingsFn = unsafe extern "C" fn(bindings: UnrealBindings) 
 pub type BeginPlayFn = unsafe extern "C" fn() -> ResultCode;
 pub type TickFn = unsafe extern "C" fn(dt: f32) -> ResultCode;
 pub type MassBobProcessFn = unsafe extern "C" fn(data: *mut std::ffi::c_void, count: i32, dt: f32);
-pub type MassAntMovementFn = unsafe extern "C" fn(
-    ants: *mut std::ffi::c_void,
-    count: i32,
-    dt: f32,
-    bounds_min: *const f64,
-    bounds_max: *const f64,
-);
-pub type MassAntFoodDecisionFn = unsafe extern "C" fn(
-    ant: *mut std::ffi::c_void,
-    encounter: *const std::ffi::c_void,
-    has_encounter: i32,
-) -> i32;
 // --- Dynamic Mass System Registration ---
 
 /// Data for one fragment slice in a chunk, passed from C++ ForEachEntityChunk to Rust.
@@ -316,8 +304,6 @@ pub struct RustBindings {
     pub begin_play: BeginPlayFn,
     pub allocate: AllocateFn,
     pub mass_bob_process: MassBobProcessFn,
-    pub mass_ant_movement: MassAntMovementFn,
-    pub mass_ant_food_decision: MassAntFoodDecisionFn,
     pub get_mass_system_count: GetMassSystemCountFn,
     pub get_mass_system_descriptor: GetMassSystemDescriptorFn,
     pub mass_frame_dispatch: MassFrameDispatchFn,
@@ -343,23 +329,6 @@ impl RustBindings {
         ) {
         }
 
-        unsafe extern "C" fn mass_ant_movement_stub(
-            _: *mut std::ffi::c_void,
-            _: i32,
-            _: f32,
-            _: *const f64,
-            _: *const f64,
-        ) {
-        }
-
-        unsafe extern "C" fn mass_ant_food_decision_stub(
-            _: *mut std::ffi::c_void,
-            _: *const std::ffi::c_void,
-            _: i32,
-        ) -> i32 {
-            0
-        }
-
         unsafe extern "C" fn get_mass_system_count_stub() -> u32 {
             0
         }
@@ -381,8 +350,6 @@ impl RustBindings {
             begin_play: begin_play_stub,
             allocate: allocate_stub,
             mass_bob_process: mass_bob_process_stub,
-            mass_ant_movement: mass_ant_movement_stub,
-            mass_ant_food_decision: mass_ant_food_decision_stub,
             get_mass_system_count: get_mass_system_count_stub,
             get_mass_system_descriptor: get_mass_system_descriptor_stub,
             mass_frame_dispatch: mass_frame_dispatch_stub,

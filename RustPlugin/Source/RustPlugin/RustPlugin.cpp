@@ -15,6 +15,7 @@
 #include "RustUtils.h"
 #include "Bindings.h"
 #include "HAL/PlatformFileManager.h"
+#include "Interfaces/IPluginManager.h"
 #include "UObject/EnumProperty.h"
 #include "UObject/UnrealType.h"
 #include "RustClassDef.h"
@@ -242,6 +243,23 @@ FString PlatformExtensionName()
 
 FString FRustLoader::PluginFolderPath()
 {
+	// Derive project Binaries dir from the plugin's own base directory.
+	// IPluginManager resolves correctly even in headless/commandline mode,
+	// whereas FPaths::ProjectDir() can resolve to the engine directory.
+	TSharedPtr<IPlugin> Plugin = IPluginManager::Get().FindPlugin(TEXT("RustPlugin"));
+	if (Plugin.IsValid())
+	{
+		// Plugin base dir is <ProjectDir>/Plugins/RustPlugin (possibly via symlink).
+		// Go up two levels to reach <ProjectDir>, then into Binaries.
+		FString PluginBase = FPaths::ConvertRelativePathToFull(Plugin->GetBaseDir());
+		FString ProjectDir = FPaths::GetPath(FPaths::GetPath(PluginBase));
+		FString BinariesDir = FPaths::Combine(ProjectDir, TEXT("Binaries"));
+		if (FPaths::DirectoryExists(BinariesDir))
+		{
+			return BinariesDir;
+		}
+		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Binaries dir not found at '%s', falling back to ProjectDir"), *BinariesDir);
+	}
 	return FPaths::Combine(*FPaths::ConvertRelativePathToFull(FPaths::ProjectDir()), TEXT("Binaries"));
 }
 
@@ -305,11 +323,12 @@ bool FRustLoader::SetupLoader()
 		this->Handle = nullptr;
 	}
 
+	UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Loading loader from '%s'"), *LocalTargetDllPath);
 	void* LocalHandle = FPlatformProcess::GetDllHandle(*LocalTargetDllPath);
 
 	if (LocalHandle == nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Dll open failed"));
+		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Dll open failed for '%s'"), *LocalTargetDllPath);
 		return false;
 	}
 
@@ -318,8 +337,14 @@ bool FRustLoader::SetupLoader()
 	this->Bindings = reinterpret_cast<EntryUnrealBindingsFn>(FPlatformProcess::GetDllExport(LocalHandle, TEXT("register_unreal_bindings\0")));
 	this->TryLoadFunction = reinterpret_cast<TryLoadFn>(FPlatformProcess::GetDllExport(LocalHandle, TEXT("try_load\0")));
 	this->IsOutOfDateFunction = reinterpret_cast<IsOutOfDateFn>(FPlatformProcess::GetDllExport(LocalHandle, TEXT("is_out_of_date\0")));
-	ensure(this->Bindings);
-	ensure(this->TryLoadFunction);
+	if (!this->Bindings || !this->TryLoadFunction)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Failed to resolve exports from '%s' (Bindings=%p, TryLoad=%p)"),
+			*LocalTargetDllPath, (void*)this->Bindings, (void*)this->TryLoadFunction);
+		FPlatformProcess::FreeDllHandle(LocalHandle);
+		this->Handle = nullptr;
+		return false;
+	}
 
 	this->TargetPath = LocalTargetDllPath;
 	NeedsInit = true;
@@ -458,10 +483,18 @@ void FRustPluginModule::StartupModule()
 	{
 		return;
 	}
-	FRustPluginStyle::Initialize();
-	FRustPluginStyle::ReloadTextures();
 
-	FRustPluginCommands::Register();
+	// Skip Slate/UI initialization in commandline (headless) mode — it crashes with -nullrhi
+	if (!IsRunningCommandlet() && !FApp::IsUnattended())
+	{
+		FRustPluginStyle::Initialize();
+		FRustPluginStyle::ReloadTextures();
+		FRustPluginCommands::Register();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Skipping UI init in commandline/unattended mode"));
+	}
 
 	RustPackage = NewObject<UPackage>(nullptr, FName(TEXT("/Script/Rust")),
 	                                  RF_Public | RF_Standalone | RF_MarkAsRootSet);
@@ -485,7 +518,10 @@ void FRustPluginModule::StartupModule()
 	//	*Plugin.PluginFolderPath(),
 	//	IDirectoryWatcher::FDirectoryChanged::CreateRaw(this, &FRustPluginModule::OnProjectDirectoryChanged),
 	//	WatcherHandle, IDirectoryWatcher::WatchOptions::IgnoreChangesInSubtree);
-	Plugin.SetupLoader();
+	if (!Plugin.SetupLoader())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: SetupLoader failed — Rust code will not be available"));
+	}
 
 	//TSharedPtr<FUuidGraphPanelPinFactory> UuidFactory = MakeShareable(new FUuidGraphPanelPinFactory());
 	//FEdGraphUtilities::RegisterVisualPinFactory(UuidFactory);
@@ -632,5 +668,4 @@ void FRustPluginModule::RegisterMenus()
 
 #undef LOCTEXT_NAMESPACE
 
-// IMPLEMENT_MODULE(FRustPluginModule, RustPlugin)
-IMPLEMENT_PRIMARY_GAME_MODULE(FRustPluginModule, RustPlugin, "RustPlugin");
+IMPLEMENT_MODULE(FRustPluginModule, RustPlugin)
