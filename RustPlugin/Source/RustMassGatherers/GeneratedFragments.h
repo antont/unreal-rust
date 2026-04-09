@@ -5,6 +5,7 @@
 #include "GeneratedFragments.generated.h"
 
 // Auto-generated from #[derive(MassFragment)] Rust structs.
+// Regenerate: cargo run -p gatherers-bevy-mass --bin gen-fragments
 // Do not edit manually.
 
 USTRUCT()
