@@ -7,7 +7,7 @@ members = [
     "unreal-api-derive", "unreal-api-generator",
     "unreal-ffi", "unreal-module",
     "unreal-reflect",
-    "unreal-rust-example", "unreal-rust-loader",
+    "unreal-rust-host", "unreal-rust-loader",
     "gatherers-sim",
     "gatherers-bevy-mass",
     "bevy_mass",

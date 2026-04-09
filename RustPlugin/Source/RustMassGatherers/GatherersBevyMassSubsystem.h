@@ -10,6 +10,7 @@
 #include "GatherersBevyMassSubsystem.generated.h"
 
 class UMassEntitySubsystem;
+class UGatherersBevyMassVisualizer;
 
 UCLASS()
 class RUSTMASSGATHERERS_API UGatherersBevyMassSubsystem : public UTickableWorldSubsystem
@@ -30,22 +31,17 @@ public:
 	int32 GetManagedFoodCount() const;
 	bool HasManagedSimulation() const;
 
+	/** Get the food ISMC (needed by spatial query for overlap detection). */
+	UInstancedStaticMeshComponent* GetFoodISMC() const;
+
 public:
 	TArray<FMassEntityHandle> ManagedAntEntities;
 	TArray<FMassEntityHandle> ManagedFoodEntities;
 	FBox SimulationBounds = FBox(EForceInit::ForceInit);
 
-	/// Food ISM — public so the collision processor can access it.
-	UPROPERTY(Transient)
-	TObjectPtr<UInstancedStaticMeshComponent> FoodRepresentationComponent = nullptr;
-
 private:
 	bool EnsureProcessorPipelines(UMassEntitySubsystem& MassEntitySubsystem);
 	void RunSimulationProcessorStep(float SimulatedDeltaTime);
-
-	bool EnsureVisualComponents();
-	void RebuildVisualInstances(UMassEntitySubsystem& MassEntitySubsystem);
-	void SyncVisualInstances(UMassEntitySubsystem& MassEntitySubsystem);
 
 private:
 	UPROPERTY(Transient)
@@ -55,19 +51,7 @@ private:
 	float SimulationTimeAccumulatorSeconds = 0.0f;
 
 	UPROPERTY(Transient)
-	TObjectPtr<AActor> VisualizerActor = nullptr;
-
-	UPROPERTY(Transient)
-	TObjectPtr<UInstancedStaticMeshComponent> AntVisualComponent = nullptr;
-
-	UPROPERTY(Transient)
-	TObjectPtr<UStaticMesh> VisualSphereMesh = nullptr;
-
-	UPROPERTY(Transient)
-	TObjectPtr<UMaterialInstanceDynamic> AntVisualMaterial = nullptr;
-
-	UPROPERTY(Transient)
-	TObjectPtr<UMaterialInstanceDynamic> FoodVisualMaterial = nullptr;
+	TObjectPtr<UGatherersBevyMassVisualizer> Visualizer = nullptr;
 };
 
 template<>

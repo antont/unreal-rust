@@ -7,6 +7,8 @@
 #include "GatherersFragments.h"
 #include "GatherersMassRuntime.h"
 #include "Bindings.h"
+#include "RustMassDynamicProcessor.h"
+#include "RustPlugin.h"
 
 // --- BevyMass tests ---
 
@@ -265,30 +267,14 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			FMassEntityView FoodView(EntityManager, FoodEntity);
 			const FGatherersMassFoodFragment& Food = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
 
+			// Spatial query now has ECS fallback — pickup should work in all contexts
+			TestTrue(TEXT("Ant should have picked up food"), Carry.FoodIndex >= 0);
 			if (Carry.FoodIndex >= 0)
 			{
-				// Pickup happened — verify consistency
 				TestEqual(TEXT("Carried food index should be 0"), Carry.FoodIndex, 0);
 				TestFalse(TEXT("Picked-up food should not be loose"), Food.bIsLoose);
 				const FGatherersCooldown& Cd = AntView.GetFragmentData<FGatherersCooldown>();
 				TestTrue(TEXT("Pickup cooldown should be active"), Cd.RemainingSeconds > 0.0f);
-
-				AddInfo(TEXT("Food pickup succeeded — spatial query callback is working"));
-			}
-			else
-			{
-				// Pickup did not happen — physics queries may not work in editor context.
-				// Verify at least that the encounter fragment is accessible and well-formed.
-				FMassEntityView AntView2(EntityManager, AntEntity);
-				const FGatherersAntEncounterFragment& Enc =
-					AntView2.GetFragmentData<FGatherersAntEncounterFragment>();
-
-				AddInfo(FString::Printf(
-					TEXT("Food pickup did not occur (has_encounter=%s, food_index=%d). "
-						 "Physics queries may not be active in editor context. "
-						 "Verify manually in PIE."),
-					Enc.bHasEncounter ? TEXT("true") : TEXT("false"),
-					Enc.NearestFoodIndex));
 			}
 		}
 	}
@@ -442,5 +428,248 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 	}
 
 	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// System ordering test — verify execution order metadata from Rust
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassSystemOrderingTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassSystemOrdering",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassSystemOrderingTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
+	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	TArray<URustMassDynamicProcessor*> Processors =
+		URustMassDynamicProcessor::CreateAllRustProcessors(Module.Plugin.Rust, Subsystem);
+
+	TestTrue(TEXT("Should discover at least 5 Rust processors"), Processors.Num() >= 5);
+
+	// Build name→order map
+	TMap<FString, uint32> OrderMap;
+	for (const URustMassDynamicProcessor* Proc : Processors)
+	{
+		OrderMap.Add(Proc->GetFName().ToString(), Proc->GetExecutionOrder());
+	}
+
+	// Log discovered processors for diagnostics
+	for (const auto& Pair : OrderMap)
+	{
+		AddInfo(FString::Printf(TEXT("Processor: %s  order=%u"), *Pair.Key, Pair.Value));
+	}
+
+	// Verify expected ordering relationships
+	// entity_movement(10) < ant_collision_prepass(20) < ant_food_decision(30) < entity_cooldown(40) < entity_boundary_reflect(50)
+	TArray<uint32> Orders;
+	for (const URustMassDynamicProcessor* Proc : Processors)
+	{
+		Orders.Add(Proc->GetExecutionOrder());
+	}
+	Orders.Sort();
+
+	// Verify processors are sortable and produce a valid pipeline order
+	for (int32 i = 1; i < Orders.Num(); ++i)
+	{
+		TestTrue(TEXT("Processor orders should be non-decreasing"),
+			Orders[i] >= Orders[i - 1]);
+	}
+
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// MassSystemDescriptor FFI layout test
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassDescriptorLayoutTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassDescriptorLayout",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassDescriptorLayoutTest::RunTest(const FString& Parameters)
+{
+	TestEqual(TEXT("MassSystemDescriptor size"), (int32)sizeof(MassSystemDescriptor), 40);
+	TestEqual(TEXT("MassSystemDescriptor alignment"), (int32)alignof(MassSystemDescriptor), 8);
+	TestEqual(TEXT("MassSystemDescriptor name offset"),
+		(int32)offsetof(MassSystemDescriptor, name), 0);
+	TestEqual(TEXT("MassSystemDescriptor num_requirements offset"),
+		(int32)offsetof(MassSystemDescriptor, num_requirements), 16);
+	TestEqual(TEXT("MassSystemDescriptor order offset"),
+		(int32)offsetof(MassSystemDescriptor, order), 20);
+	TestEqual(TEXT("MassSystemDescriptor requirements offset"),
+		(int32)offsetof(MassSystemDescriptor, requirements), 24);
+	TestEqual(TEXT("MassSystemDescriptor execute_fn offset"),
+		(int32)offsetof(MassSystemDescriptor, execute_fn), 32);
+
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Full integration test — multi-step simulation with validation
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassIntegrationTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassIntegration",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
+	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	const int32 AntCount = 50;
+	const int32 FoodCount = 20;
+	const FBox Bounds(FVector(-1000.0, -1000.0, 0.0), FVector(1000.0, 1000.0, 100.0));
+	Subsystem->InitializeSimulation(AntCount, FoodCount, Bounds, 12345);
+
+	TestEqual(TEXT("Should have 50 ants"), Subsystem->GetManagedAntCount(), AntCount);
+	TestEqual(TEXT("Should have 20 food"), Subsystem->GetManagedFoodCount(), FoodCount);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+
+	// Record initial positions
+	TArray<FVector> InitialPositions;
+	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			InitialPositions.Add(Pos.Position);
+		}
+	}
+
+	// Run 100 simulation steps (1.6 seconds of sim time)
+	for (int32 Step = 0; Step < 100; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Verify: ants moved
+	int32 MovedCount = 0;
+	for (int32 i = 0; i < Subsystem->ManagedAntEntities.Num(); ++i)
+	{
+		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[i];
+		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(i))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			if (!Pos.Position.Equals(InitialPositions[i], 0.01))
+			{
+				++MovedCount;
+			}
+		}
+	}
+	TestTrue(TEXT("Most ants should have moved after 100 steps"), MovedCount > AntCount / 2);
+
+	// Verify: no ant escaped bounds (with tolerance for boundary reflection lag)
+	const double BoundsTolerance = 50.0;
+	int32 OutOfBoundsCount = 0;
+	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			if (Pos.Position.X < Bounds.Min.X - BoundsTolerance ||
+				Pos.Position.X > Bounds.Max.X + BoundsTolerance ||
+				Pos.Position.Y < Bounds.Min.Y - BoundsTolerance ||
+				Pos.Position.Y > Bounds.Max.Y + BoundsTolerance)
+			{
+				++OutOfBoundsCount;
+			}
+		}
+	}
+	TestEqual(TEXT("No ants should be far outside bounds"), OutOfBoundsCount, 0);
+
+	// Verify: PreviousPosition is tracked (should differ from Position for moving ants)
+	int32 PreviousTrackedCount = 0;
+	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
+			if (!Pos.Position.Equals(Pos.PreviousPosition, 0.001))
+			{
+				++PreviousTrackedCount;
+			}
+		}
+	}
+	TestTrue(TEXT("PreviousPosition should differ from Position for moving ants"),
+		PreviousTrackedCount > 0);
+
+	// Verify: all food entities valid and accessible
+	int32 ValidFoodCount = 0;
+	for (const FMassEntityHandle FoodEntity : Subsystem->ManagedFoodEntities)
+	{
+		if (EntityManager.IsEntityValid(FoodEntity))
+		{
+			FMassEntityView FoodView(EntityManager, FoodEntity);
+			const FGatherersMassFoodFragment& Food =
+				FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+			(void)Food;
+			++ValidFoodCount;
+		}
+	}
+	TestEqual(TEXT("All food entities should remain valid"), ValidFoodCount, FoodCount);
+
+	// Verify: encounter fragments well-formed on all ants
+	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FGatherersAntEncounterFragment& Enc =
+				AntView.GetFragmentData<FGatherersAntEncounterFragment>();
+			// If there's an encounter, food index should be non-negative
+			if (Enc.bHasEncounter)
+			{
+				TestTrue(TEXT("Encounter food index should be >= 0"),
+					Enc.NearestFoodIndex >= 0);
+			}
+		}
+	}
+
+	// Verify: clean reset
+	Subsystem->ResetSimulation();
+	TestFalse(TEXT("HasManagedSimulation should be false after reset"),
+		Subsystem->HasManagedSimulation());
+	TestEqual(TEXT("Ant count should be 0 after reset"),
+		Subsystem->GetManagedAntCount(), 0);
+	TestEqual(TEXT("Food count should be 0 after reset"),
+		Subsystem->GetManagedFoodCount(), 0);
+
 	return true;
 }

@@ -86,6 +86,8 @@ pub struct UnrealBindings {
     pub core_fns: CoreFns,
     pub fstring_fns: FStringFns,
     pub fscript_array_fns: FScriptArrayFns,
+    /// Spawn entities in Mass Entity. Null until a Mass subsystem sets it.
+    pub spawn_entities: Option<SpawnEntitiesFn>,
 }
 
 unsafe impl Sync for UnrealBindings {}
@@ -258,6 +260,62 @@ pub type MassSpatialQueryFn = unsafe extern "C" fn(
     out: *mut MassSpatialQueryResult,
 ) -> u32;
 
+// --- Entity spawning ---
+
+/// Describes one fragment type's initial data for a batch spawn request.
+#[repr(C)]
+pub struct SpawnFragmentData {
+    /// C++ USTRUCT type name (e.g. "FGatherersPosition").
+    pub cpp_type_name: Utf8Str,
+    /// Size of one fragment instance in bytes.
+    pub size: u32,
+    /// Alignment of the fragment type.
+    pub alignment: u32,
+    /// Pointer to `count` contiguous fragment values (size * count bytes).
+    /// Null = use C++ default constructor for all entities.
+    pub initial_data: *const c_void,
+}
+
+/// Describes one tag type to apply to spawned entities.
+#[repr(C)]
+pub struct SpawnTagData {
+    /// C++ USTRUCT type name (e.g. "FGatherersBevyMassAntTag").
+    pub cpp_type_name: Utf8Str,
+}
+
+/// A batch spawn request: create `count` entities with the given fragments and tags.
+#[repr(C)]
+pub struct SpawnEntityRequest {
+    /// Number of fragment types.
+    pub num_fragments: u32,
+    /// Pointer to array of SpawnFragmentData (one per fragment type).
+    pub fragments: *const SpawnFragmentData,
+    /// Number of tags.
+    pub num_tags: u32,
+    /// Pointer to array of SpawnTagData.
+    pub tags: *const SpawnTagData,
+    /// Number of entities to spawn.
+    pub count: u32,
+    pub _padding: u32,
+}
+
+/// FFI-safe entity handle matching FMassEntityHandle layout.
+#[repr(C)]
+#[derive(Clone, Copy, Default, Debug, PartialEq, Eq)]
+pub struct MassEntityHandle {
+    /// Entity index in the entity manager.
+    pub index: i32,
+    /// Serial number for handle validation.
+    pub serial_number: i32,
+}
+
+/// Spawns `request.count` entities. Writes handles to `out_handles` (must have room for `count`).
+/// Returns the number of entities actually created (should equal `count` on success).
+pub type SpawnEntitiesFn = unsafe extern "C" fn(
+    request: *const SpawnEntityRequest,
+    out_handles: *mut MassEntityHandle,
+) -> u32;
+
 // Compile-time check: Option<fn ptr> must be pointer-sized for C FFI compatibility.
 // Rust guarantees niche optimization for Option<extern "C" fn>, but assert to catch
 // any future type changes that would break the C++ nullable function pointer layout.
@@ -273,6 +331,8 @@ pub struct MassSystemDescriptor {
     pub name: Utf8Str,
     /// Number of fragment/tag requirements.
     pub num_requirements: u32,
+    /// Execution order within a pipeline. Lower values run first.
+    pub order: u32,
     /// Pointer to array of MassFragmentRequirement.
     pub requirements: *const MassFragmentRequirement,
     /// The Rust function to call during Execute.
@@ -669,9 +729,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 9 function pointers
+        // RustBindings should have 7 function pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 9 * std::mem::size_of::<usize>());
+        assert_eq!(size, 7 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -717,7 +777,7 @@ mod tests {
 
     #[test]
     fn mass_system_descriptor_layout() {
-        // Utf8Str(16) + u32(4) + pad(4) + ptr(8) + fn_ptr(8) = 40
+        // Utf8Str(16) + u32(4) + u32(4) + ptr(8) + fn_ptr(8) = 40
         let size = std::mem::size_of::<MassSystemDescriptor>();
         assert_eq!(size, 40);
     }
@@ -748,6 +808,50 @@ mod tests {
         let bindings = RustBindings::uninit();
         let count = unsafe { (bindings.get_mass_system_count)() };
         assert_eq!(count, 0);
+    }
+
+    #[test]
+    fn mass_entity_handle_layout() {
+        // i32(4) + i32(4) = 8
+        assert_eq!(std::mem::size_of::<MassEntityHandle>(), 8);
+        assert_eq!(std::mem::align_of::<MassEntityHandle>(), 4);
+    }
+
+    #[test]
+    fn mass_entity_handle_default_is_invalid() {
+        let h = MassEntityHandle::default();
+        assert_eq!(h.index, 0);
+        assert_eq!(h.serial_number, 0);
+    }
+
+    #[test]
+    fn spawn_fragment_data_layout() {
+        // Utf8Str(16) + u32(4) + u32(4) + ptr(8) = 32
+        assert_eq!(std::mem::size_of::<SpawnFragmentData>(), 32);
+        assert_eq!(std::mem::align_of::<SpawnFragmentData>(), 8);
+    }
+
+    #[test]
+    fn spawn_tag_data_layout() {
+        // Utf8Str(16)
+        assert_eq!(std::mem::size_of::<SpawnTagData>(), 16);
+        assert_eq!(std::mem::align_of::<SpawnTagData>(), 8);
+    }
+
+    #[test]
+    fn spawn_entity_request_layout() {
+        // u32(4) + pad(4) + ptr(8) + u32(4) + pad(4) + ptr(8) + u32(4) + u32(4) = 40
+        assert_eq!(std::mem::size_of::<SpawnEntityRequest>(), 40);
+        assert_eq!(std::mem::align_of::<SpawnEntityRequest>(), 8);
+    }
+
+    #[test]
+    fn spawn_entities_fn_is_option_safe() {
+        // Option<SpawnEntitiesFn> must be pointer-sized for nullable fn ptr
+        assert_eq!(
+            std::mem::size_of::<Option<SpawnEntitiesFn>>(),
+            std::mem::size_of::<*const ()>(),
+        );
     }
 }
 

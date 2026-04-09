@@ -1,6 +1,114 @@
 #include "RustUtils.h"
 #include "Modules/ModuleManager.h"
 #include "RustPlugin.h"
+#include "MassEntityManager.h"
+#include "StructUtils/InstancedStruct.h"
+
+// ---------------------------------------------------------------------------
+// Entity spawning callback for Rust
+// ---------------------------------------------------------------------------
+
+namespace RustMassSpawn
+{
+	// Set by the subsystem before calling into Rust for spawning.
+	static FMassEntityManager* CachedEntityManager = nullptr;
+
+	uint32_t SpawnEntitiesImpl(
+		const SpawnEntityRequest* Request,
+		MassEntityHandle* OutHandles)
+	{
+		if (!Request || !CachedEntityManager)
+		{
+			return 0;
+		}
+
+		const uint32_t Count = Request->count;
+		if (Count == 0)
+		{
+			return 0;
+		}
+
+		// Resolve fragment UScriptStructs
+		TArray<const UScriptStruct*> FragmentStructs;
+		FragmentStructs.SetNum(Request->num_fragments);
+		for (uint32_t i = 0; i < Request->num_fragments; ++i)
+		{
+			const SpawnFragmentData& Frag = Request->fragments[i];
+			FString TypeName = ToFString(Frag.cpp_type_name);
+			const UScriptStruct* Struct = FindFirstObject<UScriptStruct>(*TypeName, EFindFirstObjectOptions::NativeFirst);
+			if (!Struct)
+			{
+				UE_LOG(LogTemp, Error, TEXT("RustMassSpawn: Could not find UScriptStruct '%s'"), *TypeName);
+				return 0;
+			}
+			FragmentStructs[i] = Struct;
+		}
+
+		// Resolve tag UScriptStructs
+		TArray<const UScriptStruct*> TagStructs;
+		TagStructs.SetNum(Request->num_tags);
+		for (uint32_t i = 0; i < Request->num_tags; ++i)
+		{
+			FString TypeName = ToFString(Request->tags[i].cpp_type_name);
+			const UScriptStruct* Struct = FindFirstObject<UScriptStruct>(*TypeName, EFindFirstObjectOptions::NativeFirst);
+			if (!Struct)
+			{
+				UE_LOG(LogTemp, Error, TEXT("RustMassSpawn: Could not find tag UScriptStruct '%s'"), *TypeName);
+				return 0;
+			}
+			TagStructs[i] = Struct;
+		}
+
+		// Spawn entities one by one (CreateEntity returns handle)
+		uint32_t Spawned = 0;
+		for (uint32_t EntityIdx = 0; EntityIdx < Count; ++EntityIdx)
+		{
+			TArray<FInstancedStruct> Fragments;
+			Fragments.Reserve(Request->num_fragments);
+
+			for (uint32_t FragIdx = 0; FragIdx < Request->num_fragments; ++FragIdx)
+			{
+				const SpawnFragmentData& Frag = Request->fragments[FragIdx];
+				FInstancedStruct Instance;
+				Instance.InitializeAs(FragmentStructs[FragIdx]);
+
+				// If Rust provided initial data, memcpy it over the default
+				if (Frag.initial_data)
+				{
+					const uint8_t* SrcBase = static_cast<const uint8_t*>(Frag.initial_data);
+					FMemory::Memcpy(
+						Instance.GetMutableMemory(),
+						SrcBase + EntityIdx * Frag.size,
+						Frag.size);
+				}
+
+				Fragments.Add(MoveTemp(Instance));
+			}
+
+			const FMassEntityHandle Handle = CachedEntityManager->CreateEntity(Fragments);
+
+			// Add tags
+			for (const UScriptStruct* TagStruct : TagStructs)
+			{
+				CachedEntityManager->AddTagToEntity(Handle, TagStruct);
+			}
+
+			if (OutHandles)
+			{
+				OutHandles[Spawned].index = Handle.Index;
+				OutHandles[Spawned].serial_number = Handle.SerialNumber;
+			}
+			++Spawned;
+		}
+
+		return Spawned;
+	}
+}
+
+void RustMassSpawnSetEntityManager(FMassEntityManager* Manager)
+{
+	RustMassSpawn::CachedEntityManager = Manager;
+}
 
 UnrealBindings CreateBindings()
 {
@@ -40,6 +148,7 @@ UnrealBindings CreateBindings()
 	b.fstring_fns = fstring_fns;
 	b.fscript_array_fns = fscript_array_fns;
 	b.log = &Log;
+	b.spawn_entities = &RustMassSpawn::SpawnEntitiesImpl;
 	return b;
 }
 

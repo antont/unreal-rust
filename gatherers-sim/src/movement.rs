@@ -13,7 +13,7 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", mass_system)]
+#[cfg_attr(feature = "unreal", mass_system(order = 10))]
 pub fn entity_movement(
     mut positions: Query<&mut Position>,
     movements: Query<&Movement>,
@@ -44,7 +44,7 @@ pub fn entity_movement(
 // Generic: works for any entity with Cooldown.
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", mass_system)]
+#[cfg_attr(feature = "unreal", mass_system(order = 40))]
 pub fn entity_cooldown(
     mut cooldowns: Query<&mut crate::fragments::Cooldown>,
     time: Res<DeltaTime>,
@@ -60,7 +60,7 @@ pub fn entity_cooldown(
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", mass_system)]
+#[cfg_attr(feature = "unreal", mass_system(order = 50))]
 pub fn entity_boundary_reflect(
     mut positions: Query<&mut Position>,
     mut movements: Query<&mut Movement>,

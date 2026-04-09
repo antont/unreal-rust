@@ -23,6 +23,7 @@ void URustMassDynamicProcessor::InitFromDescriptor(const MassSystemDescriptor& D
 {
 	SystemName = Utf8StrToFString(Descriptor.name);
 	CachedExecuteFn = Descriptor.execute_fn;
+	ExecutionOrder = Descriptor.order;
 
 	for (uint32 i = 0; i < Descriptor.num_requirements; ++i)
 	{
@@ -94,6 +95,7 @@ TArray<URustMassDynamicProcessor*> URustMassDynamicProcessor::CreateAllRustProce
 
 		URustMassDynamicProcessor* Processor = NewObject<URustMassDynamicProcessor>(Outer);
 		Processor->InitFromDescriptor(Descriptor);
+		Processor->SetSystemIndex(i);  // Store original descriptor index before any sorting
 
 		if (Processor->bInitialized)
 		{

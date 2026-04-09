@@ -515,6 +515,21 @@ pub struct MassQueryAllRef<'a, T: MassFragment> {
 }
 
 impl<'a, T: MassFragment> MassQueryAllRef<'a, T> {
+    const EMPTY_DESC: unreal_ffi::MassGlobalFragmentChunks = unreal_ffi::MassGlobalFragmentChunks {
+        chunks: std::ptr::null(),
+        num_chunks: 0,
+        total_count: 0,
+        stride: 0,
+    };
+
+    /// Create an empty global query (no entities match).
+    pub fn empty() -> Self {
+        Self {
+            desc: &Self::EMPTY_DESC,
+            _phantom: std::marker::PhantomData,
+        }
+    }
+
     /// Construct from a chunked descriptor (zero-copy path, used by generated code).
     ///
     /// # Safety
@@ -569,6 +584,21 @@ pub struct MassQueryAllMut<'a, T: MassFragment> {
 }
 
 impl<'a, T: MassFragment> MassQueryAllMut<'a, T> {
+    const EMPTY_DESC: unreal_ffi::MassGlobalFragmentChunks = unreal_ffi::MassGlobalFragmentChunks {
+        chunks: std::ptr::null(),
+        num_chunks: 0,
+        total_count: 0,
+        stride: 0,
+    };
+
+    /// Create an empty global query (no entities match).
+    pub fn empty() -> Self {
+        Self {
+            desc: &Self::EMPTY_DESC,
+            _phantom: std::marker::PhantomData,
+        }
+    }
+
     /// Construct from a chunked descriptor (zero-copy path, used by generated code).
     ///
     /// # Safety
@@ -786,6 +816,166 @@ impl<'a, T: MassFragment> Iterator for MassQueryAllIterMut<'a, T> {
 }
 
 // ---------------------------------------------------------------------------
+// Entity spawning
+// ---------------------------------------------------------------------------
+
+/// Builder for declaring an entity archetype and spawning entities of that type.
+///
+/// # Example
+/// ```ignore
+/// use gatherers_sim::fragments::*;
+///
+/// let handles = EntityArchetype::new("ant")
+///     .fragment::<Position>()
+///     .fragment::<Movement>()
+///     .tag::<AntTag>()
+///     .spawn(100, |index, writer| {
+///         writer.set(&Position { position: [index as f64 * 10.0, 0.0, 50.0], ..Default::default() });
+///         writer.set(&Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, ..Default::default() });
+///     });
+/// ```
+pub struct EntityArchetype {
+    pub name: &'static str,
+    fragments: Vec<ArchetypeFragmentDesc>,
+    tags: Vec<&'static str>,
+}
+
+struct ArchetypeFragmentDesc {
+    cpp_type_name: &'static str,
+    size: usize,
+    align: usize,
+}
+
+/// Provides typed write access to one entity's fragment data during spawn.
+pub struct EntityWriter<'a> {
+    /// Per-fragment-type data buffers: (cpp_type_name, ptr, size)
+    buffers: &'a mut [(&'static str, *mut u8, usize)],
+    entity_index: usize,
+}
+
+impl<'a> EntityWriter<'a> {
+    /// Write initial data for a fragment type. The fragment must be part of the archetype.
+    /// Panics if the type doesn't match any fragment in the archetype.
+    pub fn set<T: MassFragment + Copy>(&mut self, value: &T) {
+        let size = std::mem::size_of::<T>();
+        let name = T::CPP_TYPE_NAME;
+        for &mut (frag_name, ptr, frag_size) in self.buffers.iter_mut() {
+            if frag_name == name {
+                assert_eq!(frag_size, size, "fragment size mismatch for {}", name);
+                unsafe {
+                    let dst = ptr.add(self.entity_index * frag_size);
+                    std::ptr::copy_nonoverlapping(value as *const T as *const u8, dst, size);
+                }
+                return;
+            }
+        }
+        panic!("EntityWriter::set: no fragment matching {} in archetype", name);
+    }
+}
+
+impl EntityArchetype {
+    pub fn new(name: &'static str) -> Self {
+        Self {
+            name,
+            fragments: Vec::new(),
+            tags: Vec::new(),
+        }
+    }
+
+    /// Add a fragment type to this archetype.
+    pub fn fragment<T: MassFragment + Default>(mut self) -> Self {
+        self.fragments.push(ArchetypeFragmentDesc {
+            cpp_type_name: T::CPP_TYPE_NAME,
+            size: std::mem::size_of::<T>(),
+            align: std::mem::align_of::<T>(),
+        });
+        self
+    }
+
+    /// Add a tag type to this archetype.
+    pub fn tag<T: MassFragment>(mut self) -> Self {
+        self.tags.push(T::CPP_TYPE_NAME);
+        self
+    }
+
+    /// Spawn `count` entities. The `customizer` closure receives each entity's index
+    /// and an `EntityWriter` for setting initial fragment values. Fragments not set
+    /// by the customizer will use C++ default constructors.
+    ///
+    /// Returns the entity handles of the spawned entities.
+    pub fn spawn(
+        &self,
+        count: u32,
+        mut customizer: impl FnMut(u32, &mut EntityWriter),
+    ) -> Vec<unreal_ffi::MassEntityHandle> {
+        // Allocate per-fragment-type data buffers
+        let mut buffers: Vec<Vec<u8>> = self
+            .fragments
+            .iter()
+            .map(|f| {
+                // Initialize with zeros (C++ will memcpy over default-constructed values)
+                vec![0u8; f.size * count as usize]
+            })
+            .collect();
+
+        // Let the customizer write per-entity data
+        let mut buf_ptrs: Vec<(&'static str, *mut u8, usize)> = buffers
+            .iter_mut()
+            .zip(self.fragments.iter())
+            .map(|(buf, desc)| (desc.cpp_type_name, buf.as_mut_ptr(), desc.size))
+            .collect();
+
+        for i in 0..count {
+            let mut writer = EntityWriter {
+                buffers: &mut buf_ptrs,
+                entity_index: i as usize,
+            };
+            customizer(i, &mut writer);
+        }
+
+        // Build FFI request
+        let ffi_fragments: Vec<unreal_ffi::SpawnFragmentData> = self
+            .fragments
+            .iter()
+            .zip(buffers.iter())
+            .map(|(desc, buf)| unreal_ffi::SpawnFragmentData {
+                cpp_type_name: unreal_ffi::Utf8Str::from(desc.cpp_type_name),
+                size: desc.size as u32,
+                alignment: desc.align as u32,
+                initial_data: buf.as_ptr() as *const c_void,
+            })
+            .collect();
+
+        let ffi_tags: Vec<unreal_ffi::SpawnTagData> = self
+            .tags
+            .iter()
+            .map(|&name| unreal_ffi::SpawnTagData {
+                cpp_type_name: unreal_ffi::Utf8Str::from(name),
+            })
+            .collect();
+
+        let request = unreal_ffi::SpawnEntityRequest {
+            num_fragments: ffi_fragments.len() as u32,
+            fragments: ffi_fragments.as_ptr(),
+            num_tags: ffi_tags.len() as u32,
+            tags: ffi_tags.as_ptr(),
+            count,
+            _padding: 0,
+        };
+
+        let mut handles = vec![unreal_ffi::MassEntityHandle::default(); count as usize];
+
+        let spawn_fn = crate::module::bindings()
+            .spawn_entities
+            .expect("spawn_entities callback not set — is a Mass subsystem active?");
+
+        let spawned = unsafe { spawn_fn(&request, handles.as_mut_ptr()) };
+        handles.truncate(spawned as usize);
+        handles
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Backward compatibility: keep MassQuery as alias for generated code
 // ---------------------------------------------------------------------------
 
@@ -813,6 +1003,8 @@ pub struct MassSystemRegistration {
     pub name: &'static str,
     pub execute_fn: unsafe extern "C" fn(*const unreal_ffi::MassChunkData),
     pub requirements: &'static [MassSystemRequirement],
+    /// Execution order within a pipeline. Lower values run first. Default is 0.
+    pub order: u32,
 }
 
 inventory::collect!(MassSystemRegistration);

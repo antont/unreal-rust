@@ -1,5 +1,3 @@
-pub mod mass_spike;
-
 // Force-link gatherers-bevy-mass so its #[mass_system] inventory registrations are included.
 extern crate gatherers_bevy_mass;
 
@@ -369,7 +367,4 @@ impl UserModule for UnrealEcs {
 //     }
 // }
 
-unreal_module::implement_unreal_module!(
-    UnrealEcs::new(),
-    mass_bob_process: mass_spike::rust_mass_bob_process
-);
+unreal_module::implement_unreal_module!(UnrealEcs::new());

@@ -11,6 +11,19 @@ enum class ResultCode : uint8_t {
   Panic = 1,
 };
 
+/// Rust Option<fn pointer> is ABI-compatible with a nullable pointer.
+/// This minimal definition lets C++ code compile against the FFI types.
+template<typename T = void>
+struct Option {
+  T value;
+
+  Option() : value(nullptr) {}
+  Option(T v) : value(v) {}
+
+  bool IsSome() const { return value != nullptr; }
+  bool IsNone() const { return value == nullptr; }
+  T Unwrap() const { return value; }
+};
 
 struct Utf8Str {
   const char *ptr;
@@ -158,11 +171,59 @@ struct FScriptArrayFns {
   FScriptArrayShrinkFn shrink;
 };
 
+/// Describes one fragment type's initial data for a batch spawn request.
+struct SpawnFragmentData {
+  /// C++ USTRUCT type name (e.g. "FGatherersPosition").
+  Utf8Str cpp_type_name;
+  /// Size of one fragment instance in bytes.
+  uint32_t size;
+  /// Alignment of the fragment type.
+  uint32_t alignment;
+  /// Pointer to `count` contiguous fragment values (size * count bytes).
+  /// Null = use C++ default constructor for all entities.
+  const void *initial_data;
+};
+
+/// Describes one tag type to apply to spawned entities.
+struct SpawnTagData {
+  /// C++ USTRUCT type name (e.g. "FGatherersBevyMassAntTag").
+  Utf8Str cpp_type_name;
+};
+
+/// A batch spawn request: create `count` entities with the given fragments and tags.
+struct SpawnEntityRequest {
+  /// Number of fragment types.
+  uint32_t num_fragments;
+  /// Pointer to array of SpawnFragmentData (one per fragment type).
+  const SpawnFragmentData *fragments;
+  /// Number of tags.
+  uint32_t num_tags;
+  /// Pointer to array of SpawnTagData.
+  const SpawnTagData *tags;
+  /// Number of entities to spawn.
+  uint32_t count;
+  uint32_t _padding;
+};
+
+/// FFI-safe entity handle matching FMassEntityHandle layout.
+struct MassEntityHandle {
+  /// Entity index in the entity manager.
+  int32_t index;
+  /// Serial number for handle validation.
+  int32_t serial_number;
+};
+
+/// Spawns `request.count` entities. Writes handles to `out_handles` (must have room for `count`).
+/// Returns the number of entities actually created (should equal `count` on success).
+using SpawnEntitiesFn = uint32_t(*)(const SpawnEntityRequest *request, MassEntityHandle *out_handles);
+
 struct UnrealBindings {
   LogFn log;
   CoreFns core_fns;
   FStringFns fstring_fns;
   FScriptArrayFns fscript_array_fns;
+  /// Spawn entities in Mass Entity. Null until a Mass subsystem sets it.
+  Option<SpawnEntitiesFn> spawn_entities;
 };
 
 using TickFn = ResultCode(*)(float dt);
@@ -256,6 +317,8 @@ struct MassSystemDescriptor {
   Utf8Str name;
   /// Number of fragment/tag requirements.
   uint32_t num_requirements;
+  /// Execution order within a pipeline. Lower values run first.
+  uint32_t order;
   /// Pointer to array of MassFragmentRequirement.
   const MassFragmentRequirement *requirements;
   /// The Rust function to call during Execute.
@@ -310,8 +373,7 @@ struct MassFrameDispatchData {
   /// Pointer to array of MassSystemChunkBatch.
   const MassSystemChunkBatch *systems;
   /// Optional spatial query callback for collision detection. Null if not available.
-  /// (Option<fn_ptr> in Rust is FFI-safe as a nullable function pointer.)
-  MassSpatialQueryFn spatial_query_fn;
+  Option<MassSpatialQueryFn> spatial_query_fn;
   /// Pickup radius for spatial queries (Unreal units).
   float pickup_radius;
   uint32_t _pad;

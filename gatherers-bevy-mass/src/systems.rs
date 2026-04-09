@@ -1,8 +1,9 @@
 use unreal_api::mass::{MassQuery, MassQueryAll};
 use unreal_api::mass_system;
+use bevy_ecs::prelude::With;
 use crate::fragments::{
     Position, Movement, Cooldown, Carrying,
-    AntEncounterFragment, FoodFragment,
+    AntEncounterFragment, FoodFragment, BevyMassAntTag,
 };
 
 // Re-export facade systems from gatherers-sim (the single source of truth).
@@ -27,13 +28,13 @@ const PICKUP_COOLDOWN_SECONDS: f32 = 0.5;
 // (Unreal-only: uses MassQueryAll for index-based food access)
 // ---------------------------------------------------------------------------
 
-#[mass_system]
+#[mass_system(order = 30)]
 fn ant_food_decision(
-    positions: MassQuery<&mut Position>,
-    movements: MassQuery<&mut Movement>,
-    cooldowns: MassQuery<&mut Cooldown>,
-    carrying: MassQuery<&mut Carrying>,
-    encounters: MassQuery<&AntEncounterFragment>,
+    positions: MassQuery<&mut Position, With<BevyMassAntTag>>,
+    movements: MassQuery<&mut Movement, With<BevyMassAntTag>>,
+    cooldowns: MassQuery<&mut Cooldown, With<BevyMassAntTag>>,
+    carrying: MassQuery<&mut Carrying, With<BevyMassAntTag>>,
+    encounters: MassQuery<&AntEncounterFragment, With<BevyMassAntTag>>,
     foods: MassQueryAll<&mut FoodFragment>,
     dt: f32,
 ) {
@@ -85,10 +86,10 @@ fn ant_food_decision(
 // (Unreal-only: uses Res<MassSpatialQueryCallback>)
 // ---------------------------------------------------------------------------
 
-#[mass_system]
+#[mass_system(order = 20)]
 fn ant_collision_prepass(
-    positions: MassQuery<&Position>,
-    encounters: MassQuery<&mut AntEncounterFragment>,
+    positions: MassQuery<&Position, With<BevyMassAntTag>>,
+    encounters: MassQuery<&mut AntEncounterFragment, With<BevyMassAntTag>>,
     spatial: Res<unreal_api::mass::MassSpatialQueryCallback>,
 ) {
     for (pos, enc) in positions.iter().zip(encounters.iter_mut()) {

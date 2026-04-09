@@ -39,6 +39,7 @@ pub mod prelude {
     pub use bevy_ecs::prelude::{Res, ResMut, Resource};
     pub use bevy_ecs::system::IntoSystem;
     pub use bevy_ecs::prelude::Component;
+    pub use bevy_ecs::prelude::With;
 
     // In Unreal mode, re-export the mass_system attribute macro
     #[cfg(feature = "unreal")]

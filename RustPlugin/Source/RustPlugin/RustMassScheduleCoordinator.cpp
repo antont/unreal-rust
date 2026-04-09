@@ -14,11 +14,13 @@ void URustMassScheduleCoordinator::InitializeDispatch(
 	DispatchFn = InDispatchFn;
 	ManagedProcessors = InProcessors;
 
-	// Put all managed processors in cache-only mode
+	// Put all managed processors in cache-only mode.
+	// Each processor already has its original descriptor index from CreateAllRustProcessors.
 	for (int32 i = 0; i < ManagedProcessors.Num(); ++i)
 	{
 		ManagedProcessors[i]->SetCacheOnly(true);
-		ManagedProcessors[i]->SetSystemIndex(static_cast<uint32>(i));
+		// Do NOT overwrite SystemIndex — it was set to the original descriptor index
+		// during CreateAllRustProcessors, before the processors were sorted by execution order.
 	}
 
 	UE_LOG(LogTemp, Log, TEXT("RustMassScheduleCoordinator: Managing %d processors via Bevy dispatch"),

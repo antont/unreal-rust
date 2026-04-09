@@ -14,8 +14,13 @@ extern struct FLogCategoryRustVisualLog : public FLogCategory<ELogVerbosity::Log
 	}
 } RustVisualLog;;
 
+struct FMassEntityManager;
+
 UnrealBindings CreateBindings();
 FRustPluginModule& GetRustModule();
+
+/// Set the entity manager for Rust entity spawning. Call before any Rust spawn operations.
+RUSTPLUGIN_API void RustMassSpawnSetEntityManager(FMassEntityManager* Manager);
 
 
 

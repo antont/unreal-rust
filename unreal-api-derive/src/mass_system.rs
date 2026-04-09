@@ -21,6 +21,8 @@ struct QueryParam {
     scope: QueryScope,
     /// Index within its scope group (primary index or global index).
     scope_index: usize,
+    /// Filter tag types from With<Tag> (e.g., `AntTag`).
+    filter_tags: Vec<syn::Type>,
 }
 
 /// Information about one resource parameter (Res<T> or ResMut<T>).
@@ -121,7 +123,7 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
                         }
                     };
 
-                    let (fragment_type, is_mutable) = extract_query_inner_type(seg)?;
+                    let (fragment_type, is_mutable, filter_tags) = extract_query_inner_type(seg)?;
 
                     let scope_index = match scope {
                         QueryScope::Primary => {
@@ -142,6 +144,7 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
                         is_mutable,
                         scope,
                         scope_index,
+                        filter_tags,
                     });
                 }
             }
@@ -151,10 +154,11 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
     Ok(params)
 }
 
-/// Extracts the inner type and mutability from MassQuery<&T> or MassQuery<&mut T>.
+/// Extracts the inner type, mutability, and filter tags from
+/// MassQuery<&T> or MassQuery<&mut T, With<Tag>>.
 fn extract_query_inner_type(
     seg: &syn::PathSegment,
-) -> syn::Result<(syn::Type, bool)> {
+) -> syn::Result<(syn::Type, bool, Vec<syn::Type>)> {
     let syn::PathArguments::AngleBracketed(args) = &seg.arguments else {
         return Err(syn::Error::new_spanned(seg, "query type requires type parameter"));
     };
@@ -167,15 +171,60 @@ fn extract_query_inner_type(
         return Err(syn::Error::new_spanned(first_arg, "expected type argument"));
     };
 
-    match inner_ty {
+    let (frag_type, is_mutable) = match inner_ty {
         Type::Reference(TypeReference {
             mutability, elem, ..
-        }) => Ok((*elem.clone(), mutability.is_some())),
-        other => Ok((other.clone(), false)),
+        }) => (*elem.clone(), mutability.is_some()),
+        other => (other.clone(), false),
+    };
+
+    // Parse filter arguments (second, third, ... type args): With<Tag>
+    let mut filter_tags = Vec::new();
+    for arg in args.args.iter().skip(1) {
+        let syn::GenericArgument::Type(Type::Path(type_path)) = arg else {
+            continue;
+        };
+        let Some(seg) = type_path.path.segments.last() else {
+            continue;
+        };
+        if seg.ident == "With" {
+            let syn::PathArguments::AngleBracketed(with_args) = &seg.arguments else {
+                return Err(syn::Error::new_spanned(seg, "With requires a type parameter"));
+            };
+            for with_arg in &with_args.args {
+                let syn::GenericArgument::Type(tag_type) = with_arg else {
+                    return Err(syn::Error::new_spanned(with_arg, "expected type argument in With<>"));
+                };
+                filter_tags.push(tag_type.clone());
+            }
+        }
     }
+
+    Ok((frag_type, is_mutable, filter_tags))
 }
 
-pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
+/// Parse `#[mass_system(order = N)]` attribute. Returns the order value or None.
+pub fn parse_mass_system_attr(attr: TokenStream) -> Option<u32> {
+    if attr.is_empty() {
+        return None;
+    }
+    // Parse: order = <lit_int>
+    let parsed: syn::Result<syn::ExprAssign> = syn::parse2(attr.clone());
+    if let Ok(assign) = parsed {
+        if let syn::Expr::Path(ref path) = *assign.left {
+            if path.path.is_ident("order") {
+                if let syn::Expr::Lit(ref lit) = *assign.right {
+                    if let syn::Lit::Int(ref int_lit) = lit.lit {
+                        return int_lit.base10_parse::<u32>().ok();
+                    }
+                }
+            }
+        }
+    }
+    None
+}
+
+pub fn mass_system_impl(func: &ItemFn, order: u32) -> syn::Result<TokenStream> {
     let func_name = &func.sig.ident;
     let wrapper_name = format_ident!("__mass_system_{}", func_name);
     let reg_name = format_ident!("__mass_system_reg_{}", func_name);
@@ -304,7 +353,34 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
         })
         .collect();
 
-    let num_requirements = requirement_entries.len();
+    // Collect unique filter tags across all query params and emit as additional requirements.
+    // Deduplicate by type token string.
+    let mut seen_tags = std::collections::HashSet::new();
+    let tag_requirement_entries: Vec<TokenStream> = query_params
+        .iter()
+        .flat_map(|p| p.filter_tags.iter())
+        .filter(|tag_type| {
+            let key = quote!(#tag_type).to_string();
+            seen_tags.insert(key)
+        })
+        .map(|tag_type| {
+            quote! {
+                ::unreal_api::mass::MassSystemRequirement {
+                    cpp_type_name: <#tag_type as ::unreal_api::mass::MassFragment>::CPP_TYPE_NAME,
+                    size: 0,
+                    align: 1,
+                    access_mode: 0,
+                    is_tag: 1,
+                    query_scope: 0,
+                }
+            }
+        })
+        .collect();
+
+    let all_requirement_entries: Vec<&TokenStream> = requirement_entries.iter()
+        .chain(tag_requirement_entries.iter())
+        .collect();
+    let num_requirements = all_requirement_entries.len();
 
     // Rewrite the function signature to take references to concrete query types
     let rewritten_params: Vec<TokenStream> = func
@@ -413,12 +489,14 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                 }
                 (QueryScope::Global, true) => {
                     quote! {
-                        let mut #param_name = unsafe { #res_name.global_query_mut().expect("global query not set") };
+                        let mut #param_name = unsafe { #res_name.global_query_mut() }
+                            .unwrap_or_else(|| ::unreal_api::mass::MassQueryAllMut::empty());
                     }
                 }
                 (QueryScope::Global, false) => {
                     quote! {
-                        let #param_name = unsafe { #res_name.global_query_ref().expect("global query not set") };
+                        let #param_name = unsafe { #res_name.global_query_ref() }
+                            .unwrap_or_else(|| ::unreal_api::mass::MassQueryAllRef::empty());
                     }
                 }
             }
@@ -542,7 +620,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
 
             static #reg_name: () = {
                 const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
-                    #(#requirement_entries),*
+                    #(#all_requirement_entries),*
                 ];
 
                 ::unreal_api::inventory::submit! {
@@ -550,6 +628,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                         name: #system_name_str,
                         execute_fn: #wrapper_name,
                         requirements: &REQUIREMENTS,
+                        order: #order,
                     }
                 }
             };
@@ -566,7 +645,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
 
             static #reg_name: () = {
                 const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
-                    #(#requirement_entries),*
+                    #(#all_requirement_entries),*
                 ];
 
                 ::unreal_api::inventory::submit! {
@@ -574,6 +653,7 @@ pub fn mass_system_impl(func: &ItemFn) -> syn::Result<TokenStream> {
                         name: #system_name_str,
                         execute_fn: #wrapper_name,
                         requirements: &REQUIREMENTS,
+                        order: #order,
                     }
                 }
             };
@@ -716,7 +796,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         assert!(output.contains("__mass_system_ant_movement"), "should generate wrapper fn");
         assert!(output.contains("MassSystemRegistration"), "should register with inventory");
         assert!(output.contains("ant_movement"), "should reference system name");
@@ -731,7 +811,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         assert!(output.contains("ant_movement_bevy"), "should generate Bevy wrapper fn");
         assert!(output.contains("ResMut"), "should use ResMut for mutable query");
         assert!(output.contains("MassSystemChunks"), "should reference MassSystemChunks resource");
@@ -747,7 +827,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         // Read-only primary should use Res, not ResMut
         assert!(output.contains("Res <"), "read-only query should use Res");
     }
@@ -764,7 +844,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         assert!(output.contains("MassBevySystemRegistration"), "should register for Bevy scheduling");
     }
 
@@ -780,7 +860,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         // Should use MassQueryMut for mutable primary
         assert!(output.contains("MassQueryMut"), "should use MassQueryMut for &mut primary");
         // Should use MassQueryRef for immutable primary
@@ -801,7 +881,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         assert!(output.contains("populate_resources"), "should generate populate_resources closure");
         assert!(output.contains("clear_resources"), "should generate clear_resources closure");
         assert!(output.contains("push_primary_slice"), "populate should push primary slices");
@@ -818,7 +898,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         assert!(output.contains("set_global"), "populate should set global descriptor for global queries");
         assert!(output.contains("global_chunked_fragments"), "should read from global_chunked_fragments");
     }
@@ -876,7 +956,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         // Bevy wrapper should have Res<SpatialCallback> param
         assert!(output.contains("Res < SpatialCallback >") || output.contains("Res<SpatialCallback>"),
             "bevy wrapper should include Res<T> param, got: {}", output);
@@ -896,7 +976,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         assert!(output.contains("ResMut < MyState >") || output.contains("ResMut<MyState>"),
             "bevy wrapper should include ResMut<T> param");
         assert!(output.contains("& mut MyState") || output.contains("&mut MyState"),
@@ -913,7 +993,7 @@ mod tests {
         })
         .unwrap();
 
-        let output = mass_system_impl(&func).unwrap().to_string();
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
         // Systems with Res<T> generate a no-op C++ wrapper so C++ creates
         // a processor that collects chunks for Bevy-scheduled dispatch.
         assert!(output.contains("unsafe extern \"C\""),
@@ -923,5 +1003,112 @@ mod tests {
         // Should still have Bevy registration
         assert!(output.contains("MassBevySystemRegistration"),
             "should still register for Bevy scheduling");
+    }
+
+    // -----------------------------------------------------------------------
+    // With<Tag> filter tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn parses_with_filter_on_query() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(pos: MassQuery<&mut Position, With<AntTag>>, dt: f32) {}
+        })
+        .unwrap();
+
+        let params = extract_query_params(&func).unwrap();
+        assert_eq!(params.len(), 1);
+        assert_eq!(params[0].filter_tags.len(), 1);
+        let tag = &params[0].filter_tags[0];
+        assert_eq!(quote!(#tag).to_string(), "AntTag");
+    }
+
+    #[test]
+    fn parses_with_filter_on_query_alias() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(pos: Query<&mut Position, With<AntTag>>, dt: f32) {}
+        })
+        .unwrap();
+
+        let params = extract_query_params(&func).unwrap();
+        assert_eq!(params.len(), 1);
+        assert_eq!(params[0].filter_tags.len(), 1);
+    }
+
+    #[test]
+    fn no_filter_tags_when_absent() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(pos: MassQuery<&mut Position>, dt: f32) {}
+        })
+        .unwrap();
+
+        let params = extract_query_params(&func).unwrap();
+        assert_eq!(params.len(), 1);
+        assert!(params[0].filter_tags.is_empty());
+    }
+
+    #[test]
+    fn with_filter_emits_tag_requirement() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(pos: MassQuery<&mut Position, With<AntTag>>) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
+        assert!(output.contains("is_tag : 1"),
+            "With<Tag> should emit a requirement with is_tag=1, got: {}", output);
+    }
+
+    #[test]
+    fn with_filter_deduplicates_across_params() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                pos: MassQuery<&mut Position, With<AntTag>>,
+                mov: MassQuery<&Movement, With<AntTag>>,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0).unwrap().to_string();
+        // Should have exactly 3 requirements: 2 fragments + 1 deduplicated tag
+        assert!(output.contains("MassSystemRequirement ; 3usize"),
+            "should have 3 requirements (2 fragments + 1 tag), got: {}", output);
+    }
+
+    #[test]
+    fn parse_order_attribute() {
+        let attr = quote! { order = 42 };
+        assert_eq!(parse_mass_system_attr(attr), Some(42));
+    }
+
+    #[test]
+    fn parse_empty_attribute() {
+        let attr = quote! {};
+        assert_eq!(parse_mass_system_attr(attr), None);
+    }
+
+    #[test]
+    fn order_emitted_in_registration() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(pos: MassQuery<&mut Position>, dt: f32) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 42).unwrap().to_string();
+        assert!(output.contains("order : 42u32"),
+            "should emit order value, got: {}", output);
+    }
+
+    #[test]
+    fn with_filter_on_global_query() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(foods: MassQueryAll<&mut FoodFragment, With<FoodTag>>) {}
+        })
+        .unwrap();
+
+        let params = extract_query_params(&func).unwrap();
+        assert_eq!(params.len(), 1);
+        assert_eq!(params[0].filter_tags.len(), 1);
+        assert_eq!(params[0].scope, QueryScope::Global);
     }
 }

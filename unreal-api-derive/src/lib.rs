@@ -52,11 +52,12 @@ pub fn event_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 /// ```
 #[proc_macro_attribute]
 pub fn mass_system(
-    _attr: proc_macro::TokenStream,
+    attr: proc_macro::TokenStream,
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let func: syn::ItemFn = syn::parse(item).unwrap();
-    match mass_system::mass_system_impl(&func) {
+    let order = mass_system::parse_mass_system_attr(attr.into()).unwrap_or(0);
+    match mass_system::mass_system_impl(&func, order) {
         Ok(tokens) => tokens.into(),
         Err(err) => err.to_compile_error().into(),
     }

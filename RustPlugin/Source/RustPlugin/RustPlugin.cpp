@@ -476,6 +476,8 @@ UE_ENABLE_OPTIMIZATION
 
 void FRustPluginModule::StartupModule()
 {
+	UE_LOG(LogTemp, Warning, TEXT("RustPlugin: StartupModule begin"));
+
 	// TODO: Don't run the module if we just want to generate the api. We should allow this and properly handle loading of this module if we don't have
 	// a valid rust dll yet.
 	FString RunCommand;
@@ -526,25 +528,10 @@ void FRustPluginModule::StartupModule()
 	//TSharedPtr<FUuidGraphPanelPinFactory> UuidFactory = MakeShareable(new FUuidGraphPanelPinFactory());
 	//FEdGraphUtilities::RegisterVisualPinFactory(UuidFactory);
 
-	// Register detail customizations
+	// Register detail customizations (skip in commandline/unattended mode)
+	if (!IsRunningCommandlet() && !FApp::IsUnattended())
 	{
 		auto& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
-
-		//PropertyModule.RegisterCustomClassLayout(
-		//	"EntityComponent",
-		//	FOnGetDetailCustomizationInstance::CreateStatic(&FRustDetailCustomization::MakeInstance)
-		//);
-
-		//PropertyModule.RegisterCustomPropertyTypeLayout(
-		//	FRustEvent::StaticStruct()->GetFName(),
-		//	FOnGetPropertyTypeCustomizationInstance::CreateStatic(&FRustAnimNotifyDetailCustomization::MakeInstance)
-		//);
-
-		//PropertyModule.RegisterCustomClassLayout(
-		//	"AnimNotify_RustEvent",
-		//	FOnGetDetailCustomizationInstance::CreateStatic(&FRustAnimNotifyDetailCustomization::MakeInstance)
-		//);
-
 		PropertyModule.NotifyCustomizationModuleChanged();
 	}
 }

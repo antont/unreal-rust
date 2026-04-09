@@ -76,8 +76,11 @@ private:
 	/// Extra tag requirements added by the subsystem for population scoping.
 	TArray<const UScriptStruct*> ExtraTagRequirements;
 
-	/// System name (from Rust registration) — used for logging and pipeline ordering.
+	/// System name (from Rust registration) — used for logging.
 	FString SystemName;
+
+	/// Execution order from Rust registration. Lower values run first.
+	uint32 ExecutionOrder = 0;
 
 	/// When true, Execute() builds/maintains the cache but does NOT call CachedExecuteFn.
 	/// The coordinator processor reads the cache and dispatches via mass_frame_dispatch instead.
@@ -88,6 +91,7 @@ private:
 
 public:
 	const FString& GetSystemName() const { return SystemName; }
+	uint32 GetExecutionOrder() const { return ExecutionOrder; }
 
 	/// Enable cache-only mode: cache chunks but don't call Rust directly.
 	void SetCacheOnly(bool bInCacheOnly) { bCacheOnly = bInCacheOnly; }

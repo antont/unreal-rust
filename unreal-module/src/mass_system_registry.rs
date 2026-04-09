@@ -62,6 +62,7 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
         (*out) = MassSystemDescriptor {
             name: Utf8Str::from(registration.name),
             num_requirements: registration.requirements.len() as u32,
+            order: registration.order,
             requirements: requirements_ptr,
             execute_fn: registration.execute_fn,
         };

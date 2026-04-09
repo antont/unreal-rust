@@ -14,11 +14,11 @@ const PLUGIN_EXTENSION: &str = "so";
 const PLUGIN_EXTENSION: &str = "dylib";
 
 #[cfg(target_os = "windows")]
-const PLUGIN_LIB_NAME: &str = "unreal_rust_example.dll";
+const PLUGIN_LIB_NAME: &str = "unreal_rust_host.dll";
 #[cfg(target_os = "linux")]
-const PLUGIN_LIB_NAME: &str = "libunreal_rust_example.so";
+const PLUGIN_LIB_NAME: &str = "libunreal_rust_host.so";
 #[cfg(target_os = "macos")]
-const PLUGIN_LIB_NAME: &str = "libunreal_rust_example.dylib";
+const PLUGIN_LIB_NAME: &str = "libunreal_rust_host.dylib";
 
 /// Find the loader dylib's own filesystem path at runtime using platform APIs.
 /// This lets us locate other files relative to the UE project Binaries directory.
@@ -206,9 +206,9 @@ impl Loader {
         // Copy debug symbols on platforms that use sidecar files
         #[cfg(target_os = "windows")]
         if let Some(pdb_dir) = self.path.parent() {
-            let pdb_path = pdb_dir.join("unreal_rust_example.pdb");
+            let pdb_path = pdb_dir.join("unreal_rust_host.pdb");
             if pdb_path.exists() {
-                let _ = fs::copy(&pdb_path, hot_reload_dir.join("unreal_rust_example.pdb"));
+                let _ = fs::copy(&pdb_path, hot_reload_dir.join("unreal_rust_host.pdb"));
             }
         }
 
