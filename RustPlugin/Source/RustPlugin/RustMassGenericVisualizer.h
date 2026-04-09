@@ -39,6 +39,9 @@ public:
 	/** Get the name of a group by index. */
 	FString GetGroupName(int32 Index) const { return Groups.IsValidIndex(Index) ? Groups[Index].Name : FString(); }
 
+	/** Get the ISMC for a group by index. */
+	UInstancedStaticMeshComponent* GetGroupISMC(int32 Index) const { return Groups.IsValidIndex(Index) ? Groups[Index].ISMC : nullptr; }
+
 private:
 	struct VisualGroup
 	{

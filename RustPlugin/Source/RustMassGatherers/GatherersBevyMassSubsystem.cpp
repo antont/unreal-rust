@@ -1,5 +1,6 @@
 #include "GatherersBevyMassSubsystem.h"
 
+#include "Engine/World.h"
 #include "GameFramework/Actor.h"
 #include "MassExecutor.h"
 #include "MassEntityManager.h"
@@ -25,6 +26,8 @@ namespace BevyMassSpatialQuery
 	// Safe because bRequiresGameThreadExecution = true on all processors.
 	static const TArray<FMassEntityHandle>* FoodEntities = nullptr;
 	static FMassEntityManager* CachedEntityManager = nullptr;
+	static UWorld* CachedWorld = nullptr;
+	static UInstancedStaticMeshComponent* CachedFoodISMC = nullptr;
 
 	static int32 CallCount = 0;
 	static int32 HitCount = 0;
@@ -38,18 +41,16 @@ namespace BevyMassSpatialQuery
 		++CallCount;
 		if (CallCount <= 5 || (CallCount % 1000 == 0))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: call #%d (hits so far: %d) radius=%.1f prev=(%.1f,%.1f,%.1f) cur=(%.1f,%.1f,%.1f)"),
-				CallCount, HitCount, PickupRadius,
-				PreviousPos[0], PreviousPos[1], PreviousPos[2],
-				CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+			UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: call #%d (hits so far: %d) radius=%.1f"),
+				CallCount, HitCount, PickupRadius);
 		}
-		if (!Out || !FoodEntities || !CachedEntityManager)
+		if (!Out || !FoodEntities || !CachedEntityManager || !CachedWorld || !CachedFoodISMC)
 		{
 			static int32 NullCount = 0;
 			if (NullCount++ < 5)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: null state - Out=%d Food=%d EM=%d"),
-					!!Out, !!FoodEntities, !!CachedEntityManager);
+				UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: null state - Out=%d Food=%d EM=%d World=%d ISMC=%d"),
+					!!Out, !!FoodEntities, !!CachedEntityManager, !!CachedWorld, !!CachedFoodISMC);
 			}
 			return 0;
 		}
@@ -63,47 +64,83 @@ namespace BevyMassSpatialQuery
 		const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
 		const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
 		FMassEntityManager& EntityManager = *CachedEntityManager;
-
-		float BestDistSq = TNumericLimits<float>::Max();
 		const float PickupRadiusSq = PickupRadius * PickupRadius;
+
+		constexpr ECollisionChannel FoodQueryChannel = ECC_GameTraceChannel1;
+		TSet<int32> CandidateIndices;
 
 		if (SweepStart.Equals(SweepEnd))
 		{
-			static bool bWarnedOnce = false;
-			if (!bWarnedOnce)
+			// Stationary case: sphere overlap against food ISMC
+			for (const int32 Idx : CachedFoodISMC->GetInstancesOverlappingSphere(
+				SweepEnd, PickupRadius, true))
 			{
-				UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: stationary ant detected — ants should always be moving"));
-				bWarnedOnce = true;
+				if (FoodEntities->IsValidIndex(Idx))
+				{
+					CandidateIndices.Add(Idx);
+				}
 			}
-			return 1;
+		}
+		else
+		{
+			// Moving case: sweep + box overlap (matching original gatherers pattern)
+			TArray<FHitResult> SweepHits;
+			FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(BevyMassFoodSweep), false);
+			QueryParams.bTraceComplex = false;
+
+			const bool bAnySweepHits = CachedWorld->SweepMultiByChannel(
+				SweepHits, SweepStart, SweepEnd, FQuat::Identity,
+				FoodQueryChannel,
+				FCollisionShape::MakeSphere(PickupRadius),
+				QueryParams);
+
+			if (bAnySweepHits)
+			{
+				for (const FHitResult& Hit : SweepHits)
+				{
+					if (Hit.Component.Get() == CachedFoodISMC
+						&& FoodEntities->IsValidIndex(Hit.Item))
+					{
+						CandidateIndices.Add(Hit.Item);
+					}
+				}
+				// Supplement with box overlap (catches edge cases near ISMC bounds)
+				FBox SweptBounds(ForceInit);
+				SweptBounds += SweepStart;
+				SweptBounds += SweepEnd;
+				SweptBounds = SweptBounds.ExpandBy(PickupRadius);
+				for (const int32 Idx : CachedFoodISMC->GetInstancesOverlappingBox(SweptBounds, true))
+				{
+					if (FoodEntities->IsValidIndex(Idx))
+					{
+						CandidateIndices.Add(Idx);
+					}
+				}
+			}
 		}
 
+		// Find nearest candidate along path
+		float BestDistSq = TNumericLimits<float>::Max();
+		for (const int32 Idx : CandidateIndices)
 		{
-			// Direct distance check against food entity positions
-			for (int32 i = 0; i < FoodEntities->Num(); ++i)
+			const FMassEntityHandle FoodEntity = (*FoodEntities)[Idx];
+			if (!EntityManager.IsEntityValid(FoodEntity)) continue;
+			FMassEntityView FoodView(EntityManager, FoodEntity);
+			const FGatherersMassFoodFragment& Food =
+				FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+			if (!Food.bIsLoose) continue;
+
+			const FVector Closest = FMath::ClosestPointOnSegment(
+				Food.Position, SweepStart, SweepEnd);
+			const float DistSq = FVector::DistSquared(Closest, Food.Position);
+			if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
 			{
-				const FMassEntityHandle FoodEntity = (*FoodEntities)[i];
-				if (!EntityManager.IsEntityValid(FoodEntity))
-				{
-					continue;
-				}
-				FMassEntityView FoodView(EntityManager, FoodEntity);
-				const FGatherersMassFoodFragment& Food =
-					FoodView.GetFragmentData<FGatherersMassFoodFragment>();
-				if (!Food.bIsLoose)
-				{
-					continue;
-				}
-				const float DistSq = FVector::DistSquared(SweepEnd, Food.Position);
-				if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
-				{
-					BestDistSq = DistSq;
-					Out->has_encounter = true;
-					Out->food_index = i;
-					Out->encounter_position[0] = SweepEnd.X;
-					Out->encounter_position[1] = SweepEnd.Y;
-					Out->encounter_position[2] = SweepEnd.Z;
-				}
+				BestDistSq = DistSq;
+				Out->has_encounter = true;
+				Out->food_index = Idx;
+				Out->encounter_position[0] = Closest.X;
+				Out->encounter_position[1] = Closest.Y;
+				Out->encounter_position[2] = Closest.Z;
 			}
 		}
 
@@ -135,7 +172,15 @@ void UGatherersBevyMassSubsystem::Deinitialize()
 
 UInstancedStaticMeshComponent* UGatherersBevyMassSubsystem::GetFoodISMC() const
 {
-	return nullptr; // Generic visualizer does not expose individual ISMCs
+	if (!Visualizer) return nullptr;
+	for (int32 i = 0; i < Visualizer->GetGroupCount(); ++i)
+	{
+		if (Visualizer->GetGroupName(i) == TEXT("food"))
+		{
+			return Visualizer->GetGroupISMC(i);
+		}
+	}
+	return nullptr;
 }
 
 bool UGatherersBevyMassSubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& MassEntitySubsystem)
@@ -208,6 +253,8 @@ void UGatherersBevyMassSubsystem::RunSimulationProcessorStep(float SimulatedDelt
 	// Set spatial query context for the Rust collision pre-pass callback
 	BevyMassSpatialQuery::FoodEntities = &ManagedFoodEntities;
 	BevyMassSpatialQuery::CachedEntityManager = &MassEntitySubsystem->GetMutableEntityManager();
+	BevyMassSpatialQuery::CachedWorld = World;
+	BevyMassSpatialQuery::CachedFoodISMC = GetFoodISMC();
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 	FMassProcessingContext SimulationContext(EntityManager, SimulatedDeltaTime);
@@ -349,6 +396,20 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, int32 Foo
 	{
 		TArray<TArray<FMassEntityHandle>*> GroupEntities = BuildGroupEntities();
 		Visualizer->RebuildInstances(EntityManager, GroupEntities);
+	}
+
+	// Enable spatial query collision on the food ISMC (matching original gatherers pattern)
+	{
+		constexpr ECollisionChannel FoodQueryChannel = ECC_GameTraceChannel1;
+		UInstancedStaticMeshComponent* FoodISMC = GetFoodISMC();
+		if (FoodISMC)
+		{
+			FoodISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+			FoodISMC->SetCollisionResponseToAllChannels(ECR_Ignore);
+			FoodISMC->SetCollisionResponseToChannel(FoodQueryChannel, ECR_Block);
+			UE_LOG(LogTemp, Log, TEXT("GatherersBevyMass: Enabled collision on food ISMC (%d instances)"),
+				FoodISMC->GetInstanceCount());
+		}
 	}
 
 	UE_LOG(LogTemp, Log, TEXT("GatherersBevyMass: Spawned %d ants and %d food (dynamic Rust systems)"),
