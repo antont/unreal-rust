@@ -14,7 +14,7 @@ public:
 	int32 AntCount = 100;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gatherers")
-	int32 FoodCount = 50;
+	int32 FoodCount = 500;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gatherers")
 	int32 RandomSeed = 42;

@@ -36,6 +36,9 @@ public:
 	/** Get the number of initialized groups. */
 	int32 GetGroupCount() const { return Groups.Num(); }
 
+	/** Get the name of a group by index. */
+	FString GetGroupName(int32 Index) const { return Groups.IsValidIndex(Index) ? Groups[Index].Name : FString(); }
+
 private:
 	struct VisualGroup
 	{

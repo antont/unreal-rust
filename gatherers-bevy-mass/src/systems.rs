@@ -82,6 +82,32 @@ fn ant_food_decision(
 }
 
 // ---------------------------------------------------------------------------
+// System 4: Carried food tracking — update food position to follow carrying ant
+// (Unreal-only: uses MassQueryAll for index-based food access)
+// ---------------------------------------------------------------------------
+
+#[mass_system(order = 40)]
+fn carried_food_tracking(
+    positions: MassQuery<&Position, With<BevyMassAntTag>>,
+    carrying: MassQuery<&Carrying, With<BevyMassAntTag>>,
+    foods: MassQueryAll<&mut FoodFragment>,
+    dt: f32,
+) {
+    let _ = dt;
+    for (pos, carry) in positions.iter().zip(carrying.iter()) {
+        if carry.food_index >= 0 {
+            if let Some(food) = foods.get_mut(carry.food_index as usize) {
+                food.position = [
+                    pos.position[0],
+                    pos.position[1],
+                    pos.position[2] + 15.0, // sit on top: ant radius (10) + food radius (5)
+                ];
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
 // System 2: Collision pre-pass — detect food encounters via spatial query
 // (Unreal-only: uses Res<MassSpatialQueryCallback>)
 // ---------------------------------------------------------------------------

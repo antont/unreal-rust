@@ -26,12 +26,23 @@ namespace BevyMassSpatialQuery
 	static const TArray<FMassEntityHandle>* FoodEntities = nullptr;
 	static FMassEntityManager* CachedEntityManager = nullptr;
 
+	static int32 CallCount = 0;
+	static int32 HitCount = 0;
+
 	uint32_t SpatialQueryCallback(
 		const double* PreviousPos,
 		const double* CurrentPos,
 		float PickupRadius,
 		MassSpatialQueryResult* Out)
 	{
+		++CallCount;
+		if (CallCount <= 5 || (CallCount % 1000 == 0))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("SpatialQuery: call #%d (hits so far: %d) radius=%.1f prev=(%.1f,%.1f,%.1f) cur=(%.1f,%.1f,%.1f)"),
+				CallCount, HitCount, PickupRadius,
+				PreviousPos[0], PreviousPos[1], PreviousPos[2],
+				CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+		}
 		if (!Out || !FoodEntities || !CachedEntityManager)
 		{
 			static int32 NullCount = 0;
@@ -96,6 +107,7 @@ namespace BevyMassSpatialQuery
 			}
 		}
 
+		if (Out->has_encounter) ++HitCount;
 		static int32 ResultLogCount = 0;
 		if (ResultLogCount++ < 5 && Out->has_encounter)
 		{
@@ -202,6 +214,30 @@ void UGatherersBevyMassSubsystem::RunSimulationProcessorStep(float SimulatedDelt
 	UE::Mass::Executor::Run(SimulationProcessorPipeline, SimulationContext);
 }
 
+TArray<TArray<FMassEntityHandle>*> UGatherersBevyMassSubsystem::BuildGroupEntities()
+{
+	TArray<TArray<FMassEntityHandle>*> GroupEntities;
+	if (!Visualizer) return GroupEntities;
+
+	for (int32 i = 0; i < Visualizer->GetGroupCount(); ++i)
+	{
+		FString Name = Visualizer->GetGroupName(i);
+		if (Name == TEXT("ants"))
+		{
+			GroupEntities.Add(&ManagedAntEntities);
+		}
+		else if (Name == TEXT("food"))
+		{
+			GroupEntities.Add(&ManagedFoodEntities);
+		}
+		else
+		{
+			GroupEntities.Add(nullptr);
+		}
+	}
+	return GroupEntities;
+}
+
 void UGatherersBevyMassSubsystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -248,9 +284,7 @@ void UGatherersBevyMassSubsystem::Tick(float DeltaTime)
 			if (MassEntitySubsystem != nullptr)
 			{
 				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-				TArray<TArray<FMassEntityHandle>*> GroupEntities;
-				GroupEntities.Add(&ManagedAntEntities);
-				GroupEntities.Add(&ManagedFoodEntities);
+				TArray<TArray<FMassEntityHandle>*> GroupEntities = BuildGroupEntities();
 				Visualizer->SyncInstances(EntityManager, GroupEntities);
 			}
 		}
@@ -313,9 +347,7 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, int32 Foo
 	}
 	Visualizer->Initialize(World, Module.Plugin.Rust);
 	{
-		TArray<TArray<FMassEntityHandle>*> GroupEntities;
-		GroupEntities.Add(&ManagedAntEntities);
-		GroupEntities.Add(&ManagedFoodEntities);
+		TArray<TArray<FMassEntityHandle>*> GroupEntities = BuildGroupEntities();
 		Visualizer->RebuildInstances(EntityManager, GroupEntities);
 	}
 

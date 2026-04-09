@@ -47,6 +47,7 @@ bool URustMassGenericVisualizer::Initialize(UWorld* World, const RustBindings& B
 	}
 
 	const uint32 GroupCount = Bindings.get_visualizer_group_count.Unwrap()();
+	UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer: GroupCount = %u"), GroupCount);
 	if (GroupCount == 0) return false;
 
 	// Load shared assets
@@ -114,9 +115,12 @@ bool URustMassGenericVisualizer::Initialize(UWorld* World, const RustBindings& B
 		Group.ISMC->SetCastShadow(false);
 		Group.ISMC->SetCanEverAffectNavigation(false);
 
+		UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer: Added group '%s' (frag='%s', offset=%u, scale=%.2f)"),
+			*Group.Name, *FragTypeName, Group.PositionOffset, Desc.scale);
 		Groups.Add(MoveTemp(Group));
 	}
 
+	UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer: Initialized %d groups"), Groups.Num());
 	return Groups.Num() > 0;
 }
 
@@ -151,17 +155,21 @@ void URustMassGenericVisualizer::RebuildInstances(
 		Group.ISMC->ClearInstances();
 		const TArray<FMassEntityHandle>& Entities = *GroupEntities[g];
 
+		int32 SkippedInvalid = 0;
+		int32 SkippedNullFrag = 0;
 		for (int32 i = 0; i < Entities.Num(); ++i)
 		{
-			if (!EM.IsEntityValid(Entities[i])) continue;
+			if (!EM.IsEntityValid(Entities[i])) { ++SkippedInvalid; continue; }
 			FMassEntityView View(EM, Entities[i]);
 			FStructView FragView = View.GetFragmentDataStruct(Group.PositionFragmentStruct);
 			const uint8* FragData = FragView.GetMemory();
-			if (!FragData) continue;
+			if (!FragData) { ++SkippedNullFrag; continue; }
 			const double* Pos = reinterpret_cast<const double*>(FragData + Group.PositionOffset);
 			FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
 			Group.ISMC->AddInstance(T, true);
 		}
+		UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer::RebuildInstances group '%s': %d entities, %d instances added, %d invalid, %d null frag"),
+			*Group.Name, Entities.Num(), Group.ISMC->GetInstanceCount(), SkippedInvalid, SkippedNullFrag);
 	}
 }
 

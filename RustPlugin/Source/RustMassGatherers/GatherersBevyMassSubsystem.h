@@ -42,6 +42,7 @@ public:
 private:
 	bool EnsureProcessorPipelines(UMassEntitySubsystem& MassEntitySubsystem);
 	void RunSimulationProcessorStep(float SimulatedDeltaTime);
+	TArray<TArray<FMassEntityHandle>*> BuildGroupEntities();
 
 private:
 	UPROPERTY(Transient)
