@@ -316,30 +316,51 @@ pub type SpawnEntitiesFn = unsafe extern "C" fn(
     out_handles: *mut MassEntityHandle,
 ) -> u32;
 
-// --- Simulation init from Rust ---
+// --- Simulation init: named entity groups ---
 
-/// Parameters for initializing a simulation from Rust.
+/// Describes one entity group to spawn.
 #[repr(C)]
-pub struct MassInitSimulationParams {
-    pub ant_count: i32,
-    pub food_count: i32,
-    pub bounds_min: [f64; 3],
-    pub bounds_max: [f64; 3],
-    pub random_seed: i32,
+pub struct MassEntityGroupDesc {
+    /// Group name (e.g. "ants", "food").
+    pub name: Utf8Str,
+    /// Number of entities to spawn in this group.
+    pub count: i32,
     pub _pad: i32,
 }
 
-/// Result of simulation init: handles to spawned entities.
+/// Parameters for initializing a simulation.
 #[repr(C)]
-pub struct MassInitSimulationResult {
-    pub ant_handles: *const MassEntityHandle,
-    pub num_ants: u32,
-    pub food_handles: *const MassEntityHandle,
-    pub num_food: u32,
+pub struct MassInitSimulationParams {
+    pub groups: *const MassEntityGroupDesc,
+    pub num_groups: u32,
+    pub _pad0: u32,
+    pub bounds_min: [f64; 3],
+    pub bounds_max: [f64; 3],
+    pub random_seed: i32,
+    pub _pad1: i32,
 }
 
-/// Initialize simulation: spawn entities from Rust.
-/// Returns 1 on success, 0 on failure.
+/// One group of spawned entity handles in the init result.
+#[repr(C)]
+pub struct MassEntityGroupResult {
+    /// Group name (matches the request name).
+    pub name: Utf8Str,
+    /// Pointer to array of entity handles.
+    pub handles: *const MassEntityHandle,
+    /// Number of handles.
+    pub count: u32,
+    pub _pad: u32,
+}
+
+/// Result of simulation init: named groups of entity handles.
+#[repr(C)]
+pub struct MassInitSimulationResult {
+    pub groups: *const MassEntityGroupResult,
+    pub num_groups: u32,
+    pub _pad: u32,
+}
+
+/// Init function type.
 pub type MassInitSimulationFn = unsafe extern "C" fn(
     params: *const MassInitSimulationParams,
     result: *mut MassInitSimulationResult,
@@ -419,9 +440,9 @@ pub struct RustBindings {
     pub get_mass_system_count: GetMassSystemCountFn,
     pub get_mass_system_descriptor: GetMassSystemDescriptorFn,
     pub mass_frame_dispatch: MassFrameDispatchFn,
-    pub mass_init_simulation: Option<MassInitSimulationFn>,
     pub get_visualizer_group_count: Option<GetVisualizerGroupCountFn>,
     pub get_visualizer_group_desc: Option<GetVisualizerGroupDescFn>,
+    pub mass_init_simulation: Option<MassInitSimulationFn>,
 }
 
 impl RustBindings {
@@ -468,9 +489,9 @@ impl RustBindings {
             get_mass_system_count: get_mass_system_count_stub,
             get_mass_system_descriptor: get_mass_system_descriptor_stub,
             mass_frame_dispatch: mass_frame_dispatch_stub,
-            mass_init_simulation: None,
             get_visualizer_group_count: None,
             get_visualizer_group_desc: None,
+            mass_init_simulation: None,
         }
     }
 }
@@ -789,7 +810,8 @@ mod tests {
     fn rust_bindings_has_mass_bob_process_field() {
         // RustBindings: 7 non-optional fn ptrs + 3 Option<fn ptr> = 10 pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 10 * std::mem::size_of::<usize>());
+        assert_eq!(size, 10 * std::mem::size_of::<usize>(),
+            "actual size = {}, expected = {}", size, 10 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -859,6 +881,34 @@ mod tests {
         // i32(4) + i32(4) + [f64;3](24) + bool(1) + [u8;7](7) = 40
         assert_eq!(std::mem::size_of::<MassSpatialQueryResult>(), 40);
         assert_eq!(std::mem::align_of::<MassSpatialQueryResult>(), 8);
+    }
+
+    #[test]
+    fn mass_entity_group_desc_layout() {
+        // Utf8Str(16) + i32(4) + i32(4) = 24
+        assert_eq!(std::mem::size_of::<MassEntityGroupDesc>(), 24);
+        assert_eq!(std::mem::align_of::<MassEntityGroupDesc>(), 8);
+    }
+
+    #[test]
+    fn mass_init_simulation_params_layout() {
+        // ptr(8) + u32(4) + u32(4) + [f64;3](24) + [f64;3](24) + i32(4) + i32(4) = 72
+        assert_eq!(std::mem::size_of::<MassInitSimulationParams>(), 72);
+        assert_eq!(std::mem::align_of::<MassInitSimulationParams>(), 8);
+    }
+
+    #[test]
+    fn mass_entity_group_result_layout() {
+        // Utf8Str(16) + ptr(8) + u32(4) + u32(4) = 32
+        assert_eq!(std::mem::size_of::<MassEntityGroupResult>(), 32);
+        assert_eq!(std::mem::align_of::<MassEntityGroupResult>(), 8);
+    }
+
+    #[test]
+    fn mass_init_simulation_result_layout() {
+        // ptr(8) + u32(4) + u32(4) = 16
+        assert_eq!(std::mem::size_of::<MassInitSimulationResult>(), 16);
+        assert_eq!(std::mem::align_of::<MassInitSimulationResult>(), 8);
     }
 
     #[test]

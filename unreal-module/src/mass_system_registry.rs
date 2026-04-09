@@ -176,11 +176,21 @@ pub unsafe extern "C" fn mass_frame_dispatch(
 }
 
 // ---------------------------------------------------------------------------
-// Simulation init dispatch
+// Simulation init dispatch (named entity groups)
 // ---------------------------------------------------------------------------
 
-static INIT_RESULT_ANTS: Mutex<Vec<unreal_ffi::MassEntityHandle>> = Mutex::new(Vec::new());
-static INIT_RESULT_FOOD: Mutex<Vec<unreal_ffi::MassEntityHandle>> = Mutex::new(Vec::new());
+/// Wrapper for MassEntityGroupResult to allow it in a static Mutex.
+/// Safety: only accessed from game thread behind Mutex.
+struct SyncGroupResult(Vec<unreal_ffi::MassEntityGroupResult>);
+unsafe impl Send for SyncGroupResult {}
+unsafe impl Sync for SyncGroupResult {}
+
+/// Stored results for init: group names (as null-terminated bytes) + handles.
+static INIT_RESULT_GROUPS: Mutex<Vec<(Vec<u8>, Vec<unreal_ffi::MassEntityHandle>)>> =
+    Mutex::new(Vec::new());
+/// Stored descriptors pointing into INIT_RESULT_GROUPS. Rebuilt on each call.
+static INIT_RESULT_DESCS: Mutex<SyncGroupResult> =
+    Mutex::new(SyncGroupResult(Vec::new()));
 
 /// Dispatch simulation init to the first registered init function.
 ///
@@ -197,16 +207,37 @@ pub unsafe extern "C" fn mass_init_simulation(
     let Some(reg) = registered_sim_inits().into_iter().next() else {
         return 0;
     };
-    let (ants, food) = (reg.init_fn)(params);
-    let mut stored_ants = INIT_RESULT_ANTS.lock().unwrap();
-    let mut stored_food = INIT_RESULT_FOOD.lock().unwrap();
-    *stored_ants = ants;
-    *stored_food = food;
+    let groups = (reg.init_fn)(params);
+
+    let mut stored = INIT_RESULT_GROUPS.lock().unwrap();
+    *stored = groups
+        .into_iter()
+        .map(|(name, handles)| {
+            let mut name_bytes = name.into_bytes();
+            name_bytes.push(0); // null-terminate for C
+            (name_bytes, handles)
+        })
+        .collect();
+
+    // Build descriptor array pointing into stored data
+    let mut descs = INIT_RESULT_DESCS.lock().unwrap();
+    descs.0.clear();
+    for (name_bytes, handles) in stored.iter() {
+        descs.0.push(unreal_ffi::MassEntityGroupResult {
+            name: unreal_ffi::Utf8Str {
+                ptr: name_bytes.as_ptr() as *const i8,
+                len: (name_bytes.len() - 1) as usize, // exclude null terminator
+            },
+            handles: handles.as_ptr(),
+            count: handles.len() as u32,
+            _pad: 0,
+        });
+    }
+
     unsafe {
-        (*result).ant_handles = stored_ants.as_ptr();
-        (*result).num_ants = stored_ants.len() as u32;
-        (*result).food_handles = stored_food.as_ptr();
-        (*result).num_food = stored_food.len() as u32;
+        (*result).groups = descs.0.as_ptr();
+        (*result).num_groups = descs.0.len() as u32;
+        (*result)._pad = 0;
     }
     1
 }

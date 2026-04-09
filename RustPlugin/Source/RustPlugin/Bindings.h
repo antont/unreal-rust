@@ -11,21 +11,8 @@ enum class ResultCode : uint8_t {
   Panic = 1,
 };
 
-// clang-format off
-// NOLINTBEGIN
-/// Rust Option<fn pointer> is ABI-compatible with a nullable pointer.
-/// This minimal definition lets C++ code compile against the FFI types.
 template<typename T = void>
-struct Option {
-  T value;
-  Option() : value(nullptr) {}
-  Option(T v) : value(v) {} // NOLINT
-  bool IsSome() const { return value != nullptr; }
-  bool IsNone() const { return value == nullptr; }
-  T Unwrap() const { return value; }
-};
-// NOLINTEND
-// clang-format on
+struct Option;
 
 struct Utf8Str {
   const char *ptr;
@@ -384,28 +371,8 @@ struct MassFrameDispatchData {
 /// Function signature for per-frame Bevy-scheduled dispatch.
 using MassFrameDispatchFn = void(*)(const MassFrameDispatchData *data);
 
-/// Parameters for initializing a simulation from Rust.
-struct MassInitSimulationParams {
-  int32_t ant_count;
-  int32_t food_count;
-  double bounds_min[3];
-  double bounds_max[3];
-  int32_t random_seed;
-  int32_t _pad;
-};
-
-/// Result of simulation init: handles to spawned entities.
-struct MassInitSimulationResult {
-  const MassEntityHandle *ant_handles;
-  uint32_t num_ants;
-  const MassEntityHandle *food_handles;
-  uint32_t num_food;
-};
-
-/// Initialize simulation: spawn entities from Rust.
-/// Returns 1 on success, 0 on failure.
-using MassInitSimulationFn = uint32_t(*)(const MassInitSimulationParams *params,
-                                         MassInitSimulationResult *result);
+/// Returns the number of registered visualizer groups.
+using GetVisualizerGroupCountFn = uint32_t(*)();
 
 /// Describes one visual group (entity type with position data for ISMC rendering).
 struct MassVisualizerGroupDesc {
@@ -419,12 +386,51 @@ struct MassVisualizerGroupDesc {
   float scale;
 };
 
-/// Returns the number of registered visualizer groups.
-using GetVisualizerGroupCountFn = uint32_t(*)();
-
 /// Fills a MassVisualizerGroupDesc for the group at `index`.
 /// Returns 1 on success, 0 on failure.
 using GetVisualizerGroupDescFn = uint32_t(*)(uint32_t index, MassVisualizerGroupDesc *out);
+
+/// Describes one entity group to spawn.
+struct MassEntityGroupDesc {
+  /// Group name (e.g. "ants", "food").
+  Utf8Str name;
+  /// Number of entities to spawn in this group.
+  int32_t count;
+  int32_t _pad;
+};
+
+/// Parameters for initializing a simulation.
+struct MassInitSimulationParams {
+  const MassEntityGroupDesc *groups;
+  uint32_t num_groups;
+  uint32_t _pad0;
+  double bounds_min[3];
+  double bounds_max[3];
+  int32_t random_seed;
+  int32_t _pad1;
+};
+
+/// One group of spawned entity handles in the init result.
+struct MassEntityGroupResult {
+  /// Group name (matches the request name).
+  Utf8Str name;
+  /// Pointer to array of entity handles.
+  const MassEntityHandle *handles;
+  /// Number of handles.
+  uint32_t count;
+  uint32_t _pad;
+};
+
+/// Result of simulation init: named groups of entity handles.
+struct MassInitSimulationResult {
+  const MassEntityGroupResult *groups;
+  uint32_t num_groups;
+  uint32_t _pad;
+};
+
+/// Init function type.
+using MassInitSimulationFn = uint32_t(*)(const MassInitSimulationParams *params,
+                                         MassInitSimulationResult *result);
 
 struct RustBindings {
   TickFn tick;
@@ -434,9 +440,9 @@ struct RustBindings {
   GetMassSystemCountFn get_mass_system_count;
   GetMassSystemDescriptorFn get_mass_system_descriptor;
   MassFrameDispatchFn mass_frame_dispatch;
-  Option<MassInitSimulationFn> mass_init_simulation;
   Option<GetVisualizerGroupCountFn> get_visualizer_group_count;
   Option<GetVisualizerGroupDescFn> get_visualizer_group_desc;
+  Option<MassInitSimulationFn> mass_init_simulation;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);

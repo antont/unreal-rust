@@ -433,14 +433,12 @@ pub fn run_fragment_codegen(default_output: &std::path::Path) {
 // Simulation init registration
 // ---------------------------------------------------------------------------
 
-/// Game crates register a simulation init function via inventory.
-/// The init function receives parameters (counts, bounds, seed) and returns
-/// spawned entity handles for ants and food.
+/// Game crates register a simulation init function that returns named entity groups.
 pub struct MassSimInitRegistration {
     pub name: &'static str,
     pub init_fn: fn(
         params: &unreal_ffi::MassInitSimulationParams,
-    ) -> (Vec<unreal_ffi::MassEntityHandle>, Vec<unreal_ffi::MassEntityHandle>),
+    ) -> Vec<(String, Vec<unreal_ffi::MassEntityHandle>)>,
 }
 
 inventory::collect!(MassSimInitRegistration);

@@ -1,5 +1,6 @@
 use unreal_api::mass::{MassQuery, MassQueryAll};
 use unreal_api::mass_system;
+#[allow(unused_imports)] // Used by #[mass_system] macro expansion
 use bevy_ecs::prelude::With;
 use crate::fragments::{
     Position, Movement, Cooldown, Carrying,
@@ -116,39 +117,68 @@ fn carried_food_tracking(
 fn ant_collision_prepass(
     positions: MassQuery<&Position, With<BevyMassAntTag>>,
     encounters: MassQuery<&mut AntEncounterFragment, With<BevyMassAntTag>>,
+    food_positions: MassQueryAll<&FoodFragment>,
     spatial: Res<unreal_api::mass::MassSpatialQueryCallback>,
 ) {
+    // Collect food positions for ECS fallback (when no spatial query callback)
+    let food: Vec<(usize, [f64; 3])> = if spatial.query_fn.is_none() {
+        food_positions
+            .iter()
+            .enumerate()
+            .filter(|(_, f)| f.is_loose)
+            .map(|(i, f)| (i, f.position))
+            .collect()
+    } else {
+        Vec::new()
+    };
+
+    let pickup_radius_sq = (spatial.pickup_radius as f64) * (spatial.pickup_radius as f64);
+
     for (pos, enc) in positions.iter().zip(encounters.iter_mut()) {
         // Reset encounter
         enc.has_encounter = false;
         enc.nearest_food_index = -1;
         enc.encounter_position = [0.0; 3];
 
-        let Some(callback) = spatial.query_fn else {
-            continue;
-        };
+        if let Some(callback) = spatial.query_fn {
+            // Use Unreal spatial query (sweep/overlap)
+            let mut result = unreal_api::ffi::MassSpatialQueryResult {
+                food_index: -1,
+                _pad: 0,
+                encounter_position: [0.0; 3],
+                has_encounter: false,
+                _result_pad: [0; 7],
+            };
 
-        let mut result = unreal_api::ffi::MassSpatialQueryResult {
-            food_index: -1,
-            _pad: 0,
-            encounter_position: [0.0; 3],
-            has_encounter: false,
-            _result_pad: [0; 7],
-        };
+            let ok = unsafe {
+                callback(
+                    pos.previous_position.as_ptr(),
+                    pos.position.as_ptr(),
+                    spatial.pickup_radius,
+                    &mut result,
+                )
+            };
 
-        let ok = unsafe {
-            callback(
-                pos.previous_position.as_ptr(),
-                pos.position.as_ptr(),
-                spatial.pickup_radius,
-                &mut result,
-            )
-        };
-
-        if ok != 0 && result.has_encounter {
-            enc.has_encounter = true;
-            enc.nearest_food_index = result.food_index;
-            enc.encounter_position = result.encounter_position;
+            if ok != 0 && result.has_encounter {
+                enc.has_encounter = true;
+                enc.nearest_food_index = result.food_index;
+                enc.encounter_position = result.encounter_position;
+            }
+        } else {
+            // ECS fallback: brute-force distance check
+            let mut best_dist_sq = f64::MAX;
+            for &(idx, food_pos) in &food {
+                let dx = pos.position[0] - food_pos[0];
+                let dy = pos.position[1] - food_pos[1];
+                let dz = pos.position[2] - food_pos[2];
+                let dist_sq = dx * dx + dy * dy + dz * dz;
+                if dist_sq <= pickup_radius_sq && dist_sq < best_dist_sq {
+                    best_dist_sq = dist_sq;
+                    enc.has_encounter = true;
+                    enc.nearest_food_index = idx as i32;
+                    enc.encounter_position = food_pos;
+                }
+            }
         }
     }
 }
@@ -157,7 +187,7 @@ fn ant_collision_prepass(
 mod tests {
     use super::*;
     use crate::fragments::{Position, Movement, Cooldown, Carrying, AntEncounterFragment, FoodFragment};
-    use unreal_api::mass::{MassChunks, MassGlobalChunkStorage, MassQueryAllMut, MassQueryMut, MassQueryRef};
+    use unreal_api::mass::{MassGlobalChunkStorage, MassQueryAllMut, MassQueryAllRef, MassQueryMut, MassQueryRef};
 
     // -----------------------------------------------------------------------
     // Food decision tests (Unreal query types)
@@ -339,7 +369,15 @@ mod tests {
             query_fn: None,
             pickup_radius: 15.0,
         };
-        ant_collision_prepass(pos_q, enc_q, &spatial);
+        let mut food_storage = MassGlobalChunkStorage::new();
+        let food_q = unsafe {
+            MassQueryAllRef::<FoodFragment>::from_raw_single_chunk(
+                std::ptr::NonNull::<FoodFragment>::dangling().as_ptr() as *const _,
+                0,
+                &mut food_storage,
+            )
+        };
+        ant_collision_prepass(pos_q, enc_q, food_q, &spatial);
 
         assert!(!encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, -1);
@@ -374,7 +412,15 @@ mod tests {
             query_fn: Some(mock_hit),
             pickup_radius: 15.0,
         };
-        ant_collision_prepass(pos_q, enc_q, &spatial);
+        let mut food_storage = MassGlobalChunkStorage::new();
+        let food_q = unsafe {
+            MassQueryAllRef::<FoodFragment>::from_raw_single_chunk(
+                std::ptr::NonNull::<FoodFragment>::dangling().as_ptr() as *const _,
+                0,
+                &mut food_storage,
+            )
+        };
+        ant_collision_prepass(pos_q, enc_q, food_q, &spatial);
 
         assert!(encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, 3);
@@ -409,9 +455,52 @@ mod tests {
             query_fn: Some(mock_miss),
             pickup_radius: 15.0,
         };
-        ant_collision_prepass(pos_q, enc_q, &spatial);
+        let mut food_storage = MassGlobalChunkStorage::new();
+        let food_q = unsafe {
+            MassQueryAllRef::<FoodFragment>::from_raw_single_chunk(
+                std::ptr::NonNull::<FoodFragment>::dangling().as_ptr() as *const _,
+                0,
+                &mut food_storage,
+            )
+        };
+        ant_collision_prepass(pos_q, enc_q, food_q, &spatial);
 
         assert!(!encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, -1);
+    }
+
+    #[test]
+    fn collision_prepass_ecs_fallback_finds_nearby_food() {
+        let positions = [Position {
+            position: [100.0, 0.0, 0.0],
+            previous_position: [99.0, 0.0, 0.0],
+        }];
+        let mut encounters = [AntEncounterFragment::default()];
+        let foods = [
+            FoodFragment { position: [200.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] },  // too far
+            FoodFragment { position: [105.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] },  // within radius
+            FoodFragment { position: [102.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] },  // closest
+        ];
+
+        let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
+        let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+        let mut food_storage = MassGlobalChunkStorage::new();
+        let food_q = unsafe {
+            MassQueryAllRef::<FoodFragment>::from_raw_single_chunk(
+                foods.as_ptr() as *const _,
+                foods.len(),
+                &mut food_storage,
+            )
+        };
+
+        let spatial = unreal_api::mass::MassSpatialQueryCallback {
+            query_fn: None,
+            pickup_radius: 15.0,
+        };
+        ant_collision_prepass(pos_q, enc_q, food_q, &spatial);
+
+        assert!(encounters[0].has_encounter);
+        assert_eq!(encounters[0].nearest_food_index, 2); // closest food
+        assert_eq!(encounters[0].encounter_position, [102.0, 0.0, 0.0]);
     }
 }

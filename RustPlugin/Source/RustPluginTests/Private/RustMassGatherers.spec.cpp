@@ -3,7 +3,7 @@
 #include "MassEntitySubsystem.h"
 #include "MassEntityView.h"
 #include "Tests/AutomationCommon.h"
-#include "GatherersBevyMassSubsystem.h"
+#include "RustMassBevySubsystem.h"
 #include "GatherersFragments.h"
 #include "GatherersMassRuntime.h"
 #include "Bindings.h"
@@ -19,8 +19,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 
 bool FGatherersBevyMassSubsystemRegisteredTest::RunTest(const FString& Parameters)
 {
-	UClass* SubsystemClass = FindObject<UClass>(nullptr, TEXT("/Script/RustMassGatherers.GatherersBevyMassSubsystem"));
-	TestNotNull(TEXT("UGatherersBevyMassSubsystem UClass should be registered"), SubsystemClass);
+	UClass* SubsystemClass = FindObject<UClass>(nullptr, TEXT("/Script/RustPlugin.RustMassBevySubsystem"));
+	TestNotNull(TEXT("URustMassBevySubsystem UClass should be registered"), SubsystemClass);
 	return true;
 }
 
@@ -43,24 +43,25 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
-	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
 	{
 		return false;
 	}
 
 	// Initialize with known parameters (ants + food)
 	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
-	Subsystem->InitializeSimulation(20, 10, Bounds, 456);
+	Subsystem->InitializeSimulation({{TEXT("ants"), 20}, {TEXT("food"), 10}}, Bounds, 456);
 
-	TestEqual(TEXT("Should have 20 ants"), Subsystem->GetManagedAntCount(), 20);
-	TestEqual(TEXT("Should have 10 food"), Subsystem->GetManagedFoodCount(), 10);
+	TestEqual(TEXT("Should have 20 ants"), Subsystem->GetGroupEntityCount(TEXT("ants")), 20);
+	TestEqual(TEXT("Should have 10 food"), Subsystem->GetGroupEntityCount(TEXT("food")), 10);
 	TestTrue(TEXT("HasManagedSimulation should be true"), Subsystem->HasManagedSimulation());
 
 	// Record initial positions
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 	TArray<FVector> InitialPositions;
-	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
@@ -78,9 +79,9 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 
 	// Verify positions changed
 	int32 MovedCount = 0;
-	for (int32 AntIndex = 0; AntIndex < Subsystem->ManagedAntEntities.Num(); ++AntIndex)
+	for (int32 AntIndex = 0; AntIndex < AntEntities->Num(); ++AntIndex)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[AntIndex];
+		const FMassEntityHandle AntEntity = (*AntEntities)[AntIndex];
 		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(AntIndex))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
@@ -95,7 +96,8 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("At least some ants should have moved (dynamic Rust processors)"), MovedCount > 0);
 
 	// Verify food entities exist and have valid data
-	for (const FMassEntityHandle FoodEntity : Subsystem->ManagedFoodEntities)
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
+	for (const FMassEntityHandle FoodEntity : *FoodEntities)
 	{
 		if (EntityManager.IsEntityValid(FoodEntity))
 		{
@@ -106,7 +108,7 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 	}
 
 	// Verify ants have encounter fragments
-	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
@@ -208,26 +210,28 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
-	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
 	{
 		return false;
 	}
 
 	// Spawn 1 ant and 1 food in a small area so they overlap
 	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
-	Subsystem->InitializeSimulation(1, 1, Bounds, 42);
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), 1}}, Bounds, 42);
 
-	TestEqual(TEXT("Should have 1 ant"), Subsystem->GetManagedAntCount(), 1);
-	TestEqual(TEXT("Should have 1 food"), Subsystem->GetManagedFoodCount(), 1);
+	TestEqual(TEXT("Should have 1 ant"), Subsystem->GetGroupEntityCount(TEXT("ants")), 1);
+	TestEqual(TEXT("Should have 1 food"), Subsystem->GetGroupEntityCount(TEXT("food")), 1);
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
 
 	// Move ant directly to food position to guarantee overlap
-	if (Subsystem->ManagedAntEntities.Num() > 0 && Subsystem->ManagedFoodEntities.Num() > 0)
+	if (AntEntities->Num() > 0 && FoodEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[0];
-		const FMassEntityHandle FoodEntity = Subsystem->ManagedFoodEntities[0];
+		const FMassEntityHandle AntEntity = (*AntEntities)[0];
+		const FMassEntityHandle FoodEntity = (*FoodEntities)[0];
 
 		if (EntityManager.IsEntityValid(AntEntity) && EntityManager.IsEntityValid(FoodEntity))
 		{
@@ -254,10 +258,10 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 	// Check if the ant picked up food (encounter detection depends on physics queries
 	// being active in editor context — if not, the encounter fragment stays clear and
 	// food remains loose, which is still a valid outcome for this test environment).
-	if (Subsystem->ManagedAntEntities.Num() > 0 && Subsystem->ManagedFoodEntities.Num() > 0)
+	if (AntEntities->Num() > 0 && FoodEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[0];
-		const FMassEntityHandle FoodEntity = Subsystem->ManagedFoodEntities[0];
+		const FMassEntityHandle AntEntity = (*AntEntities)[0];
+		const FMassEntityHandle FoodEntity = (*FoodEntities)[0];
 
 		if (EntityManager.IsEntityValid(AntEntity) && EntityManager.IsEntityValid(FoodEntity))
 		{
@@ -306,21 +310,22 @@ bool FGatherersBevyMassCooldownTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
-	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
 	{
 		return false;
 	}
 
 	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
-	Subsystem->InitializeSimulation(1, 0, Bounds, 555);
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), 0}}, Bounds, 555);
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
 
 	// Set a known cooldown value
-	if (Subsystem->ManagedAntEntities.Num() > 0)
+	if (AntEntities && AntEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[0];
+		const FMassEntityHandle AntEntity = (*AntEntities)[0];
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
@@ -333,9 +338,9 @@ bool FGatherersBevyMassCooldownTest::RunTest(const FString& Parameters)
 	Subsystem->RunSimulationProcessorsForTesting(0.3f);
 
 	// Verify cooldown decremented
-	if (Subsystem->ManagedAntEntities.Num() > 0)
+	if (AntEntities && AntEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[0];
+		const FMassEntityHandle AntEntity = (*AntEntities)[0];
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
@@ -377,21 +382,22 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
-	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
 	{
 		return false;
 	}
 
 	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
-	Subsystem->InitializeSimulation(1, 0, Bounds, 777);
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), 0}}, Bounds, 777);
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
 
 	// Place ant heading toward the +X boundary at high speed
-	if (Subsystem->ManagedAntEntities.Num() > 0)
+	if (AntEntities && AntEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[0];
+		const FMassEntityHandle AntEntity = (*AntEntities)[0];
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
@@ -411,9 +417,9 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 	}
 
 	// Verify ant is within bounds and direction reflected
-	if (Subsystem->ManagedAntEntities.Num() > 0)
+	if (AntEntities && AntEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[0];
+		const FMassEntityHandle AntEntity = (*AntEntities)[0];
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
@@ -448,8 +454,8 @@ bool FGatherersBevyMassSystemOrderingTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
-	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
 	{
 		return false;
 	}
@@ -542,8 +548,8 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	UGatherersBevyMassSubsystem* Subsystem = World->GetSubsystem<UGatherersBevyMassSubsystem>();
-	if (!TestNotNull(TEXT("GatherersBevyMassSubsystem must exist"), Subsystem))
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
 	{
 		return false;
 	}
@@ -551,16 +557,18 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 	const int32 AntCount = 50;
 	const int32 FoodCount = 20;
 	const FBox Bounds(FVector(-1000.0, -1000.0, 0.0), FVector(1000.0, 1000.0, 100.0));
-	Subsystem->InitializeSimulation(AntCount, FoodCount, Bounds, 12345);
+	Subsystem->InitializeSimulation({{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}}, Bounds, 12345);
 
-	TestEqual(TEXT("Should have 50 ants"), Subsystem->GetManagedAntCount(), AntCount);
-	TestEqual(TEXT("Should have 20 food"), Subsystem->GetManagedFoodCount(), FoodCount);
+	TestEqual(TEXT("Should have 50 ants"), Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+	TestEqual(TEXT("Should have 20 food"), Subsystem->GetGroupEntityCount(TEXT("food")), FoodCount);
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
 
 	// Record initial positions
 	TArray<FVector> InitialPositions;
-	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
@@ -578,9 +586,9 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 
 	// Verify: ants moved
 	int32 MovedCount = 0;
-	for (int32 i = 0; i < Subsystem->ManagedAntEntities.Num(); ++i)
+	for (int32 i = 0; i < AntEntities->Num(); ++i)
 	{
-		const FMassEntityHandle AntEntity = Subsystem->ManagedAntEntities[i];
+		const FMassEntityHandle AntEntity = (*AntEntities)[i];
 		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(i))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
@@ -596,7 +604,7 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 	// Verify: no ant escaped bounds (with tolerance for boundary reflection lag)
 	const double BoundsTolerance = 50.0;
 	int32 OutOfBoundsCount = 0;
-	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
@@ -615,7 +623,7 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 
 	// Verify: PreviousPosition is tracked (should differ from Position for moving ants)
 	int32 PreviousTrackedCount = 0;
-	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
@@ -632,7 +640,7 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 
 	// Verify: all food entities valid and accessible
 	int32 ValidFoodCount = 0;
-	for (const FMassEntityHandle FoodEntity : Subsystem->ManagedFoodEntities)
+	for (const FMassEntityHandle FoodEntity : *FoodEntities)
 	{
 		if (EntityManager.IsEntityValid(FoodEntity))
 		{
@@ -646,7 +654,7 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 	TestEqual(TEXT("All food entities should remain valid"), ValidFoodCount, FoodCount);
 
 	// Verify: encounter fragments well-formed on all ants
-	for (const FMassEntityHandle AntEntity : Subsystem->ManagedAntEntities)
+	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
@@ -667,9 +675,9 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 	TestFalse(TEXT("HasManagedSimulation should be false after reset"),
 		Subsystem->HasManagedSimulation());
 	TestEqual(TEXT("Ant count should be 0 after reset"),
-		Subsystem->GetManagedAntCount(), 0);
+		Subsystem->GetGroupEntityCount(TEXT("ants")), 0);
 	TestEqual(TEXT("Food count should be 0 after reset"),
-		Subsystem->GetManagedFoodCount(), 0);
+		Subsystem->GetGroupEntityCount(TEXT("food")), 0);
 
 	return true;
 }
