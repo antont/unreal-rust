@@ -404,6 +404,31 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration]) -> String
     out
 }
 
+/// Run fragment codegen: collect registered fragments, sort deterministically,
+/// generate C++ header, write to output path (from argv[1] or default).
+///
+/// Game crates create a `[[bin]]` that links their lib (`use my_game as _`)
+/// and calls this function. The link ensures inventory collects all registrations.
+pub fn run_fragment_codegen(default_output: &std::path::Path) {
+    let regs: Vec<&MassFragmentRegistration> = registered_mass_fragments().into_iter().collect();
+    let mut tags: Vec<_> = regs.iter().copied().filter(|r| r.is_tag).collect();
+    let mut fragments: Vec<_> = regs.iter().copied().filter(|r| !r.is_tag).collect();
+    tags.sort_by_key(|r| r.cpp_type_name);
+    fragments.sort_by_key(|r| r.cpp_type_name);
+    let mut all = tags;
+    all.extend(fragments);
+    let output = generate_cpp_fragments(&all);
+    let out_path = std::env::args()
+        .nth(1)
+        .map(std::path::PathBuf::from)
+        .unwrap_or_else(|| default_output.to_path_buf());
+    if let Some(parent) = out_path.parent() {
+        std::fs::create_dir_all(parent).ok();
+    }
+    std::fs::write(&out_path, &output).expect("Failed to write generated fragments");
+    println!("Wrote {}", out_path.display());
+}
+
 // ---------------------------------------------------------------------------
 // Primary query types (per-chunk)
 // ---------------------------------------------------------------------------
