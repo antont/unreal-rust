@@ -6,7 +6,6 @@
 #include "MassProcessingContext.h"
 #include "MassEntitySubsystem.h"
 #include "MassEntityView.h"
-#include "StructUtils/InstancedStruct.h"
 #include "RustMassDynamicProcessor.h"
 #include "RustMassScheduleCoordinator.h"
 #include "RustPlugin.h"
@@ -280,62 +279,28 @@ void UGatherersBevyMassSubsystem::InitializeSimulation(int32 AntCount, int32 Foo
 	RustMassSpawnSetEntityManager(&EntityManager);
 	SimulationBounds = Bounds;
 
-	FRandomStream Random(RandomSeedBase);
-
-	// Spawn food entities
-	for (int32 FoodIndex = 0; FoodIndex < FoodCount; ++FoodIndex)
+	// Delegate entity spawning to Rust
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	if (Module.Plugin.Rust.mass_init_simulation.IsSome())
 	{
-		FGatherersMassFoodFragment FoodFragment;
-		FoodFragment.Position = FVector(
-			Random.FRandRange(Bounds.Min.X, Bounds.Max.X),
-			Random.FRandRange(Bounds.Min.Y, Bounds.Max.Y),
-			50.0);
+		MassInitSimulationParams Params = {};
+		Params.ant_count = AntCount;
+		Params.food_count = FoodCount;
+		Params.bounds_min[0] = Bounds.Min.X; Params.bounds_min[1] = Bounds.Min.Y; Params.bounds_min[2] = Bounds.Min.Z;
+		Params.bounds_max[0] = Bounds.Max.X; Params.bounds_max[1] = Bounds.Max.Y; Params.bounds_max[2] = Bounds.Max.Z;
+		Params.random_seed = RandomSeedBase;
 
-		TArray<FInstancedStruct, TInlineAllocator<1>> FoodFragments;
-		FoodFragments.Add(FInstancedStruct::Make(FoodFragment));
-		const FMassEntityHandle FoodEntity = EntityManager.CreateEntity(FoodFragments);
-		EntityManager.AddTagToEntity(FoodEntity, FGatherersMassFoodTag::StaticStruct());
-		ManagedFoodEntities.Add(FoodEntity);
-	}
+		MassInitSimulationResult Result = {};
+		Module.Plugin.Rust.mass_init_simulation.Unwrap()(&Params, &Result);
 
-	// Spawn ant entities
-	const FVector BoundsCenter = Bounds.GetCenter();
-	const float AntSpawnStep = 50.0f;
-
-	for (int32 AntIndex = 0; AntIndex < AntCount; ++AntIndex)
-	{
-		const FVector SpawnPos(
-			BoundsCenter.X + (AntIndex - AntCount / 2) * AntSpawnStep,
-			BoundsCenter.Y + 100.0,
-			50.0);
-		const float Angle = Random.FRandRange(0.0f, 2.0f * PI);
-
-		FGatherersPosition PositionFrag;
-		PositionFrag.Position = SpawnPos;
-		PositionFrag.PreviousPosition = SpawnPos;
-
-		FGatherersMovement MovementFrag;
-		MovementFrag.Direction = FVector(FMath::Cos(Angle), FMath::Sin(Angle), 0.0f);
-		MovementFrag.MovementSpeed = 100.0f;
-
-		FGatherersCooldown CooldownFrag;
-		FGatherersCarrying CarryingFrag;
-
-		FGatherersBehavior BehaviorFrag;
-		BehaviorFrag.RandomSeed = RandomSeedBase + AntIndex;
-
-		FGatherersAntEncounterFragment EncounterFrag;
-
-		TArray<FInstancedStruct, TInlineAllocator<6>> AntFragments;
-		AntFragments.Add(FInstancedStruct::Make(PositionFrag));
-		AntFragments.Add(FInstancedStruct::Make(MovementFrag));
-		AntFragments.Add(FInstancedStruct::Make(CooldownFrag));
-		AntFragments.Add(FInstancedStruct::Make(CarryingFrag));
-		AntFragments.Add(FInstancedStruct::Make(BehaviorFrag));
-		AntFragments.Add(FInstancedStruct::Make(EncounterFrag));
-		const FMassEntityHandle AntEntity = EntityManager.CreateEntity(AntFragments);
-		EntityManager.AddTagToEntity(AntEntity, FGatherersBevyMassAntTag::StaticStruct());
-		ManagedAntEntities.Add(AntEntity);
+		for (uint32 i = 0; i < Result.num_ants; ++i)
+		{
+			ManagedAntEntities.Add(FMassEntityHandle(Result.ant_handles[i].index, Result.ant_handles[i].serial_number));
+		}
+		for (uint32 i = 0; i < Result.num_food; ++i)
+		{
+			ManagedFoodEntities.Add(FMassEntityHandle(Result.food_handles[i].index, Result.food_handles[i].serial_number));
+		}
 	}
 
 	// Initialize visualizer

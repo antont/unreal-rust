@@ -6,6 +6,7 @@ edition.workspace = true
 [dependencies]
 
 unreal-api = { path = "../unreal-api/"}
+unreal-ffi = { path = "../unreal-ffi/" }
 gatherers-bevy-mass = { path = "../gatherers-bevy-mass/" }
 log = { version = "0.4", features =["std"] }
 

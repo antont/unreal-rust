@@ -1,10 +1,10 @@
-use std::sync::OnceLock;
+use std::sync::{Mutex, OnceLock};
 
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
     MassBevySystemRegistration, MassDeltaTime, MassSchedule, MassSpatialQueryCallback,
     MassSystemRegistration, MassSystemStage,
-    registered_bevy_mass_systems, registered_mass_systems,
+    registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
 };
 use unreal_api::ecs::schedule::IntoScheduleConfigs;
 
@@ -172,4 +172,40 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     }
 
     sched.run();
+}
+
+// ---------------------------------------------------------------------------
+// Simulation init dispatch
+// ---------------------------------------------------------------------------
+
+static INIT_RESULT_ANTS: Mutex<Vec<unreal_ffi::MassEntityHandle>> = Mutex::new(Vec::new());
+static INIT_RESULT_FOOD: Mutex<Vec<unreal_ffi::MassEntityHandle>> = Mutex::new(Vec::new());
+
+/// Dispatch simulation init to the first registered init function.
+///
+/// # Safety
+/// `params` and `result` must be valid pointers.
+pub unsafe extern "C" fn mass_init_simulation(
+    params: *const unreal_ffi::MassInitSimulationParams,
+    result: *mut unreal_ffi::MassInitSimulationResult,
+) -> u32 {
+    if params.is_null() || result.is_null() {
+        return 0;
+    }
+    let params = unsafe { &*params };
+    let Some(reg) = registered_sim_inits().into_iter().next() else {
+        return 0;
+    };
+    let (ants, food) = (reg.init_fn)(params);
+    let mut stored_ants = INIT_RESULT_ANTS.lock().unwrap();
+    let mut stored_food = INIT_RESULT_FOOD.lock().unwrap();
+    *stored_ants = ants;
+    *stored_food = food;
+    unsafe {
+        (*result).ant_handles = stored_ants.as_ptr();
+        (*result).num_ants = stored_ants.len() as u32;
+        (*result).food_handles = stored_food.as_ptr();
+        (*result).num_food = stored_food.len() as u32;
+    }
+    1
 }

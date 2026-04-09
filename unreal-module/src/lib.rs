@@ -101,6 +101,7 @@ fn create_rust_bindings() -> RustBindings {
         get_mass_system_count: mass_system_registry::get_mass_system_count,
         get_mass_system_descriptor: mass_system_registry::get_mass_system_descriptor,
         mass_frame_dispatch: mass_system_registry::mass_frame_dispatch,
+        mass_init_simulation: Some(mass_system_registry::mass_init_simulation),
     }
 }
 fn debug_break() {

@@ -316,6 +316,35 @@ pub type SpawnEntitiesFn = unsafe extern "C" fn(
     out_handles: *mut MassEntityHandle,
 ) -> u32;
 
+// --- Simulation init from Rust ---
+
+/// Parameters for initializing a simulation from Rust.
+#[repr(C)]
+pub struct MassInitSimulationParams {
+    pub ant_count: i32,
+    pub food_count: i32,
+    pub bounds_min: [f64; 3],
+    pub bounds_max: [f64; 3],
+    pub random_seed: i32,
+    pub _pad: i32,
+}
+
+/// Result of simulation init: handles to spawned entities.
+#[repr(C)]
+pub struct MassInitSimulationResult {
+    pub ant_handles: *const MassEntityHandle,
+    pub num_ants: u32,
+    pub food_handles: *const MassEntityHandle,
+    pub num_food: u32,
+}
+
+/// Initialize simulation: spawn entities from Rust.
+/// Returns 1 on success, 0 on failure.
+pub type MassInitSimulationFn = unsafe extern "C" fn(
+    params: *const MassInitSimulationParams,
+    result: *mut MassInitSimulationResult,
+) -> u32;
+
 // Compile-time check: Option<fn ptr> must be pointer-sized for C FFI compatibility.
 // Rust guarantees niche optimization for Option<extern "C" fn>, but assert to catch
 // any future type changes that would break the C++ nullable function pointer layout.
@@ -367,6 +396,7 @@ pub struct RustBindings {
     pub get_mass_system_count: GetMassSystemCountFn,
     pub get_mass_system_descriptor: GetMassSystemDescriptorFn,
     pub mass_frame_dispatch: MassFrameDispatchFn,
+    pub mass_init_simulation: Option<MassInitSimulationFn>,
 }
 
 impl RustBindings {
@@ -413,6 +443,7 @@ impl RustBindings {
             get_mass_system_count: get_mass_system_count_stub,
             get_mass_system_descriptor: get_mass_system_descriptor_stub,
             mass_frame_dispatch: mass_frame_dispatch_stub,
+            mass_init_simulation: None,
         }
     }
 }
@@ -729,9 +760,9 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings should have 7 function pointers
+        // RustBindings should have 7 non-optional fn ptrs + 1 Option<fn ptr> = 8 pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 7 * std::mem::size_of::<usize>());
+        assert_eq!(size, 8 * std::mem::size_of::<usize>());
     }
 
     #[test]
