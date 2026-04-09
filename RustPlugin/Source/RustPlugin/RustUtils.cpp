@@ -35,7 +35,13 @@ namespace RustMassSpawn
 		{
 			const SpawnFragmentData& Frag = Request->fragments[i];
 			FString TypeName = ToFString(Frag.cpp_type_name);
-			const UScriptStruct* Struct = FindFirstObject<UScriptStruct>(*TypeName, EFindFirstObjectOptions::NativeFirst);
+			// Strip F/U prefix — UE reflection registers structs without the prefix
+			FString SearchName = TypeName;
+			if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
+			{
+				SearchName.RightChopInline(1);
+			}
+			const UScriptStruct* Struct = FindFirstObject<UScriptStruct>(*SearchName, EFindFirstObjectOptions::NativeFirst);
 			if (!Struct)
 			{
 				UE_LOG(LogTemp, Error, TEXT("RustMassSpawn: Could not find UScriptStruct '%s'"), *TypeName);
@@ -50,7 +56,12 @@ namespace RustMassSpawn
 		for (uint32_t i = 0; i < Request->num_tags; ++i)
 		{
 			FString TypeName = ToFString(Request->tags[i].cpp_type_name);
-			const UScriptStruct* Struct = FindFirstObject<UScriptStruct>(*TypeName, EFindFirstObjectOptions::NativeFirst);
+			FString TagSearchName = TypeName;
+			if (TagSearchName.Len() > 1 && (TagSearchName[0] == TEXT('F') || TagSearchName[0] == TEXT('U')))
+			{
+				TagSearchName.RightChopInline(1);
+			}
+			const UScriptStruct* Struct = FindFirstObject<UScriptStruct>(*TagSearchName, EFindFirstObjectOptions::NativeFirst);
 			if (!Struct)
 			{
 				UE_LOG(LogTemp, Error, TEXT("RustMassSpawn: Could not find tag UScriptStruct '%s'"), *TypeName);

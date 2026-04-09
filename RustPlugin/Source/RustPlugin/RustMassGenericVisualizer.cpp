@@ -4,9 +4,10 @@
 #include "GameFramework/Actor.h"
 #include "MassEntityManager.h"
 #include "MassEntityView.h"
+#include "StructUtils/StructView.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Materials/MaterialInterface.h"
-#include "UObject/UObjectIterator.h"
+
 
 namespace
 {
@@ -23,17 +24,16 @@ const FLinearColor GroupColors[] = {
 };
 constexpr int32 NumGroupColors = UE_ARRAY_COUNT(GroupColors);
 
-/** Look up a USTRUCT by name. */
-const UScriptStruct* FindFragmentStructByName(const FString& TypeName)
+/** Look up a USTRUCT by C++ type name (e.g. "FGatherersPosition"). */
+const UScriptStruct* FindFragmentStructByName(const FString& CppTypeName)
 {
-	for (TObjectIterator<UScriptStruct> It; It; ++It)
+	// Strip F/U prefix — UE reflection registers structs without the prefix
+	FString SearchName = CppTypeName;
+	if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
 	{
-		if (It->GetName() == TypeName)
-		{
-			return *It;
-		}
+		SearchName.RightChopInline(1);
 	}
-	return nullptr;
+	return FindFirstObject<UScriptStruct>(*SearchName, EFindFirstObjectOptions::NativeFirst);
 }
 
 } // anonymous namespace
@@ -155,7 +155,9 @@ void URustMassGenericVisualizer::RebuildInstances(
 		{
 			if (!EM.IsEntityValid(Entities[i])) continue;
 			FMassEntityView View(EM, Entities[i]);
-			const uint8* FragData = View.GetFragmentDataPtr(*Group.PositionFragmentStruct);
+			FStructView FragView = View.GetFragmentDataStruct(Group.PositionFragmentStruct);
+			const uint8* FragData = FragView.GetMemory();
+			if (!FragData) continue;
 			const double* Pos = reinterpret_cast<const double*>(FragData + Group.PositionOffset);
 			FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
 			Group.ISMC->AddInstance(T, true);
@@ -190,7 +192,9 @@ void URustMassGenericVisualizer::SyncInstances(
 				return;
 			}
 			FMassEntityView View(EM, Entities[i]);
-			const uint8* FragData = View.GetFragmentDataPtr(*Group.PositionFragmentStruct);
+			FStructView FragView = View.GetFragmentDataStruct(Group.PositionFragmentStruct);
+			const uint8* FragData = FragView.GetMemory();
+			if (!FragData) continue;
 			const double* Pos = reinterpret_cast<const double*>(FragData + Group.PositionOffset);
 			FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
 			const bool bMarkDirty = (i == Entities.Num() - 1 && g == Count - 1);
