@@ -350,6 +350,28 @@ bool FRustLoader::SetupLoader()
 	NeedsInit = true;
 	CallEntryPoints();
 	LoadRust();
+
+	// Validate that mandatory RustBindings function pointers are non-null.
+	// If LoadRust() or CallEntryPoints() partially failed, some pointers may be null,
+	// which would cause segfaults later when called.
+	if (IsLoaded())
+	{
+		bool bValid = true;
+		if (!Rust.tick) { UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust.tick is null after loading")); bValid = false; }
+		if (!Rust.begin_play) { UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust.begin_play is null after loading")); bValid = false; }
+		if (!Rust.allocate) { UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust.allocate is null after loading")); bValid = false; }
+		if (!Rust.get_mass_system_count) { UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust.get_mass_system_count is null after loading")); bValid = false; }
+		if (!Rust.get_mass_system_descriptor) { UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust.get_mass_system_descriptor is null after loading")); bValid = false; }
+		if (!Rust.mass_frame_dispatch) { UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust.mass_frame_dispatch is null after loading")); bValid = false; }
+		if (!bValid)
+		{
+			UE_LOG(LogTemp, Error, TEXT("RustPlugin: RustBindings validation failed — mandatory function pointers are null. Unloading."));
+			FPlatformProcess::FreeDllHandle(Handle);
+			Handle = nullptr;
+			return false;
+		}
+	}
+
 	return true;
 }
 
@@ -379,7 +401,9 @@ void FRustLoader::CallEntryPoints()
 	}
 	else
 	{
-		// TODO: We had a panic when calling the entry point. We need to handle that better, otherwise unreal will segfault because the rust bindings are nullptrs
+		UE_LOG(LogTemp, Error, TEXT("RustPlugin: Rust entry point panicked during binding exchange. Rust code will not be available."));
+		FPlatformProcess::FreeDllHandle(Handle);
+		Handle = nullptr;
 	}
 }
 
@@ -522,7 +546,7 @@ void FRustPluginModule::StartupModule()
 	//	WatcherHandle, IDirectoryWatcher::WatchOptions::IgnoreChangesInSubtree);
 	if (!Plugin.SetupLoader())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: SetupLoader failed — Rust code will not be available"));
+		UE_LOG(LogTemp, Error, TEXT("RustPlugin: SetupLoader failed — Rust code will NOT be available. Check that the Rust dylib was built with: cargo build --release -p unreal-rust-host"));
 	}
 
 	//TSharedPtr<FUuidGraphPanelPinFactory> UuidFactory = MakeShareable(new FUuidGraphPanelPinFactory());

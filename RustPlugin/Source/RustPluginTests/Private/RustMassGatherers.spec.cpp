@@ -249,15 +249,54 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		}
 	}
 
+	// Register a spatial query callback that does brute-force distance checks
+	// against food entities (same approach as GatherersSimActivator but without ISMC).
+	Subsystem->SetSpatialQueryCallback(
+		[&EntityManager, FoodEntities](const double* PreviousPos, const double* CurrentPos,
+			float PickupRadius, MassSpatialQueryResult* Out) -> uint32
+		{
+			Out->has_encounter = false;
+			Out->food_index = -1;
+			Out->encounter_position[0] = 0.0;
+			Out->encounter_position[1] = 0.0;
+			Out->encounter_position[2] = 0.0;
+			if (!FoodEntities) return 1;
+
+			const float PickupRadiusSq = PickupRadius * PickupRadius;
+			const FVector AntPos(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+			float BestDistSq = TNumericLimits<float>::Max();
+
+			for (int32 Idx = 0; Idx < FoodEntities->Num(); ++Idx)
+			{
+				const FMassEntityHandle FoodEntity = (*FoodEntities)[Idx];
+				if (!EntityManager.IsEntityValid(FoodEntity)) continue;
+				FMassEntityView FoodView(EntityManager, FoodEntity);
+				const FGatherersMassFoodFragment& Food =
+					FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+				if (!Food.bIsLoose) continue;
+
+				const float DistSq = FVector::DistSquared(AntPos, Food.Position);
+				if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
+				{
+					BestDistSq = DistSq;
+					Out->has_encounter = true;
+					Out->food_index = Idx;
+					Out->encounter_position[0] = Food.Position.X;
+					Out->encounter_position[1] = Food.Position.Y;
+					Out->encounter_position[2] = Food.Position.Z;
+				}
+			}
+			return 1;
+		},
+		GatherersMassPickupRadius);
+
 	// Run enough simulation steps for collision detection + food decision
 	for (int32 Step = 0; Step < 20; ++Step)
 	{
 		Subsystem->RunSimulationProcessorsForTesting(0.016f);
 	}
 
-	// Check if the ant picked up food (encounter detection depends on physics queries
-	// being active in editor context — if not, the encounter fragment stays clear and
-	// food remains loose, which is still a valid outcome for this test environment).
+	// Verify the ant picked up food
 	if (AntEntities->Num() > 0 && FoodEntities->Num() > 0)
 	{
 		const FMassEntityHandle AntEntity = (*AntEntities)[0];
@@ -271,7 +310,6 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			FMassEntityView FoodView(EntityManager, FoodEntity);
 			const FGatherersMassFoodFragment& Food = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
 
-			// Spatial query now has ECS fallback — pickup should work in all contexts
 			TestTrue(TEXT("Ant should have picked up food"), Carry.FoodIndex >= 0);
 			if (Carry.FoodIndex >= 0)
 			{
