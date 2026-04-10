@@ -80,7 +80,25 @@ The filter in `RunTests` is a prefix match:
 - BevyMassSubsystemRegistered
 - BevyMassSystemOrdering
 
-Test source: `RustPlugin/Source/RustPluginTests/Private/RustMassGatherers.spec.cpp`
+C++ test source: `RustPlugin/Source/RustPluginTests/Private/RustMassGatherers.spec.cpp`
+
+### Rust-authored UE tests
+
+Tests authored in Rust that run inside the UE editor with full Mass Entity + physics support.
+These appear under `supplemental.RustPlugin.RustTests.*` in the automation test browser.
+
+```bash
+# Run only Rust-authored tests
+-ExecCmds="Automation RunTests supplemental.RustPlugin.RustTests;Quit"
+```
+
+Current Rust-authored tests:
+- SpawnAndSimulate
+- BoundaryReflect
+- CooldownDecrement
+
+Rust test source: `gatherers-bevy-mass/src/ue_tests.rs`
+C++ runner: `RustPlugin/Source/RustPluginTests/Private/RustAuthoredTests.cpp`
 
 ## Rust hot-reload during PIE
 

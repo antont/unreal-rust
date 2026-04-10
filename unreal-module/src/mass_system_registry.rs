@@ -374,6 +374,90 @@ pub unsafe extern "C" fn get_sim_defaults(
     1
 }
 
+// ---------------------------------------------------------------------------
+// Rust-authored test discovery and execution
+// ---------------------------------------------------------------------------
+
+/// Thread-local storage for the last test error message.
+/// Keeps the string alive so C++ can read the pointer.
+static LAST_TEST_ERROR: std::sync::Mutex<String> = std::sync::Mutex::new(String::new());
+
+pub unsafe extern "C" fn get_mass_test_count() -> u32 {
+    unreal_api::mass::registered_mass_tests().into_iter().count() as u32
+}
+
+pub unsafe extern "C" fn get_mass_test_desc(
+    index: u32,
+    out: *mut unreal_ffi::MassTestDesc,
+) -> u32 {
+    if out.is_null() {
+        return 0;
+    }
+    let Some(reg) = unreal_api::mass::registered_mass_tests()
+        .into_iter()
+        .nth(index as usize)
+    else {
+        return 0;
+    };
+    unsafe {
+        (*out) = unreal_ffi::MassTestDesc {
+            name: unreal_ffi::Utf8Str::from(reg.name),
+        };
+    }
+    1
+}
+
+pub unsafe extern "C" fn run_mass_test(
+    name: unreal_ffi::Utf8Str,
+    callbacks: *const unreal_ffi::MassTestCallbacks,
+) -> unreal_ffi::MassTestResult {
+    let name_str = name.as_str();
+
+    let Some(reg) = unreal_api::mass::registered_mass_tests()
+        .into_iter()
+        .find(|r| r.name == name_str)
+    else {
+        let msg = format!("Test '{}' not found", name_str);
+        let mut guard = LAST_TEST_ERROR.lock().unwrap();
+        *guard = msg;
+        return unreal_ffi::MassTestResult {
+            passed: 0,
+            error_len: guard.len() as u32,
+            error_ptr: guard.as_ptr(),
+        };
+    };
+
+    let test_fn = reg.test_fn;
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        let ctx = unsafe { unreal_api::mass::TestCtx::from_raw(callbacks) };
+        test_fn(&ctx);
+    }));
+
+    match result {
+        Ok(()) => unreal_ffi::MassTestResult {
+            passed: 1,
+            error_len: 0,
+            error_ptr: std::ptr::null(),
+        },
+        Err(payload) => {
+            let msg = if let Some(s) = payload.downcast_ref::<&str>() {
+                s.to_string()
+            } else if let Some(s) = payload.downcast_ref::<String>() {
+                s.clone()
+            } else {
+                "test panicked with unknown payload".to_string()
+            };
+            let mut guard = LAST_TEST_ERROR.lock().unwrap();
+            *guard = msg;
+            unreal_ffi::MassTestResult {
+                passed: 0,
+                error_len: guard.len() as u32,
+                error_ptr: guard.as_ptr(),
+            }
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

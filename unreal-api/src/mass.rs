@@ -1216,6 +1216,162 @@ pub fn registered_sim_defaults() -> inventory::iter<MassSimDefaultsRegistration>
     inventory::iter::<MassSimDefaultsRegistration>
 }
 
+// ---------------------------------------------------------------------------
+// Rust-authored UE integration tests
+// ---------------------------------------------------------------------------
+
+/// Game crates register UE integration tests via inventory.
+/// Each test runs inside the UE editor with full Mass Entity + physics support.
+/// Tests use standard Rust `assert!` macros — panics are caught and reported
+/// as UE automation test failures.
+pub struct MassTestRegistration {
+    pub name: &'static str,
+    pub test_fn: fn(&TestCtx),
+}
+
+// Safety: MassTestRegistration only holds a &'static str and a fn pointer,
+// both of which are Send + Sync.
+unsafe impl Send for MassTestRegistration {}
+unsafe impl Sync for MassTestRegistration {}
+
+inventory::collect!(MassTestRegistration);
+
+pub fn registered_mass_tests() -> inventory::iter<MassTestRegistration> {
+    inventory::iter::<MassTestRegistration>
+}
+
+/// Safe wrapper around C++ test callbacks.
+/// Provides Rust-idiomatic access to UE subsystem operations during tests.
+pub struct TestCtx {
+    callbacks: *const unreal_ffi::MassTestCallbacks,
+}
+
+impl TestCtx {
+    /// Create a TestCtx from raw FFI callbacks. Called by the test runner.
+    ///
+    /// # Safety
+    /// `callbacks` must point to a valid `MassTestCallbacks` for the duration of the test.
+    pub unsafe fn from_raw(callbacks: *const unreal_ffi::MassTestCallbacks) -> Self {
+        Self { callbacks }
+    }
+
+    fn cb(&self) -> &unreal_ffi::MassTestCallbacks {
+        unsafe { &*self.callbacks }
+    }
+
+    /// Initialize a simulation with named entity groups.
+    pub fn init_sim(
+        &self,
+        groups: &[(&str, i32)],
+        bounds_min: [f64; 3],
+        bounds_max: [f64; 3],
+        seed: i32,
+    ) {
+        let ffi_groups: Vec<unreal_ffi::MassEntityGroupDesc> = groups
+            .iter()
+            .map(|(name, count)| unreal_ffi::MassEntityGroupDesc {
+                name: unreal_ffi::Utf8Str::from(*name),
+                count: *count,
+                _pad: 0,
+            })
+            .collect();
+
+        let params = unreal_ffi::MassInitSimulationParams {
+            groups: ffi_groups.as_ptr(),
+            num_groups: ffi_groups.len() as u32,
+            _pad0: 0,
+            bounds_min,
+            bounds_max,
+            random_seed: seed,
+            _pad1: 0,
+        };
+
+        let cb = self.cb();
+        unsafe { (cb.init_sim)(cb.opaque, &params) };
+    }
+
+    /// Run simulation for `count` steps with the given delta time.
+    pub fn step(&self, dt: f32, count: u32) {
+        let cb = self.cb();
+        unsafe { (cb.step_sim)(cb.opaque, dt, count) };
+    }
+
+    /// Reset simulation state (destroy all entities).
+    pub fn reset(&self) {
+        let cb = self.cb();
+        unsafe { (cb.reset_sim)(cb.opaque) };
+    }
+
+    /// Trigger a subsystem tick (e.g. to fire auto-init).
+    pub fn tick(&self, dt: f32) {
+        let cb = self.cb();
+        unsafe { (cb.tick)(cb.opaque, dt) };
+    }
+
+    /// Simulate a Rust hot-reload event.
+    pub fn on_rust_reloaded(&self) {
+        let cb = self.cb();
+        unsafe { (cb.on_rust_reloaded)(cb.opaque) };
+    }
+
+    /// Get entity count for a named group.
+    pub fn entity_count(&self, group: &str) -> i32 {
+        let cb = self.cb();
+        unsafe { (cb.entity_count)(cb.opaque, unreal_ffi::Utf8Str::from(group)) }
+    }
+
+    /// Check if a simulation is currently active.
+    pub fn has_managed_sim(&self) -> bool {
+        let cb = self.cb();
+        unsafe { (cb.has_managed_sim)(cb.opaque) != 0 }
+    }
+
+    /// Check if a named spatial query is registered.
+    pub fn has_spatial_query(&self, name: &str) -> bool {
+        let cb = self.cb();
+        unsafe { (cb.has_spatial_query)(cb.opaque, unreal_ffi::Utf8Str::from(name)) != 0 }
+    }
+
+    /// Read a fragment value for an entity in a group.
+    /// Returns `None` if the entity or fragment doesn't exist.
+    pub fn read<T: MassFragment>(&self, group: &str, index: u32) -> Option<T> {
+        let mut value = std::mem::MaybeUninit::<T>::uninit();
+        let cb = self.cb();
+        let ok = unsafe {
+            (cb.read_fragment)(
+                cb.opaque,
+                unreal_ffi::Utf8Str::from(group),
+                index,
+                unreal_ffi::Utf8Str::from(T::CPP_TYPE_NAME),
+                value.as_mut_ptr() as *mut u8,
+                std::mem::size_of::<T>() as u32,
+            )
+        };
+        if ok == 1 {
+            Some(unsafe { value.assume_init() })
+        } else {
+            None
+        }
+    }
+
+    /// Write a fragment value for an entity in a group.
+    /// Panics if the entity or fragment doesn't exist.
+    pub fn write<T: MassFragment>(&self, group: &str, index: u32, value: &T) {
+        let cb = self.cb();
+        let ok = unsafe {
+            (cb.write_fragment)(
+                cb.opaque,
+                unreal_ffi::Utf8Str::from(group),
+                index,
+                unreal_ffi::Utf8Str::from(T::CPP_TYPE_NAME),
+                value as *const T as *const u8,
+                std::mem::size_of::<T>() as u32,
+            )
+        };
+        assert_eq!(ok, 1, "Failed to write fragment {} for {}/{}", T::CPP_TYPE_NAME, group, index);
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

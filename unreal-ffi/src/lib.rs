@@ -405,6 +405,68 @@ pub struct MassSpatialQueryConfigDesc {
     pub _pad1: u8,
 }
 
+// --- Rust-authored test infrastructure ---
+
+/// Callback function pointers that C++ provides to Rust test functions.
+/// Each callback wraps a URustMassBevySubsystem operation.
+#[repr(C)]
+pub struct MassTestCallbacks {
+    /// Opaque pointer to C++ test harness (URustMassBevySubsystem* + world context).
+    pub opaque: *mut c_void,
+
+    // Simulation lifecycle
+    pub init_sim: unsafe extern "C" fn(ctx: *mut c_void, params: *const MassInitSimulationParams) -> u32,
+    pub step_sim: unsafe extern "C" fn(ctx: *mut c_void, dt: f32, count: u32),
+    pub reset_sim: unsafe extern "C" fn(ctx: *mut c_void),
+    pub tick: unsafe extern "C" fn(ctx: *mut c_void, dt: f32),
+    pub on_rust_reloaded: unsafe extern "C" fn(ctx: *mut c_void),
+
+    // Queries
+    pub entity_count: unsafe extern "C" fn(ctx: *mut c_void, group: Utf8Str) -> i32,
+    pub has_managed_sim: unsafe extern "C" fn(ctx: *mut c_void) -> u32,
+    pub has_spatial_query: unsafe extern "C" fn(ctx: *mut c_void, name: Utf8Str) -> u32,
+
+    // Generic fragment access by C++ type name
+    pub read_fragment: unsafe extern "C" fn(
+        ctx: *mut c_void, group: Utf8Str, index: u32,
+        fragment_type: Utf8Str, out: *mut u8, size: u32,
+    ) -> u32,
+    pub write_fragment: unsafe extern "C" fn(
+        ctx: *mut c_void, group: Utf8Str, index: u32,
+        fragment_type: Utf8Str, data: *const u8, size: u32,
+    ) -> u32,
+}
+
+/// Describes one registered Rust-authored test.
+#[repr(C)]
+pub struct MassTestDesc {
+    pub name: Utf8Str,
+}
+
+/// Result of running a Rust-authored test.
+#[repr(C)]
+pub struct MassTestResult {
+    /// 1 = passed, 0 = failed.
+    pub passed: u32,
+    /// Length of error message in bytes (0 if passed).
+    pub error_len: u32,
+    /// Pointer to UTF-8 error message (null if passed).
+    /// Owned by Rust — C++ must copy before next FFI call.
+    pub error_ptr: *const u8,
+}
+
+/// Returns the number of registered Rust-authored tests.
+pub type GetMassTestCountFn = unsafe extern "C" fn() -> u32;
+
+/// Fills a MassTestDesc for the test at `index`. Returns 1 on success, 0 on failure.
+pub type GetMassTestDescFn = unsafe extern "C" fn(index: u32, out: *mut MassTestDesc) -> u32;
+
+/// Runs the named Rust test with the provided callbacks. Returns test result.
+pub type RunMassTestFn = unsafe extern "C" fn(
+    name: Utf8Str,
+    callbacks: *const MassTestCallbacks,
+) -> MassTestResult;
+
 /// Returns the number of registered spatial query configurations.
 pub type GetSpatialQueryConfigCountFn = unsafe extern "C" fn() -> u32;
 
@@ -511,6 +573,9 @@ pub struct RustBindings {
     pub get_spatial_query_config_count: Option<GetSpatialQueryConfigCountFn>,
     pub get_spatial_query_config_desc: Option<GetSpatialQueryConfigDescFn>,
     pub get_sim_defaults: Option<GetSimDefaultsFn>,
+    pub get_mass_test_count: Option<GetMassTestCountFn>,
+    pub get_mass_test_desc: Option<GetMassTestDescFn>,
+    pub run_mass_test: Option<RunMassTestFn>,
 }
 
 impl RustBindings {
@@ -563,6 +628,9 @@ impl RustBindings {
             get_spatial_query_config_count: None,
             get_spatial_query_config_desc: None,
             get_sim_defaults: None,
+            get_mass_test_count: None,
+            get_mass_test_desc: None,
+            run_mass_test: None,
         }
     }
 }

@@ -505,6 +505,58 @@ struct MassSimDefaultsDesc {
 /// Fills the sim defaults from Rust. Returns 1 if defaults are available, 0 otherwise.
 using GetSimDefaultsFn = uint32_t(*)(MassSimDefaultsDesc *out);
 
+/// Returns the number of registered Rust-authored tests.
+using GetMassTestCountFn = uint32_t(*)();
+
+/// Describes one registered Rust-authored test.
+struct MassTestDesc {
+  Utf8Str name;
+};
+
+/// Fills a MassTestDesc for the test at `index`. Returns 1 on success, 0 on failure.
+using GetMassTestDescFn = uint32_t(*)(uint32_t index, MassTestDesc *out);
+
+/// Result of running a Rust-authored test.
+struct MassTestResult {
+  /// 1 = passed, 0 = failed.
+  uint32_t passed;
+  /// Length of error message in bytes (0 if passed).
+  uint32_t error_len;
+  /// Pointer to UTF-8 error message (null if passed).
+  /// Owned by Rust — C++ must copy before next FFI call.
+  const uint8_t *error_ptr;
+};
+
+/// Callback function pointers that C++ provides to Rust test functions.
+/// Each callback wraps a URustMassBevySubsystem operation.
+struct MassTestCallbacks {
+  /// Opaque pointer to C++ test harness (URustMassBevySubsystem* + world context).
+  void *opaque;
+  uint32_t (*init_sim)(void *ctx, const MassInitSimulationParams *params);
+  void (*step_sim)(void *ctx, float dt, uint32_t count);
+  void (*reset_sim)(void *ctx);
+  void (*tick)(void *ctx, float dt);
+  void (*on_rust_reloaded)(void *ctx);
+  int32_t (*entity_count)(void *ctx, Utf8Str group);
+  uint32_t (*has_managed_sim)(void *ctx);
+  uint32_t (*has_spatial_query)(void *ctx, Utf8Str name);
+  uint32_t (*read_fragment)(void *ctx,
+                            Utf8Str group,
+                            uint32_t index,
+                            Utf8Str fragment_type,
+                            uint8_t *out,
+                            uint32_t size);
+  uint32_t (*write_fragment)(void *ctx,
+                             Utf8Str group,
+                             uint32_t index,
+                             Utf8Str fragment_type,
+                             const uint8_t *data,
+                             uint32_t size);
+};
+
+/// Runs the named Rust test with the provided callbacks. Returns test result.
+using RunMassTestFn = MassTestResult(*)(Utf8Str name, const MassTestCallbacks *callbacks);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -519,6 +571,9 @@ struct RustBindings {
   Option<GetSpatialQueryConfigCountFn> get_spatial_query_config_count;
   Option<GetSpatialQueryConfigDescFn> get_spatial_query_config_desc;
   Option<GetSimDefaultsFn> get_sim_defaults;
+  Option<GetMassTestCountFn> get_mass_test_count;
+  Option<GetMassTestDescFn> get_mass_test_desc;
+  Option<RunMassTestFn> run_mass_test;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
@@ -654,7 +709,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 104, "RustBindings: 7 fn ptrs + 6 Option<fn ptr> = 13 pointers");
+static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---

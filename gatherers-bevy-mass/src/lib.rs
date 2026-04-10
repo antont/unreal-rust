@@ -1,6 +1,7 @@
 pub mod fragments;
 pub mod init;
 pub mod systems;
+pub mod ue_tests;
 
 inventory::submit!(unreal_api::mass::MassSimInitRegistration {
     name: "gatherers",

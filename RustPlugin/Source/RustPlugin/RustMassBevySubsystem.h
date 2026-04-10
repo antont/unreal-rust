@@ -83,6 +83,16 @@ public:
 	/** For testing: run one simulation step directly. */
 	void RunSimulationProcessorsForTesting(float DeltaTime);
 
+	/** Read raw fragment data for an entity by group name, index, and C++ fragment type name.
+	 *  Returns true if successful, false if entity/fragment not found or size mismatch. */
+	bool ReadFragmentData(const FString& GroupName, int32 EntityIndex,
+		const FString& FragmentTypeName, void* OutData, int32 DataSize) const;
+
+	/** Write raw fragment data for an entity by group name, index, and C++ fragment type name.
+	 *  Returns true if successful, false if entity/fragment not found or size mismatch. */
+	bool WriteFragmentData(const FString& GroupName, int32 EntityIndex,
+		const FString& FragmentTypeName, const void* InData, int32 DataSize);
+
 public:
 	/** Named entity groups: key = group name, value = entity handles. */
 	TMap<FString, TArray<FMassEntityHandle>> EntityGroups;

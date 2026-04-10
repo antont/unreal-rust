@@ -742,3 +742,74 @@ void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 {
 	RunSimulationProcessorStep(FMath::Max(0.0f, DeltaTime));
 }
+
+bool URustMassBevySubsystem::ReadFragmentData(const FString& GroupName, int32 EntityIndex,
+	const FString& FragmentTypeName, void* OutData, int32 DataSize) const
+{
+	if (!OutData || DataSize <= 0) return false;
+
+	const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(GroupName);
+	if (!Entities || EntityIndex < 0 || EntityIndex >= Entities->Num()) return false;
+
+	UWorld* World = GetWorld();
+	if (!World) return false;
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!MassEntitySubsystem) return false;
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+
+	const FMassEntityHandle Entity = (*Entities)[EntityIndex];
+	if (!EntityManager.IsEntityValid(Entity)) return false;
+
+	// Find UScriptStruct by name
+	// Strip F/U prefix for UE object lookup (same pattern as SetupSpatialQueriesFromRust)
+	FString SearchName = FragmentTypeName;
+	if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
+	{
+		SearchName.RightChopInline(1);
+	}
+	UScriptStruct* FragmentStruct = FindFirstObject<UScriptStruct>(
+		*SearchName, EFindFirstObjectOptions::NativeFirst);
+	if (!FragmentStruct) return false;
+	if (FragmentStruct->GetStructureSize() != DataSize) return false;
+
+	FStructView FragmentView = EntityManager.GetFragmentDataStruct(Entity, FragmentStruct);
+	if (!FragmentView.IsValid()) return false;
+
+	FMemory::Memcpy(OutData, FragmentView.GetMemory(), DataSize);
+	return true;
+}
+
+bool URustMassBevySubsystem::WriteFragmentData(const FString& GroupName, int32 EntityIndex,
+	const FString& FragmentTypeName, const void* InData, int32 DataSize)
+{
+	if (!InData || DataSize <= 0) return false;
+
+	const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(GroupName);
+	if (!Entities || EntityIndex < 0 || EntityIndex >= Entities->Num()) return false;
+
+	UWorld* World = GetWorld();
+	if (!World) return false;
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!MassEntitySubsystem) return false;
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+
+	const FMassEntityHandle Entity = (*Entities)[EntityIndex];
+	if (!EntityManager.IsEntityValid(Entity)) return false;
+
+	// Strip F/U prefix for UE object lookup (same pattern as SetupSpatialQueriesFromRust)
+	FString SearchName = FragmentTypeName;
+	if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
+	{
+		SearchName.RightChopInline(1);
+	}
+	UScriptStruct* FragmentStruct = FindFirstObject<UScriptStruct>(
+		*SearchName, EFindFirstObjectOptions::NativeFirst);
+	if (!FragmentStruct) return false;
+	if (FragmentStruct->GetStructureSize() != DataSize) return false;
+
+	FStructView FragmentView = EntityManager.GetFragmentDataStruct(Entity, FragmentStruct);
+	if (!FragmentView.IsValid()) return false;
+
+	FMemory::Memcpy(FragmentView.GetMemory(), InData, DataSize);
+	return true;
+}

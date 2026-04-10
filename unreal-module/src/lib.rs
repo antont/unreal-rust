@@ -107,6 +107,9 @@ fn create_rust_bindings() -> RustBindings {
         get_spatial_query_config_count: Some(mass_system_registry::get_spatial_query_config_count),
         get_spatial_query_config_desc: Some(mass_system_registry::get_spatial_query_config_desc),
         get_sim_defaults: Some(mass_system_registry::get_sim_defaults),
+        get_mass_test_count: Some(mass_system_registry::get_mass_test_count),
+        get_mass_test_desc: Some(mass_system_registry::get_mass_test_desc),
+        run_mass_test: Some(mass_system_registry::run_mass_test),
     }
 }
 fn debug_break() {
