@@ -22,8 +22,8 @@ public:
 		MassFrameDispatchFn InDispatchFn,
 		const TArray<URustMassDynamicProcessor*>& InProcessors);
 
-	/// Set the spatial query callback for collision detection.
-	void SetSpatialQueryCallback(MassSpatialQueryFn InFn, float InPickupRadius);
+	/// Set the spatial query slots for collision detection.
+	void SetSpatialQuerySlots(TArray<MassSpatialQuerySlot> InSlots, TArray<TArray<char>> InNameBuffers);
 
 
 protected:
@@ -32,7 +32,7 @@ protected:
 
 private:
 	MassFrameDispatchFn DispatchFn = nullptr;
-	MassSpatialQueryFn SpatialQueryFn = nullptr;
-	float PickupRadius = 15.0f;
+	TArray<MassSpatialQuerySlot> SpatialQuerySlots;
+	TArray<TArray<char>> SpatialQueryNameBuffers; // Owns name string data for SpatialQuerySlots
 	TArray<URustMassDynamicProcessor*> ManagedProcessors;
 };

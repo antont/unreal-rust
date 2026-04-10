@@ -27,10 +27,17 @@ void URustMassScheduleCoordinator::InitializeDispatch(
 		ManagedProcessors.Num());
 }
 
-void URustMassScheduleCoordinator::SetSpatialQueryCallback(MassSpatialQueryFn InFn, float InPickupRadius)
+void URustMassScheduleCoordinator::SetSpatialQuerySlots(
+	TArray<MassSpatialQuerySlot> InSlots,
+	TArray<TArray<char>> InNameBuffers)
 {
-	SpatialQueryFn = InFn;
-	PickupRadius = InPickupRadius;
+	SpatialQueryNameBuffers = MoveTemp(InNameBuffers);
+	SpatialQuerySlots = MoveTemp(InSlots);
+	// Fix up name pointers to point into our owned buffers
+	for (int32 i = 0; i < SpatialQuerySlots.Num(); ++i)
+	{
+		SpatialQuerySlots[i].name.ptr = SpatialQueryNameBuffers[i].GetData();
+	}
 }
 
 void URustMassScheduleCoordinator::ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager)
@@ -74,9 +81,9 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 	Data.dt = DeltaSeconds;
 	Data.num_systems = static_cast<uint32>(Batches.Num());
 	Data.systems = Batches.GetData();
-	Data.spatial_query_fn = SpatialQueryFn;
-	Data.pickup_radius = PickupRadius;
+	Data.num_spatial_queries = static_cast<uint32>(SpatialQuerySlots.Num());
 	Data._pad = 0;
+	Data.spatial_queries = SpatialQuerySlots.GetData();
 
 	DispatchFn(&Data);
 }

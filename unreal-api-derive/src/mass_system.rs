@@ -29,7 +29,7 @@ struct QueryParam {
 struct ResourceParam {
     /// The parameter name (e.g., `spatial`).
     param_name: syn::Ident,
-    /// The resource type (e.g., `MassSpatialQueryCallback`).
+    /// The resource type (e.g., `MassSpatialQueries`).
     resource_type: syn::Type,
     /// Whether the resource is mutable (ResMut vs Res).
     is_mutable: bool,

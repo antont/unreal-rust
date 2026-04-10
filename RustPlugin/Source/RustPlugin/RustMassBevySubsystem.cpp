@@ -12,32 +12,40 @@
 #include "RustPlugin.h"
 #include "RustUtils.h"
 #include "RustMassGenericVisualizer.h"
+#include "CollisionShape.h"
 
 // ---------------------------------------------------------------------------
-// Spatial query trampoline: bounces C function pointer to game-module delegate
+// Spatial query trampolines: bounce C function pointers to game-module delegates
 // ---------------------------------------------------------------------------
 
 namespace RustMassSpatialQuery
 {
-	static URustMassBevySubsystem::FSpatialQueryCallback* ActiveCallback = nullptr;
+	static constexpr int32 MaxQueries = 8;
+	static URustMassBevySubsystem::FSpatialQueryCallback* ActiveCallbacks[MaxQueries] = {};
 
+	template<int N>
 	uint32_t Trampoline(
 		const double* PreviousPos,
 		const double* CurrentPos,
 		float PickupRadius,
 		MassSpatialQueryResult* Out)
 	{
-		if (ActiveCallback && *ActiveCallback)
+		if (ActiveCallbacks[N] && *ActiveCallbacks[N])
 		{
-			return (*ActiveCallback)(PreviousPos, CurrentPos, PickupRadius, Out);
+			return (*ActiveCallbacks[N])(PreviousPos, CurrentPos, PickupRadius, Out);
 		}
 		if (Out)
 		{
 			Out->has_encounter = false;
-			Out->food_index = -1;
+			Out->entity_index = -1;
 		}
 		return 0;
 	}
+
+	static MassSpatialQueryFn TrampolineFns[MaxQueries] = {
+		&Trampoline<0>, &Trampoline<1>, &Trampoline<2>, &Trampoline<3>,
+		&Trampoline<4>, &Trampoline<5>, &Trampoline<6>, &Trampoline<7>,
+	};
 } // namespace RustMassSpatialQuery
 
 // ---------------------------------------------------------------------------
@@ -94,10 +102,13 @@ bool URustMassBevySubsystem::HasManagedSimulation() const
 	return false;
 }
 
-void URustMassBevySubsystem::SetSpatialQueryCallback(FSpatialQueryCallback InCallback, float InRadius)
+void URustMassBevySubsystem::RegisterSpatialQuery(const FString& QueryName, FSpatialQueryCallback InCallback, float InRadius)
 {
-	SpatialQueryCallback = MoveTemp(InCallback);
-	SpatialQueryRadius = InRadius;
+	FSpatialQueryEntry Entry;
+	Entry.Name = QueryName;
+	Entry.Callback = MoveTemp(InCallback);
+	Entry.Radius = InRadius;
+	SpatialQueries.Add(QueryName, MoveTemp(Entry));
 }
 
 void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
@@ -111,150 +122,237 @@ void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
 	}
 
 	uint32 ConfigCount = Module.Plugin.Rust.get_spatial_query_config_count.Unwrap()();
-	if (ConfigCount == 0)
+
+	for (uint32 ConfigIdx = 0; ConfigIdx < ConfigCount; ++ConfigIdx)
 	{
-		return;
-	}
-
-	// Use the first config (single spatial query per sim for now)
-	MassSpatialQueryConfigDesc Config = {};
-	if (Module.Plugin.Rust.get_spatial_query_config_desc.Unwrap()(0, &Config) == 0)
-	{
-		return;
-	}
-
-	// Extract config values into captured variables
-	FString QueryGroup = FString(Config.query_group.len, UTF8_TO_TCHAR(Config.query_group.ptr));
-	FString FilterFragmentType = FString(Config.filter_fragment_type.len, UTF8_TO_TCHAR(Config.filter_fragment_type.ptr));
-	float Radius = Config.radius;
-	uint32 FilterBoolOffset = Config.filter_bool_offset;
-	bool FilterBoolMustBe = Config.filter_bool_must_be;
-
-	// Resolve the filter fragment UScriptStruct for runtime access.
-	// Strip F/U prefix — UE reflection registers structs without the prefix.
-	FString SearchName = FilterFragmentType;
-	if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
-	{
-		SearchName.RightChopInline(1);
-	}
-	const UScriptStruct* FilterStruct = FindFirstObject<UScriptStruct>(
-		*SearchName, EFindFirstObjectOptions::NativeFirst);
-
-	if (!FilterStruct)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("RustMassBevySubsystem: Could not find UScriptStruct '%s'. "
-			"Spatial query filtering disabled."), *FilterFragmentType);
-	}
-
-	// Store for the lambda to capture
-	SpatialQueryFilterScriptStruct = FilterStruct;
-
-	// Capture subsystem pointer and config for the lambda
-	URustMassBevySubsystem* Self = this;
-
-	SetSpatialQueryCallback(
-		[Self, QueryGroup, FilterBoolOffset, FilterBoolMustBe, FilterStruct](
-			const double* PreviousPos, const double* CurrentPos,
-			float PickupRadius, MassSpatialQueryResult* Out) -> uint32
+		MassSpatialQueryConfigDesc Config = {};
+		if (Module.Plugin.Rust.get_spatial_query_config_desc.Unwrap()(ConfigIdx, &Config) == 0)
 		{
-			if (!Out) return 0;
+			continue;
+		}
 
-			Out->has_encounter = false;
-			Out->food_index = -1;
-			Out->encounter_position[0] = 0.0;
-			Out->encounter_position[1] = 0.0;
-			Out->encounter_position[2] = 0.0;
+		// Extract config values into captured variables
+		FString QueryName = FString(Config.query_name.len, UTF8_TO_TCHAR(Config.query_name.ptr));
+		FString QueryGroup = FString(Config.query_group.len, UTF8_TO_TCHAR(Config.query_group.ptr));
+		FString FilterFragmentType = FString(Config.filter_fragment_type.len, UTF8_TO_TCHAR(Config.filter_fragment_type.ptr));
+		float Radius = Config.radius;
+		uint32 FilterBoolOffset = Config.filter_bool_offset;
+		bool FilterBoolMustBe = Config.filter_bool_must_be;
+		uint8 QueryType = Config.query_type;
+		uint8 CollisionChannelIndex = Config.collision_channel_index;
 
-			const TArray<FMassEntityHandle>* TargetEntities = Self->GetGroupEntities(QueryGroup);
-			UInstancedStaticMeshComponent* TargetISMC = Self->GetGroupISMC(QueryGroup);
+		// Resolve the filter fragment UScriptStruct for runtime access.
+		FString SearchName = FilterFragmentType;
+		if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
+		{
+			SearchName.RightChopInline(1);
+		}
+		const UScriptStruct* FilterStruct = FindFirstObject<UScriptStruct>(
+			*SearchName, EFindFirstObjectOptions::NativeFirst);
 
-			UWorld* W = Self->GetWorld();
-			UMassEntitySubsystem* MES = W ? W->GetSubsystem<UMassEntitySubsystem>() : nullptr;
-			if (!TargetEntities || !TargetISMC || !MES)
+		if (!FilterStruct)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("RustMassBevySubsystem: Could not find UScriptStruct '%s'. "
+				"Spatial query filtering disabled for '%s'."), *FilterFragmentType, *QueryName);
+		}
+
+		URustMassBevySubsystem* Self = this;
+
+		if (QueryType == 1) // PhysicsSweep
+		{
+			if (CollisionChannelIndex > 17)
 			{
-				return 0;
+				UE_LOG(LogTemp, Error, TEXT("RustMassBevySubsystem: Invalid collision channel index %d for query '%s' "
+					"(max is 17 for ECC_GameTraceChannel18). Skipping."), CollisionChannelIndex, *QueryName);
+				continue;
 			}
 
-			FMassEntityManager& EntityManager = MES->GetMutableEntityManager();
-			const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
-			const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
-			const float PickupRadiusSq = PickupRadius * PickupRadius;
-
-			// ISMC spatial query: sphere or box depending on movement
-			TSet<int32> CandidateIndices;
-			if (SweepStart.Equals(SweepEnd))
+			// Enable collision on the target group's ISMC for physics queries
+			ECollisionChannel Channel = static_cast<ECollisionChannel>(ECC_GameTraceChannel1 + CollisionChannelIndex);
+			UInstancedStaticMeshComponent* TargetISMC = GetGroupISMC(QueryGroup);
+			if (TargetISMC)
 			{
-				for (const int32 Idx : TargetISMC->GetInstancesOverlappingSphere(
-					SweepEnd, PickupRadius, true))
+				TargetISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+				TargetISMC->SetCollisionResponseToAllChannels(ECR_Ignore);
+				TargetISMC->SetCollisionResponseToChannel(Channel, ECR_Block);
+			}
+
+			RegisterSpatialQuery(QueryName,
+				[Self, QueryGroup, FilterBoolOffset, FilterBoolMustBe, FilterStruct, Channel](
+					const double* PreviousPos, const double* CurrentPos,
+					float PickupRadius, MassSpatialQueryResult* Out) -> uint32
 				{
-					if (TargetEntities->IsValidIndex(Idx))
+					if (!Out) return 0;
+
+					Out->has_encounter = false;
+					Out->entity_index = -1;
+					Out->encounter_position[0] = 0.0;
+					Out->encounter_position[1] = 0.0;
+					Out->encounter_position[2] = 0.0;
+
+					const TArray<FMassEntityHandle>* TargetEntities = Self->GetGroupEntities(QueryGroup);
+					UWorld* W = Self->GetWorld();
+					UMassEntitySubsystem* MES = W ? W->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+					if (!TargetEntities || !W || !MES)
 					{
-						CandidateIndices.Add(Idx);
+						return 0;
 					}
-				}
-			}
-			else
-			{
-				FBox SweptBounds(ForceInit);
-				SweptBounds += SweepStart;
-				SweptBounds += SweepEnd;
-				SweptBounds = SweptBounds.ExpandBy(PickupRadius);
-				for (const int32 Idx : TargetISMC->GetInstancesOverlappingBox(SweptBounds, true))
-				{
-					if (TargetEntities->IsValidIndex(Idx))
+
+					FMassEntityManager& EntityManager = MES->GetMutableEntityManager();
+					const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
+					const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+					const float PickupRadiusSq = PickupRadius * PickupRadius;
+
+					// UE physics sweep
+					FCollisionShape Shape = FCollisionShape::MakeSphere(PickupRadius);
+					TArray<FHitResult> Hits;
+					W->SweepMultiByChannel(Hits, SweepStart, SweepEnd, FQuat::Identity, Channel, Shape);
+
+					// Find nearest hit along sweep direction (earliest collision)
+					float BestHitDistance = TNumericLimits<float>::Max();
+					for (const FHitResult& Hit : Hits)
 					{
-						CandidateIndices.Add(Idx);
+						int32 Idx = Hit.Item; // ISMC instance index
+						if (!TargetEntities->IsValidIndex(Idx)) continue;
+
+						const FMassEntityHandle Entity = (*TargetEntities)[Idx];
+						if (!EntityManager.IsEntityValid(Entity)) continue;
+
+						if (FilterStruct)
+						{
+							FMassEntityView EntityView(EntityManager, Entity);
+							FStructView FragView = EntityView.GetFragmentDataStruct(FilterStruct);
+							if (FragView.IsValid())
+							{
+								const uint8* FragmentBytes = FragView.GetMemory();
+								bool FilterValue = *reinterpret_cast<const bool*>(FragmentBytes + FilterBoolOffset);
+								if (FilterValue != FilterBoolMustBe) continue;
+							}
+						}
+
+						if (Hit.Distance < BestHitDistance)
+						{
+							BestHitDistance = Hit.Distance;
+							const FVector HitPoint = Hit.ImpactPoint;
+							Out->has_encounter = true;
+							Out->entity_index = Idx;
+							Out->encounter_position[0] = HitPoint.X;
+							Out->encounter_position[1] = HitPoint.Y;
+							Out->encounter_position[2] = HitPoint.Z;
+						}
 					}
-				}
-			}
 
-			// Find nearest matching entity
-			float BestDistSq = TNumericLimits<float>::Max();
-			for (const int32 Idx : CandidateIndices)
-			{
-				const FMassEntityHandle Entity = (*TargetEntities)[Idx];
-				if (!EntityManager.IsEntityValid(Entity)) continue;
-
-				// Read filter fragment data as raw bytes and check bool at registered offset
-				if (FilterStruct)
+					return 1;
+				},
+				Radius);
+		}
+		else // IsmcOverlap (default)
+		{
+			RegisterSpatialQuery(QueryName,
+				[Self, QueryGroup, FilterBoolOffset, FilterBoolMustBe, FilterStruct](
+					const double* PreviousPos, const double* CurrentPos,
+					float PickupRadius, MassSpatialQueryResult* Out) -> uint32
 				{
-					FMassEntityView EntityView(EntityManager, Entity);
-					FStructView FragView = EntityView.GetFragmentDataStruct(FilterStruct);
-					if (FragView.IsValid())
+					if (!Out) return 0;
+
+					Out->has_encounter = false;
+					Out->entity_index = -1;
+					Out->encounter_position[0] = 0.0;
+					Out->encounter_position[1] = 0.0;
+					Out->encounter_position[2] = 0.0;
+
+					const TArray<FMassEntityHandle>* TargetEntities = Self->GetGroupEntities(QueryGroup);
+					UInstancedStaticMeshComponent* TargetISMC = Self->GetGroupISMC(QueryGroup);
+
+					UWorld* W = Self->GetWorld();
+					UMassEntitySubsystem* MES = W ? W->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+					if (!TargetEntities || !TargetISMC || !MES)
 					{
-						const uint8* FragmentBytes = FragView.GetMemory();
-						bool FilterValue = *reinterpret_cast<const bool*>(FragmentBytes + FilterBoolOffset);
-						if (FilterValue != FilterBoolMustBe) continue;
+						return 0;
 					}
-				}
 
-				// Get position from ISMC transform (synced by visualizer each frame)
-				FTransform InstanceTransform;
-				TargetISMC->GetInstanceTransform(Idx, InstanceTransform, true);
-				const FVector EntityPos = InstanceTransform.GetLocation();
+					FMassEntityManager& EntityManager = MES->GetMutableEntityManager();
+					const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
+					const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+					const float PickupRadiusSq = PickupRadius * PickupRadius;
 
-				const FVector Closest = FMath::ClosestPointOnSegment(
-					EntityPos, SweepStart, SweepEnd);
-				const float DistSq = FVector::DistSquared(Closest, EntityPos);
-				if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
-				{
-					BestDistSq = DistSq;
-					Out->has_encounter = true;
-					Out->food_index = Idx;
-					Out->encounter_position[0] = Closest.X;
-					Out->encounter_position[1] = Closest.Y;
-					Out->encounter_position[2] = Closest.Z;
-				}
-			}
+					// ISMC spatial query: sphere or box depending on movement
+					TSet<int32> CandidateIndices;
+					if (SweepStart.Equals(SweepEnd))
+					{
+						for (const int32 Idx : TargetISMC->GetInstancesOverlappingSphere(
+							SweepEnd, PickupRadius, true))
+						{
+							if (TargetEntities->IsValidIndex(Idx))
+							{
+								CandidateIndices.Add(Idx);
+							}
+						}
+					}
+					else
+					{
+						FBox SweptBounds(ForceInit);
+						SweptBounds += SweepStart;
+						SweptBounds += SweepEnd;
+						SweptBounds = SweptBounds.ExpandBy(PickupRadius);
+						for (const int32 Idx : TargetISMC->GetInstancesOverlappingBox(SweptBounds, true))
+						{
+							if (TargetEntities->IsValidIndex(Idx))
+							{
+								CandidateIndices.Add(Idx);
+							}
+						}
+					}
 
-			return 1;
-		},
-		Radius);
+					// Find nearest matching entity
+					float BestDistSq = TNumericLimits<float>::Max();
+					for (const int32 Idx : CandidateIndices)
+					{
+						const FMassEntityHandle Entity = (*TargetEntities)[Idx];
+						if (!EntityManager.IsEntityValid(Entity)) continue;
 
-	UE_LOG(LogTemp, Log, TEXT("RustMassBevySubsystem: Auto-setup spatial query for group '%s' "
-		"(radius=%.1f, filter=%s, bool_offset=%d, must_be=%s)"),
-		*QueryGroup, Radius, *FilterFragmentType, FilterBoolOffset,
-		FilterBoolMustBe ? TEXT("true") : TEXT("false"));
+						if (FilterStruct)
+						{
+							FMassEntityView EntityView(EntityManager, Entity);
+							FStructView FragView = EntityView.GetFragmentDataStruct(FilterStruct);
+							if (FragView.IsValid())
+							{
+								const uint8* FragmentBytes = FragView.GetMemory();
+								bool FilterValue = *reinterpret_cast<const bool*>(FragmentBytes + FilterBoolOffset);
+								if (FilterValue != FilterBoolMustBe) continue;
+							}
+						}
+
+						FTransform InstanceTransform;
+						TargetISMC->GetInstanceTransform(Idx, InstanceTransform, true);
+						const FVector EntityPos = InstanceTransform.GetLocation();
+
+						const FVector Closest = FMath::ClosestPointOnSegment(
+							EntityPos, SweepStart, SweepEnd);
+						const float DistSq = FVector::DistSquared(Closest, EntityPos);
+						if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
+						{
+							BestDistSq = DistSq;
+							Out->has_encounter = true;
+							Out->entity_index = Idx;
+							Out->encounter_position[0] = Closest.X;
+							Out->encounter_position[1] = Closest.Y;
+							Out->encounter_position[2] = Closest.Z;
+						}
+					}
+
+					return 1;
+				},
+				Radius);
+		}
+
+		UE_LOG(LogTemp, Log, TEXT("RustMassBevySubsystem: Auto-setup spatial query '%s' for group '%s' "
+			"(type=%s, radius=%.1f, filter=%s, bool_offset=%d, must_be=%s)"),
+			*QueryName, *QueryGroup,
+			QueryType == 1 ? TEXT("PhysicsSweep") : TEXT("IsmcOverlap"),
+			Radius, *FilterFragmentType, FilterBoolOffset,
+			FilterBoolMustBe ? TEXT("true") : TEXT("false"));
+	}
 }
 
 // ---------------------------------------------------------------------------
@@ -291,9 +389,41 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 	{
 		URustMassScheduleCoordinator* Coordinator = NewObject<URustMassScheduleCoordinator>(this);
 		Coordinator->InitializeDispatch(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
-		if (SpatialQueryCallback)
+
+		// Build spatial query slots from registered queries
+		if (SpatialQueries.Num() > 0)
 		{
-			Coordinator->SetSpatialQueryCallback(RustMassSpatialQuery::Trampoline, SpatialQueryRadius);
+			TArray<MassSpatialQuerySlot> Slots;
+			TArray<TArray<char>> NameBuffers;
+			int32 SlotIdx = 0;
+			for (auto& Pair : SpatialQueries)
+			{
+				if (SlotIdx >= RustMassSpatialQuery::MaxQueries)
+				{
+					UE_LOG(LogTemp, Warning, TEXT("RustMassBevySubsystem: Too many spatial queries (%d), max is %d"),
+						SpatialQueries.Num(), RustMassSpatialQuery::MaxQueries);
+					break;
+				}
+
+				// Store the trampoline index in the entry for stable callback mapping
+				Pair.Value.TrampolineIndex = SlotIdx;
+
+				// Convert name to UTF-8 and store in a persistent buffer
+				FTCHARToUTF8 Converter(*Pair.Key);
+				TArray<char> NameBuf;
+				NameBuf.Append(Converter.Get(), Converter.Length());
+				NameBuf.Add(0); // null-terminate
+
+				MassSpatialQuerySlot Slot = {};
+				Slot.name.ptr = nullptr; // fixed up by coordinator after move
+				Slot.name.len = Converter.Length();
+				Slot.query_fn = RustMassSpatialQuery::TrampolineFns[SlotIdx];
+				Slot.radius = Pair.Value.Radius;
+				Slots.Add(Slot);
+				NameBuffers.Add(MoveTemp(NameBuf));
+				++SlotIdx;
+			}
+			Coordinator->SetSpatialQuerySlots(MoveTemp(Slots), MoveTemp(NameBuffers));
 		}
 		SimProcessors.Add(Coordinator);
 	}
@@ -331,15 +461,25 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 		return;
 	}
 
-	// Set spatial query trampoline context
-	RustMassSpatialQuery::ActiveCallback = SpatialQueryCallback ? &SpatialQueryCallback : nullptr;
+	// Set spatial query trampoline contexts using stored indices
+	for (auto& Pair : SpatialQueries)
+	{
+		const int32 Idx = Pair.Value.TrampolineIndex;
+		if (Idx >= 0 && Idx < RustMassSpatialQuery::MaxQueries)
+		{
+			RustMassSpatialQuery::ActiveCallbacks[Idx] = &Pair.Value.Callback;
+		}
+	}
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 	FMassProcessingContext SimulationContext(EntityManager, SimulatedDeltaTime);
 	UE::Mass::Executor::Run(SimulationProcessorPipeline, SimulationContext);
 
 	// Clear after dispatch
-	RustMassSpatialQuery::ActiveCallback = nullptr;
+	for (int32 i = 0; i < RustMassSpatialQuery::MaxQueries; ++i)
+	{
+		RustMassSpatialQuery::ActiveCallbacks[i] = nullptr;
+	}
 }
 
 // ---------------------------------------------------------------------------
@@ -547,8 +687,8 @@ void URustMassBevySubsystem::InitializeSimulation(
 	UE_LOG(LogTemp, Log, TEXT("RustMassBevySubsystem: Initialized %d entity groups (%d total entities)"),
 		EntityGroups.Num(), TotalEntities);
 
-	// Auto-setup spatial queries from Rust-registered config (if no callback already set)
-	if (!SpatialQueryCallback)
+	// Auto-setup spatial queries from Rust-registered config (if none already set)
+	if (SpatialQueries.Num() == 0)
 	{
 		SetupSpatialQueriesFromRust();
 	}
@@ -584,8 +724,7 @@ void URustMassBevySubsystem::ResetSimulation()
 	SimulationTimeAccumulatorSeconds = 0.0f;
 	SimulationProcessorPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
-	SpatialQueryCallback = nullptr;
-	SpatialQueryRadius = 0.0f;
+	SpatialQueries.Empty();
 	bAutoInitAttempted = false;
 }
 

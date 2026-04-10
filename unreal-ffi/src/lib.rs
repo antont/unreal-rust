@@ -209,7 +209,19 @@ pub struct MassSystemChunkBatch {
     pub primary_chunks: *const MassChunkData,
 }
 
-/// Per-frame dispatch data: dt + all system chunk batches + spatial query callback.
+/// One named spatial query slot in the per-frame dispatch.
+#[repr(C)]
+pub struct MassSpatialQuerySlot {
+    /// Query name (e.g. "food_pickup"). Borrowed from C++ — valid for this frame.
+    pub name: Utf8Str,
+    /// Callback function implementing this query.
+    pub query_fn: MassSpatialQueryFn,
+    /// Radius for this query.
+    pub radius: f32,
+    pub _pad: u32,
+}
+
+/// Per-frame dispatch data: dt + all system chunk batches + named spatial queries.
 #[repr(C)]
 pub struct MassFrameDispatchData {
     /// Delta time for this frame.
@@ -218,11 +230,11 @@ pub struct MassFrameDispatchData {
     pub num_systems: u32,
     /// Pointer to array of MassSystemChunkBatch.
     pub systems: *const MassSystemChunkBatch,
-    /// Optional spatial query callback for collision detection. Null if not available.
-    pub spatial_query_fn: Option<MassSpatialQueryFn>,
-    /// Pickup radius for spatial queries (Unreal units).
-    pub pickup_radius: f32,
+    /// Number of spatial query slots available this frame.
+    pub num_spatial_queries: u32,
     pub _pad: u32,
+    /// Pointer to array of MassSpatialQuerySlot.
+    pub spatial_queries: *const MassSpatialQuerySlot,
 }
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
@@ -230,12 +242,12 @@ pub type MassFrameDispatchFn = unsafe extern "C" fn(data: *const MassFrameDispat
 
 // --- Spatial query callback for Rust collision processor ---
 
-/// Result of a spatial query for one ant (food encounter detection).
+/// Result of a spatial query (nearest entity encounter detection).
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct MassSpatialQueryResult {
-    /// Index of the nearest food entity, or -1 if none found.
-    pub food_index: i32,
+    /// Index of the nearest matching entity, or -1 if none found.
+    pub entity_index: i32,
     pub _pad: i32,
     /// Position where the encounter occurred.
     pub encounter_position: [f64; 3],
@@ -247,8 +259,8 @@ pub struct MassSpatialQueryResult {
 /// Callback function for spatial queries. C++ implements this using UE physics.
 ///
 /// Parameters:
-/// - `previous_pos`: ant's previous position (3 x f64)
-/// - `current_pos`: ant's current position (3 x f64)
+/// - `previous_pos`: entity's previous position (3 x f64)
+/// - `current_pos`: entity's current position (3 x f64)
 /// - `pickup_radius`: radius for collision detection
 /// - `out`: result written here
 ///
@@ -368,11 +380,13 @@ pub type MassInitSimulationFn = unsafe extern "C" fn(
 
 // --- Spatial query configuration (declared by Rust, read by C++) ---
 
-/// Tells C++ how to implement ISMC spatial query for a given entity group.
+/// Tells C++ how to implement spatial queries for a given entity group.
 /// Rust game crates declare these via inventory; C++ reads them at startup
-/// to create generic ISMC overlap query callbacks.
+/// to create query callbacks (ISMC overlap or physics sweep).
 #[repr(C)]
 pub struct MassSpatialQueryConfigDesc {
+    /// Unique query name (e.g. "food_pickup").
+    pub query_name: Utf8Str,
     /// ISMC group name to search (e.g. "food").
     pub query_group: Utf8Str,
     /// Overlap sphere radius in Unreal units.
@@ -384,7 +398,11 @@ pub struct MassSpatialQueryConfigDesc {
     pub filter_bool_offset: u32,
     /// Required value of the bool field (true = only match when bool is true).
     pub filter_bool_must_be: bool,
-    pub _pad1: [u8; 3],
+    /// Query type: 0 = ISMC overlap, 1 = physics sweep.
+    pub query_type: u8,
+    /// Collision channel index for physics sweep (0 = ECC_GameTraceChannel1).
+    pub collision_channel_index: u8,
+    pub _pad1: u8,
 }
 
 /// Returns the number of registered spatial query configurations.
@@ -923,8 +941,18 @@ mod tests {
     }
 
     #[test]
+    fn mass_spatial_query_slot_layout() {
+        // Utf8Str(16) + fn_ptr(8) + f32(4) + u32(4) = 32
+        assert_eq!(std::mem::size_of::<MassSpatialQuerySlot>(), 32);
+        assert_eq!(std::mem::align_of::<MassSpatialQuerySlot>(), 8);
+        assert_eq!(std::mem::offset_of!(MassSpatialQuerySlot, name), 0);
+        assert_eq!(std::mem::offset_of!(MassSpatialQuerySlot, query_fn), 16);
+        assert_eq!(std::mem::offset_of!(MassSpatialQuerySlot, radius), 24);
+    }
+
+    #[test]
     fn mass_frame_dispatch_data_layout() {
-        // f32(4) + u32(4) + ptr(8) + Option<fn>(8) + f32(4) + u32(4) = 32
+        // f32(4) + u32(4) + ptr(8) + u32(4) + u32(4) + ptr(8) = 32
         assert_eq!(std::mem::size_of::<MassFrameDispatchData>(), 32);
         assert_eq!(std::mem::align_of::<MassFrameDispatchData>(), 8);
     }
@@ -1008,9 +1036,17 @@ mod tests {
 
     #[test]
     fn mass_spatial_query_config_desc_layout() {
-        // Utf8Str(16) + f32(4) + u32(4) + Utf8Str(16) + u32(4) + bool(1) + [u8;3](3) = 48
-        assert_eq!(std::mem::size_of::<MassSpatialQueryConfigDesc>(), 48);
+        // Utf8Str(16) + Utf8Str(16) + f32(4) + u32(4) + Utf8Str(16) + u32(4) + bool(1) + u8(1) + u8(1) + u8(1) = 64
+        assert_eq!(std::mem::size_of::<MassSpatialQueryConfigDesc>(), 64);
         assert_eq!(std::mem::align_of::<MassSpatialQueryConfigDesc>(), 8);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, query_name), 0);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, query_group), 16);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, radius), 32);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, filter_fragment_type), 40);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, filter_bool_offset), 56);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, filter_bool_must_be), 60);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, query_type), 61);
+        assert_eq!(std::mem::offset_of!(MassSpatialQueryConfigDesc, collision_channel_index), 62);
     }
 
     #[test]

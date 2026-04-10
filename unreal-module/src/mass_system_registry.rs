@@ -2,7 +2,8 @@ use std::sync::{Mutex, OnceLock};
 
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
-    MassBevySystemRegistration, MassDeltaTime, MassSchedule, MassSpatialQueryCallback,
+    MassBevySystemRegistration, MassDeltaTime, MassSchedule,
+    MassSpatialQueries,
     MassSystemRegistration, MassSystemStage,
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
     registered_visualizer_groups, registered_spatial_query_configs, registered_sim_defaults,
@@ -100,8 +101,8 @@ pub fn build_bevy_schedule() -> MassSchedule {
         (reg.add_to_schedule)(sched.schedule_mut(), MassSystemStage(i as u32));
     }
 
-    // Resource for collision pre-pass spatial query callback (populated per-frame)
-    sched.world_mut().insert_resource(MassSpatialQueryCallback::default());
+    // Resource for named spatial query callbacks (populated per-frame)
+    sched.world_mut().insert_resource(MassSpatialQueries::default());
 
     sched
 }
@@ -132,13 +133,20 @@ pub unsafe extern "C" fn mass_frame_dispatch(
 
     sched.set_dt(data.dt);
 
-    // Update spatial query callback from dispatch data
+    // Update spatial queries from dispatch data
     {
-        let mut spatial = sched.world_mut().resource_mut::<MassSpatialQueryCallback>();
-        spatial.query_fn = data.spatial_query_fn;
-        spatial.pickup_radius = data.pickup_radius;
+        let mut queries = sched.world_mut().resource_mut::<MassSpatialQueries>();
+        queries.clear();
+        if data.num_spatial_queries > 0 && !data.spatial_queries.is_null() {
+            let slots = unsafe {
+                std::slice::from_raw_parts(data.spatial_queries, data.num_spatial_queries as usize)
+            };
+            for slot in slots {
+                let name = slot.name.as_str().to_string();
+                queries.insert(name, slot.query_fn, slot.radius);
+            }
+        }
     }
-
     // Collect Bevy registrations (may include Bevy-only systems like collision prepass)
     let bevy_regs: Vec<&MassBevySystemRegistration> =
         registered_bevy_mass_systems().into_iter().collect();
@@ -291,13 +299,16 @@ pub unsafe extern "C" fn get_spatial_query_config_desc(
     };
     unsafe {
         (*out) = unreal_ffi::MassSpatialQueryConfigDesc {
+            query_name: unreal_ffi::Utf8Str::from(reg.query_name),
             query_group: unreal_ffi::Utf8Str::from(reg.query_group),
             radius: reg.radius,
             _pad0: 0,
             filter_fragment_type: unreal_ffi::Utf8Str::from(reg.filter_fragment_type),
             filter_bool_offset: reg.filter_bool_offset as u32,
             filter_bool_must_be: reg.filter_bool_must_be,
-            _pad1: [0; 3],
+            query_type: reg.query_type as u8,
+            collision_channel_index: reg.collision_channel_index,
+            _pad1: 0,
         };
     }
     1

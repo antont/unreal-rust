@@ -52,8 +52,16 @@ public:
 
 	using FSpatialQueryCallback = TFunction<uint32(const double*, const double*, float, MassSpatialQueryResult*)>;
 
-	/** Register a spatial query callback from the game module. */
-	void SetSpatialQueryCallback(FSpatialQueryCallback InCallback, float InRadius);
+	struct FSpatialQueryEntry
+	{
+		FString Name;
+		FSpatialQueryCallback Callback;
+		float Radius = 0.0f;
+		int32 TrampolineIndex = -1; // Assigned during EnsureProcessorPipelines
+	};
+
+	/** Register a named spatial query callback. */
+	void RegisterSpatialQuery(const FString& QueryName, FSpatialQueryCallback InCallback, float InRadius);
 
 	/**
 	 * Auto-setup spatial queries from Rust-registered config.
@@ -85,11 +93,8 @@ private:
 	UPROPERTY(Transient)
 	TObjectPtr<URustMassGenericVisualizer> Visualizer = nullptr;
 
-	FSpatialQueryCallback SpatialQueryCallback;
-	float SpatialQueryRadius = 0.0f;
-
-	/** Resolved UScriptStruct for the spatial query filter fragment (set by SetupSpatialQueriesFromRust). */
-	const UScriptStruct* SpatialQueryFilterScriptStruct = nullptr;
+	/** Named spatial queries: key = query name, value = callback + radius. */
+	TMap<FString, FSpatialQueryEntry> SpatialQueries;
 
 	/** Whether we've already attempted auto-init from Rust defaults (prevent repeated attempts). */
 	bool bAutoInitAttempted = false;

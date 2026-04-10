@@ -202,27 +202,65 @@ impl MassSchedule {
 }
 
 // ---------------------------------------------------------------------------
-// Spatial query callback resource
+// Spatial query resources
 // ---------------------------------------------------------------------------
 
-/// Bevy resource holding the optional C++ spatial query callback.
-/// Used by the Rust collision pre-pass system to detect food encounters.
-pub struct MassSpatialQueryCallback {
-    pub query_fn: Option<unreal_ffi::MassSpatialQueryFn>,
-    pub pickup_radius: f32,
+/// Bevy resource holding all named spatial query callbacks for the current frame.
+/// Game systems access queries by name: `spatial.call("food_pickup", &prev, &cur)`.
+pub struct MassSpatialQueries {
+    queries: std::collections::HashMap<String, (unreal_ffi::MassSpatialQueryFn, f32)>,
 }
 
-impl bevy_ecs::prelude::Resource for MassSpatialQueryCallback {}
+impl bevy_ecs::prelude::Resource for MassSpatialQueries {}
+unsafe impl Send for MassSpatialQueries {}
+unsafe impl Sync for MassSpatialQueries {}
 
-// Safety: The callback function pointer is a plain `extern "C" fn` — no captured state.
-unsafe impl Send for MassSpatialQueryCallback {}
-unsafe impl Sync for MassSpatialQueryCallback {}
-
-impl Default for MassSpatialQueryCallback {
+impl Default for MassSpatialQueries {
     fn default() -> Self {
         Self {
-            query_fn: None,
-            pickup_radius: 15.0,
+            queries: std::collections::HashMap::new(),
+        }
+    }
+}
+
+impl MassSpatialQueries {
+    /// Clear all queries (called at start of each frame before population).
+    pub fn clear(&mut self) {
+        self.queries.clear();
+    }
+
+    /// Insert a named query callback + radius.
+    pub fn insert(&mut self, name: String, query_fn: unreal_ffi::MassSpatialQueryFn, radius: f32) {
+        self.queries.insert(name, (query_fn, radius));
+    }
+
+    /// Call a named spatial query. Returns None if query not registered this frame.
+    pub fn call(
+        &self,
+        name: &str,
+        previous_pos: &[f64; 3],
+        current_pos: &[f64; 3],
+    ) -> Option<unreal_ffi::MassSpatialQueryResult> {
+        let (query_fn, radius) = self.queries.get(name)?;
+        let mut result = unreal_ffi::MassSpatialQueryResult {
+            entity_index: -1,
+            _pad: 0,
+            encounter_position: [0.0; 3],
+            has_encounter: false,
+            _result_pad: [0; 7],
+        };
+        let ok = unsafe {
+            query_fn(
+                previous_pos.as_ptr(),
+                current_pos.as_ptr(),
+                *radius,
+                &mut result,
+            )
+        };
+        if ok != 0 {
+            Some(result)
+        } else {
+            None
         }
     }
 }
@@ -1117,14 +1155,32 @@ pub fn registered_bevy_mass_systems() -> inventory::iter<MassBevySystemRegistrat
 // Spatial query config registration
 // ---------------------------------------------------------------------------
 
+/// Spatial query implementation type.
+#[derive(Clone, Copy, Default, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum MassSpatialQueryType {
+    /// ISMC overlap queries (GetInstancesOverlappingSphere/Box).
+    #[default]
+    IsmcOverlap = 0,
+    /// UE physics sweep (World->SweepMultiByChannel).
+    PhysicsSweep = 1,
+}
+
 /// Game crates register spatial query configurations via inventory.
-/// Each config tells the generic C++ subsystem how to perform ISMC overlap
+/// Each config tells the generic C++ subsystem how to perform spatial
 /// queries for a particular entity group.
 pub struct MassSpatialQueryConfigRegistration {
+    /// Unique name for this spatial query (e.g. "food_pickup").
+    pub query_name: &'static str,
     /// ISMC group name to search (e.g. "food").
     pub query_group: &'static str,
     /// Overlap sphere radius in Unreal units.
     pub radius: f32,
+    /// Query implementation type (ISMC overlap or physics sweep).
+    pub query_type: MassSpatialQueryType,
+    /// Collision channel index for physics sweep (0 = ECC_GameTraceChannel1, etc.).
+    /// Ignored for ISMC overlap queries.
+    pub collision_channel_index: u8,
     /// C++ fragment type name that has the bool to filter on.
     pub filter_fragment_type: &'static str,
     /// Byte offset of the bool field within the filter fragment.
@@ -1541,5 +1597,64 @@ mod tests {
         assert!(output.contains("GENERATED_BODY()"), "should have GENERATED_BODY");
         assert!(!output.contains("offsetof"), "tags should have no offset asserts");
         assert!(!output.contains("sizeof"), "tags should have no size asserts");
+    }
+
+    // -----------------------------------------------------------------------
+    // MassSpatialQueries unit tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn spatial_queries_call_returns_none_for_unregistered() {
+        let queries = MassSpatialQueries::default();
+        let prev = [0.0; 3];
+        let cur = [1.0, 0.0, 0.0];
+        assert!(queries.call("nonexistent", &prev, &cur).is_none());
+    }
+
+    #[test]
+    fn spatial_queries_call_returns_result_for_registered() {
+        unsafe extern "C" fn mock_query(
+            _prev: *const f64,
+            _curr: *const f64,
+            _radius: f32,
+            out: *mut unreal_ffi::MassSpatialQueryResult,
+        ) -> u32 {
+            unsafe {
+                (*out).has_encounter = true;
+                (*out).entity_index = 7;
+                (*out).encounter_position = [10.0, 20.0, 30.0];
+            }
+            1
+        }
+
+        let mut queries = MassSpatialQueries::default();
+        queries.insert("test_query".to_string(), mock_query, 25.0);
+
+        let prev = [0.0; 3];
+        let cur = [5.0, 0.0, 0.0];
+        let result = queries.call("test_query", &prev, &cur);
+        assert!(result.is_some());
+        let r = result.unwrap();
+        assert!(r.has_encounter);
+        assert_eq!(r.entity_index, 7);
+        assert_eq!(r.encounter_position, [10.0, 20.0, 30.0]);
+    }
+
+    #[test]
+    fn spatial_queries_clear_removes_all() {
+        unsafe extern "C" fn mock_query(
+            _prev: *const f64, _curr: *const f64, _radius: f32,
+            out: *mut unreal_ffi::MassSpatialQueryResult,
+        ) -> u32 {
+            unsafe { (*out).has_encounter = false; }
+            1
+        }
+
+        let mut queries = MassSpatialQueries::default();
+        queries.insert("q1".to_string(), mock_query, 10.0);
+        assert!(queries.call("q1", &[0.0; 3], &[0.0; 3]).is_some());
+
+        queries.clear();
+        assert!(queries.call("q1", &[0.0; 3], &[0.0; 3]).is_none());
     }
 }

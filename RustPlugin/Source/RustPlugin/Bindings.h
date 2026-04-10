@@ -343,10 +343,10 @@ struct MassSystemChunkBatch {
   const MassChunkData *primary_chunks;
 };
 
-/// Result of a spatial query for one ant (food encounter detection).
+/// Result of a spatial query (nearest entity encounter detection).
 struct MassSpatialQueryResult {
-  /// Index of the nearest food entity, or -1 if none found.
-  int32_t food_index;
+  /// Index of the nearest matching entity, or -1 if none found.
+  int32_t entity_index;
   int32_t _pad;
   /// Position where the encounter occurred.
   double encounter_position[3];
@@ -358,8 +358,8 @@ struct MassSpatialQueryResult {
 /// Callback function for spatial queries. C++ implements this using UE physics.
 ///
 /// Parameters:
-/// - `previous_pos`: ant's previous position (3 x f64)
-/// - `current_pos`: ant's current position (3 x f64)
+/// - `previous_pos`: entity's previous position (3 x f64)
+/// - `current_pos`: entity's current position (3 x f64)
 /// - `pickup_radius`: radius for collision detection
 /// - `out`: result written here
 ///
@@ -369,7 +369,18 @@ using MassSpatialQueryFn = uint32_t(*)(const double *previous_pos,
                                        float pickup_radius,
                                        MassSpatialQueryResult *out);
 
-/// Per-frame dispatch data: dt + all system chunk batches + spatial query callback.
+/// One named spatial query slot in the per-frame dispatch.
+struct MassSpatialQuerySlot {
+  /// Query name (e.g. "food_pickup"). Borrowed from C++ — valid for this frame.
+  Utf8Str name;
+  /// Callback function implementing this query.
+  MassSpatialQueryFn query_fn;
+  /// Radius for this query.
+  float radius;
+  uint32_t _pad;
+};
+
+/// Per-frame dispatch data: dt + all system chunk batches + named spatial queries.
 struct MassFrameDispatchData {
   /// Delta time for this frame.
   float dt;
@@ -377,11 +388,11 @@ struct MassFrameDispatchData {
   uint32_t num_systems;
   /// Pointer to array of MassSystemChunkBatch.
   const MassSystemChunkBatch *systems;
-  /// Optional spatial query callback for collision detection. Null if not available.
-  Option<MassSpatialQueryFn> spatial_query_fn;
-  /// Pickup radius for spatial queries (Unreal units).
-  float pickup_radius;
+  /// Number of spatial query slots available this frame.
+  uint32_t num_spatial_queries;
   uint32_t _pad;
+  /// Pointer to array of MassSpatialQuerySlot.
+  const MassSpatialQuerySlot *spatial_queries;
 };
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
@@ -451,10 +462,12 @@ using MassInitSimulationFn = uint32_t(*)(const MassInitSimulationParams *params,
 /// Returns the number of registered spatial query configurations.
 using GetSpatialQueryConfigCountFn = uint32_t(*)();
 
-/// Tells C++ how to implement ISMC spatial query for a given entity group.
+/// Tells C++ how to implement spatial queries for a given entity group.
 /// Rust game crates declare these via inventory; C++ reads them at startup
-/// to create generic ISMC overlap query callbacks.
+/// to create query callbacks (ISMC overlap or physics sweep).
 struct MassSpatialQueryConfigDesc {
+  /// Unique query name (e.g. "food_pickup").
+  Utf8Str query_name;
   /// ISMC group name to search (e.g. "food").
   Utf8Str query_group;
   /// Overlap sphere radius in Unreal units.
@@ -466,7 +479,11 @@ struct MassSpatialQueryConfigDesc {
   uint32_t filter_bool_offset;
   /// Required value of the bool field (true = only match when bool is true).
   bool filter_bool_must_be;
-  uint8_t _pad1[3];
+  /// Query type: 0 = ISMC overlap, 1 = physics sweep.
+  uint8_t query_type;
+  /// Collision channel index for physics sweep (0 = ECC_GameTraceChannel1).
+  uint8_t collision_channel_index;
+  uint8_t _pad1;
 };
 
 /// Fills a MassSpatialQueryConfigDesc for the config at `index`.
@@ -687,11 +704,18 @@ static_assert(alignof(MassSpatialQueryResult) == 8, "MassSpatialQueryResult alig
 static_assert(offsetof(MassSpatialQueryResult, encounter_position) == 8, "MassSpatialQueryResult.encounter_position offset");
 static_assert(offsetof(MassSpatialQueryResult, has_encounter) == 32, "MassSpatialQueryResult.has_encounter offset");
 
+// --- Spatial query slot ---
+static_assert(sizeof(MassSpatialQuerySlot) == 32, "MassSpatialQuerySlot");
+static_assert(alignof(MassSpatialQuerySlot) == 8, "MassSpatialQuerySlot alignment");
+static_assert(offsetof(MassSpatialQuerySlot, name) == 0, "MassSpatialQuerySlot.name offset");
+static_assert(offsetof(MassSpatialQuerySlot, query_fn) == 16, "MassSpatialQuerySlot.query_fn offset");
+static_assert(offsetof(MassSpatialQuerySlot, radius) == 24, "MassSpatialQuerySlot.radius offset");
+
 // --- Frame dispatch ---
 static_assert(sizeof(MassFrameDispatchData) == 32, "MassFrameDispatchData");
 static_assert(alignof(MassFrameDispatchData) == 8, "MassFrameDispatchData alignment");
-static_assert(offsetof(MassFrameDispatchData, spatial_query_fn) == 16, "MassFrameDispatchData.spatial_query_fn offset");
-static_assert(offsetof(MassFrameDispatchData, pickup_radius) == 24, "MassFrameDispatchData.pickup_radius offset");
+static_assert(offsetof(MassFrameDispatchData, num_spatial_queries) == 16, "MassFrameDispatchData.num_spatial_queries offset");
+static_assert(offsetof(MassFrameDispatchData, spatial_queries) == 24, "MassFrameDispatchData.spatial_queries offset");
 
 // --- Visualizer ---
 static_assert(sizeof(MassVisualizerGroupDesc) == 40, "MassVisualizerGroupDesc");
@@ -711,8 +735,16 @@ static_assert(sizeof(MassInitSimulationResult) == 16, "MassInitSimulationResult"
 static_assert(alignof(MassInitSimulationResult) == 8, "MassInitSimulationResult alignment");
 
 // --- Spatial query config ---
-static_assert(sizeof(MassSpatialQueryConfigDesc) == 48, "MassSpatialQueryConfigDesc");
+static_assert(sizeof(MassSpatialQueryConfigDesc) == 64, "MassSpatialQueryConfigDesc");
 static_assert(alignof(MassSpatialQueryConfigDesc) == 8, "MassSpatialQueryConfigDesc alignment");
+static_assert(offsetof(MassSpatialQueryConfigDesc, query_name) == 0, "MassSpatialQueryConfigDesc.query_name offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, query_group) == 16, "MassSpatialQueryConfigDesc.query_group offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, radius) == 32, "MassSpatialQueryConfigDesc.radius offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, filter_fragment_type) == 40, "MassSpatialQueryConfigDesc.filter_fragment_type offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_offset) == 56, "MassSpatialQueryConfigDesc.filter_bool_offset offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_must_be) == 60, "MassSpatialQueryConfigDesc.filter_bool_must_be offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, query_type) == 61, "MassSpatialQueryConfigDesc.query_type offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, collision_channel_index) == 62, "MassSpatialQueryConfigDesc.collision_channel_index offset");
 
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");

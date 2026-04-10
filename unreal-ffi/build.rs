@@ -159,11 +159,18 @@ static_assert(alignof(MassSpatialQueryResult) == 8, "MassSpatialQueryResult alig
 static_assert(offsetof(MassSpatialQueryResult, encounter_position) == 8, "MassSpatialQueryResult.encounter_position offset");
 static_assert(offsetof(MassSpatialQueryResult, has_encounter) == 32, "MassSpatialQueryResult.has_encounter offset");
 
+// --- Spatial query slot ---
+static_assert(sizeof(MassSpatialQuerySlot) == 32, "MassSpatialQuerySlot");
+static_assert(alignof(MassSpatialQuerySlot) == 8, "MassSpatialQuerySlot alignment");
+static_assert(offsetof(MassSpatialQuerySlot, name) == 0, "MassSpatialQuerySlot.name offset");
+static_assert(offsetof(MassSpatialQuerySlot, query_fn) == 16, "MassSpatialQuerySlot.query_fn offset");
+static_assert(offsetof(MassSpatialQuerySlot, radius) == 24, "MassSpatialQuerySlot.radius offset");
+
 // --- Frame dispatch ---
 static_assert(sizeof(MassFrameDispatchData) == 32, "MassFrameDispatchData");
 static_assert(alignof(MassFrameDispatchData) == 8, "MassFrameDispatchData alignment");
-static_assert(offsetof(MassFrameDispatchData, spatial_query_fn) == 16, "MassFrameDispatchData.spatial_query_fn offset");
-static_assert(offsetof(MassFrameDispatchData, pickup_radius) == 24, "MassFrameDispatchData.pickup_radius offset");
+static_assert(offsetof(MassFrameDispatchData, num_spatial_queries) == 16, "MassFrameDispatchData.num_spatial_queries offset");
+static_assert(offsetof(MassFrameDispatchData, spatial_queries) == 24, "MassFrameDispatchData.spatial_queries offset");
 
 // --- Visualizer ---
 static_assert(sizeof(MassVisualizerGroupDesc) == 40, "MassVisualizerGroupDesc");
@@ -183,8 +190,16 @@ static_assert(sizeof(MassInitSimulationResult) == 16, "MassInitSimulationResult"
 static_assert(alignof(MassInitSimulationResult) == 8, "MassInitSimulationResult alignment");
 
 // --- Spatial query config ---
-static_assert(sizeof(MassSpatialQueryConfigDesc) == 48, "MassSpatialQueryConfigDesc");
+static_assert(sizeof(MassSpatialQueryConfigDesc) == 64, "MassSpatialQueryConfigDesc");
 static_assert(alignof(MassSpatialQueryConfigDesc) == 8, "MassSpatialQueryConfigDesc alignment");
+static_assert(offsetof(MassSpatialQueryConfigDesc, query_name) == 0, "MassSpatialQueryConfigDesc.query_name offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, query_group) == 16, "MassSpatialQueryConfigDesc.query_group offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, radius) == 32, "MassSpatialQueryConfigDesc.radius offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, filter_fragment_type) == 40, "MassSpatialQueryConfigDesc.filter_fragment_type offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_offset) == 56, "MassSpatialQueryConfigDesc.filter_bool_offset offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_must_be) == 60, "MassSpatialQueryConfigDesc.filter_bool_must_be offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, query_type) == 61, "MassSpatialQueryConfigDesc.query_type offset");
+static_assert(offsetof(MassSpatialQueryConfigDesc, collision_channel_index) == 62, "MassSpatialQueryConfigDesc.collision_channel_index offset");
 
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");

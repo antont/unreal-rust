@@ -110,14 +110,14 @@ fn carried_food_tracking(
 
 // ---------------------------------------------------------------------------
 // System 2: Collision pre-pass — detect food encounters via spatial query
-// (Unreal-only: uses Res<MassSpatialQueryCallback>)
+// (Unreal-only: uses Res<MassSpatialQueries>)
 // ---------------------------------------------------------------------------
 
 #[mass_system(order = 20)]
 fn ant_collision_prepass(
     positions: MassQuery<&Position, With<BevyMassAntTag>>,
     encounters: MassQuery<&mut AntEncounterFragment, With<BevyMassAntTag>>,
-    spatial: Res<unreal_api::mass::MassSpatialQueryCallback>,
+    spatial: Res<unreal_api::mass::MassSpatialQueries>,
 ) {
     for (pos, enc) in positions.iter().zip(encounters.iter_mut()) {
         // Reset encounter
@@ -125,27 +125,10 @@ fn ant_collision_prepass(
         enc.nearest_food_index = -1;
         enc.encounter_position = [0.0; 3];
 
-        if let Some(callback) = spatial.query_fn {
-            let mut result = unreal_api::ffi::MassSpatialQueryResult {
-                food_index: -1,
-                _pad: 0,
-                encounter_position: [0.0; 3],
-                has_encounter: false,
-                _result_pad: [0; 7],
-            };
-
-            let ok = unsafe {
-                callback(
-                    pos.previous_position.as_ptr(),
-                    pos.position.as_ptr(),
-                    spatial.pickup_radius,
-                    &mut result,
-                )
-            };
-
-            if ok != 0 && result.has_encounter {
+        if let Some(result) = spatial.call("food_pickup", &pos.previous_position, &pos.position) {
+            if result.has_encounter {
                 enc.has_encounter = true;
-                enc.nearest_food_index = result.food_index;
+                enc.nearest_food_index = result.entity_index;
                 enc.encounter_position = result.encounter_position;
             }
         }
@@ -334,10 +317,8 @@ mod tests {
         let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
         let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
 
-        let spatial = unreal_api::mass::MassSpatialQueryCallback {
-            query_fn: None,
-            pickup_radius: 15.0,
-        };
+        // Empty MassSpatialQueries — no "food_pickup" registered
+        let spatial = unreal_api::mass::MassSpatialQueries::default();
         ant_collision_prepass(pos_q, enc_q, &spatial);
 
         assert!(!encounters[0].has_encounter);
@@ -354,7 +335,7 @@ mod tests {
         ) -> u32 {
             unsafe {
                 (*out).has_encounter = true;
-                (*out).food_index = 3;
+                (*out).entity_index = 3;
                 (*out).encounter_position = [50.0, 50.0, 0.0];
             }
             1
@@ -369,10 +350,8 @@ mod tests {
         let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
         let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
 
-        let spatial = unreal_api::mass::MassSpatialQueryCallback {
-            query_fn: Some(mock_hit),
-            pickup_radius: 15.0,
-        };
+        let mut spatial = unreal_api::mass::MassSpatialQueries::default();
+        spatial.insert("food_pickup".to_string(), mock_hit, 15.0);
         ant_collision_prepass(pos_q, enc_q, &spatial);
 
         assert!(encounters[0].has_encounter);
@@ -390,7 +369,7 @@ mod tests {
         ) -> u32 {
             unsafe {
                 (*out).has_encounter = false;
-                (*out).food_index = -1;
+                (*out).entity_index = -1;
             }
             1
         }
@@ -404,10 +383,8 @@ mod tests {
         let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
         let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
 
-        let spatial = unreal_api::mass::MassSpatialQueryCallback {
-            query_fn: Some(mock_miss),
-            pickup_radius: 15.0,
-        };
+        let mut spatial = unreal_api::mass::MassSpatialQueries::default();
+        spatial.insert("food_pickup".to_string(), mock_miss, 15.0);
         ant_collision_prepass(pos_q, enc_q, &spatial);
 
         assert!(!encounters[0].has_encounter);

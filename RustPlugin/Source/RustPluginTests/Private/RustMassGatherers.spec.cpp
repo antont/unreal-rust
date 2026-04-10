@@ -162,14 +162,14 @@ bool FGatherersBevyMassSpatialQueryLayoutTest::RunTest(const FString& Parameters
 	// MassSpatialQueryResult: i32(4) + i32(4) + double[3](24) + bool(1) + pad(7) = 40
 	TestEqual(TEXT("MassSpatialQueryResult size"), (int32)sizeof(MassSpatialQueryResult), 40);
 	TestEqual(TEXT("MassSpatialQueryResult alignment"), (int32)alignof(MassSpatialQueryResult), 8);
-	TestEqual(TEXT("MassSpatialQueryResult food_index offset"),
-		(int32)offsetof(MassSpatialQueryResult, food_index), 0);
+	TestEqual(TEXT("MassSpatialQueryResult entity_index offset"),
+		(int32)offsetof(MassSpatialQueryResult, entity_index), 0);
 	TestEqual(TEXT("MassSpatialQueryResult encounter_position offset"),
 		(int32)offsetof(MassSpatialQueryResult, encounter_position), 8);
 	TestEqual(TEXT("MassSpatialQueryResult has_encounter offset"),
 		(int32)offsetof(MassSpatialQueryResult, has_encounter), 32);
 
-	// MassFrameDispatchData: f32(4) + u32(4) + ptr(8) + ptr(8) + f32(4) + u32(4) = 32
+	// MassFrameDispatchData: f32(4) + u32(4) + ptr(8) + u32(4) + u32(4) + ptr(8) = 32
 	TestEqual(TEXT("MassFrameDispatchData size"), (int32)sizeof(MassFrameDispatchData), 32);
 	TestEqual(TEXT("MassFrameDispatchData alignment"), (int32)alignof(MassFrameDispatchData), 8);
 	TestEqual(TEXT("MassFrameDispatchData dt offset"),
@@ -178,10 +178,10 @@ bool FGatherersBevyMassSpatialQueryLayoutTest::RunTest(const FString& Parameters
 		(int32)offsetof(MassFrameDispatchData, num_systems), 4);
 	TestEqual(TEXT("MassFrameDispatchData systems offset"),
 		(int32)offsetof(MassFrameDispatchData, systems), 8);
-	TestEqual(TEXT("MassFrameDispatchData spatial_query_fn offset"),
-		(int32)offsetof(MassFrameDispatchData, spatial_query_fn), 16);
-	TestEqual(TEXT("MassFrameDispatchData pickup_radius offset"),
-		(int32)offsetof(MassFrameDispatchData, pickup_radius), 24);
+	TestEqual(TEXT("MassFrameDispatchData num_spatial_queries offset"),
+		(int32)offsetof(MassFrameDispatchData, num_spatial_queries), 16);
+	TestEqual(TEXT("MassFrameDispatchData spatial_queries offset"),
+		(int32)offsetof(MassFrameDispatchData, spatial_queries), 24);
 
 	return true;
 }
@@ -248,14 +248,14 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		}
 	}
 
-	// Register a spatial query callback that does brute-force distance checks
+	// Register a named spatial query callback that does brute-force distance checks
 	// against food entities (same approach as GatherersSimActivator but without ISMC).
-	Subsystem->SetSpatialQueryCallback(
+	Subsystem->RegisterSpatialQuery(TEXT("food_pickup"),
 		[&EntityManager, FoodEntities](const double* PreviousPos, const double* CurrentPos,
 			float PickupRadius, MassSpatialQueryResult* Out) -> uint32
 		{
 			Out->has_encounter = false;
-			Out->food_index = -1;
+			Out->entity_index = -1;
 			Out->encounter_position[0] = 0.0;
 			Out->encounter_position[1] = 0.0;
 			Out->encounter_position[2] = 0.0;
@@ -279,7 +279,7 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 				{
 					BestDistSq = DistSq;
 					Out->has_encounter = true;
-					Out->food_index = Idx;
+					Out->entity_index = Idx;
 					Out->encounter_position[0] = Food.Position.X;
 					Out->encounter_position[1] = Food.Position.Y;
 					Out->encounter_position[2] = Food.Position.Z;
@@ -287,7 +287,7 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			}
 			return 1;
 		},
-		15.0f);  // GatherersMassPickupRadius (from deleted RustMassGatherers module)
+		15.0f);  // GatherersMassPickupRadius
 
 	// Run enough simulation steps for collision detection + food decision
 	for (int32 Step = 0; Step < 20; ++Step)
@@ -879,11 +879,17 @@ bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Par
 	uint32 Result = Module.Plugin.Rust.get_spatial_query_config_desc.Unwrap()(0, &Config);
 	TestEqual(TEXT("get_spatial_query_config_desc should return 1"), Result, (uint32)1);
 
+	FString QueryName(Config.query_name.len,
+		UTF8_TO_TCHAR(Config.query_name.ptr));
+	TestEqual(TEXT("Query name should be 'food_pickup'"), QueryName, TEXT("food_pickup"));
+
 	FString QueryGroup(Config.query_group.len,
 		UTF8_TO_TCHAR(Config.query_group.ptr));
 	TestEqual(TEXT("Query group should be 'food'"), QueryGroup, TEXT("food"));
 
 	TestEqual(TEXT("Radius should be 15.0"), Config.radius, 15.0f);
+	TestEqual(TEXT("query_type should be 1 (PhysicsSweep)"), Config.query_type, (uint8)1);
+	TestEqual(TEXT("collision_channel_index should be 0"), Config.collision_channel_index, (uint8)0);
 	TestEqual(TEXT("Bool offset should be 24"), Config.filter_bool_offset, (uint32)24);
 	TestTrue(TEXT("filter_bool_must_be should be true"), Config.filter_bool_must_be);
 
