@@ -1,5 +1,5 @@
+use crate::fragments::{Movement, Position};
 use bevy_mass::prelude::*;
-use crate::fragments::{Position, Movement};
 
 #[cfg(feature = "unreal")]
 use unreal_api::mass_system;
@@ -133,7 +133,7 @@ pub fn reverse_direction(dir: [f64; 3]) -> [f64; 3] {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::fragments::{Position, Movement, Cooldown};
+    use crate::fragments::{Cooldown, Movement, Position};
     use bevy_ecs::prelude::*;
 
     fn run_system<M>(world: &mut World, system: impl IntoSystem<(), (), M>) {
@@ -148,14 +148,22 @@ mod tests {
         world.insert_resource(DeltaTime(0.1));
         world.spawn((
             Position::default(),
-            Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, _pad: [0; 4] },
+            Movement {
+                direction: [1.0, 0.0, 0.0],
+                movement_speed: 100.0,
+                _pad: [0; 4],
+            },
         ));
 
         run_system(&mut world, entity_movement);
 
         let mut q = world.query::<&Position>();
         let pos = q.single(&world).unwrap();
-        assert!((pos.position[0] - 10.0).abs() < 1e-6, "x: {}", pos.position[0]);
+        assert!(
+            (pos.position[0] - 10.0).abs() < 1e-6,
+            "x: {}",
+            pos.position[0]
+        );
     }
 
     #[test]
@@ -163,8 +171,15 @@ mod tests {
         let mut world = World::new();
         world.insert_resource(DeltaTime(0.1));
         world.spawn((
-            Position { position: [100.0, 200.0, 0.0], previous_position: [0.0; 3] },
-            Movement { direction: [1.0, 0.0, 0.0], movement_speed: 50.0, _pad: [0; 4] },
+            Position {
+                position: [100.0, 200.0, 0.0],
+                previous_position: [0.0; 3],
+            },
+            Movement {
+                direction: [1.0, 0.0, 0.0],
+                movement_speed: 50.0,
+                _pad: [0; 4],
+            },
         ));
 
         run_system(&mut world, entity_movement);
@@ -178,7 +193,10 @@ mod tests {
     fn cooldown_decrements() {
         let mut world = World::new();
         world.insert_resource(DeltaTime(0.3));
-        world.spawn(Cooldown { remaining_seconds: 1.0, _pad: [0; 4] });
+        world.spawn(Cooldown {
+            remaining_seconds: 1.0,
+            _pad: [0; 4],
+        });
 
         run_system(&mut world, entity_cooldown);
 
@@ -186,7 +204,8 @@ mod tests {
         let cd = q.single(&world).unwrap();
         assert!(
             (cd.remaining_seconds - 0.7).abs() < 1e-5,
-            "cooldown: {}", cd.remaining_seconds
+            "cooldown: {}",
+            cd.remaining_seconds
         );
     }
 
@@ -194,7 +213,10 @@ mod tests {
     fn cooldown_floors_at_zero() {
         let mut world = World::new();
         world.insert_resource(DeltaTime(1.0));
-        world.spawn(Cooldown { remaining_seconds: 0.1, _pad: [0; 4] });
+        world.spawn(Cooldown {
+            remaining_seconds: 0.1,
+            _pad: [0; 4],
+        });
 
         run_system(&mut world, entity_cooldown);
 
@@ -207,8 +229,15 @@ mod tests {
     fn boundary_clamp_and_reflect() {
         let mut world = World::new();
         world.spawn((
-            Position { position: [600.0, 0.0, 0.0], previous_position: [0.0; 3] },
-            Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, _pad: [0; 4] },
+            Position {
+                position: [600.0, 0.0, 0.0],
+                previous_position: [0.0; 3],
+            },
+            Movement {
+                direction: [1.0, 0.0, 0.0],
+                movement_speed: 100.0,
+                _pad: [0; 4],
+            },
         ));
 
         run_system(&mut world, entity_boundary_reflect);
@@ -224,16 +253,24 @@ mod tests {
         let mut world = World::new();
         world.insert_resource(DeltaTime(1.0));
         world.spawn((
-            Position { position: [499.0, 0.0, 0.0], previous_position: [0.0; 3] },
-            Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, _pad: [0; 4] },
-            Cooldown { remaining_seconds: 1.0, _pad: [0; 4] },
+            Position {
+                position: [499.0, 0.0, 0.0],
+                previous_position: [0.0; 3],
+            },
+            Movement {
+                direction: [1.0, 0.0, 0.0],
+                movement_speed: 100.0,
+                _pad: [0; 4],
+            },
+            Cooldown {
+                remaining_seconds: 1.0,
+                _pad: [0; 4],
+            },
         ));
 
         let mut schedule = bevy_ecs::schedule::Schedule::default();
         use bevy_ecs::schedule::IntoScheduleConfigs;
-        schedule.add_systems(
-            (entity_movement, entity_boundary_reflect, entity_cooldown).chain()
-        );
+        schedule.add_systems((entity_movement, entity_boundary_reflect, entity_cooldown).chain());
         schedule.run(&mut world);
 
         let mut q = world.query::<(&Position, &Movement, &Cooldown)>();
@@ -249,11 +286,19 @@ mod tests {
         world.insert_resource(DeltaTime(0.05));
         world.spawn((
             Position::default(),
-            Movement { direction: [1.0, 0.0, 0.0], movement_speed: 200.0, _pad: [0; 4] },
+            Movement {
+                direction: [1.0, 0.0, 0.0],
+                movement_speed: 200.0,
+                _pad: [0; 4],
+            },
         ));
         world.spawn((
             Position::default(),
-            Movement { direction: [0.0, 1.0, 0.0], movement_speed: 50.0, _pad: [0; 4] },
+            Movement {
+                direction: [0.0, 1.0, 0.0],
+                movement_speed: 50.0,
+                _pad: [0; 4],
+            },
         ));
 
         run_system(&mut world, entity_movement);

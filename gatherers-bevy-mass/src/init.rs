@@ -25,10 +25,8 @@ fn spawn_entities(
         .spawn(food_count as u32, |_i, writer| {
             writer.set(&FoodFragment {
                 position: [
-                    bounds_min[0]
-                        + rng() * (bounds_max[0] - bounds_min[0]),
-                    bounds_min[1]
-                        + rng() * (bounds_max[1] - bounds_min[1]),
+                    bounds_min[0] + rng() * (bounds_max[0] - bounds_min[0]),
+                    bounds_min[1] + rng() * (bounds_max[1] - bounds_min[1]),
                     50.0,
                 ],
                 is_loose: true,
@@ -53,16 +51,8 @@ fn spawn_entities(
         .spawn(ant_count as u32, |i, writer| {
             let angle = rng() * std::f64::consts::TAU;
             writer.set(&Position {
-                position: [
-                    center_x + (i as f64 - half) * step,
-                    center_y + 100.0,
-                    50.0,
-                ],
-                previous_position: [
-                    center_x + (i as f64 - half) * step,
-                    center_y + 100.0,
-                    50.0,
-                ],
+                position: [center_x + (i as f64 - half) * step, center_y + 100.0, 50.0],
+                previous_position: [center_x + (i as f64 - half) * step, center_y + 100.0, 50.0],
             });
             writer.set(&Movement {
                 direction: [angle.cos(), angle.sin(), 0.0],
@@ -83,9 +73,7 @@ fn spawn_entities(
 }
 
 /// Init: receives named group counts, returns named groups of entity handles.
-pub fn init_simulation(
-    params: &MassInitSimulationParams,
-) -> Vec<(String, Vec<MassEntityHandle>)> {
+pub fn init_simulation(params: &MassInitSimulationParams) -> Vec<(String, Vec<MassEntityHandle>)> {
     // Extract group counts by name from the params
     let groups = if params.groups.is_null() || params.num_groups == 0 {
         &[]
