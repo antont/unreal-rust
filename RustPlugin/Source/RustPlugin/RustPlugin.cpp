@@ -297,7 +297,7 @@ void FRustLoader::LoadRust()
 		Types.Reset();
 		if (TryLoadFunction(&Rust))
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Hotreload"));
+			UE_LOG(LogTemp, Display, TEXT("Hotreload"));
 
 			// Notify Mass subsystem in all PIE worlds to rebuild with fresh function pointers
 			for (const FWorldContext& Context : GEngine->GetWorldContexts())
@@ -336,7 +336,7 @@ bool FRustLoader::SetupLoader()
 		this->Handle = nullptr;
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Loading loader from '%s'"), *LocalTargetDllPath);
+	UE_LOG(LogTemp, Display, TEXT("RustPlugin: Loading loader from '%s'"), *LocalTargetDllPath);
 	void* LocalHandle = FPlatformProcess::GetDllHandle(*LocalTargetDllPath);
 
 	if (LocalHandle == nullptr)
@@ -513,7 +513,7 @@ UE_ENABLE_OPTIMIZATION
 
 void FRustPluginModule::StartupModule()
 {
-	UE_LOG(LogTemp, Warning, TEXT("RustPlugin: StartupModule begin"));
+	UE_LOG(LogTemp, Display, TEXT("RustPlugin: StartupModule begin"));
 
 	// TODO: Don't run the module if we just want to generate the api. We should allow this and properly handle loading of this module if we don't have
 	// a valid rust dll yet.
@@ -532,7 +532,7 @@ void FRustPluginModule::StartupModule()
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("RustPlugin: Skipping UI init in commandline/unattended mode"));
+		UE_LOG(LogTemp, Display, TEXT("RustPlugin: Skipping UI init in commandline/unattended mode"));
 	}
 
 	RustPackage = NewObject<UPackage>(nullptr, FName(TEXT("/Script/Rust")),

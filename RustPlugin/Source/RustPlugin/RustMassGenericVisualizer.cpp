@@ -47,7 +47,7 @@ bool URustMassGenericVisualizer::Initialize(UWorld* World, const RustBindings& B
 	}
 
 	const uint32 GroupCount = Bindings.get_visualizer_group_count.Unwrap()();
-	UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer: GroupCount = %u"), GroupCount);
+	UE_LOG(LogTemp, Display, TEXT("RustMassGenericVisualizer: GroupCount = %u"), GroupCount);
 	if (GroupCount == 0) return false;
 
 	// Load shared assets
@@ -115,12 +115,12 @@ bool URustMassGenericVisualizer::Initialize(UWorld* World, const RustBindings& B
 		Group.ISMC->SetCastShadow(false);
 		Group.ISMC->SetCanEverAffectNavigation(false);
 
-		UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer: Added group '%s' (frag='%s', offset=%u, scale=%.2f)"),
+		UE_LOG(LogTemp, Display, TEXT("RustMassGenericVisualizer: Added group '%s' (frag='%s', offset=%u, scale=%.2f)"),
 			*Group.Name, *FragTypeName, Group.PositionOffset, Desc.scale);
 		Groups.Add(MoveTemp(Group));
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer: Initialized %d groups"), Groups.Num());
+	UE_LOG(LogTemp, Display, TEXT("RustMassGenericVisualizer: Initialized %d groups"), Groups.Num());
 	return Groups.Num() > 0;
 }
 
@@ -168,7 +168,7 @@ void URustMassGenericVisualizer::RebuildInstances(
 			FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
 			Group.ISMC->AddInstance(T, true);
 		}
-		UE_LOG(LogTemp, Warning, TEXT("RustMassGenericVisualizer::RebuildInstances group '%s': %d entities, %d instances added, %d invalid, %d null frag"),
+		UE_LOG(LogTemp, Display, TEXT("RustMassGenericVisualizer::RebuildInstances group '%s': %d entities, %d instances added, %d invalid, %d null frag"),
 			*Group.Name, Entities.Num(), Group.ISMC->GetInstanceCount(), SkippedInvalid, SkippedNullFrag);
 	}
 }
