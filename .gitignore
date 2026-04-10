@@ -18,3 +18,4 @@ rusttemp
 *.code-workspace
 .idea
 rust-analyzer-target
+.DS_Store
