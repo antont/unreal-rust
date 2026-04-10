@@ -226,6 +226,11 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
 	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
 
+	// Verify SetupSpatialQueriesFromRust() registered the query automatically
+	// (InitializeSimulation calls it when SpatialQueries is empty)
+	TestTrue(TEXT("Spatial query 'food_pickup' should be auto-registered from Rust config"),
+		Subsystem->HasSpatialQuery(TEXT("food_pickup")));
+
 	// Move ant directly to food position to guarantee overlap
 	if (AntEntities->Num() > 0 && FoodEntities->Num() > 0)
 	{
@@ -248,46 +253,8 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		}
 	}
 
-	// Register a named spatial query callback that does brute-force distance checks
-	// against food entities (same approach as GatherersSimActivator but without ISMC).
-	Subsystem->RegisterSpatialQuery(TEXT("food_pickup"),
-		[&EntityManager, FoodEntities](const double* PreviousPos, const double* CurrentPos,
-			float PickupRadius, MassSpatialQueryResult* Out) -> uint32
-		{
-			Out->has_encounter = false;
-			Out->entity_index = -1;
-			Out->encounter_position[0] = 0.0;
-			Out->encounter_position[1] = 0.0;
-			Out->encounter_position[2] = 0.0;
-			if (!FoodEntities) return 1;
-
-			const float PickupRadiusSq = PickupRadius * PickupRadius;
-			const FVector AntPos(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
-			float BestDistSq = TNumericLimits<float>::Max();
-
-			for (int32 Idx = 0; Idx < FoodEntities->Num(); ++Idx)
-			{
-				const FMassEntityHandle FoodEntity = (*FoodEntities)[Idx];
-				if (!EntityManager.IsEntityValid(FoodEntity)) continue;
-				FMassEntityView FoodView(EntityManager, FoodEntity);
-				const FGatherersMassFoodFragment& Food =
-					FoodView.GetFragmentData<FGatherersMassFoodFragment>();
-				if (!Food.bIsLoose) continue;
-
-				const float DistSq = FVector::DistSquared(AntPos, Food.Position);
-				if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
-				{
-					BestDistSq = DistSq;
-					Out->has_encounter = true;
-					Out->entity_index = Idx;
-					Out->encounter_position[0] = Food.Position.X;
-					Out->encounter_position[1] = Food.Position.Y;
-					Out->encounter_position[2] = Food.Position.Z;
-				}
-			}
-			return 1;
-		},
-		15.0f);  // GatherersMassPickupRadius
+	// No manual RegisterSpatialQuery() — uses the real SetupSpatialQueriesFromRust() path,
+	// same as PIE. The Rust config registers a PhysicsSweep query for "food_pickup".
 
 	// Run enough simulation steps for collision detection + food decision
 	for (int32 Step = 0; Step < 20; ++Step)
@@ -896,6 +863,219 @@ bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Par
 	FString FilterType(Config.filter_fragment_type.len,
 		UTF8_TO_TCHAR(Config.filter_fragment_type.ptr));
 	TestEqual(TEXT("Filter fragment type"), FilterType, TEXT("FGatherersMassFoodFragment"));
+
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Hot-reload cycle tests — verify subsystem survives reset+reinit
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassReloadCycleTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassReloadCycle",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassReloadCycleTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// --- Phase 1: Initialize and run simulation ---
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 20}, {TEXT("food"), 10}}, Bounds, 456);
+	TestTrue(TEXT("Phase 1: Should have simulation"), Subsystem->HasManagedSimulation());
+
+	// Record initial positions
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	TArray<FVector> InitialPositions;
+	for (const FMassEntityHandle AntEntity : *AntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			InitialPositions.Add(AntView.GetFragmentData<FGatherersPosition>().Position);
+		}
+	}
+
+	// Run simulation — verify ants move
+	for (int32 Step = 0; Step < 5; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	int32 MovedCount = 0;
+	for (int32 i = 0; i < AntEntities->Num() && i < InitialPositions.Num(); ++i)
+	{
+		if (EntityManager.IsEntityValid((*AntEntities)[i]))
+		{
+			FMassEntityView AntView(EntityManager, (*AntEntities)[i]);
+			if (!AntView.GetFragmentData<FGatherersPosition>().Position.Equals(InitialPositions[i], 0.01))
+			{
+				++MovedCount;
+			}
+		}
+	}
+	TestTrue(TEXT("Phase 1: Ants should have moved"), MovedCount > 0);
+
+	// --- Phase 2: Simulate hot-reload ---
+	Subsystem->OnRustReloaded();
+	TestFalse(TEXT("Phase 2: Should not have simulation after reload"),
+		Subsystem->HasManagedSimulation());
+
+	// --- Phase 3: Re-init via auto-init (simulates next tick after reload) ---
+	Subsystem->Tick(0.0f);
+	TestTrue(TEXT("Phase 3: Auto-init should restore simulation"),
+		Subsystem->HasManagedSimulation());
+	TestEqual(TEXT("Phase 3: Should have default ant count"),
+		Subsystem->GetGroupEntityCount(TEXT("ants")), 100);
+	TestEqual(TEXT("Phase 3: Should have default food count"),
+		Subsystem->GetGroupEntityCount(TEXT("food")), 500);
+
+	// Run simulation again — verify ants move (processors rebuilt with fresh fn ptrs)
+	const TArray<FMassEntityHandle>* NewAnts = Subsystem->GetGroupEntities(TEXT("ants"));
+	TArray<FVector> Phase3Positions;
+	for (int32 i = 0; i < FMath::Min(10, NewAnts->Num()); ++i)
+	{
+		if (EntityManager.IsEntityValid((*NewAnts)[i]))
+		{
+			FMassEntityView AntView(EntityManager, (*NewAnts)[i]);
+			Phase3Positions.Add(AntView.GetFragmentData<FGatherersPosition>().Position);
+		}
+	}
+
+	for (int32 Step = 0; Step < 5; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	int32 Phase3Moved = 0;
+	for (int32 i = 0; i < Phase3Positions.Num() && i < NewAnts->Num(); ++i)
+	{
+		if (EntityManager.IsEntityValid((*NewAnts)[i]))
+		{
+			FMassEntityView AntView(EntityManager, (*NewAnts)[i]);
+			if (!AntView.GetFragmentData<FGatherersPosition>().Position.Equals(Phase3Positions[i], 0.01))
+			{
+				++Phase3Moved;
+			}
+		}
+	}
+	TestTrue(TEXT("Phase 3: Ants should move after reload"), Phase3Moved > 0);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassReloadCycleMultipleTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassReloadCycleMultiple",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassReloadCycleMultipleTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+
+	for (int32 Cycle = 0; Cycle < 3; ++Cycle)
+	{
+		FString CycleLabel = FString::Printf(TEXT("Cycle %d"), Cycle);
+
+		// Init with varying entity counts to detect stale state
+		const int32 AntCount = 10 + Cycle * 5;
+		Subsystem->InitializeSimulation(
+			{{TEXT("ants"), AntCount}, {TEXT("food"), 10}}, Bounds, 100 + Cycle);
+
+		TestTrue(*FString::Printf(TEXT("%s: Should have simulation"), *CycleLabel),
+			Subsystem->HasManagedSimulation());
+		TestEqual(*FString::Printf(TEXT("%s: Ant count"), *CycleLabel),
+			Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+
+		// Run a few steps
+		for (int32 Step = 0; Step < 3; ++Step)
+		{
+			Subsystem->RunSimulationProcessorsForTesting(0.016f);
+		}
+
+		// Simulate reload
+		Subsystem->OnRustReloaded();
+		TestFalse(*FString::Printf(TEXT("%s: Should be empty after reload"), *CycleLabel),
+			Subsystem->HasManagedSimulation());
+	}
+
+	// Final cleanup — already reset by last OnRustReloaded()
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassOnRustReloadedResetsStateTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassOnRustReloadedResetsState",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassOnRustReloadedResetsStateTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Initialize and run to populate all cached state
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 20}, {TEXT("food"), 10}}, Bounds, 789);
+	Subsystem->RunSimulationProcessorsForTesting(0.016f);
+
+	TestTrue(TEXT("Should have simulation before reload"), Subsystem->HasManagedSimulation());
+	TestEqual(TEXT("Should have 20 ants before reload"),
+		Subsystem->GetGroupEntityCount(TEXT("ants")), 20);
+
+	// Simulate reload
+	Subsystem->OnRustReloaded();
+
+	// Verify all state is reset
+	TestFalse(TEXT("HasManagedSimulation should be false after reload"),
+		Subsystem->HasManagedSimulation());
+	TestEqual(TEXT("Ant count should be 0 after reload"),
+		Subsystem->GetGroupEntityCount(TEXT("ants")), 0);
+	TestEqual(TEXT("Food count should be 0 after reload"),
+		Subsystem->GetGroupEntityCount(TEXT("food")), 0);
 
 	return true;
 }

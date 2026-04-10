@@ -41,6 +41,10 @@ public:
 	void ResetSimulation();
 	bool HasManagedSimulation() const;
 
+	/** Called by the plugin loader after a Rust dylib hot-reload.
+	 *  Resets simulation state so processors are rebuilt with fresh function pointers. */
+	void OnRustReloaded();
+
 	/** Get entity array for a group by name. Returns nullptr if not found. */
 	const TArray<FMassEntityHandle>* GetGroupEntities(const FString& GroupName) const;
 
@@ -62,6 +66,12 @@ public:
 
 	/** Register a named spatial query callback. */
 	void RegisterSpatialQuery(const FString& QueryName, FSpatialQueryCallback InCallback, float InRadius);
+
+	/** Check if a named spatial query is registered. */
+	bool HasSpatialQuery(const FString& QueryName) const { return SpatialQueries.Contains(QueryName); }
+
+	/** Get number of registered spatial queries. */
+	int32 GetSpatialQueryCount() const { return SpatialQueries.Num(); }
 
 	/**
 	 * Auto-setup spatial queries from Rust-registered config.

@@ -1,4 +1,4 @@
-use std::sync::{Mutex, OnceLock};
+use std::sync::Mutex;
 
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
@@ -77,7 +77,7 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
 // Bevy-scheduled dispatch
 // ---------------------------------------------------------------------------
 
-static MASS_SCHEDULE: OnceLock<std::sync::Mutex<MassSchedule>> = OnceLock::new();
+static MASS_SCHEDULE: Mutex<Option<MassSchedule>> = Mutex::new(None);
 
 /// Build a MassSchedule from all Bevy-registered mass systems.
 ///
@@ -108,8 +108,19 @@ pub fn build_bevy_schedule() -> MassSchedule {
 }
 
 /// Initialize the global Bevy schedule. Called once during module init.
+/// Safe to call after `reset_mass_schedule()` to rebuild.
 pub fn init_global_schedule() {
-    MASS_SCHEDULE.get_or_init(|| std::sync::Mutex::new(build_bevy_schedule()));
+    let mut guard = MASS_SCHEDULE.lock().unwrap();
+    if guard.is_none() {
+        *guard = Some(build_bevy_schedule());
+    }
+}
+
+/// Reset the global Bevy schedule, allowing it to be rebuilt on next init.
+/// Used for hot-reload and testing.
+pub fn reset_mass_schedule() {
+    let mut guard = MASS_SCHEDULE.lock().unwrap();
+    *guard = None;
 }
 
 /// Per-frame dispatch: update chunk resources and run the Bevy schedule.
@@ -124,10 +135,10 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     }
     let data = unsafe { &*data };
 
-    let Some(mutex) = MASS_SCHEDULE.get() else {
+    let Ok(mut guard) = MASS_SCHEDULE.lock() else {
         return;
     };
-    let Ok(mut sched) = mutex.lock() else {
+    let Some(sched) = guard.as_mut() else {
         return;
     };
 
@@ -361,4 +372,59 @@ pub unsafe extern "C" fn get_sim_defaults(
         };
     }
     1
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_init_and_reset_schedule() {
+        // Start clean
+        reset_mass_schedule();
+
+        // Init should build a schedule
+        init_global_schedule();
+        {
+            let guard = MASS_SCHEDULE.lock().unwrap();
+            assert!(guard.is_some(), "Schedule should exist after init");
+        }
+
+        // Reset should clear it
+        reset_mass_schedule();
+        {
+            let guard = MASS_SCHEDULE.lock().unwrap();
+            assert!(guard.is_none(), "Schedule should be None after reset");
+        }
+
+        // Re-init should rebuild
+        init_global_schedule();
+        {
+            let guard = MASS_SCHEDULE.lock().unwrap();
+            assert!(guard.is_some(), "Schedule should exist after re-init");
+        }
+
+        // Clean up for other tests
+        reset_mass_schedule();
+    }
+
+    #[test]
+    fn test_mass_frame_dispatch_without_schedule() {
+        // Ensure no schedule exists
+        reset_mass_schedule();
+
+        // Dispatch with no schedule should return gracefully (no panic)
+        let data = unreal_ffi::MassFrameDispatchData {
+            dt: 0.016,
+            num_systems: 0,
+            systems: std::ptr::null(),
+            num_spatial_queries: 0,
+            _pad: 0,
+            spatial_queries: std::ptr::null(),
+        };
+        unsafe {
+            mass_frame_dispatch(&data as *const _);
+        }
+        // If we get here without panic, the test passes
+    }
 }

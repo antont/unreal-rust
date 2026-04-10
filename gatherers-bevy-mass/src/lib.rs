@@ -22,7 +22,7 @@ inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
 });
 
 // Spatial query config: search "food" group for loose food within 15.0 units
-// Uses physics sweep via ECC_GameTraceChannel1 ("FoodQuery")
+// Uses UE physics sweep via ECC_GameTraceChannel1 ("FoodQuery")
 inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
     query_name: "food_pickup",
     query_group: "food",

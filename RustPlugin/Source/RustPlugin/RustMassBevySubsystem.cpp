@@ -175,6 +175,9 @@ void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
 				TargetISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 				TargetISMC->SetCollisionResponseToAllChannels(ECR_Ignore);
 				TargetISMC->SetCollisionResponseToChannel(Channel, ECR_Block);
+				// Flush physics bodies so SweepMultiByChannel can find ISMC instances
+				// immediately, without waiting for the next world tick.
+				TargetISMC->RecreatePhysicsState();
 			}
 
 			RegisterSpatialQuery(QueryName,
@@ -726,6 +729,13 @@ void URustMassBevySubsystem::ResetSimulation()
 	bProcessorPipelinesInitialized = false;
 	SpatialQueries.Empty();
 	bAutoInitAttempted = false;
+}
+
+void URustMassBevySubsystem::OnRustReloaded()
+{
+	UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Rust hot-reload detected, resetting simulation"));
+	ResetSimulation();
+	// TryAutoInitFromRustDefaults() will fire on next Tick()
 }
 
 void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)

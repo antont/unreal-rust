@@ -14,6 +14,7 @@
 #include "Modules/ModuleManager.h"
 #include "RustUtils.h"
 #include "Bindings.h"
+#include "RustMassBevySubsystem.h"
 #include "HAL/PlatformFileManager.h"
 #include "Interfaces/IPluginManager.h"
 #include "UObject/EnumProperty.h"
@@ -297,6 +298,18 @@ void FRustLoader::LoadRust()
 		if (TryLoadFunction(&Rust))
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hotreload"));
+
+			// Notify Mass subsystem to rebuild processors with fresh function pointers
+			if (GEditor)
+			{
+				if (UWorld* World = GEditor->GetEditorWorldContext().World())
+				{
+					if (auto* MassSub = World->GetSubsystem<URustMassBevySubsystem>())
+					{
+						MassSub->OnRustReloaded();
+					}
+				}
+			}
 		}
 		RegisterTypes();
 	}
