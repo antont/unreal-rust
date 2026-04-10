@@ -299,12 +299,12 @@ void FRustLoader::LoadRust()
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hotreload"));
 
-			// Notify Mass subsystem to rebuild processors with fresh function pointers
-			if (GEditor)
+			// Notify Mass subsystem in all PIE worlds to rebuild with fresh function pointers
+			for (const FWorldContext& Context : GEngine->GetWorldContexts())
 			{
-				if (UWorld* World = GEditor->GetEditorWorldContext().World())
+				if (Context.WorldType == EWorldType::PIE && Context.World())
 				{
-					if (auto* MassSub = World->GetSubsystem<URustMassBevySubsystem>())
+					if (auto* MassSub = Context.World()->GetSubsystem<URustMassBevySubsystem>())
 					{
 						MassSub->OnRustReloaded();
 					}

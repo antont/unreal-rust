@@ -82,6 +82,28 @@ The filter in `RunTests` is a prefix match:
 
 Test source: `RustPlugin/Source/RustPluginTests/Private/RustMassGatherers.spec.cpp`
 
+## Rust hot-reload during PIE
+
+Rust code changes take effect in a running PIE session without restarting the editor.
+
+1. Start PIE (Play in Editor)
+2. Edit Rust code (e.g. movement speed in `gatherers-sim/src/movement.rs`)
+3. Build the Rust dylib:
+   ```bash
+   cargo build --release -p unreal-rust-host
+   ```
+4. The editor detects the timestamp change, reloads the dylib, and resets the Mass simulation automatically
+
+The Output Log should show:
+```
+LogTemp: Warning: Hotreload
+LogTemp: Display: RustMassBevySubsystem: Rust hot-reload detected, resetting simulation
+```
+
+The simulation restarts from scratch with the new Rust code — entities are destroyed and re-spawned using `TryAutoInitFromRustDefaults()`.
+
+**Note:** This requires the C++ plugin to be compiled with the `OnRustReloaded()` hook. If you only see `Hotreload` but not the reset message, rebuild the C++ side (UE toolbar compile button or restart the editor after a CLI build).
+
 ## Unreal C++ build (CLI)
 
 ```bash
