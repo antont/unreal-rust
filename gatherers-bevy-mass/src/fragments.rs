@@ -75,7 +75,7 @@ mod tests {
         let golden_path = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
             .parent()
             .unwrap()
-            .join("RustPlugin/Source/RustMassGatherers/GatherersFragments.gen.h");
+            .join("RustPlugin/Source/RustPlugin/Generated/GatherersFragments.gen.h");
 
         let golden = std::fs::read_to_string(&golden_path).unwrap_or_else(|e| {
             panic!(

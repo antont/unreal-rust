@@ -448,6 +448,46 @@ struct MassInitSimulationResult {
 using MassInitSimulationFn = uint32_t(*)(const MassInitSimulationParams *params,
                                          MassInitSimulationResult *result);
 
+/// Returns the number of registered spatial query configurations.
+using GetSpatialQueryConfigCountFn = uint32_t(*)();
+
+/// Tells C++ how to implement ISMC spatial query for a given entity group.
+/// Rust game crates declare these via inventory; C++ reads them at startup
+/// to create generic ISMC overlap query callbacks.
+struct MassSpatialQueryConfigDesc {
+  /// ISMC group name to search (e.g. "food").
+  Utf8Str query_group;
+  /// Overlap sphere radius in Unreal units.
+  float radius;
+  uint32_t _pad0;
+  /// C++ fragment type name that has the bool to filter on (e.g. "FGatherersFood").
+  Utf8Str filter_fragment_type;
+  /// Byte offset of the bool field within the filter fragment.
+  uint32_t filter_bool_offset;
+  /// Required value of the bool field (true = only match when bool is true).
+  bool filter_bool_must_be;
+  uint8_t _pad1[3];
+};
+
+/// Fills a MassSpatialQueryConfigDesc for the config at `index`.
+/// Returns 1 on success, 0 on failure.
+using GetSpatialQueryConfigDescFn = uint32_t(*)(uint32_t index, MassSpatialQueryConfigDesc *out);
+
+/// Default simulation configuration registered from Rust.
+/// C++ reads this at startup; actor UPROPERTY values can override.
+struct MassSimDefaultsDesc {
+  const MassEntityGroupDesc *groups;
+  uint32_t num_groups;
+  uint32_t _pad;
+  double bounds_min[3];
+  double bounds_max[3];
+  int32_t random_seed;
+  int32_t _pad2;
+};
+
+/// Fills the sim defaults from Rust. Returns 1 if defaults are available, 0 otherwise.
+using GetSimDefaultsFn = uint32_t(*)(MassSimDefaultsDesc *out);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -459,6 +499,9 @@ struct RustBindings {
   Option<GetVisualizerGroupCountFn> get_visualizer_group_count;
   Option<GetVisualizerGroupDescFn> get_visualizer_group_desc;
   Option<MassInitSimulationFn> mass_init_simulation;
+  Option<GetSpatialQueryConfigCountFn> get_spatial_query_config_count;
+  Option<GetSpatialQueryConfigDescFn> get_spatial_query_config_desc;
+  Option<GetSimDefaultsFn> get_sim_defaults;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
@@ -572,6 +615,12 @@ static_assert(sizeof(Option<GetVisualizerGroupDescFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 static_assert(sizeof(Option<MassInitSimulationFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<GetSpatialQueryConfigCountFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<GetSpatialQueryConfigDescFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<GetSimDefaultsFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 
 // --- Fundamental types ---
 static_assert(sizeof(Utf8Str) == 16, "Utf8Str: ptr(8) + usize(8)");
@@ -588,7 +637,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 80, "RustBindings: 7 fn ptrs + 3 Option<fn ptr> = 10 pointers");
+static_assert(sizeof(RustBindings) == 104, "RustBindings: 7 fn ptrs + 6 Option<fn ptr> = 13 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -660,4 +709,12 @@ static_assert(alignof(MassEntityGroupResult) == 8, "MassEntityGroupResult alignm
 
 static_assert(sizeof(MassInitSimulationResult) == 16, "MassInitSimulationResult");
 static_assert(alignof(MassInitSimulationResult) == 8, "MassInitSimulationResult alignment");
+
+// --- Spatial query config ---
+static_assert(sizeof(MassSpatialQueryConfigDesc) == 48, "MassSpatialQueryConfigDesc");
+static_assert(alignof(MassSpatialQueryConfigDesc) == 8, "MassSpatialQueryConfigDesc alignment");
+
+// --- Sim defaults ---
+static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");
+static_assert(alignof(MassSimDefaultsDesc) == 8, "MassSimDefaultsDesc alignment");
 

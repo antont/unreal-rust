@@ -104,6 +104,9 @@ fn create_rust_bindings() -> RustBindings {
         get_visualizer_group_count: Some(mass_system_registry::get_visualizer_group_count),
         get_visualizer_group_desc: Some(mass_system_registry::get_visualizer_group_desc),
         mass_init_simulation: Some(mass_system_registry::mass_init_simulation),
+        get_spatial_query_config_count: Some(mass_system_registry::get_spatial_query_config_count),
+        get_spatial_query_config_desc: Some(mass_system_registry::get_spatial_query_config_desc),
+        get_sim_defaults: Some(mass_system_registry::get_sim_defaults),
     }
 }
 fn debug_break() {

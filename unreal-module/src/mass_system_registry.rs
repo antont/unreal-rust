@@ -5,7 +5,7 @@ use unreal_api::mass::{
     MassBevySystemRegistration, MassDeltaTime, MassSchedule, MassSpatialQueryCallback,
     MassSystemRegistration, MassSystemStage,
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
-    registered_visualizer_groups,
+    registered_visualizer_groups, registered_spatial_query_configs, registered_sim_defaults,
 };
 use unreal_api::ecs::schedule::IntoScheduleConfigs;
 
@@ -266,6 +266,87 @@ pub unsafe extern "C" fn get_visualizer_group_desc(
             position_fragment_type: unreal_ffi::Utf8Str::from(reg.position_fragment_type),
             position_offset: reg.position_offset as u32,
             scale: reg.scale,
+        };
+    }
+    1
+}
+
+// ---------------------------------------------------------------------------
+// Spatial query config descriptors
+// ---------------------------------------------------------------------------
+
+pub unsafe extern "C" fn get_spatial_query_config_count() -> u32 {
+    registered_spatial_query_configs().into_iter().count() as u32
+}
+
+pub unsafe extern "C" fn get_spatial_query_config_desc(
+    index: u32,
+    out: *mut unreal_ffi::MassSpatialQueryConfigDesc,
+) -> u32 {
+    if out.is_null() {
+        return 0;
+    }
+    let Some(reg) = registered_spatial_query_configs().into_iter().nth(index as usize) else {
+        return 0;
+    };
+    unsafe {
+        (*out) = unreal_ffi::MassSpatialQueryConfigDesc {
+            query_group: unreal_ffi::Utf8Str::from(reg.query_group),
+            radius: reg.radius,
+            _pad0: 0,
+            filter_fragment_type: unreal_ffi::Utf8Str::from(reg.filter_fragment_type),
+            filter_bool_offset: reg.filter_bool_offset as u32,
+            filter_bool_must_be: reg.filter_bool_must_be,
+            _pad1: [0; 3],
+        };
+    }
+    1
+}
+
+// ---------------------------------------------------------------------------
+// Simulation defaults
+// ---------------------------------------------------------------------------
+
+/// Wrapper for MassEntityGroupDesc vec to allow it in a static Mutex.
+/// Safety: only accessed from game thread behind Mutex.
+struct SyncGroupDescs(Vec<unreal_ffi::MassEntityGroupDesc>);
+unsafe impl Send for SyncGroupDescs {}
+unsafe impl Sync for SyncGroupDescs {}
+
+/// Stored group descs for sim defaults.
+static SIM_DEFAULTS_GROUPS: Mutex<SyncGroupDescs> =
+    Mutex::new(SyncGroupDescs(Vec::new()));
+
+pub unsafe extern "C" fn get_sim_defaults(
+    out: *mut unreal_ffi::MassSimDefaultsDesc,
+) -> u32 {
+    if out.is_null() {
+        return 0;
+    }
+    let Some(reg) = registered_sim_defaults().into_iter().next() else {
+        return 0;
+    };
+
+    // Build group descs from registration data
+    let mut groups = SIM_DEFAULTS_GROUPS.lock().unwrap();
+    groups.0.clear();
+    for &(name, count) in reg.groups {
+        groups.0.push(unreal_ffi::MassEntityGroupDesc {
+            name: unreal_ffi::Utf8Str::from(name),
+            count,
+            _pad: 0,
+        });
+    }
+
+    unsafe {
+        (*out) = unreal_ffi::MassSimDefaultsDesc {
+            groups: groups.0.as_ptr(),
+            num_groups: groups.0.len() as u32,
+            _pad: 0,
+            bounds_min: reg.bounds_min,
+            bounds_max: reg.bounds_max,
+            random_seed: reg.random_seed,
+            _pad2: 0,
         };
     }
     1

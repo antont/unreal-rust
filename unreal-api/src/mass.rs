@@ -1113,6 +1113,53 @@ pub fn registered_bevy_mass_systems() -> inventory::iter<MassBevySystemRegistrat
     inventory::iter::<MassBevySystemRegistration>
 }
 
+// ---------------------------------------------------------------------------
+// Spatial query config registration
+// ---------------------------------------------------------------------------
+
+/// Game crates register spatial query configurations via inventory.
+/// Each config tells the generic C++ subsystem how to perform ISMC overlap
+/// queries for a particular entity group.
+pub struct MassSpatialQueryConfigRegistration {
+    /// ISMC group name to search (e.g. "food").
+    pub query_group: &'static str,
+    /// Overlap sphere radius in Unreal units.
+    pub radius: f32,
+    /// C++ fragment type name that has the bool to filter on.
+    pub filter_fragment_type: &'static str,
+    /// Byte offset of the bool field within the filter fragment.
+    pub filter_bool_offset: usize,
+    /// Required value of the bool field.
+    pub filter_bool_must_be: bool,
+}
+
+inventory::collect!(MassSpatialQueryConfigRegistration);
+
+pub fn registered_spatial_query_configs() -> inventory::iter<MassSpatialQueryConfigRegistration> {
+    inventory::iter::<MassSpatialQueryConfigRegistration>
+}
+
+// ---------------------------------------------------------------------------
+// Simulation defaults registration
+// ---------------------------------------------------------------------------
+
+/// Game crates register default simulation parameters via inventory.
+/// These provide defaults that the generic C++ activator actor can override
+/// via UPROPERTY values in the editor.
+pub struct MassSimDefaultsRegistration {
+    pub name: &'static str,
+    pub groups: &'static [(&'static str, i32)],
+    pub bounds_min: [f64; 3],
+    pub bounds_max: [f64; 3],
+    pub random_seed: i32,
+}
+
+inventory::collect!(MassSimDefaultsRegistration);
+
+pub fn registered_sim_defaults() -> inventory::iter<MassSimDefaultsRegistration> {
+    inventory::iter::<MassSimDefaultsRegistration>
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

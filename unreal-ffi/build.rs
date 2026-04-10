@@ -20,6 +20,11 @@ fn main() {
         .include_item("PluginBindings")
         .include_item("FScriptArrayStorage")
         .include_item("FScriptArrayFns")
+        .include_item("MassSpatialQueryConfigDesc")
+        .include_item("GetSpatialQueryConfigCountFn")
+        .include_item("GetSpatialQueryConfigDescFn")
+        .include_item("MassSimDefaultsDesc")
+        .include_item("GetSimDefaultsFn")
         .with_pragma_once(true)
         .generate()
         .expect("Unable to generate bindings")
@@ -82,6 +87,12 @@ static_assert(sizeof(Option<GetVisualizerGroupDescFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 static_assert(sizeof(Option<MassInitSimulationFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<GetSpatialQueryConfigCountFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<GetSpatialQueryConfigDescFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<GetSimDefaultsFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 
 // --- Fundamental types ---
 static_assert(sizeof(Utf8Str) == 16, "Utf8Str: ptr(8) + usize(8)");
@@ -98,7 +109,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 80, "RustBindings: 7 fn ptrs + 3 Option<fn ptr> = 10 pointers");
+static_assert(sizeof(RustBindings) == 104, "RustBindings: 7 fn ptrs + 6 Option<fn ptr> = 13 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -170,5 +181,13 @@ static_assert(alignof(MassEntityGroupResult) == 8, "MassEntityGroupResult alignm
 
 static_assert(sizeof(MassInitSimulationResult) == 16, "MassInitSimulationResult");
 static_assert(alignof(MassInitSimulationResult) == 8, "MassInitSimulationResult alignment");
+
+// --- Spatial query config ---
+static_assert(sizeof(MassSpatialQueryConfigDesc) == 48, "MassSpatialQueryConfigDesc");
+static_assert(alignof(MassSpatialQueryConfigDesc) == 8, "MassSpatialQueryConfigDesc alignment");
+
+// --- Sim defaults ---
+static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");
+static_assert(alignof(MassSimDefaultsDesc) == 8, "MassSimDefaultsDesc alignment");
 "#).expect("Failed to write static_asserts to Bindings.h");
 }

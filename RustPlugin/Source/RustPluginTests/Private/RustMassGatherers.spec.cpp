@@ -4,8 +4,7 @@
 #include "MassEntityView.h"
 #include "Tests/AutomationCommon.h"
 #include "RustMassBevySubsystem.h"
-#include "GatherersFragments.h"
-#include "GatherersMassRuntime.h"
+#include "GatherersFragments.gen.h"
 #include "Bindings.h"
 #include "RustMassDynamicProcessor.h"
 #include "RustPlugin.h"
@@ -288,7 +287,7 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			}
 			return 1;
 		},
-		GatherersMassPickupRadius);
+		15.0f);  // GatherersMassPickupRadius (from deleted RustMassGatherers module)
 
 	// Run enough simulation steps for collision detection + food decision
 	for (int32 Step = 0; Step < 20; ++Step)
@@ -716,6 +715,181 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		Subsystem->GetGroupEntityCount(TEXT("ants")), 0);
 	TestEqual(TEXT("Food count should be 0 after reset"),
 		Subsystem->GetGroupEntityCount(TEXT("food")), 0);
+
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Auto-init from Rust defaults — THE regression test for "nothing shows in PIE"
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassAutoInitFromRustDefaultsTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassAutoInitFromRustDefaults",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassAutoInitFromRustDefaultsTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Ensure clean state — no simulation running
+	Subsystem->ResetSimulation();
+	TestFalse(TEXT("Should not have simulation before auto-init"),
+		Subsystem->HasManagedSimulation());
+
+	// Tick triggers TryAutoInitFromRustDefaults() when no simulation is active
+	Subsystem->Tick(0.0f);
+
+	// This is THE assertion that would have caught the PIE bug:
+	// if auto-init from Rust defaults doesn't work, HasManagedSimulation() stays false
+	TestTrue(TEXT("Auto-init should have started simulation from Rust defaults"),
+		Subsystem->HasManagedSimulation());
+
+	// Verify group counts match Rust-registered defaults (ants:100, food:500)
+	TestEqual(TEXT("Auto-init should create 100 ants"),
+		Subsystem->GetGroupEntityCount(TEXT("ants")), 100);
+	TestEqual(TEXT("Auto-init should create 500 food"),
+		Subsystem->GetGroupEntityCount(TEXT("food")), 500);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Auto-init idempotency — multiple ticks should not re-initialize
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassAutoInitIdempotentTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassAutoInitIdempotent",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassAutoInitIdempotentTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	Subsystem->ResetSimulation();
+	Subsystem->Tick(0.0f); // auto-init
+
+	const int32 AntCount = Subsystem->GetGroupEntityCount(TEXT("ants"));
+	const int32 FoodCount = Subsystem->GetGroupEntityCount(TEXT("food"));
+
+	// Tick several more times — entity counts must not change
+	for (int32 i = 0; i < 5; ++i)
+	{
+		Subsystem->Tick(0.0f);
+	}
+
+	TestEqual(TEXT("Ant count should be unchanged after repeated ticks"),
+		Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+	TestEqual(TEXT("Food count should be unchanged after repeated ticks"),
+		Subsystem->GetGroupEntityCount(TEXT("food")), FoodCount);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// FFI wiring: Rust sim defaults readable from C++
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassRustSimDefaultsFFITest,
+	"supplemental.RustPlugin.Gatherers.BevyMassRustSimDefaultsFFI",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassRustSimDefaultsFFITest::RunTest(const FString& Parameters)
+{
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+
+	TestTrue(TEXT("get_sim_defaults should be available"),
+		Module.Plugin.Rust.get_sim_defaults.IsSome());
+
+	MassSimDefaultsDesc Defaults = {};
+	uint32 Result = Module.Plugin.Rust.get_sim_defaults.Unwrap()(&Defaults);
+	TestEqual(TEXT("get_sim_defaults should return 1 (success)"), Result, (uint32)1);
+	TestTrue(TEXT("Should have at least 2 groups"), Defaults.num_groups >= 2);
+
+	// Verify group names and counts
+	bool FoundAnts = false, FoundFood = false;
+	for (uint32 i = 0; i < Defaults.num_groups; ++i)
+	{
+		FString Name(Defaults.groups[i].name.len,
+			UTF8_TO_TCHAR(Defaults.groups[i].name.ptr));
+		if (Name == TEXT("ants"))
+		{
+			FoundAnts = true;
+			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 100);
+		}
+		else if (Name == TEXT("food"))
+		{
+			FoundFood = true;
+			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 500);
+		}
+	}
+	TestTrue(TEXT("Should have 'ants' group in defaults"), FoundAnts);
+	TestTrue(TEXT("Should have 'food' group in defaults"), FoundFood);
+	TestEqual(TEXT("Random seed should be 42"), Defaults.random_seed, 42);
+
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// FFI wiring: Rust spatial query config readable from C++
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassRustSpatialQueryConfigFFITest,
+	"supplemental.RustPlugin.Gatherers.BevyMassRustSpatialQueryConfigFFI",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Parameters)
+{
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+
+	TestTrue(TEXT("get_spatial_query_config_count should be available"),
+		Module.Plugin.Rust.get_spatial_query_config_count.IsSome());
+	TestTrue(TEXT("get_spatial_query_config_desc should be available"),
+		Module.Plugin.Rust.get_spatial_query_config_desc.IsSome());
+
+	uint32 Count = Module.Plugin.Rust.get_spatial_query_config_count.Unwrap()();
+	TestTrue(TEXT("Should have at least 1 spatial query config"), Count >= 1);
+
+	MassSpatialQueryConfigDesc Config = {};
+	uint32 Result = Module.Plugin.Rust.get_spatial_query_config_desc.Unwrap()(0, &Config);
+	TestEqual(TEXT("get_spatial_query_config_desc should return 1"), Result, (uint32)1);
+
+	FString QueryGroup(Config.query_group.len,
+		UTF8_TO_TCHAR(Config.query_group.ptr));
+	TestEqual(TEXT("Query group should be 'food'"), QueryGroup, TEXT("food"));
+
+	TestEqual(TEXT("Radius should be 15.0"), Config.radius, 15.0f);
+	TestEqual(TEXT("Bool offset should be 24"), Config.filter_bool_offset, (uint32)24);
+	TestTrue(TEXT("filter_bool_must_be should be true"), Config.filter_bool_must_be);
+
+	FString FilterType(Config.filter_fragment_type.len,
+		UTF8_TO_TCHAR(Config.filter_fragment_type.ptr));
+	TestEqual(TEXT("Filter fragment type"), FilterType, TEXT("FGatherersMassFoodFragment"));
 
 	return true;
 }

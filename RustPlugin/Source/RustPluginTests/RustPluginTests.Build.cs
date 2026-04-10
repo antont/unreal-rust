@@ -12,7 +12,7 @@ public class RustPluginTests : ModuleRules
 		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustPlugin"));
 
 		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustMassSpike"));
-		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustMassGatherers"));
+		PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "..", "RustPlugin", "Generated"));
 
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
@@ -23,7 +23,6 @@ public class RustPluginTests : ModuleRules
 			"RustPlugin",
 			"MassEntity",
 			"RustMassSpike",
-			"RustMassGatherers",
 		});
 	}
 }

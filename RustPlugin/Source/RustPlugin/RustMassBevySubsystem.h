@@ -55,6 +55,13 @@ public:
 	/** Register a spatial query callback from the game module. */
 	void SetSpatialQueryCallback(FSpatialQueryCallback InCallback, float InRadius);
 
+	/**
+	 * Auto-setup spatial queries from Rust-registered config.
+	 * Reads MassSpatialQueryConfigDesc entries and creates generic ISMC overlap callbacks.
+	 * Called automatically after InitializeSimulation().
+	 */
+	void SetupSpatialQueriesFromRust();
+
 	/** For testing: run one simulation step directly. */
 	void RunSimulationProcessorsForTesting(float DeltaTime);
 
@@ -80,6 +87,15 @@ private:
 
 	FSpatialQueryCallback SpatialQueryCallback;
 	float SpatialQueryRadius = 0.0f;
+
+	/** Resolved UScriptStruct for the spatial query filter fragment (set by SetupSpatialQueriesFromRust). */
+	const UScriptStruct* SpatialQueryFilterScriptStruct = nullptr;
+
+	/** Whether we've already attempted auto-init from Rust defaults (prevent repeated attempts). */
+	bool bAutoInitAttempted = false;
+
+	/** Try to auto-initialize from Rust-registered sim defaults if no activator actor called InitializeSimulation(). */
+	void TryAutoInitFromRustDefaults();
 };
 
 template<>

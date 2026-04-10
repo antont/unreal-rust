@@ -366,6 +366,53 @@ pub type MassInitSimulationFn = unsafe extern "C" fn(
     result: *mut MassInitSimulationResult,
 ) -> u32;
 
+// --- Spatial query configuration (declared by Rust, read by C++) ---
+
+/// Tells C++ how to implement ISMC spatial query for a given entity group.
+/// Rust game crates declare these via inventory; C++ reads them at startup
+/// to create generic ISMC overlap query callbacks.
+#[repr(C)]
+pub struct MassSpatialQueryConfigDesc {
+    /// ISMC group name to search (e.g. "food").
+    pub query_group: Utf8Str,
+    /// Overlap sphere radius in Unreal units.
+    pub radius: f32,
+    pub _pad0: u32,
+    /// C++ fragment type name that has the bool to filter on (e.g. "FGatherersFood").
+    pub filter_fragment_type: Utf8Str,
+    /// Byte offset of the bool field within the filter fragment.
+    pub filter_bool_offset: u32,
+    /// Required value of the bool field (true = only match when bool is true).
+    pub filter_bool_must_be: bool,
+    pub _pad1: [u8; 3],
+}
+
+/// Returns the number of registered spatial query configurations.
+pub type GetSpatialQueryConfigCountFn = unsafe extern "C" fn() -> u32;
+
+/// Fills a MassSpatialQueryConfigDesc for the config at `index`.
+/// Returns 1 on success, 0 on failure.
+pub type GetSpatialQueryConfigDescFn =
+    unsafe extern "C" fn(index: u32, out: *mut MassSpatialQueryConfigDesc) -> u32;
+
+// --- Simulation defaults (declared by Rust, overridable by C++ actor) ---
+
+/// Default simulation configuration registered from Rust.
+/// C++ reads this at startup; actor UPROPERTY values can override.
+#[repr(C)]
+pub struct MassSimDefaultsDesc {
+    pub groups: *const MassEntityGroupDesc,
+    pub num_groups: u32,
+    pub _pad: u32,
+    pub bounds_min: [f64; 3],
+    pub bounds_max: [f64; 3],
+    pub random_seed: i32,
+    pub _pad2: i32,
+}
+
+/// Fills the sim defaults from Rust. Returns 1 if defaults are available, 0 otherwise.
+pub type GetSimDefaultsFn = unsafe extern "C" fn(out: *mut MassSimDefaultsDesc) -> u32;
+
 // --- Visualizer group descriptors ---
 
 /// Describes one visual group (entity type with position data for ISMC rendering).
@@ -443,6 +490,9 @@ pub struct RustBindings {
     pub get_visualizer_group_count: Option<GetVisualizerGroupCountFn>,
     pub get_visualizer_group_desc: Option<GetVisualizerGroupDescFn>,
     pub mass_init_simulation: Option<MassInitSimulationFn>,
+    pub get_spatial_query_config_count: Option<GetSpatialQueryConfigCountFn>,
+    pub get_spatial_query_config_desc: Option<GetSpatialQueryConfigDescFn>,
+    pub get_sim_defaults: Option<GetSimDefaultsFn>,
 }
 
 impl RustBindings {
@@ -492,6 +542,9 @@ impl RustBindings {
             get_visualizer_group_count: None,
             get_visualizer_group_desc: None,
             mass_init_simulation: None,
+            get_spatial_query_config_count: None,
+            get_spatial_query_config_desc: None,
+            get_sim_defaults: None,
         }
     }
 }
@@ -808,10 +861,10 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings: 7 non-optional fn ptrs + 3 Option<fn ptr> = 10 pointers
+        // RustBindings: 7 non-optional fn ptrs + 6 Option<fn ptr> = 13 pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 10 * std::mem::size_of::<usize>(),
-            "actual size = {}, expected = {}", size, 10 * std::mem::size_of::<usize>());
+        assert_eq!(size, 13 * std::mem::size_of::<usize>(),
+            "actual size = {}, expected = {}", size, 13 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -951,6 +1004,20 @@ mod tests {
         // u32(4) + pad(4) + ptr(8) + u32(4) + pad(4) + ptr(8) + u32(4) + u32(4) = 40
         assert_eq!(std::mem::size_of::<SpawnEntityRequest>(), 40);
         assert_eq!(std::mem::align_of::<SpawnEntityRequest>(), 8);
+    }
+
+    #[test]
+    fn mass_spatial_query_config_desc_layout() {
+        // Utf8Str(16) + f32(4) + u32(4) + Utf8Str(16) + u32(4) + bool(1) + [u8;3](3) = 48
+        assert_eq!(std::mem::size_of::<MassSpatialQueryConfigDesc>(), 48);
+        assert_eq!(std::mem::align_of::<MassSpatialQueryConfigDesc>(), 8);
+    }
+
+    #[test]
+    fn mass_sim_defaults_desc_layout() {
+        // ptr(8) + u32(4) + u32(4) + [f64;3](24) + [f64;3](24) + i32(4) + i32(4) = 72
+        assert_eq!(std::mem::size_of::<MassSimDefaultsDesc>(), 72);
+        assert_eq!(std::mem::align_of::<MassSimDefaultsDesc>(), 8);
     }
 
     #[test]
