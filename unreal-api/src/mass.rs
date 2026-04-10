@@ -1229,11 +1229,6 @@ pub struct MassTestRegistration {
     pub test_fn: fn(&TestCtx),
 }
 
-// Safety: MassTestRegistration only holds a &'static str and a fn pointer,
-// both of which are Send + Sync.
-unsafe impl Send for MassTestRegistration {}
-unsafe impl Sync for MassTestRegistration {}
-
 inventory::collect!(MassTestRegistration);
 
 pub fn registered_mass_tests() -> inventory::iter<MassTestRegistration> {

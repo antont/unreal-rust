@@ -378,8 +378,8 @@ pub unsafe extern "C" fn get_sim_defaults(
 // Rust-authored test discovery and execution
 // ---------------------------------------------------------------------------
 
-/// Thread-local storage for the last test error message.
-/// Keeps the string alive so C++ can read the pointer.
+/// Global storage for the last test error message.
+/// Keeps the string alive so C++ can read the pointer after run_mass_test returns.
 static LAST_TEST_ERROR: std::sync::Mutex<String> = std::sync::Mutex::new(String::new());
 
 pub unsafe extern "C" fn get_mass_test_count() -> u32 {

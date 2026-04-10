@@ -25,10 +25,7 @@ static uint32_t CB_InitSim(void* Ctx, const MassInitSimulationParams* Params)
 	TArray<TPair<FString, int32>> GroupCounts;
 	for (uint32_t i = 0; i < Params->num_groups; ++i)
 	{
-		FString Name = FString(UTF8_TO_TCHAR(
-			FString(Params->groups[i].name.ptr).Left(Params->groups[i].name.len).GetCharArray().GetData()));
-		// Simpler: construct from ptr+len
-		Name = FString(Params->groups[i].name.len,
+		FString Name(Params->groups[i].name.len,
 			UTF8_TO_TCHAR(Params->groups[i].name.ptr));
 		GroupCounts.Add(TPair<FString, int32>(Name, Params->groups[i].count));
 	}

@@ -947,10 +947,31 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings: 7 non-optional fn ptrs + 6 Option<fn ptr> = 13 pointers
+        // RustBindings: 7 non-optional fn ptrs + 9 Option<fn ptr> = 16 pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 13 * std::mem::size_of::<usize>(),
-            "actual size = {}, expected = {}", size, 13 * std::mem::size_of::<usize>());
+        assert_eq!(size, 16 * std::mem::size_of::<usize>(),
+            "actual size = {}, expected = {}", size, 16 * std::mem::size_of::<usize>());
+    }
+
+    #[test]
+    fn mass_test_callbacks_layout() {
+        // MassTestCallbacks: 1 opaque ptr + 10 fn ptrs = 11 pointers
+        assert_eq!(std::mem::size_of::<MassTestCallbacks>(), 11 * std::mem::size_of::<usize>());
+        assert_eq!(std::mem::align_of::<MassTestCallbacks>(), 8);
+    }
+
+    #[test]
+    fn mass_test_desc_layout() {
+        // MassTestDesc: 1 Utf8Str (16 bytes)
+        assert_eq!(std::mem::size_of::<MassTestDesc>(), 16);
+        assert_eq!(std::mem::align_of::<MassTestDesc>(), 8);
+    }
+
+    #[test]
+    fn mass_test_result_layout() {
+        // MassTestResult: u32 + u32 + *const u8 = 16 bytes (with padding)
+        assert_eq!(std::mem::size_of::<MassTestResult>(), 16);
+        assert_eq!(std::mem::align_of::<MassTestResult>(), 8);
     }
 
     #[test]
