@@ -168,7 +168,6 @@ mod tests {
     }
 
     #[test]
-    #[test]
     fn drop_changes_direction() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
         let (mut mov, mut cd, mut carry, mut beh) = make_components(true);

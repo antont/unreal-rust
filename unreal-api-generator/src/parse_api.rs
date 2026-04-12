@@ -436,6 +436,7 @@ impl Api {
 
         false
     }
+    #[allow(dead_code)]
     pub fn is_class_blueprint_type(&self, class: &ClassDefinition) -> bool {
         if class.meta.contains_key("BlueprintType") {
             return true;

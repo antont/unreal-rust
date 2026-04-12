@@ -397,7 +397,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32) -> syn::Result<TokenStream> {
             };
 
             if let Type::Path(type_path) = &*pat_type.ty {
-                if let Some(seg) = type_path.path.segments.last() {
+                if let Some(_seg) = type_path.path.segments.last() {
                     if let Some(qp) = query_params.iter().find(|p| p.param_name == *param_name) {
                         let inner = &qp.fragment_type;
                         return match (qp.scope, qp.is_mutable) {
@@ -618,6 +618,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32) -> syn::Result<TokenStream> {
                 // the Bevy schedule, not direct C++ dispatch.
             }
 
+            #[allow(non_upper_case_globals)]
             static #reg_name: () = {
                 const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
                     #(#all_requirement_entries),*
@@ -643,6 +644,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32) -> syn::Result<TokenStream> {
                 #func_name(#(#call_args),*);
             }
 
+            #[allow(non_upper_case_globals)]
             static #reg_name: () = {
                 const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
                     #(#all_requirement_entries),*
@@ -661,12 +663,14 @@ pub fn mass_system_impl(func: &ItemFn, order: u32) -> syn::Result<TokenStream> {
     };
 
     Ok(quote! {
+        #[allow(unused_mut)]
         #func_vis fn #func_name(#(#rewritten_params),*) #func_ret
             #func_body
 
         #cpp_wrapper
 
         /// Zero-sized marker type for per-system chunk isolation.
+        #[allow(non_camel_case_types)]
         struct #marker_name;
 
         fn #bevy_wrapper_name(
@@ -680,6 +684,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32) -> syn::Result<TokenStream> {
             }
         }
 
+        #[allow(non_upper_case_globals)]
         static #bevy_reg_name: () = {
             ::unreal_api::inventory::submit! {
                 ::unreal_api::mass::MassBevySystemRegistration {

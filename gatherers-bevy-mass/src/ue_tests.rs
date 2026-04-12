@@ -9,7 +9,7 @@
 
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
-use crate::fragments::{Position, Movement, FoodFragment, Carrying, Cooldown, Behavior};
+use crate::fragments::{Position, Movement, FoodFragment, Carrying, Cooldown};
 
 // ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle test

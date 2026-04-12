@@ -79,7 +79,9 @@ fn resolve_plugin_path() -> PathBuf {
 }
 
 pub struct Plugin {
+    #[allow(dead_code)] // Kept to prevent library from being unloaded
     library: Library,
+    #[allow(dead_code)] // Stored for potential re-registration
     register_unreal_bindings: RegisterUnrealBindings,
     timestamp: SystemTime,
 }
@@ -273,7 +275,7 @@ mod tests {
         unsafe { std::env::remove_var("UNREAL_RUST_TARGET_DIR") };
         let path = resolve_plugin_path();
         // Without dladdr finding a real path, should fall back to target/release/
-        let fallback = PathBuf::from("target/release").join(PLUGIN_LIB_NAME);
+        let _fallback = PathBuf::from("target/release").join(PLUGIN_LIB_NAME);
         // The path might match the fallback or a dladdr-derived path; at minimum
         // it should end with the plugin lib name
         assert!(

@@ -5,6 +5,7 @@ use proc_macro2::Span;
 use quote::quote;
 use syn::*;
 
+#[allow(dead_code)]
 #[derive(Debug, FromField)]
 #[darling(attributes(reflect))]
 pub struct ReflectField {
@@ -14,6 +15,7 @@ pub struct ReflectField {
     skip: bool,
 }
 
+#[allow(dead_code)]
 pub fn reflect_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
     if let Data::Struct(data) = &ast.data {
         let literal_name = LitStr::new(&ast.ident.to_string(), Span::call_site());

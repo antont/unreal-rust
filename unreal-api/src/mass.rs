@@ -116,7 +116,7 @@ impl<T: MassFragment> MassChunks<T> {
     /// Caller must ensure no mutable alias to the same chunk data exists.
     pub unsafe fn primary_chunk_ref(&self, index: usize) -> MassQueryRef<'_, T> {
         let slice = &self.primary_slices[index];
-        MassQueryRef::from_raw(slice.data as *const c_void, slice.count as usize)
+        unsafe { MassQueryRef::from_raw(slice.data as *const c_void, slice.count as usize) }
     }
 
     /// Get a mutable query for primary chunk at index.
@@ -125,7 +125,7 @@ impl<T: MassFragment> MassChunks<T> {
     /// Caller must ensure no other alias to the same chunk data exists.
     pub unsafe fn primary_chunk_mut(&mut self, index: usize) -> MassQueryMut<'_, T> {
         let slice = &self.primary_slices[index];
-        MassQueryMut::from_raw(slice.data, slice.count as usize)
+        unsafe { MassQueryMut::from_raw(slice.data, slice.count as usize) }
     }
 
     pub fn global(&self) -> Option<*const unreal_ffi::MassGlobalFragmentChunks> {
@@ -138,7 +138,7 @@ impl<T: MassFragment> MassChunks<T> {
     /// Caller must ensure the global descriptor pointer is still valid.
     pub unsafe fn global_query_mut(&mut self) -> Option<MassQueryAllMut<'_, T>> {
         self.global_desc
-            .map(|desc| MassQueryAllMut::from_chunked(desc))
+            .map(|desc| unsafe { MassQueryAllMut::from_chunked(desc) })
     }
 
     /// Get a read-only global query across all chunks.
@@ -147,7 +147,7 @@ impl<T: MassFragment> MassChunks<T> {
     /// Caller must ensure the global descriptor pointer is still valid.
     pub unsafe fn global_query_ref(&self) -> Option<MassQueryAllRef<'_, T>> {
         self.global_desc
-            .map(|desc| MassQueryAllRef::from_chunked(desc))
+            .map(|desc| unsafe { MassQueryAllRef::from_chunked(desc) })
     }
 }
 
@@ -1561,7 +1561,7 @@ mod tests {
     #[test]
     fn mass_chunks_global() {
         let mut data = [TestFragment { x: 10.0, y: 20.0 }, TestFragment { x: 30.0, y: 40.0 }];
-        let mut chunk_slice = unreal_ffi::MassGlobalChunkSlice {
+        let chunk_slice = unreal_ffi::MassGlobalChunkSlice {
             data: data.as_mut_ptr() as *mut c_void,
             count: 2,
             stride: std::mem::size_of::<TestFragment>() as u32,
@@ -1577,7 +1577,7 @@ mod tests {
         unsafe { chunks.set_global(&desc); }
         assert!(chunks.global().is_some());
 
-        let mut query = unsafe { chunks.global_query_mut().unwrap() };
+        let query = unsafe { chunks.global_query_mut().unwrap() };
         assert_eq!(query.len(), 2);
         assert_eq!(query.get(0).unwrap().x, 10.0);
     }

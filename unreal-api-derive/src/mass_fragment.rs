@@ -113,11 +113,13 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
         }
 
         #[doc(hidden)]
+        #[allow(non_upper_case_globals)]
         const #fields_const_name: [::unreal_api::mass::MassFragmentFieldInfo; #num_fields] = [
             #(#fields),*
         ];
 
         #[doc(hidden)]
+        #[allow(non_upper_case_globals)]
         static #reg_static_name: () = {
             ::unreal_api::inventory::submit! {
                 ::unreal_api::mass::MassFragmentRegistration {

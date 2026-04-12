@@ -1,8 +1,4 @@
-use std::{
-    collections::{HashMap, HashSet},
-    panic::catch_unwind,
-    sync::{Mutex, OnceLock},
-};
+use std::panic::catch_unwind;
 
 use log::{LevelFilter, Metadata, Record, SetLoggerError, set_boxed_logger, set_max_level};
 pub use unreal_api::ffi;
@@ -10,15 +6,8 @@ pub use unreal_api::ffi;
 mod mass_system_registry;
 use unreal_api::{
     bindings::globals::{self, ClassPtrDB},
-    ffi::ResultCode,
+    ffi::{ResultCode, RustBindings},
     module::bindings,
-};
-
-use unreal_api::{
-    // core::{EntityEvent, SendEntityEvent, UnrealCore},
-    // editor_component::AddSerializedComponent,
-    ffi::{RustBindings, UnrealBindings},
-    // plugin::Plugin,
 };
 
 struct UnrealLogger;

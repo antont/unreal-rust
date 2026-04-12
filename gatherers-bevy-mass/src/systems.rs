@@ -1,3 +1,4 @@
+#[allow(unused_imports)] // Used at runtime, not in test cfg
 use unreal_api::mass::{MassQuery, MassQueryAll};
 use unreal_api::mass_system;
 use glam::DVec3;

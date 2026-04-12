@@ -1,10 +1,9 @@
 // Force-link gatherers-bevy-mass so its #[mass_system] inventory registrations are included.
 extern crate gatherers_bevy_mass;
 
-use std::{collections::btree_map::Values, os::raw::c_void};
-
 use bevy_app::App;
 use bevy_ecs::prelude::*;
+#[allow(unused_imports)] // Scaffolding imports — used by UClass derive and example code
 use unreal_api::{
     UClass,
     bindings::{
@@ -194,11 +193,13 @@ pub struct Frame {
     pub dt: f32,
 }
 
+#[allow(dead_code)]
 #[derive(Debug)]
 struct Foo {
     pub i: u32,
 }
 
+#[allow(dead_code)]
 trait IFoo {
     fn foo(&self) -> u32;
 }
@@ -234,7 +235,7 @@ impl UserModule for UnrealEcs {
 
     fn tick(&mut self, dt: f32) {
         self.time += dt;
-        let mut arr: TArray<i32> = TArray::new();
+        let _arr: TArray<i32> = TArray::new();
         // for i in 0..10 {
         //     arr.add(i * 2);
         // }

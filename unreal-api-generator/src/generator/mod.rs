@@ -1,18 +1,13 @@
 use std::{
     collections::{HashMap, HashSet},
     error::Error,
-    hash::Hash,
     path::Path,
 };
 
 use heck::{ToShoutySnakeCase, ToSnakeCase};
 use proc_macro2::{Literal, TokenStream};
 use quote::{format_ident, quote};
-use serde_json::map::Iter;
-use syn::{
-    Ident,
-    token::{Else, Token},
-};
+use syn::Ident;
 
 pub fn module_name_from_package(package: &str) -> String {
     package
@@ -68,6 +63,7 @@ use crate::parse_api::{
     OpagueDefinition, Property, PropertyFlag, StructDefinition, Type, TypeUsageHint,
 };
 
+#[allow(dead_code)]
 pub struct ExtensionFns {
     pub origin_class: String,
     pub functions: Vec<Function>,
@@ -263,7 +259,7 @@ pub fn generate_globals(api: &Api) -> TokenStream {
         }
     };
 
-    let struct_ptr_tokens = api.structs.iter().map(|def| {
+    let _struct_ptr_tokens = api.structs.iter().map(|def| {
         let name = format_ident!("{}", def.struct_name);
         quote! {
             #name: *mut crate::ffi::UObjectOpague
@@ -454,7 +450,7 @@ pub fn generate_function(
 
     let stack_size_lit = Literal::u32_unsuffixed(function.param_size as _);
 
-    let raw_fn_name = &function.function_name;
+    let _raw_fn_name = &function.function_name;
 
     let self_tokens = if !function.flags.contains(&FunctionFlag::Static) {
         let tokens = if function.flags.contains(&FunctionFlag::Const) {
@@ -1183,7 +1179,7 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
 
         save_file(
             &tokens,
-            &out_path.join(module_name).with_added_extension("rs"),
+            &out_path.join(format!("{}.rs", module_name)),
         );
     }
 

@@ -1,6 +1,10 @@
 # Generalize GatherersBevyMassSubsystem into a Reusable Plugin Subsystem
 
-## Problem
+## Status: DONE
+
+Subsystem lives in `RustPlugin/Source/RustPlugin/RustMassBevySubsystem.{h,cpp}` as `URustMassBevySubsystem` with `TMap<FString, TArray<FMassEntityHandle>> EntityGroups` for dynamic group storage. Game-specific C++ module (`RustMassGatherers`) deleted.
+
+## Problem (original)
 
 `GatherersBevyMassSubsystem` in `RustPlugin/Source/RustMassGatherers/` is currently game-specific C++.
 It hardcodes entity group names ("ants", "food") and manages `ManagedAntEntities` / `ManagedFoodEntities`

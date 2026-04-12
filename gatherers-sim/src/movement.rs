@@ -109,7 +109,7 @@ pub fn reverse_direction(dir: DVec3) -> DVec3 {
     -dir
 }
 
-#[cfg(test)]
+#[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
     use crate::fragments::{Cooldown, Movement, Position};

@@ -2,7 +2,7 @@ use std::sync::Mutex;
 
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
-    MassBevySystemRegistration, MassDeltaTime, MassSchedule,
+    MassBevySystemRegistration, MassSchedule,
     MassSpatialQueries,
     MassSystemRegistration, MassSystemStage,
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
@@ -117,8 +117,9 @@ pub fn init_global_schedule() {
 }
 
 /// Reset the global Bevy schedule, allowing it to be rebuilt on next init.
-/// Used for hot-reload and testing.
-pub fn reset_mass_schedule() {
+/// Used for testing.
+#[cfg(test)]
+fn reset_mass_schedule() {
     let mut guard = MASS_SCHEDULE.lock().unwrap();
     *guard = None;
 }

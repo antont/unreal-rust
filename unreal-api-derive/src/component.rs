@@ -21,7 +21,7 @@ pub fn component_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
             &format!("{}AddSerializedComponent", ast.ident),
             Span::call_site(),
         );
-        let register_add_serialized_component = if is_editor_component {
+        let _register_add_serialized_component = if is_editor_component {
             quote! {
                 impl AddSerializedComponent for #add_serialized_ident {
                     unsafe fn add_serialized_component(
