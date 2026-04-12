@@ -6,7 +6,7 @@ Enable adding/removing fragments from entities during simulation, allowing idiom
 
 The zero-copy bridge caches raw pointers into Mass Entity chunk memory on first frame and reuses them every subsequent frame. If an entity gains or loses a fragment, it moves to a different archetype's chunks, invalidating cached pointers. The cache is only rebuilt between PIE sessions, not mid-simulation.
 
-**Partial workaround in place:** Cooldown was moved to a pure-Bevy component on shadow entities (not a MassFragment), enabling idiomatic add/remove via `Commands`. This works for lightweight state like timers but doesn't help for MassFragment-level mutations (e.g., adding/removing a fragment that C++ also reads).
+**Workaround proven:** Cooldown was migrated to a pure-Bevy component on shadow entities (not a MassFragment), enabling idiomatic add/remove via `Commands`. This is fully working with `Without<Cooldown>` filters, shadow entity mapping, and pure-Bevy system scheduling. It covers lightweight state like timers but doesn't help for MassFragment-level mutations (e.g., adding/removing a fragment that C++ also reads).
 
 ## Why it matters
 
