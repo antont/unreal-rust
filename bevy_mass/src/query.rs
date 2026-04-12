@@ -9,9 +9,13 @@ mod bevy_backend;
 
 #[cfg(not(feature = "unreal"))]
 pub use bevy_backend::Query;
+#[cfg(not(feature = "unreal"))]
+pub use bevy_backend::BevyQuery;
 
 #[cfg(feature = "unreal")]
 mod unreal_backend;
 
 #[cfg(feature = "unreal")]
 pub use unreal_backend::Query;
+#[cfg(feature = "unreal")]
+pub use unreal_backend::BevyQuery;

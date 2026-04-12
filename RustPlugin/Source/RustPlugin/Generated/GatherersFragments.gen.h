@@ -31,14 +31,13 @@ struct FGatherersAntEncounterFragment : public FMassFragment
 	GENERATED_BODY()
 
 	int32 NearestFoodIndex = -1;
-	int32 _NearestPad = 0;
+	uint8 _Pad_4[4] = {};
 	FVector EncounterPosition = FVector::ZeroVector;
 	bool bHasEncounter = false;
-	uint8 _Pad[7] = {};
+	uint8 _Pad_33[7] = {};
 };
 
 static_assert(offsetof(FGatherersAntEncounterFragment, NearestFoodIndex) == 0, "NearestFoodIndex at offset 0");
-static_assert(offsetof(FGatherersAntEncounterFragment, _NearestPad) == 4, "_NearestPad at offset 4");
 static_assert(offsetof(FGatherersAntEncounterFragment, EncounterPosition) == 8, "EncounterPosition at offset 8");
 static_assert(offsetof(FGatherersAntEncounterFragment, bHasEncounter) == 32, "bHasEncounter at offset 32");
 static_assert(sizeof(FGatherersAntEncounterFragment) == 40, "FGatherersAntEncounterFragment size must be 40");
@@ -62,24 +61,10 @@ struct FGatherersCarrying : public FMassFragment
 	GENERATED_BODY()
 
 	int32 FoodIndex = -1;
-	int32 _Pad = 0;
 };
 
 static_assert(offsetof(FGatherersCarrying, FoodIndex) == 0, "FoodIndex at offset 0");
-static_assert(offsetof(FGatherersCarrying, _Pad) == 4, "_Pad at offset 4");
-static_assert(sizeof(FGatherersCarrying) == 8, "FGatherersCarrying size must be 8");
-
-USTRUCT()
-struct FGatherersCooldown : public FMassFragment
-{
-	GENERATED_BODY()
-
-	float RemainingSeconds = 0.0f;
-	uint8 _Pad[4] = {};
-};
-
-static_assert(offsetof(FGatherersCooldown, RemainingSeconds) == 0, "RemainingSeconds at offset 0");
-static_assert(sizeof(FGatherersCooldown) == 8, "FGatherersCooldown size must be 8");
+static_assert(sizeof(FGatherersCarrying) == 4, "FGatherersCarrying size must be 4");
 
 USTRUCT()
 struct FGatherersMassFoodFragment : public FMassFragment
@@ -88,7 +73,7 @@ struct FGatherersMassFoodFragment : public FMassFragment
 
 	FVector Position = FVector::ZeroVector;
 	bool bIsLoose = true;
-	uint8 _Pad[7] = {};
+	uint8 _Pad_25[7] = {};
 };
 
 static_assert(offsetof(FGatherersMassFoodFragment, Position) == 0, "Position at offset 0");
@@ -102,7 +87,7 @@ struct FGatherersMovement : public FMassFragment
 
 	FVector Direction = FVector(1.0f, 0.0f, 0.0f);
 	float MovementSpeed = 100.0f;
-	uint8 _Pad[4] = {};
+	uint8 _Pad_28[4] = {};
 };
 
 static_assert(offsetof(FGatherersMovement, Direction) == 0, "Direction at offset 0");

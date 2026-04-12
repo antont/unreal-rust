@@ -2,7 +2,7 @@ use std::sync::Mutex;
 
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
-    MassBevySystemRegistration, MassSchedule,
+    MassBevySystemRegistration, MassEntityMap, MassSchedule,
     MassSpatialQueries,
     MassSystemRegistration, MassSystemStage,
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
@@ -259,6 +259,28 @@ pub unsafe extern "C" fn mass_init_simulation(
         (*result).num_groups = descs.0.len() as u32;
         (*result)._pad = 0;
     }
+
+    // Spawn shadow Bevy entities for each Mass Entity entity.
+    // These allow pure-Bevy components to be attached to entities that also
+    // have zero-copy MassFragment data in chunks.
+    if let Ok(mut sched_guard) = MASS_SCHEDULE.lock() {
+        if let Some(sched) = sched_guard.as_mut() {
+            let mut entity_map = MassEntityMap::default();
+            for (name_bytes, handles) in stored.iter() {
+                // name_bytes is null-terminated, extract the name
+                let name = std::str::from_utf8(&name_bytes[..name_bytes.len() - 1])
+                    .unwrap_or("")
+                    .to_string();
+                let entities: Vec<unreal_api::ecs::entity::Entity> = handles
+                    .iter()
+                    .map(|_| sched.world_mut().spawn_empty().id())
+                    .collect();
+                entity_map.insert_group(name, entities);
+            }
+            *sched.world_mut().resource_mut::<MassEntityMap>() = entity_map;
+        }
+    }
+
     1
 }
 

@@ -172,6 +172,7 @@ impl MassSchedule {
     pub fn new() -> Self {
         let mut world = bevy_ecs::world::World::new();
         world.insert_resource(MassDeltaTime::default());
+        world.insert_resource(MassEntityMap::default());
         // Force single-threaded execution: MassChunks<T> holds raw pointers into
         // C++ Mass Entity chunk memory. Multi-threaded execution requires auditing
         // pointer safety and ensuring the spatial query callback is thread-safe.
@@ -198,6 +199,43 @@ impl MassSchedule {
 
     pub fn schedule_mut(&mut self) -> &mut bevy_ecs::schedule::Schedule {
         &mut self.schedule
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Shadow Bevy entity map
+// ---------------------------------------------------------------------------
+
+/// Maps Mass Entity groups to shadow Bevy entities.
+///
+/// Each named group (e.g., "ants", "food") has a `Vec<Entity>` indexed by
+/// spawn order. Shadow entities live in the Bevy World alongside the
+/// MassFragment chunk data, allowing pure-Bevy components (like Cooldown)
+/// to be attached to entities that also have zero-copy chunk fragments.
+#[derive(bevy_ecs::prelude::Resource, Default)]
+pub struct MassEntityMap {
+    groups: std::collections::HashMap<String, Vec<bevy_ecs::entity::Entity>>,
+}
+
+impl MassEntityMap {
+    /// Look up a shadow Bevy entity by group name and index within the group.
+    pub fn get(&self, group: &str, index: usize) -> Option<bevy_ecs::entity::Entity> {
+        self.groups.get(group)?.get(index).copied()
+    }
+
+    /// Get all shadow entities for a named group.
+    pub fn group(&self, group: &str) -> Option<&[bevy_ecs::entity::Entity]> {
+        self.groups.get(group).map(|v| v.as_slice())
+    }
+
+    /// Register a group of shadow entities.
+    pub fn insert_group(&mut self, name: String, entities: Vec<bevy_ecs::entity::Entity>) {
+        self.groups.insert(name, entities);
+    }
+
+    /// Total number of shadow entities across all groups.
+    pub fn total_count(&self) -> usize {
+        self.groups.values().map(|v| v.len()).sum()
     }
 }
 
@@ -382,19 +420,29 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_fi
 
         out.push('\n');
 
+        // Emit fields, auto-inserting C++ padding for repr(C) alignment gaps.
+        // Track current byte offset to detect gaps between fields.
+        let mut cursor: usize = 0;
+
         for field in frag.fields {
-            let (cpp_type, _is_padding) = rust_type_to_cpp(field.type_name, field.name);
-            let cpp_name = if field.name.starts_with('_') {
-                // Padding field: _foo_pad → _FooPad
-                format!("_{}", snake_to_pascal(&field.name[1..]))
-            } else if cpp_type == "bool" {
-                // UE convention: prefix bools with 'b'
+            // Skip explicit _pad fields (legacy — repr(C) handles alignment)
+            if field.name.starts_with('_') {
+                continue;
+            }
+
+            // If there's a gap between cursor and this field's offset, emit padding
+            if field.offset > cursor {
+                let gap = field.offset - cursor;
+                out.push_str(&format!("\tuint8 _Pad_{cursor}[{gap}] = {{}};\n"));
+            }
+
+            let (cpp_type, _) = rust_type_to_cpp(field.type_name, field.name);
+            let cpp_name = if cpp_type == "bool" {
                 format!("b{}", snake_to_pascal(field.name))
             } else {
                 snake_to_pascal(field.name)
             };
 
-            // Handle array types specially (PLACEHOLDER replaced with field name)
             if cpp_type.contains("PLACEHOLDER") {
                 let cpp_type = cpp_type.replace("PLACEHOLDER", &cpp_name);
                 out.push_str(&format!("\t{} = {{}};\n", cpp_type));
@@ -413,16 +461,25 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_fi
                 };
                 out.push_str(&format!("\t{} {}{default};\n", cpp_type, cpp_name));
             }
+
+            cursor = field.offset + field.size;
+        }
+
+        // Trailing padding to match struct size
+        if cursor < frag.size {
+            let gap = frag.size - cursor;
+            out.push_str(&format!("\tuint8 _Pad_{cursor}[{gap}] = {{}};\n"));
         }
 
         out.push_str("};\n\n");
 
-        // static_assert offset checks
+        // static_assert offset checks (only for real fields, not auto-padding)
         for field in frag.fields {
+            if field.name.starts_with('_') {
+                continue;
+            }
             let (cpp_type, _) = rust_type_to_cpp(field.type_name, field.name);
-            let cpp_name = if field.name.starts_with('_') {
-                format!("_{}", snake_to_pascal(&field.name[1..]))
-            } else if cpp_type == "bool" {
+            let cpp_name = if cpp_type == "bool" {
                 format!("b{}", snake_to_pascal(field.name))
             } else {
                 snake_to_pascal(field.name)
@@ -1691,10 +1748,10 @@ mod tests {
 
     #[test]
     fn generate_cpp_simple_fragment() {
-        static FIELDS: [MassFragmentFieldInfo; 3] = [
+        // No _pad field — codegen should auto-emit trailing padding
+        static FIELDS: [MassFragmentFieldInfo; 2] = [
             MassFragmentFieldInfo { name: "position", type_name: "[f64 ; 3]", offset: 0, size: 24, default_value: "" },
             MassFragmentFieldInfo { name: "is_loose", type_name: "bool", offset: 24, size: 1, default_value: "true" },
-            MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 7]", offset: 25, size: 7, default_value: "" },
         ];
         let reg = MassFragmentRegistration {
             cpp_type_name: "FTestFood",
@@ -1711,10 +1768,35 @@ mod tests {
         assert!(output.contains("bool bIsLoose = true"), "should map bool field with UE b prefix and custom default");
         assert!(output.contains("offsetof(FTestFood, Position) == 0"), "should have offset assert");
         assert!(output.contains("sizeof(FTestFood) == 32"), "should have size assert");
+        // Auto-emitted trailing padding (7 bytes after bool at offset 25)
+        assert!(output.contains("_Pad_25[7]"), "should auto-emit trailing padding: {}", output);
     }
 
     #[test]
-    fn generate_cpp_padding_fields() {
+    fn generate_cpp_auto_padding_interior() {
+        // i32 at offset 0 (size 4), then DVec3 at offset 8 (size 24) — gap of 4 bytes
+        static FIELDS: [MassFragmentFieldInfo; 2] = [
+            MassFragmentFieldInfo { name: "index", type_name: "i32", offset: 0, size: 4, default_value: "" },
+            MassFragmentFieldInfo { name: "position", type_name: "[f64 ; 3]", offset: 8, size: 24, default_value: "" },
+        ];
+        let reg = MassFragmentRegistration {
+            cpp_type_name: "FTestInterior",
+            rust_type_name: "InteriorPad",
+            size: 32,
+            align: 8,
+            fields: &FIELDS,
+            is_tag: false,
+        };
+
+        let output = generate_cpp_fragments(&[&reg], "Test.h");
+        // Interior padding between i32 and DVec3
+        assert!(output.contains("_Pad_4[4]"), "should auto-emit interior padding: {}", output);
+        assert!(output.contains("sizeof(FTestInterior) == 32"), "should have size assert");
+    }
+
+    #[test]
+    fn generate_cpp_skips_legacy_pad_fields() {
+        // Legacy _pad field should be skipped (not emitted as a named field)
         static FIELDS: [MassFragmentFieldInfo; 2] = [
             MassFragmentFieldInfo { name: "value", type_name: "i32", offset: 0, size: 4, default_value: "" },
             MassFragmentFieldInfo { name: "_pad", type_name: "[u8 ; 4]", offset: 4, size: 4, default_value: "" },
@@ -1729,7 +1811,9 @@ mod tests {
         };
 
         let output = generate_cpp_fragments(&[&reg], "Test.h");
-        assert!(output.contains("_Pad"), "padding fields should get _ prefix");
+        // The _pad field is skipped, but auto-padding fills the gap to size 8
+        assert!(output.contains("_Pad_4[4]"), "should auto-emit trailing padding: {}", output);
+        assert!(!output.contains("offsetof(FTestPad, _Pad)"), "should not emit offset assert for skipped _pad");
     }
 
     #[test]

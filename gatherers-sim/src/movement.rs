@@ -1,4 +1,4 @@
-use crate::fragments::{Movement, Position};
+use crate::fragments::{Cooldown, Movement, Position};
 use bevy_mass::prelude::*;
 use glam::DVec3;
 
@@ -38,17 +38,22 @@ pub fn entity_movement(
 
 // ---------------------------------------------------------------------------
 // System 4: Cooldown — decrement pickup cooldown timers
-// Generic: works for any entity with Cooldown.
+// Pure-Bevy component with add/remove semantics. In Unreal mode, Cooldown
+// lives on shadow Bevy entities, not in chunk memory.
 // ---------------------------------------------------------------------------
 
 #[cfg_attr(feature = "unreal", mass_system(order = 40))]
 pub fn entity_cooldown(
-    mut cooldowns: Query<&mut crate::fragments::Cooldown>,
+    mut cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
     time: Res<DeltaTime>,
+    mut commands: Commands,
 ) {
     let dt = time.0;
-    for mut cd in &mut cooldowns {
-        cd.remaining_seconds = (cd.remaining_seconds - dt.max(0.0)).max(0.0);
+    for (entity, mut cd) in &mut cooldowns {
+        cd.remaining_seconds -= dt.max(0.0);
+        if cd.remaining_seconds <= 0.0 {
+            commands.entity(entity).remove::<Cooldown>();
+        }
     }
 }
 
@@ -130,7 +135,6 @@ mod tests {
             Movement {
                 direction: DVec3::X,
                 movement_speed: 100.0,
-                _pad: [0; 4],
             },
         ));
 
@@ -157,7 +161,6 @@ mod tests {
             Movement {
                 direction: DVec3::X,
                 movement_speed: 50.0,
-                _pad: [0; 4],
             },
         ));
 
@@ -174,7 +177,6 @@ mod tests {
         world.insert_resource(DeltaTime(0.3));
         world.spawn(Cooldown {
             remaining_seconds: 1.0,
-            _pad: [0; 4],
         });
 
         run_system(&mut world, entity_cooldown);
@@ -189,19 +191,20 @@ mod tests {
     }
 
     #[test]
-    fn cooldown_floors_at_zero() {
+    fn cooldown_removed_when_expired() {
         let mut world = World::new();
         world.insert_resource(DeltaTime(1.0));
-        world.spawn(Cooldown {
+        let entity = world.spawn(Cooldown {
             remaining_seconds: 0.1,
-            _pad: [0; 4],
-        });
+        }).id();
 
         run_system(&mut world, entity_cooldown);
 
-        let mut q = world.query::<&Cooldown>();
-        let cd = q.single(&world).unwrap();
-        assert_eq!(cd.remaining_seconds, 0.0);
+        // Cooldown should be removed (not just zeroed)
+        assert!(
+            world.get::<Cooldown>(entity).is_none(),
+            "Cooldown component should be removed when expired"
+        );
     }
 
     #[test]
@@ -215,7 +218,6 @@ mod tests {
             Movement {
                 direction: DVec3::X,
                 movement_speed: 100.0,
-                _pad: [0; 4],
             },
         ));
 
@@ -230,8 +232,8 @@ mod tests {
     #[test]
     fn combined_movement_boundary_cooldown() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(1.0));
-        world.spawn((
+        world.insert_resource(DeltaTime(0.5));
+        let entity = world.spawn((
             Position {
                 position: DVec3::new(499.0, 0.0, 0.0),
                 previous_position: DVec3::ZERO,
@@ -239,24 +241,24 @@ mod tests {
             Movement {
                 direction: DVec3::X,
                 movement_speed: 100.0,
-                _pad: [0; 4],
             },
             Cooldown {
                 remaining_seconds: 1.0,
-                _pad: [0; 4],
             },
-        ));
+        )).id();
 
         let mut schedule = bevy_ecs::schedule::Schedule::default();
         use bevy_ecs::schedule::IntoScheduleConfigs;
         schedule.add_systems((entity_movement, entity_boundary_reflect, entity_cooldown).chain());
         schedule.run(&mut world);
 
-        let mut q = world.query::<(&Position, &Movement, &Cooldown)>();
-        let (pos, mov, cd) = q.single(&world).unwrap();
+        let mut q = world.query::<(&Position, &Movement)>();
+        let (pos, mov) = q.single(&world).unwrap();
         assert!(pos.position.x <= 500.0, "clamped: {}", pos.position.x);
         assert!(mov.direction.x < 0.0, "reflected: {}", mov.direction.x);
-        assert_eq!(cd.remaining_seconds, 0.0);
+        // Cooldown should still exist (1.0 - 0.5 = 0.5)
+        let cd = world.get::<Cooldown>(entity).expect("Cooldown should still exist");
+        assert!((cd.remaining_seconds - 0.5).abs() < 1e-5, "cooldown: {}", cd.remaining_seconds);
     }
 
     #[test]
@@ -268,7 +270,6 @@ mod tests {
             Movement {
                 direction: DVec3::X,
                 movement_speed: 200.0,
-                _pad: [0; 4],
             },
         ));
         world.spawn((
@@ -276,7 +277,6 @@ mod tests {
             Movement {
                 direction: DVec3::Y,
                 movement_speed: 50.0,
-                _pad: [0; 4],
             },
         ));
 

@@ -116,11 +116,10 @@ mod tests {
         let movement = Movement {
             direction: DVec3::X,
             movement_speed: 100.0,
-            _pad: [0; 4],
         };
-        let cooldown = Cooldown::default();
+        let cooldown = Cooldown { remaining_seconds: 0.0 };
         let carrying = if carrying_food {
-            Carrying { food_index: 0, _pad: 0 }
+            Carrying { food_index: 0 }
         } else {
             Carrying::default()
         };
@@ -134,7 +133,6 @@ mod tests {
     fn make_encounter() -> FoodEncounter {
         FoodEncounter {
             food_index: 0,
-            _pad: 0,
             encounter_position: DVec3::new(110.0, 105.0, 0.0),
         }
     }
@@ -259,7 +257,6 @@ mod tests {
         let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
         let food_0 = FoodEncounter {
             food_index: 0,
-            _pad: 0,
             encounter_position: DVec3::new(105.0, 100.0, 0.0),
         };
         let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&food_0));
@@ -269,7 +266,6 @@ mod tests {
         // Frame 2: ant encounters food_1 nearby — should NOT drop immediately
         let food_1 = FoodEncounter {
             food_index: 1,
-            _pad: 0,
             encounter_position: DVec3::new(110.0, 100.0, 0.0),
         };
         let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&food_1));

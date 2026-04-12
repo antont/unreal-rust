@@ -31,7 +31,6 @@ fn spawn_entities(
                     50.0,
                 ),
                 is_loose: true,
-                _pad: [0; 7],
             });
         });
 
@@ -44,7 +43,6 @@ fn spawn_entities(
     let ant_handles = EntityArchetype::new("ant")
         .fragment::<Position>()
         .fragment::<Movement>()
-        .fragment::<Cooldown>()
         .fragment::<Carrying>()
         .fragment::<Behavior>()
         .fragment::<AntEncounterFragment>()
@@ -59,7 +57,6 @@ fn spawn_entities(
             writer.set(&Movement {
                 direction: DVec3::new(angle.cos(), angle.sin(), 0.0),
                 movement_speed: 100.0,
-                _pad: [0; 4],
             });
             writer.set(&Behavior {
                 turn_jitter_radians: 0.0,
@@ -67,7 +64,6 @@ fn spawn_entities(
             });
             writer.set(&Carrying {
                 food_index: -1,
-                _pad: 0,
             });
         });
 

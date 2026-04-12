@@ -1,17 +1,43 @@
+// ---------------------------------------------------------------------------
+// Query types: when to use which
+// ---------------------------------------------------------------------------
+//
+// **Facade Query** (`bevy_mass::prelude::Query`):
+//   Use for systems that should compile in both standalone Bevy and Unreal modes.
+//   Supports single-component and tuple forms, With/Without filters, Entity.
+//   The #[mass_system] macro rewrites these to chunk access in Unreal mode.
+//   Examples: entity_movement, entity_cooldown, entity_boundary_reflect.
+//
+// **MassQuery / MassQueryAll** (`unreal_api::mass::{MassQuery, MassQueryAll}`):
+//   Use for Unreal-only systems that need access unavailable in standalone mode:
+//   - MassSpatialQueries (C++ collision pre-pass results)
+//   - MassQueryAll (cross-archetype index-based access, e.g. food by index)
+//   These do NOT compile without the `unreal` feature.
+//   Examples: ant_collision_prepass, ant_food_decision, carried_food_tracking.
+//
+// **BevyQuery** (`bevy_ecs::system::Query`):
+//   Use for pure-Bevy components that live on shadow entities (not in chunk
+//   memory). Always resolves to real bevy_ecs::Query in both modes.
+//   The #[mass_system] macro passes these through unchanged.
+//   Example: entity_cooldown's BevyQuery<(Entity, &mut Cooldown)>.
+// ---------------------------------------------------------------------------
+
 #[allow(unused_imports)] // Used at runtime, not in test cfg
 use unreal_api::mass::{MassQuery, MassQueryAll};
 use unreal_api::mass_system;
 use glam::DVec3;
 #[allow(unused_imports)] // Used by #[mass_system] macro expansion
-use bevy_ecs::prelude::With;
+use bevy_ecs::prelude::{With, Without, Entity, Commands};
+#[allow(unused_imports)] // Used by #[mass_system] macro expansion
+use bevy_ecs::system::Query as BevyQuery;
 use crate::fragments::{
     Position, Movement, Cooldown, Carrying,
     AntEncounterFragment, FoodFragment, BevyMassAntTag,
 };
 
 // Re-export facade systems from gatherers-sim (the single source of truth).
-// These use Query<&mut T> and Res<DeltaTime> — standard Bevy syntax that
-// compiles against both pure Bevy and Unreal Mass Entity.
+// These use facade Query<&mut T> and Res<DeltaTime> — standard Bevy syntax
+// that compiles against both pure Bevy and Unreal Mass Entity.
 pub use gatherers_sim::movement::{
     entity_movement, entity_cooldown, entity_boundary_reflect,
     SIM_BOUNDS_MIN, SIM_BOUNDS_MAX,
@@ -26,30 +52,22 @@ const PICKUP_COOLDOWN_SECONDS: f32 = 0.5;
 // ---------------------------------------------------------------------------
 // System 3: Food decision — pickup/drop logic from pre-computed encounters
 // (Unreal-only: uses MassQueryAll for index-based food access)
+//
+// Without<Cooldown> filter skips ants on cooldown — Cooldown is a pure-Bevy
+// component on shadow entities, checked via the facade Query filter mask.
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 30)]
+#[mass_system(order = 30, entity_group = "ants")]
 fn ant_food_decision(
-    positions: MassQuery<&mut Position, With<BevyMassAntTag>>,
-    movements: MassQuery<&mut Movement, With<BevyMassAntTag>>,
-    cooldowns: MassQuery<&mut Cooldown, With<BevyMassAntTag>>,
-    carrying: MassQuery<&mut Carrying, With<BevyMassAntTag>>,
-    encounters: MassQuery<&AntEncounterFragment, With<BevyMassAntTag>>,
+    mut ants: MassQuery<
+        (Entity, &mut Position, &mut Movement, &mut Carrying, &AntEncounterFragment),
+        (With<BevyMassAntTag>, Without<Cooldown>),
+    >,
     foods: MassQueryAll<&mut FoodFragment>,
-    dt: f32,
+    mut commands: Commands,
 ) {
-    let _ = dt;
-
-    for ((((pos, mov), cd), carry), encounter) in positions.iter_mut()
-        .zip(movements.iter_mut())
-        .zip(cooldowns.iter_mut())
-        .zip(carrying.iter_mut())
-        .zip(encounters.iter())
-    {
+    for (entity, mut pos, mut mov, mut carry, encounter) in &mut ants {
         if !encounter.has_encounter {
-            continue;
-        }
-        if cd.remaining_seconds > 0.0 {
             continue;
         }
 
@@ -63,7 +81,6 @@ fn ant_food_decision(
             }
             carry.food_index = -1;
             mov.direction = reverse_direction(mov.direction);
-            cd.remaining_seconds = PICKUP_COOLDOWN_SECONDS;
         } else {
             // Pick up nearest food by index (from C++ collision pre-pass)
             let food_index = encounter.nearest_food_index;
@@ -73,11 +90,12 @@ fn ant_food_decision(
                         food.is_loose = false;
                         carry.food_index = food_index;
                         mov.direction = reverse_direction(mov.direction);
-                        cd.remaining_seconds = PICKUP_COOLDOWN_SECONDS;
                     }
                 }
             }
         }
+
+        commands.entity(entity).insert(Cooldown { remaining_seconds: PICKUP_COOLDOWN_SECONDS });
     }
 }
 
@@ -86,14 +104,12 @@ fn ant_food_decision(
 // (Unreal-only: uses MassQueryAll for index-based food access)
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 40)]
+#[mass_system(order = 45)]
 fn carried_food_tracking(
     positions: MassQuery<&Position, With<BevyMassAntTag>>,
     carrying: MassQuery<&Carrying, With<BevyMassAntTag>>,
     foods: MassQueryAll<&mut FoodFragment>,
-    dt: f32,
 ) {
-    let _ = dt;
     for (pos, carry) in positions.iter().zip(carrying.iter()) {
         if carry.food_index >= 0 {
             if let Some(food) = foods.get_mut(carry.food_index as usize) {
@@ -134,20 +150,49 @@ fn ant_collision_prepass(
 mod tests {
     use super::*;
     use glam::DVec3;
-    use crate::fragments::{Position, Movement, Cooldown, Carrying, AntEncounterFragment, FoodFragment};
+    use crate::fragments::{Position, Movement, Carrying, AntEncounterFragment, FoodFragment};
     use unreal_api::mass::{MassGlobalChunkStorage, MassQueryAllMut, MassQueryMut, MassQueryRef};
 
+    /// Helper: construct the facade struct for ant_food_decision tests.
+    /// Creates a `__FQ_ant_food_decision_ants` from raw arrays.
+    /// Also returns a World (needed to spawn valid entities) and the entity list.
+    fn setup_facade_test(count: usize) -> (bevy_ecs::world::World, Vec<bevy_ecs::entity::Entity>) {
+        let mut world = bevy_ecs::world::World::new();
+        let entities: Vec<_> = (0..count).map(|_| world.spawn_empty().id()).collect();
+        (world, entities)
+    }
+
+    unsafe fn make_ant_facade<'a>(
+        positions: &'a mut [Position],
+        movements: &'a mut [Movement],
+        carrying: &'a mut [Carrying],
+        encounters: &'a [AntEncounterFragment],
+        entities: &'a [bevy_ecs::entity::Entity],
+        filter_mask: Vec<bool>,
+    ) -> __FQ_ant_food_decision_ants<'a> {
+        __FQ_ant_food_decision_ants {
+            __p0: positions.as_mut_ptr(),
+            __p1: movements.as_mut_ptr(),
+            __p2: carrying.as_mut_ptr(),
+            __p3: encounters.as_ptr(),
+            __entities: entities,
+            __filter_mask: filter_mask,
+            __len: positions.len(),
+            __phantom: ::std::marker::PhantomData,
+        }
+    }
+
     // -----------------------------------------------------------------------
-    // Food decision tests (Unreal query types)
+    // Food decision tests (facade Query)
     // -----------------------------------------------------------------------
 
     #[test]
     fn food_decision_pickup_when_encounter() {
+        let (mut world, entities) = setup_facade_test(1);
         let mut positions = [Position::default()];
         positions[0].position = DVec3::new(100.0, 0.0, 0.0);
-        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0, _pad: [0; 4] }];
-        let mut cooldowns = [Cooldown::default()];
-        let mut carrying = [Carrying::default()]; // food_index = -1
+        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0 }];
+        let mut carrying = [Carrying::default()];
         let encounters = [AntEncounterFragment {
             nearest_food_index: 0,
             encounter_position: DVec3::new(100.0, 0.0, 0.0),
@@ -157,38 +202,32 @@ mod tests {
         let mut foods = [FoodFragment {
             position: DVec3::new(101.0, 0.0, 0.0),
             is_loose: true,
-            _pad: [0; 7],
         }];
 
-        let pos_q = unsafe { MassQueryMut::from_raw(positions.as_mut_ptr() as *mut _, positions.len()) };
-        let mov_q = unsafe { MassQueryMut::from_raw(movements.as_mut_ptr() as *mut _, movements.len()) };
-        let cd_q = unsafe { MassQueryMut::from_raw(cooldowns.as_mut_ptr() as *mut _, cooldowns.len()) };
-        let carry_q = unsafe { MassQueryMut::from_raw(carrying.as_mut_ptr() as *mut _, carrying.len()) };
-        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let ants = unsafe {
+            make_ant_facade(&mut positions, &mut movements, &mut carrying, &encounters, &entities, vec![true])
+        };
         let mut storage = MassGlobalChunkStorage::new();
         let food_q = unsafe {
-            MassQueryAllMut::from_raw_single_chunk(
-                foods.as_mut_ptr() as *mut _,
-                foods.len(),
-                &mut storage,
-            )
+            MassQueryAllMut::from_raw_single_chunk(foods.as_mut_ptr() as *mut _, foods.len(), &mut storage)
         };
+        let mut command_queue = bevy_ecs::world::CommandQueue::default();
+        let commands = bevy_ecs::system::Commands::new(&mut command_queue, &world);
 
-        ant_food_decision(pos_q, mov_q, cd_q, carry_q, enc_q, food_q, 0.1);
+        ant_food_decision(ants, food_q, commands);
 
         assert_eq!(carrying[0].food_index, 0);
         assert!(!foods[0].is_loose, "food should no longer be loose");
         assert!(movements[0].direction.x < 0.0, "direction should reverse");
-        assert!(cooldowns[0].remaining_seconds > 0.0);
     }
 
     #[test]
     fn food_decision_drop_when_carrying_and_encounter() {
+        let (mut world, entities) = setup_facade_test(1);
         let mut positions = [Position::default()];
         positions[0].position = DVec3::new(200.0, 0.0, 0.0);
-        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0, _pad: [0; 4] }];
-        let mut cooldowns = [Cooldown::default()];
-        let mut carrying = [Carrying { food_index: 0, _pad: 0 }];
+        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0 }];
+        let mut carrying = [Carrying { food_index: 0 }];
         let encounters = [AntEncounterFragment {
             nearest_food_index: 1,
             encounter_position: DVec3::new(200.0, 0.0, 0.0),
@@ -196,25 +235,21 @@ mod tests {
             ..Default::default()
         }];
         let mut foods = [
-            FoodFragment { position: DVec3::ZERO, is_loose: false, _pad: [0; 7] },
-            FoodFragment { position: DVec3::new(201.0, 0.0, 0.0), is_loose: true, _pad: [0; 7] },
+            FoodFragment { position: DVec3::ZERO, is_loose: false },
+            FoodFragment { position: DVec3::new(201.0, 0.0, 0.0), is_loose: true },
         ];
 
-        let pos_q = unsafe { MassQueryMut::from_raw(positions.as_mut_ptr() as *mut _, positions.len()) };
-        let mov_q = unsafe { MassQueryMut::from_raw(movements.as_mut_ptr() as *mut _, movements.len()) };
-        let cd_q = unsafe { MassQueryMut::from_raw(cooldowns.as_mut_ptr() as *mut _, cooldowns.len()) };
-        let carry_q = unsafe { MassQueryMut::from_raw(carrying.as_mut_ptr() as *mut _, carrying.len()) };
-        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let ants = unsafe {
+            make_ant_facade(&mut positions, &mut movements, &mut carrying, &encounters, &entities, vec![true])
+        };
         let mut storage = MassGlobalChunkStorage::new();
         let food_q = unsafe {
-            MassQueryAllMut::from_raw_single_chunk(
-                foods.as_mut_ptr() as *mut _,
-                foods.len(),
-                &mut storage,
-            )
+            MassQueryAllMut::from_raw_single_chunk(foods.as_mut_ptr() as *mut _, foods.len(), &mut storage)
         };
+        let mut command_queue = bevy_ecs::world::CommandQueue::default();
+        let commands = bevy_ecs::system::Commands::new(&mut command_queue, &world);
 
-        ant_food_decision(pos_q, mov_q, cd_q, carry_q, enc_q, food_q, 0.1);
+        ant_food_decision(ants, food_q, commands);
 
         assert_eq!(carrying[0].food_index, -1);
         assert!(foods[0].is_loose, "dropped food should be loose");
@@ -224,10 +259,10 @@ mod tests {
 
     #[test]
     fn food_decision_skips_when_cooldown_active() {
+        let (world, entities) = setup_facade_test(1);
         let mut positions = [Position::default()];
         positions[0].position = DVec3::new(100.0, 0.0, 0.0);
-        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0, _pad: [0; 4] }];
-        let mut cooldowns = [Cooldown { remaining_seconds: 1.0, _pad: [0; 4] }];
+        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0 }];
         let mut carrying = [Carrying::default()];
         let encounters = [AntEncounterFragment {
             nearest_food_index: 0,
@@ -238,24 +273,20 @@ mod tests {
         let mut foods = [FoodFragment {
             position: DVec3::new(101.0, 0.0, 0.0),
             is_loose: true,
-            _pad: [0; 7],
         }];
 
-        let pos_q = unsafe { MassQueryMut::from_raw(positions.as_mut_ptr() as *mut _, positions.len()) };
-        let mov_q = unsafe { MassQueryMut::from_raw(movements.as_mut_ptr() as *mut _, movements.len()) };
-        let cd_q = unsafe { MassQueryMut::from_raw(cooldowns.as_mut_ptr() as *mut _, cooldowns.len()) };
-        let carry_q = unsafe { MassQueryMut::from_raw(carrying.as_mut_ptr() as *mut _, carrying.len()) };
-        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        // Filter mask = false → entity has Cooldown → skipped by Without<Cooldown>
+        let ants = unsafe {
+            make_ant_facade(&mut positions, &mut movements, &mut carrying, &encounters, &entities, vec![false])
+        };
         let mut storage = MassGlobalChunkStorage::new();
         let food_q = unsafe {
-            MassQueryAllMut::from_raw_single_chunk(
-                foods.as_mut_ptr() as *mut _,
-                foods.len(),
-                &mut storage,
-            )
+            MassQueryAllMut::from_raw_single_chunk(foods.as_mut_ptr() as *mut _, foods.len(), &mut storage)
         };
+        let mut command_queue = bevy_ecs::world::CommandQueue::default();
+        let commands = bevy_ecs::system::Commands::new(&mut command_queue, &world);
 
-        ant_food_decision(pos_q, mov_q, cd_q, carry_q, enc_q, food_q, 0.1);
+        ant_food_decision(ants, food_q, commands);
 
         assert_eq!(carrying[0].food_index, -1);
         assert!(foods[0].is_loose);
@@ -264,30 +295,26 @@ mod tests {
 
     #[test]
     fn food_decision_skips_when_no_encounter() {
+        let (world, entities) = setup_facade_test(1);
         let mut positions = [Position::default()];
         positions[0].position = DVec3::new(100.0, 0.0, 0.0);
         let mut movements = [Movement::default()];
-        let mut cooldowns = [Cooldown::default()];
         let mut carrying = [Carrying::default()];
-        let encounters = [AntEncounterFragment::default()]; // has_encounter = false
+        let encounters = [AntEncounterFragment::default()];
 
-        let mut foods = [FoodFragment { position: DVec3::new(101.0, 0.0, 0.0), is_loose: true, _pad: [0; 7] }];
+        let mut foods = [FoodFragment { position: DVec3::new(101.0, 0.0, 0.0), is_loose: true }];
 
-        let pos_q = unsafe { MassQueryMut::from_raw(positions.as_mut_ptr() as *mut _, positions.len()) };
-        let mov_q = unsafe { MassQueryMut::from_raw(movements.as_mut_ptr() as *mut _, movements.len()) };
-        let cd_q = unsafe { MassQueryMut::from_raw(cooldowns.as_mut_ptr() as *mut _, cooldowns.len()) };
-        let carry_q = unsafe { MassQueryMut::from_raw(carrying.as_mut_ptr() as *mut _, carrying.len()) };
-        let enc_q = unsafe { MassQueryRef::from_raw(encounters.as_ptr() as *const _, encounters.len()) };
+        let ants = unsafe {
+            make_ant_facade(&mut positions, &mut movements, &mut carrying, &encounters, &entities, vec![true])
+        };
         let mut storage = MassGlobalChunkStorage::new();
         let food_q = unsafe {
-            MassQueryAllMut::from_raw_single_chunk(
-                foods.as_mut_ptr() as *mut _,
-                foods.len(),
-                &mut storage,
-            )
+            MassQueryAllMut::from_raw_single_chunk(foods.as_mut_ptr() as *mut _, foods.len(), &mut storage)
         };
+        let mut command_queue = bevy_ecs::world::CommandQueue::default();
+        let commands = bevy_ecs::system::Commands::new(&mut command_queue, &world);
 
-        ant_food_decision(pos_q, mov_q, cd_q, carry_q, enc_q, food_q, 0.1);
+        ant_food_decision(ants, food_q, commands);
 
         assert_eq!(carrying[0].food_index, -1);
         assert!(foods[0].is_loose);

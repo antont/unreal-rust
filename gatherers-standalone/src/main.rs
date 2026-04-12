@@ -1,10 +1,8 @@
 use bevy::prelude::*;
 use gatherers_sim::fragments::*;
-use gatherers_sim::food_decision::{
-    ant_food_decision, DECISION_DROP, DECISION_PICK_UP,
-};
 use gatherers_sim::movement::{
-    entity_boundary_reflect, entity_cooldown, entity_movement, SIM_BOUNDS_MAX, SIM_BOUNDS_MIN,
+    entity_boundary_reflect, entity_cooldown, entity_movement, reverse_direction, SIM_BOUNDS_MAX,
+    SIM_BOUNDS_MIN,
 };
 use glam::DVec3;
 
@@ -80,7 +78,6 @@ fn spawn_entities(mut commands: Commands) {
                 FoodFragment {
                     position: pos,
                     is_loose: true,
-                    _pad: [0; 7],
                 },
                 Sprite {
                     color: COLOR_FOOD_LOOSE,
@@ -106,6 +103,9 @@ fn spawn_entities(mut commands: Commands) {
             bounds_min.y + rng() * bounds_range.y,
             50.0,
         );
+        // Ants spawn WITHOUT Cooldown — it's added dynamically via Commands
+        // after pickup/drop, and removed when the timer expires.
+        // This matches the idiomatic Bevy pattern from the original gatherers.
         commands.spawn((
             AntMarker,
             Position {
@@ -115,9 +115,7 @@ fn spawn_entities(mut commands: Commands) {
             Movement {
                 direction: DVec3::new(angle.cos(), angle.sin(), 0.0),
                 movement_speed: 100.0,
-                _pad: [0; 4],
             },
-            Cooldown::default(),
             Carrying::default(),
             Behavior {
                 turn_jitter_radians: std::f32::consts::FRAC_PI_2,
@@ -147,14 +145,21 @@ fn sync_delta_time(time: Res<Time>, mut dt: ResMut<bevy_mass::DeltaTime>) {
     dt.0 = time.delta_secs();
 }
 
-/// Brute-force proximity food interaction using ant_food_decision().
+/// Cooldown applied after picking up or dropping food, in seconds.
+const COOLDOWN_SECONDS: f32 = 0.5;
+
+/// Brute-force proximity food interaction with idiomatic add/remove Cooldown.
+///
+/// Uses `Without<Cooldown>` to skip ants on cooldown — matching the original
+/// gatherers pattern where cooldown is a query filter, not a sentinel check.
 fn simple_food_interaction(
     mut ants: Query<
-        (&mut Position, &mut Movement, &mut Cooldown, &mut Carrying, &mut Behavior),
-        With<AntMarker>,
+        (Entity, &mut Position, &mut Movement, &mut Carrying),
+        (With<AntMarker>, Without<Cooldown>),
     >,
     mut foods: Query<&mut FoodFragment, With<FoodMarker>>,
     food_entities: Res<FoodEntities>,
+    mut commands: Commands,
 ) {
     // Snapshot loose food positions for proximity search
     let loose_food: Vec<(usize, DVec3)> = food_entities
@@ -172,7 +177,7 @@ fn simple_food_interaction(
         })
         .collect();
 
-    for (mut pos, mut mov, mut cd, mut carry, mut beh) in &mut ants {
+    for (entity, mut pos, mut mov, mut carry) in &mut ants {
         // Find nearest loose food within pickup radius
         let encounter = loose_food
             .iter()
@@ -184,50 +189,48 @@ fn simple_food_interaction(
                 let da = (pos.position - *a).length_squared();
                 let db = (pos.position - *b).length_squared();
                 da.partial_cmp(&db).unwrap()
-            })
-            .map(|(idx, food_pos)| FoodEncounter {
-                food_index: *idx as i32,
-                _pad: 0,
-                encounter_position: *food_pos,
             });
 
-        let old_food_index = carry.food_index;
+        let Some(&(food_idx, encounter_pos)) = encounter else {
+            continue;
+        };
+
+        let is_carrying = carry.food_index >= 0;
         let pos_before_snap = pos.position;
 
-        let decision = ant_food_decision(
-            &mut pos.position,
-            &mut mov,
-            &mut cd,
-            &mut carry,
-            &mut beh,
-            encounter.as_ref(),
-        );
-
-        match decision {
-            DECISION_PICK_UP => {
-                // Mark picked-up food as not loose
-                let idx = carry.food_index as usize;
-                if idx < food_entities.0.len() {
-                    if let Ok(mut food) = foods.get_mut(food_entities.0[idx]) {
-                        food.is_loose = false;
-                    }
+        if is_carrying {
+            // Drop carried food at ant's pre-snap position, pick up new food
+            let old_food_index = carry.food_index as usize;
+            if old_food_index < food_entities.0.len() {
+                if let Ok(mut food) = foods.get_mut(food_entities.0[old_food_index]) {
+                    food.is_loose = true;
+                    food.position = pos_before_snap;
                 }
             }
-            DECISION_DROP => {
-                // Mark previously-carried food as loose at the ant's position
-                // BEFORE the snap — otherwise it stacks on the encounter food.
-                if old_food_index >= 0 {
-                    let idx = old_food_index as usize;
-                    if idx < food_entities.0.len() {
-                        if let Ok(mut food) = foods.get_mut(food_entities.0[idx]) {
-                            food.is_loose = true;
-                            food.position = pos_before_snap;
-                        }
-                    }
+            carry.food_index = -1;
+            pos.position = encounter_pos;
+            mov.direction = reverse_direction(mov.direction);
+        } else {
+            // Pick up nearest food
+            if let Ok(mut food) = foods.get_mut(food_entities.0[food_idx]) {
+                if food.is_loose {
+                    food.is_loose = false;
+                    carry.food_index = food_idx as i32;
+                    pos.position = encounter_pos;
+                    mov.direction = reverse_direction(mov.direction);
+                } else {
+                    continue; // food already taken
                 }
+            } else {
+                continue;
             }
-            _ => {}
         }
+
+        // Add Cooldown component — this ant will be excluded from food
+        // interaction until the cooldown system removes it.
+        commands.entity(entity).insert(Cooldown {
+            remaining_seconds: COOLDOWN_SECONDS,
+        });
     }
 }
 

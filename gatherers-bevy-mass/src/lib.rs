@@ -11,14 +11,14 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     name: "ants",
     position_fragment_type: "FGatherersPosition",
-    position_offset: 0, // Position.position is at offset 0
+    position_offset: std::mem::offset_of!(gatherers_sim::fragments::Position, position),
     scale: 0.2,
 });
 
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     name: "food",
     position_fragment_type: "FGatherersMassFoodFragment",
-    position_offset: 0, // FoodFragment.position is at offset 0
+    position_offset: std::mem::offset_of!(gatherers_sim::fragments::FoodFragment, position),
     scale: 0.1,
 });
 
@@ -31,7 +31,7 @@ inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
     query_type: unreal_api::mass::MassSpatialQueryType::PhysicsSweep,
     collision_channel_index: 0, // ECC_GameTraceChannel1 = "FoodQuery"
     filter_fragment_type: "FGatherersMassFoodFragment",
-    filter_bool_offset: 24, // FoodFragment.is_loose at offset 24
+    filter_bool_offset: std::mem::offset_of!(gatherers_sim::fragments::FoodFragment, is_loose),
     filter_bool_must_be: true,
 });
 
@@ -69,7 +69,7 @@ mod tests {
         assert_eq!(c.query_type, unreal_api::mass::MassSpatialQueryType::PhysicsSweep);
         assert_eq!(c.collision_channel_index, 0);
         assert_eq!(c.filter_fragment_type, "FGatherersMassFoodFragment");
-        assert_eq!(c.filter_bool_offset, 24);
+        assert_eq!(c.filter_bool_offset, std::mem::offset_of!(gatherers_sim::fragments::FoodFragment, is_loose));
         assert!(c.filter_bool_must_be);
     }
 

@@ -1,108 +1,84 @@
-use bevy_mass::prelude::Component;
+use bevy_mass::prelude::Component; // used by Cooldown (not a MassFragment)
 use glam::DVec3;
 
 // ---------------------------------------------------------------------------
 // Tags
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersMassAntTag", tag))]
-#[derive(Component, Clone, Copy, Debug)]
-pub struct AntTag;
+bevy_mass::mass_tag!(cpp_type = "FGatherersMassAntTag",
+    pub struct AntTag;
+);
 
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersMassFoodTag", tag))]
-#[derive(Component, Clone, Copy, Debug)]
-pub struct FoodTag;
+bevy_mass::mass_tag!(cpp_type = "FGatherersMassFoodTag",
+    pub struct FoodTag;
+);
 
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersBevyMassAntTag", tag))]
-#[derive(Component, Clone, Copy, Debug)]
-pub struct BevyMassAntTag;
+bevy_mass::mass_tag!(cpp_type = "FGatherersBevyMassAntTag",
+    pub struct BevyMassAntTag;
+);
 
 // ---------------------------------------------------------------------------
 // Fragments
 // ---------------------------------------------------------------------------
 
-// ---------------------------------------------------------------------------
-// Decomposed components (shared across entity types)
-// ---------------------------------------------------------------------------
+bevy_mass::mass_fragment!(cpp_type = "FGatherersPosition",
+    /// World-space position and previous-frame position.
+    #[derive(Default)]
+    pub struct Position {
+        pub position: DVec3,
+        pub previous_position: DVec3,
+    }
+);
 
-/// World-space position and previous-frame position.
-/// Matches C++ FGatherersPosition (48 bytes, align 8).
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[derive(Component, Clone, Copy, Debug, Default)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersPosition"))]
-pub struct Position {
-    pub position: DVec3,
-    pub previous_position: DVec3,
-}
-
-/// Movement direction and speed.
-/// Matches C++ FGatherersMovement (32 bytes, align 8).
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[derive(Component, Clone, Copy, Debug)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersMovement"))]
-pub struct Movement {
-    #[cfg_attr(feature = "unreal", mass(default = "FVector(1.0f, 0.0f, 0.0f)"))]
-    pub direction: DVec3,
-    #[cfg_attr(feature = "unreal", mass(default = "100.0f"))]
-    pub movement_speed: f32,
-    pub _pad: [u8; 4],
-}
+bevy_mass::mass_fragment!(cpp_type = "FGatherersMovement",
+    /// Movement direction and speed.
+    pub struct Movement {
+        #[cfg_attr(feature = "unreal", mass(default = "FVector(1.0f, 0.0f, 0.0f)"))]
+        pub direction: DVec3,
+        #[cfg_attr(feature = "unreal", mass(default = "100.0f"))]
+        pub movement_speed: f32,
+    }
+);
 
 impl Default for Movement {
     fn default() -> Self {
         Self {
             direction: DVec3::X,
             movement_speed: 100.0,
-            _pad: [0; 4],
         }
     }
 }
 
 /// Pickup cooldown timer.
-/// Matches C++ FGatherersCooldown (8 bytes, align 4).
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+/// Pure-Bevy component — added/removed dynamically, not a MassFragment.
+/// In Unreal mode, lives on shadow Bevy entities (not in chunk memory).
 #[derive(Component, Clone, Copy, Debug, Default)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersCooldown"))]
 pub struct Cooldown {
     pub remaining_seconds: f32,
-    pub _pad: [u8; 4],
 }
 
-/// Index of carried food item (-1 = not carrying).
-/// Matches C++ FGatherersCarrying (8 bytes, align 4).
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[derive(Component, Clone, Copy, Debug)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersCarrying"))]
-pub struct Carrying {
-    #[cfg_attr(feature = "unreal", mass(default = "-1"))]
-    pub food_index: i32,
-    pub _pad: i32,
-}
+bevy_mass::mass_fragment!(cpp_type = "FGatherersCarrying",
+    /// Index of carried food item (-1 = not carrying).
+    pub struct Carrying {
+        #[cfg_attr(feature = "unreal", mass(default = "-1"))]
+        pub food_index: i32,
+    }
+);
 
 impl Default for Carrying {
     fn default() -> Self {
-        Self { food_index: -1, _pad: 0 }
+        Self { food_index: -1 }
     }
 }
 
-/// Per-entity behavior tuning (turn jitter, RNG state).
-/// Matches C++ FGatherersBehavior (8 bytes, align 4).
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[derive(Component, Clone, Copy, Debug)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersBehavior"))]
-pub struct Behavior {
-    #[cfg_attr(feature = "unreal", mass(default = "PI / 2.0f"))]
-    pub turn_jitter_radians: f32,
-    pub random_seed: i32,
-}
+bevy_mass::mass_fragment!(cpp_type = "FGatherersBehavior",
+    /// Per-entity behavior tuning (turn jitter, RNG state).
+    pub struct Behavior {
+        #[cfg_attr(feature = "unreal", mass(default = "PI / 2.0f"))]
+        pub turn_jitter_radians: f32,
+        pub random_seed: i32,
+    }
+);
 
 impl Default for Behavior {
     fn default() -> Self {
@@ -113,54 +89,44 @@ impl Default for Behavior {
     }
 }
 
-/// Matches C++ FGatherersAntEncounterFragment layout.
-/// Written by C++ collision pre-pass, read by Rust food decision system.
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[derive(Component, Clone, Copy, Debug)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersAntEncounterFragment"))]
-pub struct AntEncounterFragment {
-    /// Index into the food entities array, or -1 if none.
-    #[cfg_attr(feature = "unreal", mass(default = "-1"))]
-    pub nearest_food_index: i32,
-    pub _nearest_pad: i32,
-    /// Position where the encounter occurred.
-    pub encounter_position: DVec3,
-    /// Whether an encounter was detected this frame.
-    pub has_encounter: bool,
-    pub _pad: [u8; 7],
-}
+bevy_mass::mass_fragment!(cpp_type = "FGatherersAntEncounterFragment",
+    /// Ant encounter data from collision pre-pass.
+    /// Written by C++ collision pre-pass, read by Rust food decision system.
+    pub struct AntEncounterFragment {
+        /// Index into the food entities array, or -1 if none.
+        #[cfg_attr(feature = "unreal", mass(default = "-1"))]
+        pub nearest_food_index: i32,
+        /// Position where the encounter occurred.
+        pub encounter_position: DVec3,
+        /// Whether an encounter was detected this frame.
+        pub has_encounter: bool,
+    }
+);
 
 impl Default for AntEncounterFragment {
     fn default() -> Self {
         Self {
             nearest_food_index: -1,
-            _nearest_pad: 0,
             encounter_position: DVec3::ZERO,
             has_encounter: false,
-            _pad: [0; 7],
         }
     }
 }
 
-/// Matches C++ FGatherersMassFoodFragment layout (32 bytes, align 8).
-#[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
-#[derive(Component, Clone, Copy, Debug)]
-#[repr(C)]
-#[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersMassFoodFragment"))]
-pub struct FoodFragment {
-    pub position: DVec3,
-    #[cfg_attr(feature = "unreal", mass(default = "true"))]
-    pub is_loose: bool,
-    pub _pad: [u8; 7],
-}
+bevy_mass::mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
+    /// Food entity fragment.
+    pub struct FoodFragment {
+        pub position: DVec3,
+        #[cfg_attr(feature = "unreal", mass(default = "true"))]
+        pub is_loose: bool,
+    }
+);
 
 impl Default for FoodFragment {
     fn default() -> Self {
         Self {
             position: DVec3::ZERO,
             is_loose: true,
-            _pad: [0; 7],
         }
     }
 }
@@ -177,7 +143,6 @@ pub struct SimBounds {
 #[derive(Clone, Copy, Debug, Default)]
 pub struct FoodEncounter {
     pub food_index: i32,
-    pub _pad: i32,
     pub encounter_position: DVec3,
 }
 
@@ -206,14 +171,15 @@ mod tests {
 
     #[test]
     fn cooldown_layout() {
-        assert_eq!(mem::size_of::<Cooldown>(), 8);
+        // Pure-Bevy component — no longer needs C++ layout compatibility
+        assert_eq!(mem::size_of::<Cooldown>(), 4);
         assert_eq!(mem::align_of::<Cooldown>(), 4);
         assert_eq!(mem::offset_of!(Cooldown, remaining_seconds), 0);
     }
 
     #[test]
     fn carrying_layout() {
-        assert_eq!(mem::size_of::<Carrying>(), 8);
+        assert_eq!(mem::size_of::<Carrying>(), 4);
         assert_eq!(mem::align_of::<Carrying>(), 4);
         assert_eq!(mem::offset_of!(Carrying, food_index), 0);
     }
@@ -256,7 +222,9 @@ mod tests {
     #[test]
     fn encounter_fragment_layout() {
         assert_eq!(mem::size_of::<AntEncounterFragment>(), 40);
+        assert_eq!(mem::align_of::<AntEncounterFragment>(), 8);
         assert_eq!(mem::offset_of!(AntEncounterFragment, nearest_food_index), 0);
+        // repr(C) inserts 4 bytes of implicit padding between i32 and DVec3 (align 8)
         assert_eq!(mem::offset_of!(AntEncounterFragment, encounter_position), 8);
         assert_eq!(mem::offset_of!(AntEncounterFragment, has_encounter), 32);
     }
@@ -270,9 +238,9 @@ mod tests {
 
     #[test]
     fn food_encounter_layout() {
-        assert_eq!(mem::offset_of!(FoodEncounter, food_index), 0);
-        assert_eq!(mem::offset_of!(FoodEncounter, encounter_position), 8);
         assert_eq!(mem::size_of::<FoodEncounter>(), 32);
+        assert_eq!(mem::offset_of!(FoodEncounter, food_index), 0);
+        // repr(C) inserts 4 bytes of implicit padding between i32 and DVec3 (align 8)
+        assert_eq!(mem::offset_of!(FoodEncounter, encounter_position), 8);
     }
-
 }

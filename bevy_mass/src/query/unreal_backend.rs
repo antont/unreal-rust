@@ -20,3 +20,8 @@ use std::marker::PhantomData;
 pub struct Query<D, F = ()> {
     _phantom: PhantomData<(D, F)>,
 }
+
+/// In Unreal mode, `BevyQuery` is a real `bevy_ecs::Query` operating on Bevy entity
+/// storage. Use this for pure-Bevy components that don't cross the FFI boundary.
+/// The `#[mass_system]` macro passes `BevyQuery` params through unchanged.
+pub use bevy_ecs::system::Query as BevyQuery;

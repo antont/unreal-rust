@@ -9,7 +9,7 @@
 
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
-use crate::fragments::{Position, Movement, FoodFragment, Carrying, Cooldown};
+use crate::fragments::{Position, Movement, FoodFragment, Carrying};
 
 // ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle test
@@ -79,7 +79,6 @@ fn boundary_reflect(ctx: &TestCtx) {
     ctx.write("ants", 0, &Movement {
         direction: DVec3::X,
         movement_speed: 200.0,
-        _pad: [0; 4],
     });
 
     // Step enough for movement + boundary reflect.
@@ -99,44 +98,6 @@ fn boundary_reflect(ctx: &TestCtx) {
     // Ant should have moved away from boundary after reflecting
     assert!(pos.position.x < 499.0,
         "ant should have moved away from boundary after reflecting: x={}", pos.position.x);
-
-    ctx.reset();
-}
-
-// ---------------------------------------------------------------------------
-// CooldownDecrement — cooldown timer should decrease over time
-// ---------------------------------------------------------------------------
-
-inventory::submit!(MassTestRegistration {
-    name: "CooldownDecrement",
-    test_fn: cooldown_decrement,
-});
-
-fn cooldown_decrement(ctx: &TestCtx) {
-    ctx.init_sim(
-        &[("ants", 1), ("food", 0)],
-        [-500.0, -500.0, 0.0],
-        [500.0, 500.0, 100.0],
-        42,
-    );
-
-    // Set a cooldown
-    ctx.write("ants", 0, &Cooldown {
-        remaining_seconds: 1.0,
-        _pad: [0; 4],
-    });
-
-    // Step to let cooldown decrement: dt=0.016 × 10 steps = 0.16s elapsed
-    // Expected remaining: 1.0 - 0.16 = 0.84
-    ctx.step(0.016, 10);
-
-    let cd = ctx.read::<Cooldown>("ants", 0).unwrap();
-    let expected = 1.0 - 0.016 * 10.0;
-    assert!(
-        (cd.remaining_seconds - expected).abs() < 0.01,
-        "cooldown should be ~{:.2} after 10 steps of dt=0.016: actual={}",
-        expected, cd.remaining_seconds,
-    );
 
     ctx.reset();
 }
@@ -170,8 +131,9 @@ fn food_pickup(ctx: &TestCtx) {
         position: food.position,
         previous_position: food.position,
     });
-    ctx.write("ants", 0, &Carrying { food_index: -1, _pad: 0 });
-    ctx.write("ants", 0, &Cooldown { remaining_seconds: 0.0, _pad: [0; 4] });
+    ctx.write("ants", 0, &Carrying { food_index: -1 });
+    // Note: Cooldown is now a pure-Bevy component on shadow entities.
+    // Ants without Cooldown are eligible for food interaction.
 
     // Run simulation — spatial query should detect overlap, food decision should pick up
     ctx.step(0.016, 20);
@@ -185,10 +147,6 @@ fn food_pickup(ctx: &TestCtx) {
     let food_after = ctx.read::<FoodFragment>("food", 0).unwrap();
     assert!(!food_after.is_loose,
         "picked-up food should no longer be loose");
-
-    let cd = ctx.read::<Cooldown>("ants", 0).unwrap();
-    assert!(cd.remaining_seconds > 0.0,
-        "pickup cooldown should be active: remaining={}", cd.remaining_seconds);
 
     ctx.reset();
 }
@@ -218,8 +176,9 @@ fn food_drop(ctx: &TestCtx) {
         position: food1.position,
         previous_position: food1.position,
     });
-    ctx.write("ants", 0, &Carrying { food_index: 0, _pad: 0 });
-    ctx.write("ants", 0, &Cooldown { remaining_seconds: 0.0, _pad: [0; 4] });
+    ctx.write("ants", 0, &Carrying { food_index: 0 });
+    // Note: Cooldown is now a pure-Bevy component on shadow entities.
+    // Ants without Cooldown are eligible for food interaction.
 
     // Mark food[0] as not loose (it's being carried)
     let mut food0 = ctx.read::<FoodFragment>("food", 0).unwrap();
@@ -232,10 +191,6 @@ fn food_drop(ctx: &TestCtx) {
     let carry = ctx.read::<Carrying>("ants", 0).unwrap();
     assert_eq!(carry.food_index, -1,
         "ant should have dropped food: food_index={}", carry.food_index);
-
-    let cd = ctx.read::<Cooldown>("ants", 0).unwrap();
-    assert!(cd.remaining_seconds > 0.0,
-        "drop cooldown should be active: remaining={}", cd.remaining_seconds);
 
     ctx.reset();
 }

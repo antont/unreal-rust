@@ -695,17 +695,6 @@ static_assert(sizeof(Option<GetSpatialQueryConfigDescFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 static_assert(sizeof(Option<GetSimDefaultsFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
-static_assert(sizeof(Option<GetMassTestCountFn>) == sizeof(void*),
-    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
-static_assert(sizeof(Option<GetMassTestDescFn>) == sizeof(void*),
-    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
-static_assert(sizeof(Option<RunMassTestFn>) == sizeof(void*),
-    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
-
-// --- Test infrastructure ---
-static_assert(sizeof(MassTestDesc) == 16, "MassTestDesc: Utf8Str(16)");
-static_assert(sizeof(MassTestResult) == 16, "MassTestResult: u32(4) + u32(4) + ptr(8)");
-static_assert(sizeof(MassTestCallbacks) == 88, "MassTestCallbacks: 1 opaque ptr + 10 fn ptrs = 11 pointers");
 
 // --- Fundamental types ---
 static_assert(sizeof(Utf8Str) == 16, "Utf8Str: ptr(8) + usize(8)");
@@ -722,7 +711,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
+static_assert(sizeof(RustBindings) == 104, "RustBindings: 7 fn ptrs + 6 Option<fn ptr> = 13 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---

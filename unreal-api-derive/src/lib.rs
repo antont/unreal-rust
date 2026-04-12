@@ -56,8 +56,9 @@ pub fn mass_system(
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let func: syn::ItemFn = syn::parse(item).unwrap();
-    let order = mass_system::parse_mass_system_attr(attr.into()).unwrap_or(0);
-    match mass_system::mass_system_impl(&func, order) {
+    let parsed = mass_system::parse_mass_system_attr_full(attr.into())
+        .unwrap_or(mass_system::MassSystemAttr { order: 0, entity_group: None });
+    match mass_system::mass_system_impl(&func, parsed.order, parsed.entity_group.as_deref()) {
         Ok(tokens) => tokens.into(),
         Err(err) => err.to_compile_error().into(),
     }

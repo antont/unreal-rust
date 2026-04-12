@@ -34,12 +34,13 @@ mod query;
 pub mod prelude {
     pub use crate::time::DeltaTime;
     pub use crate::query::Query;
+    pub use crate::query::BevyQuery;
 
     // Re-export Bevy essentials — these work identically in both backends
     pub use bevy_ecs::prelude::{Res, ResMut, Resource};
     pub use bevy_ecs::system::IntoSystem;
-    pub use bevy_ecs::prelude::Component;
-    pub use bevy_ecs::prelude::With;
+    pub use bevy_ecs::prelude::{Component, Entity, With, Without};
+    pub use bevy_ecs::system::Commands;
 
     // In Unreal mode, re-export the mass_system attribute macro
     #[cfg(feature = "unreal")]
@@ -49,6 +50,51 @@ pub mod prelude {
 // Also export at crate root
 pub use time::DeltaTime;
 pub use query::Query;
+pub use query::BevyQuery;
+
+/// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.
+///
+/// Expands to `#[repr(C)]`, `#[derive(Component, Clone, Copy, Debug)]`, and conditionally
+/// `#[derive(MassFragment)]` + `#[mass(cpp_type = "...")]` when the `unreal` feature is active.
+///
+/// ```ignore
+/// mass_fragment!(cpp_type = "FGatherersMovement",
+///     pub struct Movement {
+///         #[cfg_attr(feature = "unreal", mass(default = "FVector(1.0f, 0.0f, 0.0f)"))]
+///         pub direction: DVec3,
+///         pub movement_speed: f32,
+///     }
+/// );
+/// ```
+#[macro_export]
+macro_rules! mass_fragment {
+    (cpp_type = $cpp_type:literal, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        #[repr(C)]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type))]
+        $(#[$meta])*
+        $vis struct $name { $($body)* }
+    };
+}
+
+/// Define a MassTag (zero-sized type) with correct attributes for both Bevy and Unreal modes.
+///
+/// ```ignore
+/// mass_tag!(cpp_type = "FGathersMassAntTag",
+///     pub struct AntTag;
+/// );
+/// ```
+#[macro_export]
+macro_rules! mass_tag {
+    (cpp_type = $cpp_type:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, tag))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        $(#[$meta])*
+        $vis struct $name;
+    };
+}
 
 #[cfg(all(test, not(feature = "unreal")))]
 mod tests {
