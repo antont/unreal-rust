@@ -32,11 +32,18 @@ const FScriptArray* AsNative(const FRustScriptArray* array)
 }
 }
 
-void Log(Utf8Str message)
+void Log(Utf8Str message, uint8_t level)
 {
-	// TODO: Can we get rid of that allocation?
 	const FString LogString = ToFString(message);
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *LogString);
+	switch (level)
+	{
+	case 1:  UE_LOG(LogTemp, Error,       TEXT("%s"), *LogString); break;
+	case 2:  UE_LOG(LogTemp, Warning,     TEXT("%s"), *LogString); break;
+	case 3:  UE_LOG(LogTemp, Display,     TEXT("%s"), *LogString); break;
+	case 4:  UE_LOG(LogTemp, Verbose,     TEXT("%s"), *LogString); break;
+	case 5:  UE_LOG(LogTemp, VeryVerbose, TEXT("%s"), *LogString); break;
+	default: UE_LOG(LogTemp, Display,     TEXT("%s"), *LogString); break;
+	}
 }
 
 uint32_t GetAllUClasses(RustAlloc* out)

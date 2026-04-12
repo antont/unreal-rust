@@ -31,13 +31,20 @@ impl log::Log for UnrealLogger {
 
     fn log(&self, record: &Record) {
         if self.enabled(record.metadata()) {
+            let level = match record.level() {
+                log::Level::Error => 1u8,
+                log::Level::Warn => 2,
+                log::Level::Info => 3,
+                log::Level::Debug => 4,
+                log::Level::Trace => 5,
+            };
             if let Some(text) = record.args().as_str() {
                 unsafe {
-                    (bindings().log)(ffi::Utf8Str::from(text));
+                    (bindings().log)(ffi::Utf8Str::from(text), level);
                 }
             } else {
                 unsafe {
-                    (bindings().log)(ffi::Utf8Str::from(record.args().to_string().as_str()));
+                    (bindings().log)(ffi::Utf8Str::from(record.args().to_string().as_str()), level);
                 }
             }
         }

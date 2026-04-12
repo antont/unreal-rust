@@ -61,7 +61,9 @@ struct FRustScriptArray {
   uint64_t opaque_words[2];
 };
 
-using LogFn = void(*)(Utf8Str message);
+/// Log level values matching the Rust `log` crate:
+/// 1=Error, 2=Warn, 3=Info, 4=Debug, 5=Trace.
+using LogFn = void(*)(Utf8Str message, uint8_t level);
 
 using GetCDOFromClassCoreFn = uint32_t(*)(const UClassOpague *cdo_opague, UObjectOpague**);
 
@@ -591,7 +593,7 @@ struct PluginBindings {
 
 extern "C" {
 
-extern void Log(Utf8Str message);
+extern void Log(Utf8Str message, uint8_t level);
 
 extern uint32_t GetCDOFromClass(const UClassOpague *class_opague, UObjectOpague **out_object);
 
@@ -700,6 +702,11 @@ static_assert(sizeof(Option<GetMassTestDescFn>) == sizeof(void*),
 static_assert(sizeof(Option<RunMassTestFn>) == sizeof(void*),
     "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 
+// --- Test infrastructure ---
+static_assert(sizeof(MassTestDesc) == 16, "MassTestDesc: Utf8Str(16)");
+static_assert(sizeof(MassTestResult) == 16, "MassTestResult: u32(4) + u32(4) + ptr(8)");
+static_assert(sizeof(MassTestCallbacks) == 88, "MassTestCallbacks: 1 opaque ptr + 10 fn ptrs = 11 pointers");
+
 // --- Fundamental types ---
 static_assert(sizeof(Utf8Str) == 16, "Utf8Str: ptr(8) + usize(8)");
 static_assert(alignof(Utf8Str) == 8, "Utf8Str alignment");
@@ -717,11 +724,6 @@ static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
 static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
-
-// --- Test infrastructure types ---
-static_assert(sizeof(MassTestDesc) == 16, "MassTestDesc: Utf8Str(16)");
-static_assert(sizeof(MassTestResult) == 16, "MassTestResult: u32(4) + u32(4) + ptr(8)");
-static_assert(sizeof(MassTestCallbacks) == 88, "MassTestCallbacks: 1 opaque ptr + 10 fn ptrs = 11 pointers");
 
 // --- Mass Entity types ---
 static_assert(sizeof(MassEntityHandle) == 8, "MassEntityHandle: i32 + i32");

@@ -71,12 +71,14 @@ impl FRustScriptArray {
     }
 }
 
-pub type LogFn = unsafe extern "C" fn(message: Utf8Str);
+/// Log level values matching the Rust `log` crate:
+/// 1=Error, 2=Warn, 3=Info, 4=Debug, 5=Trace.
+pub type LogFn = unsafe extern "C" fn(message: Utf8Str, level: u8);
 
 pub type IsAFn = unsafe extern "C" fn(object: *mut UObjectOpague, ty: UObjectType) -> u32;
 
 unsafe extern "C" {
-    pub fn Log(message: Utf8Str);
+    pub fn Log(message: Utf8Str, level: u8);
 }
 
 #[repr(C)]
