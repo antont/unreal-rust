@@ -96,6 +96,9 @@ Current Rust-authored tests:
 - SpawnAndSimulate
 - BoundaryReflect
 - CooldownDecrement
+- FoodPickup
+- FoodDrop
+- Integration
 
 Rust test source: `gatherers-bevy-mass/src/ue_tests.rs`
 C++ runner: `RustPlugin/Source/RustPluginTests/Private/RustAuthoredTests.cpp`
