@@ -1,3 +1,4 @@
+use glam::DVec3;
 use gatherers_sim::fragments::*;
 use unreal_api::mass::EntityArchetype;
 use unreal_ffi::{MassEntityHandle, MassInitSimulationParams};
@@ -24,11 +25,11 @@ fn spawn_entities(
         .tag::<FoodTag>()
         .spawn(food_count as u32, |_i, writer| {
             writer.set(&FoodFragment {
-                position: [
+                position: DVec3::new(
                     bounds_min[0] + rng() * (bounds_max[0] - bounds_min[0]),
                     bounds_min[1] + rng() * (bounds_max[1] - bounds_min[1]),
                     50.0,
-                ],
+                ),
                 is_loose: true,
                 _pad: [0; 7],
             });
@@ -50,12 +51,13 @@ fn spawn_entities(
         .tag::<BevyMassAntTag>()
         .spawn(ant_count as u32, |i, writer| {
             let angle = rng() * std::f64::consts::TAU;
+            let spawn_pos = DVec3::new(center_x + (i as f64 - half) * step, center_y + 100.0, 50.0);
             writer.set(&Position {
-                position: [center_x + (i as f64 - half) * step, center_y + 100.0, 50.0],
-                previous_position: [center_x + (i as f64 - half) * step, center_y + 100.0, 50.0],
+                position: spawn_pos,
+                previous_position: spawn_pos,
             });
             writer.set(&Movement {
-                direction: [angle.cos(), angle.sin(), 0.0],
+                direction: DVec3::new(angle.cos(), angle.sin(), 0.0),
                 movement_speed: 100.0,
                 _pad: [0; 4],
             });

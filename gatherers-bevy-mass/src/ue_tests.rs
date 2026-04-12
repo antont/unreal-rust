@@ -7,6 +7,7 @@
 //! Register tests with `inventory::submit!(MassTestRegistration { ... })`.
 //! Standard `assert!` / `assert_eq!` macros work — panics become test failures.
 
+use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
 use crate::fragments::{Position, Movement, FoodFragment, Carrying, Cooldown, Behavior};
 
@@ -41,10 +42,7 @@ fn spawn_and_simulate(ctx: &TestCtx) {
     // Verify ants moved a meaningful distance (at least 1 unit, well under the ~32 expected)
     let after = ctx.read::<Position>("ants", 0)
         .expect("should be able to read ant position after stepping");
-    let dx = after.position[0] - initial.position[0];
-    let dy = after.position[1] - initial.position[1];
-    let dz = after.position[2] - initial.position[2];
-    let dist = (dx * dx + dy * dy + dz * dz).sqrt();
+    let dist = after.position.distance(initial.position);
     assert!(
         dist > 1.0,
         "ant should have moved meaningfully: distance={:.2}, before={:?}, after={:?}",
@@ -75,11 +73,11 @@ fn boundary_reflect(ctx: &TestCtx) {
 
     // Place ant at the boundary, moving outward
     ctx.write("ants", 0, &Position {
-        position: [499.0, 0.0, 50.0],
-        previous_position: [498.0, 0.0, 50.0],
+        position: DVec3::new(499.0, 0.0, 50.0),
+        previous_position: DVec3::new(498.0, 0.0, 50.0),
     });
     ctx.write("ants", 0, &Movement {
-        direction: [1.0, 0.0, 0.0],
+        direction: DVec3::X,
         movement_speed: 200.0,
         _pad: [0; 4],
     });
@@ -93,14 +91,14 @@ fn boundary_reflect(ctx: &TestCtx) {
     let mov = ctx.read::<Movement>("ants", 0).unwrap();
 
     // After reflection, position should be clamped to bounds exactly
-    assert!(pos.position[0] <= 500.0,
-        "ant x should be clamped to bounds max (500.0): x={}", pos.position[0]);
+    assert!(pos.position.x <= 500.0,
+        "ant x should be clamped to bounds max (500.0): x={}", pos.position.x);
     // Direction should have flipped to negative x
-    assert!(mov.direction[0] < -0.5,
-        "ant direction should reflect strongly negative: dir_x={}", mov.direction[0]);
+    assert!(mov.direction.x < -0.5,
+        "ant direction should reflect strongly negative: dir_x={}", mov.direction.x);
     // Ant should have moved away from boundary after reflecting
-    assert!(pos.position[0] < 499.0,
-        "ant should have moved away from boundary after reflecting: x={}", pos.position[0]);
+    assert!(pos.position.x < 499.0,
+        "ant should have moved away from boundary after reflecting: x={}", pos.position.x);
 
     ctx.reset();
 }
@@ -265,7 +263,7 @@ fn integration(ctx: &TestCtx) {
     assert_eq!(ctx.entity_count("food"), food_count as i32);
 
     // Record initial positions
-    let initial_positions: Vec<[f64; 3]> = (0..ant_count)
+    let initial_positions: Vec<DVec3> = (0..ant_count)
         .map(|i| ctx.read::<Position>("ants", i as u32).unwrap().position)
         .collect();
 
@@ -286,8 +284,8 @@ fn integration(ctx: &TestCtx) {
     let out_of_bounds = (0..ant_count)
         .filter(|&i| {
             let pos = ctx.read::<Position>("ants", i as u32).unwrap();
-            pos.position[0] < -1050.0 || pos.position[0] > 1050.0
-                || pos.position[1] < -1050.0 || pos.position[1] > 1050.0
+            pos.position.x < -1050.0 || pos.position.x > 1050.0
+                || pos.position.y < -1050.0 || pos.position.y > 1050.0
         })
         .count();
     assert_eq!(out_of_bounds, 0, "no ants should be far outside bounds");

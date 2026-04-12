@@ -28,12 +28,11 @@ pub fn entity_movement(
     for (mut pos, mov) in positions.iter_mut().zip(movements.iter()) {
         pos.previous_position = pos.position;
 
-        let dir = DVec3::from(mov.direction);
-        let dir = if dir.length() < 1e-8 { continue } else { dir.normalize() };
+        if mov.direction.length() < 1e-8 { continue; }
+        let dir = mov.direction.normalize();
         let max_dist = (mov.movement_speed.max(0.0) * dt.max(0.0)) as f64;
         let step_dist = max_dist.min(bounds_max_step.max(0.0));
-        let p = DVec3::from(pos.position) + dir * step_dist;
-        pos.position = p.to_array();
+        pos.position += dir * step_dist;
     }
 }
 
@@ -66,24 +65,24 @@ pub fn entity_boundary_reflect(
     for (mut pos, mut mov) in positions.iter_mut().zip(movements.iter_mut()) {
         let mut inward_normal = DVec3::ZERO;
 
-        if pos.position[0] < SIM_BOUNDS_MIN[0] {
-            pos.position[0] = SIM_BOUNDS_MIN[0];
+        if pos.position.x < SIM_BOUNDS_MIN[0] {
+            pos.position.x = SIM_BOUNDS_MIN[0];
             inward_normal.x += 1.0;
-        } else if pos.position[0] > SIM_BOUNDS_MAX[0] {
-            pos.position[0] = SIM_BOUNDS_MAX[0];
+        } else if pos.position.x > SIM_BOUNDS_MAX[0] {
+            pos.position.x = SIM_BOUNDS_MAX[0];
             inward_normal.x -= 1.0;
         }
 
-        if pos.position[1] < SIM_BOUNDS_MIN[1] {
-            pos.position[1] = SIM_BOUNDS_MIN[1];
+        if pos.position.y < SIM_BOUNDS_MIN[1] {
+            pos.position.y = SIM_BOUNDS_MIN[1];
             inward_normal.y += 1.0;
-        } else if pos.position[1] > SIM_BOUNDS_MAX[1] {
-            pos.position[1] = SIM_BOUNDS_MAX[1];
+        } else if pos.position.y > SIM_BOUNDS_MAX[1] {
+            pos.position.y = SIM_BOUNDS_MAX[1];
             inward_normal.y -= 1.0;
         }
 
         if inward_normal.length() > 1e-8 {
-            mov.direction = reflect_direction(mov.direction, inward_normal.to_array());
+            mov.direction = reflect_direction(mov.direction, inward_normal);
         }
     }
 }
@@ -93,23 +92,21 @@ pub fn entity_boundary_reflect(
 // ---------------------------------------------------------------------------
 
 /// Reflect direction off a boundary normal (same as C++ ComputeBoundaryTurnBackDirection).
-pub fn reflect_direction(dir: [f64; 3], normal: [f64; 3]) -> [f64; 3] {
-    let d = DVec3::from(dir);
-    let n = DVec3::from(normal);
-    if d.length() < 1e-8 || n.length() < 1e-8 {
-        return [0.0; 3];
+pub fn reflect_direction(dir: DVec3, normal: DVec3) -> DVec3 {
+    if dir.length() < 1e-8 || normal.length() < 1e-8 {
+        return DVec3::ZERO;
     }
-    let d = d.normalize();
-    let n = n.normalize();
+    let d = dir.normalize();
+    let n = normal.normalize();
     let reflected = d - 2.0 * d.dot(n) * n;
     if reflected.length() < 1e-8 {
-        return [0.0; 3];
+        return DVec3::ZERO;
     }
-    reflected.normalize().to_array()
+    reflected.normalize()
 }
 
-pub fn reverse_direction(dir: [f64; 3]) -> [f64; 3] {
-    (-DVec3::from(dir)).to_array()
+pub fn reverse_direction(dir: DVec3) -> DVec3 {
+    -dir
 }
 
 #[cfg(test)]
@@ -131,7 +128,7 @@ mod tests {
         world.spawn((
             Position::default(),
             Movement {
-                direction: [1.0, 0.0, 0.0],
+                direction: DVec3::X,
                 movement_speed: 100.0,
                 _pad: [0; 4],
             },
@@ -142,9 +139,9 @@ mod tests {
         let mut q = world.query::<&Position>();
         let pos = q.single(&world).unwrap();
         assert!(
-            (pos.position[0] - 10.0).abs() < 1e-6,
+            (pos.position.x - 10.0).abs() < 1e-6,
             "x: {}",
-            pos.position[0]
+            pos.position.x
         );
     }
 
@@ -154,11 +151,11 @@ mod tests {
         world.insert_resource(DeltaTime(0.1));
         world.spawn((
             Position {
-                position: [100.0, 200.0, 0.0],
-                previous_position: [0.0; 3],
+                position: DVec3::new(100.0, 200.0, 0.0),
+                previous_position: DVec3::ZERO,
             },
             Movement {
-                direction: [1.0, 0.0, 0.0],
+                direction: DVec3::X,
                 movement_speed: 50.0,
                 _pad: [0; 4],
             },
@@ -168,7 +165,7 @@ mod tests {
 
         let mut q = world.query::<&Position>();
         let pos = q.single(&world).unwrap();
-        assert_eq!(pos.previous_position, [100.0, 200.0, 0.0]);
+        assert_eq!(pos.previous_position, DVec3::new(100.0, 200.0, 0.0));
     }
 
     #[test]
@@ -212,11 +209,11 @@ mod tests {
         let mut world = World::new();
         world.spawn((
             Position {
-                position: [600.0, 0.0, 0.0],
-                previous_position: [0.0; 3],
+                position: DVec3::new(600.0, 0.0, 0.0),
+                previous_position: DVec3::ZERO,
             },
             Movement {
-                direction: [1.0, 0.0, 0.0],
+                direction: DVec3::X,
                 movement_speed: 100.0,
                 _pad: [0; 4],
             },
@@ -226,8 +223,8 @@ mod tests {
 
         let mut q = world.query::<(&Position, &Movement)>();
         let (pos, mov) = q.single(&world).unwrap();
-        assert!(pos.position[0] <= 500.0, "x: {}", pos.position[0]);
-        assert!(mov.direction[0] < 0.0, "dir x: {}", mov.direction[0]);
+        assert!(pos.position.x <= 500.0, "x: {}", pos.position.x);
+        assert!(mov.direction.x < 0.0, "dir x: {}", mov.direction.x);
     }
 
     #[test]
@@ -236,11 +233,11 @@ mod tests {
         world.insert_resource(DeltaTime(1.0));
         world.spawn((
             Position {
-                position: [499.0, 0.0, 0.0],
-                previous_position: [0.0; 3],
+                position: DVec3::new(499.0, 0.0, 0.0),
+                previous_position: DVec3::ZERO,
             },
             Movement {
-                direction: [1.0, 0.0, 0.0],
+                direction: DVec3::X,
                 movement_speed: 100.0,
                 _pad: [0; 4],
             },
@@ -257,8 +254,8 @@ mod tests {
 
         let mut q = world.query::<(&Position, &Movement, &Cooldown)>();
         let (pos, mov, cd) = q.single(&world).unwrap();
-        assert!(pos.position[0] <= 500.0, "clamped: {}", pos.position[0]);
-        assert!(mov.direction[0] < 0.0, "reflected: {}", mov.direction[0]);
+        assert!(pos.position.x <= 500.0, "clamped: {}", pos.position.x);
+        assert!(mov.direction.x < 0.0, "reflected: {}", mov.direction.x);
         assert_eq!(cd.remaining_seconds, 0.0);
     }
 
@@ -269,7 +266,7 @@ mod tests {
         world.spawn((
             Position::default(),
             Movement {
-                direction: [1.0, 0.0, 0.0],
+                direction: DVec3::X,
                 movement_speed: 200.0,
                 _pad: [0; 4],
             },
@@ -277,7 +274,7 @@ mod tests {
         world.spawn((
             Position::default(),
             Movement {
-                direction: [0.0, 1.0, 0.0],
+                direction: DVec3::Y,
                 movement_speed: 50.0,
                 _pad: [0; 4],
             },
@@ -289,12 +286,12 @@ mod tests {
         let positions: Vec<_> = q.iter(&world).collect();
         assert_eq!(positions.len(), 2);
 
-        let (pos_x, pos_y) = if positions[0].position[0] > 1.0 {
+        let (pos_x, pos_y) = if positions[0].position.x > 1.0 {
             (positions[0], positions[1])
         } else {
             (positions[1], positions[0])
         };
-        assert!((pos_x.position[0] - 10.0).abs() < 1e-6);
-        assert!((pos_y.position[1] - 2.5).abs() < 1e-6);
+        assert!((pos_x.position.x - 10.0).abs() < 1e-6);
+        assert!((pos_y.position.y - 2.5).abs() < 1e-6);
     }
 }

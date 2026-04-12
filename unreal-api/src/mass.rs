@@ -317,7 +317,7 @@ fn rust_type_to_cpp(type_name: &str, field_name: &str) -> (String, bool) {
     // but manual test data may use "[f64 ; 3]". Collapse to canonical form.
     let normalized: String = type_name.split_whitespace().collect::<Vec<_>>().join(" ");
     let cpp = match normalized.as_str() {
-        "[f64; 3]" | "[f64 ; 3]" => "FVector".to_string(),
+        "[f64; 3]" | "[f64 ; 3]" | "DVec3" => "FVector".to_string(),
         "f64" => "double".to_string(),
         "f32" => "float".to_string(),
         "i32" => "int32".to_string(),

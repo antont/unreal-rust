@@ -1,4 +1,5 @@
 use bevy_mass::prelude::Component;
+use glam::DVec3;
 
 // ---------------------------------------------------------------------------
 // Tags
@@ -34,8 +35,8 @@ pub struct BevyMassAntTag;
 #[repr(C)]
 #[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersPosition"))]
 pub struct Position {
-    pub position: [f64; 3],
-    pub previous_position: [f64; 3],
+    pub position: DVec3,
+    pub previous_position: DVec3,
 }
 
 /// Movement direction and speed.
@@ -46,7 +47,7 @@ pub struct Position {
 #[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersMovement"))]
 pub struct Movement {
     #[cfg_attr(feature = "unreal", mass(default = "FVector(1.0f, 0.0f, 0.0f)"))]
-    pub direction: [f64; 3],
+    pub direction: DVec3,
     #[cfg_attr(feature = "unreal", mass(default = "100.0f"))]
     pub movement_speed: f32,
     pub _pad: [u8; 4],
@@ -55,7 +56,7 @@ pub struct Movement {
 impl Default for Movement {
     fn default() -> Self {
         Self {
-            direction: [1.0, 0.0, 0.0],
+            direction: DVec3::X,
             movement_speed: 100.0,
             _pad: [0; 4],
         }
@@ -124,7 +125,7 @@ pub struct AntEncounterFragment {
     pub nearest_food_index: i32,
     pub _nearest_pad: i32,
     /// Position where the encounter occurred.
-    pub encounter_position: [f64; 3],
+    pub encounter_position: DVec3,
     /// Whether an encounter was detected this frame.
     pub has_encounter: bool,
     pub _pad: [u8; 7],
@@ -135,7 +136,7 @@ impl Default for AntEncounterFragment {
         Self {
             nearest_food_index: -1,
             _nearest_pad: 0,
-            encounter_position: [0.0; 3],
+            encounter_position: DVec3::ZERO,
             has_encounter: false,
             _pad: [0; 7],
         }
@@ -148,7 +149,7 @@ impl Default for AntEncounterFragment {
 #[repr(C)]
 #[cfg_attr(feature = "unreal", mass(cpp_type = "FGatherersMassFoodFragment"))]
 pub struct FoodFragment {
-    pub position: [f64; 3],
+    pub position: DVec3,
     #[cfg_attr(feature = "unreal", mass(default = "true"))]
     pub is_loose: bool,
     pub _pad: [u8; 7],
@@ -157,7 +158,7 @@ pub struct FoodFragment {
 impl Default for FoodFragment {
     fn default() -> Self {
         Self {
-            position: [0.0; 3],
+            position: DVec3::ZERO,
             is_loose: true,
             _pad: [0; 7],
         }
@@ -167,8 +168,8 @@ impl Default for FoodFragment {
 /// Simulation bounds (min/max corners).
 #[derive(Clone, Copy, Debug)]
 pub struct SimBounds {
-    pub min: [f64; 3],
-    pub max: [f64; 3],
+    pub min: DVec3,
+    pub max: DVec3,
 }
 
 /// Result of a food encounter query — used by food_decision and FFI.
@@ -177,7 +178,7 @@ pub struct SimBounds {
 pub struct FoodEncounter {
     pub food_index: i32,
     pub _pad: i32,
-    pub encounter_position: [f64; 3],
+    pub encounter_position: DVec3,
 }
 
 #[cfg(test)]
@@ -228,14 +229,14 @@ mod tests {
     #[test]
     fn position_default() {
         let p = Position::default();
-        assert_eq!(p.position, [0.0; 3]);
-        assert_eq!(p.previous_position, [0.0; 3]);
+        assert_eq!(p.position, DVec3::ZERO);
+        assert_eq!(p.previous_position, DVec3::ZERO);
     }
 
     #[test]
     fn movement_default() {
         let m = Movement::default();
-        assert_eq!(m.direction, [1.0, 0.0, 0.0]);
+        assert_eq!(m.direction, DVec3::X);
         assert_eq!(m.movement_speed, 100.0);
     }
 

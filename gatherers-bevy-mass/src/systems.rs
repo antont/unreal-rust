@@ -96,7 +96,7 @@ fn carried_food_tracking(
     for (pos, carry) in positions.iter().zip(carrying.iter()) {
         if carry.food_index >= 0 {
             if let Some(food) = foods.get_mut(carry.food_index as usize) {
-                food.position = (DVec3::from(pos.position) + DVec3::new(0.0, 0.0, 15.0)).to_array();
+                food.position = pos.position + DVec3::new(0.0, 0.0, 15.0);
             }
         }
     }
@@ -117,13 +117,13 @@ fn ant_collision_prepass(
         // Reset encounter
         enc.has_encounter = false;
         enc.nearest_food_index = -1;
-        enc.encounter_position = [0.0; 3];
+        enc.encounter_position = DVec3::ZERO;
 
-        if let Some(result) = spatial.call("food_pickup", &pos.previous_position, &pos.position) {
+        if let Some(result) = spatial.call("food_pickup", pos.previous_position.as_ref(), pos.position.as_ref()) {
             if result.has_encounter {
                 enc.has_encounter = true;
                 enc.nearest_food_index = result.entity_index;
-                enc.encounter_position = result.encounter_position;
+                enc.encounter_position = DVec3::from(result.encounter_position);
             }
         }
     }
@@ -132,6 +132,7 @@ fn ant_collision_prepass(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use glam::DVec3;
     use crate::fragments::{Position, Movement, Cooldown, Carrying, AntEncounterFragment, FoodFragment};
     use unreal_api::mass::{MassGlobalChunkStorage, MassQueryAllMut, MassQueryMut, MassQueryRef};
 
@@ -142,18 +143,18 @@ mod tests {
     #[test]
     fn food_decision_pickup_when_encounter() {
         let mut positions = [Position::default()];
-        positions[0].position = [100.0, 0.0, 0.0];
-        let mut movements = [Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, _pad: [0; 4] }];
+        positions[0].position = DVec3::new(100.0, 0.0, 0.0);
+        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0, _pad: [0; 4] }];
         let mut cooldowns = [Cooldown::default()];
         let mut carrying = [Carrying::default()]; // food_index = -1
         let encounters = [AntEncounterFragment {
             nearest_food_index: 0,
-            encounter_position: [100.0, 0.0, 0.0],
+            encounter_position: DVec3::new(100.0, 0.0, 0.0),
             has_encounter: true,
             ..Default::default()
         }];
         let mut foods = [FoodFragment {
-            position: [101.0, 0.0, 0.0],
+            position: DVec3::new(101.0, 0.0, 0.0),
             is_loose: true,
             _pad: [0; 7],
         }];
@@ -176,26 +177,26 @@ mod tests {
 
         assert_eq!(carrying[0].food_index, 0);
         assert!(!foods[0].is_loose, "food should no longer be loose");
-        assert!(movements[0].direction[0] < 0.0, "direction should reverse");
+        assert!(movements[0].direction.x < 0.0, "direction should reverse");
         assert!(cooldowns[0].remaining_seconds > 0.0);
     }
 
     #[test]
     fn food_decision_drop_when_carrying_and_encounter() {
         let mut positions = [Position::default()];
-        positions[0].position = [200.0, 0.0, 0.0];
-        let mut movements = [Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, _pad: [0; 4] }];
+        positions[0].position = DVec3::new(200.0, 0.0, 0.0);
+        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0, _pad: [0; 4] }];
         let mut cooldowns = [Cooldown::default()];
         let mut carrying = [Carrying { food_index: 0, _pad: 0 }];
         let encounters = [AntEncounterFragment {
             nearest_food_index: 1,
-            encounter_position: [200.0, 0.0, 0.0],
+            encounter_position: DVec3::new(200.0, 0.0, 0.0),
             has_encounter: true,
             ..Default::default()
         }];
         let mut foods = [
-            FoodFragment { position: [0.0; 3], is_loose: false, _pad: [0; 7] },
-            FoodFragment { position: [201.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] },
+            FoodFragment { position: DVec3::ZERO, is_loose: false, _pad: [0; 7] },
+            FoodFragment { position: DVec3::new(201.0, 0.0, 0.0), is_loose: true, _pad: [0; 7] },
         ];
 
         let pos_q = unsafe { MassQueryMut::from_raw(positions.as_mut_ptr() as *mut _, positions.len()) };
@@ -216,25 +217,25 @@ mod tests {
 
         assert_eq!(carrying[0].food_index, -1);
         assert!(foods[0].is_loose, "dropped food should be loose");
-        assert_eq!(foods[0].position, [200.0, 0.0, 0.0]);
-        assert!(movements[0].direction[0] < 0.0);
+        assert_eq!(foods[0].position, DVec3::new(200.0, 0.0, 0.0));
+        assert!(movements[0].direction.x < 0.0);
     }
 
     #[test]
     fn food_decision_skips_when_cooldown_active() {
         let mut positions = [Position::default()];
-        positions[0].position = [100.0, 0.0, 0.0];
-        let mut movements = [Movement { direction: [1.0, 0.0, 0.0], movement_speed: 100.0, _pad: [0; 4] }];
+        positions[0].position = DVec3::new(100.0, 0.0, 0.0);
+        let mut movements = [Movement { direction: DVec3::X, movement_speed: 100.0, _pad: [0; 4] }];
         let mut cooldowns = [Cooldown { remaining_seconds: 1.0, _pad: [0; 4] }];
         let mut carrying = [Carrying::default()];
         let encounters = [AntEncounterFragment {
             nearest_food_index: 0,
-            encounter_position: [100.0, 0.0, 0.0],
+            encounter_position: DVec3::new(100.0, 0.0, 0.0),
             has_encounter: true,
             ..Default::default()
         }];
         let mut foods = [FoodFragment {
-            position: [101.0, 0.0, 0.0],
+            position: DVec3::new(101.0, 0.0, 0.0),
             is_loose: true,
             _pad: [0; 7],
         }];
@@ -257,19 +258,19 @@ mod tests {
 
         assert_eq!(carrying[0].food_index, -1);
         assert!(foods[0].is_loose);
-        assert_eq!(movements[0].direction, [1.0, 0.0, 0.0]);
+        assert_eq!(movements[0].direction, DVec3::X);
     }
 
     #[test]
     fn food_decision_skips_when_no_encounter() {
         let mut positions = [Position::default()];
-        positions[0].position = [100.0, 0.0, 0.0];
+        positions[0].position = DVec3::new(100.0, 0.0, 0.0);
         let mut movements = [Movement::default()];
         let mut cooldowns = [Cooldown::default()];
         let mut carrying = [Carrying::default()];
         let encounters = [AntEncounterFragment::default()]; // has_encounter = false
 
-        let mut foods = [FoodFragment { position: [101.0, 0.0, 0.0], is_loose: true, _pad: [0; 7] }];
+        let mut foods = [FoodFragment { position: DVec3::new(101.0, 0.0, 0.0), is_loose: true, _pad: [0; 7] }];
 
         let pos_q = unsafe { MassQueryMut::from_raw(positions.as_mut_ptr() as *mut _, positions.len()) };
         let mov_q = unsafe { MassQueryMut::from_raw(movements.as_mut_ptr() as *mut _, movements.len()) };
@@ -298,13 +299,13 @@ mod tests {
     #[test]
     fn collision_prepass_no_callback_clears_encounters() {
         let positions = [Position {
-            position: [100.0, 0.0, 0.0],
-            previous_position: [99.0, 0.0, 0.0],
+            position: DVec3::new(100.0, 0.0, 0.0),
+            previous_position: DVec3::new(99.0, 0.0, 0.0),
         }];
         let mut encounters = [AntEncounterFragment {
             has_encounter: true,
             nearest_food_index: 5,
-            encounter_position: [50.0, 0.0, 0.0],
+            encounter_position: DVec3::new(50.0, 0.0, 0.0),
             ..Default::default()
         }];
 
@@ -336,8 +337,8 @@ mod tests {
         }
 
         let positions = [Position {
-            position: [100.0, 0.0, 0.0],
-            previous_position: [90.0, 0.0, 0.0],
+            position: DVec3::new(100.0, 0.0, 0.0),
+            previous_position: DVec3::new(90.0, 0.0, 0.0),
         }];
         let mut encounters = [AntEncounterFragment::default()];
 
@@ -350,7 +351,7 @@ mod tests {
 
         assert!(encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, 3);
-        assert_eq!(encounters[0].encounter_position, [50.0, 50.0, 0.0]);
+        assert_eq!(encounters[0].encounter_position, DVec3::new(50.0, 50.0, 0.0));
     }
 
     #[test]
@@ -369,8 +370,8 @@ mod tests {
         }
 
         let positions = [Position {
-            position: [100.0, 0.0, 0.0],
-            previous_position: [90.0, 0.0, 0.0],
+            position: DVec3::new(100.0, 0.0, 0.0),
+            previous_position: DVec3::new(90.0, 0.0, 0.0),
         }];
         let mut encounters = [AntEncounterFragment::default()];
 

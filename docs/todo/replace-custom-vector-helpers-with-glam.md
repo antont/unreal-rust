@@ -5,24 +5,24 @@
 
 These duplicate what `glam::DVec3` provides (`.normalize()`, `.dot()`, operator overloads).
 
-## Decision: DVec3 everywhere, convert at render edge
+## Status: DONE
 
-Use `DVec3` as the fragment field type. Convert to `Vec3` (f32) only at the visualization boundary — one `.as_vec3()` call per entity in the render sync system.
+Fragment fields use `DVec3` directly. The type mapping in `rust_type_to_cpp()` maps `DVec3` → `FVector`, so the generated C++ header is unchanged. Custom vector helpers replaced with glam operations.
 
 ## Options considered
 
-### 1. DVec3 as fragment field type (chosen)
+### 1. DVec3 as fragment field type (chosen, implemented)
 
-Cleanest API. Fragment fields become `DVec3` instead of `[f64; 3]`.
+Cleanest API. Fragment fields are `DVec3` instead of `[f64; 3]`.
 `DVec3` is `#[repr(C)]` with the same layout as `[f64; 3]` / Unreal `FVector`, so FFI is unaffected.
 
-**Blocker**: `MassFragment` derive macro needs to handle `DVec3` for `#[mass(default = "...")]` C++ default generation. Until then, use `[f64; 3]` fields with `DVec3::from()` / `.to_array()` at use sites.
+Required one line in the type mapping: `"DVec3" => "FVector"`. The derive macro's `#[mass(default = "...")]` strings are already C++ literals (e.g. `"FVector(1.0f, 0.0f, 0.0f)"`) and pass through unchanged.
 
-### 2. Keep `[f64; 3]` fields, use DVec3 at call sites (interim step)
+### 2. Keep `[f64; 3]` fields, use DVec3 at call sites (rejected)
 
 `DVec3::from(arr).normalize().to_array()`. No macro changes but adds conversion noise.
 
-### 3. Keep current helpers
+### 3. Keep current helpers (rejected)
 
 Zero new deps, 5 small functions. Works today but doesn't move toward Bevy compatibility.
 
