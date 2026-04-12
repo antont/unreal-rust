@@ -6,11 +6,11 @@ Enable adding/removing fragments from entities during simulation, allowing idiom
 
 The zero-copy bridge caches raw pointers into Mass Entity chunk memory on first frame and reuses them every subsequent frame. If an entity gains or loses a fragment, it moves to a different archetype's chunks, invalidating cached pointers. The cache is only rebuilt between PIE sessions, not mid-simulation.
 
-This forces dual-mode code to use persistent fields with sentinel values (e.g. `Cooldown { remaining_seconds: 0.0 }` meaning "inactive") instead of idiomatic Bevy add/remove component patterns.
+**Partial workaround in place:** Cooldown was moved to a pure-Bevy component on shadow entities (not a MassFragment), enabling idiomatic add/remove via `Commands`. This works for lightweight state like timers but doesn't help for MassFragment-level mutations (e.g., adding/removing a fragment that C++ also reads).
 
 ## Why it matters
 
-Idiomatic Bevy uses component presence for state transitions (add `Cooldown` when triggered, remove when expired, filter with `With<Cooldown>`). This is cleaner and more efficient than sentinel-value checks. For the facade architecture to feel natural to Bevy developers, it should support this pattern.
+Idiomatic Bevy uses component presence for state transitions. The shadow-entity approach works for Bevy-only components, but if a fragment visible to C++ (e.g., a behavior mode tag) needs to be added/removed at runtime, the current bridge can't handle it.
 
 ## Mass Entity supports this
 
