@@ -975,14 +975,21 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let has_resource_params = !resource_params.is_empty();
     let has_passthrough_params = !passthrough_params.is_empty();
 
-    // C++ registration — always generated so C++ creates a processor that
-    // collects chunks for Bevy-scheduled dispatch.
+    // C++ registration — generated when there are fragment requirements so C++
+    // creates a processor that collects chunks for Bevy-scheduled dispatch.
     // Systems with Res<T>, passthrough params (BevyQuery, Commands, etc.),
     // tuple queries, or Without filters use a no-op execute_fn since C++ can't
     // provide these Bevy system params; only the Bevy schedule can dispatch them.
+    //
+    // Systems with ZERO fragment requirements (pure BevyQuery + Commands) skip
+    // C++ registration entirely — they run only via the Bevy schedule.
+    // Mass Entity asserts on processors with empty queries.
     let needs_bevy_only_dispatch = has_resource_params || has_passthrough_params
         || has_tuple_queries || has_without_filters;
-    let cpp_wrapper = if needs_bevy_only_dispatch {
+    let cpp_wrapper = if num_requirements == 0 {
+        // No fragment requirements → pure Bevy system, no C++ processor needed
+        quote! {}
+    } else if needs_bevy_only_dispatch {
         quote! {
             unsafe extern "C" fn #wrapper_name(_chunk: *const ::unreal_api::ffi::MassChunkData) {
                 // No-op: this system uses Bevy resources and can only run via
@@ -1958,7 +1965,7 @@ mod tests {
     }
 
     #[test]
-    fn passthrough_generates_noop_cpp_wrapper() {
+    fn passthrough_only_skips_cpp_registration() {
         let func: ItemFn = syn::parse2(quote! {
             fn entity_cooldown(
                 cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
@@ -1967,12 +1974,15 @@ mod tests {
         .unwrap();
 
         let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        // Systems with BevyQuery should get a no-op C++ wrapper
-        // (can't dispatch BevyQuery from C++)
-        assert!(output.contains("unsafe extern \"C\""),
-            "should generate C++ extern wrapper");
-        assert!(output.contains("MassSystemRegistration"),
-            "should register for C++ processor creation");
+        // Pure-Bevy systems (no MassQuery params → zero fragment requirements)
+        // must NOT register a C++ Mass Entity processor — ME asserts on empty queries.
+        assert!(!output.contains("unsafe extern \"C\""),
+            "should NOT generate C++ extern wrapper for pure-Bevy system");
+        assert!(!output.contains("MassSystemRegistration"),
+            "should NOT register C++ processor for pure-Bevy system");
+        // Should still generate a Bevy system wrapper
+        assert!(output.contains("entity_cooldown"),
+            "should still reference the inner function");
     }
 
     // -----------------------------------------------------------------------
