@@ -1,6 +1,6 @@
 extern crate proc_macro;
 
-use darling::{FromDeriveInput, FromField};
+use darling::FromField;
 use proc_macro2::Span;
 use quote::quote;
 use syn::*;
@@ -13,17 +13,8 @@ pub struct ReflectField {
     #[darling(default)]
     skip: bool,
 }
-#[derive(Debug, FromDeriveInput)]
-#[darling(attributes(reflect))]
-pub struct ReflectEditor {
-    #[darling(default)]
-    editor: bool,
-}
 
 pub fn reflect_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
-    let is_editor_component =
-        ReflectEditor::from_derive_input(ast).map_or(false, |reflect| reflect.editor);
-
     if let Data::Struct(data) = &ast.data {
         let literal_name = LitStr::new(&ast.ident.to_string(), Span::call_site());
         let reflect_struct_ident = Ident::new(&format!("{}Reflect", ast.ident), Span::call_site());
@@ -80,11 +71,13 @@ pub fn reflect_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
                 fn has_component(&self, world: &unreal_api::World, entity: unreal_api::Entity) -> bool {
                     world
                         .get_entity(entity)
+                        .ok()
                         .and_then(|entity_ref| entity_ref.get::<#self_ty>()).is_some()
                 }
                 fn get_field_value(&self, world: &unreal_api::World, entity: unreal_api::Entity, idx: u32) -> Option<unreal_api::registry::ReflectValue> {
                     world
                         .get_entity(entity)
+                        .ok()
                         .and_then(|entity_ref| entity_ref.get::<#self_ty>())
                         .and_then(|component| {
                             let ty = match idx {
@@ -96,41 +89,6 @@ pub fn reflect_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
                             Some(ty)
                         })
                 }
-            }
-        } else {
-            quote!()
-        };
-
-        let insert_component = if is_editor_component {
-            quote! {
-                impl unreal_api::editor_component::InsertEditorComponent for #insert_struct_ident {
-                    unsafe fn insert_component(
-                        &self,
-                        actor: *const unreal_api::ffi::AActorOpaque,
-                        uuid: unreal_api::uuid::Uuid,
-                        commands: &mut unreal_api::ecs::system::EntityCommands<'_, '_, '_>,
-                    ) {
-                        use unreal_api::editor_component::GetEditorComponentValue;
-                        let component = #struct_ident {
-                            #(
-                                #field_idents: #field_types::get(actor, uuid, #field_names).expect(#field_names),
-                            )*
-                        };
-                        commands.insert(component);
-                    }
-                }
-            }
-        } else {
-            quote! {}
-        };
-
-        let register_editor_component = if is_editor_component {
-            quote! {
-                registry.insert_editor_component.insert(
-                    <#struct_ident as unreal_api::TypeUuid>::TYPE_UUID,
-                    Box::new(#insert_struct_ident),
-                );
-
             }
         } else {
             quote!()
@@ -158,20 +116,14 @@ pub fn reflect_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
             impl unreal_api::registry::ReflectStatic for #reflect_struct_ident {
                 const TYPE: unreal_api::registry::ReflectType = unreal_api::registry::ReflectType::Composite;
             }
-            impl unreal_api::ecs::component::Component for #struct_ident {
-                type Storage = unreal_api::ecs::component::TableStorage;
-            }
             pub struct #insert_struct_ident;
-            #insert_component
 
-            impl unreal_api::module::InsertReflectionStruct for #struct_ident {
-                fn insert(registry: &mut unreal_api::module::ReflectionRegistry) {
+            impl unreal_api::module::RegisterReflection for #struct_ident {
+                fn register_reflection(registry: &mut unreal_api::module::ReflectionRegistry) {
                     registry.reflect.insert(
                         <#struct_ident as unreal_api::TypeUuid>::TYPE_UUID,
                         Box::new(#reflect_struct_ident),
                     );
-                    #register_editor_component
-
                 }
             }
         }

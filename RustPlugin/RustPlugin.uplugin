@@ -18,7 +18,27 @@
 		{
 			"Name": "RustPlugin",
 			"Type": "Runtime",
+			"LoadingPhase": "PostEngineInit"
+		},
+		{
+			"Name": "RustEditor",
+			"Type": "Editor",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "RustGameplay",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "RustPluginTests",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		},
+		{
+			"Name": "RustMassSpike",
+			"Type": "Runtime",
+			"LoadingPhase": "PostEngineInit"
 		}
 	]
 }

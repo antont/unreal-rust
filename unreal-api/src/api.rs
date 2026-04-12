@@ -1,7 +1,10 @@
 use std::collections::HashMap;
 
 use crate::ffi;
+use bevy_ecs::system::Commands;
+use bevy_ecs::resource::Resource;
 use glam::{Quat, Vec3};
+use unreal_reflect::registry::UClass;
 
 use crate::core::ActorPtr;
 use crate::ecs::entity::Entity;
@@ -14,6 +17,7 @@ pub struct UnrealApi {
     pub actor_to_entity: HashMap<ActorPtr, Entity>,
     pub entity_to_actor: HashMap<Entity, ActorPtr>,
 }
+impl Resource for UnrealApi {}
 
 #[derive(Default)]
 pub struct SweepParams {
@@ -65,9 +69,77 @@ pub struct LineTraceHit {
 }
 
 impl UnrealApi {
+    pub fn spawn_actor(
+        &mut self,
+        class: UClass,
+        position: Vec3,
+        rotation: Quat,
+        commands: &mut Commands,
+    ) -> Entity {
+        let mut actor = std::ptr::null_mut();
+        unsafe {
+            let options = ffi::ActorSpawnOptions {
+                // TODO: make configurable
+                actor_pivot: ffi::ActorPivot::Bottom,
+            };
+            (bindings().actor_fns.spawn_actor_with_class)(
+                class.ptr,
+                ffi::UnrealTransform {
+                    position: position.into(),
+                    rotation: rotation.into(),
+                    scale: Vec3::ONE.into(),
+                },
+                options,
+                &mut actor,
+            );
+        }
+        let entity = commands.spawn_empty().id();
+        self.register_actor(ActorPtr(actor), entity);
+        entity
+    }
     pub fn register_actor(&mut self, actor: ActorPtr, entity: Entity) {
         self.actor_to_entity.insert(actor, entity);
         self.entity_to_actor.insert(entity, actor);
+    }
+
+    pub fn overlap_multi(
+        &self,
+        position: Vec3,
+        rotation: Quat,
+        collision_shape: CollisionShape,
+        params: SweepParams,
+        max_results: usize,
+    ) -> Vec<Entity> {
+        let ignored_actors: Vec<_> = params
+            .ignored_entities
+            .iter()
+            .filter_map(|entity| self.entity_to_actor.get(entity))
+            .map(|actor| actor.0)
+            .collect();
+        let params = ffi::LineTraceParams {
+            ignored_actors: ignored_actors.as_ptr(),
+            ignored_actors_len: ignored_actors.len(),
+        };
+
+        let mut hits = Vec::new();
+        hits.resize_with(max_results, ffi::OverlapResult::default);
+        unsafe {
+            if (bindings().physics_fns.overlap_multi)(
+                collision_shape.into(),
+                position.into(),
+                rotation.into(),
+                params,
+                max_results,
+                hits.as_mut_ptr(),
+            ) == 1
+            {
+                hits.into_iter()
+                    .filter_map(|hit| self.actor_to_entity.get(&ActorPtr(hit.actor)).copied())
+                    .collect()
+            } else {
+                Vec::new()
+            }
+        }
     }
     pub fn sweep(
         &self,

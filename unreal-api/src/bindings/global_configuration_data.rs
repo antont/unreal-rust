@@ -1,0 +1,728 @@
+#![allow(clippy::all)]
+#![allow(dead_code)]
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+#![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
+#![allow(clippy::too_many_arguments)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_global_configuration_data_blueprint_library_get_config_data_text_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_text: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_string_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_string: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_object: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_int_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_int: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_float_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_float: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_bool_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_bool: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_global_configuration_data_blueprint_library_get_config_data_text_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_text: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_struct: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_string_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_string: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_object: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_int_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_int: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_float_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_float: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_bool_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_bool: std::ptr::null_mut(),
+        }
+    }
+}
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UGlobalConfigurationDataBlueprintLibrary::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataTextWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataText"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataStruct"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_struct,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataStringWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataString"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataObject"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_object,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataIntWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataInt"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataFloatWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataFloat"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataBoolWithDefault"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("GetConfigDataBool"),
+                &raw mut __FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool,
+            );
+        }
+    }
+}
+#[repr(C, align(8))]
+pub struct UGlobalConfigurationDataBlueprintLibrary {
+    __padding_end: [u8; 48],
+}
+impl UGlobalConfigurationDataBlueprintLibrary {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGlobalConfigurationDataBlueprintLibrary")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UGlobalConfigurationDataBlueprintLibrary")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+    pub fn get_config_data_text_with_default(
+        entry_name: FString,
+        default_value: FText,
+    ) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(16).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
+                __buffer,
+            )
+        };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
+        unsafe { __buffer.add(32).cast::<FText>().read() }
+    }
+    pub fn get_config_data_text(entry_name: FString, value_out: &mut FText) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value_out,
+                __buffer.add(16).cast::<FText>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FText>().swap(value_out);
+        }
+        std::mem::forget(entry_name);
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_config_data_struct(
+        entry_name: FString,
+        struct_type: UPtr<crate::bindings::core_u_object::UScriptStruct>,
+        value_out: &mut crate::bindings::core_u_object::FInstancedStruct,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<41>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_struct,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &struct_type,
+                __buffer
+                    .add(16)
+                    .cast::<UPtr<crate::bindings::core_u_object::UScriptStruct>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value_out,
+                __buffer
+                    .add(24)
+                    .cast::<crate::bindings::core_u_object::FInstancedStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_struct,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<crate::bindings::core_u_object::FInstancedStruct>()
+                .swap(value_out);
+        }
+        std::mem::forget(entry_name);
+        std::mem::forget(struct_type);
+        unsafe { __buffer.add(40).cast::<bool>().read() }
+    }
+    pub fn get_config_data_string_with_default(
+        entry_name: FString,
+        default_value: FString,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<48>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
+                __buffer,
+            )
+        };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
+        unsafe { __buffer.add(32).cast::<FString>().read() }
+    }
+    pub fn get_config_data_string(entry_name: FString, value_out: &mut FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<33>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                value_out,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FString>().swap(value_out);
+        }
+        std::mem::forget(entry_name);
+        unsafe { __buffer.add(32).cast::<bool>().read() }
+    }
+    pub fn get_config_data_object(
+        entry_name: FString,
+        value_in_out: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<25>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_object,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &value_in_out,
+                __buffer.add(16).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_object,
+                __buffer,
+            )
+        };
+        std::mem::forget(entry_name);
+        std::mem::forget(value_in_out);
+        unsafe { __buffer.add(24).cast::<bool>().read() }
+    }
+    pub fn get_config_data_int_with_default(
+        entry_name: FString,
+        default_value: i32,
+    ) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(16).cast::<i32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
+                __buffer,
+            )
+        };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
+        unsafe { __buffer.add(20).cast::<i32>().read() }
+    }
+    pub fn get_config_data_int(entry_name: FString, value_out: &mut i32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(value_out, __buffer.add(16).cast::<i32>(), 1);
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<i32>().swap(value_out);
+        }
+        std::mem::forget(entry_name);
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn get_config_data_float_with_default(
+        entry_name: FString,
+        default_value: f32,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &default_value,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
+                __buffer,
+            )
+        };
+        std::mem::forget(entry_name);
+        std::mem::forget(default_value);
+        unsafe { __buffer.add(20).cast::<f32>().read() }
+    }
+    pub fn get_config_data_float(entry_name: FString, value_out: &mut f32) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<21>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(value_out, __buffer.add(16).cast::<f32>(), 1);
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<f32>().swap(value_out);
+        }
+        std::mem::forget(entry_name);
+        unsafe { __buffer.add(20).cast::<bool>().read() }
+    }
+    pub fn get_config_data_bool_with_default(
+        entry_name: FString,
+        b_default_value: bool,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_default_value,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
+                __buffer,
+            )
+        };
+        std::mem::forget(entry_name);
+        std::mem::forget(b_default_value);
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+    pub fn get_config_data_bool(entry_name: FString, b_value_out: &mut bool) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<18>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &entry_name,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_value_out,
+                __buffer.add(16).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = crate::bindings::global_configuration_data::UGlobalConfigurationDataBlueprintLibrary::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<bool>().swap(b_value_out);
+        }
+        std::mem::forget(entry_name);
+        unsafe { __buffer.add(17).cast::<bool>().read() }
+    }
+}

@@ -1,0 +1,14 @@
+[package]
+name = "unreal-module"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+
+unreal-api = { path = "../unreal-api/"}
+unreal-ffi = { path = "../unreal-ffi/" }
+gatherers-bevy-mass = { path = "../gatherers-bevy-mass/" }
+log = { version = "0.4", features =["std"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_System_Diagnostics_Debug"] }

@@ -1,0 +1,276 @@
+#![allow(clippy::all)]
+#![allow(dead_code)]
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+#![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
+#![allow(clippy::too_many_arguments)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_zone_graph_testing_component_enable_custom_tests: *mut crate::ffi::UFunctionOpague,
+    pub u_zone_graph_testing_component_disable_custom_tests: *mut crate::ffi::UFunctionOpague,
+    pub a_zone_graph_testing_actor_enable_custom_tests: *mut crate::ffi::UFunctionOpague,
+    pub a_zone_graph_testing_actor_disable_custom_tests: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_zone_graph_testing_component_enable_custom_tests: std::ptr::null_mut(),
+            u_zone_graph_testing_component_disable_custom_tests: std::ptr::null_mut(),
+            a_zone_graph_testing_actor_enable_custom_tests: std::ptr::null_mut(),
+            a_zone_graph_testing_actor_disable_custom_tests: std::ptr::null_mut(),
+        }
+    }
+}
+pub fn initialize() {
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = UZoneGraphTestingComponent::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableCustomTests"),
+                &raw mut __FUNCTION_PTRS
+                    .u_zone_graph_testing_component_enable_custom_tests,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisableCustomTests"),
+                &raw mut __FUNCTION_PTRS
+                    .u_zone_graph_testing_component_disable_custom_tests,
+            );
+        }
+    }
+    unsafe {
+        let bindings = crate::module::bindings();
+        if let Some(class_ptr) = AZoneGraphTestingActor::try_static_class() {
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("EnableCustomTests"),
+                &raw mut __FUNCTION_PTRS.a_zone_graph_testing_actor_enable_custom_tests,
+            );
+            (bindings
+                .core_fns
+                .find_function_by_name)(
+                class_ptr,
+                unreal_ffi::Utf8Str::from("DisableCustomTests"),
+                &raw mut __FUNCTION_PTRS.a_zone_graph_testing_actor_disable_custom_tests,
+            );
+        }
+    }
+}
+#[repr(C, align(8))]
+pub struct UZoneLaneTest {
+    __padding_end: [u8; 56],
+}
+impl UZoneLaneTest {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UZoneLaneTest")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UZoneLaneTest")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}
+#[repr(C, align(16))]
+pub struct UZoneGraphTestingComponent {
+    __padding_end: [u8; 2240],
+}
+impl UZoneGraphTestingComponent {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UZoneGraphTestingComponent")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UZoneGraphTestingComponent")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+    pub fn enable_custom_tests(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .u_zone_graph_testing_component_enable_custom_tests,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .u_zone_graph_testing_component_enable_custom_tests,
+                __buffer,
+            )
+        };
+    }
+    pub fn disable_custom_tests(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .u_zone_graph_testing_component_disable_custom_tests,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .u_zone_graph_testing_component_disable_custom_tests,
+                __buffer,
+            )
+        };
+    }
+}
+#[repr(C, align(8))]
+pub struct AZoneGraphTestingActor {
+    __padding_end: [u8; 1144],
+}
+impl AZoneGraphTestingActor {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AZoneGraphTestingActor")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("AZoneGraphTestingActor")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+    pub fn enable_custom_tests(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .a_zone_graph_testing_actor_enable_custom_tests,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .a_zone_graph_testing_actor_enable_custom_tests,
+                __buffer,
+            )
+        };
+    }
+    pub fn disable_custom_tests(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .a_zone_graph_testing_actor_disable_custom_tests,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::zone_graph_debug::__FUNCTION_PTRS
+                    .a_zone_graph_testing_actor_disable_custom_tests,
+                __buffer,
+            )
+        };
+    }
+}

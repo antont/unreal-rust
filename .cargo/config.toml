@@ -1,4 +1,12 @@
 [target.x86_64-pc-windows-msvc]
-rustflags = [
-    "-C", "link-args=-fuse-ld=lld-link"
-]
+linker = "rust-lld.exe"
+# rustflags = [
+#     "-C", "link-args=-fuse-ld=lld-link"
+# ]
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+# macOS targets use the system linker (no special config needed)
+[target.aarch64-apple-darwin]
+
+[target.x86_64-apple-darwin]

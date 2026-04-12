@@ -5,7 +5,25 @@ Opinionated Rust integration for Unreal Engine
 [![Build Status](https://github.com/MaikKlein/unreal-rust/workflows/CI/badge.svg)](https://github.com/MaikKlein/unreal-rust/actions?workflow=CI)
 [![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE-MIT)
 [![LICENSE](https://img.shields.io/badge/license-apache-blue.svg)](LICENSE-APACHE)
-[![Discord](https://img.shields.io/discord/1015534599654354975.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jyM6fBBdt6)
+
+## About this fork
+
+This is a fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-rust) that adds **zero-copy Mass Entity integration** and a **zero-C++ game authoring** workflow. Game developers write simulation logic, entity setup, and integration tests entirely in Rust — no C++ per-game code required.
+
+### What this fork adds
+
+- **Mass Entity bridge** — Rust systems operate directly on Unreal's MassEntity chunk memory with zero-copy access. Fragment layouts are validated at compile time across the FFI boundary.
+- **Bevy-compatible systems** — A `bevy_mass` facade crate lets you write standard Bevy-style systems (`Query<&mut Position>`, `Res<DeltaTime>`) that compile against either pure Bevy for testing or Unreal MassEntity for production.
+- **`#[mass_system]` macro** — Annotate a Rust function and it becomes a MassEntity processor. No C++ registration boilerplate.
+- **`#[derive(MassFragment)]` macro** — Define fragment structs in Rust with auto-generated C++ headers and compile-time layout verification.
+- **Auto-init from Rust** — Entity group counts, simulation bounds, spatial queries, and visualizer config are all registered from Rust via `inventory::submit!`. The C++ subsystem discovers and wires them up automatically.
+- **Rust-authored UE automation tests** — Write integration tests in Rust using `assert!` macros. Tests run inside the UE editor with full Mass Entity and physics support, appearing in the UE test browser alongside C++ tests.
+- **Rust hot-reload** — Rebuild the Rust dylib while PIE is running. The editor detects the change and reloads automatically.
+- **macOS / UE 5.7 support**
+
+### Example: Gatherers simulation
+
+The included example is an ant colony simulation (~5000 entities) with movement, boundary reflection, food encounter detection via physics sweeps, and pickup/drop behavior. All game logic is in Rust across two crates: `gatherers-sim` (pure logic) and `gatherers-bevy-mass` (UE integration and fragment definitions).
 
 ## ☣️ Warning
 

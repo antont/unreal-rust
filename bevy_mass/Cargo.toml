@@ -1,0 +1,14 @@
+[package]
+name = "bevy_mass"
+version = "0.1.0"
+edition.workspace = true
+description = "Facade crate for writing Bevy-compatible systems backed by either pure Bevy or Unreal Mass Entity"
+
+[features]
+default = ["bevy-backend"]
+bevy-backend = []
+unreal = ["dep:unreal-api"]
+
+[dependencies]
+bevy_ecs = "0.18"
+unreal-api = { path = "../unreal-api", optional = true }

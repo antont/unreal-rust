@@ -10,23 +10,24 @@ public class RustPlugin : ModuleRules
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				// ... add public include paths required here ...
 			}
-			);
+		);
 				
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
 				// ... add other private include paths required here ...
 			}
-			);
+		);
 			
 		
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
 				"Core", "GraphEditor",
-				// ... add other public dependencies that you statically link with here ...
+				"MassEntity",
+				"MassCommon",
+				"StructUtils",
 			}
 			);
 			
@@ -51,6 +52,8 @@ public class RustPlugin : ModuleRules
 				"EditorWidgets",
 				"ClassViewer",
 				"EditorStyle",
+				"Json",
+				"EditorSubsystem"
 			}
 			);
 		

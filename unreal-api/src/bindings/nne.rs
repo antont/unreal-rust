@@ -1,0 +1,235 @@
+#![allow(clippy::all)]
+#![allow(dead_code)]
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+#![allow(non_camel_case_types)]
+#![allow(forgetting_copy_types)]
+#![allow(clippy::too_many_arguments)]
+#![allow(clippy::new_without_default)]
+#![allow(clippy::new_ret_no_self)]
+pub use crate::bindings::opague_definitions::*;
+pub use crate::core_data::*;
+#[doc(hidden)]
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {}
+    }
+}
+pub fn initialize() {}
+pub struct INNERuntime {}
+#[repr(C, align(8))]
+pub struct UNNERuntime {
+    __padding_end: [u8; 48],
+}
+impl UNNERuntime {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntime")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntime")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}
+pub struct INNERuntimeCPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeCPU {
+    __padding_end: [u8; 48],
+}
+impl UNNERuntimeCPU {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeCPU")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeCPU")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}
+pub struct INNERuntimeGPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeGPU {
+    __padding_end: [u8; 48],
+}
+impl UNNERuntimeGPU {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeGPU")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeGPU")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}
+pub struct INNERuntimeNPU {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeNPU {
+    __padding_end: [u8; 48],
+}
+impl UNNERuntimeNPU {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeNPU")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeNPU")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}
+pub struct INNERuntimeRDG {}
+#[repr(C, align(8))]
+pub struct UNNERuntimeRDG {
+    __padding_end: [u8; 48],
+}
+impl UNNERuntimeRDG {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeRDG")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNERuntimeRDG")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}
+#[repr(C, align(8))]
+pub struct UNNEModelData {
+    __padding_end: [u8; 280],
+}
+impl UNNEModelData {
+    pub fn static_class() -> crate::core_data::UPtr<
+        crate::bindings::core_u_object::UClass,
+    > {
+        let ptr = *crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNEModelData")
+            .unwrap();
+        crate::core_data::UPtr {
+            ptr: ptr.cast(),
+        }
+    }
+    pub fn try_static_class() -> Option<*mut crate::ffi::UObjectOpague> {
+        crate::bindings::globals::CLASS_PTRS
+            .wait()
+            .name_to_ptr
+            .get("UNNEModelData")
+            .copied()
+    }
+    pub fn cdo() -> *mut crate::ffi::UObjectOpague {
+        let class = Self::static_class();
+        unsafe {
+            let mut cdo = std::ptr::null_mut();
+            (crate::module::bindings()
+                .core_fns
+                .get_cdo_from_class)(class.ptr.cast(), &raw mut cdo);
+            cdo
+        }
+    }
+}

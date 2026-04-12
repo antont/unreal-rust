@@ -1,32 +1,28 @@
 #![allow(clippy::missing_safety_doc)]
 extern crate self as unreal_api;
 
-pub mod api;
+pub mod bindings;
+pub mod core_data;
 pub use unreal_ffi as ffi;
-pub mod core;
-pub mod editor_component;
-pub mod input;
 pub mod log;
+pub mod mass;
 pub mod module;
-pub mod physics;
-pub mod plugin;
-pub mod sound;
-pub use unreal_api_derive::Component;
+pub use unreal_api_derive::{Component, Event, MassFragment, UClass, inherit, mass_system};
+pub mod property;
+pub mod registration;
 
-// TODO: Here for the unreal_api_derive macro. Lets restructure this
-pub use bevy_ecs as ecs;
+// // TODO: Here for the unreal_api_derive macro. Lets restructure this
+// pub use bevy_ecs as ecs;
+pub mod ecs {
+    pub use bevy_app::prelude::*;
+    pub use bevy_ecs::*;
+}
 pub use glam as math;
 pub use unreal_reflect::*;
 
+pub use serde;
 pub use uuid;
 
-pub fn iterate_actors(bindings: &ffi::UnrealBindings) -> Vec<*mut ffi::AActorOpaque> {
-    unsafe {
-        let mut v: Vec<*mut ffi::AActorOpaque> = Vec::with_capacity(200);
-
-        let mut len = 200;
-        (bindings.iterate_actors)(v.as_mut_ptr(), &mut len);
-        v.set_len(len as usize);
-        v
-    }
-}
+pub use inventory;
+pub use serde::{Deserialize, Serialize};
+pub use serde_json;

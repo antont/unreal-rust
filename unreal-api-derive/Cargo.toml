@@ -1,8 +1,8 @@
 [package]
 name = "unreal-api-derive"
 version = "0.1.0"
-edition = "2021"
 license = "MIT OR Apache-2.0"
+edition.workspace = true
 
 [lib]
 proc-macro = true
@@ -13,4 +13,4 @@ syn = "1.0"
 proc-macro2 = "1.0"
 quote = "1.0"
 uuid = { version = "1", features = ["v4", "serde"] }
-darling = "0.14.1"
+darling = "0.14"

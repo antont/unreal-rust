@@ -2,7 +2,7 @@
 
 extern crate proc_macro;
 
-use quote::{quote, ToTokens};
+use quote::{ToTokens, quote};
 use syn::*;
 use uuid::Uuid;
 
@@ -34,7 +34,9 @@ pub fn type_uuid_derive(ast: &DeriveInput) -> proc_macro2::TokenStream {
 
         let uuid_str = match name_value.lit {
             Lit::Str(lit_str) => lit_str,
-            _ => panic!("`uuid` attribute must take the form `#[uuid = \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"`."),
+            _ => panic!(
+                "`uuid` attribute must take the form `#[uuid = \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"`."
+            ),
         };
 
         uuid = Some(

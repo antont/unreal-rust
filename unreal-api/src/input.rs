@@ -1,3 +1,4 @@
+use bevy_ecs::resource::Resource;
 use unreal_ffi::ActionState;
 
 use crate::module::bindings;
@@ -17,7 +18,18 @@ pub struct Input {
     action_bindings: Vec<Binding>,
     axis_bindings: Vec<Binding>,
 }
+impl Resource for Input {}
+
 impl Input {
+    pub fn get_mouse_delta(&self) -> (f32, f32) {
+        let mut x = 0.0;
+        let mut y = 0.0;
+
+        unsafe {
+            (bindings().get_mouse_delta)(&mut x, &mut y);
+        }
+        (x, y)
+    }
     pub fn register_action_binding(&mut self, binding: Binding) {
         self.action_bindings.push(binding);
     }
@@ -27,7 +39,6 @@ impl Input {
 
     pub fn update(&mut self) {
         self.axis.clear();
-        self.action.clear();
 
         for binding in &self.action_bindings {
             let check_state = |state: ActionState| -> bool {
@@ -70,6 +81,11 @@ impl Input {
     pub fn is_action_pressed(&self, binding: Binding) -> bool {
         self.action
             .get(binding)
-            .map_or(false, |state| matches!(state, Action::Pressed))
+            .is_some_and(|state| matches!(state, Action::Pressed))
+    }
+    pub fn is_action_released(&self, binding: Binding) -> bool {
+        self.action
+            .get(binding)
+            .is_some_and(|state| matches!(state, Action::Released))
     }
 }

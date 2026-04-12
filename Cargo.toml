@@ -1,11 +1,30 @@
 [workspace]
+resolver = "2"
 members = [
+    # "gameplay-plugins/unreal-movement",
+    # "slash-example",
     "unreal-api",
-    "unreal-ffi",
+    "unreal-api-derive", "unreal-api-generator",
+    "unreal-ffi", "unreal-module",
     "unreal-reflect",
-    "unreal-api-derive",
-    "unreal-rust-example",
-    "gameplay-plugins/unreal-movement",
+    "unreal-rust-host", "unreal-rust-loader",
+    "gatherers-sim",
+    "gatherers-bevy-mass",
+    "bevy_mass",
 ]
 #[profile.release]
 #debug = true
+
+[profile.development]
+inherits="release"
+incremental=true
+debug = true
+
+[profile.release]
+# Needed so pdb isn't generated which might block the compilation
+# strip = "debuginfo"
+# debug = true
+# incremental=true
+
+[workspace.package]
+edition = "2024"
