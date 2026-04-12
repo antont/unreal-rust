@@ -1,5 +1,6 @@
 use crate::fragments::{Movement, Position};
 use bevy_mass::prelude::*;
+use glam::DVec3;
 
 #[cfg(feature = "unreal")]
 use unreal_api::mass_system;
@@ -27,15 +28,12 @@ pub fn entity_movement(
     for (mut pos, mov) in positions.iter_mut().zip(movements.iter()) {
         pos.previous_position = pos.position;
 
-        let dir = normalize_f64x3(mov.direction);
-        if is_nearly_zero_f64x3(dir) {
-            continue;
-        }
+        let dir = DVec3::from(mov.direction);
+        let dir = if dir.length() < 1e-8 { continue } else { dir.normalize() };
         let max_dist = (mov.movement_speed.max(0.0) * dt.max(0.0)) as f64;
         let step_dist = max_dist.min(bounds_max_step.max(0.0));
-        pos.position[0] += dir[0] * step_dist;
-        pos.position[1] += dir[1] * step_dist;
-        pos.position[2] += dir[2] * step_dist;
+        let p = DVec3::from(pos.position) + dir * step_dist;
+        pos.position = p.to_array();
     }
 }
 
@@ -66,26 +64,26 @@ pub fn entity_boundary_reflect(
     mut movements: Query<&mut Movement>,
 ) {
     for (mut pos, mut mov) in positions.iter_mut().zip(movements.iter_mut()) {
-        let mut inward_normal = [0.0f64; 3];
+        let mut inward_normal = DVec3::ZERO;
 
         if pos.position[0] < SIM_BOUNDS_MIN[0] {
             pos.position[0] = SIM_BOUNDS_MIN[0];
-            inward_normal[0] += 1.0;
+            inward_normal.x += 1.0;
         } else if pos.position[0] > SIM_BOUNDS_MAX[0] {
             pos.position[0] = SIM_BOUNDS_MAX[0];
-            inward_normal[0] -= 1.0;
+            inward_normal.x -= 1.0;
         }
 
         if pos.position[1] < SIM_BOUNDS_MIN[1] {
             pos.position[1] = SIM_BOUNDS_MIN[1];
-            inward_normal[1] += 1.0;
+            inward_normal.y += 1.0;
         } else if pos.position[1] > SIM_BOUNDS_MAX[1] {
             pos.position[1] = SIM_BOUNDS_MAX[1];
-            inward_normal[1] -= 1.0;
+            inward_normal.y -= 1.0;
         }
 
-        if !is_nearly_zero_f64x3(inward_normal) {
-            mov.direction = reflect_direction(mov.direction, inward_normal);
+        if inward_normal.length() > 1e-8 {
+            mov.direction = reflect_direction(mov.direction, inward_normal.to_array());
         }
     }
 }
@@ -94,40 +92,24 @@ pub fn entity_boundary_reflect(
 // Helpers
 // ---------------------------------------------------------------------------
 
-pub fn normalize_f64x3(v: [f64; 3]) -> [f64; 3] {
-    let len = (v[0] * v[0] + v[1] * v[1] + v[2] * v[2]).sqrt();
-    if len < 1e-8 {
-        return [0.0; 3];
-    }
-    [v[0] / len, v[1] / len, v[2] / len]
-}
-
-pub fn is_nearly_zero_f64x3(v: [f64; 3]) -> bool {
-    v[0].abs() < 1e-8 && v[1].abs() < 1e-8 && v[2].abs() < 1e-8
-}
-
-pub fn dot_f64x3(a: [f64; 3], b: [f64; 3]) -> f64 {
-    a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
-}
-
 /// Reflect direction off a boundary normal (same as C++ ComputeBoundaryTurnBackDirection).
 pub fn reflect_direction(dir: [f64; 3], normal: [f64; 3]) -> [f64; 3] {
-    let safe_dir = normalize_f64x3(dir);
-    let safe_normal = normalize_f64x3(normal);
-    if is_nearly_zero_f64x3(safe_dir) || is_nearly_zero_f64x3(safe_normal) {
+    let d = DVec3::from(dir);
+    let n = DVec3::from(normal);
+    if d.length() < 1e-8 || n.length() < 1e-8 {
         return [0.0; 3];
     }
-    let d = dot_f64x3(safe_dir, safe_normal);
-    let reflected = [
-        safe_dir[0] - 2.0 * d * safe_normal[0],
-        safe_dir[1] - 2.0 * d * safe_normal[1],
-        safe_dir[2] - 2.0 * d * safe_normal[2],
-    ];
-    normalize_f64x3(reflected)
+    let d = d.normalize();
+    let n = n.normalize();
+    let reflected = d - 2.0 * d.dot(n) * n;
+    if reflected.length() < 1e-8 {
+        return [0.0; 3];
+    }
+    reflected.normalize().to_array()
 }
 
 pub fn reverse_direction(dir: [f64; 3]) -> [f64; 3] {
-    [-dir[0], -dir[1], -dir[2]]
+    (-DVec3::from(dir)).to_array()
 }
 
 #[cfg(test)]

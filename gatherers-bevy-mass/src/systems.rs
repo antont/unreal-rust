@@ -1,5 +1,6 @@
 use unreal_api::mass::{MassQuery, MassQueryAll};
 use unreal_api::mass_system;
+use glam::DVec3;
 #[allow(unused_imports)] // Used by #[mass_system] macro expansion
 use bevy_ecs::prelude::With;
 use crate::fragments::{
@@ -16,10 +17,7 @@ pub use gatherers_sim::movement::{
 };
 
 // Re-export helpers used by tests and other systems.
-pub use gatherers_sim::movement::{
-    normalize_f64x3, is_nearly_zero_f64x3, dot_f64x3,
-    reflect_direction, reverse_direction,
-};
+pub use gatherers_sim::movement::{reflect_direction, reverse_direction};
 
 /// Cooldown applied after picking up or dropping food, in seconds.
 const PICKUP_COOLDOWN_SECONDS: f32 = 0.5;
@@ -98,11 +96,7 @@ fn carried_food_tracking(
     for (pos, carry) in positions.iter().zip(carrying.iter()) {
         if carry.food_index >= 0 {
             if let Some(food) = foods.get_mut(carry.food_index as usize) {
-                food.position = [
-                    pos.position[0],
-                    pos.position[1],
-                    pos.position[2] + 15.0, // sit on top: ant radius (10) + food radius (5)
-                ];
+                food.position = (DVec3::from(pos.position) + DVec3::new(0.0, 0.0, 15.0)).to_array();
             }
         }
     }

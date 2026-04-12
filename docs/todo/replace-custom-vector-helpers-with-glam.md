@@ -5,16 +5,66 @@
 
 These duplicate what `glam::DVec3` provides (`.normalize()`, `.dot()`, operator overloads).
 
-## Options
+## Decision: DVec3 everywhere, convert at render edge
 
-1. **Add `glam` dep, use `DVec3` as fragment field type** — cleanest API but requires `MassFragment` derive macro to handle `DVec3` for C++ default generation. `DVec3` is `#[repr(C)]` so layout matches `[f64; 3]` / `FVector`.
+Use `DVec3` as the fragment field type. Convert to `Vec3` (f32) only at the visualization boundary — one `.as_vec3()` call per entity in the render sync system.
 
-2. **Add `glam` dep, keep `[f64; 3]` fields, convert at use site** — `DVec3::from(arr).normalize().to_array()`. No macro changes but verbose.
+## Options considered
 
-3. **Keep current helpers** — zero new deps, 5 small functions. Works today.
+### 1. DVec3 as fragment field type (chosen)
 
-## Context
+Cleanest API. Fragment fields become `DVec3` instead of `[f64; 3]`.
+`DVec3` is `#[repr(C)]` with the same layout as `[f64; 3]` / Unreal `FVector`, so FFI is unaffected.
 
-`glam` is not currently in the dependency tree — `bevy_ecs` doesn't pull it in (that's `bevy_math`). Adding it is trivial but adds a dep just for vector math.
+**Blocker**: `MassFragment` derive macro needs to handle `DVec3` for `#[mass(default = "...")]` C++ default generation. Until then, use `[f64; 3]` fields with `DVec3::from()` / `.to_array()` at use sites.
 
-Option 1 is the long-term goal if we want idiomatic Bevy code. The blocker is the `MassFragment` derive macro needing to understand `DVec3` for `#[mass(default = "...")]` generation.
+### 2. Keep `[f64; 3]` fields, use DVec3 at call sites (interim step)
+
+`DVec3::from(arr).normalize().to_array()`. No macro changes but adds conversion noise.
+
+### 3. Keep current helpers
+
+Zero new deps, 5 small functions. Works today but doesn't move toward Bevy compatibility.
+
+## f64 vs f32
+
+| | f64 (DVec3) | f32 (Vec3) |
+|---|---|---|
+| **Unreal** | Native — FVector is double since UE5 | Needs conversion at FFI |
+| **Bevy rendering** | Needs `.as_vec3()` at render edge | Native with Transform |
+| **Sim precision** | Better for large worlds | Fine for most sims |
+| **Compile-time switching** | See below | See below |
+
+**Chosen: DVec3 (f64)**. Matches Unreal's FVector natively. The conversion cost at the Bevy render boundary is trivial (`transform.translation = pos.position.as_vec3()`).
+
+## Compile-time f32/f64 switching (rejected for now)
+
+Could use a feature flag:
+```rust
+#[cfg(feature = "unreal")]
+pub type SimVec3 = DVec3;
+#[cfg(not(feature = "unreal"))]
+pub type SimVec3 = Vec3;
+```
+
+Rejected because it leaks complexity into:
+- Fragment struct definitions (conditional sizes: 24 vs 48 bytes)
+- C++ mirror structs (would need both versions)
+- All static_assert layout checks
+- The MassFragment derive macro
+
+Not worth the complexity for negligible runtime benefit. f64 is fine for both targets.
+
+## Standalone Bevy compatibility
+
+Using glam types (even DVec3) makes the sim code directly usable in vanilla Bevy — glam is Bevy's native math library. A standalone Bevy app would just need a render sync system:
+
+```rust
+fn sync_positions(query: Query<(&Position, &mut Transform)>) {
+    for (pos, mut transform) in &query {
+        transform.translation = pos.position.as_vec3();
+    }
+}
+```
+
+No adapter layers, no conversion in the sim itself.

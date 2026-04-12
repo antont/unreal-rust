@@ -1,4 +1,5 @@
 use crate::fragments::{Movement, Behavior, Carrying, Cooldown, FoodEncounter};
+use glam::DVec3;
 
 /// Result of ant-food interaction decision.
 /// 0 = NoAction, 1 = PickUp, 2 = Drop
@@ -86,21 +87,18 @@ fn compute_ant_turn_direction(
 
 /// 180° turn + jitter offset (matches C++ ComputeAntRetargetDirection).
 fn compute_ant_retarget_direction(direction: [f64; 3], jitter_radians: f32) -> [f64; 3] {
-    let len = (direction[0] * direction[0] + direction[1] * direction[1]).sqrt();
-    if len < 1e-8 {
+    let dir = DVec3::from(direction);
+    let len_2d = (dir.x * dir.x + dir.y * dir.y).sqrt();
+    if len_2d < 1e-8 {
         return [0.0; 3];
     }
-    let nx = direction[0] / len;
-    let ny = direction[1] / len;
-    let current_angle = ny.atan2(nx);
+    let current_angle = dir.y.atan2(dir.x);
     let retarget_angle = current_angle + std::f64::consts::PI + jitter_radians as f64;
-    let cos_a = retarget_angle.cos();
-    let sin_a = retarget_angle.sin();
-    let rlen = (cos_a * cos_a + sin_a * sin_a).sqrt();
-    if rlen < 1e-8 {
+    let result = DVec3::new(retarget_angle.cos(), retarget_angle.sin(), 0.0);
+    if result.length() < 1e-8 {
         return [0.0; 3];
     }
-    [cos_a / rlen, sin_a / rlen, 0.0]
+    result.normalize().to_array()
 }
 
 #[cfg(test)]
