@@ -11,6 +11,7 @@ members = [
     "gatherers-sim",
     "gatherers-bevy-mass",
     "bevy_mass",
+    "gatherers-standalone",
 ]
 #[profile.release]
 #debug = true

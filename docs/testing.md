@@ -1,6 +1,6 @@
 # Testing
 
-## Rust tests
+## Rust tests (11,293 total)
 
 ```bash
 # All Rust crates
@@ -8,7 +8,7 @@ cargo test
 
 # Specific crate
 cargo test -p gatherers-bevy-mass
-cargo test -p unreal-api
+cargo test -p unreal-api         # includes 11,165 layout verification tests
 cargo test -p unreal-ffi
 cargo test -p gatherers-sim
 ```
@@ -60,7 +60,7 @@ The filter in `RunTests` is a prefix match:
 -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers.BevyMassFoodPickup;Quit"
 ```
 
-### Current tests (17)
+### Current C++ tests (17)
 
 - BevyMassAutoInitFromRustDefaults
 - BevyMassAutoInitIdempotent

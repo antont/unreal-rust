@@ -29,6 +29,12 @@ pub fn ant_food_decision(
     behavior: &mut Behavior,
     encounter: Option<&FoodEncounter>,
 ) -> FoodDecisionCode {
+    // Cooldown blocks all food interactions — matches the original gatherers
+    // pattern where ants with Cooldown are excluded from collision entirely.
+    if cooldown.remaining_seconds > 0.0 {
+        return DECISION_NO_ACTION;
+    }
+
     let is_carrying = carrying.food_index >= 0;
 
     match encounter {
@@ -41,11 +47,13 @@ pub fn ant_food_decision(
                 compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, movement.movement_speed);
             DECISION_DROP
         }
-        Some(enc) if !is_carrying && cooldown.remaining_seconds <= 0.0 => {
+        Some(enc) if !is_carrying => {
             // Pick up: ant is not carrying, cooldown expired, food nearby
             *ant_position = enc.encounter_position;
             movement.direction = consume_ant_turn_direction(behavior, movement);
             carrying.food_index = enc.food_index;
+            cooldown.remaining_seconds =
+                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, movement.movement_speed);
             DECISION_PICK_UP
         }
         _ => DECISION_NO_ACTION,
@@ -239,5 +247,33 @@ mod tests {
     #[test]
     fn compute_pickup_cooldown_zero_speed() {
         assert_eq!(compute_pickup_cooldown(50.0, 0.0), 0.0);
+    }
+
+    /// Reproduces the "instant drop" bug: ant picks up food, then on the very
+    /// next decision encounters a second food item and drops immediately — the
+    /// carrying state lasts only one frame.
+    #[test]
+    fn carrying_ant_should_not_drop_immediately() {
+        // Frame 1: ant picks up food_0
+        let mut pos = DVec3::new(100.0, 100.0, 0.0);
+        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let food_0 = FoodEncounter {
+            food_index: 0,
+            _pad: 0,
+            encounter_position: DVec3::new(105.0, 100.0, 0.0),
+        };
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&food_0));
+        assert_eq!(result, DECISION_PICK_UP);
+        assert!(carry.food_index >= 0, "ant should be carrying");
+
+        // Frame 2: ant encounters food_1 nearby — should NOT drop immediately
+        let food_1 = FoodEncounter {
+            food_index: 1,
+            _pad: 0,
+            encounter_position: DVec3::new(110.0, 100.0, 0.0),
+        };
+        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&food_1));
+        // BUG: this currently returns DECISION_DROP — ant never visibly carries food
+        assert_ne!(result, DECISION_DROP, "ant should not drop on the very next encounter");
     }
 }

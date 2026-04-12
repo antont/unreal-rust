@@ -93,9 +93,15 @@ demand and a reference implementation. Not viable as a first step.
 
 ## Decision
 
-**Option 2 (facade crate)** — start with `bevy_mass` providing a compatible
-Query wrapper. This gives immediate value (standard Bevy syntax, dual-mode
-compilation) without requiring Bevy modifications or maintaining a fork.
+**Option 2 (facade crate)** — implemented as the `bevy_mass` crate.
+
+The facade is fully operational: `bevy_mass` provides `DeltaTime` and backend-switching
+for `Query`/`Res` types. Systems in `gatherers-sim` compile against both pure Bevy
+(for unit tests) and Unreal Mass Entity (for production) via `--features unreal`.
+
+The `#[mass_system]` macro generates both a C++ `extern "C"` wrapper and a Bevy system
+registration, with `MassSystemChunks<Marker, T>` resources bridging chunk data into the
+Bevy world. See `docs/massentity-bridge-design.md` for the current architecture.
 
 If the facade proves the concept and gains traction, it provides evidence and
 design input for an eventual upstream proposal (Option 4).
