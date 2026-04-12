@@ -42,9 +42,14 @@ pub mod prelude {
     pub use bevy_ecs::prelude::{Component, Entity, With, Without};
     pub use bevy_ecs::system::Commands;
 
-    // In Unreal mode, re-export the mass_system attribute macro
+    // Re-export glam types used in nearly every system
+    pub use glam::DVec3;
+
+    // In Unreal mode, re-export Unreal-specific query types and macro
     #[cfg(feature = "unreal")]
     pub use unreal_api::mass_system;
+    #[cfg(feature = "unreal")]
+    pub use unreal_api::mass::{MassQuery, MassQueryAll};
 }
 
 // Also export at crate root
@@ -80,13 +85,28 @@ macro_rules! mass_fragment {
 
 /// Define a MassTag (zero-sized type) with correct attributes for both Bevy and Unreal modes.
 ///
+/// Optionally specify `group = "name"` to associate this tag with an entity group
+/// (used by `#[mass_system]` to look up shadow entities from `MassEntityMap`).
+///
 /// ```ignore
-/// mass_tag!(cpp_type = "FGathersMassAntTag",
+/// mass_tag!(cpp_type = "FGathersMassAntTag", group = "ants",
 ///     pub struct AntTag;
 /// );
 /// ```
 #[macro_export]
 macro_rules! mass_tag {
+    (cpp_type = $cpp_type:literal, group = $group:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, tag))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        $(#[$meta])*
+        $vis struct $name;
+
+        impl $name {
+            /// Entity group name for `MassEntityMap` lookup.
+            pub const ENTITY_GROUP: &'static str = $group;
+        }
+    };
     (cpp_type = $cpp_type:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
         #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, tag))]

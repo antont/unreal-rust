@@ -1304,11 +1304,32 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
 
     let has_primary_queries = query_params.iter().any(|p| p.scope == QueryScope::Primary);
 
-    // For tuple queries needing entity map, add entity offset tracking
-    let entity_group_str = entity_group.unwrap_or("");
+    // For tuple queries needing entity map, add entity offset tracking.
+    // Derive entity group from With<Tag>::ENTITY_GROUP (type-safe),
+    // falling back to entity_group="name" attribute (stringly-typed).
     let pre_loop = if needs_entity_map && has_primary_queries {
+        // Find the first With<Tag> from query params that need the entity map
+        let tag_type = query_params.iter()
+            .filter(|p| p.needs_entity_map())
+            .flat_map(|p| p.filter_tags.iter())
+            .next();
+
+        let group_expr = if let Some(tag) = tag_type {
+            // Type-safe: derived from With<Tag> filter — Tag must have ENTITY_GROUP const
+            quote! { <#tag>::ENTITY_GROUP }
+        } else if let Some(group) = entity_group {
+            // Fallback: explicit entity_group attribute
+            quote! { #group }
+        } else {
+            return Err(syn::Error::new_spanned(
+                &func.sig.ident,
+                "system needs entity_group: add group=\"name\" to mass_tag! on the With<Tag> filter, \
+                 or entity_group=\"name\" to the mass_system attribute",
+            ));
+        };
+
         quote! {
-            let __group_entities = __entity_map.group(#entity_group_str).unwrap_or(&[]);
+            let __group_entities = __entity_map.group(#group_expr).unwrap_or(&[]);
             let mut __entity_offset: usize = 0;
         }
     } else {
@@ -2118,5 +2139,56 @@ mod tests {
         // No Entity in tuple, no Without → should NOT inject entity map
         assert!(!output.contains("MassEntityMap"),
             "should not inject MassEntityMap when no Entity/Without, got: {}", output);
+    }
+
+    // -----------------------------------------------------------------------
+    // Entity group type safety tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn entity_group_derived_from_with_tag() {
+        // When With<Tag> is present and entity_group attribute is None,
+        // the generated code should reference <Tag>::ENTITY_GROUP
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: MassQuery<(Entity, &mut Position), With<AntTag>>,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
+        assert!(output.contains("ENTITY_GROUP"),
+            "should derive entity group from With<Tag>::ENTITY_GROUP, got: {}", output);
+        assert!(output.contains("AntTag"),
+            "should reference the tag type, got: {}", output);
+    }
+
+    #[test]
+    fn entity_group_falls_back_to_attribute() {
+        // When no With<Tag> filter but entity_group is specified, use the string
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: MassQuery<(Entity, &mut Position), Without<Cooldown>>,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0, Some("ants")).unwrap().to_string();
+        assert!(output.contains("\"ants\""),
+            "should use entity_group attribute as fallback, got: {}", output);
+    }
+
+    #[test]
+    fn entity_group_error_when_missing() {
+        // When entity map is needed but no With<Tag> and no entity_group → error
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: MassQuery<(Entity, &mut Position), Without<Cooldown>>,
+            ) {}
+        })
+        .unwrap();
+
+        let result = mass_system_impl(&func, 0, None);
+        assert!(result.is_err(), "should error when entity_group is missing and no With<Tag>");
     }
 }

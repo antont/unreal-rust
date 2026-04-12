@@ -22,14 +22,8 @@
 //   Example: entity_cooldown's BevyQuery<(Entity, &mut Cooldown)>.
 // ---------------------------------------------------------------------------
 
-#[allow(unused_imports)] // Used at runtime, not in test cfg
-use unreal_api::mass::{MassQuery, MassQueryAll};
-use unreal_api::mass_system;
-use glam::DVec3;
-#[allow(unused_imports)] // Used by #[mass_system] macro expansion
-use bevy_ecs::prelude::{With, Without, Entity, Commands};
-#[allow(unused_imports)] // Used by #[mass_system] macro expansion
-use bevy_ecs::system::Query as BevyQuery;
+#[allow(unused_imports)] // Some items used only by #[mass_system] macro expansion
+use bevy_mass::prelude::*;
 use crate::fragments::{
     Position, Movement, Cooldown, Carrying,
     AntEncounterFragment, FoodFragment, BevyMassAntTag,
@@ -57,7 +51,7 @@ const PICKUP_COOLDOWN_SECONDS: f32 = 0.5;
 // component on shadow entities, checked via the facade Query filter mask.
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 30, entity_group = "ants")]
+#[mass_system(order = 30)]
 fn ant_food_decision(
     mut ants: MassQuery<
         (Entity, &mut Position, &mut Movement, &mut Carrying, &AntEncounterFragment),
@@ -106,11 +100,10 @@ fn ant_food_decision(
 
 #[mass_system(order = 45)]
 fn carried_food_tracking(
-    positions: MassQuery<&Position, With<BevyMassAntTag>>,
-    carrying: MassQuery<&Carrying, With<BevyMassAntTag>>,
+    mut ants: MassQuery<(&Position, &Carrying), With<BevyMassAntTag>>,
     foods: MassQueryAll<&mut FoodFragment>,
 ) {
-    for (pos, carry) in positions.iter().zip(carrying.iter()) {
+    for (pos, carry) in &mut ants {
         if carry.food_index >= 0 {
             if let Some(food) = foods.get_mut(carry.food_index as usize) {
                 food.position = pos.position + DVec3::new(0.0, 0.0, 15.0);
@@ -126,11 +119,10 @@ fn carried_food_tracking(
 
 #[mass_system(order = 20)]
 fn ant_collision_prepass(
-    positions: MassQuery<&Position, With<BevyMassAntTag>>,
-    encounters: MassQuery<&mut AntEncounterFragment, With<BevyMassAntTag>>,
+    mut ants: MassQuery<(&Position, &mut AntEncounterFragment), With<BevyMassAntTag>>,
     spatial: Res<unreal_api::mass::MassSpatialQueries>,
 ) {
-    for (pos, enc) in positions.iter().zip(encounters.iter_mut()) {
+    for (pos, enc) in &mut ants {
         // Reset encounter
         enc.has_encounter = false;
         enc.nearest_food_index = -1;
@@ -151,7 +143,7 @@ mod tests {
     use super::*;
     use glam::DVec3;
     use crate::fragments::{Position, Movement, Carrying, AntEncounterFragment, FoodFragment};
-    use unreal_api::mass::{MassGlobalChunkStorage, MassQueryAllMut, MassQueryMut, MassQueryRef};
+    use unreal_api::mass::{MassGlobalChunkStorage, MassQueryAllMut};
 
     /// Helper: construct the facade struct for ant_food_decision tests.
     /// Creates a `__FQ_ant_food_decision_ants` from raw arrays.
@@ -324,6 +316,18 @@ mod tests {
     // Collision pre-pass tests
     // -----------------------------------------------------------------------
 
+    unsafe fn make_prepass_facade<'a>(
+        positions: &'a [Position],
+        encounters: &'a mut [AntEncounterFragment],
+    ) -> __FQ_ant_collision_prepass_ants<'a> {
+        __FQ_ant_collision_prepass_ants {
+            __p0: positions.as_ptr(),
+            __p1: encounters.as_mut_ptr(),
+            __len: positions.len(),
+            __phantom: ::std::marker::PhantomData,
+        }
+    }
+
     #[test]
     fn collision_prepass_no_callback_clears_encounters() {
         let positions = [Position {
@@ -337,12 +341,11 @@ mod tests {
             ..Default::default()
         }];
 
-        let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
-        let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+        let mut ants = unsafe { make_prepass_facade(&positions, &mut encounters) };
 
         // Empty MassSpatialQueries — no "food_pickup" registered
         let spatial = unreal_api::mass::MassSpatialQueries::default();
-        ant_collision_prepass(pos_q, enc_q, &spatial);
+        ant_collision_prepass(ants, &spatial);
 
         assert!(!encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, -1);
@@ -370,12 +373,11 @@ mod tests {
         }];
         let mut encounters = [AntEncounterFragment::default()];
 
-        let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
-        let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+        let mut ants = unsafe { make_prepass_facade(&positions, &mut encounters) };
 
         let mut spatial = unreal_api::mass::MassSpatialQueries::default();
         spatial.insert("food_pickup".to_string(), mock_hit, 15.0);
-        ant_collision_prepass(pos_q, enc_q, &spatial);
+        ant_collision_prepass(ants, &spatial);
 
         assert!(encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, 3);
@@ -403,12 +405,11 @@ mod tests {
         }];
         let mut encounters = [AntEncounterFragment::default()];
 
-        let pos_q = unsafe { MassQueryRef::from_raw(positions.as_ptr() as *const _, positions.len()) };
-        let enc_q = unsafe { MassQueryMut::from_raw(encounters.as_mut_ptr() as *mut _, encounters.len()) };
+        let mut ants = unsafe { make_prepass_facade(&positions, &mut encounters) };
 
         let mut spatial = unreal_api::mass::MassSpatialQueries::default();
         spatial.insert("food_pickup".to_string(), mock_miss, 15.0);
-        ant_collision_prepass(pos_q, enc_q, &spatial);
+        ant_collision_prepass(ants, &spatial);
 
         assert!(!encounters[0].has_encounter);
         assert_eq!(encounters[0].nearest_food_index, -1);

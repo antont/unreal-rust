@@ -10,10 +10,8 @@ path = "src/bin/gen_fragments.rs"
 [dependencies]
 unreal-api = { path = "../unreal-api" }
 unreal-ffi = { path = "../unreal-ffi" }
+bevy_mass = { path = "../bevy_mass", default-features = false, features = ["unreal"] }
 inventory = "0.3"
 bevy_ecs = "0.18"
 glam = "0.29"
 gatherers-sim = { path = "../gatherers-sim", default-features = false, features = ["unreal"] }
-
-[dev-dependencies]
-bevy_mass = { path = "../bevy_mass" }

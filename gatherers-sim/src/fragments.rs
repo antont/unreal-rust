@@ -13,7 +13,7 @@ bevy_mass::mass_tag!(cpp_type = "FGatherersMassFoodTag",
     pub struct FoodTag;
 );
 
-bevy_mass::mass_tag!(cpp_type = "FGatherersBevyMassAntTag",
+bevy_mass::mass_tag!(cpp_type = "FGatherersBevyMassAntTag", group = "ants",
     pub struct BevyMassAntTag;
 );
 
