@@ -44,7 +44,7 @@ pub use gatherers_sim::movement::{
 };
 
 // Re-export helpers used by tests and other systems.
-pub use gatherers_sim::movement::{reflect_direction, reverse_direction};
+pub use gatherers_sim::movement::reflect_direction;
 
 // ---------------------------------------------------------------------------
 // System 2: Collision pre-pass — detect food encounters via UE spatial query,

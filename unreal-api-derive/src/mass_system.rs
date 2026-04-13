@@ -787,6 +787,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 }
             }
 
+            // Passthrough param: preserve as-is.
             quote! { #arg }
         })
         .collect();
@@ -1490,6 +1491,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
 
         #(#facade_struct_defs)*
 
+        #[allow(unused_mut)]
         fn #bevy_wrapper_name(
             #(#bevy_params,)*
             #(#bevy_resource_params,)*

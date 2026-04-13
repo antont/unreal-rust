@@ -110,10 +110,6 @@ pub fn reflect_direction(dir: DVec3, normal: DVec3) -> DVec3 {
     reflected.normalize()
 }
 
-pub fn reverse_direction(dir: DVec3) -> DVec3 {
-    -dir
-}
-
 #[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
