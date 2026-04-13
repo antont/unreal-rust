@@ -198,10 +198,13 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 			}
 		}
 
-		// Cache primary chunk pointers
+		// Cache primary chunk pointers (only if we have primary requirements;
+		// processors with global-only queries have no primary entity query)
 		CachedPrimarySlices.Empty();
 		CachedPrimaryChunks.Empty();
 
+		if (PrimaryFragmentStructs.Num() > 0)
+		{
 		EntityQuery.ForEachEntityChunk(Context,
 			[this](FMassExecutionContext& ChunkContext)
 		{
@@ -240,6 +243,23 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 			Chunk.global_entity_handles = nullptr;
 			Chunk.global_chunked_fragments = nullptr;
 		});
+		} // end if (PrimaryFragmentStructs.Num() > 0)
+
+		// For global-only systems (no primary requirements), add a dummy primary chunk
+		// with 0 entities so the coordinator dispatch has somewhere to attach global data.
+		if (PrimaryFragmentStructs.Num() == 0 && bHasGlobalQueries)
+		{
+			MassChunkData& Dummy = CachedPrimaryChunks.AddDefaulted_GetRef();
+			Dummy.num_entities = 0;
+			Dummy.dt = 0.0f;
+			Dummy.num_fragments = 0;
+			Dummy.fragments = nullptr;
+			Dummy.global_num_entities = 0;
+			Dummy.num_global_fragments = 0;
+			Dummy.global_fragments = nullptr;
+			Dummy.global_entity_handles = nullptr;
+			Dummy.global_chunked_fragments = nullptr;
+		}
 
 		// Cache global chunk pointers (if any)
 		if (bHasGlobalQueries)

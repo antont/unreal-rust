@@ -26,23 +26,6 @@ struct FGatherersMassFoodTag : public FMassTag
 };
 
 USTRUCT()
-struct FGatherersAntEncounterFragment : public FMassFragment
-{
-	GENERATED_BODY()
-
-	int32 NearestFoodIndex = -1;
-	uint8 _Pad_4[4] = {};
-	FVector EncounterPosition = FVector::ZeroVector;
-	bool bHasEncounter = false;
-	uint8 _Pad_33[7] = {};
-};
-
-static_assert(offsetof(FGatherersAntEncounterFragment, NearestFoodIndex) == 0, "NearestFoodIndex at offset 0");
-static_assert(offsetof(FGatherersAntEncounterFragment, EncounterPosition) == 8, "EncounterPosition at offset 8");
-static_assert(offsetof(FGatherersAntEncounterFragment, bHasEncounter) == 32, "bHasEncounter at offset 32");
-static_assert(sizeof(FGatherersAntEncounterFragment) == 40, "FGatherersAntEncounterFragment size must be 40");
-
-USTRUCT()
 struct FGatherersBehavior : public FMassFragment
 {
 	GENERATED_BODY()

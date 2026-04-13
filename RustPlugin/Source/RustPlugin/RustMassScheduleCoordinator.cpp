@@ -57,6 +57,7 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 	{
 		if (!Proc->IsChunkCacheValid())
 		{
+			UE_LOG(LogTemp, Warning, TEXT("Coordinator: Processor '%s' cache not valid, skipping dispatch"), *Proc->GetSystemName());
 			return;
 		}
 	}

@@ -9,6 +9,7 @@ use unreal_api::mass::{
     registered_visualizer_groups, registered_spatial_query_configs, registered_sim_defaults,
 };
 use unreal_api::ecs::schedule::IntoScheduleConfigs;
+use unreal_api::ecs::message::MessageRegistry;
 
 /// Returns the number of dynamically registered mass systems.
 pub unsafe extern "C" fn get_mass_system_count() -> u32 {
@@ -85,8 +86,12 @@ static MASS_SCHEDULE: Mutex<Option<MassSchedule>> = Mutex::new(None);
 /// Each gets a sequential stage (0, 1, 2, ...) in discovery order.
 pub fn build_bevy_schedule() -> MassSchedule {
     let mut sched = MassSchedule::new();
-    let regs: Vec<&MassBevySystemRegistration> =
+    let mut regs: Vec<&MassBevySystemRegistration> =
         registered_bevy_mass_systems().into_iter().collect();
+
+    // Sort by execution order so stages are assigned deterministically,
+    // regardless of inventory discovery order.
+    regs.sort_by_key(|r| r.order);
 
     // Sequential stage ordering: stage i runs after stage i-1
     for i in 1..regs.len() {
@@ -103,6 +108,17 @@ pub fn build_bevy_schedule() -> MassSchedule {
 
     // Resource for named spatial query callbacks (populated per-frame)
     sched.world_mut().insert_resource(MassSpatialQueries::default());
+
+    // Register message types for the hit event / food mutation pipeline
+    MessageRegistry::register_message::<gatherers_bevy_mass::fragments::AntFoodHit>(sched.world_mut());
+    MessageRegistry::register_message::<gatherers_bevy_mass::fragments::FoodMutation>(sched.world_mut());
+
+    // Add message_update_system to flush message buffers each frame.
+    // Runs before all other systems (stage 0 predecessor).
+    sched.schedule_mut().add_systems(
+        unreal_api::ecs::message::message_update_system
+            .before(MassSystemStage(0)),
+    );
 
     sched
 }

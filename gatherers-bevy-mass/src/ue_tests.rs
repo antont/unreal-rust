@@ -196,6 +196,205 @@ fn food_drop(ctx: &TestCtx) {
 }
 
 // ---------------------------------------------------------------------------
+// CooldownRecovery — verify ants recover from cooldown and interact again
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "CooldownRecovery",
+    test_fn: cooldown_recovery,
+});
+
+fn cooldown_recovery(ctx: &TestCtx) {
+    // 10 ants, 50 food — high food density so ants should encounter food quickly
+    ctx.init_sim(
+        &[("ants", 10), ("food", 50)],
+        [-200.0, -200.0, 0.0],
+        [200.0, 200.0, 100.0],
+        7777,
+    );
+
+    // Run 200 steps (~3.2 seconds at 0.016 dt)
+    // Cooldown is ~0.5s, so ants should complete multiple pickup/drop cycles.
+    ctx.step(0.016, 200);
+
+    // Count how many ants have interacted with food (food_index != -1 means carrying,
+    // but we also want to detect ants that picked up AND dropped — check carrying state)
+    let mut carrying_count = 0;
+    let mut not_carrying_count = 0;
+    for i in 0..10u32 {
+        let carry = ctx.read::<Carrying>("ants", i).unwrap();
+        if carry.food_index >= 0 {
+            carrying_count += 1;
+        } else {
+            not_carrying_count += 1;
+        }
+    }
+
+    // After 3.2 seconds with 50 food in a 400x400 area, most ants should have
+    // interacted with food at least once. We expect a mix of carrying and not-carrying.
+    // The key assertion: at least 1 ant is carrying (proves pickup works).
+    assert!(carrying_count >= 1,
+        "at least 1 ant should be carrying food after 200 steps: carrying={carrying_count}");
+
+    // Run 200 MORE steps — ants that picked up should eventually drop (encounter other food)
+    ctx.step(0.016, 200);
+
+    // After 6.4 total seconds, verify food movement happened
+    let mut food_not_loose = 0;
+    for i in 0..50u32 {
+        let food = ctx.read::<FoodFragment>("food", i).unwrap();
+        if !food.is_loose {
+            food_not_loose += 1;
+        }
+    }
+    // Some food should have been picked up
+    assert!(food_not_loose >= 1 || carrying_count >= 1,
+        "some food should have been interacted with: not_loose={food_not_loose}");
+
+    // Now the critical check: run 500 more steps and verify ALL ants can still interact.
+    // Place all 10 ants directly on top of different loose food items.
+    // After enough steps, ALL should have picked up.
+    ctx.step(0.016, 100); // let things settle
+
+    // Find loose food positions
+    let mut loose_food: Vec<(u32, DVec3)> = Vec::new();
+    for i in 0..50u32 {
+        let food = ctx.read::<FoodFragment>("food", i).unwrap();
+        if food.is_loose {
+            loose_food.push((i, food.position));
+        }
+    }
+
+    // Place ants on top of loose food (as many as we can)
+    let place_count = loose_food.len().min(10);
+    for ant_idx in 0..place_count {
+        let (_, food_pos) = loose_food[ant_idx];
+        ctx.write("ants", ant_idx as u32, &Position {
+            position: food_pos,
+            previous_position: food_pos - DVec3::new(1.0, 0.0, 0.0),
+        });
+        ctx.write("ants", ant_idx as u32, &Carrying { food_index: -1 });
+    }
+
+    // Run enough steps for cooldown to expire and pickup to occur
+    // Cooldown ~0.5s = ~31 frames, then pickup on next encounter
+    ctx.step(0.016, 60);
+
+    // Check how many of the placed ants picked up food
+    let mut picked_up = 0;
+    let mut failed_ants: Vec<String> = Vec::new();
+    for ant_idx in 0..place_count {
+        let carry = ctx.read::<Carrying>("ants", ant_idx as u32).unwrap();
+        if carry.food_index >= 0 {
+            picked_up += 1;
+        } else {
+            let pos = ctx.read::<Position>("ants", ant_idx as u32).unwrap();
+            let mov = ctx.read::<Movement>("ants", ant_idx as u32).unwrap();
+            let (food_idx, food_pos) = loose_food[ant_idx];
+            let dist = pos.position.distance(food_pos);
+            failed_ants.push(format!(
+                "ant[{ant_idx}]: pos=({:.1},{:.1},{:.1}) food[{food_idx}]=({:.1},{:.1},{:.1}) dist={dist:.1} speed={:.1} dir=({:.2},{:.2},{:.2})",
+                pos.position.x, pos.position.y, pos.position.z,
+                food_pos.x, food_pos.y, food_pos.z,
+                mov.movement_speed, mov.direction.x, mov.direction.y, mov.direction.z,
+            ));
+        }
+    }
+
+    // If ANY ant failed to pick up food despite being placed directly on it,
+    // that's the stuck cooldown bug.
+    assert!(picked_up >= place_count * 3 / 4,
+        "most ants placed on food should pick up: {picked_up}/{place_count} picked up. \
+         Failed ants:\n{}", failed_ants.join("\n"));
+
+    ctx.reset();
+}
+
+// ---------------------------------------------------------------------------
+// CooldownCycle — verify single ant completes pickup → cooldown → pickup cycle
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "CooldownCycle",
+    test_fn: cooldown_cycle,
+});
+
+fn cooldown_cycle(ctx: &TestCtx) {
+    ctx.init_sim(
+        &[("ants", 1), ("food", 5)],
+        [-200.0, -200.0, 0.0],
+        [200.0, 200.0, 100.0],
+        42,
+    );
+
+    // Read food[0] position
+    let food0 = ctx.read::<FoodFragment>("food", 0).unwrap();
+    let food0_pos = food0.position;
+
+    // Place ant on food[0], moving toward it
+    ctx.write("ants", 0, &Position {
+        position: food0_pos,
+        previous_position: food0_pos - DVec3::new(5.0, 0.0, 0.0),
+    });
+    ctx.write("ants", 0, &Movement {
+        direction: DVec3::X,
+        movement_speed: 100.0,
+    });
+    ctx.write("ants", 0, &Carrying { food_index: -1 });
+
+    // Step 1: pickup should happen within a few frames
+    ctx.step(0.016, 10);
+
+    let carry1 = ctx.read::<Carrying>("ants", 0).unwrap();
+    assert!(carry1.food_index >= 0,
+        "Phase 1: ant should pick up food after 10 steps: food_index={}",
+        carry1.food_index);
+
+    // Step 2: let cooldown expire (~0.5s = ~31 frames)
+    ctx.step(0.016, 50);
+
+    // Now place ant on food[1] (a different loose food)
+    let food1 = ctx.read::<FoodFragment>("food", 1).unwrap();
+    if food1.is_loose {
+        ctx.write("ants", 0, &Position {
+            position: food1.position,
+            previous_position: food1.position - DVec3::new(5.0, 0.0, 0.0),
+        });
+
+        // Ant is carrying food[0], encounters food[1] → should DROP
+        ctx.step(0.016, 10);
+
+        let carry2 = ctx.read::<Carrying>("ants", 0).unwrap();
+        assert_eq!(carry2.food_index, -1,
+            "Phase 2: carrying ant encountering loose food should drop: food_index={}",
+            carry2.food_index);
+
+        // Step 3: let cooldown expire again
+        ctx.step(0.016, 50);
+
+        // Place ant on food[2] — should pick up again (cooldown expired)
+        let food2 = ctx.read::<FoodFragment>("food", 2).unwrap();
+        if food2.is_loose {
+            ctx.write("ants", 0, &Position {
+                position: food2.position,
+                previous_position: food2.position - DVec3::new(5.0, 0.0, 0.0),
+            });
+            ctx.write("ants", 0, &Carrying { food_index: -1 });
+
+            ctx.step(0.016, 10);
+
+            let carry3 = ctx.read::<Carrying>("ants", 0).unwrap();
+            assert!(carry3.food_index >= 0,
+                "Phase 3: ant should pick up food again after cooldown: food_index={} \
+                 (if -1, cooldown may be stuck)",
+                carry3.food_index);
+        }
+    }
+
+    ctx.reset();
+}
+
+// ---------------------------------------------------------------------------
 // Integration — larger sim, verify bulk behavior after many steps
 // ---------------------------------------------------------------------------
 

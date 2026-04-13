@@ -1187,6 +1187,8 @@ pub fn registered_mass_systems() -> inventory::iter<MassSystemRegistration> {
 /// Registration entry for a Bevy-scheduled mass system, collected via inventory.
 pub struct MassBevySystemRegistration {
     pub name: &'static str,
+    /// Execution order (lower runs first). Must match the C++ processor order.
+    pub order: u32,
     /// Adds this system to a Bevy Schedule in the given stage.
     pub add_to_schedule: fn(&mut bevy_ecs::schedule::Schedule, MassSystemStage),
     /// Initializes the `MassChunks<T>` resources this system needs in the World.

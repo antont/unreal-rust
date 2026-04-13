@@ -4,7 +4,6 @@
 #include "MassEntitySubsystem.h"
 #include "Tests/AutomationCommon.h"
 #include "Tests/AutomationEditorCommon.h"
-#include "HAL/PlatformTime.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 	FRustMassBobProcessorRegisteredTest,
@@ -19,13 +18,13 @@ bool FRustMassBobProcessorRegisteredTest::RunTest(const FString& Parameters)
 }
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
-	FRustMassBobSubsystemRegisteredTest,
-	"supplemental.RustPlugin.Mass.SubsystemRegistered",
+	FRustMassBobActivatorRegisteredTest,
+	"supplemental.RustPlugin.Mass.BobActivatorRegistered",
 	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 
-bool FRustMassBobSubsystemRegisteredTest::RunTest(const FString& Parameters)
+bool FRustMassBobActivatorRegisteredTest::RunTest(const FString& Parameters)
 {
-	UClass* SubsystemClass = FindObject<UClass>(nullptr, TEXT("/Script/RustMassSpike.RustMassSpikeSubsystem"));
-	TestNotNull(TEXT("URustMassSpikeSubsystem UClass should be registered"), SubsystemClass);
+	UClass* ActivatorClass = FindObject<UClass>(nullptr, TEXT("/Script/RustMassSpike.RustMassSpikeActivator"));
+	TestNotNull(TEXT("ARustMassSpikeActivator UClass should be registered"), ActivatorClass);
 	return true;
 }

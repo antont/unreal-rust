@@ -3,8 +3,9 @@
 pub use gatherers_sim::fragments::{
     AntTag, FoodTag, BevyMassAntTag,
     Position, Movement, Cooldown, Carrying, Behavior,
-    AntEncounterFragment, FoodFragment,
+    FoodFragment,
     SimBounds, FoodEncounter,
+    AntFoodHit, FoodMutation,
 };
 
 #[cfg(test)]
@@ -12,19 +13,6 @@ mod tests {
     use super::*;
     use std::mem;
     use unreal_api::mass::MassFragment;
-
-    #[test]
-    fn encounter_fragment_layout() {
-        assert_eq!(mem::size_of::<AntEncounterFragment>(), 40);
-        assert_eq!(mem::offset_of!(AntEncounterFragment, nearest_food_index), 0);
-        assert_eq!(mem::offset_of!(AntEncounterFragment, encounter_position), 8);
-        assert_eq!(mem::offset_of!(AntEncounterFragment, has_encounter), 32);
-    }
-
-    #[test]
-    fn encounter_fragment_cpp_type_name() {
-        assert_eq!(AntEncounterFragment::CPP_TYPE_NAME, "FGatherersAntEncounterFragment");
-    }
 
     #[test]
     fn food_fragment_layout() {

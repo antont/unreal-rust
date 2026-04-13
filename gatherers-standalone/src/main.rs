@@ -1,8 +1,8 @@
 use bevy::prelude::*;
 use gatherers_sim::fragments::*;
+use gatherers_sim::food_decision::{food_decision_system, DECISION_PICK_UP, DECISION_DROP};
 use gatherers_sim::movement::{
-    entity_boundary_reflect, entity_cooldown, entity_movement, reverse_direction, SIM_BOUNDS_MAX,
-    SIM_BOUNDS_MIN,
+    entity_boundary_reflect, entity_cooldown, entity_movement, SIM_BOUNDS_MAX, SIM_BOUNDS_MIN,
 };
 use glam::DVec3;
 
@@ -121,7 +121,6 @@ fn spawn_entities(mut commands: Commands) {
                 turn_jitter_radians: std::f32::consts::FRAC_PI_2,
                 random_seed: 42 + i as i32,
             },
-            AntEncounterFragment::default(),
             Sprite {
                 color: COLOR_ANT,
                 custom_size: Some(Vec2::splat(ANT_SIZE)),
@@ -145,31 +144,23 @@ fn sync_delta_time(time: Res<Time>, mut dt: ResMut<bevy_mass::DeltaTime>) {
     dt.0 = time.delta_secs();
 }
 
-/// Cooldown applied after picking up or dropping food, in seconds.
-const COOLDOWN_SECONDS: f32 = 0.5;
-
-/// Brute-force proximity food interaction with idiomatic add/remove Cooldown.
-///
-/// Uses `Without<Cooldown>` to skip ants on cooldown — matching the original
-/// gatherers pattern where cooldown is a query filter, not a sentinel check.
-fn simple_food_interaction(
-    mut ants: Query<
-        (Entity, &mut Position, &mut Movement, &mut Carrying),
-        (With<AntMarker>, Without<Cooldown>),
-    >,
-    mut foods: Query<&mut FoodFragment, With<FoodMarker>>,
+/// Collision prepass: brute-force proximity search, emits HitEvent messages.
+/// Matches the original gatherers CollisionPlugin pattern.
+fn collision_prepass(
+    ants: Query<(Entity, &Position), (With<AntMarker>, Without<Cooldown>)>,
+    foods: Query<&FoodFragment, With<FoodMarker>>,
     food_entities: Res<FoodEntities>,
-    mut commands: Commands,
+    mut hits: MessageWriter<AntFoodHit>,
 ) {
     // Snapshot loose food positions for proximity search
-    let loose_food: Vec<(usize, DVec3)> = food_entities
+    let loose_food: Vec<(i32, DVec3)> = food_entities
         .0
         .iter()
         .enumerate()
         .filter_map(|(idx, &entity)| {
             foods.get(entity).ok().and_then(|f| {
                 if f.is_loose {
-                    Some((idx, f.position))
+                    Some((idx as i32, f.position))
                 } else {
                     None
                 }
@@ -177,60 +168,40 @@ fn simple_food_interaction(
         })
         .collect();
 
-    for (entity, mut pos, mut mov, mut carry) in &mut ants {
-        // Find nearest loose food within pickup radius
-        let encounter = loose_food
+    for (ant_entity, pos) in &ants {
+        if let Some(&(food_idx, food_pos)) = loose_food
             .iter()
-            .filter(|(_, food_pos)| {
-                let d = pos.position - *food_pos;
-                d.x * d.x + d.y * d.y < PICKUP_RADIUS * PICKUP_RADIUS
-            })
+            .filter(|(_, fp)| (pos.position - *fp).length_squared() < PICKUP_RADIUS * PICKUP_RADIUS)
             .min_by(|(_, a), (_, b)| {
-                let da = (pos.position - *a).length_squared();
-                let db = (pos.position - *b).length_squared();
-                da.partial_cmp(&db).unwrap()
-            });
+                (pos.position - *a)
+                    .length_squared()
+                    .partial_cmp(&(pos.position - *b).length_squared())
+                    .unwrap()
+            })
+        {
+            hits.write(AntFoodHit::new(food_idx, ant_entity, food_pos));
+        }
+    }
+}
 
-        let Some(&(food_idx, encounter_pos)) = encounter else {
-            continue;
-        };
-
-        let is_carrying = carry.food_index >= 0;
-        let pos_before_snap = pos.position;
-
-        if is_carrying {
-            // Drop carried food at ant's pre-snap position, pick up new food
-            let old_food_index = carry.food_index as usize;
-            if old_food_index < food_entities.0.len() {
-                if let Ok(mut food) = foods.get_mut(food_entities.0[old_food_index]) {
-                    food.is_loose = true;
-                    food.position = pos_before_snap;
-                }
-            }
-            carry.food_index = -1;
-            pos.position = encounter_pos;
-            mov.direction = reverse_direction(mov.direction);
-        } else {
-            // Pick up nearest food
-            if let Ok(mut food) = foods.get_mut(food_entities.0[food_idx]) {
-                if food.is_loose {
+/// Apply food mutations: reads FoodMutation messages, updates FoodFragment state.
+fn apply_food_mutations(
+    mut mutations: MessageReader<FoodMutation>,
+    mut foods: Query<&mut FoodFragment, With<FoodMarker>>,
+    food_entities: Res<FoodEntities>,
+) {
+    for mutation in mutations.read() {
+        let idx = mutation.food_index as usize;
+        if idx < food_entities.0.len() {
+            if let Ok(mut food) = foods.get_mut(food_entities.0[idx]) {
+                if mutation.decision == DECISION_PICK_UP {
                     food.is_loose = false;
-                    carry.food_index = food_idx as i32;
-                    pos.position = encounter_pos;
-                    mov.direction = reverse_direction(mov.direction);
-                } else {
-                    continue; // food already taken
+                } else if mutation.decision == DECISION_DROP {
+                    food.is_loose = true;
+                    food.position = mutation.drop_position;
                 }
-            } else {
-                continue;
             }
         }
-
-        // Add Cooldown component — this ant will be excluded from food
-        // interaction until the cooldown system removes it.
-        commands.entity(entity).insert(Cooldown {
-            remaining_seconds: COOLDOWN_SECONDS,
-        });
     }
 }
 
@@ -300,6 +271,8 @@ fn main() {
             ..default()
         }))
         .insert_resource(bevy_mass::DeltaTime(0.0))
+        .add_message::<AntFoodHit>()
+        .add_message::<FoodMutation>()
         .add_systems(Startup, (setup_camera, spawn_entities))
         .add_systems(
             Update,
@@ -307,8 +280,10 @@ fn main() {
                 sync_delta_time,
                 entity_movement,
                 entity_boundary_reflect,
+                collision_prepass,
+                food_decision_system,
+                apply_food_mutations,
                 entity_cooldown,
-                simple_food_interaction,
                 sync_ant_transforms,
                 sync_food_transforms,
                 sync_food_colors,

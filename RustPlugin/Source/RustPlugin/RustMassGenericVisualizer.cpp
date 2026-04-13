@@ -208,5 +208,13 @@ void URustMassGenericVisualizer::SyncInstances(
 			const bool bMarkDirty = (i == Entities.Num() - 1 && g == Count - 1);
 			Group.ISMC->UpdateInstanceTransform(i, T, true, bMarkDirty, true);
 		}
+
+		// Flush physics bodies for ISMCs with collision enabled.
+		// UpdateInstanceTransform with bTeleport=true updates rendering but may not
+		// update per-instance physics bodies used by SweepMultiByChannel.
+		if (Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+		{
+			Group.ISMC->RecreatePhysicsState();
+		}
 	}
 }

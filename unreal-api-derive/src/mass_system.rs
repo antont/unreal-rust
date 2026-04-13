@@ -751,6 +751,18 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 }
             }
 
+            // MessageWriter/MessageReader: rewrite to &mut T so they survive the chunk loop.
+            // These Bevy system params are non-Copy and would be moved on the first chunk
+            // iteration, causing a use-after-move error on subsequent chunks.
+            if let Type::Path(type_path) = &*pat_type.ty {
+                if let Some(seg) = type_path.path.segments.last() {
+                    if seg.ident == "MessageWriter" || seg.ident == "MessageReader" {
+                        let ty = &pat_type.ty;
+                        return quote! { #param_name: &mut #ty };
+                    }
+                }
+            }
+
             quote! { #arg }
         })
         .collect();
@@ -899,11 +911,15 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             if param_str == "dt" {
                 return quote! { __mass_dt.0 };
             }
-            // Commands must be reborrowed in the chunk loop — it's not Copy
+            // Non-Copy passthrough params must survive multiple chunk iterations.
+            // Commands: use reborrow(). MessageWriter/MessageReader: pass &mut.
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
                     if seg.ident == "Commands" {
                         return quote! { #param_name.reborrow() };
+                    }
+                    if seg.ident == "MessageWriter" || seg.ident == "MessageReader" {
+                        return quote! { &mut #param_name };
                     }
                 }
             }
@@ -1269,6 +1285,8 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 let key = quote!(#wt).to_string();
                 let idx = all_without_types.iter().position(|t| quote!(#t).to_string() == key).unwrap();
                 let filter_param = format_ident!("__without_{}", idx);
+                // Query is Query<(), Without<T>> — it matches entities that do NOT have T.
+                // So get().is_ok() means the entity passes Without<T>.
                 quote! { #filter_param.get(__e).is_ok() }
             }).collect();
             // All Without filters must pass (entity must NOT have any of them)
@@ -1377,6 +1395,34 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         vec![]
     };
 
+    // Global unpack stmts — these don't depend on __chunk_idx and must run
+    // even when there are no primary queries (no chunk loop).
+    let global_unpack_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| p.scope == QueryScope::Global)
+        .flat_map(|p| {
+            if p.is_tuple() {
+                // Global tuple queries not yet supported — shouldn't reach here
+                vec![]
+            } else {
+                let param_name = &p.param_name;
+                let res_name = format_ident!("__mass_{}", p.param_name);
+                let stmt = if p.single_is_mutable() {
+                    quote! {
+                        let mut #param_name = unsafe { #res_name.global_query_mut() }
+                            .unwrap_or_else(|| ::unreal_api::mass::MassQueryAllMut::empty());
+                    }
+                } else {
+                    quote! {
+                        let #param_name = unsafe { #res_name.global_query_ref() }
+                            .unwrap_or_else(|| ::unreal_api::mass::MassQueryAllRef::empty());
+                    }
+                };
+                vec![stmt]
+            }
+        })
+        .collect();
+
     let wrapper_body = if has_primary_queries {
         quote! {
             #pre_loop
@@ -1390,6 +1436,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         }
     } else {
         quote! {
+            #(#global_unpack_stmts)*
             #func_name(#(#bevy_call_args),*);
         }
     };
@@ -1422,6 +1469,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             ::unreal_api::inventory::submit! {
                 ::unreal_api::mass::MassBevySystemRegistration {
                     name: #system_name_str,
+                    order: #order,
                     add_to_schedule: |schedule: &mut ::unreal_api::ecs::schedule::Schedule,
                                       stage: ::unreal_api::mass::MassSystemStage| {
                         use ::unreal_api::ecs::schedule::IntoScheduleConfigs;

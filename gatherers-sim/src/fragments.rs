@@ -1,5 +1,7 @@
-use bevy_mass::prelude::Component; // used by Cooldown (not a MassFragment)
+use bevy_mass::prelude::{Component, Entity};
+use bevy_ecs::message::Message;
 use glam::DVec3;
+use std::marker::PhantomData;
 
 // ---------------------------------------------------------------------------
 // Tags
@@ -89,30 +91,6 @@ impl Default for Behavior {
     }
 }
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersAntEncounterFragment",
-    /// Ant encounter data from collision pre-pass.
-    /// Written by C++ collision pre-pass, read by Rust food decision system.
-    pub struct AntEncounterFragment {
-        /// Index into the food entities array, or -1 if none.
-        #[cfg_attr(feature = "unreal", mass(default = "-1"))]
-        pub nearest_food_index: i32,
-        /// Position where the encounter occurred.
-        pub encounter_position: DVec3,
-        /// Whether an encounter was detected this frame.
-        pub has_encounter: bool,
-    }
-);
-
-impl Default for AntEncounterFragment {
-    fn default() -> Self {
-        Self {
-            nearest_food_index: -1,
-            encounter_position: DVec3::ZERO,
-            has_encounter: false,
-        }
-    }
-}
-
 bevy_mass::mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
     /// Food entity fragment.
     pub struct FoodFragment {
@@ -144,6 +122,51 @@ pub struct SimBounds {
 pub struct FoodEncounter {
     pub food_index: i32,
     pub encounter_position: DVec3,
+}
+
+// ---------------------------------------------------------------------------
+// Food decision codes
+// ---------------------------------------------------------------------------
+
+/// Result of ant-food interaction decision.
+pub type FoodDecisionCode = i32;
+pub const DECISION_NO_ACTION: FoodDecisionCode = 0;
+pub const DECISION_PICK_UP: FoodDecisionCode = 1;
+pub const DECISION_DROP: FoodDecisionCode = 2;
+
+// ---------------------------------------------------------------------------
+// Messages (matching original gatherers HitEvent pattern)
+// ---------------------------------------------------------------------------
+
+/// A collision between a hittable entity and a hitter entity.
+/// Generic over marker types for type safety (matching original gatherers).
+///
+/// Carries the hittable's index (not entity) because in Unreal mode food lives
+/// in Mass Entity chunks without Bevy entities.
+#[derive(Debug, Message)]
+pub struct HitEvent<Hittable: 'static, Hitter: 'static> {
+    pub hittable_index: i32,
+    pub hitter_entity: Entity,
+    pub encounter_position: DVec3,
+    _phantom: PhantomData<(Hittable, Hitter)>,
+}
+
+impl<H: 'static, T: 'static> HitEvent<H, T> {
+    pub fn new(hittable_index: i32, hitter_entity: Entity, encounter_position: DVec3) -> Self {
+        Self { hittable_index, hitter_entity, encounter_position, _phantom: PhantomData }
+    }
+}
+
+/// Convenience alias: ant-food collision event.
+pub type AntFoodHit = HitEvent<FoodTag, BevyMassAntTag>;
+
+/// Food-side mutation produced by the decision system, consumed by
+/// a mode-specific apply system that can access food data.
+#[derive(Debug, Message)]
+pub struct FoodMutation {
+    pub food_index: i32,
+    pub decision: FoodDecisionCode,
+    pub drop_position: DVec3,
 }
 
 #[cfg(test)]
@@ -217,16 +240,6 @@ mod tests {
         let b = Behavior::default();
         assert!((b.turn_jitter_radians - std::f32::consts::FRAC_PI_2).abs() < 1e-6);
         assert_eq!(b.random_seed, 0);
-    }
-
-    #[test]
-    fn encounter_fragment_layout() {
-        assert_eq!(mem::size_of::<AntEncounterFragment>(), 40);
-        assert_eq!(mem::align_of::<AntEncounterFragment>(), 8);
-        assert_eq!(mem::offset_of!(AntEncounterFragment, nearest_food_index), 0);
-        // repr(C) inserts 4 bytes of implicit padding between i32 and DVec3 (align 8)
-        assert_eq!(mem::offset_of!(AntEncounterFragment, encounter_position), 8);
-        assert_eq!(mem::offset_of!(AntEncounterFragment, has_encounter), 32);
     }
 
     #[test]

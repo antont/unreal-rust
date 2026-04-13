@@ -116,10 +116,17 @@ private:
 	/** Named spatial queries: key = query name, value = callback + radius. */
 	TMap<FString, FSpatialQueryEntry> SpatialQueries;
 
+	/** Saved init params for hot-reload re-initialization. */
+	TArray<TPair<FString, int32>> SavedGroupCounts;
+	FBox SavedBounds = FBox(EForceInit::ForceInit);
+	int32 SavedRandomSeed = 0;
+	bool bHasSavedInitParams = false;
+
 	/** Whether we've already attempted auto-init from Rust defaults (prevent repeated attempts). */
 	bool bAutoInitAttempted = false;
 
-	/** Try to auto-initialize from Rust-registered sim defaults if no activator actor called InitializeSimulation(). */
+	/** Fallback: auto-initialize from Rust-registered sim defaults if no activator actor
+	 *  called InitializeSimulation(). Runs once on first Tick. */
 	void TryAutoInitFromRustDefaults();
 };
 

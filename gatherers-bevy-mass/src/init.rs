@@ -45,7 +45,6 @@ fn spawn_entities(
         .fragment::<Movement>()
         .fragment::<Carrying>()
         .fragment::<Behavior>()
-        .fragment::<AntEncounterFragment>()
         .tag::<BevyMassAntTag>()
         .spawn(ant_count as u32, |i, writer| {
             let angle = rng() * std::f64::consts::TAU;

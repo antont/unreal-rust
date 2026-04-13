@@ -1,12 +1,18 @@
-use crate::fragments::{Movement, Behavior, Carrying, Cooldown, FoodEncounter};
+pub use crate::fragments::{
+    FoodDecisionCode, DECISION_NO_ACTION, DECISION_PICK_UP, DECISION_DROP,
+};
+use crate::fragments::{
+    Movement, Behavior, Carrying, Cooldown, FoodEncounter,
+};
+#[cfg(not(feature = "unreal"))]
+use crate::fragments::{AntFoodHit, FoodMutation, Position};
+#[cfg(not(feature = "unreal"))]
+use bevy_ecs::message::{MessageReader, MessageWriter};
+#[cfg(not(feature = "unreal"))]
+use bevy_ecs::prelude::Commands;
+#[cfg(not(feature = "unreal"))]
+use bevy_mass::prelude::Query;
 use glam::DVec3;
-
-/// Result of ant-food interaction decision.
-/// 0 = NoAction, 1 = PickUp, 2 = Drop
-pub type FoodDecisionCode = i32;
-pub const DECISION_NO_ACTION: FoodDecisionCode = 0;
-pub const DECISION_PICK_UP: FoodDecisionCode = 1;
-pub const DECISION_DROP: FoodDecisionCode = 2;
 
 /// Pickup separation distance (matches C++ GatherersMassPickupSeparationDistance)
 pub const PICKUP_SEPARATION_DISTANCE: f32 = 50.0;
@@ -106,6 +112,50 @@ fn compute_ant_retarget_direction(direction: DVec3, jitter_radians: f32) -> DVec
         return DVec3::ZERO;
     }
     result.normalize()
+}
+
+// ---------------------------------------------------------------------------
+// Shared food decision system (standalone Bevy mode)
+//
+// Reads HitEvent messages from the collision prepass, calls the pure decision
+// function, inserts Cooldown, and emits FoodMutation messages for the
+// mode-specific apply system.
+// ---------------------------------------------------------------------------
+
+#[cfg(not(feature = "unreal"))]
+pub fn food_decision_system(
+    mut hits: MessageReader<AntFoodHit>,
+    mut food_mutations: MessageWriter<FoodMutation>,
+    mut ants: Query<(&mut Position, &mut Movement, &mut Carrying, &mut Behavior)>,
+    mut commands: Commands,
+) {
+    for hit in hits.read() {
+        let Ok((mut pos, mut mov, mut carry, mut behavior)) = ants.get_mut(hit.hitter_entity) else {
+            continue;
+        };
+
+        let old_food_index = carry.food_index;
+        let pos_before = pos.position;
+        let mut cd = Cooldown { remaining_seconds: 0.0 };
+        let encounter = FoodEncounter {
+            food_index: hit.hittable_index,
+            encounter_position: hit.encounter_position,
+        };
+
+        let decision = ant_food_decision(
+            &mut pos.position, &mut mov, &mut cd, &mut carry, &mut behavior,
+            Some(&encounter),
+        );
+
+        if decision != DECISION_NO_ACTION {
+            commands.entity(hit.hitter_entity).insert(cd);
+            food_mutations.write(FoodMutation {
+                food_index: if decision == DECISION_DROP { old_food_index } else { hit.hittable_index },
+                decision,
+                drop_position: pos_before,
+            });
+        }
+    }
 }
 
 #[cfg(test)]

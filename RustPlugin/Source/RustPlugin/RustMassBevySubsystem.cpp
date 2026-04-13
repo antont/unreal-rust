@@ -104,10 +104,18 @@ bool URustMassBevySubsystem::HasManagedSimulation() const
 
 void URustMassBevySubsystem::RegisterSpatialQuery(const FString& QueryName, FSpatialQueryCallback InCallback, float InRadius)
 {
+	// Preserve the trampoline index if re-registering an existing query
+	int32 ExistingTrampolineIndex = -1;
+	if (FSpatialQueryEntry* Existing = SpatialQueries.Find(QueryName))
+	{
+		ExistingTrampolineIndex = Existing->TrampolineIndex;
+	}
+
 	FSpatialQueryEntry Entry;
 	Entry.Name = QueryName;
 	Entry.Callback = MoveTemp(InCallback);
 	Entry.Radius = InRadius;
+	Entry.TrampolineIndex = ExistingTrampolineIndex;
 	SpatialQueries.Add(QueryName, MoveTemp(Entry));
 }
 
@@ -606,6 +614,12 @@ void URustMassBevySubsystem::InitializeSimulation(
 {
 	ResetSimulation();
 
+	// Save params for hot-reload re-initialization
+	SavedGroupCounts = GroupCounts;
+	SavedBounds = Bounds;
+	SavedRandomSeed = RandomSeed;
+	bHasSavedInitParams = true;
+
 	UWorld* World = GetWorld();
 	if (World == nullptr)
 	{
@@ -733,14 +747,40 @@ void URustMassBevySubsystem::ResetSimulation()
 
 void URustMassBevySubsystem::OnRustReloaded()
 {
-	UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Rust hot-reload detected, resetting simulation"));
-	ResetSimulation();
-	// TryAutoInitFromRustDefaults() will fire on next Tick()
+	UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Rust hot-reload detected, re-initializing simulation"));
+	if (bHasSavedInitParams)
+	{
+		// Re-init with the same params the activator actor originally provided.
+		// InitializeSimulation calls ResetSimulation() internally.
+		InitializeSimulation(SavedGroupCounts, SavedBounds, SavedRandomSeed);
+	}
+	else
+	{
+		ResetSimulation();
+	}
 }
 
 void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 {
 	RunSimulationProcessorStep(FMath::Max(0.0f, DeltaTime));
+
+	// Sync ISMC transforms so spatial queries (physics sweeps) see current positions.
+	// Without this, food that moved during the simulation step would have stale
+	// physics bodies, causing sweeps to miss on subsequent test steps.
+	if (Visualizer)
+	{
+		UWorld* World = GetWorld();
+		if (World)
+		{
+			UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+			if (MassEntitySubsystem)
+			{
+				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+				TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr = BuildGroupEntities();
+				Visualizer->SyncInstances(EntityManager, GroupEntitiesArr);
+			}
+		}
+	}
 }
 
 bool URustMassBevySubsystem::ReadFragmentData(const FString& GroupName, int32 EntityIndex,
