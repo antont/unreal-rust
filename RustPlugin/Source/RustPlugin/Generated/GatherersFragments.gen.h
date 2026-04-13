@@ -30,7 +30,7 @@ struct FGatherersBehavior : public FMassFragment
 {
 	GENERATED_BODY()
 
-	float TurnJitterRadians = PI / 2.0f;
+	float TurnJitterRadians = 1.5707964f;
 	int32 RandomSeed = 0;
 };
 
@@ -68,7 +68,7 @@ struct FGatherersMovement : public FMassFragment
 {
 	GENERATED_BODY()
 
-	FVector Direction = FVector(1.0f, 0.0f, 0.0f);
+	FVector Direction = FVector(1.0, 0.0, 0.0);
 	float MovementSpeed = 100.0f;
 	uint8 _Pad_28[4] = {};
 };

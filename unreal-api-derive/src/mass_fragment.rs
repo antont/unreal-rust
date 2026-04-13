@@ -107,6 +107,27 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
     let fields_const_name = quote::format_ident!("__MASS_FRAGMENT_FIELDS_{}", name);
     let reg_static_name = quote::format_ident!("__mass_fragment_reg_{}", name);
 
+    // For non-tag fragments, generate a write_default function that writes
+    // Default::default() bytes into a buffer. This lets codegen derive C++
+    // defaults from the Rust impl without manual #[mass(default = "...")] attrs.
+    let write_default_expr = if tag {
+        quote! { None }
+    } else {
+        quote! {
+            Some(|buf: *mut u8| {
+                let val = <#name as ::std::default::Default>::default();
+                unsafe {
+                    ::std::ptr::copy_nonoverlapping(
+                        &val as *const #name as *const u8,
+                        buf,
+                        ::std::mem::size_of::<#name>(),
+                    );
+                }
+                ::std::mem::forget(val);
+            })
+        }
+    };
+
     Ok(quote! {
         impl ::unreal_api::mass::MassFragment for #name {
             const CPP_TYPE_NAME: &'static str = #cpp_type;
@@ -129,6 +150,7 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
                     align: ::std::mem::align_of::<#name>(),
                     fields: &#fields_const_name,
                     is_tag: #tag,
+                    write_default: #write_default_expr,
                 }
             }
         };

@@ -359,6 +359,10 @@ pub struct MassFragmentRegistration {
     pub fields: &'static [MassFragmentFieldInfo],
     /// If true, this is a FMassTag (no fields, no UPROPERTY).
     pub is_tag: bool,
+    /// Write a default instance into the provided buffer (must be `size` bytes).
+    /// Used by codegen to derive C++ defaults from `impl Default`.
+    /// `None` for tags or fragments without `Default`.
+    pub write_default: Option<fn(*mut u8)>,
 }
 
 inventory::collect!(MassFragmentRegistration);
@@ -415,6 +419,60 @@ fn snake_to_pascal(name: &str) -> String {
         .collect()
 }
 
+/// Format a field's C++ default from runtime default bytes.
+/// Reads the field value from `buf` at the field's offset and formats it as a C++ literal.
+/// Format a float ensuring it always has a decimal point (C++ requires this).
+fn fmt_float(val: f32) -> String {
+    let s = format!("{}", val);
+    if s.contains('.') || s.contains('e') || s.contains('E') { s } else { format!("{}.0", s) }
+}
+
+/// Format a double ensuring it always has a decimal point.
+fn fmt_double(val: f64) -> String {
+    let s = format!("{}", val);
+    if s.contains('.') || s.contains('e') || s.contains('E') { s } else { format!("{}.0", s) }
+}
+
+/// Format a field's C++ default from runtime default bytes.
+/// Reads the field value from `buf` at the field's offset and formats it as a C++ literal.
+fn format_runtime_default(buf: &[u8], field: &MassFragmentFieldInfo, cpp_type: &str) -> String {
+    let bytes = &buf[field.offset..field.offset + field.size];
+    match cpp_type {
+        "FVector" => {
+            // DVec3 = 3 × f64 = 24 bytes
+            let x = f64::from_ne_bytes(bytes[0..8].try_into().unwrap());
+            let y = f64::from_ne_bytes(bytes[8..16].try_into().unwrap());
+            let z = f64::from_ne_bytes(bytes[16..24].try_into().unwrap());
+            if x == 0.0 && y == 0.0 && z == 0.0 {
+                " = FVector::ZeroVector".to_string()
+            } else {
+                format!(" = FVector({}, {}, {})", fmt_double(x), fmt_double(y), fmt_double(z))
+            }
+        }
+        "float" => {
+            let val = f32::from_ne_bytes(bytes[..4].try_into().unwrap());
+            format!(" = {}f", fmt_float(val))
+        }
+        "double" => {
+            let val = f64::from_ne_bytes(bytes[..8].try_into().unwrap());
+            format!(" = {}", fmt_double(val))
+        }
+        "int32" => {
+            let val = i32::from_ne_bytes(bytes[..4].try_into().unwrap());
+            format!(" = {}", val)
+        }
+        "uint32" => {
+            let val = u32::from_ne_bytes(bytes[..4].try_into().unwrap());
+            format!(" = {}", val)
+        }
+        "bool" => {
+            let val = bytes[0] != 0;
+            format!(" = {}", val)
+        }
+        _ => String::new(),
+    }
+}
+
 /// Generate a C++ header with USTRUCT definitions and static_assert offset checks
 /// for the given fragment registrations.
 pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_filename: &str) -> String {
@@ -445,6 +503,14 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_fi
 
         out.push('\n');
 
+        // Get runtime default bytes (if available) for deriving C++ defaults
+        // from the Rust `impl Default`.
+        let default_bytes: Option<Vec<u8>> = frag.write_default.map(|write_fn| {
+            let mut buf = vec![0u8; frag.size];
+            write_fn(buf.as_mut_ptr());
+            buf
+        });
+
         // Emit fields, auto-inserting C++ padding for repr(C) alignment gaps.
         // Track current byte offset to detect gaps between fields.
         let mut cursor: usize = 0;
@@ -472,8 +538,11 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_fi
                 let cpp_type = cpp_type.replace("PLACEHOLDER", &cpp_name);
                 out.push_str(&format!("\t{} = {{}};\n", cpp_type));
             } else {
+                // Priority: explicit #[mass(default = "...")] > runtime default > type zero
                 let default = if !field.default_value.is_empty() {
                     format!(" = {}", field.default_value)
+                } else if let Some(ref buf) = default_bytes {
+                    format_runtime_default(buf, field, &cpp_type)
                 } else {
                     match cpp_type.as_str() {
                         "FVector" => " = FVector::ZeroVector".to_string(),

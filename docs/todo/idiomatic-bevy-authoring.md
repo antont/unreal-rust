@@ -2,9 +2,9 @@
 
 Make shared sim systems look like pure standard Bevy, with zero Unreal leakage visible to the sim author.
 
-## 1. Auto-generate C++ defaults from Rust `Default` (high impact)
+## 1. ~~Auto-generate C++ defaults from Rust `Default`~~ ✅ DONE
 
-Remove `#[mass(default = "FVector(1.0f, 0.0f, 0.0f)")]` from fragment definitions. The `gen_fragments` binary already generates C++ headers — extend it to emit default initializers derived from each struct's Rust `Default` impl. Sim authors should never write C++ literals.
+`MassFragmentRegistration` now includes a `write_default` function pointer that writes `T::default()` bytes into a buffer. The codegen reads field values at runtime and formats them as C++ literals. No more `#[mass(default = "...")]` attributes — `impl Default` is the single source of truth.
 
 ## 2. ~~Make `#[mass_system]` a no-op in Bevy mode~~ ✅ DONE
 

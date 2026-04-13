@@ -67,14 +67,22 @@ pub use query::BevyQuery;
 /// Expands to `#[repr(C)]`, `#[derive(Component, Clone, Copy, Debug)]`, and conditionally
 /// `#[derive(MassFragment)]` + `#[mass(cpp_type = "...")]` when the `unreal` feature is active.
 ///
+/// C++ defaults are auto-derived from the struct's `impl Default` — no manual
+/// `#[mass(default = "...")]` attributes needed.
+///
 /// ```ignore
 /// mass_fragment!(cpp_type = "FGatherersMovement",
 ///     pub struct Movement {
-///         #[cfg_attr(feature = "unreal", mass(default = "FVector(1.0f, 0.0f, 0.0f)"))]
 ///         pub direction: DVec3,
 ///         pub movement_speed: f32,
 ///     }
 /// );
+///
+/// impl Default for Movement {
+///     fn default() -> Self {
+///         Self { direction: DVec3::X, movement_speed: 100.0 }
+///     }
+/// }
 /// ```
 #[macro_export]
 macro_rules! mass_fragment {

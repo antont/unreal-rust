@@ -35,9 +35,7 @@ bevy_mass::mass_fragment!(cpp_type = "FGatherersPosition",
 bevy_mass::mass_fragment!(cpp_type = "FGatherersMovement",
     /// Movement direction and speed.
     pub struct Movement {
-        #[cfg_attr(feature = "unreal", mass(default = "FVector(1.0f, 0.0f, 0.0f)"))]
         pub direction: DVec3,
-        #[cfg_attr(feature = "unreal", mass(default = "100.0f"))]
         pub movement_speed: f32,
     }
 );
@@ -62,7 +60,6 @@ pub struct Cooldown {
 bevy_mass::mass_fragment!(cpp_type = "FGatherersCarrying",
     /// Index of carried food item (-1 = not carrying).
     pub struct Carrying {
-        #[cfg_attr(feature = "unreal", mass(default = "-1"))]
         pub food_index: i32,
     }
 );
@@ -76,7 +73,6 @@ impl Default for Carrying {
 bevy_mass::mass_fragment!(cpp_type = "FGatherersBehavior",
     /// Per-entity behavior tuning (turn jitter, RNG state).
     pub struct Behavior {
-        #[cfg_attr(feature = "unreal", mass(default = "PI / 2.0f"))]
         pub turn_jitter_radians: f32,
         pub random_seed: i32,
     }
@@ -95,7 +91,6 @@ bevy_mass::mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
     /// Food entity fragment.
     pub struct FoodFragment {
         pub position: DVec3,
-        #[cfg_attr(feature = "unreal", mass(default = "true"))]
         pub is_loose: bool,
     }
 );
