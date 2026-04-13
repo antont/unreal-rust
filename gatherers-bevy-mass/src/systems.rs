@@ -128,15 +128,21 @@ fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: MassQueryAll<&mut FoodFragment>,
 ) {
+    let mut had_mutation = false;
     for mutation in mutations.read() {
         if let Some(food) = foods.get_mut(mutation.food_index as usize) {
             if mutation.decision == DECISION_PICK_UP {
                 food.is_loose = false;
+                had_mutation = true;
             } else if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
                 food.position = mutation.drop_position;
+                had_mutation = true;
             }
         }
+    }
+    if had_mutation {
+        unreal_api::mass::set_dispatch_flag(unreal_api::ffi::DISPATCH_FLAG_FOOD_PHYSICS_DIRTY);
     }
 }
 

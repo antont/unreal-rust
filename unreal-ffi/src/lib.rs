@@ -240,7 +240,11 @@ pub struct MassFrameDispatchData {
 }
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
-pub type MassFrameDispatchFn = unsafe extern "C" fn(data: *const MassFrameDispatchData);
+/// Returns a bitmask of post-dispatch flags (see `DISPATCH_FLAG_*` constants).
+pub type MassFrameDispatchFn = unsafe extern "C" fn(data: *const MassFrameDispatchData) -> u32;
+
+/// Post-dispatch flag: food physics bodies need recreation (pickup/drop occurred).
+pub const DISPATCH_FLAG_FOOD_PHYSICS_DIRTY: u32 = 1 << 0;
 
 // --- Spatial query callback for Rust collision processor ---
 
@@ -613,7 +617,8 @@ impl RustBindings {
 
         unsafe extern "C" fn mass_frame_dispatch_stub(
             _: *const MassFrameDispatchData,
-        ) {
+        ) -> u32 {
+            0
         }
 
         Self {

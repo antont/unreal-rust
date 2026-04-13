@@ -398,8 +398,8 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 
 	if (Module.Plugin.Rust.mass_frame_dispatch != nullptr && DynamicProcessors.Num() > 0)
 	{
-		URustMassScheduleCoordinator* Coordinator = NewObject<URustMassScheduleCoordinator>(this);
-		Coordinator->InitializeDispatch(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
+		ScheduleCoordinator = NewObject<URustMassScheduleCoordinator>(this);
+		ScheduleCoordinator->InitializeDispatch(Module.Plugin.Rust.mass_frame_dispatch, DynamicProcessors);
 
 		// Build spatial query slots from registered queries
 		if (SpatialQueries.Num() > 0)
@@ -434,9 +434,9 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 				NameBuffers.Add(MoveTemp(NameBuf));
 				++SlotIdx;
 			}
-			Coordinator->SetSpatialQuerySlots(MoveTemp(Slots), MoveTemp(NameBuffers));
+			ScheduleCoordinator->SetSpatialQuerySlots(MoveTemp(Slots), MoveTemp(NameBuffers));
 		}
-		SimProcessors.Add(Coordinator);
+		SimProcessors.Add(ScheduleCoordinator);
 	}
 
 	if (SimProcessors.Num() > 0)
@@ -593,6 +593,13 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 				TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr = BuildGroupEntities();
 				Visualizer->SyncInstances(EntityManager, GroupEntitiesArr);
+
+				// Recreate physics bodies only when Rust signals a food state change
+				if (ScheduleCoordinator &&
+					(ScheduleCoordinator->GetLastDispatchFlags() & DISPATCH_FLAG_FOOD_PHYSICS_DIRTY))
+				{
+					Visualizer->RecreateCollisionPhysics();
+				}
 			}
 		}
 	}
@@ -741,6 +748,7 @@ void URustMassBevySubsystem::ResetSimulation()
 	SimulationTimeAccumulatorSeconds = 0.0f;
 	SimulationProcessorPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
+	ScheduleCoordinator = nullptr;
 	SpatialQueries.Empty();
 	bAutoInitAttempted = false;
 }
@@ -778,6 +786,13 @@ void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 				TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr = BuildGroupEntities();
 				Visualizer->SyncInstances(EntityManager, GroupEntitiesArr);
+
+				// Recreate physics bodies only when Rust signals a food state change
+				if (ScheduleCoordinator &&
+					(ScheduleCoordinator->GetLastDispatchFlags() & DISPATCH_FLAG_FOOD_PHYSICS_DIRTY))
+				{
+					Visualizer->RecreateCollisionPhysics();
+				}
 			}
 		}
 	}

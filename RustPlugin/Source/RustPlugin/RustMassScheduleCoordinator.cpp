@@ -86,5 +86,5 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 	Data._pad = 0;
 	Data.spatial_queries = SpatialQuerySlots.GetData();
 
-	DispatchFn(&Data);
+	LastDispatchFlags = DispatchFn(&Data);
 }

@@ -30,8 +30,13 @@ protected:
 	virtual void ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager) override;
 	virtual void Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context) override;
 
+public:
+	/** Post-dispatch flags from the most recent Execute call. */
+	uint32 GetLastDispatchFlags() const { return LastDispatchFlags; }
+
 private:
 	MassFrameDispatchFn DispatchFn = nullptr;
+	uint32 LastDispatchFlags = 0;
 	TArray<MassSpatialQuerySlot> SpatialQuerySlots;
 	TArray<TArray<char>> SpatialQueryNameBuffers; // Owns name string data for SpatialQuerySlots
 	TArray<URustMassDynamicProcessor*> ManagedProcessors;

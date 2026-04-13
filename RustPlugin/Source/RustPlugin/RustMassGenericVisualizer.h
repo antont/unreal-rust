@@ -33,6 +33,9 @@ public:
 	/** Update ISMC transforms from current entity positions. */
 	void SyncInstances(FMassEntityManager& EM, const TArray<TArray<FMassEntityHandle>*>& GroupEntities);
 
+	/** Recreate physics state for all collision-enabled ISMCs. Call after food pickup/drop. */
+	void RecreateCollisionPhysics();
+
 	/** Get the number of initialized groups. */
 	int32 GetGroupCount() const { return Groups.Num(); }
 

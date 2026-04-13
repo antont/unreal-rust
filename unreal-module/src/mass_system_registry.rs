@@ -146,17 +146,17 @@ fn reset_mass_schedule() {
 /// `data` must point to a valid `MassFrameDispatchData`.
 pub unsafe extern "C" fn mass_frame_dispatch(
     data: *const unreal_api::ffi::MassFrameDispatchData,
-) {
+) -> u32 {
     if data.is_null() {
-        return;
+        return 0;
     }
     let data = unsafe { &*data };
 
     let Ok(mut guard) = MASS_SCHEDULE.lock() else {
-        return;
+        return 0;
     };
     let Some(sched) = guard.as_mut() else {
-        return;
+        return 0;
     };
 
     sched.set_dt(data.dt);
@@ -209,6 +209,9 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     }
 
     sched.run();
+
+    // Return post-dispatch flags (e.g. food physics dirty) and clear them
+    unreal_api::mass::take_dispatch_flags()
 }
 
 // ---------------------------------------------------------------------------

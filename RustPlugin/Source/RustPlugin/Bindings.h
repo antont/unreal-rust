@@ -6,6 +6,9 @@
 #include <ostream>
 #include <new>
 
+/// Post-dispatch flag: food physics bodies need recreation (pickup/drop occurred).
+constexpr static const uint32_t DISPATCH_FLAG_FOOD_PHYSICS_DIRTY = (1 << 0);
+
 enum class ResultCode : uint8_t {
   Success = 0,
   Panic = 1,
@@ -398,7 +401,8 @@ struct MassFrameDispatchData {
 };
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
-using MassFrameDispatchFn = void(*)(const MassFrameDispatchData *data);
+/// Returns a bitmask of post-dispatch flags (see `DISPATCH_FLAG_*` constants).
+using MassFrameDispatchFn = uint32_t(*)(const MassFrameDispatchData *data);
 
 /// Returns the number of registered visualizer groups.
 using GetVisualizerGroupCountFn = uint32_t(*)();
@@ -711,7 +715,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
+static_assert(sizeof(RustBindings) == 104, "RustBindings: 7 fn ptrs + 6 Option<fn ptr> = 13 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---

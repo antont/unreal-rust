@@ -15,6 +15,23 @@
 
 use std::ffi::c_void;
 use std::marker::PhantomData;
+use std::sync::atomic::{AtomicU32, Ordering};
+
+// ---------------------------------------------------------------------------
+// Post-dispatch flags (set by Rust systems, read by C++ after dispatch)
+// ---------------------------------------------------------------------------
+
+static DISPATCH_FLAGS: AtomicU32 = AtomicU32::new(0);
+
+/// Set a dispatch flag (called from Rust systems during schedule execution).
+pub fn set_dispatch_flag(flag: u32) {
+    DISPATCH_FLAGS.fetch_or(flag, Ordering::Relaxed);
+}
+
+/// Take and clear all dispatch flags (called from mass_frame_dispatch after schedule runs).
+pub fn take_dispatch_flags() -> u32 {
+    DISPATCH_FLAGS.swap(0, Ordering::Relaxed)
+}
 
 // ---------------------------------------------------------------------------
 // Bevy scheduling resources

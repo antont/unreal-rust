@@ -11,6 +11,7 @@
 
 class UMassEntitySubsystem;
 class URustMassGenericVisualizer;
+class URustMassScheduleCoordinator;
 
 /**
  * Generic Bevy-Mass subsystem: manages named entity groups, processor pipelines,
@@ -112,6 +113,9 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<URustMassGenericVisualizer> Visualizer = nullptr;
+
+	UPROPERTY(Transient)
+	TObjectPtr<URustMassScheduleCoordinator> ScheduleCoordinator = nullptr;
 
 	/** Named spatial queries: key = query name, value = callback + radius. */
 	TMap<FString, FSpatialQueryEntry> SpatialQueries;
