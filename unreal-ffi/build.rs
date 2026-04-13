@@ -109,7 +109,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 104, "RustBindings: 7 fn ptrs + 6 Option<fn ptr> = 13 pointers");
+static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
