@@ -192,6 +192,7 @@ void URustMassGenericVisualizer::SyncInstances(
 			return;
 		}
 
+		bool bAnyMoved = false;
 		for (int32 i = 0; i < Entities.Num(); ++i)
 		{
 			if (!EM.IsEntityValid(Entities[i]))
@@ -205,14 +206,26 @@ void URustMassGenericVisualizer::SyncInstances(
 			if (!FragData) continue;
 			const double* Pos = reinterpret_cast<const double*>(FragData + Group.PositionOffset);
 			FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
+
+			// Check if this instance actually moved before marking dirty
+			if (!bAnyMoved)
+			{
+				FTransform OldT;
+				Group.ISMC->GetInstanceTransform(i, OldT, true);
+				if (!OldT.GetTranslation().Equals(T.GetTranslation(), 0.01))
+				{
+					bAnyMoved = true;
+				}
+			}
+
 			const bool bMarkDirty = (i == Entities.Num() - 1 && g == Count - 1);
 			Group.ISMC->UpdateInstanceTransform(i, T, true, bMarkDirty, true);
 		}
 
-		// Flush physics bodies for ISMCs with collision enabled.
-		// UpdateInstanceTransform with bTeleport=true updates rendering but may not
-		// update per-instance physics bodies used by SweepMultiByChannel.
-		if (Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+		// Flush physics bodies only when positions actually changed.
+		// RecreatePhysicsState is expensive — skip it when nothing moved
+		// (e.g. food that isn't being carried stays stationary).
+		if (bAnyMoved && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
 		{
 			Group.ISMC->RecreatePhysicsState();
 		}
