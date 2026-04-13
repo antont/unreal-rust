@@ -14,14 +14,14 @@ The macro now emits `#[cfg(feature = "unreal")]` on all Unreal-specific items an
 
 Replaced custom `DeltaTime` with standard `bevy_time::Time`. Systems now use `time: Res<Time>` and `time.delta_secs()`. In Unreal mode, `TimePlugin` + `ManualDuration` provides externally-driven time transparently. Standalone runner no longer needs a `sync_delta_time` bridge.
 
-## 4. Document Query type selection rule (low effort)
+## 4. ~~Document Query type selection rule~~ ✅ DONE
 
-Add a one-liner to the `bevy_mass::prelude` docs: "`Query` for data that exists in both modes. `BevyQuery` for components that only exist on Bevy entities (like dynamically added/removed `Cooldown`)." The three query types (`Query`, `BevyQuery`, `MassQuery`) are justified by the architecture but need a clear decision rule.
+Added module-level docs to `bevy_mass::query` explaining when to use `Query`, `BevyQuery`, and `MassQuery`/`MassQueryAll`.
 
 ## 5. Investigate unifying `food_decision_system` wrappers (exploratory)
 
 The standalone and Unreal versions of the food decision system are nearly identical — both read hit messages, call the shared pure function, emit mutations. The only difference is data access (`Query` vs `MassQuery`). If the macro supported `MessageReader`/`MessageWriter` as facade types in shared systems, this wrapper could potentially be written once.
 
-## 6. System ordering documentation (low priority)
+## 6. ~~System ordering documentation~~ ✅ DONE
 
-The `order = 10, 20, 30, ...` numbers work but are Unreal-specific. The standalone runner uses `.chain()`. No code change needed, but worth documenting the convention (gaps of 10 for future insertion, standalone uses chain for ordering).
+Added convention comment in `gatherers-sim/src/movement.rs`: order = 10, 20, 30, ... with gaps for insertion; Unreal uses order for C++ processor execution; standalone uses `.chain()`.

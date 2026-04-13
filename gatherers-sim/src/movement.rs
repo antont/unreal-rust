@@ -1,6 +1,13 @@
 use crate::fragments::{Cooldown, Movement, Position};
 use bevy_mass::prelude::*;
 
+// ---------------------------------------------------------------------------
+// System ordering convention:
+//   order = 10, 20, 30, ... with gaps for future insertion.
+//   In Unreal mode, order determines C++ processor execution order.
+//   In standalone Bevy mode, order is ignored — use .chain() instead.
+// ---------------------------------------------------------------------------
+
 /// Default simulation bounds — Rust owns this, no C++ round-trip needed.
 pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
 pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
