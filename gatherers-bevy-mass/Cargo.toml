@@ -3,6 +3,10 @@ name = "gatherers-bevy-mass"
 version = "0.1.0"
 edition.workspace = true
 
+[features]
+default = ["unreal"]
+unreal = []
+
 [[bin]]
 name = "gen-fragments"
 path = "src/bin/gen_fragments.rs"

@@ -14,6 +14,7 @@
 //! ```ignore
 //! use bevy_mass::prelude::*;
 //!
+//! #[mass_system(order = 10)]
 //! fn my_system(mut things: Query<&mut MyFragment>, time: Res<Time>) {
 //!     let dt = time.delta_secs();
 //!     for thing in &mut things {
@@ -46,9 +47,12 @@ pub mod prelude {
     // Re-export glam types used in nearly every system
     pub use glam::DVec3;
 
-    // In Unreal mode, re-export Unreal-specific query types and macro
-    #[cfg(feature = "unreal")]
-    pub use unreal_api::mass_system;
+    // mass_system attribute macro — available unconditionally.
+    // In Bevy mode it's a no-op (passes through the original function).
+    // In Unreal mode it generates chunk-based dispatch + C++ wrappers.
+    pub use unreal_api_derive::mass_system;
+
+    // In Unreal mode, re-export Unreal-specific query types
     #[cfg(feature = "unreal")]
     pub use unreal_api::mass::{MassQuery, MassQueryAll};
 }

@@ -1,9 +1,6 @@
 use crate::fragments::{Cooldown, Movement, Position};
 use bevy_mass::prelude::*;
 
-#[cfg(feature = "unreal")]
-use unreal_api::mass_system;
-
 /// Default simulation bounds — Rust owns this, no C++ round-trip needed.
 pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
 pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
@@ -13,7 +10,7 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", mass_system(order = 10))]
+#[mass_system(order = 10)]
 pub fn entity_movement(
     mut positions: Query<&mut Position>,
     movements: Query<&Movement>,
@@ -41,7 +38,7 @@ pub fn entity_movement(
 // lives on shadow Bevy entities, not in chunk memory.
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", mass_system(order = 40))]
+#[mass_system(order = 40)]
 pub fn entity_cooldown(
     mut cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
     time: Res<Time>,
@@ -61,7 +58,7 @@ pub fn entity_cooldown(
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-#[cfg_attr(feature = "unreal", mass_system(order = 50))]
+#[mass_system(order = 50)]
 pub fn entity_boundary_reflect(
     mut positions: Query<&mut Position>,
     mut movements: Query<&mut Movement>,

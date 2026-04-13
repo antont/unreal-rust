@@ -6,9 +6,9 @@ Make shared sim systems look like pure standard Bevy, with zero Unreal leakage v
 
 Remove `#[mass(default = "FVector(1.0f, 0.0f, 0.0f)")]` from fragment definitions. The `gen_fragments` binary already generates C++ headers — extend it to emit default initializers derived from each struct's Rust `Default` impl. Sim authors should never write C++ literals.
 
-## 2. Make `#[mass_system]` a no-op in Bevy mode (medium impact)
+## 2. ~~Make `#[mass_system]` a no-op in Bevy mode~~ ✅ DONE
 
-Currently every shared system needs `#[cfg_attr(feature = "unreal", mass_system(order = 10))]`. If the macro passes through the original function unchanged when the `unreal` feature is off, systems can just write `#[mass_system(order = 10)]` unconditionally. The macro crate would need a `bevy-backend` feature gate.
+The macro now emits `#[cfg(feature = "unreal")]` on all Unreal-specific items and `#[cfg(not(feature = "unreal"))]` on the original function pass-through. Systems use `#[mass_system(order = 10)]` unconditionally — no `cfg_attr` needed. The proc macro is re-exported from `bevy_mass::prelude`.
 
 ## 3. ~~Use `Res<Time>` instead of custom `DeltaTime`~~ ✅ DONE
 

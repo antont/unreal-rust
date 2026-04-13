@@ -1044,11 +1044,13 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         quote! {}
     } else if needs_bevy_only_dispatch {
         quote! {
+            #[cfg(feature = "unreal")]
             unsafe extern "C" fn #wrapper_name(_chunk: *const ::unreal_api::ffi::MassChunkData) {
                 // No-op: this system uses Bevy resources and can only run via
                 // the Bevy schedule, not direct C++ dispatch.
             }
 
+            #[cfg(feature = "unreal")]
             #[allow(non_upper_case_globals)]
             static #reg_name: () = {
                 const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
@@ -1067,6 +1069,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         }
     } else {
         quote! {
+            #[cfg(feature = "unreal")]
             unsafe extern "C" fn #wrapper_name(chunk: *const ::unreal_api::ffi::MassChunkData) {
                 if chunk.is_null() {
                     return;
@@ -1075,6 +1078,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 #func_name(#(#call_args),*);
             }
 
+            #[cfg(feature = "unreal")]
             #[allow(non_upper_case_globals)]
             static #reg_name: () = {
                 const REQUIREMENTS: [::unreal_api::mass::MassSystemRequirement; #num_requirements] = [
@@ -1478,19 +1482,38 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         }
     };
 
+    // Collect original function attributes (e.g., doc comments)
+    let func_attrs = &func.attrs;
+    let original_params = &func.sig.inputs;
+
     Ok(quote! {
+        // Bevy mode: pass through the original function unchanged.
+        // This allows #[mass_system] to be used unconditionally — no cfg_attr needed.
+        #[cfg(not(feature = "unreal"))]
+        #(#func_attrs)*
+        #func_vis fn #func_name(#original_params) #func_ret
+            #func_body
+
+        // Unreal mode: rewritten function with chunk-based data access.
+        #[cfg(feature = "unreal")]
         #[allow(unused_mut, unused_unsafe)]
         #func_vis fn #func_name(#(#rewritten_params),*) #func_ret
             #func_body
 
+        // C++ extern wrapper + registration (each item is individually cfg-gated)
         #cpp_wrapper
 
         /// Zero-sized marker type for per-system chunk isolation.
+        #[cfg(feature = "unreal")]
         #[allow(non_camel_case_types)]
         struct #marker_name;
 
-        #(#facade_struct_defs)*
+        #(
+            #[cfg(feature = "unreal")]
+            #facade_struct_defs
+        )*
 
+        #[cfg(feature = "unreal")]
         #[allow(unused_mut)]
         fn #bevy_wrapper_name(
             #(#bevy_params,)*
@@ -1502,6 +1525,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             #wrapper_body
         }
 
+        #[cfg(feature = "unreal")]
         #[allow(non_upper_case_globals)]
         static #bevy_reg_name: () = {
             ::unreal_api::inventory::submit! {
