@@ -298,6 +298,29 @@ fn extract_passthrough_params(
         .collect()
 }
 
+/// Extracts the inner type `T` from any `MessageWriter<T>` or `MessageReader<T>` params.
+/// Used to auto-register message types in `init_resources`.
+fn extract_message_types(func: &ItemFn) -> Vec<syn::Type> {
+    let mut types = Vec::new();
+    for arg in &func.sig.inputs {
+        let FnArg::Typed(pat_type) = arg else { continue };
+        if let Type::Path(type_path) = &*pat_type.ty {
+            if let Some(seg) = type_path.path.segments.last() {
+                if seg.ident == "MessageWriter" || seg.ident == "MessageReader" {
+                    if let syn::PathArguments::AngleBracketed(args) = &seg.arguments {
+                        if let Some(syn::GenericArgument::Type(ty)) = args.args.first() {
+                            if !types.iter().any(|t: &syn::Type| *t == *ty) {
+                                types.push(ty.clone());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    types
+}
+
 /// Result of parsing a Query's generic arguments.
 struct ParsedQueryArgs {
     /// Single reference or tuple of references.
@@ -521,6 +544,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let query_params = extract_query_params(func)?;
     let resource_params = extract_resource_params(func)?;
     let passthrough_params = extract_passthrough_params(func, &query_params, &resource_params);
+    let message_types = extract_message_types(func);
 
     // Detect whether the system uses `dt: f32` (legacy chunk-level delta time)
     let has_dt = func.sig.inputs.iter().any(|arg| {
@@ -928,7 +952,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         .collect();
 
     // Resource initializers for MassBevySystemRegistration — one per fragment
-    let init_resource_stmts: Vec<TokenStream> = query_params
+    let chunk_init_stmts: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
             p.fragment_refs().into_iter().map(|frag| {
@@ -939,6 +963,18 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     }
                 }
             }).collect::<Vec<_>>()
+        })
+        .collect();
+
+    let init_resource_stmts = chunk_init_stmts;
+
+    // Auto-register message types via app.add_message::<T>() (deduplicates internally)
+    let register_message_stmts: Vec<TokenStream> = message_types
+        .iter()
+        .map(|ty| {
+            quote! {
+                app.add_message::<#ty>();
+            }
         })
         .collect();
 
@@ -1470,10 +1506,13 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 ::unreal_api::mass::MassBevySystemRegistration {
                     name: #system_name_str,
                     order: #order,
-                    add_to_schedule: |schedule: &mut ::unreal_api::ecs::schedule::Schedule,
-                                      stage: ::unreal_api::mass::MassSystemStage| {
+                    add_to_app: |app: &mut ::unreal_api::ecs::App,
+                                 stage: ::unreal_api::mass::MassSystemStage| {
                         use ::unreal_api::ecs::schedule::IntoScheduleConfigs;
-                        schedule.add_systems(#bevy_wrapper_name.in_set(stage));
+                        app.add_systems(::unreal_api::ecs::Update, #bevy_wrapper_name.in_set(stage));
+                    },
+                    register_messages: |app: &mut ::unreal_api::ecs::App| {
+                        #(#register_message_stmts)*
                     },
                     init_resources: |world: &mut ::unreal_api::ecs::world::World| {
                         #(#init_resource_stmts)*

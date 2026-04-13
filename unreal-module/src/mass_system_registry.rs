@@ -8,8 +8,6 @@ use unreal_api::mass::{
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
     registered_visualizer_groups, registered_spatial_query_configs, registered_sim_defaults,
 };
-use unreal_api::ecs::schedule::IntoScheduleConfigs;
-use unreal_api::ecs::message::MessageRegistry;
 
 /// Returns the number of dynamically registered mass systems.
 pub unsafe extern "C" fn get_mass_system_count() -> u32 {
@@ -78,7 +76,13 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
 // Bevy-scheduled dispatch
 // ---------------------------------------------------------------------------
 
-static MASS_SCHEDULE: Mutex<Option<MassSchedule>> = Mutex::new(None);
+/// Wrapper to allow MassSchedule (which contains App) in a static Mutex.
+/// App's runner `Box<dyn FnOnce>` isn't Send, but we only access from game thread.
+struct SyncMassSchedule(MassSchedule);
+unsafe impl Send for SyncMassSchedule {}
+unsafe impl Sync for SyncMassSchedule {}
+
+static MASS_SCHEDULE: Mutex<Option<SyncMassSchedule>> = Mutex::new(None);
 
 /// Build a MassSchedule from all Bevy-registered mass systems.
 ///
@@ -95,30 +99,25 @@ pub fn build_bevy_schedule() -> MassSchedule {
 
     // Sequential stage ordering: stage i runs after stage i-1
     for i in 1..regs.len() {
-        sched
-            .schedule_mut()
-            .configure_sets(MassSystemStage(i as u32).after(MassSystemStage((i - 1) as u32)));
+        use unreal_api::ecs::schedule::IntoScheduleConfigs;
+        sched.app_mut().configure_sets(
+            unreal_api::ecs::Update,
+            MassSystemStage(i as u32).after(MassSystemStage((i - 1) as u32)),
+        );
     }
 
-    // Init and add all registered systems
+    // Init resources, register messages, and add systems
     for (i, reg) in regs.iter().enumerate() {
         (reg.init_resources)(sched.world_mut());
-        (reg.add_to_schedule)(sched.schedule_mut(), MassSystemStage(i as u32));
+        (reg.register_messages)(sched.app_mut());
+        (reg.add_to_app)(sched.app_mut(), MassSystemStage(i as u32));
     }
 
     // Resource for named spatial query callbacks (populated per-frame)
     sched.world_mut().insert_resource(MassSpatialQueries::default());
 
-    // Register message types for the hit event / food mutation pipeline
-    MessageRegistry::register_message::<gatherers_bevy_mass::fragments::AntFoodHit>(sched.world_mut());
-    MessageRegistry::register_message::<gatherers_bevy_mass::fragments::FoodMutation>(sched.world_mut());
-
-    // Add message_update_system to flush message buffers each frame.
-    // Runs before all other systems (stage 0 predecessor).
-    sched.schedule_mut().add_systems(
-        unreal_api::ecs::message::message_update_system
-            .before(MassSystemStage(0)),
-    );
+    // message_update_system is already added by App::default() in First schedule.
+    // No manual wiring needed.
 
     sched
 }
@@ -128,7 +127,7 @@ pub fn build_bevy_schedule() -> MassSchedule {
 pub fn init_global_schedule() {
     let mut guard = MASS_SCHEDULE.lock().unwrap();
     if guard.is_none() {
-        *guard = Some(build_bevy_schedule());
+        *guard = Some(SyncMassSchedule(build_bevy_schedule()));
     }
 }
 
@@ -155,9 +154,10 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     let Ok(mut guard) = MASS_SCHEDULE.lock() else {
         return 0;
     };
-    let Some(sched) = guard.as_mut() else {
+    let Some(wrapper) = guard.as_mut() else {
         return 0;
     };
+    let sched = &mut wrapper.0;
 
     sched.set_dt(data.dt);
 
@@ -283,7 +283,7 @@ pub unsafe extern "C" fn mass_init_simulation(
     // These allow pure-Bevy components to be attached to entities that also
     // have zero-copy MassFragment data in chunks.
     if let Ok(mut sched_guard) = MASS_SCHEDULE.lock() {
-        if let Some(sched) = sched_guard.as_mut() {
+        if let Some(sched) = sched_guard.as_mut().map(|w| &mut w.0) {
             let mut entity_map = MassEntityMap::default();
             for (name_bytes, handles) in stored.iter() {
                 // name_bytes is null-terminated, extract the name
