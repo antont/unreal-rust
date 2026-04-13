@@ -168,7 +168,6 @@ fn carried_food_tracking(
 mod tests {
     use super::*;
     use glam::DVec3;
-    use crate::fragments::{Position, FoodFragment};
     use unreal_api::mass::MassGlobalChunkStorage;
 
     // -----------------------------------------------------------------------

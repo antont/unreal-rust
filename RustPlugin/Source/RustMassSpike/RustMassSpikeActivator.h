@@ -20,6 +20,7 @@ public:
 	int32 EntityCount = 10;
 
 	virtual void BeginPlay() override;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 	int32 GetSpawnedEntityCount() const { return SpawnedEntities.Num(); }
 

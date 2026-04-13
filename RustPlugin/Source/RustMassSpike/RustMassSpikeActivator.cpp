@@ -38,3 +38,26 @@ void ARustMassSpikeActivator::BeginPlay()
 	UE_LOG(LogTemp, Log, TEXT("RustMassSpikeActivator: Spawned %d entities with FBobFragment"),
 		SpawnedEntities.Num());
 }
+
+void ARustMassSpikeActivator::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		UMassEntitySubsystem* MassSubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+		if (MassSubsystem)
+		{
+			FMassEntityManager& EntityManager = MassSubsystem->GetMutableEntityManager();
+			for (const FMassEntityHandle Entity : SpawnedEntities)
+			{
+				if (EntityManager.IsEntityValid(Entity))
+				{
+					EntityManager.DestroyEntity(Entity);
+				}
+			}
+		}
+	}
+	SpawnedEntities.Empty();
+
+	Super::EndPlay(EndPlayReason);
+}

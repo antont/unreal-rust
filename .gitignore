@@ -19,3 +19,4 @@ rusttemp
 .idea
 rust-analyzer-target
 .DS_Store
+session.txt

@@ -220,13 +220,10 @@ fn cooldown_recovery(ctx: &TestCtx) {
     // Count how many ants have interacted with food (food_index != -1 means carrying,
     // but we also want to detect ants that picked up AND dropped — check carrying state)
     let mut carrying_count = 0;
-    let mut not_carrying_count = 0;
     for i in 0..10u32 {
         let carry = ctx.read::<Carrying>("ants", i).unwrap();
         if carry.food_index >= 0 {
             carrying_count += 1;
-        } else {
-            not_carrying_count += 1;
         }
     }
 

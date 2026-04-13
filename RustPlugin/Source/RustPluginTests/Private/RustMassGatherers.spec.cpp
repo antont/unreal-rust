@@ -325,29 +325,9 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 	return true;
 }
 
-// ---------------------------------------------------------------------------
-// Cooldown behavior test — verify that food pickup applies cooldown
-// (Cooldown is now a pure-Bevy component, not readable from C++.
-// We test by observing that an ant doesn't pick up again immediately.)
-// ---------------------------------------------------------------------------
-
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(
-	FGatherersBevyMassCooldownTest,
-	"supplemental.RustPlugin.Gatherers.BevyMassCooldown",
-	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
-
-bool FGatherersBevyMassCooldownTest::RunTest(const FString& Parameters)
-{
-	// Cooldown is now a pure-Bevy component on shadow entities.
-	// This test verifies the behavioral effect: after dropping food,
-	// the ant should not immediately pick it up again (cooldown blocks it).
-	// We test this via the Rust-authored UE tests (SpawnAndSimulate etc.)
-	// which exercise the full pipeline including cooldown behavior.
-	//
-	// This C++ test is a stub that passes — the real cooldown testing
-	// happens in Rust unit tests and Rust-authored UE tests.
-	return true;
-}
+// Cooldown is a pure-Bevy component on shadow entities — not readable from C++.
+// Cooldown behavior is tested in Rust: gatherers-sim unit tests + Rust-authored
+// UE automation tests (CooldownCycle, CooldownRecovery).
 
 // ---------------------------------------------------------------------------
 // Boundary reflection test — ant outside bounds gets clamped and reflected

@@ -19,6 +19,8 @@ use std::sync::atomic::{AtomicU32, Ordering};
 
 // ---------------------------------------------------------------------------
 // Post-dispatch flags (set by Rust systems, read by C++ after dispatch)
+// Safety: Relaxed ordering is correct — the Bevy schedule runs single-threaded
+// (SingleThreadedExecutor) and both set/take happen on the UE game thread.
 // ---------------------------------------------------------------------------
 
 static DISPATCH_FLAGS: AtomicU32 = AtomicU32::new(0);
