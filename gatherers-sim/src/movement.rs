@@ -1,6 +1,5 @@
 use crate::fragments::{Cooldown, Movement, Position};
 use bevy_mass::prelude::*;
-use glam::DVec3;
 
 #[cfg(feature = "unreal")]
 use unreal_api::mass_system;
@@ -18,9 +17,9 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 pub fn entity_movement(
     mut positions: Query<&mut Position>,
     movements: Query<&Movement>,
-    time: Res<DeltaTime>,
+    time: Res<Time>,
 ) {
-    let dt = time.0;
+    let dt = time.delta_secs();
     let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
     let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
     let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
@@ -45,10 +44,10 @@ pub fn entity_movement(
 #[cfg_attr(feature = "unreal", mass_system(order = 40))]
 pub fn entity_cooldown(
     mut cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
-    time: Res<DeltaTime>,
+    time: Res<Time>,
     mut commands: Commands,
 ) {
-    let dt = time.0;
+    let dt = time.delta_secs();
     for (entity, mut cd) in &mut cooldowns {
         cd.remaining_seconds -= dt.max(0.0);
         if cd.remaining_seconds <= 0.0 {
@@ -115,6 +114,13 @@ mod tests {
     use super::*;
     use crate::fragments::{Cooldown, Movement, Position};
     use bevy_ecs::prelude::*;
+    use core::time::Duration;
+
+    fn insert_test_time(world: &mut World, dt_secs: f32) {
+        let mut time = Time::<()>::default();
+        time.advance_by(Duration::from_secs_f32(dt_secs));
+        world.insert_resource(time);
+    }
 
     fn run_system<M>(world: &mut World, system: impl IntoSystem<(), (), M>) {
         let mut schedule = bevy_ecs::schedule::Schedule::default();
@@ -125,7 +131,7 @@ mod tests {
     #[test]
     fn movement_moves_forward() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.1));
+        insert_test_time(&mut world, 0.1);
         world.spawn((
             Position::default(),
             Movement {
@@ -148,7 +154,7 @@ mod tests {
     #[test]
     fn movement_stores_previous_position() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.1));
+        insert_test_time(&mut world, 0.1);
         world.spawn((
             Position {
                 position: DVec3::new(100.0, 200.0, 0.0),
@@ -170,7 +176,7 @@ mod tests {
     #[test]
     fn cooldown_decrements() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.3));
+        insert_test_time(&mut world, 0.3);
         world.spawn(Cooldown {
             remaining_seconds: 1.0,
         });
@@ -189,7 +195,7 @@ mod tests {
     #[test]
     fn cooldown_removed_when_expired() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(1.0));
+        insert_test_time(&mut world, 1.0);
         let entity = world.spawn(Cooldown {
             remaining_seconds: 0.1,
         }).id();
@@ -228,7 +234,7 @@ mod tests {
     #[test]
     fn combined_movement_boundary_cooldown() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.5));
+        insert_test_time(&mut world, 0.5);
         let entity = world.spawn((
             Position {
                 position: DVec3::new(499.0, 0.0, 0.0),
@@ -260,7 +266,7 @@ mod tests {
     #[test]
     fn multiple_entities_move_independently() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.05));
+        insert_test_time(&mut world, 0.05);
         world.spawn((
             Position::default(),
             Movement {

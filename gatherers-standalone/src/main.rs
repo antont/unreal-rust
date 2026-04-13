@@ -139,11 +139,6 @@ fn spawn_entities(mut commands: Commands) {
 // Simulation systems
 // ---------------------------------------------------------------------------
 
-/// Copy Bevy's frame time into the DeltaTime resource used by gatherers-sim systems.
-fn sync_delta_time(time: Res<Time>, mut dt: ResMut<bevy_mass::DeltaTime>) {
-    dt.0 = time.delta_secs();
-}
-
 /// Collision prepass: brute-force proximity search, emits HitEvent messages.
 /// Matches the original gatherers CollisionPlugin pattern.
 fn collision_prepass(
@@ -270,14 +265,12 @@ fn main() {
             }),
             ..default()
         }))
-        .insert_resource(bevy_mass::DeltaTime(0.0))
         .add_message::<AntFoodHit>()
         .add_message::<FoodMutation>()
         .add_systems(Startup, (setup_camera, spawn_entities))
         .add_systems(
             Update,
             (
-                sync_delta_time,
                 entity_movement,
                 entity_boundary_reflect,
                 collision_prepass,

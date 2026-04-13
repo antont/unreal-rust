@@ -1,14 +1,7 @@
-//! Delta time resource, compatible across both backends.
+//! Time resource — standard `bevy_time::Time` in both backends.
+//!
+//! Systems use `Res<Time>` and `time.delta_secs()` — standard Bevy API.
+//! In Unreal mode, `TimePlugin` + `ManualDuration` strategy provides
+//! externally-driven time transparently.
 
-/// Per-frame delta time in seconds.
-///
-/// In Bevy mode: populated by the application before running the schedule.
-/// In Unreal mode: alias for `MassDeltaTime`, populated by the dispatch layer.
-
-// Unreal takes precedence when both features are active (Cargo unification).
-#[cfg(not(feature = "unreal"))]
-#[derive(bevy_ecs::prelude::Resource, Default, Clone, Copy, Debug)]
-pub struct DeltaTime(pub f32);
-
-#[cfg(feature = "unreal")]
-pub type DeltaTime = unreal_api::mass::MassDeltaTime;
+pub use bevy_time::Time;

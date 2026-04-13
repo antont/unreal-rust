@@ -14,9 +14,10 @@
 //! ```ignore
 //! use bevy_mass::prelude::*;
 //!
-//! fn my_system(mut things: Query<&mut MyFragment>, time: Res<DeltaTime>) {
+//! fn my_system(mut things: Query<&mut MyFragment>, time: Res<Time>) {
+//!     let dt = time.delta_secs();
 //!     for thing in &mut things {
-//!         thing.value += time.0;
+//!         thing.value += dt;
 //!     }
 //! }
 //! ```
@@ -32,7 +33,7 @@ mod time;
 mod query;
 
 pub mod prelude {
-    pub use crate::time::DeltaTime;
+    pub use crate::time::Time;
     pub use crate::query::Query;
     pub use crate::query::BevyQuery;
 
@@ -53,7 +54,7 @@ pub mod prelude {
 }
 
 // Also export at crate root
-pub use time::DeltaTime;
+pub use time::Time;
 pub use query::Query;
 pub use query::BevyQuery;
 
@@ -137,8 +138,8 @@ mod tests {
     // against the Unreal backend with #[cfg_attr(feature = "unreal", mass_system)].
     // -----------------------------------------------------------------------
 
-    fn ant_movement(mut ants: Query<&mut AntFragment>, time: Res<DeltaTime>) {
-        let dt = time.0;
+    fn ant_movement(mut ants: Query<&mut AntFragment>, time: Res<Time>) {
+        let dt = time.delta_secs();
         for mut ant in &mut ants {
             ant.previous_position = ant.position;
 
@@ -158,7 +159,9 @@ mod tests {
     #[test]
     fn ant_movement_on_pure_bevy() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.1));
+        let mut time = Time::<()>::default();
+        time.advance_by(core::time::Duration::from_secs_f32(0.1));
+        world.insert_resource(time);
 
         // Spawn an ant moving in +X at speed 100
         world.spawn(AntFragment {
@@ -186,7 +189,9 @@ mod tests {
     #[test]
     fn ant_movement_zero_direction_does_not_move() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.1));
+        let mut time = Time::<()>::default();
+        time.advance_by(core::time::Duration::from_secs_f32(0.1));
+        world.insert_resource(time);
         world.spawn(AntFragment {
             position: [5.0, 5.0, 5.0],
             direction: [0.0, 0.0, 0.0],
@@ -209,7 +214,9 @@ mod tests {
     #[test]
     fn multiple_ants_move_independently() {
         let mut world = World::new();
-        world.insert_resource(DeltaTime(0.05));
+        let mut time = Time::<()>::default();
+        time.advance_by(core::time::Duration::from_secs_f32(0.05));
+        world.insert_resource(time);
 
         world.spawn(AntFragment {
             direction: [1.0, 0.0, 0.0],

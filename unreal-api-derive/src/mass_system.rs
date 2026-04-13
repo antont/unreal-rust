@@ -815,7 +815,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         })
         .collect();
 
-    // Bevy system params: one Res/ResMut<MassSystemChunks<Marker, T>> per fragment, plus Res<MassDeltaTime>
+    // Bevy system params: one Res/ResMut<MassSystemChunks<Marker, T>> per fragment, plus Res<Time> for dt
     let bevy_params: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
@@ -934,7 +934,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
 
             let param_str = param_name.to_string();
             if param_str == "dt" {
-                return quote! { __mass_dt.0 };
+                return quote! { __mass_dt.delta_secs() };
             }
             // Non-Copy passthrough params must survive multiple chunk iterations.
             // Commands: use reborrow(). MessageWriter/MessageReader: pass &mut.
@@ -1425,9 +1425,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         quote! {}
     };
 
-    // Only inject MassDeltaTime resource when the system declares `dt: f32`
+    // Only inject Time resource when the system declares `dt: f32` (legacy shorthand)
     let bevy_dt_param: Vec<TokenStream> = if has_dt {
-        vec![quote! { __mass_dt: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassDeltaTime>, }]
+        vec![quote! { __mass_dt: ::unreal_api::ecs::prelude::Res<::bevy_time::Time>, }]
     } else {
         vec![]
     };
@@ -1642,7 +1642,7 @@ mod tests {
         assert!(output.contains("ant_movement_bevy"), "should generate Bevy wrapper fn");
         assert!(output.contains("ResMut"), "should use ResMut for mutable query");
         assert!(output.contains("MassSystemChunks"), "should reference MassSystemChunks resource");
-        assert!(output.contains("MassDeltaTime"), "should extract dt from resource");
+        assert!(output.contains("bevy_time :: Time"), "should extract dt from Time resource");
         assert!(output.contains("MassSystemStage"), "add_to_schedule should accept MassSystemStage");
         assert!(output.contains("in_set"), "should add system to stage set");
     }
@@ -1968,7 +1968,7 @@ mod tests {
             fn my_system(
                 ants: MassQuery<&mut AntFragment>,
                 cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
-                time: Res<DeltaTime>,
+                time: Res<Time>,
                 dt: f32,
             ) {}
         })
@@ -2009,7 +2009,7 @@ mod tests {
         let func: ItemFn = syn::parse2(quote! {
             fn entity_cooldown(
                 cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
-                time: Res<DeltaTime>,
+                time: Res<Time>,
                 mut commands: Commands,
             ) {}
         })
@@ -2032,7 +2032,7 @@ mod tests {
         let func: ItemFn = syn::parse2(quote! {
             fn entity_cooldown(
                 cooldowns: BevyQuery<(Entity, &mut Cooldown)>,
-                time: Res<DeltaTime>,
+                time: Res<Time>,
             ) {}
         })
         .unwrap();
@@ -2045,9 +2045,9 @@ mod tests {
         // Should NOT contain MassSystemChunks (no fragment resources)
         assert!(!output.contains("MassSystemChunks"),
             "BevyQuery-only system should not reference MassSystemChunks, got: {}", output);
-        // Should NOT inject MassDeltaTime (system doesn't declare dt: f32)
-        assert!(!output.contains("MassDeltaTime"),
-            "system without dt: f32 should not inject MassDeltaTime, got: {}", output);
+        // Should NOT inject Time resource (system doesn't declare dt: f32)
+        assert!(!output.contains("bevy_time :: Time"),
+            "system without dt: f32 should not inject Time resource, got: {}", output);
         // Should call the inner function directly
         assert!(output.contains("entity_cooldown"),
             "should call inner function");
